@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Gear Calculator Help & Documentation</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{--bg:#0f172a;--panel:#111827;--text:#e5e7eb;--muted:#94a3b8;--accent:#22d3ee;--danger:#ef4444;--ok:#10b981}
+    *{box-sizing:border-box}
+    body{margin:0;padding:20px;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Noto Sans",sans-serif;line-height:1.6}
+    .container{max-width:900px;margin:0 auto}
+    h1{color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:10px}
+    h2{color:var(--accent);margin-top:30px}
+    h3{color:var(--ok)}
+    .section{background:var(--panel);padding:20px;border-radius:10px;margin:20px 0;border:1px solid #1f2937}
+    code{background:#1e293b;padding:2px 6px;border-radius:4px;color:var(--accent);font-family:ui-monospace,SFMono-Regular,Consolas,Monaco,monospace}
+    pre{background:#1e293b;padding:15px;border-radius:8px;overflow-x:auto;border:1px solid #334155}
+    table{width:100%;border-collapse:collapse;margin:15px 0}
+    th,td{padding:10px;text-align:left;border:1px solid #334155}
+    th{background:#1e293b;color:var(--accent)}
+    .formula{font-size:1.1em;color:var(--ok);margin:10px 0}
+    .note{background:#1e293b;padding:10px;border-left:3px solid var(--accent);margin:10px 0;border-radius:4px}
+    .warning{background:#1e293b;padding:10px;border-left:3px solid var(--danger);margin:10px 0;border-radius:4px}
+    .tip{background:#1e293b;padding:10px;border-left:3px solid var(--ok);margin:10px 0;border-radius:4px}
+    ul{margin:10px 0}
+    li{margin:5px 0}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .toc{background:var(--panel);padding:20px;border-radius:10px;border:1px solid #1f2937;margin-bottom:30px}
+    .toc ul{list-style:none;padding-left:0}
+    .toc li{margin:8px 0}
+    .back-link{display:inline-block;padding:10px 20px;background:var(--accent);color:var(--bg);border-radius:8px;margin-bottom:20px;font-weight:bold}
+    .back-link:hover{opacity:0.8;text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to Calculator</a>
+    
+    <h1>📚 Gear Calculator Help & Documentation</h1>
+    
+    <div class="toc">
+      <h2>📖 Table of Contents</h2>
+      <ul>
+        <li><a href="#quick-start">Quick Start Guide</a></li>
+        <li><a href="#formulas">Gear Formulas Explained</a></li>
+        <li><a href="#sections">Section-by-Section Help</a>
+          <ul style="padding-left:20px">
+            <li><a href="#library">Library & Persistence</a></li>
+            <li><a href="#calculation">Single Calculation</a></li>
+            <li><a href="#orientation">Orientation Assistant</a></li>
+            <li><a href="#resin">Resin & Post-Cure</a></li>
+            <li><a href="#calibration">Calibration - Ring Method</a></li>
+            <li><a href="#mating">Mating Gear Checker</a></li>
+          </ul>
+        </li>
+        <li><a href="#workflows">Common Workflows</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#terms">Glossary of Terms</a></li>
+      </ul>
+    </div>
+
+    <!-- QUICK START -->
+    <div class="section" id="quick-start">
+      <h2>🚀 Quick Start Guide</h2>
+      
+      <h3>Basic Gear Calculation</h3>
+      <ol>
+        <li>Select <strong>Units</strong>: <code>mm / module</code> or <code>inch / DP</code></li>
+        <li>Choose <strong>Known Type</strong>: Usually <code>Module + Teeth</code></li>
+        <li>Enter <strong>Value A</strong>: Your module value (e.g., 0.5 mm)</li>
+        <li>Enter <strong>Teeth (z)</strong>: Number of teeth (e.g., 12)</li>
+        <li>Set <strong>Pressure Angle</strong>: Usually 20° (standard)</li>
+        <li>Click <strong>Compute</strong></li>
+      </ol>
+      
+      <div class="tip">
+        <strong>💡 Tip:</strong> For standard gears, use:
+        <ul>
+          <li>Pressure Angle (PA) = 20°</li>
+          <li>Clearance (c) = 0.25</li>
+          <li>Profile Shift (x) = 0</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FORMULAS -->
+    <div class="section" id="formulas">
+      <h2>📐 Gear Formulas Explained</h2>
+      
+      <h3>Core Formulas</h3>
+      
+      <div class="formula">
+        <strong>Pitch Diameter (d):</strong><br>
+        <code>d = m × z</code>
+      </div>
+      <p><strong>What it means:</strong> The diameter of the pitch circle where gear teeth mesh. This is the fundamental size reference for a gear.</p>
+      <p><strong>Example:</strong> Module 0.5 mm × 12 teeth = 6.000 mm pitch diameter</p>
+      
+      <div class="formula">
+        <strong>Outside Diameter (OD):</strong><br>
+        <code>OD = d + 2 × (1 + x) × m</code>
+      </div>
+      <p><strong>What it means:</strong> The maximum diameter of the gear, measured at the tooth tips (addendum circle). This is what you measure with calipers.</p>
+      <p><strong>Example:</strong> PD 6.000 + 2 × (1 + 0) × 0.5 = 7.000 mm</p>
+      
+      <div class="formula">
+        <strong>Root Diameter (rootD):</strong><br>
+        <code>rootD = d − 2 × (1 + c − x) × m</code>
+      </div>
+      <p><strong>What it means:</strong> The diameter at the bottom of the tooth spaces (dedendum circle). Used for stress calculations.</p>
+      <p><strong>Example:</strong> PD 6.000 − 2 × (1 + 0.25 − 0) × 0.5 = 4.750 mm</p>
+      
+      <div class="formula">
+        <strong>Circular Pitch (p):</strong><br>
+        <code>p = π × m</code>
+      </div>
+      <p><strong>What it means:</strong> The distance along the pitch circle from one tooth to the next. Must match between mating gears.</p>
+      <p><strong>Example:</strong> π × 0.5 = 1.571 mm</p>
+      
+      <div class="formula">
+        <strong>Base Diameter (baseD):</strong><br>
+        <code>baseD = d × cos(PA)</code>
+      </div>
+      <p><strong>What it means:</strong> The diameter of the circle from which the involute tooth profile is generated. Critical for proper meshing.</p>
+      <p><strong>Example:</strong> 6.000 × cos(20°) = 5.638 mm</p>
+      
+      <div class="formula">
+        <strong>Diametral Pitch (DP):</strong><br>
+        <code>DP = z / (d / 25.4)</code>
+      </div>
+      <p><strong>What it means:</strong> Imperial measurement of gear size (teeth per inch of diameter). Higher DP = smaller teeth.</p>
+      <p><strong>Example:</strong> 12 / (6.000 / 25.4) = 50.8 DP</p>
+
+      <h3>Variable Definitions</h3>
+      <table>
+        <tr>
+          <th>Symbol</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Typical Values</th>
+        </tr>
+        <tr>
+          <td><code>m</code></td>
+          <td>Module</td>
+          <td>Ratio of pitch diameter to teeth count (metric)</td>
+          <td>0.3 to 10 mm</td>
+        </tr>
+        <tr>
+          <td><code>z</code></td>
+          <td>Teeth</td>
+          <td>Number of teeth on the gear</td>
+          <td>8 to 200+</td>
+        </tr>
+        <tr>
+          <td><code>PA</code></td>
+          <td>Pressure Angle</td>
+          <td>Angle of tooth force transmission</td>
+          <td>14.5°, 20°, 25°</td>
+        </tr>
+        <tr>
+          <td><code>x</code></td>
+          <td>Profile Shift</td>
+          <td>Tooth thickness/center distance adjustment</td>
+          <td>-0.5 to +0.5</td>
+        </tr>
+        <tr>
+          <td><code>c</code></td>
+          <td>Clearance</td>
+          <td>Gap between tooth tip and root (×module)</td>
+          <td>0.25 (standard)</td>
+        </tr>
+        <tr>
+          <td><code>DP</code></td>
+          <td>Diametral Pitch</td>
+          <td>Teeth per inch of diameter (imperial)</td>
+          <td>12 to 120</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- SECTION BY SECTION -->
+    <div class="section" id="sections">
+      <h2>🔍 Section-by-Section Help</h2>
+      
+      <h3 id="library">📚 Library & Persistence</h3>
+      <p><strong>Purpose:</strong> Save and manage your gear calculations for future reference.</p>
+      
+      <h4>Features:</h4>
+      <ul>
+        <li><strong>💾 Save XML:</strong> Export all saved gears to an XML file for backup or sharing</li>
+        <li><strong>⬇️ Download CSV:</strong> Export as spreadsheet-compatible CSV file</li>
+        <li><strong>🗑️ Clear Library:</strong> Delete all saved gears (cannot be undone)</li>
+        <li><strong>📥 Import from paste:</strong> Paste CSV data to import gears in bulk</li>
+      </ul>
+      
+      <div class="note">
+        <strong>📝 Note:</strong> Data is stored in your browser's IndexedDB. It persists across sessions but is specific to this domain/computer. Export regularly for backup!
+      </div>
+      
+      <h4>CSV Import Format:</h4>
+      <pre>note,mode,valA,z,PA,c,x,m,d,OD,rootD,p,baseD,thick_at_pitch,addendum,dedendum,DP
+Idler Gear,module,0.5,12,20,0.25,0,0.5,6,7,4.75,1.571,5.638,0.785,0.5,0.625,50.8</pre>
+
+      <hr>
+
+      <h3 id="calculation">🧮 Single Calculation</h3>
+      <p><strong>Purpose:</strong> Calculate all dimensions for a single gear based on known parameters.</p>
+      
+      <h4>Input Modes:</h4>
+      <table>
+        <tr>
+          <th>Mode</th>
+          <th>Value A</th>
+          <th>When to Use</th>
+        </tr>
+        <tr>
+          <td><strong>Module + Teeth</strong></td>
+          <td>Module (m)</td>
+          <td>Designing a new gear from scratch (metric)</td>
+        </tr>
+        <tr>
+          <td><strong>Diametral Pitch + Teeth</strong></td>
+          <td>DP</td>
+          <td>Designing a new gear (imperial)</td>
+        </tr>
+        <tr>
+          <td><strong>Outside Diameter + Teeth</strong></td>
+          <td>OD (mm/inch)</td>
+          <td>Reverse-engineering an existing gear</td>
+        </tr>
+        <tr>
+          <td><strong>Pitch Diameter + Teeth</strong></td>
+          <td>PD (mm/inch)</td>
+          <td>When you know the mesh diameter</td>
+        </tr>
+      </table>
+
+      <h4>Profile Shift (x):</h4>
+      <ul>
+        <li><strong>x = 0:</strong> Standard gear (most common)</li>
+        <li><strong>x > 0:</strong> Positive shift - thicker teeth, stronger, larger center distance</li>
+        <li><strong>x < 0:</strong> Negative shift - thinner teeth, weaker, smaller center distance</li>
+      </ul>
+      
+      <div class="warning">
+        <strong>⚠️ Warning:</strong> Gears with fewer than 17 teeth at PA=20° may experience undercutting. Use positive profile shift to compensate.
+      </div>
+
+      <h4>🔧 Auto-Match Profile Shift:</h4>
+      <p>If you measured a gear's OD but don't know the profile shift:</p>
+      <ol>
+        <li>Set mode to <strong>Module + Teeth</strong> (NOT "Outside Diameter" mode)</li>
+        <li>Enter the module and teeth count</li>
+        <li>Enter measured OD in "Measured OD" field</li>
+        <li>Click <strong>🔧 Auto-match</strong></li>
+        <li>Calculator finds the best x value to match your measurement</li>
+      </ol>
+      
+      <div class="tip">
+        <strong>💡 Tip:</strong> Auto-match works with Module, PD, and DP modes only. It searches 800 x values to find the best match.
+      </div>
+
+      <hr>
+
+      <h3 id="orientation">🔄 Orientation Assistant</h3>
+      <p><strong>Purpose:</strong> Determine the best print angle for 3D printed gears.</p>
+      
+      <h4>Priority Options:</h4>
+      <ul>
+        <li><strong>Tooth profile accuracy:</strong>
+          <ul>
+            <li>Tilt 10–15° from vertical</li>
+            <li>Place supports on hub/face edges</li>
+            <li>Avoid supports on tooth flanks</li>
+            <li>Use fine layer height (0.03–0.05 mm)</li>
+          </ul>
+        </li>
+        <li><strong>Print success (reduce peel/suction):</strong>
+          <ul>
+            <li>Tilt 30–40° from vertical</li>
+            <li>Orient concave faces away from build plate</li>
+            <li>Add chamfered drain holes if hollow</li>
+            <li>Reduces layer area and peel forces</li>
+          </ul>
+        </li>
+        <li><strong>Surface finish (hide support marks):</strong>
+          <ul>
+            <li>Tilt 20–30° from vertical</li>
+            <li>Place supports on back/hidden face</li>
+            <li>Avoid outer tooth rim</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div class="note">
+        <strong>📝 Note:</strong> OD field auto-fills after computing gear dimensions.
+      </div>
+
+      <hr>
+
+      <h3 id="resin">🧪 Resin & Post-Cure Notes</h3>
+      <p><strong>Purpose:</strong> Compensate for resin shrinkage during post-cure.</p>
+      
+      <h4>How to Use:</h4>
+      <ol>
+        <li>Select your <strong>Material</strong></li>
+        <li>Enter known <strong>Shrinkage %</strong> (or use ring method below)</li>
+        <li>Enter <strong>Target OD</strong> (auto-filled from compute)</li>
+        <li>Click <strong>⚖️ Apply shrinkage scale</strong></li>
+        <li>Calculator shows scale factor and projected final size</li>
+      </ol>
+      
+      <h4>Typical Shrinkage Values:</h4>
+      <table>
+        <tr>
+          <th>Resin Type</th>
+          <th>Linear Shrinkage</th>
+        </tr>
+        <tr>
+          <td>ABS-like (Grey/Black)</td>
+          <td>0.5% - 1.5%</td>
+        </tr>
+        <tr>
+          <td>Tough Black</td>
+          <td>1.0% - 2.0%</td>
+        </tr>
+        <tr>
+          <td>Siraya Tech Blu</td>
+          <td>0.3% - 0.8%</td>
+        </tr>
+        <tr>
+          <td>Clear</td>
+          <td>0.8% - 1.5%</td>
+        </tr>
+      </table>
+      
+      <div class="tip">
+        <strong>💡 Tip:</strong> Always calibrate with test prints! Values vary by curing conditions.
+      </div>
+
+      <hr>
+
+      <h3 id="calibration">📏 Calibration - Ring Method</h3>
+      <p><strong>Purpose:</strong> Measure actual shrinkage for your specific resin and process.</p>
+      
+      <h4>Procedure:</h4>
+      <ol>
+        <li>Model a simple ring with <strong>20.00 mm OD</strong> and <strong>10.00 mm ID</strong></li>
+        <li>Print the ring (flat orientation recommended)</li>
+        <li>Post-cure following your standard process</li>
+        <li>Measure the OD with calipers</li>
+        <li>Enter measured value and click <strong>📏 Compute shrinkage</strong></li>
+        <li>Calculator determines exact shrinkage % and scale factor</li>
+        <li>Use this scale factor in your slicer for all future prints</li>
+      </ol>
+      
+      <div class="note">
+        <strong>📝 Example:</strong> 
+        <ul>
+          <li>Nominal: 20.00 mm</li>
+          <li>Measured: 19.80 mm</li>
+          <li>Shrinkage: 1.00%</li>
+          <li>Scale factor: 1.0101 (apply in slicer)</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <h3 id="mating">🔗 Mating Gear Checker</h3>
+      <p><strong>Purpose:</strong> Calculate center distance for gear pairs.</p>
+      
+      <h4>Standard Gears (x₁ = x₂ = 0):</h4>
+      <div class="formula">
+        <code>Center distance (a) = m × (z₁ + z₂) / 2</code>
+      </div>
+      
+      <h4>Profile-Shifted Gears:</h4>
+      <div class="formula">
+        <code>Center distance (a) = m × (z₁ + z₂) / 2 + m × (x₁ + x₂)</code>
+      </div>
+      
+      <p><strong>Example:</strong></p>
+      <ul>
+        <li>Gear A: 12 teeth, x₁ = 0.2</li>
+        <li>Gear B: 24 teeth, x₂ = -0.1</li>
+        <li>Module: 0.5 mm</li>
+        <li>Center distance: 0.5 × (12 + 24)/2 + 0.5 × (0.2 - 0.1) = 9.050 mm</li>
+      </ul>
+      
+      <div class="warning">
+        <strong>⚠️ Important:</strong> Both gears must have the same module and pressure angle to mesh properly!
+      </div>
+    </div>
+
+    <!-- WORKFLOWS -->
+    <div class="section" id="workflows">
+      <h2>⚙️ Common Workflows</h2>
+      
+      <h3>Workflow 1: Design New Gear from Scratch</h3>
+      <ol>
+        <li>Determine required <strong>module</strong> based on torque/strength needs</li>
+        <li>Choose <strong>teeth count</strong> for desired speed ratio</li>
+        <li>Set PA = 20°, c = 0.25, x = 0 (standard values)</li>
+        <li>Click <strong>Compute</strong></li>
+        <li>Use <strong>Orientation Assistant</strong> for print setup</li>
+        <li>Apply <strong>Shrinkage compensation</strong> if 3D printing</li>
+        <li>Click <strong>➕ Add to Library</strong> to save</li>
+      </ol>
+
+      <h3>Workflow 2: Reverse-Engineer Existing Gear</h3>
+      <ol>
+        <li>Count <strong>teeth</strong> on the gear</li>
+        <li>Measure <strong>OD</strong> with calipers</li>
+        <li>Set mode to <strong>Module + Teeth</strong></li>
+        <li>Estimate module (try common values: 0.5, 1.0, 1.5, etc.)</li>
+        <li>Enter measured OD in "Measured OD" field</li>
+        <li>Click <strong>🔧 Auto-match profile shift</strong></li>
+        <li>Calculator finds the x value that matches your measurement</li>
+      </ol>
+
+      <h3>Workflow 3: Design Gear Pair (Gearbox)</h3>
+      <ol>
+        <li>Choose <strong>module</strong> (same for both gears)</li>
+        <li>Choose <strong>teeth counts</strong> (ratio = z₂/z₁)</li>
+        <li>Compute <strong>Gear A</strong> and add to library</li>
+        <li>Compute <strong>Gear B</strong> and add to library</li>
+        <li>Use <strong>Mating Gear Checker</strong> to verify center distance</li>
+        <li>Apply <strong>same shrinkage compensation</strong> to both</li>
+      </ol>
+
+      <h3>Workflow 4: Calibrate Your 3D Printer</h3>
+      <ol>
+        <li>Model 20mm calibration ring</li>
+        <li>Print and post-cure with your standard process</li>
+        <li>Measure with calipers</li>
+        <li>Use <strong>Ring Method</strong> to calculate shrinkage</li>
+        <li>Apply scale factor in slicer</li>
+        <li>Print test gear and verify dimensions</li>
+        <li>Adjust if needed and document final settings</li>
+      </ol>
+    </div>
+
+    <!-- TROUBLESHOOTING -->
+    <div class="section" id="troubleshooting">
+      <h2>🔧 Troubleshooting</h2>
+      
+      <h3>❌ "Invalid: z + 2*(1+x) must be > 0"</h3>
+      <p><strong>Cause:</strong> Extreme negative profile shift makes the calculation impossible.</p>
+      <p><strong>Solution:</strong> Use x > -0.5 for most applications. Very negative shifts are unusual.</p>
+
+      <h3>⚠️ "Auto-match requires: measured OD..."</h3>
+      <p><strong>Cause:</strong> Missing required fields for auto-match.</p>
+      <p><strong>Solution:</strong> Fill in all fields: module/PD/DP, teeth count, PA, clearance, AND measured OD.</p>
+
+      <h3>⚠️ "Auto-match works with Module, PD, or DP modes only"</h3>
+      <p><strong>Cause:</strong> Trying to use auto-match in "Outside Diameter + Teeth" mode.</p>
+      <p><strong>Solution:</strong> Switch to "Module + Teeth" mode first. Auto-match solves for x, so you can't start with OD.</p>
+
+      <h3>🔢 Calculated OD doesn't match my measurement</h3>
+      <p><strong>Possible causes:</strong></p>
+      <ul>
+        <li>Wrong module assumption - try adjacent values (0.4, 0.5, 0.6...)</li>
+        <li>Wrong pressure angle - try 14.5° or 25° instead of 20°</li>
+        <li>Non-standard clearance - try c = 0.2 or 0.3</li>
+        <li>Worn or damaged teeth - measure at multiple points</li>
+        <li>Imperial vs metric confusion - check your units</li>
+      </ul>
+
+      <h3>🖨️ My 3D printed gear is the wrong size</h3>
+      <p><strong>Checklist:</strong></p>
+      <ol>
+        <li>Did you apply shrinkage compensation?</li>
+        <li>Did you use the ring method to calibrate?</li>
+        <li>Did you post-cure the same way as your test ring?</li>
+        <li>Is your slicer scale set correctly?</li>
+        <li>Did you account for both X/Y and Z shrinkage?</li>
+      </ol>
+
+      <h3>⚙️ Gears don't mesh smoothly</h3>
+      <p><strong>Common issues:</strong></p>
+      <ul>
+        <li><strong>Center distance wrong:</strong> Use Mating Gear Checker to verify</li>
+        <li><strong>Backlash needed:</strong> Scale one gear slightly smaller (99.5-99.8%)</li>
+        <li><strong>Pressure angle mismatch:</strong> Both must use same PA</li>
+        <li><strong>Module mismatch:</strong> Both must use same module</li>
+        <li><strong>Surface roughness:</strong> Sand or polish contact surfaces</li>
+      </ul>
+    </div>
+
+    <!-- GLOSSARY -->
+    <div class="section" id="terms">
+      <h2>📚 Glossary of Terms</h2>
+      
+      <table>
+        <tr>
+          <th>Term</th>
+          <th>Definition</th>
+        </tr>
+        <tr>
+          <td><strong>Addendum</strong></td>
+          <td>Height of tooth above the pitch circle. Formula: m × (1 + x)</td>
+        </tr>
+        <tr>
+          <td><strong>Backlash</strong></td>
+          <td>Clearance between mating teeth to prevent binding. Achieved by reducing tooth thickness or increasing center distance.</td>
+        </tr>
+        <tr>
+          <td><strong>Base Circle</strong></td>
+          <td>Circle from which involute tooth profile is generated. Diameter = d × cos(PA)</td>
+        </tr>
+        <tr>
+          <td><strong>Clearance (c)</strong></td>
+          <td>Radial gap between tip of one gear and root of mating gear. Prevents interference.</td>
+        </tr>
+        <tr>
+          <td><strong>Dedendum</strong></td>
+          <td>Depth of tooth below pitch circle. Formula: m × (1 + c - x)</td>
+        </tr>
+        <tr>
+          <td><strong>Diametral Pitch (DP)</strong></td>
+          <td>Imperial measure of tooth size. Teeth per inch of pitch diameter. DP = z / (d / 25.4)</td>
+        </tr>
+        <tr>
+          <td><strong>Involute</strong></td>
+          <td>Mathematical curve used for gear tooth profile. Allows smooth power transmission at varying center distances.</td>
+        </tr>
+        <tr>
+          <td><strong>Module (m)</strong></td>
+          <td>Metric measure of tooth size. Pitch diameter divided by teeth count. m = d / z</td>
+        </tr>
+        <tr>
+          <td><strong>Pitch Circle</strong></td>
+          <td>Theoretical circle where two gears mesh. Diameter = m × z</td>
+        </tr>
+        <tr>
+          <td><strong>Pressure Angle (PA)</strong></td>
+          <td>Angle at which teeth make contact. Standard values: 14.5°, 20°, 25°. Higher PA = stronger teeth but more radial load.</td>
+        </tr>
+        <tr>
+          <td><strong>Profile Shift (x)</strong></td>
+          <td>Offset of cutting tool during manufacture. Positive shift = thicker teeth, negative = thinner. Used to prevent undercut or adjust center distance.</td>
+        </tr>
+        <tr>
+          <td><strong>Root Circle</strong></td>
+          <td>Circle at bottom of tooth spaces (dedendum circle). Diameter = d - 2 × (1 + c - x) × m</td>
+        </tr>
+        <tr>
+          <td><strong>Tooth Thickness</strong></td>
+          <td>Dimension of tooth at pitch circle. For standard gears: p / 2 (half the circular pitch)</td>
+        </tr>
+        <tr>
+          <td><strong>Undercut</strong></td>
+          <td>Weakness at tooth root caused by cutter interference. Occurs in small gears (z < 17 at PA=20°). Prevented by positive profile shift.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="section">
+      <h2>📞 Support & Resources</h2>
+      <p>For additional help:</p>
+      <ul>
+        <li>Check the <a href="index.html">main calculator</a> for built-in notes</li>
+        <li>Review the CHANGELOG.md for recent improvements</li>
+        <li>Consult gear design handbooks for advanced topics</li>
+        <li>Test prints are always recommended before production</li>
+      </ul>
+      
+      <div class="note">
+        <strong>⚠️ Disclaimer:</strong> Always validate calculations against your CAD software and conduct physical tests before manufacturing. This tool is provided for educational and design assistance purposes.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>👥 Credits</h2>
+      <p>This tool was developed with assistance from:</p>
+      <ul>
+        <li><strong>Claude</strong> (Anthropic) - AI assistant for code development and documentation</li>
+        <li><strong>Microsoft 365 Copilot</strong> - Initial development assistance</li>
+      </ul>
+      <p><strong>Version:</strong> 4.12-fixed-v3</p>
+      <p><strong>Last Updated:</strong> 2024</p>
+      <p>Open source contributions and improvements welcome!</p>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Calculator</a>
+  </div>
+</body>
+</html>

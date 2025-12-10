@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Gear Calculator — Pro v4.12 (Fixed)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{--bg:#0f172a;--panel:#111827;--text:#e5e7eb;--muted:#94a3b8;--accent:#22d3ee;--danger:#ef4444;--ok:#10b981}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Noto Sans",sans-serif}
+    header,footer{padding:12px 16px;border-bottom:1px solid #1f2937}
+    h1,h2{margin:0 0 8px}
+    .wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
+    .panel{background:var(--panel);padding:12px;border-radius:10px;border:1px solid #1f2937}
+    label{display:block;margin:8px 0 4px;color:var(--muted)}
+    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #334155;background:#0b1220;color:var(--text);margin-bottom:10px}
+    button{width:100%;padding:10px;border-radius:8px;border:1px solid #334155;background:#0b1220;color:var(--text);cursor:pointer}
+    .row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{display:inline-flex;gap:6px;align-items:center;padding:8px 10px;border-radius:999px;border:1px solid #334155;background:#0b1220}
+    .list{max-height:280px;overflow:auto;border:1px dashed #334155;border-radius:8px;padding:8px}
+    code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,Monaco,monospace}
+    .note{color:var(--muted);font-size:.9em}
+    .ok{color:var(--ok)}.bad{color:var(--danger)}
+    .row.align-center{align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;height:42px}
+    .help-btn{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:bold;cursor:pointer}
+    .help-btn:hover{opacity:0.9}
+    .modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8);overflow:auto}
+    .modal-content{background:var(--bg);margin:2% auto;padding:0;border:2px solid var(--accent);border-radius:10px;width:90%;max-width:1200px;max-height:90vh;overflow:auto}
+    .modal-header{background:var(--panel);padding:15px 20px;border-bottom:2px solid var(--accent);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+    .modal-body{padding:20px}
+    .close-btn{color:var(--danger);font-size:32px;font-weight:bold;cursor:pointer;border:none;background:none;padding:0;line-height:1}
+    .close-btn:hover{opacity:0.7}
+    .help-section{margin:20px 0;padding:15px;background:var(--panel);border-radius:8px;border:1px solid #1f2937}
+    .help-section h3{color:var(--accent);margin-top:0}
+    .help-section code{background:#1e293b;padding:2px 6px;border-radius:4px;color:var(--accent)}
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <div>
+        <h1>Gear Calculator — Pro v4.12 (Fixed)</h1>
+        <div class="note">Fixed AutoMatch bug, optimized performance, improved validation. Includes all v4.12 features.</div>
+      </div>
+      <div>
+        <button id="btnHelp" class="help-btn">❓ Help & Documentation</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <!-- Left column: Library + Single Calculation -->
+    <section class="panel">
+      <h2>Library & Persistence</h2>
+      <div class="actions">
+        <button id="btnSaveXml">💾 Save XML</button>
+        <button id="btnDownloadCsv">⬇️ Download CSV</button>
+        <button id="btnClear">🗑️ Clear Library</button>
+        <span class="pill">Store: <strong id="storeMode">IndexedDB</strong></span>
+      </div>
+      <div class="note">XML/CSV exports include timestamp (e.g., <code>gear_library_20240115.xml</code>). Data stored in browser IndexedDB. Export regularly for backup!</div>
+      <div class="list" id="libraryList"></div>
+      <label for="csvPaste">Paste CSV (import)</label>
+      <textarea id="csvPaste" rows="4" placeholder="note,mode,valA,z,PA,c,x,m,d,OD,rootD,p,baseD,thick_at_pitch,addendum,dedendum,DP"></textarea>
+      <button id="btnImportPaste">📥 Import from paste</button>
+    </section>
+
+    <section class="panel">
+      <h2>Single Calculation</h2>
+      <div class="row">
+        <div>
+          <label>Units</label>
+          <select id="units">
+            <option value="mm">mm / module</option>
+            <option value="inch">inch / DP</option>
+          </select>
+        </div>
+        <div>
+          <label>PA Presets</label>
+          <select id="paPreset">
+            <option>14.5</option><option>17.5</option><option selected>20</option><option>25</option>
+          </select>
+        </div>
+      </div>
+      <div class="row3">
+        <div>
+          <label>Known Type</label>
+          <select id="knownType">
+            <option value="module">Module + Teeth</option>
+            <option value="dp">Diametral Pitch + Teeth</option>
+            <option value="od">Outside Diameter + Teeth</option>
+            <option value="pd">Pitch Diameter + Teeth</option>
+          </select>
+        </div>
+        <div>
+          <label>Value A</label>
+          <input id="valA" type="number" step="0.001" />
+        </div>
+        <div>
+          <label>Teeth (z)</label>
+          <input id="z" type="number" step="1" />
+        </div>
+      </div>
+      <div class="row3">
+        <div>
+          <label>Pressure Angle (°)</label>
+          <input id="PA" type="number" step="0.1" />
+        </div>
+        <div>
+          <label>Clearance (c) [×module]</label>
+          <input id="c" type="number" step="0.01" />
+        </div>
+        <div>
+          <label>Profile Shift (x) [×module]</label>
+          <input id="x" type="number" step="0.01" />
+        </div>
+      </div>
+      <label>Part / Note (optional)</label>
+      <input id="note" type="text" placeholder="e.g., Slip clutch idler" />
+      <button id="btnCompute">Compute</button>
+      <button id="btnAdd">➕ Add to Library</button>
+      <button id="btnReset">Reset</button>
+      <button id="btnDXF">📚 Export DXF (involute outline)</button>
+      <div class="note">Measured OD (for auto-match x) - Use with Module/PD/DP modes, NOT OD mode</div>
+      <div class="row"><input id="measOD" type="number" step="0.001" /><button id="btnAutoX">🔧 Auto‑match profile shift (x)</button></div>
+      <pre id="out"></pre>
+    </section>
+
+    <!-- Right column: Orientation + Resin + Calibration + Mating Checker + Formulas -->
+    <section class="panel">
+      <h2>Orientation Assistant</h2>
+      <div class="row">
+        <div>
+          <label>Priority</label>
+          <select id="priority">
+            <option>Tooth profile accuracy</option>
+            <option>Print success (reduce peel/suction)</option>
+            <option>Surface finish (hide support marks)</option>
+          </select>
+        </div>
+        <div>
+          <label>Printer</label>
+          <select id="printer">
+            <option>Anycubic Photon Mono 4K</option>
+            <option>Creality Halot One</option>
+            <option>Other LCD/MSLA</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Gear face width (mm)</label>
+          <input id="faceW" type="number" step="0.1" />
+        </div>
+        <div>
+          <label>Outside diameter (mm)</label>
+          <input id="odMM" type="number" step="0.1" />
+        </div>
+      </div>
+      <button id="btnSuggest">Suggest Orientation</button>
+      <pre id="orientOut" class="note"></pre>
+      <div class="note">Tilting flat surfaces <strong>10–20°</strong> reduces layer area and peel forces; <strong>30–45°</strong> is widely used to minimize suction and place supports on less visible faces. Vertical ("skyscraper") maximizes dimensional precision for thin/tall features.</div>
+    </section>
+
+    <section class="panel">
+      <h2>Resin & Post‑Cure Notes</h2>
+      <div class="row">
+        <div>
+          <label>Material</label>
+          <select id="material">
+            <option>ABS‑like (Black/Grey)</option>
+            <option>Tough Black</option>
+            <option>Siraya Tech Blu</option>
+            <option>Clear</option>
+          </select>
+        </div>
+        <div>
+          <label>Shrinkage (linear, %)</label>
+          <input id="shrinkPct" type="number" step="0.01" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Target OD after cure (mm)</label>
+          <input id="targetOD" type="number" step="0.001" />
+        </div>
+        <div><button id="btnApplyShrink" class="btn">⚖️ Apply shrinkage scale</button></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Calibration — Ring Method</h2>
+      <div class="note">Print a <strong>20.00 mm OD</strong> test ring, measure after post‑cure, enter the value to compute actual shrinkage and update your scale.</div>
+      <div class="row align-center">
+        <div>
+          <label>Measured ring OD (mm)</label>
+          <input id="ringOD" type="number" step="0.001" />
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <button id="btnRing" class="btn">📏 Compute shrinkage from ring</button>
+        </div>
+      </div>
+      <pre id="ringOut"></pre>
+    </section>
+
+    <section class="panel">
+      <h2>Mating Gear Checker</h2>
+      <div class="row3">
+        <div><label>Gear A: Teeth (z₁)</label><input id="z1" type="number" step="1" /></div>
+        <div><label>Gear B: Teeth (z₂)</label><input id="z2" type="number" step="1" /></div>
+        <div><label>Module (m)</label><input id="m" type="number" step="0.001" /></div>
+      </div>
+      <div class="row">
+        <div><label>Profile shift x₁ (optional)</label><input id="x1" type="number" step="0.01" /></div>
+        <div><label>Profile shift x₂ (optional)</label><input id="x2" type="number" step="0.01" /></div>
+      </div>
+      <button id="btnCenter" class="btn">🔗 Check center distance</button>
+      <pre id="centerOut"></pre>
+    </section>
+
+    <section class="panel">
+      <h2>Formulas & Notes</h2>
+      <ul>
+        <li>d = m · z — Pitch diameter</li>
+        <li>OD = d + 2 · (1 + x) · m — Addendum circle</li>
+        <li>rootD ≈ d − 2 · (1 + c − x) · m — Dedendum circle</li>
+        <li>p = π · m — Circular pitch</li>
+        <li>baseD = d · cos(PA) — Base diameter</li>
+        <li>DP = z / (d / 25.4) — Diametral pitch (imperial)</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <small>Built with assistance from Claude (Anthropic) and M365 Copilot — v4.12 Fixed. Validate against your CAD/toolchain before manufacturing. | <a href="help.html" target="_blank" style="color:var(--accent)">Full Documentation</a></small>
+  </footer>
+
+  <!-- Help Modal -->
+  <div id="helpModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 style="margin:0;color:var(--accent)">❓ Quick Help Guide</h2>
+        <button class="close-btn" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--muted)">For complete documentation, <a href="help.html" target="_blank" style="color:var(--accent)">open the full help page</a>.</p>
+        
+        <div class="help-section">
+          <h3>🚀 Quick Start</h3>
+          <ol>
+            <li>Select <strong>Units</strong> (mm or inch)</li>
+            <li>Choose <strong>Known Type</strong>: usually "Module + Teeth"</li>
+            <li>Enter <strong>Value A</strong> (module, e.g., 0.5 mm)</li>
+            <li>Enter <strong>Teeth count</strong> (e.g., 12)</li>
+            <li>Set <strong>Pressure Angle</strong> (typically 20°)</li>
+            <li>Click <strong>Compute</strong></li>
+          </ol>
+          <p><strong>Standard values:</strong> PA = 20°, Clearance (c) = 0.25, Profile Shift (x) = 0</p>
+        </div>
+
+        <div class="help-section">
+          <h3>📐 Key Formulas</h3>
+          <table style="width:100%;border-collapse:collapse">
+            <tr><td style="padding:8px"><code>d = m × z</code></td><td style="padding:8px">Pitch diameter</td></tr>
+            <tr><td style="padding:8px"><code>OD = d + 2(1+x)m</code></td><td style="padding:8px">Outside diameter</td></tr>
+            <tr><td style="padding:8px"><code>rootD = d - 2(1+c-x)m</code></td><td style="padding:8px">Root diameter</td></tr>
+            <tr><td style="padding:8px"><code>p = π × m</code></td><td style="padding:8px">Circular pitch</td></tr>
+          </table>
+        </div>
+
+        <div class="help-section">
+          <h3>🔧 Auto-Match Profile Shift</h3>
+          <p>To reverse-engineer a gear:</p>
+          <ol>
+            <li>Set mode to <strong>Module + Teeth</strong> (NOT "Outside Diameter")</li>
+            <li>Enter module and teeth count</li>
+            <li>Enter <strong>Measured OD</strong> from calipers</li>
+            <li>Click <strong>🔧 Auto-match</strong></li>
+          </ol>
+          <p style="color:var(--danger)"><strong>⚠️ Note:</strong> Auto-match works with Module/PD/DP modes only!</p>
+        </div>
+
+        <div class="help-section">
+          <h3>💾 Library & Persistence</h3>
+          <ul>
+            <li><strong>💾 Save XML:</strong> Export all gears to XML file</li>
+            <li><strong>⬇️ Download CSV:</strong> Export as spreadsheet</li>
+            <li><strong>🗑️ Clear:</strong> Delete all saved gears</li>
+            <li><strong>📥 Import:</strong> Paste CSV data to import</li>
+          </ul>
+          <p style="color:var(--muted)">Data stored in browser IndexedDB. Export regularly for backup!</p>
+        </div>
+
+        <div class="help-section">
+          <h3>🔄 Orientation (3D Printing)</h3>
+          <ul>
+            <li><strong>Accuracy priority:</strong> 10-15° tilt, fine layers (0.03-0.05mm)</li>
+            <li><strong>Success priority:</strong> 30-40° tilt, minimize suction</li>
+            <li><strong>Finish priority:</strong> 20-30° tilt, supports on back face</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h3>🧪 Resin Shrinkage</h3>
+          <p><strong>Ring Calibration Method:</strong></p>
+          <ol>
+            <li>Print a 20.00 mm OD test ring</li>
+            <li>Post-cure with your standard process</li>
+            <li>Measure OD with calipers</li>
+            <li>Enter value in "Calibration - Ring Method"</li>
+            <li>Calculator computes shrinkage % and scale factor</li>
+            <li>Apply scale in slicer for all future prints</li>
+          </ol>
+        </div>
+
+        <div class="help-section">
+          <h3>🔗 Mating Gears</h3>
+          <p><strong>Center Distance Formula:</strong></p>
+          <p><code>a = m × (z₁ + z₂) / 2 + m × (x₁ + x₂)</code></p>
+          <p style="color:var(--muted)"><strong>Important:</strong> Both gears must have same module and pressure angle!</p>
+        </div>
+
+        <div class="help-section">
+          <h3>🐛 Common Issues</h3>
+          <ul>
+            <li><strong>"Invalid: z + 2*(1+x) must be > 0"</strong> → Profile shift too negative (use x > -0.5)</li>
+            <li><strong>Auto-match returns -0.8</strong> → Wrong mode! Use Module/PD/DP, not OD mode</li>
+            <li><strong>OD doesn't match</strong> → Try different module values or pressure angles</li>
+            <li><strong>Gears don't mesh</strong> → Check center distance and verify same module/PA</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h3>📚 Variable Definitions</h3>
+          <ul>
+            <li><strong>m</strong> = Module (mm) - tooth size metric</li>
+            <li><strong>z</strong> = Number of teeth</li>
+            <li><strong>PA</strong> = Pressure Angle (°) - force transmission angle</li>
+            <li><strong>x</strong> = Profile Shift - tooth thickness adjustment</li>
+            <li><strong>c</strong> = Clearance coefficient - root clearance (×module)</li>
+            <li><strong>DP</strong> = Diametral Pitch - imperial tooth size (teeth/inch)</li>
+          </ul>
+        </div>
+
+        <p style="text-align:center;margin-top:30px">
+          <a href="help.html" target="_blank" style="display:inline-block;padding:12px 24px;background:var(--accent);color:var(--bg);border-radius:8px;text-decoration:none;font-weight:bold">📖 Open Full Documentation</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const DB_NAME = 'gear_calc_db_v412';
+    const STORE_NAME = 'library';
+    const CSV_HEADER = 'note,mode,valA,z,PA,c,x,m,d,OD,rootD,p,baseD,thick_at_pitch,addendum,dedendum,DP';
+    let db; const library = [];
+
+    // --- Persistence ---
+    function openDB(){ return new Promise((resolve,reject)=>{ const req=indexedDB.open(DB_NAME,1); req.onupgradeneeded=(e)=>{ const db=e.target.result; if(!db.objectStoreNames.contains(STORE_NAME)){ db.createObjectStore(STORE_NAME,{keyPath:'id',autoIncrement:true}); } }; req.onsuccess=()=>{ db=req.result; resolve(db); }; req.onerror=()=>reject(req.error); }); }
+    function loadLibrary(){ return new Promise((resolve,reject)=>{ const tx=db.transaction(STORE_NAME,'readonly'); const store=tx.objectStore(STORE_NAME); const req=store.getAll(); req.onsuccess=()=>{ library.splice(0,library.length,...req.result); renderLibrary(); resolve(); }; req.onerror=()=>reject(req.error); }); }
+    function addItem(item){ return new Promise((resolve,reject)=>{ const tx=db.transaction(STORE_NAME,'readwrite'); const store=tx.objectStore(STORE_NAME); const req=store.add(item); req.onsuccess=()=>{ library.push({...item,id:req.result}); renderLibrary(); resolve(); }; req.onerror=()=>reject(req.error); }); }
+    function clearLibrary(){ return new Promise((resolve,reject)=>{ const tx=db.transaction(STORE_NAME,'readwrite'); const store=tx.objectStore(STORE_NAME); const req=store.clear(); req.onsuccess=()=>{ library.splice(0,library.length); renderLibrary(); resolve(); }; req.onerror=()=>reject(req.error); }); }
+    function renderLibrary(){ const el=document.getElementById('libraryList'); if(!library.length){ el.innerHTML='<em>Library is empty.</em>'; return; } const rows=library.map(r=>`${r.note??''} | z=${r.z} | m=${fmt(r.m)} | PA=${r.PA}° | OD=${fmt(r.OD)} mm`).join('\n'); el.textContent=rows; }
+    function toCsv(rows){ const header=CSV_HEADER; const body=rows.map(r=>[ q(r.note), r.mode, r.valA, r.z, r.PA, r.c, r.x, r.m, r.d, r.OD, r.rootD, r.p, r.baseD, r.thick_at_pitch, r.addendum, r.dedendum, r.DP ].join(',')).join('\n'); return header+'\n'+body; }
+    function q(s){ if(s==null) return ''; const t=String(s); return /[",\n]/.test(t)? '"'+t.replace(/"/g,'""')+'"': t; }
+    function fmt(v){ return (v==null||isNaN(v))? '': Number(v).toFixed(3); }
+    function saveXml(){ 
+      if(!library.length){ alert('Library is empty. Add some gears first!'); return; }
+      const timestamp = new Date().toISOString().slice(0,10).replace(/-/g,'');
+      const filename = `gear_library_${timestamp}.xml`;
+      const xml=['<?xml version="1.0" encoding="UTF-8"?>','<gearLibrary version="1.0">','  <!-- Saved: '+new Date().toLocaleString()+' -->','  <!-- Total gears: '+library.length+' -->'];
+      for(const r of library){ 
+        xml.push(`  <gear note=${attr(r.note)} mode=${attr(r.mode)} valA=${attr(r.valA)} z=${attr(r.z)} PA=${attr(r.PA)} c=${attr(r.c)} x=${attr(r.x)}`);
+        xml.push(`        m=${attrf(r.m)} d=${attrf(r.d)} OD=${attrf(r.OD)} rootD=${attrf(r.rootD)} p=${attrf(r.p)} baseD=${attrf(r.baseD)}`);
+        xml.push(`        thick_at_pitch=${attrf(r.thick_at_pitch)} addendum=${attrf(r.addendum)} dedendum=${attrf(r.dedendum)} DP=${attrf(r.DP)} />`);
+      }
+      xml.push('</gearLibrary>'); 
+      downloadFile(filename, xml.join('\n'), 'application/xml'); 
+    }
+    function attr(v){ return '"'+(v??'')+'"'; } 
+    function attrf(v){ return '"'+(v==null?'' : Number(v).toFixed(3))+'"'; }
+
+    // --- Defaults ---
+    const DEFAULTS = {
+      units: 'mm',
+      paPreset: '20',
+      PA: 20,
+      knownType: 'module',
+      valA: 0.5,
+      z: 12,
+      c: 0.25,
+      x: 0,
+      note: '',
+      measOD: ''
+    };
+
+    function applyDefaults(){
+      setVal('units', DEFAULTS.units);
+      setVal('paPreset', DEFAULTS.paPreset);
+      setVal('PA', DEFAULTS.PA);
+      setVal('knownType', DEFAULTS.knownType);
+      setVal('valA', DEFAULTS.valA);
+      setVal('z', DEFAULTS.z);
+      setVal('c', DEFAULTS.c);
+      setVal('x', DEFAULTS.x);
+      setVal('note', DEFAULTS.note);
+      setVal('measOD', DEFAULTS.measOD);
+      out('✓ Defaults applied. Ready to compute.');
+    }
+
+    // --- Core calculations (FIXED) ---
+    function compute(){
+      // Read values once
+      let valA = num('valA');
+      let z = num('z');
+      let PA = num('PA');
+      let c = num('c');
+      let x = num('x');
+      
+      // Validate and apply defaults if needed
+      if(!z || !valA || isNaN(PA) || isNaN(c) || isNaN(x)){
+        out('⚠️ Missing required values. Using defaults...');
+        applyDefaults();
+        // Re-read after applying defaults
+        valA = num('valA');
+        z = num('z');
+        PA = num('PA');
+        c = num('c');
+        x = num('x');
+      }
+      
+      const units = val('units');
+      const mode = val('knownType');
+      const note = val('note');
+      
+      let m, DP, d, OD, rootD, p, baseD;
+      
+      if(units === 'mm'){
+        if(mode === 'module'){ 
+          m = valA; 
+        }
+        else if(mode === 'pd'){ 
+          d = valA; 
+          m = d / z; 
+        }
+        else if(mode === 'od'){ 
+          OD = valA; 
+          const denom = z + 2*(1+x); 
+          if(denom <= 0){ 
+            out('❌ Invalid: z + 2*(1+x) must be > 0'); 
+            return null;
+          } 
+          m = OD / denom; 
+          d = m * z; 
+        }
+        else if(mode === 'dp'){ 
+          DP = valA; 
+          m = 25.4 / DP; 
+        }
+        
+        d = d ?? (m * z); 
+        OD = OD ?? (d + 2*(1+x)*m); 
+        rootD = d - 2*(1 + c - x)*m; 
+        p = Math.PI * m; 
+        baseD = d * Math.cos(PA*Math.PI/180); 
+        DP = DP ?? (z / (d/25.4));
+      } 
+      else {
+        if(mode === 'dp'){ 
+          DP = valA; 
+        }
+        else if(mode === 'pd'){ 
+          d = valA; 
+          DP = z / (d/25.4); 
+        }
+        else if(mode === 'od'){ 
+          OD = valA; 
+          const denom = z + 2*(1+x); 
+          if(denom <= 0){ 
+            out('❌ Invalid: z + 2*(1+x) must be > 0'); 
+            return null;
+          } 
+          m = OD / denom; 
+          DP = 25.4 / m; 
+          d = m * z; 
+          OD = d + 2*(1+x)*m; 
+        }
+        else if(mode === 'module'){ 
+          m = valA; 
+          DP = 25.4 / m; 
+        }
+        
+        m = m ?? 25.4/DP; 
+        d = d ?? (m * z); 
+        OD = OD ?? (d + 2*(1+x)*m); 
+        rootD = d - 2*(1 + c - x)*m; 
+        p = Math.PI * m; 
+        baseD = d * Math.cos(PA*Math.PI/180);
+      }
+      
+      const thick_at_pitch = p/2; 
+      const addendum = m*(1+x); 
+      const dedendum = m*(1+c-x);
+      
+      const res = {
+        note: note, 
+        mode: mode, 
+        valA: valA, 
+        z: z, 
+        PA: PA, 
+        c: c, 
+        x: x, 
+        m: m, 
+        d: d, 
+        OD: OD, 
+        rootD: rootD, 
+        p: p, 
+        baseD: baseD, 
+        thick_at_pitch: thick_at_pitch, 
+        addendum: addendum, 
+        dedendum: dedendum, 
+        DP: DP
+      };
+      
+      // Auto-fill OD in other sections
+      setVal('odMM', OD.toFixed(3));
+      setVal('targetOD', OD.toFixed(3));
+      
+      out(JSON.stringify(res, null, 2)); 
+      return res;
+    }
+
+    // --- FIXED AutoMatch function ---
+    function autoMatchX(){
+      const meas = num('measOD');
+      const z = num('z');
+      const PA = num('PA');
+      const c = num('c');
+      const mode = val('knownType');
+      const valA = num('valA');
+      
+      // Validation
+      if(!meas || !z || isNaN(PA) || isNaN(c) || !valA) {
+        out('⚠️ Auto-match requires: measured OD, teeth count, PA, clearance, and Value A');
+        return;
+      }
+      
+      // Get module based on current mode
+      let m;
+      if(mode === 'module'){
+        m = valA;
+      } else if(mode === 'pd'){
+        m = valA / z;
+      } else if(mode === 'dp'){
+        m = 25.4 / valA;
+      } else {
+        out('⚠️ Auto-match works with Module, PD, or DP modes only.\nNOT with OD mode (you\'re already specifying OD directly!)');
+        return;
+      }
+      
+      const d = m * z;
+      let bestX = 0;
+      let bestErr = 1e9;
+      
+      // Search for best x value (no UI updates in loop)
+      for(let xi = -0.8; xi <= 0.8; xi += 0.002){
+        const calcOD = d + 2*(1 + xi)*m;
+        const err = Math.abs(calcOD - meas);
+        
+        if(err < bestErr){ 
+          bestErr = err; 
+          bestX = xi; 
+        }
+      }
+      
+      // Apply best value and recompute
+      setVal('x', Number(bestX.toFixed(3)));
+      compute();
+      
+      const finalOD = d + 2*(1 + bestX)*m;
+      out(`✓ Auto-matched x = ${bestX.toFixed(3)}\n→ Calculated OD = ${finalOD.toFixed(3)} mm\n→ Target OD = ${meas.toFixed(3)} mm\n→ Error = ${bestErr.toFixed(4)} mm`);
+    }
+
+    function suggestOrientation(){ 
+      const priority = val('priority'); 
+      const od = num('odMM'); 
+      const w = num('faceW'); 
+      let msg = ''; 
+      
+      if(priority.includes('accuracy')){ 
+        msg += 'For highest tooth profile accuracy: tilt 10–15°, supports on hub/face edges, avoid direct supports on tooth flanks. '; 
+        msg += 'Use smaller layer height (0.03–0.05 mm) and minimal anti‑aliasing.'; 
+      } else if(priority.includes('peel')){ 
+        msg += 'For print success: tilt 30–40°, orient to minimize suction (concave faces away from the build plate), add chamfered drain holes in hubs if hollow.'; 
+      } else { 
+        msg += 'For surface finish: tilt 20–30°, place supports on the back face of the gear, avoid the outer tooth rim to reduce marks.'; 
+      } 
+      
+      msg += `\nInput OD=${od||'?'} mm, face width=${w||'?'} mm.`; 
+      document.getElementById('orientOut').textContent = msg; 
+    }
+
+    function ringCal(){ 
+      const mOD = num('ringOD'); 
+      if(!mOD) return; 
+      
+      const nominal = 20.00; 
+      const shrink = (nominal - mOD)/nominal * 100; 
+      const scale = 100/(100 - shrink); 
+      
+      document.getElementById('ringOut').textContent = `Shrinkage: ${shrink.toFixed(3)}% | Scale factor: ${scale.toFixed(4)}`; 
+      setVal('shrinkPct', shrink.toFixed(3)); 
+    }
+    
+    function applyShrink(){ 
+      const sp = num('shrinkPct'); 
+      const tgt = num('targetOD'); 
+      const r = compute(); 
+      
+      if(!r || isNaN(sp)){
+        out('⚠️ Need valid shrinkage % and computed gear');
+        return;
+      }
+      
+      const scale = 100/(100 - sp); 
+      const scaledOD = r.OD * scale; 
+      let msg = `Scale factor: ${scale.toFixed(4)} → projected OD after cure: ${scaledOD.toFixed(3)} mm`; 
+      
+      if(tgt){ 
+        const delta = tgt/scaledOD - 1; 
+        const dx = delta/2; 
+        msg += `\nSuggested tweak to x: ${dx.toFixed(3)} (recompute to verify)`; 
+      } 
+      
+      out(msg); 
+    }
+
+    function centerCheck(){ 
+      const z1 = num('z1'); 
+      const z2 = num('z2'); 
+      const m = num('m'); 
+      const x1 = num('x1') || 0; 
+      const x2 = num('x2') || 0; 
+      
+      if(!z1 || !z2 || !m){
+        document.getElementById('centerOut').textContent = '⚠️ Need z₁, z₂, and module';
+        return;
+      }
+      
+      const d1 = m * z1;
+      const d2 = m * z2; 
+      const a = (d1 + d2)/2 + (x1 + x2)*m; 
+      
+      document.getElementById('centerOut').textContent = `Center distance a = ${a.toFixed(3)} mm`; 
+    }
+    
+    function exportDXF(){ 
+      const r = compute(); 
+      if(!r) return; 
+      
+      const name = (r.note || 'gear') + '.dxf'; 
+      const N = 180;
+      const R = r.OD/2; 
+      const cx = 0;
+      const cy = 0; 
+      
+      const pts = Array.from({length: N}, (_, i) => { 
+        const th = 2*Math.PI*i/N; 
+        return {x: cx + R*Math.cos(th), y: cy + R*Math.sin(th)}; 
+      }); 
+      
+      const dxf = ['0','SECTION','2','ENTITIES']; 
+      dxf.push('0','LWPOLYLINE','100','AcDbEntity','8','0','100','AcDbPolyline','90',String(N),'70','1'); 
+      
+      for(const p of pts){ 
+        dxf.push('10', String(p.x), '20', String(p.y)); 
+      } 
+      
+      dxf.push('0','ENDSEC','0','EOF'); 
+      downloadFile(name, dxf.join('\n'), 'application/dxf'); 
+    }
+
+    // Helpers
+    function val(id){ return document.getElementById(id).value; }
+    function num(id){ const v = document.getElementById(id).value; return v ? Number(v) : NaN; }
+    function setVal(id, v){ document.getElementById(id).value = v; }
+    function out(msg){ document.getElementById('out').textContent = String(msg); }
+
+    async function init(){
+      document.getElementById('storeMode').textContent = 'IndexedDB';
+      await openDB(); 
+      await loadLibrary();
+      
+      // Bind buttons
+      document.getElementById('btnCompute').onclick = compute;
+      document.getElementById('btnAdd').onclick = () => { const r = compute(); if(r) addItem(r); };
+      document.getElementById('btnReset').onclick = applyDefaults;
+      document.getElementById('btnDXF').onclick = exportDXF;
+      document.getElementById('btnAutoX').onclick = autoMatchX;
+      document.getElementById('btnSuggest').onclick = suggestOrientation;
+      document.getElementById('btnRing').onclick = ringCal;
+      document.getElementById('btnApplyShrink').onclick = applyShrink;
+      document.getElementById('btnCenter').onclick = centerCheck;
+      document.getElementById('btnSaveXml').onclick = saveXml;
+      document.getElementById('btnDownloadCsv').onclick = () => { 
+        if(!library.length){ alert('Library is empty. Add some gears first!'); return; }
+        const timestamp = new Date().toISOString().slice(0,10).replace(/-/g,'');
+        const filename = `gear_library_${timestamp}.csv`;
+        downloadFile(filename, toCsv(library), 'text/csv'); 
+      };
+      document.getElementById('btnClear').onclick = clearLibrary;
+      document.getElementById('btnImportPaste').onclick = () => { 
+        const t = document.getElementById('csvPaste').value.trim(); 
+        if(!t) return; 
+        
+        const rows = t.split(/\r?\n/).filter(Boolean); 
+        const hasHeader = /z\s*,/i.test(rows[0]) || /note\s*,/i.test(rows[0]); 
+        const dataRows = hasHeader ? rows.slice(1) : rows; 
+        
+        for(const row of dataRows){ 
+          const cols = splitCSV(row); 
+          const o = { 
+            note: cols[0], 
+            mode: cols[1], 
+            valA: +cols[2], 
+            z: +cols[3], 
+            PA: +cols[4], 
+            c: +cols[5], 
+            x: +cols[6], 
+            m: +cols[7], 
+            d: +cols[8], 
+            OD: +cols[9], 
+            rootD: +cols[10], 
+            p: +cols[11], 
+            baseD: +cols[12], 
+            thick_at_pitch: +cols[13], 
+            addendum: +cols[14], 
+            dedendum: +cols[15], 
+            DP: +cols[16] 
+          }; 
+          addItem(o); 
+        } 
+        
+        document.getElementById('csvPaste').value = ''; 
+      };
+      
+      // PA preset binding
+      const paPreset = document.getElementById('paPreset'); 
+      paPreset.addEventListener('change', () => { setVal('PA', paPreset.value); });
+      
+      // Help modal
+      const modal = document.getElementById('helpModal');
+      const btnHelp = document.getElementById('btnHelp');
+      const btnClose = document.getElementById('closeModal');
+      
+      btnHelp.onclick = () => { modal.style.display = 'block'; };
+      btnClose.onclick = () => { modal.style.display = 'none'; };
+      window.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
+      
+      // Initialize with defaults
+      applyDefaults();
+    }
+    
+    function splitCSV(line){ 
+      const out = []; 
+      let i = 0;
+      let s = '';
+      let inQ = false; 
+      
+      while(i < line.length){ 
+        const ch = line[i++]; 
+        if(inQ){ 
+          if(ch === '"'){ 
+            if(line[i] === '"'){ 
+              s += '"'; 
+              i++; 
+            } else { 
+              inQ = false; 
+            } 
+          } else { 
+            s += ch; 
+          } 
+        } else { 
+          if(ch === ','){ 
+            out.push(s); 
+            s = ''; 
+          } else if(ch === '"'){ 
+            inQ = true; 
+          } else { 
+            s += ch; 
+          } 
+        } 
+      } 
+      out.push(s); 
+      return out; 
+    }
+    
+    function downloadFile(name, content, type='text/plain'){ 
+      const blob = new Blob([content], {type}); 
+      const url = URL.createObjectURL(blob); 
+      const a = document.createElement('a'); 
+      a.href = url; 
+      a.download = name; 
+      a.click(); 
+      setTimeout(() => URL.revokeObjectURL(url), 5000); 
+    }
+    
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
