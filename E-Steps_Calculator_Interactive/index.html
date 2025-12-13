@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Steps Calibration Guide with Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        
+        h1 {
+            color: #0078d4;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 4px solid #0078d4;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #0078d4;
+            font-size: 2em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 5px solid #0078d4;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #005a9e;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        /* Calculator Styles */
+        .calculator {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .calculator h2 {
+            color: white;
+            border-left: 5px solid white;
+            margin-top: 0;
+        }
+        
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .calc-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .calc-section h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2em;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            transition: all 0.3s;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: white;
+            background: white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        .input-group .unit {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-left: 5px;
+        }
+        
+        .calc-button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3em;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .calc-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .calc-button:active {
+            transform: translateY(0);
+        }
+        
+        .result-section {
+            grid-column: 1 / -1;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 10px;
+            min-height: 200px;
+        }
+        
+        .result-section h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        
+        .result-value {
+            font-size: 3em;
+            font-weight: 700;
+            margin: 20px 0;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .result-detail {
+            font-size: 1.2em;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+        
+        .gcode-box {
+            background: #263238;
+            color: #4fc3f7;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            margin-top: 15px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .gcode-box:hover {
+            background: #2d3e47;
+        }
+        
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4fc3f7;
+            color: #263238;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8em;
+        }
+        
+        .copy-button:hover {
+            background: #6fd6ff;
+        }
+        
+        .error-message {
+            background: #ff5252;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+        
+        .info-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+        
+        /* Guide Styles */
+        .highlight-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #0078d4;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background-color: #fff4e5;
+            border-left: 4px solid #ff8c00;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .success-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .step-card {
+            background-color: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .step-number {
+            background: #0078d4;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-right: 15px;
+        }
+        
+        pre {
+            background: #263238;
+            color: #4fc3f7;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 1.1em;
+            margin: 15px 0;
+        }
+        
+        code {
+            background: #f0f0f0;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background-color: #0078d4;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .result-value {
+                font-size: 2em;
+            }
+        }
+        
+        .current-settings {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .current-settings h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .setting-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .setting-label {
+            font-weight: 600;
+            color: #2e7d32;
+            font-size: 0.9em;
+        }
+        
+        .setting-value {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 E-Steps Calibration Guide</h1>
+        <p style="font-size: 1.2em; color: #666; margin-bottom: 30px;">Complete Guide with Interactive Calculator</p>
+
+        <!-- Current Settings -->
+        <div class="current-settings">
+            <h3>📊 Your Current Settings</h3>
+            <div class="settings-grid">
+                <div class="setting-item">
+                    <div class="setting-label">Ender 3 Max</div>
+                    <div class="setting-value">425.0 steps/mm</div>
+                    <div style="font-size: 0.9em; color: #666; margin-top: 5px;">Sprite Pro Extruder</div>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-label">Ender 5 Plus</div>
+                    <div class="setting-value">424.09 steps/mm</div>
+                    <div style="font-size: 0.9em; color: #666; margin-top: 5px;">Micro Swiss NG Direct Drive</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Calculator -->
+        <div class="calculator">
+            <h2>🖩 Interactive E-Steps Calculator</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">Enter your measurements below and get instant results!</p>
+            
+            <div class="calc-grid">
+                <!-- Input Section -->
+                <div class="calc-section">
+                    <h3>📥 Input Values</h3>
+                    
+                    <div class="input-group">
+                        <label>
+                            Current E-Steps <span class="unit">(from M503)</span>
+                        </label>
+                        <input type="number" id="currentEsteps" step="0.01" placeholder="e.g. 424.09" value="424.09">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>
+                            Requested Extrusion <span class="unit">(mm)</span>
+                        </label>
+                        <input type="number" id="requestedExtrusion" step="1" placeholder="Usually 100" value="100">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>
+                            Actual Extrusion <span class="unit">(mm - what you measured)</span>
+                        </label>
+                        <input type="number" id="actualExtrusion" step="0.1" placeholder="e.g. 97">
+                    </div>
+                    
+                    <button class="calc-button" onclick="calculateEsteps()">⚡ Calculate New E-Steps</button>
+                </div>
+                
+                <!-- Quick Presets -->
+                <div class="calc-section">
+                    <h3>⚡ Quick Presets</h3>
+                    <p style="margin-bottom: 15px;">Click to load common starting values:</p>
+                    
+                    <button class="calc-button" style="margin-top: 10px; padding: 10px; font-size: 1em;" onclick="loadPreset('ender3')">
+                        Ender 3 Max<br><small>(425.0 steps/mm)</small>
+                    </button>
+                    
+                    <button class="calc-button" style="margin-top: 10px; padding: 10px; font-size: 1em;" onclick="loadPreset('ender5')">
+                        Ender 5 Plus<br><small>(424.09 steps/mm)</small>
+                    </button>
+                    
+                    <button class="calc-button" style="margin-top: 10px; padding: 10px; font-size: 1em;" onclick="loadPreset('bmg')">
+                        BMG Clone<br><small>(415 steps/mm)</small>
+                    </button>
+                    
+                    <button class="calc-button" style="margin-top: 10px; padding: 10px; font-size: 1em;" onclick="loadPreset('orbiter')">
+                        Orbiter 2.0<br><small>(690 steps/mm)</small>
+                    </button>
+                </div>
+                
+                <!-- Results Section -->
+                <div class="result-section" id="resultsSection" style="display: none;">
+                    <h3>📊 Results</h3>
+                    
+                    <div class="result-value" id="newEsteps">-</div>
+                    
+                    <div class="result-detail">
+                        <strong>Change:</strong> <span id="changeAmount">-</span>
+                    </div>
+                    
+                    <div class="result-detail">
+                        <strong>Error Percentage:</strong> <span id="errorPercent">-</span>
+                    </div>
+                    
+                    <div class="result-detail">
+                        <strong>Status:</strong> <span id="statusMessage">-</span>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;">📋 G-Code Commands</h3>
+                    <p>Copy and paste these commands into your printer terminal:</p>
+                    
+                    <div class="gcode-box" id="gcodeBox" onclick="copyGcode()">
+                        <button class="copy-button" id="copyBtn">📋 Copy</button>
+                        <div id="gcodeCommands"></div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <strong>⚠️ Important:</strong> Don't forget to send <code>M500</code> to save to EEPROM, then verify with <code>M503</code>!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Start Guide -->
+        <h2>🚀 Quick Start Guide</h2>
+        
+        <div class="step-card">
+            <h3><span class="step-number">1</span>Check Current E-Steps</h3>
+            <p>Connect to your printer and send:</p>
+            <pre>M503</pre>
+            <p>Look for the line: <code>M92 X80.00 Y80.00 Z400.00 E###.##</code></p>
+            <p>The last number is your current E-steps. Write it down!</p>
+        </div>
+
+        <div class="step-card">
+            <h3><span class="step-number">2</span>Heat the Nozzle</h3>
+            <p>E-steps must be calibrated at printing temperature:</p>
+            <pre>M104 S200    ; Heat to 200°C (adjust for your filament)
+M109 S200    ; Wait for temperature</pre>
+            <div class="highlight-box">
+                <strong>Temperature Guide:</strong>
+                <ul>
+                    <li>PLA: 200-210°C</li>
+                    <li>PETG: 230-240°C</li>
+                    <li>ABS: 240-250°C</li>
+                    <li>TPU: 220-230°C</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <h3><span class="step-number">3</span>Mark Your Filament</h3>
+            <ol>
+                <li>Cut filament flush with extruder entrance (or note the position)</li>
+                <li>Measure UP exactly <strong>120mm</strong> from the entrance</li>
+                <li>Mark clearly with a Sharpie at the 120mm point</li>
+                <li>Make the mark thick and visible!</li>
+            </ol>
+            <div class="highlight-box">
+                <strong>Visual Guide:</strong>
+                <pre style="background: white; color: #333; font-size: 0.9em;">
+    Filament:
+                    ↑ 120mm mark (Sharpie) ← YOUR MARK
+                    |
+                    |
+                    |
+Extruder entrance → [===]
+                    |
+                   \|/
+                 Hotend
+                </pre>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <h3><span class="step-number">4</span>Extrude 100mm</h3>
+            <p>Send these commands to extrude exactly 100mm <strong>slowly</strong>:</p>
+            <pre>G91          ; Relative positioning mode
+G1 E100 F100 ; Extrude 100mm at 100mm/min (SLOW)
+G90          ; Back to absolute mode</pre>
+            
+            <div class="warning-box">
+                <strong>⚠️ Critical:</strong> Use <code>F100</code> (slow speed). Fast extrusion causes motor skipping and inaccurate results!
+            </div>
+            
+            <p><strong>Wait ~60 seconds</strong> for the extrusion to complete before measuring!</p>
+        </div>
+
+        <div class="step-card">
+            <h3><span class="step-number">5</span>Measure the Result</h3>
+            <ol>
+                <li>Measure the distance from the extruder entrance to your 120mm mark</li>
+                <li>Write down the remaining distance (e.g., 23mm)</li>
+                <li>Calculate actual extruded: <strong>120mm - Remaining = Actual</strong></li>
+            </ol>
+            
+            <div class="success-box">
+                <strong>Example:</strong>
+                <ul>
+                    <li>Started with mark at: 120mm</li>
+                    <li>Remaining distance: 23mm</li>
+                    <li>Actually extruded: 120 - 23 = <strong>97mm</strong></li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Ideal result:</strong> Remaining should be ~20mm (meaning 100mm was extruded)</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <h3><span class="step-number">6</span>Calculate New E-Steps</h3>
+            <p><strong>Use the calculator above!</strong> Simply enter:</p>
+            <ul>
+                <li>Current E-Steps (from step 1)</li>
+                <li>Requested: 100mm</li>
+                <li>Actual: What you measured (e.g., 97mm)</li>
+            </ul>
+            
+            <p style="margin-top: 20px;"><strong>Or calculate manually:</strong></p>
+            <div class="highlight-box">
+                <strong>Formula:</strong>
+                <pre style="background: white; color: #333;">New E-Steps = (Current E-Steps × Requested) ÷ Actual
+
+Example:
+Current: 424.09
+Requested: 100mm
+Actual: 97mm
+
+New E-Steps = (424.09 × 100) ÷ 97
+            = 42,409 ÷ 97
+            = 437.20 steps/mm</pre>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <h3><span class="step-number">7</span>Apply New E-Steps</h3>
+            <p>Set your new calculated value:</p>
+            <pre>M92 E437.20  ; Use YOUR calculated value
+M500         ; ⚠️ SAVE TO EEPROM (DON'T FORGET!)
+M503         ; Verify it saved correctly</pre>
+            
+            <div class="warning-box">
+                <strong>⚠️ CRITICAL:</strong> You MUST send <code>M500</code> to save changes to EEPROM. Without this, your changes will be LOST when you restart the printer!
+            </div>
+        </div>
+
+        <div class="step-card">
+            <h3><span class="step-number">8</span>Verify Calibration</h3>
+            <p>Test again to confirm accuracy:</p>
+            <ol>
+                <li>Mark filament at 120mm again</li>
+                <li>Extrude 100mm: <code>G91</code> → <code>G1 E100 F100</code> → <code>G90</code></li>
+                <li>Measure remaining distance</li>
+                <li>Should be ~20mm remaining (±1mm is acceptable)</li>
+            </ol>
+            
+            <div class="success-box">
+                <strong>Success Criteria:</strong>
+                <ul>
+                    <li>✅ Within ±1mm: Perfect!</li>
+                    <li>✅ Within ±2mm: Acceptable</li>
+                    <li>⚠️ More than ±2mm: Recalibrate</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Common E-Steps Values -->
+        <h2>📊 Common E-Steps Reference Values</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Extruder Type</th>
+                    <th>Typical Range</th>
+                    <th>Your Printers</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #e8f5e9;">
+                    <td><strong>Sprite Pro (Direct)</strong></td>
+                    <td>420-430</td>
+                    <td><strong>425.0 ✅</strong></td>
+                    <td>Ender 3 Max</td>
+                </tr>
+                <tr style="background-color: #e8f5e9;">
+                    <td><strong>Micro Swiss NG (Direct)</strong></td>
+                    <td>420-430</td>
+                    <td><strong>424.09 ✅</strong></td>
+                    <td>Ender 5 Plus</td>
+                </tr>
+                <tr>
+                    <td>BMG Clone (Direct/Bowden)</td>
+                    <td>415-420</td>
+                    <td>-</td>
+                    <td>Popular upgrade</td>
+                </tr>
+                <tr>
+                    <td>Orbiter 2.0</td>
+                    <td>690</td>
+                    <td>-</td>
+                    <td>High gear ratio</td>
+                </tr>
+                <tr>
+                    <td>Sherpa Mini</td>
+                    <td>690</td>
+                    <td>-</td>
+                    <td>Voron design</td>
+                </tr>
+                <tr>
+                    <td>Hemera</td>
+                    <td>397-410</td>
+                    <td>-</td>
+                    <td>E3D direct drive</td>
+                </tr>
+                <tr>
+                    <td>Titan</td>
+                    <td>400-415</td>
+                    <td>-</td>
+                    <td>E3D design</td>
+                </tr>
+                <tr>
+                    <td>Creality Stock (Bowden)</td>
+                    <td>93-95</td>
+                    <td>-</td>
+                    <td>Original Ender 3</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="success-box">
+            <strong>✅ Your Values Are Normal!</strong>
+            <p>Both your printers (425.0 and 424.09) are within the expected range for direct drive extruders. Only recalibrate if you're experiencing actual extrusion problems.</p>
+        </div>
+
+        <!-- Troubleshooting -->
+        <h2>🔧 Troubleshooting</h2>
+
+        <div class="step-card">
+            <h3>❌ Extruder Clicking During Test</h3>
+            <p><strong>Causes:</strong></p>
+            <ul>
+                <li>Extruding too fast</li>
+                <li>Temperature too low</li>
+                <li>Partial nozzle clog</li>
+            </ul>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Reduce speed to F50 (even slower)</li>
+                <li>Increase temperature by 10°C</li>
+                <li>Clean nozzle with cold pull</li>
+            </ul>
+        </div>
+
+        <div class="step-card">
+            <h3>❌ Inconsistent Results</h3>
+            <p><strong>Causes:</strong></p>
+            <ul>
+                <li>Filament diameter varying</li>
+                <li>Wet/old filament</li>
+                <li>Extruder tension issues</li>
+            </ul>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Use fresh, dry filament</li>
+                <li>Check extruder arm tension</li>
+                <li>Measure filament diameter with calipers</li>
+                <li>Repeat test 2-3 times and average</li>
+            </ul>
+        </div>
+
+        <div class="step-card">
+            <h3>❌ Settings Reset After Power Cycle</h3>
+            <p><strong>Cause:</strong> M500 not sent or EEPROM disabled</p>
+            <p><strong>Solution:</strong></p>
+            <pre>M92 E###.##  ; Set value
+M500         ; Save to EEPROM
+M501         ; Reload from EEPROM  
+M503         ; Verify it stuck</pre>
+            <p>If still resetting, add to start G-code:</p>
+            <pre>M92 E###.##  ; Force E-steps each print</pre>
+        </div>
+
+        <!-- Pro Tips -->
+        <h2>💡 Pro Tips</h2>
+
+        <div class="highlight-box">
+            <h3>Tip 1: Slow is Accurate</h3>
+            <p>Always extrude slowly during calibration (F100 or less). Fast extrusion can cause the motor to skip steps, giving inaccurate results.</p>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Tip 2: Use Fresh Filament</h3>
+            <p>Old or wet filament can give inconsistent results. Use fresh, dry filament for calibration to ensure accuracy.</p>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Tip 3: Multiple Tests</h3>
+            <p>Do the calibration test 2-3 times and average the results for best accuracy. Calculate E-steps for each test and use the average.</p>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Tip 4: Document Everything</h3>
+            <p>Keep a log of E-steps values for each extruder configuration. Include date, extruder type, and any notes. This saves time if you need to revert or troubleshoot later.</p>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Tip 5: Don't Over-Adjust</h3>
+            <p>If you're within ±2mm on a 100mm test (98-102mm actual), you're good enough. Don't chase perfection to 0.01 steps - it won't make a practical difference.</p>
+        </div>
+
+        <!-- Footer -->
+        <hr style="margin: 40px 0; border: none; border-top: 2px solid #0078d4;">
+        
+        <div style="text-align: center; color: #666; padding: 20px 0;">
+            <p><strong>E-Steps Calibration Guide v2.0</strong></p>
+            <p>Interactive Calculator Edition</p>
+            <p style="margin-top: 15px;">Your Current Values:</p>
+            <p><strong>Ender 3 Max:</strong> 425.0 steps/mm (Sprite Pro)</p>
+            <p><strong>Ender 5 Plus:</strong> 424.09 steps/mm (Micro Swiss NG)</p>
+            <p style="margin-top: 20px;"><em>Reference: TH3D Studio E-Step Calculator</em></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateEsteps() {
+            // Get input values
+            const current = parseFloat(document.getElementById('currentEsteps').value);
+            const requested = parseFloat(document.getElementById('requestedExtrusion').value);
+            const actual = parseFloat(document.getElementById('actualExtrusion').value);
+            
+            // Validate inputs
+            if (isNaN(current) || isNaN(requested) || isNaN(actual)) {
+                alert('⚠️ Please fill in all fields with valid numbers!');
+                return;
+            }
+            
+            if (actual <= 0 || requested <= 0 || current <= 0) {
+                alert('⚠️ All values must be greater than zero!');
+                return;
+            }
+            
+            // Calculate new E-steps
+            const newEsteps = (current * requested) / actual;
+            const change = newEsteps - current;
+            const changePercent = (change / current) * 100;
+            const errorPercent = ((requested - actual) / requested) * 100;
+            
+            // Determine status
+            let status = '';
+            let statusColor = '';
+            
+            if (Math.abs(errorPercent) <= 1) {
+                status = '✅ Excellent - Within 1% tolerance';
+                statusColor = '#4caf50';
+            } else if (Math.abs(errorPercent) <= 2) {
+                status = '✅ Good - Within 2% tolerance';
+                statusColor = '#8bc34a';
+            } else if (Math.abs(errorPercent) <= 5) {
+                status = '⚠️ Acceptable - Should improve quality';
+                statusColor = '#ff9800';
+            } else if (Math.abs(errorPercent) <= 10) {
+                status = '⚠️ Needs Adjustment - Significant error';
+                statusColor = '#ff5722';
+            } else {
+                status = '❌ Critical - Check for mechanical issues';
+                statusColor = '#f44336';
+            }
+            
+            // Display results
+            document.getElementById('resultsSection').style.display = 'block';
+            document.getElementById('newEsteps').textContent = newEsteps.toFixed(2) + ' steps/mm';
+            
+            const changeText = change >= 0 ? 
+                `+${change.toFixed(2)} steps/mm (+${changePercent.toFixed(1)}%)` : 
+                `${change.toFixed(2)} steps/mm (${changePercent.toFixed(1)}%)`;
+            document.getElementById('changeAmount').textContent = changeText;
+            
+            document.getElementById('errorPercent').textContent = `${Math.abs(errorPercent).toFixed(2)}%`;
+            
+            const statusSpan = document.getElementById('statusMessage');
+            statusSpan.textContent = status;
+            statusSpan.style.color = statusColor;
+            statusSpan.style.fontWeight = '700';
+            
+            // Generate G-code
+            const gcode = `M92 E${newEsteps.toFixed(2)}  ; Set new E-steps
+M500              ; Save to EEPROM
+M503              ; Verify settings`;
+            
+            document.getElementById('gcodeCommands').textContent = gcode;
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        function copyGcode() {
+            const gcode = document.getElementById('gcodeCommands').textContent;
+            navigator.clipboard.writeText(gcode).then(() => {
+                const btn = document.getElementById('copyBtn');
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+        
+        function loadPreset(printer) {
+            let esteps = 0;
+            
+            switch(printer) {
+                case 'ender3':
+                    esteps = 425.0;
+                    break;
+                case 'ender5':
+                    esteps = 424.09;
+                    break;
+                case 'bmg':
+                    esteps = 415;
+                    break;
+                case 'orbiter':
+                    esteps = 690;
+                    break;
+            }
+            
+            document.getElementById('currentEsteps').value = esteps;
+            document.getElementById('requestedExtrusion').value = 100;
+            document.getElementById('actualExtrusion').focus();
+        }
+        
+        // Allow Enter key to calculate
+        document.getElementById('actualExtrusion').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                calculateEsteps();
+            }
+        });
+    </script>
+</body>
+</html>

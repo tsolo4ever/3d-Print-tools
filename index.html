@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Printer Calibration Suite</title>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .tool-card.esteps { border-top-color: var(--esteps-accent); }
+        .tool-card.nozzle { border-top-color: var(--nozzle-accent); }
+        .tool-card.gear { border-top-color: var(--gear-accent); }
+        .tool-card.flow { border-top-color: var(--flow-accent); }
+        .tool-card.temp { border-top-color: var(--temp-accent); }
+        .tool-card.retract { border-top-color: var(--retract-accent); }
+        
+        .tool-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .tool-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .tool-card p {
+            color: var(--text-secondary);
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        
+        .tool-status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: auto;
+        }
+        
+        .status-ready {
+            background: var(--success-light);
+            color: var(--success);
+        }
+        
+        .status-coming {
+            background: var(--warning-light);
+            color: var(--warning);
+        }
+        
+        .features-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            text-align: center;
+        }
+        
+        .feature-item .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .feature-item h4 {
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="suite-nav">
+        <div class="container">
+            <a href="/" class="logo">🔧 Calibration Suite</a>
+            <button class="mobile-menu-toggle">☰</button>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="E-Steps_Calculator_Interactive/index.html">E-Steps</a>
+                <a href="SharePoint_Nozzle_Selection_Guide/">Nozzle Guide</a>
+                <a href="gear-calculator/">Gear Calc</a>
+                <a href="docs/">Docs</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" title="Toggle Theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>🔧 3D Printer Calibration Suite</h1>
+        <p>Your Complete Toolkit for Perfect Prints</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Tools Grid -->
+        <h2 style="text-align: center; margin-bottom: 40px;">Available Tools</h2>
+        
+        <div class="tools-grid">
+            <!-- E-Steps Calculator -->
+            <a href="E-Steps_Calculator_Interactive/index.html" class="tool-card esteps">
+                <div class="tool-icon">🎯</div>
+                <h3>E-Steps Calculator</h3>
+                <p>Calibrate your extruder steps per millimeter for accurate filament extrusion. Essential for print quality.</p>
+                <span class="tool-status status-ready">✅ Ready</span>
+            </a>
+
+            <!-- Nozzle Selection Guide -->
+            <a href="SharePoint_Nozzle_Selection_Guide/index.html" class="tool-card nozzle">
+                <div class="tool-icon">🔍</div>
+                <h3>Nozzle Selection Guide</h3>
+                <p>Choose the right nozzle size and material for your printing needs. Compare options and recommendations.</p>
+                <span class="tool-status status-ready">✅ Ready</span>
+            </a>
+
+            <!-- Gear Calculator -->
+            <a href="gear-calculator/index.html" class="tool-card gear">
+                <div class="tool-icon">⚙️</div>
+                <h3>Gear Calculator</h3>
+                <p>Calculate gear ratios for custom extruder builds and mechanical modifications.</p>
+                <span class="tool-status status-ready">✅ Ready</span>
+            </a>
+
+            <!-- Flow Calibration (Coming Soon) -->
+            <a href="flow-calibration/index.html" class="tool-card flow">
+                <div class="tool-icon">💧</div>
+                <h3>Flow Rate Calibration</h3>
+                <p>Fine-tune your flow rate percentage for perfect extrusion width and layer adhesion.</p>
+                <span class="tool-status status-coming">🚧 Coming Soon</span>
+            </a>
+
+            <!-- Temperature Tower (Coming Soon) -->
+            <a href="temperature-tower/index.html" class="tool-card temp">
+                <div class="tool-icon">🌡️</div>
+                <h3>Temperature Tower Generator</h3>
+                <p>Generate temperature towers to find the optimal printing temperature for your filament.</p>
+                <span class="tool-status status-coming">🚧 Coming Soon</span>
+            </a>
+
+            <!-- Retraction Tuning (Coming Soon) -->
+            <a href="retraction-tuning/index.html" class="tool-card retract">
+                <div class="tool-icon">🔄</div>
+                <h3>Retraction Tuning</h3>
+                <p>Eliminate stringing and blobs by dialing in perfect retraction settings.</p>
+                <span class="tool-status status-coming">🚧 Coming Soon</span>
+            </a>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2 style="text-align: center;">Why Use This Suite?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="icon">📱</div>
+                    <h4>Mobile Friendly</h4>
+                    <p>Use right at your printer from any device</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="icon">💾</div>
+                    <h4>Save Your Settings</h4>
+                    <p>Store configurations for multiple printers</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="icon">🎓</div>
+                    <h4>Educational</h4>
+                    <p>Learn while you calibrate with detailed guides</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="icon">⚡</div>
+                    <h4>Fast & Easy</h4>
+                    <p>Quick calculations with instant results</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="icon">🔒</div>
+                    <h4>Privacy First</h4>
+                    <p>All data stays local, no accounts needed</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="icon">🆓</div>
+                    <h4>Free & Open</h4>
+                    <p>Completely free to use, no hidden costs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="features-section">
+            <h2 style="text-align: center;">Quick Start Guide</h2>
+            <ol style="font-size: 1.1em; line-height: 2; max-width: 700px; margin: 20px auto;">
+                <li><strong>Choose a tool</strong> from the grid above</li>
+                <li><strong>Follow the step-by-step instructions</strong> in each calculator</li>
+                <li><strong>Input your measurements</strong> and get instant results</li>
+                <li><strong>Apply the recommendations</strong> to your printer</li>
+                <li><strong>Enjoy better print quality!</strong></li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>3D Printer Calibration Suite</strong> v1.0</p>
+        <p>Created for the 3D printing community</p>
+        <p style="margin-top: 20px;">
+            <a href="docs/">Documentation</a> | 
+            <a href="https://github.com/tsolo4ever/Code">GitHub</a> | 
+            <a href="docs/faq.html">FAQ</a>
+        </p>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+</body>
+</html>
