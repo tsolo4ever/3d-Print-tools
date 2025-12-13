@@ -601,7 +601,19 @@
       setVal('targetOD', OD.toFixed(3));
       
       out(JSON.stringify(res, null, 2)); 
+
+	  // Auto-expand calculation section to show results
+	  const calcSection = document.querySelector('.panel:nth-child(2) .panel-content');
+      if(calcSection && calcSection.classList.contains('collapsed')){
+        const header = calcSection.previousElementSibling;
+        togglePanel(header);
+     } else {
+        // If already expanded, update maxHeight to fit new content
+        calcSection.style.maxHeight = calcSection.scrollHeight + 'px';
+     }
+
       return res;
+
     }
 
     // --- FIXED AutoMatch function ---
