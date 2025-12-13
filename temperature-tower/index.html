@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Tower Generator - Coming Soon</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/navigation.css">
+    <style>
+        .construction {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .construction-icon {
+            font-size: 8em;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .construction h1 {
+            color: var(--temp-accent);
+            margin-bottom: 20px;
+        }
+        
+        .progress-bar {
+            max-width: 600px;
+            margin: 40px auto;
+            background: var(--border);
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, var(--temp-accent), var(--error));
+            height: 100%;
+            width: 5%;
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .features-preview {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: left;
+        }
+        
+        .features-preview h3 {
+            color: var(--temp-accent);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "🌡️";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="suite-nav">
+        <div class="container">
+            <a href="../" class="logo">🔧 Calibration Suite</a>
+            <button class="mobile-menu-toggle">☰</button>
+            <div class="nav-links">
+                <a href="../">Home</a>
+                <a href="../E-Steps_Calculator_Interactive/">E-Steps</a>
+                <a href="../SharePoint_Nozzle_Selection_Guide/">Nozzle Guide</a>
+                <a href="../gear-calculator/">Gear Calc</a>
+                <a href="../docs/">Docs</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" title="Toggle Theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container construction">
+        <div class="construction-icon">🌡️</div>
+        <h1>Temperature Tower Generator</h1>
+        <h2 style="color: var(--text-secondary);">Coming Soon!</h2>
+        <p style="font-size: 1.2em; color: var(--text-secondary); max-width: 600px; margin: 20px auto;">
+            Generate custom temperature towers to find the perfect printing temperature for your filament.
+        </p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill">5%</div>
+        </div>
+        
+        <div class="features-preview card">
+            <h3>Planned Features:</h3>
+            <ul class="feature-list">
+                <li>Custom temperature range generator</li>
+                <li>G-code generation for all slicers</li>
+                <li>Multiple tower designs (standard, detailed, bridging)</li>
+                <li>Automatic temperature stepping</li>
+                <li>Print evaluation guide</li>
+                <li>Material-specific recommendations</li>
+                <li>Result comparison tool</li>
+                <li>Export settings directly to slicer</li>
+            </ul>
+        </div>
+        
+        <div style="margin-top: 40px;">
+            <a href="../" class="btn btn-primary">← Back to Home</a>
+        </div>
+    </div>
+
+    <script src="../assets/js/navigation.js"></script>
+</body>
+</html>

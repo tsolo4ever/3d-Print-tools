@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retraction Tuning - Coming Soon</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/navigation.css">
+    <style>
+        .construction {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .construction-icon {
+            font-size: 8em;
+            margin-bottom: 30px;
+            animation: spin 3s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .construction h1 {
+            color: var(--retract-accent);
+            margin-bottom: 20px;
+        }
+        
+        .progress-bar {
+            max-width: 600px;
+            margin: 40px auto;
+            background: var(--border);
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, var(--retract-accent), var(--primary));
+            height: 100%;
+            width: 10%;
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .features-preview {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: left;
+        }
+        
+        .features-preview h3 {
+            color: var(--retract-accent);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "🔄";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="suite-nav">
+        <div class="container">
+            <a href="../" class="logo">🔧 Calibration Suite</a>
+            <button class="mobile-menu-toggle">☰</button>
+            <div class="nav-links">
+                <a href="../">Home</a>
+                <a href="../E-Steps_Calculator_Interactive/">E-Steps</a>
+                <a href="../SharePoint_Nozzle_Selection_Guide/">Nozzle Guide</a>
+                <a href="../gear-calculator/">Gear Calc</a>
+                <a href="../docs/">Docs</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" title="Toggle Theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container construction">
+        <div class="construction-icon">🔄</div>
+        <h1>Retraction Tuning</h1>
+        <h2 style="color: var(--text-secondary);">Coming Soon!</h2>
+        <p style="font-size: 1.2em; color: var(--text-secondary); max-width: 600px; margin: 20px auto;">
+            Eliminate stringing and blobs with precision retraction calibration.
+        </p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill">10%</div>
+        </div>
+        
+        <div class="features-preview card">
+            <h3>Planned Features:</h3>
+            <ul class="feature-list">
+                <li>Retraction distance calculator</li>
+                <li>Retraction speed optimizer</li>
+                <li>Test model generator (stringing test)</li>
+                <li>Bowden vs Direct Drive presets</li>
+                <li>Z-hop settings guide</li>
+                <li>Coasting and wipe recommendations</li>
+                <li>Material-specific starting points</li>
+                <li>Interactive problem solver (stringing, blobs, zits)</li>
+                <li>Before/after comparison photos</li>
+            </ul>
+        </div>
+        
+        <div style="margin-top: 40px;">
+            <a href="../" class="btn btn-primary">← Back to Home</a>
+        </div>
+    </div>
+
+    <script src="../assets/js/navigation.js"></script>
+</body>
+</html>
