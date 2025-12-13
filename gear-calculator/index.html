@@ -45,8 +45,8 @@
     .panel-header h2{margin:0}
     .collapse-btn{background:none;border:none;color:var(--accent);font-size:24px;padding:0;width:32px;height:32px;cursor:pointer;transition:transform 0.3s}
     .collapse-btn.collapsed{transform:rotate(-90deg)}
-    .panel-content{display:block;overflow:hidden;transition:max-height 0.3s ease-out}
-    .panel-content.collapsed{max-height:0!important;margin:0;padding:0}
+    .panel-content{overflow:hidden;transition:all 0.3s ease-out}
+    .panel-content.collapsed{display:none}
     /* Sticky header */
     header{position:sticky;top:0;z-index:100;background:var(--bg)}
     /* Mobile responsive */
@@ -601,7 +601,19 @@
       setVal('targetOD', OD.toFixed(3));
       
       out(JSON.stringify(res, null, 2)); 
+
+	  // Auto-expand calculation section to show results
+	  const calcSection = document.querySelector('.panel:nth-child(2) .panel-content');
+      if(calcSection && calcSection.classList.contains('collapsed')){
+        const header = calcSection.previousElementSibling;
+        togglePanel(header);
+     } else {
+        // If already expanded, update maxHeight to fit new content
+        calcSection.style.maxHeight = calcSection.scrollHeight + 'px';
+     }
+
       return res;
+
     }
 
     // --- FIXED AutoMatch function ---
@@ -764,25 +776,19 @@
     function togglePanel(header){
       const content = header.nextElementSibling;
       const btn = header.querySelector('.collapse-btn');
-      
+      const title = header.querySelector('h2').textContent;
+  
       if(content.classList.contains('collapsed')){
-        // Expand
-        content.style.maxHeight = content.scrollHeight + 'px';
         content.classList.remove('collapsed');
         btn.classList.remove('collapsed');
-        // Store state
-        const title = header.querySelector('h2').textContent;
         localStorage.setItem('panel_' + title, 'open');
       } else {
-        // Collapse
-        content.style.maxHeight = '0';
         content.classList.add('collapsed');
         btn.classList.add('collapsed');
-        // Store state
-        const title = header.querySelector('h2').textContent;
         localStorage.setItem('panel_' + title, 'closed');
       }
     }
+
     
     // Initialize panel states from localStorage
     function initPanelStates(){
@@ -791,17 +797,14 @@
         const state = localStorage.getItem('panel_' + title);
         const content = header.nextElementSibling;
         const btn = header.querySelector('.collapse-btn');
-        
-        // Set initial max-height for smooth transitions
-        content.style.maxHeight = content.scrollHeight + 'px';
-        
+    
         if(state === 'closed'){
-          content.style.maxHeight = '0';
           content.classList.add('collapsed');
           btn.classList.add('collapsed');
         }
       });
     }
+
     
     // Copy results to clipboard
     function copyResults(){
