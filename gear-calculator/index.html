@@ -36,6 +36,29 @@
     .help-section{margin:20px 0;padding:15px;background:var(--panel);border-radius:8px;border:1px solid #1f2937}
     .help-section h3{color:var(--accent);margin-top:0}
     .help-section code{background:#1e293b;padding:2px 6px;border-radius:4px;color:var(--accent)}
+    /* Button hover effects */
+    button:hover{background:#1e293b;border-color:#475569;transform:translateY(-1px);box-shadow:0 2px 4px rgba(0,0,0,0.3)}
+    button:active{transform:translateY(0)}
+    input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:2px}
+    /* Collapsible sections */
+    .panel-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;padding:8px 0;margin-bottom:12px;border-bottom:2px solid var(--accent)}
+    .panel-header h2{margin:0}
+    .collapse-btn{background:none;border:none;color:var(--accent);font-size:24px;padding:0;width:32px;height:32px;cursor:pointer;transition:transform 0.3s}
+    .collapse-btn.collapsed{transform:rotate(-90deg)}
+    .panel-content{display:block;overflow:hidden;transition:max-height 0.3s ease-out}
+    .panel-content.collapsed{max-height:0!important;margin:0;padding:0}
+    /* Sticky header */
+    header{position:sticky;top:0;z-index:100;background:var(--bg)}
+    /* Mobile responsive */
+    @media (max-width: 768px){
+      .wrap{grid-template-columns:1fr}
+      header>div{flex-direction:column;align-items:flex-start}
+      .row,.row3{grid-template-columns:1fr}
+    }
+    /* Copy button */
+    .copy-btn{background:var(--ok);color:var(--bg);border-color:var(--ok);font-weight:bold}
+    .copy-btn:hover{opacity:0.9}
+    .copy-btn.copied{background:var(--accent)}
   </style>
 </head>
 <body>
@@ -54,7 +77,11 @@
   <div class="wrap">
     <!-- Left column: Library + Single Calculation -->
     <section class="panel">
-      <h2>Library & Persistence</h2>
+      <div class="panel-header" onclick="togglePanel(this)">
+        <h2>Library & Persistence</h2>
+        <button class="collapse-btn" type="button">▼</button>
+      </div>
+      <div class="panel-content">
       <div class="actions">
         <button id="btnSaveXml">💾 Save XML</button>
         <button id="btnDownloadCsv">⬇️ Download CSV</button>
@@ -66,10 +93,15 @@
       <label for="csvPaste">Paste CSV (import)</label>
       <textarea id="csvPaste" rows="4" placeholder="note,mode,valA,z,PA,c,x,m,d,OD,rootD,p,baseD,thick_at_pitch,addendum,dedendum,DP"></textarea>
       <button id="btnImportPaste">📥 Import from paste</button>
+      </div>
     </section>
 
     <section class="panel">
-      <h2>Single Calculation</h2>
+      <div class="panel-header" onclick="togglePanel(this)">
+        <h2>Single Calculation</h2>
+        <button class="collapse-btn" type="button">▼</button>
+      </div>
+      <div class="panel-content">
       <div class="row">
         <div>
           <label>Units</label>
@@ -127,11 +159,17 @@
       <div class="note">Measured OD (for auto-match x) - Use with Module/PD/DP modes, NOT OD mode</div>
       <div class="row"><input id="measOD" type="number" step="0.001" /><button id="btnAutoX">🔧 Auto‑match profile shift (x)</button></div>
       <pre id="out"></pre>
+      <button id="btnCopyResults" class="copy-btn">📋 Copy Results to Clipboard</button>
+      </div>
     </section>
 
     <!-- Right column: Orientation + Resin + Calibration + Mating Checker + Formulas -->
     <section class="panel">
-      <h2>Orientation Assistant</h2>
+      <div class="panel-header" onclick="togglePanel(this)">
+        <h2>Orientation Assistant</h2>
+        <button class="collapse-btn" type="button">▼</button>
+      </div>
+      <div class="panel-content">
       <div class="row">
         <div>
           <label>Priority</label>
@@ -163,10 +201,15 @@
       <button id="btnSuggest">Suggest Orientation</button>
       <pre id="orientOut" class="note"></pre>
       <div class="note">Tilting flat surfaces <strong>10–20°</strong> reduces layer area and peel forces; <strong>30–45°</strong> is widely used to minimize suction and place supports on less visible faces. Vertical ("skyscraper") maximizes dimensional precision for thin/tall features.</div>
+      </div>
     </section>
 
     <section class="panel">
-      <h2>Resin & Post‑Cure Notes</h2>
+      <div class="panel-header" onclick="togglePanel(this)">
+        <h2>Resin & Post‑Cure Notes</h2>
+        <button class="collapse-btn" type="button">▼</button>
+      </div>
+      <div class="panel-content">
       <div class="row">
         <div>
           <label>Material</label>
@@ -189,10 +232,15 @@
         </div>
         <div><button id="btnApplyShrink" class="btn">⚖️ Apply shrinkage scale</button></div>
       </div>
+      </div>
     </section>
 
     <section class="panel">
-      <h2>Calibration — Ring Method</h2>
+      <div class="panel-header" onclick="togglePanel(this)">
+        <h2>Calibration — Ring Method</h2>
+        <button class="collapse-btn" type="button">▼</button>
+      </div>
+      <div class="panel-content">
       <div class="note">Print a <strong>20.00 mm OD</strong> test ring, measure after post‑cure, enter the value to compute actual shrinkage and update your scale.</div>
       <div class="row align-center">
         <div>
@@ -205,10 +253,15 @@
         </div>
       </div>
       <pre id="ringOut"></pre>
+      </div>
     </section>
 
     <section class="panel">
-      <h2>Mating Gear Checker</h2>
+      <div class="panel-header" onclick="togglePanel(this)">
+        <h2>Mating Gear Checker</h2>
+        <button class="collapse-btn" type="button">▼</button>
+      </div>
+      <div class="panel-content">
       <div class="row3">
         <div><label>Gear A: Teeth (z₁)</label><input id="z1" type="number" step="1" /></div>
         <div><label>Gear B: Teeth (z₂)</label><input id="z2" type="number" step="1" /></div>
@@ -220,10 +273,15 @@
       </div>
       <button id="btnCenter" class="btn">🔗 Check center distance</button>
       <pre id="centerOut"></pre>
+      </div>
     </section>
 
     <section class="panel">
-      <h2>Formulas & Notes</h2>
+      <div class="panel-header" onclick="togglePanel(this)">
+        <h2>Formulas & Notes</h2>
+        <button class="collapse-btn" type="button">▼</button>
+      </div>
+      <div class="panel-content">
       <ul>
         <li>d = m · z — Pitch diameter</li>
         <li>OD = d + 2 · (1 + x) · m — Addendum circle</li>
@@ -232,6 +290,7 @@
         <li>baseD = d · cos(PA) — Base diameter</li>
         <li>DP = z / (d / 25.4) — Diametral pitch (imperial)</li>
       </ul>
+      </div>
     </section>
   </div>
 
@@ -344,6 +403,17 @@
             <li><strong>c</strong> = Clearance coefficient - root clearance (×module)</li>
             <li><strong>DP</strong> = Diametral Pitch - imperial tooth size (teeth/inch)</li>
           </ul>
+        </div>
+        
+        <div class="help-section">
+          <h3>⌨️ Keyboard Shortcuts</h3>
+          <ul>
+            <li><strong>Ctrl+Enter</strong> (or Cmd+Enter on Mac) - Compute gear</li>
+            <li><strong>Ctrl+S</strong> (or Cmd+S) - Add to library</li>
+            <li><strong>Ctrl+H</strong> (or Cmd+H) - Open help</li>
+            <li><strong>Escape</strong> - Close help modal</li>
+          </ul>
+          <p style="color:var(--muted)">Click section headers to collapse/expand panels. Your preferences are saved!</p>
         </div>
 
         <p style="text-align:center;margin-top:30px">
@@ -689,6 +759,97 @@
     function num(id){ const v = document.getElementById(id).value; return v ? Number(v) : NaN; }
     function setVal(id, v){ document.getElementById(id).value = v; }
     function out(msg){ document.getElementById('out').textContent = String(msg); }
+    
+    // Collapsible panels
+    function togglePanel(header){
+      const content = header.nextElementSibling;
+      const btn = header.querySelector('.collapse-btn');
+      
+      if(content.classList.contains('collapsed')){
+        // Expand
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.classList.remove('collapsed');
+        btn.classList.remove('collapsed');
+        // Store state
+        const title = header.querySelector('h2').textContent;
+        localStorage.setItem('panel_' + title, 'open');
+      } else {
+        // Collapse
+        content.style.maxHeight = '0';
+        content.classList.add('collapsed');
+        btn.classList.add('collapsed');
+        // Store state
+        const title = header.querySelector('h2').textContent;
+        localStorage.setItem('panel_' + title, 'closed');
+      }
+    }
+    
+    // Initialize panel states from localStorage
+    function initPanelStates(){
+      document.querySelectorAll('.panel-header').forEach(header => {
+        const title = header.querySelector('h2').textContent;
+        const state = localStorage.getItem('panel_' + title);
+        const content = header.nextElementSibling;
+        const btn = header.querySelector('.collapse-btn');
+        
+        // Set initial max-height for smooth transitions
+        content.style.maxHeight = content.scrollHeight + 'px';
+        
+        if(state === 'closed'){
+          content.style.maxHeight = '0';
+          content.classList.add('collapsed');
+          btn.classList.add('collapsed');
+        }
+      });
+    }
+    
+    // Copy results to clipboard
+    function copyResults(){
+      const output = document.getElementById('out').textContent;
+      if(!output || output.includes('Missing') || output.includes('Invalid')){
+        alert('No valid results to copy. Compute a gear first!');
+        return;
+      }
+      
+      navigator.clipboard.writeText(output).then(() => {
+        const btn = document.getElementById('btnCopyResults');
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        alert('Failed to copy: ' + err);
+      });
+    }
+    
+    // Keyboard shortcuts
+    function setupKeyboardShortcuts(){
+      document.addEventListener('keydown', (e) => {
+        // Ctrl/Cmd + Enter = Compute
+        if((e.ctrlKey || e.metaKey) && e.key === 'Enter'){
+          e.preventDefault();
+          compute();
+        }
+        // Ctrl/Cmd + S = Add to library
+        else if((e.ctrlKey || e.metaKey) && e.key === 's'){
+          e.preventDefault();
+          const r = compute();
+          if(r) addItem(r);
+        }
+        // Ctrl/Cmd + H = Help
+        else if((e.ctrlKey || e.metaKey) && e.key === 'h'){
+          e.preventDefault();
+          document.getElementById('helpModal').style.display = 'block';
+        }
+        // Escape = Close modal
+        else if(e.key === 'Escape'){
+          document.getElementById('helpModal').style.display = 'none';
+        }
+      });
+    }
 
     async function init(){
       document.getElementById('storeMode').textContent = 'IndexedDB';
@@ -712,7 +873,13 @@
         const filename = `gear_library_${timestamp}.csv`;
         downloadFile(filename, toCsv(library), 'text/csv'); 
       };
-      document.getElementById('btnClear').onclick = clearLibrary;
+      document.getElementById('btnClear').onclick = () => {
+        if(!library.length){ alert('Library is already empty.'); return; }
+        if(confirm(`Delete all ${library.length} saved gear(s)? This cannot be undone!\n\nTip: Export to XML/CSV first for backup.`)){
+          clearLibrary();
+        }
+      };
+      document.getElementById('btnCopyResults').onclick = copyResults;
       document.getElementById('btnImportPaste').onclick = () => { 
         const t = document.getElementById('csvPaste').value.trim(); 
         if(!t) return; 
@@ -760,6 +927,10 @@
       btnHelp.onclick = () => { modal.style.display = 'block'; };
       btnClose.onclick = () => { modal.style.display = 'none'; };
       window.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
+      
+      // Initialize panel states and keyboard shortcuts
+      initPanelStates();
+      setupKeyboardShortcuts();
       
       // Initialize with defaults
       applyDefaults();

@@ -2,6 +2,31 @@
 
 All notable changes to the Gear Calculator Pro project will be documented in this file.
 
+## [4.12-fixed-v4] - 2024
+
+### ✨ Added - UI/UX Improvements
+- **Collapsible Sections**: All panels can collapse/expand by clicking headers
+  - Smooth animations
+  - State persisted in localStorage
+  - Perfect for mobile single-column layout
+  - Arrow indicators show collapse state
+- **Keyboard Shortcuts**:
+  - `Ctrl+Enter` / `Cmd+Enter` - Compute gear
+  - `Ctrl+S` / `Cmd+S` - Add to library
+  - `Ctrl+H` / `Cmd+H` - Open help
+  - `Escape` - Close help modal
+- **Copy to Clipboard**: Button to copy results instantly
+  - Visual feedback ("✓ Copied!")
+  - Validates results exist first
+- **Confirmation Dialogs**:
+  - Clear Library now asks for confirmation
+  - Shows count of gears to be deleted
+  - Suggests backup before deleting
+- **Mobile Responsive**: Single-column layout on screens < 768px
+- **Button Hover Effects**: Better visual feedback
+- **Focus Indicators**: Accessible input highlighting
+- **Sticky Header**: Help button always visible when scrolling
+
 ## [4.12-fixed-v3] - 2024
 
 ### ✨ Added

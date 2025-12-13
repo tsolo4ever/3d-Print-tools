@@ -164,6 +164,14 @@ Open source contributions and improvements welcome!
 
 ---
 
-**Version**: 4.12-fixed-v3  
+**Version**: 4.12-fixed-v4  
 **Last Updated**: 2024  
 **Built with**: Vanilla JavaScript, CSS Grid, IndexedDB
+
+### New in v4:
+- ⌨️ Keyboard shortcuts (Ctrl+Enter, Ctrl+S, Ctrl+H, Esc)
+- 📋 Copy to clipboard button
+- 📦 Collapsible sections (click headers to collapse)
+- 📱 Mobile responsive (single column on small screens)
+- ✨ Button hover effects and focus indicators
+- ⚠️ Confirmation before clearing library
