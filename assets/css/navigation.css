@@ -1,15 +1,23 @@
 /* ============================================
    Navigation Bar Styles
+   ============================================
+   
+   PROJECT NOTE: Navigation Dark Mode Support
+   - Uses var(--card-bg) instead of hardcoded 'white'
+   - All text colors use CSS variables
+   - Mobile menu background adapts to theme
+   - Theme toggle button in nav-actions
    ============================================ */
 
 .suite-nav {
-    background: white;
+    background: var(--card-bg);
     box-shadow: var(--shadow-sm);
     padding: var(--spacing-md) 0;
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 3px solid var(--primary);
+    transition: background-color var(--transition-normal);
 }
 
 .suite-nav .container {
@@ -69,12 +77,18 @@
     border-radius: var(--radius-sm);
     cursor: pointer;
     font-size: 1.2em;
+    color: var(--text-primary);
     transition: all var(--transition-fast);
 }
 
 .nav-actions button:hover {
     background: var(--background);
     border-color: var(--primary);
+    transform: scale(1.1);
+}
+
+.theme-toggle {
+    /* Theme toggle button - icon updates via JS */
 }
 
 /* Mobile Menu */
@@ -94,7 +108,7 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: white;
+        background: var(--card-bg);
         flex-direction: column;
         padding: var(--spacing-md);
         box-shadow: var(--shadow-md);
