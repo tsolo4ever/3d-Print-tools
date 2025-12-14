@@ -4,7 +4,7 @@ A comprehensive collection of web-based tools for calibrating and optimizing you
 
 ## 🚀 Live Site
 
-Visit: [Your GitHub Pages URL]
+Visit: https://tsolo4ever.github.io/3d-print-tools
 
 ## 📦 What's Included
 
@@ -32,7 +32,7 @@ Visit: [Your GitHub Pages URL]
 ## 📁 Project Structure
 
 ```
-Code/
+3d-print-tools/
 ├── index.html                          # Main hub page
 ├── assets/                             # Shared resources
 │   ├── css/
@@ -96,10 +96,10 @@ Contributions are welcome! Here's how you can help:
 
 ```bash
 # Clone the repository
-git clone https://github.com/tsolo4ever/Code.git
+git clone https://github.com/tsolo4ever/3d-print-tools.git
 
 # Navigate to the directory
-cd Code
+cd 3d-print-tools
 
 # Open in browser (no build required!)
 # Just open index.html in your browser
@@ -144,15 +144,15 @@ cd Code
 
 ## 📞 Support
 
-- **Issues:** [GitHub Issues](https://github.com/tsolo4ever/Code/issues)
+- **Issues:** [GitHub Issues](https://github.com/tsolo4ever/3d-print-tools/issues)
 - **Documentation:** [Full Docs](docs/)
 - **FAQ:** [Frequently Asked Questions](docs/faq.html)
 
 ## 🔗 Links
 
-- **GitHub:** [tsolo4ever/Code](https://github.com/tsolo4ever/Code)
+- **GitHub:** [tsolo4ever/3d-print-tools](https://github.com/tsolo4ever/3d-print-tools)
 - **Documentation:** [Full Guide](docs/)
-- **Live Site:** [Your URL Here]
+- **Live Site:** https://tsolo4ever.github.io/3d-print-tools
 
 ---
 

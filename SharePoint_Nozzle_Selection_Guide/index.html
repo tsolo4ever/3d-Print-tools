@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Printer Nozzle Selection Guide</title>
+    
+    <!-- Global Theme System -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/navigation.css">
+    
     <style>
         * {
             margin: 0;
@@ -340,6 +345,29 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="suite-nav">
+        <div class="container">
+            <a href="../" class="logo">🔧 Calibration Suite</a>
+            <button class="mobile-menu-toggle">☰</button>
+            <div class="nav-links">
+                <a href="../">Home</a>
+                <a href="../E-Steps_Calculator_Interactive/index.html">E-Steps</a>
+                <a href="../SharePoint_Nozzle_Selection_Guide/index.html" class="active">Nozzle Guide</a>
+                <a href="../gear-calculator/index.html">Gear Calc</a>
+                <a href="../docs/index.html">Docs</a>
+            </div>
+            <div class="nav-actions">
+                <select class="theme-selector" title="Select Theme">
+                    <option value="light">☀️ Light</option>
+                    <option value="dark">🌙 Dark</option>
+                    <option value="high-contrast">⚡ High Contrast</option>
+                    <option value="high-contrast-dark">⚡🌙 High Contrast Dark</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <h1>🔧 3D Printer Nozzle Selection Guide</h1>
         <p class="subtitle">The Complete Reference for Choosing the Right Nozzle</p>
@@ -1217,5 +1245,7 @@ DEFAULT RECOMMENDATIONS:
 
         <button class="print-button" onclick="window.print()">🖨️ Print This Guide</button>
     </div>
+
+    <script src="../assets/js/navigation.js"></script>
 </body>
 </html>

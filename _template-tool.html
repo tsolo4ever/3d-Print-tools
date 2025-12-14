@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 📝 TODO: Update title with your tool name -->
+    <title>Tool Name - 3D Printer Calibration Suite</title>
+    
+    <!-- 📝 TODO: Update meta description -->
+    <meta name="description" content="Brief description of what this tool does">
+    
+    <!-- Shared Framework Styles -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <link rel="stylesheet" href="assets/css/printer-profiles.css">
+    
+    <!-- 📝 TODO: Add your custom styles here or in a separate CSS file -->
+    <style>
+        /* Tool-specific styles */
+        .tool-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+        }
+
+        .calculator-section {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .calculator-section h2 {
+            color: var(--text-primary);
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--background);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-sm);
+            background: var(--primary);
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: var(--text-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-primary);
+        }
+
+        .result-box {
+            background: var(--primary-light);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .result-box h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: var(--spacing-sm) 0;
+        }
+
+        .info-box {
+            background: var(--info-light);
+            border-left: 4px solid var(--info);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: var(--radius-sm);
+        }
+
+        .warning-box {
+            background: var(--warning-light);
+            border-left: 4px solid var(--warning);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: var(--radius-sm);
+        }
+
+        .success-box {
+            background: var(--success-light);
+            border-left: 4px solid var(--success);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: var(--radius-sm);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="suite-nav">
+        <div class="container">
+            <a href="/" class="logo">🔧 Calibration Suite</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/E-Steps_Calculator_Interactive/">E-Steps</a>
+                <a href="/SharePoint_Nozzle_Selection_Guide/">Nozzle Guide</a>
+                <a href="/gear-calculator/">Gear Calc</a>
+                <a href="/flow-calibration/">Flow</a>
+                <a href="/temperature-tower/">Temp Tower</a>
+                <a href="/retraction-tuning/">Retraction</a>
+                <a href="/docs/">Docs</a>
+            </div>
+            <div class="nav-actions">
+                <select class="theme-selector" title="Select Theme">
+                    <option value="light">☀️ Light</option>
+                    <option value="dark">🌙 Dark</option>
+                    <option value="high-contrast">⚡ High Contrast</option>
+                    <option value="high-contrast-dark">⚡🌙 High Contrast Dark</option>
+                    <optgroup label="🟠 Prusa Orange">
+                        <option value="prusa">☀️ Prusa Light</option>
+                        <option value="prusa-dark">🌙 Prusa Dark</option>
+                    </optgroup>
+                    <optgroup label="🟢 Bambu Lab">
+                        <option value="bambu">☀️ Bambu Light</option>
+                        <option value="bambu-dark">🌙 Bambu Dark</option>
+                    </optgroup>
+                    <optgroup label="🔵 Creality">
+                        <option value="creality">☀️ Creality Light</option>
+                        <option value="creality-dark">🌙 Creality Dark</option>
+                    </optgroup>
+                    <optgroup label="🔴 Voron">
+                        <option value="voron">☀️ Voron Light</option>
+                        <option value="voron-dark">🌙 Voron Dark</option>
+                    </optgroup>
+                    <optgroup label="⚙️ Ultimaker">
+                        <option value="ultimaker">☀️ Ultimaker Light</option>
+                        <option value="ultimaker-dark">🌙 Ultimaker Dark</option>
+                    </optgroup>
+                    <optgroup label="💎 Formlabs">
+                        <option value="formlabs">☀️ Formlabs Light</option>
+                        <option value="formlabs-dark">🌙 Formlabs Dark</option>
+                    </optgroup>
+                    <optgroup label="🟣 Anycubic">
+                        <option value="anycubic">☀️ Anycubic Light</option>
+                        <option value="anycubic-dark">🌙 Anycubic Dark</option>
+                    </optgroup>
+                </select>
+                <button class="theme-settings-btn" title="Theme Settings">⚙️</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="tool-container">
+        <!-- Hero Section -->
+        <header style="text-align: center; padding: var(--spacing-lg) 0;">
+            <!-- 📝 TODO: Update tool title and description -->
+            <h1 style="color: var(--text-primary); font-size: 2.5rem; margin-bottom: var(--spacing-sm);">
+                🔧 Tool Name
+            </h1>
+            <p style="color: var(--text-secondary); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                Brief description of what this tool does and why it's useful.
+            </p>
+        </header>
+
+        <!-- 📝 TODO: Optional - Printer Profiles Section -->
+        <div id="printerProfiles"></div>
+
+        <!-- Calculator Section -->
+        <div class="calculator-section">
+            <h2>📐 Calculator</h2>
+            
+            <!-- Info Box Example -->
+            <div class="info-box">
+                <strong>ℹ️ How to use:</strong>
+                <ol style="margin: var(--spacing-xs) 0 0 var(--spacing-md);">
+                    <li>Step 1 instructions</li>
+                    <li>Step 2 instructions</li>
+                    <li>Step 3 instructions</li>
+                </ol>
+            </div>
+
+            <!-- 📝 TODO: Add your form inputs -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="input1">Input Label 1</label>
+                    <input type="number" id="input1" placeholder="Enter value">
+                </div>
+                <div class="form-group">
+                    <label for="input2">Input Label 2</label>
+                    <input type="number" id="input2" placeholder="Enter value">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dropdown">Dropdown Example</label>
+                <select id="dropdown">
+                    <option value="">Select an option...</option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                </select>
+            </div>
+
+            <!-- Buttons -->
+            <div style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+                <button class="btn" onclick="calculate()">🧮 Calculate</button>
+                <button class="btn btn-secondary" onclick="reset()">🔄 Reset</button>
+            </div>
+
+            <!-- 📝 TODO: Results display -->
+            <div id="results" style="display: none;">
+                <div class="result-box">
+                    <h3>📊 Results</h3>
+                    <div class="result-value" id="resultValue">
+                        Result will appear here
+                    </div>
+                    <p style="color: var(--text-secondary); margin: 0;">
+                        Additional result information or explanation
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guide Section -->
+        <div class="calculator-section">
+            <h2>📚 Step-by-Step Guide</h2>
+            
+            <h3 style="color: var(--text-primary);">What You'll Need</h3>
+            <ul style="color: var(--text-secondary);">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+
+            <h3 style="color: var(--text-primary);">Instructions</h3>
+            <ol style="color: var(--text-secondary); line-height: 1.8;">
+                <li><strong>Step 1:</strong> Description of first step</li>
+                <li><strong>Step 2:</strong> Description of second step</li>
+                <li><strong>Step 3:</strong> Description of third step</li>
+            </ol>
+
+            <!-- Warning Box Example -->
+            <div class="warning-box">
+                <strong>⚠️ Important:</strong> Important warning or note here
+            </div>
+        </div>
+
+        <!-- FAQ Section (Optional) -->
+        <div class="calculator-section">
+            <h2>❓ Common Questions</h2>
+            
+            <h3 style="color: var(--text-primary);">Question 1?</h3>
+            <p style="color: var(--text-secondary);">Answer to question 1...</p>
+
+            <h3 style="color: var(--text-primary);">Question 2?</h3>
+            <p style="color: var(--text-secondary);">Answer to question 2...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: var(--spacing-lg); color: var(--text-secondary); border-top: 1px solid var(--border); margin-top: var(--spacing-xl);">
+        <p>Part of the <a href="/" style="color: var(--primary);">3D Printer Calibration Suite</a></p>
+        <p style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
+            Made with ❤️ for the 3D printing community
+        </p>
+    </footer>
+
+    <!-- Theme Settings Modal -->
+    <div class="theme-settings-modal">
+        <div class="theme-settings-content">
+            <div class="theme-settings-header">
+                <h3>⚙️ Theme Settings</h3>
+                <button class="theme-settings-close" aria-label="Close settings">✕</button>
+            </div>
+
+            <div class="theme-setting-group">
+                <h4>🌍 Follow System Preference</h4>
+                <p>Automatically match your operating system's light/dark theme setting.</p>
+                <div class="theme-toggle-switch">
+                    <div class="theme-toggle-label">
+                        <strong>Sync with System</strong>
+                        <span>Theme changes when your OS theme changes</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="followSystemTheme">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div style="margin-left: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="useHighContrast" style="width: auto;">
+                        <span style="color: var(--text-secondary); font-size: 0.95em;">⚡ Use High Contrast themes</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="theme-setting-group">
+                <h4>🕐 Time-Based Auto-Switching</h4>
+                <p>Automatically switch between light and dark themes based on time of day.</p>
+                <div class="theme-toggle-switch">
+                    <div class="theme-toggle-label">
+                        <strong>Auto-Switch by Time</strong>
+                        <span>Light: 7 AM - 7 PM • Dark: 7 PM - 7 AM</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="timeBasedSwitching">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div style="margin-left: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="timeBasedHighContrast" style="width: auto;">
+                        <span style="color: var(--text-secondary); font-size: 0.95em;">⚡ Use High Contrast themes</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin: 0;">
+                <strong>💡 Tip:</strong> Manual theme selection temporarily overrides auto-switching for 24 hours. Auto-switching will resume after that.
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/storage-manager.js"></script>
+    <script src="assets/js/printer-profiles.js"></script>
+    <script src="assets/js/navigation.js"></script>
+
+    <!-- 📝 TODO: Add your custom JavaScript -->
+    <script>
+        // Initialize printer profiles (optional - remove if not needed)
+        PrinterProfileManager.render('printerProfiles', {
+            showLoadButton: true,
+            onLoad: (printer) => {
+                console.log('Loaded printer:', printer);
+                // Auto-fill your form with printer data
+                // Example: document.getElementById('input1').value = printer.esteps;
+            }
+        });
+
+        // Calculator function
+        function calculate() {
+            // 📝 TODO: Implement your calculation logic
+            const input1 = parseFloat(document.getElementById('input1').value);
+            const input2 = parseFloat(document.getElementById('input2').value);
+
+            // Validation
+            if (isNaN(input1) || isNaN(input2)) {
+                alert('Please enter valid numbers');
+                return;
+            }
+
+            // Example calculation
+            const result = input1 + input2; // Replace with actual calculation
+
+            // Display results
+            document.getElementById('resultValue').textContent = result.toFixed(2);
+            document.getElementById('results').style.display = 'block';
+
+            // Optional: Save to history
+            StorageManager.addToolHistory('your-tool-name', {
+                input1: input1,
+                input2: input2,
+                result: result,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        // Reset function
+        function reset() {
+            document.getElementById('input1').value = '';
+            document.getElementById('input2').value = '';
+            document.getElementById('dropdown').value = '';
+            document.getElementById('results').style.display = 'none';
+        }
+
+        // Listen for printer loaded event
+        document.addEventListener('printerLoaded', (event) => {
+            const printer = event.detail;
+            // Auto-fill form fields
+            console.log('Printer loaded:', printer);
+        });
+    </script>
+</body>
+</html>

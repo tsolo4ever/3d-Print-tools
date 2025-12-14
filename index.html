@@ -20,6 +20,25 @@
             text-align: center;
             padding: 60px 20px;
             margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.03) 10px,
+                rgba(255,255,255,0.03) 20px
+            );
+            pointer-events: none;
         }
         
         .hero h1 {
@@ -159,12 +178,46 @@
             <div class="nav-links">
                 <a href="/">Home</a>
                 <a href="E-Steps_Calculator_Interactive/index.html">E-Steps</a>
-                <a href="SharePoint_Nozzle_Selection_Guide/">Nozzle Guide</a>
-                <a href="gear-calculator/">Gear Calc</a>
-                <a href="docs/">Docs</a>
+                <a href="SharePoint_Nozzle_Selection_Guide/index.html">Nozzle Guide</a>
+                <a href="gear-calculator/index.html">Gear Calc</a>
+                <a href="docs/index.html">Docs</a>
             </div>
             <div class="nav-actions">
-                <button class="theme-toggle" title="Toggle Theme">🌙</button>
+                <select class="theme-selector" title="Select Theme">
+                    <option value="light">☀️ Light</option>
+                    <option value="dark">🌙 Dark</option>
+                    <option value="high-contrast">⚡ High Contrast</option>
+                    <option value="high-contrast-dark">⚡🌙 High Contrast Dark</option>
+                    <optgroup label="🟠 Prusa Orange">
+                        <option value="prusa">☀️ Prusa Light</option>
+                        <option value="prusa-dark">🌙 Prusa Dark</option>
+                    </optgroup>
+                    <optgroup label="🟢 Bambu Lab">
+                        <option value="bambu">☀️ Bambu Light</option>
+                        <option value="bambu-dark">🌙 Bambu Dark</option>
+                    </optgroup>
+                    <optgroup label="🔵 Creality">
+                        <option value="creality">☀️ Creality Light</option>
+                        <option value="creality-dark">🌙 Creality Dark</option>
+                    </optgroup>
+                    <optgroup label="🔴 Voron">
+                        <option value="voron">☀️ Voron Light</option>
+                        <option value="voron-dark">🌙 Voron Dark</option>
+                    </optgroup>
+                    <optgroup label="⚙️ Ultimaker">
+                        <option value="ultimaker">☀️ Ultimaker Light</option>
+                        <option value="ultimaker-dark">🌙 Ultimaker Dark</option>
+                    </optgroup>
+                    <optgroup label="💎 Formlabs">
+                        <option value="formlabs">☀️ Formlabs Light</option>
+                        <option value="formlabs-dark">🌙 Formlabs Dark</option>
+                    </optgroup>
+                    <optgroup label="🟣 Anycubic">
+                        <option value="anycubic">☀️ Anycubic Light</option>
+                        <option value="anycubic-dark">🌙 Anycubic Dark</option>
+                    </optgroup>
+                </select>
+                <button class="theme-settings-btn" title="Theme Settings">⚙️</button>
             </div>
         </div>
     </nav>
@@ -292,9 +345,65 @@
         <p>Created for the 3D printing community</p>
         <p style="margin-top: 20px;">
             <a href="docs/">Documentation</a> | 
-            <a href="https://github.com/tsolo4ever/Code">GitHub</a> | 
+            <a href="https://github.com/tsolo4ever/3d-print-tools">GitHub</a> | 
             <a href="docs/faq.html">FAQ</a>
         </p>
+    </div>
+
+    <!-- Theme Settings Modal -->
+    <div class="theme-settings-modal">
+        <div class="theme-settings-content">
+            <div class="theme-settings-header">
+                <h3>⚙️ Theme Settings</h3>
+                <button class="theme-settings-close" aria-label="Close settings">✕</button>
+            </div>
+
+            <div class="theme-setting-group">
+                <h4>🌍 Follow System Preference</h4>
+                <p>Automatically match your operating system's light/dark theme setting.</p>
+                <div class="theme-toggle-switch">
+                    <div class="theme-toggle-label">
+                        <strong>Sync with System</strong>
+                        <span>Theme changes when your OS theme changes</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="followSystemTheme">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div style="margin-left: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="useHighContrast" style="width: auto;">
+                        <span style="color: var(--text-secondary); font-size: 0.95em;">⚡ Use High Contrast themes</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="theme-setting-group">
+                <h4>🕐 Time-Based Auto-Switching</h4>
+                <p>Automatically switch between light and dark themes based on time of day.</p>
+                <div class="theme-toggle-switch">
+                    <div class="theme-toggle-label">
+                        <strong>Auto-Switch by Time</strong>
+                        <span>Light: 7 AM - 7 PM • Dark: 7 PM - 7 AM</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="timeBasedSwitching">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div style="margin-left: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="timeBasedHighContrast" style="width: auto;">
+                        <span style="color: var(--text-secondary); font-size: 0.95em;">⚡ Use High Contrast themes</span>
+                    </label>
+                </div>
+            </div>
+
+            <div style="background: var(--info-light); border-left: 4px solid var(--info); padding: var(--spacing-md); margin: 0; border-radius: var(--radius-sm);">
+                <strong>💡 Tip:</strong> Manual theme selection temporarily overrides auto-switching for 24 hours.
+            </div>
+        </div>
     </div>
 
     <script src="assets/js/navigation.js"></script>

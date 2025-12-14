@@ -426,12 +426,46 @@
             <div class="nav-links">
                 <a href="../">Home</a>
                 <a href="../E-Steps_Calculator_Interactive/index.html" class="active">E-Steps</a>
-                <a href="../SharePoint_Nozzle_Selection_Guide/">Nozzle Guide</a>
-                <a href="../gear-calculator/">Gear Calc</a>
-                <a href="../docs/">Docs</a>
+                <a href="../SharePoint_Nozzle_Selection_Guide/index.html">Nozzle Guide</a>
+                <a href="../gear-calculator/index.html">Gear Calc</a>
+                <a href="../docs/index.html">Docs</a>
             </div>
             <div class="nav-actions">
-                <button class="theme-toggle" title="Toggle Theme">🌙</button>
+                <select class="theme-selector" title="Select Theme">
+                    <option value="light">☀️ Light</option>
+                    <option value="dark">🌙 Dark</option>
+                    <option value="high-contrast">⚡ High Contrast</option>
+                    <option value="high-contrast-dark">⚡🌙 High Contrast Dark</option>
+                    <optgroup label="🟠 Prusa Orange">
+                        <option value="prusa">☀️ Prusa Light</option>
+                        <option value="prusa-dark">🌙 Prusa Dark</option>
+                    </optgroup>
+                    <optgroup label="🟢 Bambu Lab">
+                        <option value="bambu">☀️ Bambu Light</option>
+                        <option value="bambu-dark">🌙 Bambu Dark</option>
+                    </optgroup>
+                    <optgroup label="🔵 Creality">
+                        <option value="creality">☀️ Creality Light</option>
+                        <option value="creality-dark">🌙 Creality Dark</option>
+                    </optgroup>
+                    <optgroup label="🔴 Voron">
+                        <option value="voron">☀️ Voron Light</option>
+                        <option value="voron-dark">🌙 Voron Dark</option>
+                    </optgroup>
+                    <optgroup label="⚙️ Ultimaker">
+                        <option value="ultimaker">☀️ Ultimaker Light</option>
+                        <option value="ultimaker-dark">🌙 Ultimaker Dark</option>
+                    </optgroup>
+                    <optgroup label="💎 Formlabs">
+                        <option value="formlabs">☀️ Formlabs Light</option>
+                        <option value="formlabs-dark">🌙 Formlabs Dark</option>
+                    </optgroup>
+                    <optgroup label="🟣 Anycubic">
+                        <option value="anycubic">☀️ Anycubic Light</option>
+                        <option value="anycubic-dark">🌙 Anycubic Dark</option>
+                    </optgroup>
+                </select>
+                <button class="theme-settings-btn" title="Theme Settings">⚙️</button>
             </div>
         </div>
     </nav>
@@ -786,4 +820,129 @@ M503         ; Verify it saved correctly</pre>
                 <ul>
                     <li>Filament diameter varying</li>
                     <li>Wet/old filament</li>
-                    <li>Extruder tension issues
+                    <li>Extruder tension issues</li>
+                </ul>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Use fresh, dry filament</li>
+                    <li>Check extruder gear tension</li>
+                    <li>Measure filament diameter</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>E-Steps Calibration Guide v2.1</strong></p>
+            <p>Part of the 3D Printer Calibration Suite</p>
+            <p style="margin-top: 15px;"><a href="../">← Back to Suite Home</a></p>
+        </div>
+    </div>
+
+    <script src="../assets/js/navigation.js"></script>
+    
+    <!-- Calculator JavaScript -->
+    <script>
+        function calculateEsteps() {
+            const current = parseFloat(document.getElementById('currentEsteps').value);
+            const requested = parseFloat(document.getElementById('requestedExtrusion').value);
+            const actual = parseFloat(document.getElementById('actualExtrusion').value);
+            
+            if (isNaN(current) || isNaN(requested) || isNaN(actual)) {
+                alert('⚠️ Please fill in all fields with valid numbers!');
+                return;
+            }
+            
+            if (actual <= 0 || requested <= 0 || current <= 0) {
+                alert('⚠️ All values must be greater than zero!');
+                return;
+            }
+            
+            // Calculate new E-steps
+            const newEsteps = (current * requested) / actual;
+            const change = newEsteps - current;
+            const changePercent = (change / current) * 100;
+            const errorPercent = ((requested - actual) / requested) * 100;
+            
+            // Determine status and color
+            let status = '', statusColor = '';
+            
+            if (Math.abs(errorPercent) <= 1) {
+                status = '✅ Excellent - Within 1% tolerance';
+                statusColor = '#4caf50';
+            } else if (Math.abs(errorPercent) <= 2) {
+                status = '✅ Good - Within 2% tolerance';
+                statusColor = '#8bc34a';
+            } else if (Math.abs(errorPercent) <= 5) {
+                status = '⚠️ Acceptable - Should improve quality';
+                statusColor = '#ff9800';
+            } else if (Math.abs(errorPercent) <= 10) {
+                status = '⚠️ Needs Adjustment - Significant error';
+                statusColor = '#ff5722';
+            } else {
+                status = '❌ Critical - Check for mechanical issues';
+                statusColor = '#f44336';
+            }
+            
+            // Display results
+            document.getElementById('resultsSection').style.display = 'block';
+            document.getElementById('newEsteps').textContent = newEsteps.toFixed(2) + ' steps/mm';
+            
+            const changeText = change >= 0 ? 
+                `+${change.toFixed(2)} steps/mm (+${changePercent.toFixed(1)}%)` : 
+                `${change.toFixed(2)} steps/mm (${changePercent.toFixed(1)}%)`;
+            document.getElementById('changeAmount').textContent = changeText;
+            
+            document.getElementById('errorPercent').textContent = `${Math.abs(errorPercent).toFixed(2)}%`;
+            
+            const statusSpan = document.getElementById('statusMessage');
+            statusSpan.textContent = status;
+            statusSpan.style.color = statusColor;
+            statusSpan.style.fontWeight = '700';
+            
+            // Generate G-code
+            const gcode = `M92 E${newEsteps.toFixed(2)}  ; Set new E-steps
+M500              ; Save to EEPROM
+M503              ; Verify settings`;
+            
+            document.getElementById('gcodeCommands').textContent = gcode;
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        function copyGcode() {
+            const gcode = document.getElementById('gcodeCommands').textContent;
+            navigator.clipboard.writeText(gcode).then(() => {
+                const btn = document.getElementById('copyBtn');
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => { btn.textContent = originalText; }, 2000);
+            }).catch(err => {
+                alert('Failed to copy. Please select and copy manually.');
+            });
+        }
+        
+        function loadPreset(printer) {
+            const presets = {
+                'ender3': 425.0,
+                'ender5': 424.09,
+                'bmg': 415,
+                'orbiter': 690
+            };
+            
+            document.getElementById('currentEsteps').value = presets[printer];
+            document.getElementById('requestedExtrusion').value = 100;
+            document.getElementById('actualExtrusion').value = '';
+            document.getElementById('actualExtrusion').focus();
+        }
+        
+        // Allow Enter key to calculate
+        document.getElementById('actualExtrusion').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                calculateEsteps();
+            }
+        });
+    </script>
+</body>
+</html>

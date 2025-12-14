@@ -1,0 +1,5 @@
+.env
+config/secrets.json
+*.token
+*.key
+node_modules/

@@ -87,8 +87,31 @@
     transform: scale(1.1);
 }
 
+/* Theme Selector Dropdown */
+.theme-selector {
+    background: var(--background);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.95em;
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+    min-width: 150px;
+}
+
+.theme-selector:hover {
+    background: var(--card-bg);
+    border-color: var(--primary);
+}
+
+.theme-selector:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
 .theme-toggle {
-    /* Theme toggle button - icon updates via JS */
+    /* Legacy theme toggle button - use theme-selector instead */
 }
 
 /* Mobile Menu */
@@ -99,6 +122,181 @@
     font-size: 1.5em;
     cursor: pointer;
     color: var(--primary);
+}
+
+/* Theme Settings Modal */
+.theme-settings-btn {
+    background: none;
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.95em;
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+}
+
+.theme-settings-btn:hover {
+    background: var(--background);
+    border-color: var(--primary);
+}
+
+.theme-settings-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-settings-modal.active {
+    display: flex;
+}
+
+.theme-settings-content {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+}
+
+.theme-settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--border);
+}
+
+.theme-settings-header h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.5em;
+}
+
+.theme-settings-close {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+    line-height: 1;
+}
+
+.theme-settings-close:hover {
+    color: var(--primary);
+}
+
+.theme-setting-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.theme-setting-group:last-child {
+    margin-bottom: 0;
+}
+
+.theme-setting-group h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1em;
+}
+
+.theme-setting-group p {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin-bottom: var(--spacing-md);
+}
+
+.theme-toggle-switch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    background: var(--background);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    transition: all var(--transition-fast);
+}
+
+.theme-toggle-switch:hover {
+    border-color: var(--primary);
+}
+
+.theme-toggle-label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.theme-toggle-label strong {
+    color: var(--text-primary);
+    font-size: 1em;
+}
+
+.theme-toggle-label span {
+    color: var(--text-secondary);
+    font-size: 0.85em;
+}
+
+/* Custom Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border);
+    transition: 0.3s;
+    border-radius: 26px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--primary);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+}
+
+input:focus + .toggle-slider {
+    box-shadow: 0 0 0 2px var(--primary-light);
 }
 
 @media (max-width: 768px) {
@@ -124,5 +322,10 @@
     
     .suite-nav .container {
         padding: 0 var(--spacing-md);
+    }
+    
+    .theme-settings-content {
+        width: 95%;
+        padding: var(--spacing-md);
     }
 }
