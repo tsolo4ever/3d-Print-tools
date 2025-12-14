@@ -72,6 +72,68 @@
     color: white;
 }
 
+/* Dropdown Menu Styles */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown-toggle {
+    color: var(--text-primary);
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-dropdown-toggle:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+    min-width: 220px;
+    margin-top: 5px;
+    z-index: 1000;
+    padding: var(--spacing-xs) 0;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown-menu:hover {
+    display: block;
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    border-radius: 0;
+    white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
 .nav-actions {
     display: flex;
     gap: var(--spacing-sm);

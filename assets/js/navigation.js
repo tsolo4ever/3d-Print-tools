@@ -14,6 +14,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Mobile dropdown toggle
+    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+    const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+    
+    if (dropdownToggle && dropdownMenu) {
+        // Toggle dropdown on click for mobile
+        dropdownToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            this.textContent = dropdownMenu.style.display === 'block' ? 'Tools ▴' : 'Tools ▾';
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.style.display = 'none';
+                dropdownToggle.textContent = 'Tools ▾';
+            }
+        });
+    }
+    
     // Initialize theme toggle
     initializeThemeToggle();
     
