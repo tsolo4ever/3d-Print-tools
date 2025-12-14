@@ -17,9 +17,49 @@
     
     <!-- 📝 TODO: Add your custom styles here or in a separate CSS file -->
     <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Navigation container override (if needed) */
+        .suite-nav .container {
+            max-width: 1200px;
+            padding: 0 44px;
+        }
+
+        /* Main container */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Page header card style */
+        .page-header {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+            border-top: 4px solid var(--primary); /* Change color with tool-specific accent */
+        }
+
+        .page-header h1 {
+            color: var(--primary); /* Change to tool-specific accent */
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+        }
+
+        .page-header p {
+            font-size: 1.2em;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
         /* Tool-specific styles */
         .tool-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: var(--spacing-md);
         }

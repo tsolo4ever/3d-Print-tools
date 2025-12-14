@@ -3,130 +3,926 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flow Rate Calibration - Coming Soon</title>
+    <title>Flow Rate Calculator - 3D Printer Calibration Suite</title>
+    <meta name="description" content="Comprehensive flow rate calibration tool with single-wall cube calculator, two-wall verification, material presets, and history tracking">
+    
+    <!-- Shared Framework Styles -->
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/navigation.css">
+    <link rel="stylesheet" href="../assets/css/printer-profiles.css">
+    
     <style>
-        .construction {
-            text-align: center;
-            padding: 100px 20px;
-        }
-        
-        .construction-icon {
-            font-size: 8em;
-            margin-bottom: 30px;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .construction h1 {
-            color: var(--flow-accent);
-            margin-bottom: 20px;
-        }
-        
-        .progress-bar {
-            max-width: 600px;
-            margin: 40px auto;
-            background: var(--border);
-            height: 30px;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            background: linear-gradient(90deg, var(--flow-accent), var(--primary));
-            height: 100%;
-            width: 15%;
-            transition: width 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .features-preview {
-            max-width: 800px;
-            margin: 40px auto;
-            text-align: left;
-        }
-        
-        .features-preview h3 {
-            color: var(--flow-accent);
-        }
-        
-        .feature-list {
-            list-style: none;
+        body {
             padding: 0;
+            margin: 0;
         }
-        
-        .feature-list li {
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
+
+        /* Navigation container override */
+        .suite-nav .container {
+            max-width: 1200px;
+            padding: 0 44px;
         }
-        
-        .feature-list li:before {
-            content: "💧";
-            position: absolute;
-            left: 0;
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+            border-top: 4px solid var(--flow-accent, var(--primary));
+        }
+
+        .page-header h1 {
+            color: var(--flow-accent, var(--primary));
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+        }
+
+        .page-header p {
+            font-size: 1.2em;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .calculator-section {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .calculator-section h2 {
+            color: var(--text-primary);
+            margin-top: 0;
+            border-bottom: 2px solid var(--flow-accent, var(--primary));
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--background);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-sm);
+            background: var(--primary);
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--text-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-primary);
+        }
+
+        .result-box {
+            background: var(--primary-light);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .info-box {
+            background: var(--info-light);
+            border-left: 4px solid var(--info);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: var(--radius-sm);
+        }
+
+        .warning-box {
+            background: var(--warning-light);
+            border-left: 4px solid var(--warning);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: var(--radius-sm);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="suite-nav">
         <div class="container">
             <a href="../" class="logo">🔧 Calibration Suite</a>
-            <button class="mobile-menu-toggle">☰</button>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
             <div class="nav-links">
                 <a href="../">Home</a>
                 <a href="../E-Steps_Calculator_Interactive/">E-Steps</a>
                 <a href="../SharePoint_Nozzle_Selection_Guide/">Nozzle Guide</a>
                 <a href="../gear-calculator/">Gear Calc</a>
+                <a href="../flow-calibration/" class="active">Flow</a>
                 <a href="../docs/">Docs</a>
             </div>
             <div class="nav-actions">
-                <button class="theme-toggle" title="Toggle Theme">🌙</button>
+                <select class="theme-selector" title="Select Theme">
+                    <option value="light">☀️ Light</option>
+                    <option value="dark">🌙 Dark</option>
+                    <option value="high-contrast">⚡ High Contrast</option>
+                    <option value="high-contrast-dark">⚡🌙 High Contrast Dark</option>
+                    <optgroup label="🟠 Prusa Orange">
+                        <option value="prusa">☀️ Prusa Light</option>
+                        <option value="prusa-dark">🌙 Prusa Dark</option>
+                    </optgroup>
+                    <optgroup label="🟢 Bambu Lab">
+                        <option value="bambu">☀️ Bambu Light</option>
+                        <option value="bambu-dark">🌙 Bambu Dark</option>
+                    </optgroup>
+                    <optgroup label="🔵 Creality">
+                        <option value="creality">☀️ Creality Light</option>
+                        <option value="creality-dark">🌙 Creality Dark</option>
+                    </optgroup>
+                    <optgroup label="🔴 Voron">
+                        <option value="voron">☀️ Voron Light</option>
+                        <option value="voron-dark">🌙 Voron Dark</option>
+                    </optgroup>
+                    <optgroup label="⚙️ Ultimaker">
+                        <option value="ultimaker">☀️ Ultimaker Light</option>
+                        <option value="ultimaker-dark">🌙 Ultimaker Dark</option>
+                    </optgroup>
+                    <optgroup label="💎 Formlabs">
+                        <option value="formlabs">☀️ Formlabs Light</option>
+                        <option value="formlabs-dark">🌙 Formlabs Dark</option>
+                    </optgroup>
+                    <optgroup label="🟣 Anycubic">
+                        <option value="anycubic">☀️ Anycubic Light</option>
+                        <option value="anycubic-dark">🌙 Anycubic Dark</option>
+                    </optgroup>
+                </select>
+                <button class="theme-settings-btn" title="Theme Settings">⚙️</button>
             </div>
         </div>
     </nav>
 
-    <div class="container construction">
-        <div class="construction-icon">💧</div>
-        <h1>Flow Rate Calibration</h1>
-        <h2 style="color: var(--text-secondary);">Coming Soon!</h2>
-        <p style="font-size: 1.2em; color: var(--text-secondary); max-width: 600px; margin: 20px auto;">
-            We're working hard to bring you this powerful flow calibration tool. 
-            Check back soon for updates!
-        </p>
-        
-        <div class="progress-bar">
-            <div class="progress-fill">15%</div>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>💧 Flow Rate Calculator</h1>
+            <p>Complete calibration tool with multi-measurement averaging</p>
         </div>
-        
-        <div class="features-preview card">
-            <h3>Planned Features:</h3>
-            <ul class="feature-list">
-                <li>Interactive flow rate calculator</li>
-                <li>Single wall calibration cube generator</li>
-                <li>Visual comparison tool</li>
-                <li>Step-by-step calibration guide</li>
-                <li>Multiple test methods (cube, line, bridge)</li>
-                <li>Historical tracking of flow adjustments</li>
-                <li>Material-specific presets</li>
+
+        <!-- Single Wall Cube Calculator -->
+        <div class="calculator-section">
+            <h2>📦 Single-Wall Cube Calculator</h2>
+            
+            <div class="info-box">
+                <strong>ℹ️ How to use:</strong>
+                <ol style="margin: var(--spacing-xs) 0 0 var(--spacing-md);">
+                    <li>Print a single-wall calibration cube (0.4mm wall thickness for 0.4mm nozzle)</li>
+                    <li>Measure the actual wall thickness with calipers</li>
+                    <li>Enter your measurements below</li>
+                    <li>Get your new flow rate percentage</li>
+                </ol>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="currentFlow">Current Flow Rate (%)</label>
+                    <input type="number" id="currentFlow" value="100" step="0.1" min="50" max="150">
+                    <small style="color: var(--text-secondary);">Your printer's current flow multiplier</small>
+                </div>
+                <div class="form-group">
+                    <label for="expectedWall">Expected Wall Thickness (mm)</label>
+                    <input type="number" id="expectedWall" value="0.4" step="0.01" min="0.1" max="2">
+                    <small style="color: var(--text-secondary);">Usually equals your nozzle size</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="measuredWall">Measured Wall Thickness (mm)</label>
+                <input type="number" id="measuredWall" step="0.01" min="0.1" max="2" placeholder="e.g., 0.42">
+                <small style="color: var(--text-secondary);">Measure with calipers on multiple sides</small>
+            </div>
+
+            <div style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+                <button class="btn" onclick="calculateSingleWall()">🧮 Calculate Flow Rate</button>
+                <button class="btn btn-secondary" onclick="resetSingleWall()">🔄 Reset</button>
+            </div>
+
+            <div id="singleWallResults" style="display: none;">
+                <div class="result-box">
+                    <h3>📊 Results</h3>
+                    <div style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin: var(--spacing-sm) 0;">
+                        New Flow Rate: <span id="newFlowRate">100</span>%
+                    </div>
+                    <p style="color: var(--text-secondary); margin: 0;">
+                        Difference: <span id="flowDifference">0</span>% 
+                        (<span id="flowDirection">no change</span>)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Two-Wall Verification -->
+        <div class="calculator-section">
+            <h2>🔍 Two-Wall Verification</h2>
+            
+            <div class="info-box">
+                <strong>ℹ️ Advanced calibration:</strong>
+                <p style="margin: var(--spacing-xs) 0 0 0;">
+                    For more accurate results, print a cube with two wall lines and measure the total width.
+                    This method averages out any inconsistencies from a single wall.
+                </p>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="twoWallCurrentFlow">Current Flow Rate (%)</label>
+                    <input type="number" id="twoWallCurrentFlow" value="100" step="0.1" min="50" max="150">
+                </div>
+                <div class="form-group">
+                    <label for="lineWidth">Line Width (mm)</label>
+                    <input type="number" id="lineWidth" value="0.4" step="0.01" min="0.1" max="2">
+                    <small style="color: var(--text-secondary);">Usually equals nozzle diameter</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="measuredTwoWall">Measured Total Width (mm)</label>
+                <input type="number" id="measuredTwoWall" step="0.01" min="0.1" max="5" placeholder="e.g., 0.82">
+                <small style="color: var(--text-secondary);">Total width of 2 wall lines (should be ~0.8mm for 0.4mm nozzle)</small>
+            </div>
+
+            <div style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+                <button class="btn" onclick="calculateTwoWall()">🧮 Calculate Flow Rate</button>
+                <button class="btn btn-secondary" onclick="resetTwoWall()">🔄 Reset</button>
+            </div>
+
+            <div id="twoWallResults" style="display: none;">
+                <div class="result-box">
+                    <h3>📊 Results</h3>
+                    <div style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin: var(--spacing-sm) 0;">
+                        New Flow Rate: <span id="twoWallNewFlowRate">100</span>%
+                    </div>
+                    <p style="color: var(--text-secondary); margin: var(--spacing-xs) 0;">
+                        Difference: <span id="twoWallFlowDifference">0</span>% 
+                        (<span id="twoWallFlowDirection">no change</span>)
+                    </p>
+                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">
+                        Average wall thickness: <span id="avgWallThickness">0</span>mm per line
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multi-Measurement Averaging -->
+        <div class="calculator-section">
+            <h2>📏 Multi-Measurement Averaging</h2>
+            
+            <div class="info-box">
+                <strong>ℹ️ For best accuracy:</strong>
+                <p style="margin: var(--spacing-xs) 0 0 0;">
+                    Take multiple measurements from different sides of your calibration print.
+                    This tool will calculate the average and give you a more reliable flow rate.
+                </p>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="multiCurrentFlow">Current Flow Rate (%)</label>
+                    <input type="number" id="multiCurrentFlow" value="100" step="0.1" min="50" max="150">
+                </div>
+                <div class="form-group">
+                    <label for="multiExpectedWall">Expected Thickness (mm)</label>
+                    <input type="number" id="multiExpectedWall" value="0.4" step="0.01" min="0.1" max="2">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Measurements (mm)</label>
+                <div id="measurementsList">
+                    <div style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-xs);">
+                        <input type="number" class="measurement-input" step="0.01" placeholder="Measurement 1" style="flex: 1;">
+                        <input type="number" class="measurement-input" step="0.01" placeholder="Measurement 2" style="flex: 1;">
+                        <input type="number" class="measurement-input" step="0.01" placeholder="Measurement 3" style="flex: 1;">
+                    </div>
+                </div>
+                <button class="btn btn-secondary" onclick="addMeasurementField()" style="margin-top: var(--spacing-xs); padding: 8px 16px; font-size: 0.9rem;">
+                    ➕ Add More Measurements
+                </button>
+            </div>
+
+            <div style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+                <button class="btn" onclick="calculateMultiAverage()">🧮 Calculate Average</button>
+                <button class="btn btn-secondary" onclick="resetMultiAverage()">🔄 Reset</button>
+            </div>
+
+            <div id="multiAverageResults" style="display: none;">
+                <div class="result-box">
+                    <h3>📊 Results</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">
+                        Average Measurement: <strong><span id="avgMeasurement">0</span>mm</strong> 
+                        (from <span id="measurementCount">0</span> measurements)
+                    </p>
+                    <div style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin: var(--spacing-sm) 0;">
+                        New Flow Rate: <span id="multiNewFlowRate">100</span>%
+                    </div>
+                    <p style="color: var(--text-secondary); margin: 0;">
+                        Difference: <span id="multiFlowDifference">0</span>% 
+                        (<span id="multiFlowDirection">no change</span>)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Material Presets & Temperature Adjustment -->
+        <div class="calculator-section">
+            <h2>🌡️ Material Presets & Temperature Adjustment</h2>
+            
+            <div class="info-box">
+                <strong>ℹ️ Quick Start:</strong>
+                <p style="margin: var(--spacing-xs) 0 0 0;">
+                    Select a material preset for recommended starting values, or adjust flow based on temperature changes.
+                    Higher temperatures generally require lower flow rates.
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="materialPreset">Material Preset</label>
+                <select id="materialPreset" onchange="applyMaterialPreset()">
+                    <option value="">Select a material...</option>
+                    <option value="pla">PLA (Standard)</option>
+                    <option value="petg">PETG</option>
+                    <option value="abs">ABS</option>
+                    <option value="tpu">TPU (Flexible)</option>
+                    <option value="nylon">Nylon</option>
+                    <option value="pla-plus">PLA+ (Tough PLA)</option>
+                    <option value="asa">ASA</option>
+                </select>
+            </div>
+
+            <div id="presetInfo" style="display: none;">
+                <div class="info-box" style="background: var(--success-light); border-left-color: var(--success);">
+                    <strong id="presetName">Material</strong>
+                    <p style="margin: var(--spacing-xs) 0 0 0;" id="presetDescription"></p>
+                    <ul style="margin: var(--spacing-xs) 0 0 var(--spacing-md);" id="presetDetails"></ul>
+                </div>
+            </div>
+
+            <h3 style="color: var(--text-primary); margin-top: var(--spacing-lg);">Temperature-Based Flow Adjustment</h3>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="baseTemp">Base Temperature (°C)</label>
+                    <input type="number" id="baseTemp" step="1" min="150" max="300" placeholder="e.g., 200">
+                </div>
+                <div class="form-group">
+                    <label for="newTemp">New Temperature (°C)</label>
+                    <input type="number" id="newTemp" step="1" min="150" max="300" placeholder="e.g., 210">
+                </div>
+                <div class="form-group">
+                    <label for="baseFlowRate">Current Flow Rate (%)</label>
+                    <input type="number" id="baseFlowRate" value="100" step="0.1" min="50" max="150">
+                </div>
+            </div>
+
+            <button class="btn" onclick="calculateTempAdjustment()">🌡️ Calculate Temperature Adjustment</button>
+
+            <div id="tempAdjustResults" style="display: none;">
+                <div class="result-box">
+                    <h3>📊 Temperature Adjustment</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">
+                        Temperature change: <strong><span id="tempChange">0</span>°C</strong>
+                    </p>
+                    <div style="font-size: 1.5rem; font-weight: 600; color: var(--text-primary); margin: var(--spacing-sm) 0;">
+                        Suggested Flow Rate: <span id="tempAdjustedFlow">100</span>%
+                    </div>
+                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">
+                        <em>Note: This is an estimate. Fine-tune with actual prints.</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step-by-Step Guide -->
+        <div class="calculator-section">
+            <h2>📚 Complete Calibration Guide</h2>
+            
+            <h3 style="color: var(--text-primary);">What You'll Need</h3>
+            <ul style="color: var(--text-secondary); line-height: 1.8;">
+                <li>Digital calipers (accurate to 0.01mm)</li>
+                <li>Single-wall calibration cube STL file</li>
+                <li>Your 3D printer with current flow rate settings</li>
+                <li>Filament (PLA recommended for first calibration)</li>
             </ul>
-        </div>
-        
-        <div style="margin-top: 40px;">
-            <a href="../" class="btn btn-primary">← Back to Home</a>
+
+            <h3 style="color: var(--text-primary); margin-top: var(--spacing-lg);">Step-by-Step Instructions</h3>
+            
+            <div class="info-box">
+                <strong>Step 1: Prepare Your Printer</strong>
+                <p style="margin: var(--spacing-xs) 0 0 0;">
+                    • Ensure your E-steps are calibrated first (use our E-Steps Calculator)<br>
+                    • Set flow rate to 100% (or current known value)<br>
+                    • Use standard print settings: 0.2mm layer height, 50mm/s speed
+                </p>
+            </div>
+
+            <div class="info-box">
+                <strong>Step 2: Print the Test Cube</strong>
+                <p style="margin: var(--spacing-xs) 0 0 0;">
+                    • Download a single-wall calibration cube (wall thickness = nozzle diameter)<br>
+                    • For 0.4mm nozzle: use 0.4mm wall, 1 wall line, 0% infill<br>
+                    • Print at least 20mm tall for reliable measurements<br>
+                    • Let the print cool completely before measuring
+                </p>
+            </div>
+
+            <div class="info-box">
+                <strong>Step 3: Take Accurate Measurements</strong>
+                <p style="margin: var(--spacing-xs) 0 0 0;">
+                    • Measure the wall thickness at multiple locations:<br>
+                    &nbsp;&nbsp;- Top, middle, and bottom of the cube<br>
+                    &nbsp;&nbsp;- All four sides<br>
+                    &nbsp;&nbsp;- Away from corners and seams<br>
+                    • Record at least 3-6 measurements<br>
+                    • Use the Multi-Measurement Averaging calculator for best results
+                </p>
+            </div>
+
+            <div class="info-box">
+                <strong>Step 4: Calculate New Flow Rate</strong>
+                <p style="margin: var(--spacing-xs) 0 0 0;">
+                    • Use the Single-Wall or Two-Wall calculator above<br>
+                    • Enter your measurements<br>
+                    • Get your new flow rate percentage<br>
+                    • For best accuracy, use the Multi-Measurement tool
+                </p>
+            </div>
+
+            <div class="info-box">
+                <strong>Step 5: Apply and Verify</strong>
+                <p style="margin: var(--spacing-xs) 0 0 0;">
+                    • Update your slicer with the new flow rate percentage<br>
+                    • Print another test cube to verify<br>
+                    • Measurements should now match expected values (±0.02mm)<br>
+                    • If still off, repeat the process with the new flow value
+                </p>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Important Tips:</strong>
+                <ul style="margin: var(--spacing-xs) 0 0 var(--spacing-md);">
+                    <li>Always calibrate E-steps before flow rate</li>
+                    <li>Calibrate for each material type separately</li>
+                    <li>Avoid making changes larger than ±5% at once</li>
+                    <li>Temperature changes may require flow adjustment</li>
+                    <li>Check flow calibration when changing nozzles</li>
+                </ul>
+            </div>
+
+            <h3 style="color: var(--text-primary); margin-top: var(--spacing-lg);">Common Issues & Solutions</h3>
+            
+            <details style="background: var(--background); padding: var(--spacing-sm); border-radius: var(--radius-sm); margin-bottom: var(--spacing-sm); cursor: pointer;">
+                <summary style="font-weight: 600; color: var(--text-primary);">Walls are too thick (over-extrusion)</summary>
+                <p style="color: var(--text-secondary); margin: var(--spacing-xs) 0 0 0;">
+                    <strong>Solution:</strong> Reduce flow rate by the calculated amount. Common causes include:<br>
+                    • Flow rate set too high<br>
+                    • Temperature too high for material<br>
+                    • Printing too slowly<br>
+                    • Incorrect filament diameter in slicer
+                </p>
+            </details>
+
+            <details style="background: var(--background); padding: var(--spacing-sm); border-radius: var(--radius-sm); margin-bottom: var(--spacing-sm); cursor: pointer;">
+                <summary style="font-weight: 600; color: var(--text-primary);">Walls are too thin (under-extrusion)</summary>
+                <p style="color: var(--text-secondary); margin: var(--spacing-xs) 0 0 0;">
+                    <strong>Solution:</strong> Increase flow rate by the calculated amount. Common causes include:<br>
+                    • Flow rate set too low<br>
+                    • Temperature too low for material<br>
+                    • Partial nozzle clog<br>
+                    • Incorrect E-steps (calibrate first!)
+                </p>
+            </details>
+
+            <details style="background: var(--background); padding: var(--spacing-sm); border-radius: var(--radius-sm); margin-bottom: var(--spacing-sm); cursor: pointer;">
+                <summary style="font-weight: 600; color: var(--text-primary);">Inconsistent measurements</summary>
+                <p style="color: var(--text-secondary); margin: var(--spacing-xs) 0 0 0;">
+                    <strong>Solution:</strong> Use the Multi-Measurement Averaging tool. Inconsistency may indicate:<br>
+                    • Uneven extrusion (check E-steps)<br>
+                    • Temperature fluctuations<br>
+                    • Mechanical issues (belts, wheels)<br>
+                    • Poor quality calipers or measurement technique
+                </p>
+            </details>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer style="text-align: center; padding: var(--spacing-lg); color: var(--text-secondary); border-top: 1px solid var(--border); margin-top: var(--spacing-xl);">
+        <p>Part of the <a href="../" style="color: var(--primary); text-decoration: none;">3D Printer Calibration Suite</a></p>
+        <p style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
+            Made with ❤️ for the 3D printing community
+        </p>
+    </footer>
+
+    <!-- Theme Settings Modal -->
+    <div class="theme-settings-modal">
+        <div class="theme-settings-content">
+            <div class="theme-settings-header">
+                <h3>⚙️ Theme Settings</h3>
+                <button class="theme-settings-close" aria-label="Close settings">✕</button>
+            </div>
+
+            <div class="theme-setting-group">
+                <h4>🌍 Follow System Preference</h4>
+                <p>Automatically match your operating system's light/dark theme setting.</p>
+                <div class="theme-toggle-switch">
+                    <div class="theme-toggle-label">
+                        <strong>Sync with System</strong>
+                        <span>Theme changes when your OS theme changes</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="followSystemTheme">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div style="margin-left: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="useHighContrast" style="width: auto;">
+                        <span style="color: var(--text-secondary); font-size: 0.95em;">⚡ Use High Contrast themes</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="theme-setting-group">
+                <h4>🕐 Time-Based Auto-Switching</h4>
+                <p>Automatically switch between light and dark themes based on time of day.</p>
+                <div class="theme-toggle-switch">
+                    <div class="theme-toggle-label">
+                        <strong>Auto-Switch by Time</strong>
+                        <span>Light: 7 AM - 7 PM • Dark: 7 PM - 7 AM</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="timeBasedSwitching">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div style="margin-left: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="timeBasedHighContrast" style="width: auto;">
+                        <span style="color: var(--text-secondary); font-size: 0.95em;">⚡ Use High Contrast themes</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin: 0;">
+                <strong>💡 Tip:</strong> Manual theme selection temporarily overrides auto-switching for 24 hours. Auto-switching will resume after that.
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/storage-manager.js"></script>
+    <script src="../assets/js/printer-profiles.js"></script>
     <script src="../assets/js/navigation.js"></script>
+    
+    <script>
+        // Single Wall Cube Calculator
+        function calculateSingleWall() {
+            const currentFlow = parseFloat(document.getElementById('currentFlow').value);
+            const expectedWall = parseFloat(document.getElementById('expectedWall').value);
+            const measuredWall = parseFloat(document.getElementById('measuredWall').value);
+
+            // Validation
+            if (isNaN(currentFlow) || isNaN(expectedWall) || isNaN(measuredWall)) {
+                alert('Please enter all required values');
+                return;
+            }
+
+            if (measuredWall <= 0 || expectedWall <= 0) {
+                alert('Wall thickness values must be greater than 0');
+                return;
+            }
+
+            // Calculate new flow rate: (expected / measured) * current flow
+            const newFlow = (expectedWall / measuredWall) * currentFlow;
+            const difference = newFlow - currentFlow;
+            const direction = difference > 0 ? 'increase flow' : difference < 0 ? 'decrease flow' : 'no change';
+
+            // Display results
+            document.getElementById('newFlowRate').textContent = newFlow.toFixed(2);
+            document.getElementById('flowDifference').textContent = Math.abs(difference).toFixed(2);
+            document.getElementById('flowDirection').textContent = direction;
+            document.getElementById('singleWallResults').style.display = 'block';
+
+            // Save to history
+            StorageManager.addToolHistory('flow-rate-calculator', {
+                type: 'single-wall',
+                currentFlow: currentFlow,
+                expectedWall: expectedWall,
+                measuredWall: measuredWall,
+                newFlow: newFlow,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        function resetSingleWall() {
+            document.getElementById('currentFlow').value = '100';
+            document.getElementById('expectedWall').value = '0.4';
+            document.getElementById('measuredWall').value = '';
+            document.getElementById('singleWallResults').style.display = 'none';
+        }
+
+        // Two-Wall Verification Calculator
+        function calculateTwoWall() {
+            const currentFlow = parseFloat(document.getElementById('twoWallCurrentFlow').value);
+            const lineWidth = parseFloat(document.getElementById('lineWidth').value);
+            const measuredTwoWall = parseFloat(document.getElementById('measuredTwoWall').value);
+
+            // Validation
+            if (isNaN(currentFlow) || isNaN(lineWidth) || isNaN(measuredTwoWall)) {
+                alert('Please enter all required values');
+                return;
+            }
+
+            if (measuredTwoWall <= 0 || lineWidth <= 0) {
+                alert('Values must be greater than 0');
+                return;
+            }
+
+            // Expected total width for 2 walls
+            const expectedTotalWidth = lineWidth * 2;
+            
+            // Calculate new flow rate: (expected / measured) * current flow
+            const newFlow = (expectedTotalWidth / measuredTwoWall) * currentFlow;
+            const difference = newFlow - currentFlow;
+            const direction = difference > 0 ? 'increase flow' : difference < 0 ? 'decrease flow' : 'no change';
+            
+            // Average wall thickness per line
+            const avgThickness = measuredTwoWall / 2;
+
+            // Display results
+            document.getElementById('twoWallNewFlowRate').textContent = newFlow.toFixed(2);
+            document.getElementById('twoWallFlowDifference').textContent = Math.abs(difference).toFixed(2);
+            document.getElementById('twoWallFlowDirection').textContent = direction;
+            document.getElementById('avgWallThickness').textContent = avgThickness.toFixed(3);
+            document.getElementById('twoWallResults').style.display = 'block';
+
+            // Save to history
+            StorageManager.addToolHistory('flow-rate-calculator', {
+                type: 'two-wall',
+                currentFlow: currentFlow,
+                lineWidth: lineWidth,
+                measuredTwoWall: measuredTwoWall,
+                newFlow: newFlow,
+                avgThickness: avgThickness,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        function resetTwoWall() {
+            document.getElementById('twoWallCurrentFlow').value = '100';
+            document.getElementById('lineWidth').value = '0.4';
+            document.getElementById('measuredTwoWall').value = '';
+            document.getElementById('twoWallResults').style.display = 'none';
+        }
+
+        // Multi-Measurement Averaging
+        function addMeasurementField() {
+            const measurementsList = document.getElementById('measurementsList');
+            const newInput = document.createElement('input');
+            newInput.type = 'number';
+            newInput.className = 'measurement-input';
+            newInput.step = '0.01';
+            newInput.placeholder = `Measurement ${measurementsList.querySelectorAll('.measurement-input').length + 1}`;
+            newInput.style.cssText = 'width: 100%; margin-bottom: var(--spacing-xs);';
+            measurementsList.appendChild(newInput);
+        }
+
+        function calculateMultiAverage() {
+            const currentFlow = parseFloat(document.getElementById('multiCurrentFlow').value);
+            const expectedWall = parseFloat(document.getElementById('multiExpectedWall').value);
+            const measurementInputs = document.querySelectorAll('.measurement-input');
+            
+            // Collect valid measurements
+            const measurements = [];
+            measurementInputs.forEach(input => {
+                const value = parseFloat(input.value);
+                if (!isNaN(value) && value > 0) {
+                    measurements.push(value);
+                }
+            });
+
+            // Validation
+            if (isNaN(currentFlow) || isNaN(expectedWall)) {
+                alert('Please enter current flow rate and expected thickness');
+                return;
+            }
+
+            if (measurements.length === 0) {
+                alert('Please enter at least one measurement');
+                return;
+            }
+
+            // Calculate average
+            const sum = measurements.reduce((a, b) => a + b, 0);
+            const avgMeasurement = sum / measurements.length;
+
+            // Calculate new flow rate
+            const newFlow = (expectedWall / avgMeasurement) * currentFlow;
+            const difference = newFlow - currentFlow;
+            const direction = difference > 0 ? 'increase flow' : difference < 0 ? 'decrease flow' : 'no change';
+
+            // Display results
+            document.getElementById('avgMeasurement').textContent = avgMeasurement.toFixed(3);
+            document.getElementById('measurementCount').textContent = measurements.length;
+            document.getElementById('multiNewFlowRate').textContent = newFlow.toFixed(2);
+            document.getElementById('multiFlowDifference').textContent = Math.abs(difference).toFixed(2);
+            document.getElementById('multiFlowDirection').textContent = direction;
+            document.getElementById('multiAverageResults').style.display = 'block';
+
+            // Save to history
+            StorageManager.addToolHistory('flow-rate-calculator', {
+                type: 'multi-measurement',
+                currentFlow: currentFlow,
+                expectedWall: expectedWall,
+                measurements: measurements,
+                avgMeasurement: avgMeasurement,
+                newFlow: newFlow,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        function resetMultiAverage() {
+            document.getElementById('multiCurrentFlow').value = '100';
+            document.getElementById('multiExpectedWall').value = '0.4';
+            const measurementInputs = document.querySelectorAll('.measurement-input');
+            measurementInputs.forEach(input => input.value = '');
+            document.getElementById('multiAverageResults').style.display = 'none';
+        }
+
+        // Material Presets Database
+        const materialPresets = {
+            'pla': {
+                name: 'PLA (Standard)',
+                description: 'Most common 3D printing material. Easy to print with good detail.',
+                flowRate: 100,
+                tempRange: '190-220°C',
+                notes: ['Start at 100% flow', 'Generally requires minimal adjustment', 'Watch for stringing at higher temps']
+            },
+            'petg': {
+                name: 'PETG',
+                description: 'Stronger and more durable than PLA. Slightly more challenging to print.',
+                flowRate: 100,
+                tempRange: '220-250°C',
+                notes: ['May need 95-100% flow', 'More prone to over-extrusion', 'Benefits from slightly lower flow rates']
+            },
+            'abs': {
+                name: 'ABS',
+                description: 'High-strength material requiring heated chamber. Prone to warping.',
+                flowRate: 100,
+                tempRange: '230-260°C',
+                notes: ['Usually 98-100% flow', 'Requires enclosed printer', 'Good ventilation needed']
+            },
+            'tpu': {
+                name: 'TPU (Flexible)',
+                description: 'Flexible filament for rubber-like prints. Requires slow printing.',
+                flowRate: 95,
+                tempRange: '210-230°C',
+                notes: ['Often needs 90-95% flow', 'Print slowly (20-30mm/s)', 'Avoid over-extrusion']
+            },
+            'nylon': {
+                name: 'Nylon',
+                description: 'Very strong and durable. Hygroscopic (absorbs moisture).',
+                flowRate: 100,
+                tempRange: '240-270°C',
+                notes: ['Usually 100-105% flow', 'Dry filament before use', 'Requires high temps']
+            },
+            'pla-plus': {
+                name: 'PLA+ (Tough PLA)',
+                description: 'Enhanced PLA with better layer adhesion and strength.',
+                flowRate: 100,
+                tempRange: '200-230°C',
+                notes: ['Start at 100% flow', 'Slightly higher temps than regular PLA', 'Better layer adhesion']
+            },
+            'asa': {
+                name: 'ASA',
+                description: 'Similar to ABS but UV resistant. Better for outdoor use.',
+                flowRate: 100,
+                tempRange: '240-260°C',
+                notes: ['Similar to ABS (98-100% flow)', 'Requires enclosed printer', 'More UV stable than ABS']
+            }
+        };
+
+        function applyMaterialPreset() {
+            const presetSelect = document.getElementById('materialPreset');
+            const presetValue = presetSelect.value;
+            
+            if (!presetValue) {
+                document.getElementById('presetInfo').style.display = 'none';
+                return;
+            }
+
+            const preset = materialPresets[presetValue];
+            if (preset) {
+                document.getElementById('presetName').textContent = preset.name;
+                document.getElementById('presetDescription').textContent = preset.description;
+                
+                const detailsList = document.getElementById('presetDetails');
+                detailsList.innerHTML = '';
+                detailsList.innerHTML += `<li><strong>Recommended Flow:</strong> ${preset.flowRate}%</li>`;
+                detailsList.innerHTML += `<li><strong>Temperature Range:</strong> ${preset.tempRange}</li>`;
+                preset.notes.forEach(note => {
+                    detailsList.innerHTML += `<li>${note}</li>`;
+                });
+                
+                document.getElementById('presetInfo').style.display = 'block';
+            }
+        }
+
+        // Temperature-Based Flow Adjustment
+        function calculateTempAdjustment() {
+            const baseTemp = parseFloat(document.getElementById('baseTemp').value);
+            const newTemp = parseFloat(document.getElementById('newTemp').value);
+            const baseFlow = parseFloat(document.getElementById('baseFlowRate').value);
+
+            // Validation
+            if (isNaN(baseTemp) || isNaN(newTemp) || isNaN(baseFlow)) {
+                alert('Please enter all temperature values');
+                return;
+            }
+
+            // Temperature change
+            const tempChange = newTemp - baseTemp;
+            
+            // Rule of thumb: For every 5°C increase, reduce flow by ~1%
+            // This is approximate and material-dependent
+            const flowAdjustment = -(tempChange / 5) * 1;
+            const adjustedFlow = baseFlow + flowAdjustment;
+
+            // Display results
+            document.getElementById('tempChange').textContent = tempChange > 0 ? `+${tempChange}` : tempChange;
+            document.getElementById('tempAdjustedFlow').textContent = adjustedFlow.toFixed(2);
+            document.getElementById('tempAdjustResults').style.display = 'block';
+
+            // Save to history
+            StorageManager.addToolHistory('flow-rate-calculator', {
+                type: 'temperature-adjustment',
+                baseTemp: baseTemp,
+                newTemp: newTemp,
+                baseFlow: baseFlow,
+                adjustedFlow: adjustedFlow,
+                timestamp: new Date().toISOString()
+            });
+        }
+    </script>
 </body>
 </html>

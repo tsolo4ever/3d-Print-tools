@@ -22,8 +22,9 @@
 
 .suite-nav .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap; /* Prevent wrapping */
     padding: 0 var(--spacing-lg);
 }
 
@@ -35,6 +36,8 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    white-space: nowrap;
+    flex-shrink: 0; /* Don't shrink */
 }
 
 .suite-nav .logo:hover {
@@ -45,6 +48,8 @@
     display: flex;
     gap: var(--spacing-lg);
     align-items: center;
+    flex-wrap: nowrap; /* Don't wrap */
+    flex-shrink: 1;
 }
 
 .nav-links a {
@@ -53,6 +58,8 @@
     padding: 8px 15px;
     border-radius: var(--radius-sm);
     transition: all var(--transition-fast);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .nav-links a:hover {
@@ -68,6 +75,9 @@
 .nav-actions {
     display: flex;
     gap: var(--spacing-sm);
+    align-items: center;
+    margin-left: auto; /* Push to right */
+    flex-shrink: 0; /* Don't shrink */
 }
 
 .nav-actions button {
@@ -97,7 +107,8 @@
     font-size: 0.95em;
     color: var(--text-primary);
     transition: all var(--transition-fast);
-    min-width: 150px;
+    min-width: 180px;
+    white-space: nowrap;
 }
 
 .theme-selector:hover {
@@ -108,10 +119,6 @@
 .theme-selector:focus {
     outline: 2px solid var(--primary);
     outline-offset: 2px;
-}
-
-.theme-toggle {
-    /* Legacy theme toggle button - use theme-selector instead */
 }
 
 /* Mobile Menu */
