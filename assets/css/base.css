@@ -1,5 +1,12 @@
 /* ============================================
    3D Printer Calibration Suite - Base Styles
+   ============================================
+   
+   PROJECT NOTE: Dark Mode Implementation
+   - Light mode (default) uses standard colors
+   - Dark mode activated via data-theme="dark" attribute on <html>
+   - Theme preference stored in localStorage
+   - All colors use CSS variables for easy switching
    ============================================ */
 
 :root {
@@ -26,7 +33,7 @@
     --info: #2196f3;
     --info-light: #e3f2fd;
     
-    /* Neutral Colors */
+    /* Light Mode Colors (Default) */
     --text-primary: #333;
     --text-secondary: #666;
     --text-light: #999;
@@ -56,6 +63,34 @@
     --transition-normal: 0.3s ease;
 }
 
+/* ============================================
+   Dark Mode Theme
+   ============================================ */
+[data-theme="dark"] {
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-light: #888;
+    --background: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --border: #404040;
+    
+    /* Adjust shadows for dark mode */
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.4);
+    --shadow-lg: 0 8px 20px rgba(0,0,0,0.5);
+    
+    /* Slightly adjust accent colors for better dark mode visibility */
+    --primary: #4a9eff;
+    --primary-hover: #6db3ff;
+    --primary-light: #1a3a5a;
+    
+    /* Adjust status colors for dark mode */
+    --success-light: #1a3a1a;
+    --warning-light: #4a3a1a;
+    --error-light: #4a1a1a;
+    --info-light: #1a2a4a;
+}
+
 /* Reset & Base */
 * {
     margin: 0;
@@ -68,6 +103,7 @@ body {
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--background);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 /* Typography */
@@ -75,6 +111,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
 }
 
 h1 { font-size: 2.5em; }
