@@ -352,10 +352,11 @@
             <button class="mobile-menu-toggle">☰</button>
             <div class="nav-links">
                 <a href="../">Home</a>
-                <a href="../E-Steps_Calculator_Interactive/index.html">E-Steps</a>
-                <a href="../SharePoint_Nozzle_Selection_Guide/index.html" class="active">Nozzle Guide</a>
-                <a href="../gear-calculator/index.html">Gear Calc</a>
-                <a href="../docs/index.html">Docs</a>
+                <a href="../E-Steps_Calculator_Interactive/">E-Steps</a>
+                <a href="../SharePoint_Nozzle_Selection_Guide/" class="active">Nozzle Guide</a>
+                <a href="../gear-calculator/">Gear Calc</a>
+                <a href="../flow-calibration/">Flow</a>
+                <a href="../docs/">Docs</a>
             </div>
             <div class="nav-actions">
                 <select class="theme-selector" title="Select Theme">
@@ -363,6 +364,34 @@
                     <option value="dark">🌙 Dark</option>
                     <option value="high-contrast">⚡ High Contrast</option>
                     <option value="high-contrast-dark">⚡🌙 High Contrast Dark</option>
+                    <optgroup label="🟠 Prusa Orange">
+                        <option value="prusa">☀️ Prusa Light</option>
+                        <option value="prusa-dark">🌙 Prusa Dark</option>
+                    </optgroup>
+                    <optgroup label="🟢 Bambu Lab">
+                        <option value="bambu">☀️ Bambu Light</option>
+                        <option value="bambu-dark">🌙 Bambu Dark</option>
+                    </optgroup>
+                    <optgroup label="🔵 Creality">
+                        <option value="creality">☀️ Creality Light</option>
+                        <option value="creality-dark">🌙 Creality Dark</option>
+                    </optgroup>
+                    <optgroup label="🔴 Voron">
+                        <option value="voron">☀️ Voron Light</option>
+                        <option value="voron-dark">🌙 Voron Dark</option>
+                    </optgroup>
+                    <optgroup label="⚙️ Ultimaker">
+                        <option value="ultimaker">☀️ Ultimaker Light</option>
+                        <option value="ultimaker-dark">🌙 Ultimaker Dark</option>
+                    </optgroup>
+                    <optgroup label="💎 Formlabs">
+                        <option value="formlabs">☀️ Formlabs Light</option>
+                        <option value="formlabs-dark">🌙 Formlabs Dark</option>
+                    </optgroup>
+                    <optgroup label="🟣 Anycubic">
+                        <option value="anycubic">☀️ Anycubic Light</option>
+                        <option value="anycubic-dark">🌙 Anycubic Dark</option>
+                    </optgroup>
                 </select>
                 <button class="theme-settings-btn" title="Theme Settings">⚙️</button>
             </div>
@@ -1267,6 +1296,12 @@ DEFAULT RECOMMENDATIONS:
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
+                <div style="margin-left: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="useHighContrast" style="width: auto;">
+                        <span style="color: var(--text-secondary); font-size: 0.95em;">⚡ Use High Contrast themes</span>
+                    </label>
+                </div>
             </div>
             <div class="theme-setting-group">
                 <h4>🕐 Time-Based Auto-Switching</h4>
@@ -1274,11 +1309,17 @@ DEFAULT RECOMMENDATIONS:
                 <div class="theme-toggle-switch">
                     <div class="theme-toggle-label">
                         <strong>Auto-Switch by Time</strong>
-                        <span>Light theme: 7 AM - 7 PM • Dark theme: 7 PM - 7 AM</span>
+                        <span>Light: 7 AM - 7 PM • Dark: 7 PM - 7 AM</span>
                     </div>
                     <label class="toggle-switch">
                         <input type="checkbox" id="timeBasedSwitching">
                         <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div style="margin-left: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="timeBasedHighContrast" style="width: auto;">
+                        <span style="color: var(--text-secondary); font-size: 0.95em;">⚡ Use High Contrast themes</span>
                     </label>
                 </div>
             </div>
