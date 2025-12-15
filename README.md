@@ -8,17 +8,17 @@ Visit: https://tsolo4ever.github.io/3d-Print-tools
 
 ## 📦 What's Included
 
-### ✅ Available Now (4 Tools)
+### ✅ Available Now (5 Tools)
 
 - **E-Steps Calculator** - Calibrate extruder steps per millimeter with interactive guidance
-- **Flow Rate Calibration** - Fine-tune flow percentage for perfect extrusion (NEW!)
+- **Flow Rate Calibration** - Fine-tune flow percentage for perfect extrusion
 - **Nozzle Selection Guide** - Choose the right nozzle size and material for your needs
 - **Gear Calculator** - Calculate gear ratios for custom extruder builds
+- **Temperature Tower Generator** - Generate temperature test towers with automatic G-code modification (NEW!)
 
 ### 🚧 Coming Soon
 
-- **Temperature Tower Generator** - Generate temperature test towers
-- **Retraction Tuning** - Eliminate stringing and blobs
+- **Retraction Tuning** - Eliminate stringing and blobs (In Progress - 10%)
 - **Pressure/Linear Advance** - Fine-tune corner quality
 - **PID Tuning Assistant** - Stable temperature control
 - **First Layer Calibration** - Perfect adhesion and Z-offset
@@ -55,8 +55,8 @@ Visit: https://tsolo4ever.github.io/3d-Print-tools
 ├── flow-calibration/                  # Flow rate calibration (complete)
 ├── SharePoint_Nozzle_Selection_Guide/ # Nozzle selection guide (complete)
 ├── gear-calculator/                   # Gear ratio calculator (complete)
-├── temperature-tower/                 # Temperature tower (planned)
-├── retraction-tuning/                 # Retraction tuning (planned)
+├── temperature-tower/                 # Temperature tower generator (complete)
+├── retraction-tuning/                 # Retraction tuning (in progress)
 ├── pressure-advance/                  # Pressure advance (planned)
 ├── pid-tuning/                        # PID tuning (planned)
 └── docs/                              # Documentation & guides
@@ -149,8 +149,8 @@ cd 3d-Print-tools
 - [x] Shared component library
 
 ### Phase 3: Expansion (In Progress)
-- [ ] Temperature Tower Generator
-- [ ] Retraction Tuning Tool
+- [x] Temperature Tower Generator
+- [ ] Retraction Tuning Tool (10% complete)
 - [ ] Pressure/Linear Advance Calculator
 - [ ] PID Tuning Assistant
 - [ ] First Layer Calibration
@@ -205,4 +205,4 @@ For best results, calibrate your printer in this order:
 
 **Made with 🔧 for the 3D printing community**
 
-*Last Updated: December 14, 2025*
+*Last Updated: December 15, 2025*

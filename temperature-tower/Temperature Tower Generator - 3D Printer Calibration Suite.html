@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/temperature-tower/index.html -->
+<html lang="en" data-theme="creality-dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Tower Generator - 3D Printer Calibration Suite</title>
+    
+    <!-- Global Theme System -->
+    <link rel="stylesheet" href="./Temperature Tower Generator - 3D Printer Calibration Suite_files/base.css">
+    <link rel="stylesheet" href="./Temperature Tower Generator - 3D Printer Calibration Suite_files/navigation.css">
+    
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .page-header {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+            border-top: 4px solid var(--temp-accent);
+        }
+        
+        .page-header h1 {
+            color: var(--temp-accent);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .page-header p {
+            font-size: 1.2em;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .calculator {
+            background: linear-gradient(135deg, var(--temp-accent) 0%, #ff6b6b 100%);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+            box-shadow: 0 8px 20px rgba(243, 129, 129, 0.3);
+        }
+        
+        .calculator h2 {
+            color: white;
+            border-left: 5px solid white;
+            padding-left: 15px;
+            margin-top: 0;
+        }
+        
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .calc-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(10px);
+        }
+        
+        .calc-section h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+        
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: white;
+            background: white;
+        }
+        
+        .calc-button {
+            background: white;
+            color: var(--temp-accent);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .calc-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .result-section {
+            grid-column: 1 / -1;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            margin-top: 10px;
+        }
+        
+        .gcode-box {
+            background: #263238;
+            color: #4fc3f7;
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            margin-top: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4fc3f7;
+            color: #263238;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .copy-button:hover {
+            background: #6fd6ff;
+        }
+        
+        .info-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            margin-top: 15px;
+        }
+        
+        .content-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+        }
+        
+        .preset-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            font-size: 1em;
+            font-weight: 600;
+            margin: 5px;
+        }
+        
+        .preset-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="suite-nav">
+        <div class="container">
+            <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/" class="logo">🔧 Calibration Suite</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <div class="nav-links">
+                <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/">Home</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">Tools ▾</button>
+                    <div class="nav-dropdown-menu" style="display: none;">
+                        <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/E-Steps_Calculator_Interactive/">🎯 E-Steps</a>
+                        <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/flow-calibration/">💧 Flow Rate</a>
+                        <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/SharePoint_Nozzle_Selection_Guide/">🔍 Nozzle Guide</a>
+                        <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/gear-calculator/">⚙️ Gear Calculator</a>
+                        <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/temperature-tower/" class="active">🌡️ Temp Tower</a>
+                        <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/retraction-tuning/">🔄 Retraction</a>
+                        <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/pressure-advance/">⚡ Pressure Advance</a>
+                        <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/pid-tuning/">🎛️ PID Tuning</a>
+                    </div>
+                </div>
+                <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/docs/">Docs</a>
+            </div>
+            <div class="nav-actions">
+                <select class="theme-selector" title="Select Theme">
+                    <option value="light">☀️ Light</option>
+                    <option value="dark">🌙 Dark</option>
+                    <option value="high-contrast">⚡ High Contrast</option>
+                    <option value="high-contrast-dark">⚡🌙 High Contrast Dark</option>
+                    <optgroup label="🟠 Prusa Orange">
+                        <option value="prusa">☀️ Prusa Light</option>
+                        <option value="prusa-dark">🌙 Prusa Dark</option>
+                    </optgroup>
+                    <optgroup label="🟢 Bambu Lab">
+                        <option value="bambu">☀️ Bambu Light</option>
+                        <option value="bambu-dark">🌙 Bambu Dark</option>
+                    </optgroup>
+                    <optgroup label="🔵 Creality">
+                        <option value="creality">☀️ Creality Light</option>
+                        <option value="creality-dark">🌙 Creality Dark</option>
+                    </optgroup>
+                    <optgroup label="🔴 Voron">
+                        <option value="voron">☀️ Voron Light</option>
+                        <option value="voron-dark">🌙 Voron Dark</option>
+                    </optgroup>
+                    <optgroup label="⚙️ Ultimaker">
+                        <option value="ultimaker">☀️ Ultimaker Light</option>
+                        <option value="ultimaker-dark">🌙 Ultimaker Dark</option>
+                    </optgroup>
+                    <optgroup label="💎 Formlabs">
+                        <option value="formlabs">☀️ Formlabs Light</option>
+                        <option value="formlabs-dark">🌙 Formlabs Dark</option>
+                    </optgroup>
+                    <optgroup label="🟣 Anycubic">
+                        <option value="anycubic">☀️ Anycubic Light</option>
+                        <option value="anycubic-dark">🌙 Anycubic Dark</option>
+                    </optgroup>
+                </select>
+                <button class="theme-settings-btn" title="Theme Settings">⚙️</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>🌡️ Temperature Tower Generator</h1>
+            <p>Find the perfect printing temperature for your filament</p>
+        </div>
+
+        <!-- Temperature Tower Calculator -->
+        <div class="calculator">
+            <h2>🖩 Tower Configuration</h2>
+            
+            <div class="calc-grid">
+                <!-- Material & Temperature Settings -->
+                <div class="calc-section">
+                    <h3>📥 Temperature Settings</h3>
+                    
+                    <div class="input-group">
+                        <label>Material Type</label>
+                        <select id="material" onchange="loadMaterialPreset()">
+                            <option value="custom">Custom</option>
+                            <option value="pla" selected="">PLA</option>
+                            <option value="petg">PETG</option>
+                            <option value="abs">ABS</option>
+                            <option value="tpu">TPU</option>
+                            <option value="nylon">Nylon</option>
+                            <option value="pc">Polycarbonate</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Start Temperature (°C)</label>
+                        <input type="number" id="startTemp" value="220" step="5">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>End Temperature (°C)</label>
+                        <input type="number" id="endTemp" value="180" step="5">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Temperature Step (°C)</label>
+                        <input type="number" id="tempStep" value="5" step="1">
+                    </div>
+                </div>
+                
+                <!-- Tower Settings -->
+                <div class="calc-section">
+                    <h3>⚡ Tower Dimensions</h3>
+                    
+                    <div class="input-group">
+                        <label>Layer Height (mm)</label>
+                        <input type="number" id="layerHeight" value="0.2" step="0.05">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Section Height (mm)</label>
+                        <input type="number" id="sectionHeight" value="10" step="5">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Tower Type</label>
+                        <select id="towerType">
+                            <option value="standard">Standard (Quality Test)</option>
+                            <option value="bridging">Bridging Test</option>
+                            <option value="retraction">Retraction Test</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Slicer</label>
+                        <select id="slicer">
+                            <option value="cura">Cura</option>
+                            <option value="prusaslicer">PrusaSlicer</option>
+                            <option value="superslicer">SuperSlicer</option>
+                            <option value="simplify3d">Simplify3D</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Generate Button -->
+                <div class="calc-section" style="grid-column: 1 / -1;">
+                    <button class="calc-button" onclick="generateTower()">🌡️ Generate Temperature Tower G-Code</button>
+                    
+                    <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                        <button class="preset-button" onclick="quickPreset(&#39;pla&#39;)">PLA (220-180°C)</button>
+                        <button class="preset-button" onclick="quickPreset(&#39;petg&#39;)">PETG (250-220°C)</button>
+                        <button class="preset-button" onclick="quickPreset(&#39;abs&#39;)">ABS (250-220°C)</button>
+                        <button class="preset-button" onclick="quickPreset(&#39;tpu&#39;)">TPU (230-210°C)</button>
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div class="result-section" id="resultsSection" style="display: none;">
+                    <h3>📊 Tower Summary</h3>
+                    <div id="towerSummary" style="font-size: 1.1em; margin: 15px 0;"></div>
+                    
+                    <h3 style="margin-top: 30px;">📋 G-Code Instructions</h3>
+                    <div class="gcode-box" id="gcodeBox">
+                        <button class="copy-button" onclick="copyGcode()">📋 Copy</button>
+                        <pre id="gcodeOutput" style="margin: 0; white-space: pre-wrap;"></pre>
+                    </div>
+                    
+                    <div class="info-box">
+                        <strong>📝 How to Use:</strong>
+                        <ol style="margin: 10px 0 0 20px; line-height: 1.8;">
+                            <li>Copy the G-code above</li>
+                            <li>In your slicer, insert it at "After Layer Change" or use the "Post-Processing" script</li>
+                            <li>Slice and print your temperature tower model</li>
+                            <li>Examine each section and note the best temperature</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- G-Code Upload & Modifier -->
+        <div class="calculator" style="background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);">
+            <h2>📤 Upload &amp; Modify G-Code (Recommended)</h2>
+            
+            <div class="calc-grid">
+                <div class="calc-section" style="grid-column: 1 / -1;">
+                    <h3>🎯 Easy 3-Step Process</h3>
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">
+                        1. Download our STL → 2. Slice it with YOUR settings → 3. Upload here for auto-modification
+                    </p>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: var(--radius-sm); margin-bottom: 20px;">
+                        <strong>📥 Step 1: Download Temperature Tower STL</strong>
+                        <p style="margin: 10px 0;">Use this standardized tower model for your test:</p>
+                        <a href="file:///C:/Users/Admin/OneDrive/Documents/GitHub/Code/temperature-tower/temp-tower-no-numbers.stl" download="" class="calc-button" style="display: inline-block; width: auto; padding: 12px 30px; text-decoration: none;">
+                            ⬇️ Download temp-tower-no-numbers.stl
+                        </a>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: var(--radius-sm); margin-bottom: 20px;">
+                        <strong>🖨️ Step 2: Slice with YOUR Settings</strong>
+                        <ol style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                            <li>Import the STL into your slicer (Cura, PrusaSlicer, etc.)</li>
+                            <li>Use YOUR normal print settings</li>
+                            <li>Slice and save the G-code file</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="calc-section">
+                    <h3>⚙️ Temperature Settings</h3>
+                    
+                    <div class="input-group">
+                        <label>Start Temperature (°C)</label>
+                        <input type="number" id="uploadStartTemp" value="245" step="5">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>End Temperature (°C)</label>
+                        <input type="number" id="uploadEndTemp" value="220" step="5">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Temperature Step (°C)</label>
+                        <input type="number" id="uploadTempStep" value="5" step="1">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Section Height (mm)</label>
+                        <input type="number" id="uploadSectionHeight" value="10" step="1">
+                    </div>
+                </div>
+                
+                <div class="calc-section">
+                    <h3>📤 Step 3: Upload Your G-Code</h3>
+                    
+                    <!-- Safety Disclaimer -->
+                    <div style="background: rgba(255, 193, 7, 0.2); border: 2px solid rgba(255, 193, 7, 0.6); border-radius: var(--radius-sm); padding: 15px; margin-bottom: 20px;">
+                        <strong>⚠️ Important Disclaimer:</strong>
+                        <p style="margin: 10px 0 0 0; font-size: 0.95em; line-height: 1.6;">
+                            This tool modifies your G-code automatically. While we perform validation checks, <strong>you are responsible for verifying the output before printing</strong>. We are not responsible for any damage to your printer or failed prints. Always review modified G-code and test at your own risk.
+                        </p>
+                    </div>
+                    
+                    <div id="gcodeDropZone" style="border: 3px dashed rgba(255,255,255,0.5); border-radius: var(--radius-md); padding: 40px; text-align: center; background: rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">📁</div>
+                        <div style="font-size: 1.2em; font-weight: 600;">Click or Drag G-code Here</div>
+                        <div style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">Accepts .gcode, .g files</div>
+                    </div>
+                    <input type="file" id="gcodeUpload" accept=".gcode,.g" style="display: none;" onchange="handleGcodeUpload(event)">
+                    
+                    <div id="uploadStatus" style="margin-top: 15px; padding: 15px; border-radius: var(--radius-sm); display: none;"></div>
+                </div>
+                
+                <div class="result-section" id="modifiedSection" style="display: none;">
+                    <h3>✅ Modified G-Code Ready!</h3>
+                    <div id="modifiedSummary" style="font-size: 1.1em; margin: 15px 0;"></div>
+                    
+                    <button class="calc-button" onclick="downloadModified()" style="background: #4caf50;">
+                        ⬇️ Download Modified G-Code
+                    </button>
+                    
+                    <div class="info-box" style="margin-top: 20px;">
+                        <strong>🎉 Ready to Print!</strong>
+                        <p style="margin: 10px 0 0 0;">
+                            The modified G-code has temperature changes automatically inserted at the right layers based on YOUR slice settings. 
+                            Just load it into your printer and start the print!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guide Content -->
+        <div class="content-card">
+            <h2>📚 How to Use Temperature Towers</h2>
+            
+            <h3>Method 1: Upload &amp; Modify (Recommended ⭐)</h3>
+            <p>The easiest way! Download our STL, slice with your settings, upload the G-code, and we'll modify it automatically.</p>
+            
+            <h3>Method 2: Manual G-Code Generation</h3>
+            <p>Use the calculator above to generate custom G-code commands for manual insertion into your slicer.</p>
+            
+            <h3>Step 2: Prepare Your Model</h3>
+            <p>You'll need a temperature tower STL model. Popular options:</p>
+            <ul>
+                <li><strong>Smart Compact Temperature Calibration Tower</strong> (recommended)</li>
+                <li><strong>Temperature Tower</strong> by gaaZolee</li>
+                <li>Any tower model with clearly marked sections</li>
+            </ul>
+            
+            <h3>Step 3: Slice with G-Code</h3>
+            <p><strong>For Cura:</strong></p>
+            <ol>
+                <li>Slice your temperature tower model</li>
+                <li>Go to Extensions → Post Processing → Modify G-Code</li>
+                <li>Add Script → "Change At Z"</li>
+                <li>Or manually insert the generated code at layer changes</li>
+            </ol>
+            
+            <p><strong>For PrusaSlicer/SuperSlicer:</strong></p>
+            <ol>
+                <li>Right-click on model → Add Settings → Change extruder temperature</li>
+                <li>Or add to "After layer change G-code" in printer settings</li>
+                <li>Use the generated code as a guide</li>
+            </ol>
+            
+            <h3>Step 4: Evaluate Results</h3>
+            <p>Look for these qualities at each temperature:</p>
+            <ul>
+                <li>✅ <strong>Layer adhesion</strong> - Layers should be well-bonded</li>
+                <li>✅ <strong>Surface finish</strong> - Smooth, no blobs or zits</li>
+                <li>✅ <strong>Bridging</strong> - Clean bridges without sagging</li>
+                <li>✅ <strong>Overhangs</strong> - Good overhang performance</li>
+                <li>✅ <strong>Stringing</strong> - Minimal stringing between sections</li>
+            </ul>
+            
+            <h3>Material Temperature Ranges</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <thead>
+                    <tr style="background: var(--temp-accent); color: white;">
+                        <th style="padding: 12px; text-align: left;">Material</th>
+                        <th style="padding: 12px; text-align: left;">Typical Range</th>
+                        <th style="padding: 12px; text-align: left;">Sweet Spot</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 12px;">PLA</td>
+                        <td style="padding: 12px;">180-220°C</td>
+                        <td style="padding: 12px;">200-210°C</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 12px;">PETG</td>
+                        <td style="padding: 12px;">220-260°C</td>
+                        <td style="padding: 12px;">235-245°C</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 12px;">ABS</td>
+                        <td style="padding: 12px;">220-260°C</td>
+                        <td style="padding: 12px;">240-250°C</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 12px;">TPU</td>
+                        <td style="padding: 12px;">210-240°C</td>
+                        <td style="padding: 12px;">220-230°C</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 12px;">Nylon</td>
+                        <td style="padding: 12px;">240-270°C</td>
+                        <td style="padding: 12px;">250-260°C</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px;">Polycarbonate</td>
+                        <td style="padding: 12px;">260-310°C</td>
+                        <td style="padding: 12px;">270-285°C</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="./Temperature Tower Generator - 3D Printer Calibration Suite_files/navigation.js"></script>
+    
+    <script>
+        // Material presets
+        const materialPresets = {
+            pla: { start: 220, end: 180, step: 5 },
+            petg: { start: 250, end: 220, step: 5 },
+            abs: { start: 250, end: 220, step: 5 },
+            tpu: { start: 230, end: 210, step: 5 },
+            nylon: { start: 270, end: 240, step: 5 },
+            pc: { start: 290, end: 260, step: 5 }
+        };
+        
+        function loadMaterialPreset() {
+            const material = document.getElementById('material').value;
+            if (material !== 'custom' && materialPresets[material]) {
+                const preset = materialPresets[material];
+                document.getElementById('startTemp').value = preset.start;
+                document.getElementById('endTemp').value = preset.end;
+                document.getElementById('tempStep').value = preset.step;
+            }
+        }
+        
+        function quickPreset(material) {
+            document.getElementById('material').value = material;
+            loadMaterialPreset();
+        }
+        
+        function generateTower() {
+            const startTemp = parseFloat(document.getElementById('startTemp').value);
+            const endTemp = parseFloat(document.getElementById('endTemp').value);
+            const tempStep = parseFloat(document.getElementById('tempStep').value);
+            const layerHeight = parseFloat(document.getElementById('layerHeight').value);
+            const sectionHeight = parseFloat(document.getElementById('sectionHeight').value);
+            const towerType = document.getElementById('towerType').value;
+            const slicer = document.getElementById('slicer').value;
+            
+            // Validation
+            if (startTemp <= endTemp) {
+                alert('Start temperature must be higher than end temperature!');
+                return;
+            }
+            
+            // Calculate sections
+            const sections = [];
+            for (let temp = startTemp; temp >= endTemp; temp -= tempStep) {
+                sections.push(temp);
+            }
+            
+            const layersPerSection = Math.round(sectionHeight / layerHeight);
+            
+            // Generate G-code
+            let gcode = '; Temperature Tower G-Code\n';
+            gcode += `; Start Temp: ${startTemp}°C, End Temp: ${endTemp}°C, Step: ${tempStep}°C\n`;
+            gcode += `; Layer Height: ${layerHeight}mm, Section Height: ${sectionHeight}mm\n`;
+            gcode += `; Layers per section: ${layersPerSection}\n`;
+            gcode += `; Tower Type: ${towerType}\n\n`;
+            
+            if (slicer === 'cura') {
+                gcode += '; For Cura: Use "Post Processing" → "ChangeAtZ"\n';
+            } else if (slicer === 'prusaslicer' || slicer === 'superslicer') {
+                gcode += '; For PrusaSlicer/SuperSlicer: Add to "After layer change G-code"\n';
+            }
+            
+            gcode += '\n; Temperature changes at each section:\n';
+            
+            let currentLayer = 0;
+            sections.forEach((temp, index) => {
+                const layerNum = currentLayer;
+                const zHeight = (layerNum * layerHeight).toFixed(2);
+                gcode += `\n; Section ${index + 1}: ${temp}°C (Layer ${layerNum}, Z=${zHeight}mm)\n`;
+                gcode += `;LAYER:${layerNum}\n`;
+                gcode += `M104 S${temp} ; Set hotend temperature to ${temp}°C\n`;
+                
+                currentLayer += layersPerSection;
+            });
+            
+            gcode += '\n; End of temperature tower script\n';
+            gcode += '; Apply this in your slicer at layer changes\n';
+            
+            // Display results
+            document.getElementById('gcodeOutput').textContent = gcode;
+            
+            const summary = `
+                <strong>Tower Configuration:</strong><br>
+                • Temperature Range: ${startTemp}°C → ${endTemp}°C<br>
+                • Number of Sections: ${sections.length}<br>
+                • Total Height: ~${(sections.length * sectionHeight).toFixed(1)}mm<br>
+                • Layers per Section: ${layersPerSection}<br>
+                • Total Layers: ~${sections.length * layersPerSection}
+            `;
+            
+            document.getElementById('towerSummary').innerHTML = summary;
+            document.getElementById('resultsSection').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        function copyGcode() {
+            const gcode = document.getElementById('gcodeOutput').textContent;
+            navigator.clipboard.writeText(gcode).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => { btn.textContent = originalText; }, 2000);
+            });
+        }
+        
+        // Global variable to store modified G-code
+        let modifiedGcodeContent = '';
+        let originalFilename = '';
+        
+        // Auto-detect filament type from G-code
+        function detectFilamentAndSetDefaults(gcodeContent) {
+            // Extract nozzle temp from G-code
+            const tempMatch = gcodeContent.match(/M109 S(\d+)/);
+            const nozzleTemp = tempMatch ? parseInt(tempMatch[1]) : null;
+            
+            if (!nozzleTemp) return null;
+            
+            // Detect filament type and set temp tower ranges
+            let filamentType, startTemp, endTemp, step;
+            
+            if (nozzleTemp >= 235 && nozzleTemp <= 255) {
+                // PETG range
+                filamentType = "PETG";
+                startTemp = 250;
+                endTemp = 230;
+                step = 5;
+            } else if (nozzleTemp >= 190 && nozzleTemp <= 220) {
+                // PLA range
+                filamentType = "PLA";
+                startTemp = 220;
+                endTemp = 190;
+                step = 5;
+            } else if (nozzleTemp >= 240 && nozzleTemp <= 270) {
+                // ABS range
+                filamentType = "ABS";
+                startTemp = 260;
+                endTemp = 230;
+                step = 5;
+            } else {
+                // Unknown - use detected temp +/- 15°C
+                filamentType = "Unknown";
+                startTemp = nozzleTemp + 10;
+                endTemp = nozzleTemp - 15;
+                step = 5;
+            }
+            
+            return { filamentType, startTemp, endTemp, step, nozzleTemp };
+        }
+        
+        // Handle file upload via input or drag-and-drop
+        function handleGcodeUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                processGcodeFile(file);
+            }
+        }
+        
+        // Process the uploaded G-code file
+        function processGcodeFile(file) {
+            originalFilename = file.name;
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const gcodeContent = e.target.result;
+                
+                // Try to auto-detect filament type and set defaults
+                const detected = detectFilamentAndSetDefaults(gcodeContent);
+                
+                if (detected) {
+                    // Auto-fill temperature fields
+                    document.getElementById('uploadStartTemp').value = detected.startTemp;
+                    document.getElementById('uploadEndTemp').value = detected.endTemp;
+                    document.getElementById('uploadTempStep').value = detected.step;
+                    
+                    // Show success message with detection info
+                    const detectionMsg = '📊 Detected: ' + detected.filamentType + ' (' + detected.nozzleTemp + '&deg;C) ✓<br>Auto-filled temperature range for optimal testing';
+                    showUploadStatus(detectionMsg, 'success');
+                    
+                    // Wait a moment then process
+                    setTimeout(() => {
+                        modifyGcode(gcodeContent);
+                    }, 1500);
+                } else {
+                    // Detection failed - show manual mode message
+                    showUploadStatus('⚠️ Could not auto-detect filament type from G-code.<br><strong>Manual Mode:</strong> Please set temperature values manually below, then re-upload.', 'warning');
+                    return; // Don't process yet - wait for manual input
+                }
+            };
+            
+            reader.onerror = function() {
+                showUploadStatus('Error reading file. Please try again.', 'error');
+            };
+            
+            reader.readAsText(file);
+            showUploadStatus('🔍 Analyzing G-code...', 'info');
+        }
+        
+        // Modify G-code with temperature changes
+        function modifyGcode(gcodeContent) {
+            const startTemp = parseFloat(document.getElementById('uploadStartTemp').value);
+            const endTemp = parseFloat(document.getElementById('uploadEndTemp').value);
+            const tempStep = parseFloat(document.getElementById('uploadTempStep').value);
+            const sectionHeight = parseFloat(document.getElementById('uploadSectionHeight').value);
+            
+            // ===== SANITY CHECKS =====
+            
+            // 1. Temperature validation
+            if (startTemp <= endTemp) {
+                showUploadStatus('ERROR: Start temperature must be higher than end temperature!', 'error');
+                return;
+            }
+            
+            if (startTemp < 150 || startTemp > 350) {
+                showUploadStatus('ERROR: Start temperature out of safe range (150-350C)!', 'error');
+                return;
+            }
+            
+            if (endTemp < 150 || endTemp > 350) {
+                showUploadStatus('ERROR: End temperature out of safe range (150-350C)!', 'error');
+                return;
+            }
+            
+            if (tempStep < 1 || tempStep > 50) {
+                showUploadStatus('ERROR: Temperature step must be between 1-50C!', 'error');
+                return;
+            }
+            
+            // 2. Section height validation
+            if (sectionHeight < 5 || sectionHeight > 50) {
+                showUploadStatus('ERROR: Section height must be between 5-50mm!', 'error');
+                return;
+            }
+            
+            // 3. Check for support structures
+            const supportKeywords = [
+                ';TYPE:SUPPORT',
+                '; support',
+                ';SUPPORT',
+                'support interface',
+                'support material',
+                ';TYPE:Support'
+            ];
+            
+            const hasSupports = supportKeywords.some(keyword => 
+                gcodeContent.toLowerCase().includes(keyword.toLowerCase())
+            );
+            
+            if (hasSupports) {
+                if (!confirm('WARNING: This G-code appears to contain SUPPORT STRUCTURES!\n\n' +
+                             'Temperature towers should NOT have supports as they interfere with testing.\n\n' +
+                             'It is STRONGLY RECOMMENDED to re-slice without supports.\n\n' +
+                             'Continue anyway? (Not recommended)')) {
+                    showUploadStatus('Cancelled: G-code contains support structures. Please re-slice without supports.', 'error');
+                    return;
+                }
+            }
+            
+            // 4. Analyze model dimensions
+            const lines = gcodeContent.split('\n');
+            let maxZ = 0;
+            let minX = Infinity, maxX = -Infinity;
+            let minY = Infinity, maxY = -Infinity;
+            
+            for (let line of lines) {
+                const trimmed = line.trim();
+                
+                if (trimmed.startsWith('G0') || trimmed.startsWith('G1')) {
+                    const zMatch = trimmed.match(/Z([\d.]+)/);
+                    if (zMatch) maxZ = Math.max(maxZ, parseFloat(zMatch[1]));
+                    
+                    const xMatch = trimmed.match(/X([\d.]+)/);
+                    const yMatch = trimmed.match(/Y([\d.]+)/);
+                    if (xMatch) {
+                        const x = parseFloat(xMatch[1]);
+                        minX = Math.min(minX, x);
+                        maxX = Math.max(maxX, x);
+                    }
+                    if (yMatch) {
+                        const y = parseFloat(yMatch[1]);
+                        minY = Math.min(minY, y);
+                        maxY = Math.max(maxY, y);
+                    }
+                }
+            }
+            
+            const modelWidth = maxX - minX;
+            const modelDepth = maxY - minY;
+            const modelHeight = maxZ;
+            
+            // Check if model is suitable
+            if (modelHeight < 40) {
+                if (!confirm(`WARNING: Model height is only ${modelHeight.toFixed(1)}mm!\n\n` +
+                             'Temperature towers are typically 50mm+ tall.\n\n' +
+                             'This may not be a temperature tower model.\n\n' +
+                             'Continue anyway?')) {
+                    showUploadStatus('Cancelled: Model too short for temperature tower.', 'error');
+                    return;
+                }
+            }
+            
+            if (modelHeight > 200) {
+                if (!confirm(`WARNING: Model height is ${modelHeight.toFixed(1)}mm - unusually tall!\n\n` +
+                             'Continue anyway?')) {
+                    showUploadStatus('Cancelled: Model too tall.', 'error');
+                    return;
+                }
+            }
+            
+            // 5. Check if using our provided STL (approximate: 25x25x50mm)
+            const isOurSTL = (
+                modelWidth >= 20 && modelWidth <= 30 &&
+                modelDepth >= 20 && modelDepth <= 30 &&
+                modelHeight >= 45 && modelHeight <= 55
+            );
+            
+            if (isOurSTL) {
+                showUploadStatus('SUCCESS: Detected our recommended temperature tower STL! Processing...', 'success');
+            } else {
+                showUploadStatus(`INFO: Model ${modelWidth.toFixed(1)} x ${modelDepth.toFixed(1)} x ${modelHeight.toFixed(1)}mm - Processing...', 'info');
+            }
+            
+            // Calculate temperature sections
+            const temperatures = [];
+            for (let temp = startTemp; temp >= endTemp; temp -= tempStep) {
+                temperatures.push(temp);
+            }
+            
+            // Check if we have reasonable number of sections
+            if (temperatures.length < 2) {
+                showUploadStatus('ERROR: Need at least 2 temperature sections!', 'error');
+                return;
+            }
+            
+            if (temperatures.length > 20) {
+                if (!confirm(`WARNING: This will create ${temperatures.length} temperature sections!\n\n` +
+                             'This is a lot of sections. Consider using a larger temperature step.\n\n' +
+                             'Continue anyway?')) {
+                    showUploadStatus('Cancelled: Too many temperature sections.', 'error');
+                    return;
+                }
+            }
+            
+            // Parse G-code to find layer changes
+            const modifiedLines = [];
+            let currentZ = 0;
+            let lastZ = 0;
+            let layerCount = 0;
+            let tempIndex = 0;
+            let insertedTemps = 0;
+            
+            // Add header comment
+            modifiedLines.push('; Modified by Temperature Tower Generator');
+            modifiedLines.push(`; Temperature range: ${startTemp}°C to ${endTemp}°C, step ${tempStep}°C`);
+            modifiedLines.push(`; Section height: ${sectionHeight}mm`);
+            modifiedLines.push('');
+            
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                
+                // Detect Z height changes (layer changes)
+                if (line.startsWith('G0') || line.startsWith('G1')) {
+                    const zMatch = line.match(/Z([\d.]+)/);
+                    if (zMatch) {
+                        currentZ = parseFloat(zMatch[1]);
+                        
+                        // Check if we've moved to a new section
+                        const currentSection = Math.floor(currentZ / sectionHeight);
+                        const lastSection = Math.floor(lastZ / sectionHeight);
+                        
+                        if (currentSection > lastSection && tempIndex < temperatures.length) {
+                            // Insert temperature change before this line
+                            modifiedLines.push(`; Section ${tempIndex + 1} - Temperature: ${temperatures[tempIndex]}°C (Z=${currentZ.toFixed(2)}mm)`);
+                            modifiedLines.push(`M104 S${temperatures[tempIndex]}`);
+                            insertedTemps++;
+                            tempIndex++;
+                        }
+                        
+                        lastZ = currentZ;
+                    }
+                }
+                
+                modifiedLines.push(lines[i]); // Keep original line
+            }
+            
+            modifiedGcodeContent = modifiedLines.join('\n');
+            
+            // Validation: Check if we inserted temperatures
+            if (insertedTemps === 0) {
+                showUploadStatus('ERROR: Could not detect layer changes! Make sure this is a valid sliced G-code file.', 'error');
+                return;
+            }
+            
+            if (insertedTemps < temperatures.length / 2) {
+                if (!confirm(`WARNING: Only inserted ${insertedTemps} temperature changes out of ${temperatures.length} planned!\n\n` +
+                             'This may indicate:\n' +
+                             '- Section height is too large for this model\n' +
+                             '- Model is too short\n' +
+                             '- G-code format is unusual\n\n' +
+                             'Continue with download?')) {
+                    showUploadStatus('Cancelled: Incomplete temperature insertion.', 'error');
+                    return;
+                }
+            }
+            
+            // Show success
+            showUploadStatus(`SUCCESS: Inserted ${insertedTemps} temperature changes!`, 'success');
+            
+            const summary = `
+                <strong>Modification Complete:</strong><br>
+                • Original file: ${originalFilename}<br>
+                • Temperature sections: ${temperatures.length}<br>
+                • Temperature changes inserted: ${insertedTemps}<br>
+                • Temperature range: ${startTemp}°C → ${endTemp}°C<br>
+                • Section height: ${sectionHeight}mm
+            `;
+            
+            document.getElementById('modifiedSummary').innerHTML = summary;
+            document.getElementById('modifiedSection').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('modifiedSection').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Download modified G-code
+        function downloadModified() {
+            if (!modifiedGcodeContent) {
+                alert('No modified G-code available!');
+                return;
+            }
+            
+            const blob = new Blob([modifiedGcodeContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = originalFilename.replace(/\.(gcode|g)$/i, '_temp_tower.$1') || 'modified_temp_tower.gcode';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        // Show upload status message
+        function showUploadStatus(message, type) {
+            const statusDiv = document.getElementById('uploadStatus');
+            statusDiv.style.display = 'block';
+            statusDiv.innerHTML = message; // Changed to innerHTML to support HTML formatting
+            
+            // Style based on type
+            if (type === 'error') {
+                statusDiv.style.background = 'rgba(244, 67, 54, 0.2)';
+                statusDiv.style.borderLeft = '4px solid #f44336';
+                statusDiv.style.color = 'white';
+            } else if (type === 'success') {
+                statusDiv.style.background = 'rgba(76, 175, 80, 0.2)';
+                statusDiv.style.borderLeft = '4px solid #4caf50';
+                statusDiv.style.color = 'white';
+            } else if (type === 'warning') {
+                statusDiv.style.background = 'rgba(255, 193, 7, 0.2)';
+                statusDiv.style.borderLeft = '4px solid #ffc107';
+                statusDiv.style.color = 'white';
+            } else {
+                statusDiv.style.background = 'rgba(33, 150, 243, 0.2)';
+                statusDiv.style.borderLeft = '4px solid #2196f3';
+                statusDiv.style.color = 'white';
+            }
+        }
+        
+        // Set up drag-and-drop functionality - FIXED for stability
+        (function initDragDrop() {
+            const dropZone = document.getElementById('gcodeDropZone');
+            const fileInput = document.getElementById('gcodeUpload');
+            
+            // Safety check
+            if (!dropZone) return;
+            
+            // Define helper functions with proper error handling
+            function preventDefaults(e) {
+                if (e && e.preventDefault) e.preventDefault();
+                if (e && e.stopPropagation) e.stopPropagation();
+            }
+            
+            function highlight() {
+                if (dropZone) {
+                    dropZone.style.background = 'rgba(255,255,255,0.25)';
+                    dropZone.style.borderColor = 'white';
+                }
+            }
+            
+            function unhighlight() {
+                if (dropZone) {
+                    dropZone.style.background = 'rgba(255,255,255,0.1)';
+                    dropZone.style.borderColor = 'rgba(255,255,255,0.5)';
+                }
+            }
+            
+            function handleDrop(e) {
+                preventDefaults(e);
+                
+                // Validate dataTransfer exists
+                if (!e || !e.dataTransfer || !e.dataTransfer.files) {
+                    showUploadStatus('Error: Could not access dropped files', 'error');
+                    return;
+                }
+                
+                const files = e.dataTransfer.files;
+                
+                if (files.length > 0) {
+                    const file = files[0];
+                    
+                    // Check file extension
+                    if (file.name && file.name.match(/\.(gcode|g)$/i)) {
+                        processGcodeFile(file);
+                    } else {
+                        showUploadStatus('Please upload a .gcode or .g file', 'error');
+                    }
+                }
+            }
+            
+            // Add click handler to open file dialog
+            dropZone.addEventListener('click', function() {
+                if (fileInput) fileInput.click();
+            });
+            
+            // Prevent default drag behaviors on drop zone
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(function(eventName) {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            // Prevent default on document for file drops only
+            ['dragover', 'drop'].forEach(function(eventName) {
+                document.body.addEventListener(eventName, function(e) {
+                    if (e.dataTransfer && e.dataTransfer.types) {
+                        // Check if Files type exists (DOMStringList doesn't have includes)
+                        for (var i = 0; i < e.dataTransfer.types.length; i++) {
+                            if (e.dataTransfer.types[i] === 'Files') {
+                                e.preventDefault();
+                                break;
+                            }
+                        }
+                    }
+                }, false);
+            });
+            
+            // Highlight drop zone when dragging over it
+            ['dragenter', 'dragover'].forEach(function(eventName) {
+                dropZone.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(function(eventName) {
+                dropZone.addEventListener(eventName, unhighlight, false);
+            });
+            
+            // Handle dropped files
+            dropZone.addEventListener('drop', handleDrop, false);
+        })();
+    </script>
+
+
+</body></html>

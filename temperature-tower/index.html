@@ -3,82 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperature Tower Generator - Coming Soon</title>
+    
+    <title>Temperature Tower Generator - 3D Printer Calibration Suite</title>
+    
+    <meta name="description" content="Generate temperature towers for optimal 3D printing temperature calibration">
+    
+    <!-- Shared Framework Styles -->
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/navigation.css">
+    
     <style>
-        .construction {
-            text-align: center;
-            padding: 100px 20px;
-        }
-        
-        .construction-icon {
-            font-size: 8em;
-            margin-bottom: 30px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-        
-        .construction h1 {
-            color: var(--temp-accent);
-            margin-bottom: 20px;
-        }
-        
-        .progress-bar {
-            max-width: 600px;
-            margin: 40px auto;
-            background: var(--border);
-            height: 30px;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            background: linear-gradient(90deg, var(--temp-accent), var(--error));
-            height: 100%;
-            width: 5%;
-            transition: width 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .features-preview {
-            max-width: 800px;
-            margin: 40px auto;
-            text-align: left;
-        }
-        
-        .features-preview h3 {
-            color: var(--temp-accent);
-        }
-        
-        .feature-list {
-            list-style: none;
+        body {
             padding: 0;
+            margin: 0;
         }
-        
-        .feature-list li {
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-        
-        .feature-list li:before {
-            content: "🌡️";
-            position: absolute;
-            left: 0;
+
+        .page-header {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+            border-top: 4px solid var(--temp-accent);
+        }
+
+        .page-header h1 {
+            color: var(--temp-accent);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+        }
+
+        .page-header p {
+            font-size: 1.2em;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .calculator-section {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .calculator-section h2 {
+            color: var(--primary);
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        /* Enhanced calculator with gradient */
+        .calculator-enhanced {
+            background: linear-gradient(135deg, var(--temp-accent) 0%, #ff6b6b 100%);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+            box-shadow: 0 8px 20px rgba(243, 129, 129, 0.3);
+        }
+
+        .calculator-enhanced h2 {
+            color: white;
+            border-left: 5px solid white;
+            padding-left: 15px;
+            margin-top: 0;
+            border-bottom: none;
+        }
+
+        .preset-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: 0.95em;
+            font-weight: 600;
+            margin: 5px;
+        }
+
+        .preset-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--background);
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-sm);
+            background: var(--primary);
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .result-box {
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .gcode-box {
+            background: #263238;
+            color: #4fc3f7;
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            font-family: 'Courier New', monospace;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 15px;
+        }
+
+        .upload-zone {
+            border: 3px dashed var(--border);
+            border-radius: var(--radius-md);
+            padding: 40px;
+            text-align: center;
+            background: var(--card-bg);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .info-box {
+            background: var(--info-light);
+            border-left: 4px solid var(--info);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: var(--radius-sm);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="suite-nav">
         <div class="container">
             <a href="../" class="logo">🔧 Calibration Suite</a>
@@ -140,37 +260,475 @@
         </div>
     </nav>
 
-    <div class="container construction">
-        <div class="construction-icon">🌡️</div>
-        <h1>Temperature Tower Generator</h1>
-        <h2 style="color: var(--text-secondary);">Coming Soon!</h2>
-        <p style="font-size: 1.2em; color: var(--text-secondary); max-width: 600px; margin: 20px auto;">
-            Generate custom temperature towers to find the perfect printing temperature for your filament.
-        </p>
-        
-        <div class="progress-bar">
-            <div class="progress-fill">5%</div>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>🌡️ Temperature Tower Generator</h1>
+            <p>Find the perfect printing temperature for your filament</p>
         </div>
-        
-        <div class="features-preview card">
-            <h3>Planned Features:</h3>
-            <ul class="feature-list">
-                <li>Custom temperature range generator</li>
-                <li>G-code generation for all slicers</li>
-                <li>Multiple tower designs (standard, detailed, bridging)</li>
-                <li>Automatic temperature stepping</li>
-                <li>Print evaluation guide</li>
-                <li>Material-specific recommendations</li>
-                <li>Result comparison tool</li>
-                <li>Export settings directly to slicer</li>
+
+        <!-- G-Code Generator Section -->
+        <div class="calculator-section">
+            <h2>📐 Manual G-Code Generator</h2>
+            
+            <!-- Quick Preset Buttons -->
+            <div style="margin-bottom: 25px; padding: 20px; background: var(--primary-light); border-radius: var(--radius-md); border: 2px solid var(--primary);">
+                <strong style="display: block; margin-bottom: 12px; color: var(--text-primary);">⚡ Quick Presets - Click to Auto-Fill:</strong>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <button class="preset-button" onclick="applyQuickPreset('pla', this)" style="background: var(--primary); color: white; border: none;">
+                        PLA (220-190°C)
+                    </button>
+                    <button class="preset-button" onclick="applyQuickPreset('petg', this)" style="background: var(--primary); color: white; border: none;">
+                        PETG (250-220°C)
+                    </button>
+                    <button class="preset-button" onclick="applyQuickPreset('abs', this)" style="background: var(--primary); color: white; border: none;">
+                        ABS (250-220°C)
+                    </button>
+                    <button class="preset-button" onclick="applyQuickPreset('tpu', this)" style="background: var(--primary); color: white; border: none;">
+                        TPU (230-210°C)
+                    </button>
+                    <button class="preset-button" onclick="applyQuickPreset('nylon', this)" style="background: var(--primary); color: white; border: none;">
+                        Nylon (270-240°C)
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="material">Material Type</label>
+                    <select id="material" onchange="loadMaterialPreset()">
+                        <option value="custom">Custom</option>
+                        <option value="pla" selected>PLA</option>
+                        <option value="petg">PETG</option>
+                        <option value="abs">ABS</option>
+                        <option value="tpu">TPU</option>
+                        <option value="nylon">Nylon</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="startTemp">Start Temperature (°C)</label>
+                    <input type="number" id="startTemp" value="220" step="5">
+                </div>
+                <div class="form-group">
+                    <label for="endTemp">End Temperature (°C)</label>
+                    <input type="number" id="endTemp" value="190" step="5">
+                </div>
+                <div class="form-group">
+                    <label for="tempStep">Temperature Step (°C)</label>
+                    <input type="number" id="tempStep" value="5" step="1">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="layerHeight">Layer Height (mm)</label>
+                    <input type="number" id="layerHeight" value="0.2" step="0.05">
+                </div>
+                <div class="form-group">
+                    <label for="sectionHeight">Section Height (mm)</label>
+                    <input type="number" id="sectionHeight" value="10" step="1">
+                </div>
+            </div>
+
+            <button class="btn" onclick="generateGcode()">🌡️ Generate G-Code</button>
+
+            <div id="gcodeResults" style="display: none;">
+                <div class="result-box">
+                    <h3>📋 Generated G-Code</h3>
+                    <div id="towerSummary"></div>
+                    <div class="gcode-box">
+                        <pre id="gcodeOutput"></pre>
+                    </div>
+                    <button class="btn" onclick="copyGcode()" style="margin-top: 15px;">📋 Copy G-Code</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- G-Code Upload & Modifier Section -->
+        <div class="calculator-section">
+            <h2>📤 Upload & Modify G-Code (Recommended)</h2>
+            
+            <div class="info-box">
+                <strong>🎯 Easy 3-Step Process:</strong>
+                <ol style="margin: 10px 0 0 20px;">
+                    <li>Download our STL</li>
+                    <li>Slice it with YOUR settings</li>
+                    <li>Upload here for auto-modification</li>
+                </ol>
+            </div>
+
+            <div style="background: var(--card-bg); padding: 20px; border-radius: var(--radius-sm); margin-bottom: 20px; border: 2px solid var(--primary);">
+                <strong>📥 Step 1: Download Temperature Tower STL</strong>
+                <p style="margin: 10px 0;">Use this standardized tower model for your test:</p>
+                <a href="temp-tower-no-numbers.stl" download style="display: inline-block; padding: 12px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: var(--radius-sm); font-weight: 500;">
+                    ⬇️ Download temp-tower-no-numbers.stl
+                </a>
+            </div>
+
+            <div style="background: rgba(255, 193, 7, 0.2); border: 2px solid rgba(255, 193, 7, 0.6); border-radius: var(--radius-sm); padding: 15px; margin-bottom: 20px;">
+                <strong>⚠️ Important Disclaimer:</strong>
+                <p style="margin: 10px 0 0 0; line-height: 1.6;">
+                    This tool modifies your G-code automatically. While we perform validation checks, <strong>you are responsible for verifying the output before printing</strong>. We are not responsible for any damage to your printer or failed prints. Always review modified G-code and test at your own risk.
+                </p>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="uploadStartTemp">Start Temperature (°C)</label>
+                    <input type="number" id="uploadStartTemp" value="245" step="5">
+                </div>
+                <div class="form-group">
+                    <label for="uploadEndTemp">End Temperature (°C)</label>
+                    <input type="number" id="uploadEndTemp" value="220" step="5">
+                </div>
+                <div class="form-group">
+                    <label for="uploadTempStep">Temperature Step (°C)</label>
+                    <input type="number" id="uploadTempStep" value="5" step="1">
+                </div>
+                <div class="form-group">
+                    <label for="uploadSectionHeight">Section Height (mm)</label>
+                    <input type="number" id="uploadSectionHeight" value="10" step="1">
+                </div>
+            </div>
+
+            <div id="gcodeDropZone" class="upload-zone">
+                <div style="font-size: 3em; margin-bottom: 10px;">🌡️</div>
+                <div style="font-size: 1.2em; font-weight: 600;">Click or Drag G-code Here</div>
+                <div style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">Accepts .gcode, .g files</div>
+            </div>
+            <input type="file" id="gcodeUpload" accept=".gcode,.g" style="display: none;">
+            
+            <div id="uploadStatus" style="display: none; margin-top: 15px; padding: 15px; border-radius: var(--radius-sm);"></div>
+
+            <div id="modifiedResults" style="display: none;">
+                <div class="result-box" style="margin-top: 20px;">
+                    <h3>✅ Modified G-Code Ready!</h3>
+                    <div id="modifiedSummary"></div>
+                    
+                    <button class="btn" onclick="downloadModified()" style="margin-top: 15px;">⬇️ Download Modified G-Code</button>
+                    
+                    <div style="background: var(--success-light); border-left: 4px solid var(--success); padding: 15px; margin-top: 20px; border-radius: var(--radius-sm);">
+                        <strong>📋 Next Steps - How to Print:</strong>
+                        <ol style="margin: 10px 0 0 20px; line-height: 1.8;">
+                            <li><strong>Download</strong> the modified G-code file using the button above</li>
+                            <li><strong>Transfer</strong> the file to your 3D printer (SD card, USB, or network)</li>
+                            <li><strong>Start the print</strong> - temperatures will change automatically at each section</li>
+                            <li><strong>Evaluate</strong> each section for:
+                                <ul style="margin: 5px 0 0 20px;">
+                                    <li>Best surface finish</li>
+                                    <li>Strongest layer adhesion</li>
+                                    <li>Minimal stringing</li>
+                                    <li>Clean bridges and overhangs</li>
+                                </ul>
+                            </li>
+                            <li><strong>Use</strong> the best temperature for future prints with this filament!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guide Section -->
+        <div class="calculator-section">
+            <h2>📚 How to Use Temperature Towers</h2>
+            
+            <h3>Method 1: Upload & Modify (Recommended)</h3>
+            <p>The easiest way! Download our STL, slice with your settings, upload the G-code, and we'll modify it automatically.</p>
+            
+            <h3>Step 1: Evaluate Results</h3>
+            <p>Look for these qualities at each temperature:</p>
+            <ul>
+                <li>✅ Layer adhesion - Layers should be well-bonded</li>
+                <li>✅ Surface finish - Smooth, no blobs or zits</li>
+                <li>✅ Bridging - Clean bridges without sagging</li>
+                <li>✅ Overhangs - Good overhang performance</li>
+                <li>✅ Stringing - Minimal stringing between sections</li>
             </ul>
-        </div>
-        
-        <div style="margin-top: 40px;">
-            <a href="../" class="btn btn-primary">← Back to Home</a>
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="../assets/js/navigation.js"></script>
+    
+    <script>
+        // Material presets
+        const materialPresets = {
+            pla: { start: 220, end: 190, step: 5 },
+            petg: { start: 250, end: 220, step: 5 },
+            abs: { start: 250, end: 220, step: 5 },
+            tpu: { start: 230, end: 210, step: 5 },
+            nylon: { start: 270, end: 240, step: 5 }
+        };
+        
+        function loadMaterialPreset() {
+            const material = document.getElementById('material').value;
+            if (material !== 'custom' && materialPresets[material]) {
+                const preset = materialPresets[material];
+                document.getElementById('startTemp').value = preset.start;
+                document.getElementById('endTemp').value = preset.end;
+                document.getElementById('tempStep').value = preset.step;
+            }
+        }
+        
+        // Quick preset function for one-click setup
+        function applyQuickPreset(material, clickedButton) {
+            if (materialPresets[material]) {
+                const preset = materialPresets[material];
+                document.getElementById('material').value = material;
+                document.getElementById('startTemp').value = preset.start;
+                document.getElementById('endTemp').value = preset.end;
+                document.getElementById('tempStep').value = preset.step;
+                
+                // Visual feedback - button press animation
+                if (clickedButton) {
+                    clickedButton.style.transform = 'scale(0.95)';
+                    setTimeout(function() {
+                        clickedButton.style.transform = 'scale(1)';
+                    }, 150);
+                }
+            }
+        }
+        
+        function generateGcode() {
+            const startTemp = parseFloat(document.getElementById('startTemp').value);
+            const endTemp = parseFloat(document.getElementById('endTemp').value);
+            const tempStep = parseFloat(document.getElementById('tempStep').value);
+            const layerHeight = parseFloat(document.getElementById('layerHeight').value);
+            const sectionHeight = parseFloat(document.getElementById('sectionHeight').value);
+            
+            if (startTemp <= endTemp) {
+                alert('Start temperature must be higher than end temperature!');
+                return;
+            }
+            
+            const sections = [];
+            for (let temp = startTemp; temp >= endTemp; temp -= tempStep) {
+                sections.push(temp);
+            }
+            
+            const layersPerSection = Math.round(sectionHeight / layerHeight);
+            
+            let gcode = '; Temperature Tower G-Code\n';
+            gcode += '; Start Temp: ' + startTemp + '°C, End Temp: ' + endTemp + '°C\n';
+            gcode += '; Layer Height: ' + layerHeight + 'mm, Section Height: ' + sectionHeight + 'mm\n\n';
+            
+            let currentLayer = 0;
+            sections.forEach(function(temp, index) {
+                const zHeight = (currentLayer * layerHeight).toFixed(2);
+                gcode += '; Section ' + (index + 1) + ': ' + temp + '°C (Layer ' + currentLayer + ', Z=' + zHeight + 'mm)\n';
+                gcode += 'M104 S' + temp + '\n';
+                currentLayer += layersPerSection;
+            });
+            
+            document.getElementById('gcodeOutput').textContent = gcode;
+            document.getElementById('towerSummary').innerHTML = '<strong>Sections:</strong> ' + sections.length + ' | <strong>Total Height:</strong> ~' + (sections.length * sectionHeight).toFixed(1) + 'mm';
+            document.getElementById('gcodeResults').style.display = 'block';
+        }
+        
+        function copyGcode() {
+            const gcode = document.getElementById('gcodeOutput').textContent;
+            navigator.clipboard.writeText(gcode).then(function() {
+                alert('G-code copied to clipboard!');
+            });
+        }
+        
+        // Global variables for file upload
+        let modifiedGcodeContent = '';
+        let originalFilename = '';
+        
+        function processGcodeFile(file) {
+            originalFilename = file.name;
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const gcodeContent = e.target.result;
+                modifyGcode(gcodeContent);
+            };
+            
+            reader.readAsText(file);
+            showUploadStatus('Processing G-code...', 'info');
+        }
+        
+        function modifyGcode(gcodeContent) {
+            const startTemp = parseFloat(document.getElementById('uploadStartTemp').value);
+            const endTemp = parseFloat(document.getElementById('uploadEndTemp').value);
+            const tempStep = parseFloat(document.getElementById('uploadTempStep').value);
+            const sectionHeight = parseFloat(document.getElementById('uploadSectionHeight').value);
+            
+            if (startTemp <= endTemp) {
+                showUploadStatus('ERROR: Start temperature must be higher than end temperature!', 'error');
+                return;
+            }
+            
+            const temperatures = [];
+            for (let temp = startTemp; temp >= endTemp; temp -= tempStep) {
+                temperatures.push(temp);
+            }
+            
+            const lines = gcodeContent.split('\n');
+            const modifiedLines = [];
+            let currentZ = 0;
+            let lastZ = 0;
+            let tempIndex = 0;
+            let insertedTemps = 0;
+            
+            modifiedLines.push('; Modified by Temperature Tower Generator');
+            modifiedLines.push('; Temperature range: ' + startTemp + '°C to ' + endTemp + '°C');
+            modifiedLines.push('');
+            
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                
+                if (line.startsWith('G0') || line.startsWith('G1')) {
+                    const zMatch = line.match(/Z([\d.]+)/);
+                    if (zMatch) {
+                        currentZ = parseFloat(zMatch[1]);
+                        
+                        const currentSection = Math.floor(currentZ / sectionHeight);
+                        const lastSection = Math.floor(lastZ / sectionHeight);
+                        
+                        if (currentSection > lastSection && tempIndex < temperatures.length) {
+                            modifiedLines.push('; Section ' + (tempIndex + 1) + ' - Temperature: ' + temperatures[tempIndex] + '°C');
+                            modifiedLines.push('M104 S' + temperatures[tempIndex]);
+                            insertedTemps++;
+                            tempIndex++;
+                        }
+                        
+                        lastZ = currentZ;
+                    }
+                }
+                
+                modifiedLines.push(lines[i]);
+            }
+            
+            modifiedGcodeContent = modifiedLines.join('\n');
+            
+            if (insertedTemps === 0) {
+                showUploadStatus('ERROR: Could not detect layer changes!', 'error');
+                return;
+            }
+            
+            showUploadStatus('SUCCESS: Inserted ' + insertedTemps + ' temperature changes!', 'success');
+            document.getElementById('modifiedSummary').innerHTML = '<strong>File:</strong> ' + originalFilename + ' | <strong>Changes:</strong> ' + insertedTemps;
+            document.getElementById('modifiedResults').style.display = 'block';
+        }
+        
+        function downloadModified() {
+            if (!modifiedGcodeContent) {
+                alert('No modified G-code available!');
+                return;
+            }
+            
+            const blob = new Blob([modifiedGcodeContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = originalFilename.replace(/\.(gcode|g)$/i, '_temp_tower.$1') || 'modified_temp_tower.gcode';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        function showUploadStatus(message, type) {
+            const statusDiv = document.getElementById('uploadStatus');
+            statusDiv.style.display = 'block';
+            statusDiv.textContent = message;
+            
+            if (type === 'error') {
+                statusDiv.style.background = 'rgba(244, 67, 54, 0.2)';
+                statusDiv.style.borderLeft = '4px solid #f44336';
+                statusDiv.style.color = '#f44336';
+            } else if (type === 'success') {
+                statusDiv.style.background = 'rgba(76, 175, 80, 0.2)';
+                statusDiv.style.borderLeft = '4px solid #4caf50';
+                statusDiv.style.color = '#4caf50';
+            } else {
+                statusDiv.style.background = 'rgba(33, 150, 243, 0.2)';
+                statusDiv.style.borderLeft = '4px solid #2196f3';
+                statusDiv.style.color = '#2196f3';
+            }
+        }
+        
+        // FIXED DRAG-AND-DROP IMPLEMENTATION
+        (function initDragDrop() {
+            const dropZone = document.getElementById('gcodeDropZone');
+            const fileInput = document.getElementById('gcodeUpload');
+            
+            if (!dropZone || !fileInput) {
+                console.error('Required elements not found');
+                return;
+            }
+            
+            function preventDefaults(e) {
+                if (e && e.preventDefault) e.preventDefault();
+                if (e && e.stopPropagation) e.stopPropagation();
+            }
+            
+            function highlight() {
+                dropZone.style.borderColor = 'var(--primary)';
+                dropZone.style.background = 'var(--primary-light)';
+            }
+            
+            function unhighlight() {
+                dropZone.style.borderColor = 'var(--border)';
+                dropZone.style.background = 'var(--card-bg)';
+            }
+            
+            function handleDrop(e) {
+                preventDefaults(e);
+                unhighlight();
+                
+                if (!e || !e.dataTransfer || !e.dataTransfer.files) {
+                    showUploadStatus('Error: Could not access dropped files', 'error');
+                    return;
+                }
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    processGcodeFile(files[0]);
+                }
+            }
+            
+            // Click handler - FIXED
+            dropZone.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            // File input change handler - THIS WAS MISSING!
+            fileInput.addEventListener('change', function() {
+                if (fileInput.files && fileInput.files.length > 0) {
+                    processGcodeFile(fileInput.files[0]);
+                }
+            });
+            
+            // Prevent defaults
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(function(eventName) {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            // Prevent page navigation on drop
+            ['dragover', 'drop'].forEach(function(eventName) {
+                document.body.addEventListener(eventName, function(e) {
+                    if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                        e.preventDefault();
+                    }
+                }, false);
+            });
+            
+            // Highlight on drag
+            ['dragenter', 'dragover'].forEach(function(eventName) {
+                dropZone.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(function(eventName) {
+                dropZone.addEventListener(eventName, unhighlight, false);
+            });
+            
+            // Handle drop
+            dropZone.addEventListener('drop', handleDrop, false);
+        })();
+    </script>
 </body>
 </html>
