@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperature Tower Generator - Coming Soon</title>
+    <title>PID Tuning Assistant - Coming Soon</title>
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/navigation.css">
     <style>
@@ -15,16 +15,16 @@
         .construction-icon {
             font-size: 8em;
             margin-bottom: 30px;
-            animation: pulse 2s infinite;
+            animation: dial 2s ease-in-out infinite;
         }
         
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+        @keyframes dial {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
         }
         
         .construction h1 {
-            color: var(--temp-accent);
+            color: var(--pid-accent);
             margin-bottom: 20px;
         }
         
@@ -38,9 +38,9 @@
         }
         
         .progress-fill {
-            background: linear-gradient(90deg, var(--temp-accent), var(--error));
+            background: linear-gradient(90deg, var(--pid-accent), var(--success));
             height: 100%;
-            width: 5%;
+            width: 0%;
             transition: width 0.3s;
             display: flex;
             align-items: center;
@@ -56,7 +56,7 @@
         }
         
         .features-preview h3 {
-            color: var(--temp-accent);
+            color: var(--pid-accent);
         }
         
         .feature-list {
@@ -71,7 +71,7 @@
         }
         
         .feature-list li:before {
-            content: "🌡️";
+            content: "🎛️";
             position: absolute;
             left: 0;
         }
@@ -92,10 +92,10 @@
                         <a href="../flow-calibration/">💧 Flow Rate</a>
                         <a href="../SharePoint_Nozzle_Selection_Guide/">🔍 Nozzle Guide</a>
                         <a href="../gear-calculator/">⚙️ Gear Calculator</a>
-                        <a href="../temperature-tower/" class="active">🌡️ Temp Tower</a>
+                        <a href="../temperature-tower/">🌡️ Temp Tower</a>
                         <a href="../retraction-tuning/">🔄 Retraction</a>
                         <a href="../pressure-advance/">⚡ Pressure Advance</a>
-                        <a href="../pid-tuning/">🎛️ PID Tuning</a>
+                        <a href="../pid-tuning/" class="active">🎛️ PID Tuning</a>
                     </div>
                 </div>
                 <a href="../docs/">Docs</a>
@@ -141,29 +141,40 @@
     </nav>
 
     <div class="container construction">
-        <div class="construction-icon">🌡️</div>
-        <h1>Temperature Tower Generator</h1>
+        <div class="construction-icon">🎛️</div>
+        <h1>PID Tuning Assistant</h1>
         <h2 style="color: var(--text-secondary);">Coming Soon!</h2>
         <p style="font-size: 1.2em; color: var(--text-secondary); max-width: 600px; margin: 20px auto;">
-            Generate custom temperature towers to find the perfect printing temperature for your filament.
+            Achieve stable temperature control with automated PID calibration for hotend and heated bed.
         </p>
         
         <div class="progress-bar">
-            <div class="progress-fill">5%</div>
+            <div class="progress-fill">0%</div>
         </div>
         
         <div class="features-preview card">
             <h3>Planned Features:</h3>
             <ul class="feature-list">
-                <li>Custom temperature range generator</li>
-                <li>G-code generation for all slicers</li>
-                <li>Multiple tower designs (standard, detailed, bridging)</li>
-                <li>Automatic temperature stepping</li>
-                <li>Print evaluation guide</li>
-                <li>Material-specific recommendations</li>
-                <li>Result comparison tool</li>
-                <li>Export settings directly to slicer</li>
+                <li>Hotend PID auto-tune (M303)</li>
+                <li>Heated bed PID auto-tune</li>
+                <li>G-code command generator</li>
+                <li>Result parser & analyzer</li>
+                <li>Temperature stability checker</li>
+                <li>Overshoot detection</li>
+                <li>Settings application wizard</li>
+                <li>Before/after comparison graphs</li>
+                <li>Firmware compatibility guide (Marlin, Klipper, RepRap)</li>
             </ul>
+            
+            <div style="margin-top: 20px; padding: 15px; background: var(--success-light); border-left: 4px solid var(--success); border-radius: var(--radius-sm);">
+                <strong>✅ What PID Tuning Fixes:</strong>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Temperature fluctuations during printing</li>
+                    <li>Inconsistent extrusion quality</li>
+                    <li>Thermal runaway errors</li>
+                    <li>Temperature overshoot/undershoot</li>
+                </ul>
+            </div>
         </div>
         
         <div style="margin-top: 40px;">

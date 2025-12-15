@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperature Tower Generator - Coming Soon</title>
+    <title>Pressure Advance - Coming Soon</title>
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/navigation.css">
     <style>
@@ -15,16 +15,16 @@
         .construction-icon {
             font-size: 8em;
             margin-bottom: 30px;
-            animation: pulse 2s infinite;
+            animation: zap 1.5s infinite;
         }
         
-        @keyframes pulse {
+        @keyframes zap {
             0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 0.7; }
         }
         
         .construction h1 {
-            color: var(--temp-accent);
+            color: var(--pressure-accent);
             margin-bottom: 20px;
         }
         
@@ -38,9 +38,9 @@
         }
         
         .progress-fill {
-            background: linear-gradient(90deg, var(--temp-accent), var(--error));
+            background: linear-gradient(90deg, var(--pressure-accent), var(--warning));
             height: 100%;
-            width: 5%;
+            width: 0%;
             transition: width 0.3s;
             display: flex;
             align-items: center;
@@ -56,7 +56,7 @@
         }
         
         .features-preview h3 {
-            color: var(--temp-accent);
+            color: var(--pressure-accent);
         }
         
         .feature-list {
@@ -71,7 +71,7 @@
         }
         
         .feature-list li:before {
-            content: "🌡️";
+            content: "⚡";
             position: absolute;
             left: 0;
         }
@@ -92,9 +92,9 @@
                         <a href="../flow-calibration/">💧 Flow Rate</a>
                         <a href="../SharePoint_Nozzle_Selection_Guide/">🔍 Nozzle Guide</a>
                         <a href="../gear-calculator/">⚙️ Gear Calculator</a>
-                        <a href="../temperature-tower/" class="active">🌡️ Temp Tower</a>
+                        <a href="../temperature-tower/">🌡️ Temp Tower</a>
                         <a href="../retraction-tuning/">🔄 Retraction</a>
-                        <a href="../pressure-advance/">⚡ Pressure Advance</a>
+                        <a href="../pressure-advance/" class="active">⚡ Pressure Advance</a>
                         <a href="../pid-tuning/">🎛️ PID Tuning</a>
                     </div>
                 </div>
@@ -141,29 +141,34 @@
     </nav>
 
     <div class="container construction">
-        <div class="construction-icon">🌡️</div>
-        <h1>Temperature Tower Generator</h1>
+        <div class="construction-icon">⚡</div>
+        <h1>Pressure Advance / Linear Advance</h1>
         <h2 style="color: var(--text-secondary);">Coming Soon!</h2>
         <p style="font-size: 1.2em; color: var(--text-secondary); max-width: 600px; margin: 20px auto;">
-            Generate custom temperature towers to find the perfect printing temperature for your filament.
+            Eliminate corner bulging and improve fine detail with pressure/linear advance calibration.
         </p>
         
         <div class="progress-bar">
-            <div class="progress-fill">5%</div>
+            <div class="progress-fill">0%</div>
         </div>
         
         <div class="features-preview card">
             <h3>Planned Features:</h3>
             <ul class="feature-list">
-                <li>Custom temperature range generator</li>
-                <li>G-code generation for all slicers</li>
-                <li>Multiple tower designs (standard, detailed, bridging)</li>
-                <li>Automatic temperature stepping</li>
-                <li>Print evaluation guide</li>
+                <li>K-factor calculator for Marlin & Klipper</li>
+                <li>Test pattern generator</li>
+                <li>Automatic G-code generation</li>
+                <li>Visual comparison guide</li>
                 <li>Material-specific recommendations</li>
-                <li>Result comparison tool</li>
-                <li>Export settings directly to slicer</li>
+                <li>Before/after analysis tool</li>
+                <li>Direct drive vs Bowden presets</li>
+                <li>Interactive calibration wizard</li>
+                <li>Results logging and comparison</li>
             </ul>
+            
+            <div style="margin-top: 20px; padding: 15px; background: var(--info-light); border-left: 4px solid var(--info); border-radius: var(--radius-sm);">
+                <strong>💡 Note:</strong> Works with both Marlin (Linear Advance M900) and Klipper (Pressure Advance) firmware.
+            </div>
         </div>
         
         <div style="margin-top: 40px;">

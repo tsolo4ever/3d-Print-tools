@@ -82,16 +82,60 @@
     <nav class="suite-nav">
         <div class="container">
             <a href="../" class="logo">🔧 Calibration Suite</a>
-            <button class="mobile-menu-toggle">☰</button>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
             <div class="nav-links">
                 <a href="../">Home</a>
-                <a href="../E-Steps_Calculator_Interactive/">E-Steps</a>
-                <a href="../SharePoint_Nozzle_Selection_Guide/">Nozzle Guide</a>
-                <a href="../gear-calculator/">Gear Calc</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">Tools ▾</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../E-Steps_Calculator_Interactive/">🎯 E-Steps</a>
+                        <a href="../flow-calibration/">💧 Flow Rate</a>
+                        <a href="../SharePoint_Nozzle_Selection_Guide/">🔍 Nozzle Guide</a>
+                        <a href="../gear-calculator/">⚙️ Gear Calculator</a>
+                        <a href="../temperature-tower/">🌡️ Temp Tower</a>
+                        <a href="../retraction-tuning/" class="active">🔄 Retraction</a>
+                        <a href="../pressure-advance/">⚡ Pressure Advance</a>
+                        <a href="../pid-tuning/">🎛️ PID Tuning</a>
+                    </div>
+                </div>
                 <a href="../docs/">Docs</a>
             </div>
             <div class="nav-actions">
-                <button class="theme-toggle" title="Toggle Theme">🌙</button>
+                <select class="theme-selector" title="Select Theme">
+                    <option value="light">☀️ Light</option>
+                    <option value="dark">🌙 Dark</option>
+                    <option value="high-contrast">⚡ High Contrast</option>
+                    <option value="high-contrast-dark">⚡🌙 High Contrast Dark</option>
+                    <optgroup label="🟠 Prusa Orange">
+                        <option value="prusa">☀️ Prusa Light</option>
+                        <option value="prusa-dark">🌙 Prusa Dark</option>
+                    </optgroup>
+                    <optgroup label="🟢 Bambu Lab">
+                        <option value="bambu">☀️ Bambu Light</option>
+                        <option value="bambu-dark">🌙 Bambu Dark</option>
+                    </optgroup>
+                    <optgroup label="🔵 Creality">
+                        <option value="creality">☀️ Creality Light</option>
+                        <option value="creality-dark">🌙 Creality Dark</option>
+                    </optgroup>
+                    <optgroup label="🔴 Voron">
+                        <option value="voron">☀️ Voron Light</option>
+                        <option value="voron-dark">🌙 Voron Dark</option>
+                    </optgroup>
+                    <optgroup label="⚙️ Ultimaker">
+                        <option value="ultimaker">☀️ Ultimaker Light</option>
+                        <option value="ultimaker-dark">🌙 Ultimaker Dark</option>
+                    </optgroup>
+                    <optgroup label="💎 Formlabs">
+                        <option value="formlabs">☀️ Formlabs Light</option>
+                        <option value="formlabs-dark">🌙 Formlabs Dark</option>
+                    </optgroup>
+                    <optgroup label="🟣 Anycubic">
+                        <option value="anycubic">☀️ Anycubic Light</option>
+                        <option value="anycubic-dark">🌙 Anycubic Dark</option>
+                    </optgroup>
+                </select>
+                <button class="theme-settings-btn" title="Theme Settings">⚙️</button>
             </div>
         </div>
     </nav>
