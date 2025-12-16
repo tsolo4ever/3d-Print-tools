@@ -253,17 +253,17 @@
     /* Bambu Lab brand colors */
     --primary: #00ae42;
     --primary-hover: #009938;
-    --primary-light: #e8f5ed;
+    --primary-light: #f0f9f7;
     
     /* Status colors adjusted for Bambu theme */
     --success: #00ae42;
-    --success-light: #e8f5ed;
+    --success-light: #f0f9f7;
     --warning: #ffa000;
     --warning-light: #fff8e1;
     --error: #d32f2f;
     --error-light: #ffebee;
     --info: #00ae42;
-    --info-light: #e8f5ed;
+    --info-light: #f0f9f7;
     
     /* Accent colors with green tint */
     --esteps-accent: #00c853;
