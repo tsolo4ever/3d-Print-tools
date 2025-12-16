@@ -80,17 +80,17 @@
   - [x] ~~Added UI selection: All Extruders, T0, or T1~~
   - [x] ~~Automatic detection shows extruder selection panel~~
 
-### UI Improvements [IN PROGRESS]
-- [ ] **Section Reorganization**
-  - [ ] Move "Upload & Modify G-Code (Recommended)" to top
-  - [ ] Move "Manual G-Code Generator" below auto section
-  - [ ] Emphasize recommended method
+### UI Improvements
+- [x] ~~**Section Reorganization**~~ ✅
+  - [x] ~~Move "Upload & Modify G-Code (Recommended)" to top~~
+  - [x] ~~Move "Manual G-Code Generator" below auto section~~
+  - [x] ~~Emphasize recommended method~~
 
-- [ ] **Manual Generator Enhancements**
-  - [ ] Add "Start G-code" textarea (optional custom start commands)
-  - [ ] Add "End G-code" textarea (optional custom end commands)
-  - [ ] Allow users to include full G-code context
-  - [ ] Useful for complete standalone tower generation
+- [x] ~~**Manual Generator Enhancements**~~ ✅
+  - [x] ~~Add "Start G-code" textarea (optional custom start commands)~~
+  - [x] ~~Add "End G-code" textarea (optional custom end commands)~~
+  - [x] ~~Allow users to include full G-code context~~
+  - [x] ~~Useful for complete standalone tower generation~~
 
 ---
 
@@ -257,20 +257,26 @@
 
 ## 🎯 Current Focus
 
-**NOW WORKING ON:** Phase 1 - Safety & Validation ✅ COMPLETE
+**NOW WORKING ON:** Phase 3 - User Experience Improvements
 
 **RECENTLY COMPLETED:**
-1. ✅ Material-specific temperature validation with safe ranges
-2. ✅ Hard temperature limits (150-300°C)
-3. ✅ Temperature logic validation (steps, sections count)
-4. ✅ Visual error/warning feedback system
-5. ✅ Tested and verified all safety features
+1. ✅ Phase 1 - All safety & validation features
+2. ✅ Phase 2 - All bug fixes including:
+   - Start Layer Configuration with Z-offset calculations
+   - Temperature Fade-In option
+   - M104 vs M109 command choice
+   - Floating point Z-height precision
+   - Multi-extruder support
+3. ✅ UI Improvements:
+   - Section reorganization (Upload & Modify to top)
+   - Manual Generator enhancements (custom start/end G-code)
+   - Better visual hierarchy and emphasis
 
-**NEXT UP - Phase 2:**
-1. Start Layer Configuration (initial layer height, Z-offset calculation)
-2. Temperature Fade-In option (gradual transition over X layers)
-3. M104 vs M109 command choice
-4. File upload validation & G-code parsing safety
+**NEXT UP - Phase 3 Continued:**
+1. Enhanced modification preview
+2. Manual Modification Trigger (stop auto-modifying on upload)
+3. Auto-Detect Material from G-Code
+4. Progress indicators for large files
 
 **NEW FEATURES ADDED TO ROADMAP:**
 - Max Sections Limiter (Phase 4) - Control tower height
