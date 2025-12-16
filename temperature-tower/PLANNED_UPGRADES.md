@@ -73,10 +73,24 @@
   - [x] ~~Tested with various layer heights (0.12mm, 0.16mm, 0.28mm)~~
 
 ### Medium Priority Bugs
-- [ ] **Multi-extruder support**
-  - [ ] Detect if G-code uses T0/T1 commands
-  - [ ] Ask which extruder to modify
-  - [ ] Use M104 T0 or M104 T1 accordingly
+- [x] ~~**Multi-extruder support**~~ ✅
+  - [x] ~~Detect if G-code uses T0/T1 commands~~
+  - [x] ~~Ask which extruder to modify~~
+  - [x] ~~Use M104 T0 or M104 T1 accordingly~~
+  - [x] ~~Added UI selection: All Extruders, T0, or T1~~
+  - [x] ~~Automatic detection shows extruder selection panel~~
+
+### UI Improvements [IN PROGRESS]
+- [ ] **Section Reorganization**
+  - [ ] Move "Upload & Modify G-Code (Recommended)" to top
+  - [ ] Move "Manual G-Code Generator" below auto section
+  - [ ] Emphasize recommended method
+
+- [ ] **Manual Generator Enhancements**
+  - [ ] Add "Start G-code" textarea (optional custom start commands)
+  - [ ] Add "End G-code" textarea (optional custom end commands)
+  - [ ] Allow users to include full G-code context
+  - [ ] Useful for complete standalone tower generation
 
 ---
 
@@ -191,6 +205,20 @@
   - [ ] ARIA labels for screen readers
   - [ ] Keyboard navigation support
   - [ ] High contrast mode compatibility
+
+- [ ] **Theme System Consistency Across All Pages**
+  - [ ] Audit all pages for theme system implementation
+  - [ ] Update docs pages (docs/index.html and all guide pages)
+  - [ ] Update ALL tool pages (even non-critical ones)
+  - [ ] Ensure navigation.css and base.css are linked everywhere
+  - [ ] Verify theme selector works on all pages
+  - [ ] Test theme switching on:
+    - [ ] Main index.html
+    - [ ] All tool pages (E-Steps, Flow, Nozzle Guide, etc.)
+    - [ ] All documentation pages
+    - [ ] Help pages and guides
+  - [ ] Document pages that are missing theme system
+  - [ ] Create checklist of pages to update
 
 ---
 

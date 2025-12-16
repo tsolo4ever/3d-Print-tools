@@ -466,6 +466,28 @@
                 </div>
             </div>
 
+            <div id="extruderSelection" style="display: none; background: var(--info-light); border-left: 4px solid var(--info); padding: 15px; margin: 15px 0; border-radius: var(--radius-sm);">
+                <strong>🔧 Multi-Extruder Detected!</strong>
+                <p style="margin: 10px 0;">Your G-code uses multiple extruders. Which extruder should we modify?</p>
+                <div style="display: flex; gap: 15px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="radio" name="extruderChoice" value="all" checked style="width: auto; margin-right: 5px;">
+                        <span>All Extruders</span>
+                    </label>
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="radio" name="extruderChoice" value="T0" style="width: auto; margin-right: 5px;">
+                        <span>T0 (Extruder 0)</span>
+                    </label>
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="radio" name="extruderChoice" value="T1" style="width: auto; margin-right: 5px;">
+                        <span>T1 (Extruder 1)</span>
+                    </label>
+                </div>
+                <small style="display: block; margin-top: 10px; color: var(--text-secondary);">
+                    <strong>Tip:</strong> Select "All Extruders" if you want all hotends to change together (common for IDEX printers).
+                </small>
+            </div>
+
             <div id="gcodeDropZone" class="upload-zone">
                 <div style="font-size: 3em; margin-bottom: 10px;">🌡️</div>
                 <div style="font-size: 1.2em; font-weight: 600;">Click or Drag G-code Here</div>
@@ -886,7 +908,7 @@
         
         // G-code content validation function
         function validateGcodeContent(content) {
-            const result = { valid: true, error: null, warning: null };
+            const result = { valid: true, error: null, warning: null, hasMultiExtruder: false };
             
             // Check if content is empty
             if (!content || content.trim().length === 0) {
@@ -911,6 +933,17 @@
                 return result;
             }
             
+            // Check for multi-extruder tool changes
+            const hasToolChanges = /^T[01]\s*$/m.test(content) || /^T[01]\s*;/m.test(content);
+            if (hasToolChanges) {
+                result.hasMultiExtruder = true;
+                // Show extruder selection UI
+                document.getElementById('extruderSelection').style.display = 'block';
+            } else {
+                // Hide extruder selection if previously shown
+                document.getElementById('extruderSelection').style.display = 'none';
+            }
+            
             // Check if file appears complete (has end commands)
             const hasEndCommands = /M104\s+S0|M140\s+S0|M107|M84|M2|M30/.test(content);
             if (!hasEndCommands) {
@@ -925,6 +958,9 @@
             const endTemp = parseFloat(document.getElementById('uploadEndTemp').value);
             const tempStep = parseFloat(document.getElementById('uploadTempStep').value);
             const sectionHeight = parseFloat(document.getElementById('uploadSectionHeight').value);
+            
+            // Get extruder choice (for multi-extruder support)
+            const extruderChoice = document.querySelector('input[name="extruderChoice"]:checked')?.value || 'all';
             
             if (startTemp <= endTemp) {
                 showUploadStatus('ERROR: Start temperature must be higher than end temperature!', 'error');
@@ -953,9 +989,25 @@
                 return Math.floor((zHeight + Z_TOLERANCE / 2) / sectionHeight);
             }
             
+            // Helper function to generate temp command based on extruder choice
+            function generateTempCommand(temp) {
+                if (extruderChoice === 'all') {
+                    return 'M104 S' + temp + ' ; Set all extruders';
+                } else if (extruderChoice === 'T0') {
+                    return 'M104 T0 S' + temp + ' ; Set T0 (Extruder 0)';
+                } else if (extruderChoice === 'T1') {
+                    return 'M104 T1 S' + temp + ' ; Set T1 (Extruder 1)';
+                } else {
+                    return 'M104 S' + temp;
+                }
+            }
+            
             modifiedLines.push('; Modified by Temperature Tower Generator');
             modifiedLines.push('; Temperature range: ' + startTemp + '°C to ' + endTemp + '°C');
             modifiedLines.push('; Section height: ' + sectionHeight + 'mm (with ±' + Z_TOLERANCE + 'mm tolerance)');
+            if (extruderChoice !== 'all') {
+                modifiedLines.push('; Target extruder: ' + extruderChoice);
+            }
             modifiedLines.push('');
             
             for (let i = 0; i < lines.length; i++) {
@@ -978,7 +1030,7 @@
                             modifiedLines.push('; Temperature: ' + temperatures[tempIndex] + '°C');
                             modifiedLines.push('; Target Z: ' + sectionZHeight + 'mm (Actual Z: ' + currentZ.toFixed(2) + 'mm)');
                             modifiedLines.push('; ========================================');
-                            modifiedLines.push('M104 S' + temperatures[tempIndex]);
+                            modifiedLines.push(generateTempCommand(temperatures[tempIndex]));
                             insertedTemps++;
                             tempIndex++;
                         }
