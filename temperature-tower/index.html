@@ -322,14 +322,73 @@
 
             <div class="form-row">
                 <div class="form-group">
+                    <label for="initialLayerHeight">Initial Layer Height (mm)</label>
+                    <input type="number" id="initialLayerHeight" value="0.2" step="0.05" title="Height of the first layer (often thicker for better adhesion)">
+                    <small style="color: var(--text-secondary); font-size: 0.85em;">First layer height (e.g., 0.3mm for better adhesion)</small>
+                </div>
+                <div class="form-group">
                     <label for="layerHeight">Layer Height (mm)</label>
-                    <input type="number" id="layerHeight" value="0.2" step="0.05">
+                    <input type="number" id="layerHeight" value="0.2" step="0.05" title="Standard layer height for subsequent layers">
+                    <small style="color: var(--text-secondary); font-size: 0.85em;">Height for layers 2+</small>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="startLayer">Start Layer</label>
+                    <input type="number" id="startLayer" value="1" min="1" step="1" title="Layer where temperature tower begins">
+                    <small style="color: var(--text-secondary); font-size: 0.85em;">Recommended: 3-5 for better first layer adhesion</small>
                 </div>
                 <div class="form-group">
                     <label for="sectionHeight">Section Height (mm)</label>
-                    <input type="number" id="sectionHeight" value="10" step="1">
+                    <input type="number" id="sectionHeight" value="10" step="1" title="Height of each temperature section">
+                    <small style="color: var(--text-secondary); font-size: 0.85em;">Each section will be this tall</small>
                 </div>
             </div>
+
+            <div style="background: var(--info-light); border-left: 4px solid var(--info); padding: 15px; margin: 15px 0; border-radius: var(--radius-sm);">
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <input type="checkbox" id="enableFadeIn" style="width: auto; margin-right: 10px;">
+                    <label for="enableFadeIn" style="margin: 0; cursor: pointer; font-weight: 600;">
+                        🔄 Enable Temperature Fade-In (Recommended)
+                    </label>
+                </div>
+                <p style="margin: 5px 0 10px 0; font-size: 0.9em; color: var(--text-secondary);">
+                    Gradually transition from first layer temperature to tower starting temperature. Prevents thermal shock and improves adhesion.
+                </p>
+                <div class="form-row" id="fadeInSettings" style="display: none;">
+                    <div class="form-group">
+                        <label for="firstLayerTemp">First Layer Temperature (°C)</label>
+                        <input type="number" id="firstLayerTemp" value="220" step="5" title="Temperature used for first layer (from slicer)">
+                        <small style="color: var(--text-secondary); font-size: 0.85em;">Your slicer's first layer temp</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="fadeLength">Fade Length (layers)</label>
+                        <input type="number" id="fadeLength" value="4" min="2" max="10" step="1" title="Number of layers to fade temperature">
+                        <small style="color: var(--text-secondary); font-size: 0.85em;">Recommended: 3-5 layers</small>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--card-bg); border: 2px solid var(--border); padding: 15px; margin: 15px 0; border-radius: var(--radius-sm);">
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <strong style="margin-right: 15px;">G-code Command Type:</strong>
+                    <label style="display: flex; align-items: center; margin-right: 15px; cursor: pointer;">
+                        <input type="radio" name="gcodeCommand" id="useM104" value="M104" checked style="width: auto; margin-right: 5px;">
+                        <span>M104 (Set & Continue)</span>
+                    </label>
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="radio" name="gcodeCommand" id="useM109" value="M109" style="width: auto; margin-right: 5px;">
+                        <span>M109 (Set & Wait)</span>
+                    </label>
+                </div>
+                <p style="margin: 5px 0 0 0; font-size: 0.85em; color: var(--text-secondary);">
+                    <strong>M104:</strong> Sets temperature and continues immediately (faster transitions) - <em>Recommended</em><br>
+                    <strong>M109:</strong> Sets temperature and waits until reached (ensures exact temp before each section)
+                </p>
+            </div>
+
+            <div id="validationMessages" style="display: none;"></div>
 
             <button class="btn" onclick="generateGcode()">🌡️ Generate G-Code</button>
 
@@ -361,9 +420,24 @@
             <div style="background: var(--card-bg); padding: 20px; border-radius: var(--radius-sm); margin-bottom: 20px; border: 2px solid var(--primary);">
                 <strong>📥 Step 1: Download Temperature Tower STL</strong>
                 <p style="margin: 10px 0;">Use this standardized tower model for your test:</p>
-                <a href="temp-tower-no-numbers.stl" download style="display: inline-block; padding: 12px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: var(--radius-sm); font-weight: 500;">
+                <a href="temp-tower-no-numbers.stl" download style="display: inline-block; padding: 12px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: var(--radius-sm); font-weight: 500; margin-bottom: 15px;">
                     ⬇️ Download temp-tower-no-numbers.stl
                 </a>
+                
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border); font-size: 0.9em; color: var(--text-secondary);">
+                    <strong>📝 STL Model Credit:</strong> 
+                    <a href="https://www.printables.com/model/4667-all-in-one-temperature-bridging-tower-pla-petg-gco" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 500;">
+                        "All-in-One Temperature Bridging Tower"
+                    </a>
+                    <br>
+                    <span style="margin-top: 5px; display: inline-block;">
+                        Created by 
+                        <a href="https://www.printables.com/@Tronnic" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 500;">
+                            Tronnic
+                        </a> 
+                        on Printables.com
+                    </span>
+                </div>
             </div>
 
             <div style="background: rgba(255, 193, 7, 0.2); border: 2px solid rgba(255, 193, 7, 0.6); border-radius: var(--radius-sm); padding: 15px; margin-bottom: 20px;">
@@ -452,14 +526,113 @@
     <script src="../assets/js/navigation.js"></script>
     
     <script>
-        // Material presets
+        // Material presets with safety ranges
         const materialPresets = {
-            pla: { start: 220, end: 190, step: 5 },
-            petg: { start: 250, end: 220, step: 5 },
-            abs: { start: 250, end: 220, step: 5 },
-            tpu: { start: 230, end: 210, step: 5 },
-            nylon: { start: 270, end: 240, step: 5 }
+            pla: { start: 220, end: 190, step: 5, minSafe: 180, maxSafe: 250, name: 'PLA' },
+            petg: { start: 250, end: 220, step: 5, minSafe: 220, maxSafe: 270, name: 'PETG' },
+            abs: { start: 250, end: 220, step: 5, minSafe: 220, maxSafe: 270, name: 'ABS' },
+            tpu: { start: 230, end: 210, step: 5, minSafe: 200, maxSafe: 250, name: 'TPU' },
+            nylon: { start: 270, end: 240, step: 5, minSafe: 240, maxSafe: 290, name: 'Nylon' }
         };
+        
+        // Hard temperature limits (safety ceiling/floor)
+        const ABSOLUTE_MIN_TEMP = 150;
+        const ABSOLUTE_MAX_TEMP = 300;
+        const MAX_TEMP_STEP = 20;
+        const MIN_TEMP_STEP = 1;
+        const MAX_SECTIONS = 20;
+        const MIN_SECTIONS = 2;
+        
+        // Temperature validation function
+        function validateTemperatures(startTemp, endTemp, tempStep, material) {
+            const errors = [];
+            const warnings = [];
+            
+            // Check for basic numeric validity
+            if (isNaN(startTemp) || isNaN(endTemp) || isNaN(tempStep)) {
+                errors.push('⛔ All temperature values must be valid numbers.');
+                return { valid: false, errors, warnings };
+            }
+            
+            // Hard limit checks (block generation)
+            if (startTemp < ABSOLUTE_MIN_TEMP || endTemp < ABSOLUTE_MIN_TEMP) {
+                errors.push(`⛔ Temperature below absolute minimum (${ABSOLUTE_MIN_TEMP}°C). This is unsafe and could damage your printer.`);
+            }
+            
+            if (startTemp > ABSOLUTE_MAX_TEMP || endTemp > ABSOLUTE_MAX_TEMP) {
+                errors.push(`⛔ Temperature above absolute maximum (${ABSOLUTE_MAX_TEMP}°C). This is extremely dangerous and could cause fire or printer damage!`);
+            }
+            
+            // Check start > end
+            if (startTemp <= endTemp) {
+                errors.push('⛔ Start temperature must be higher than end temperature.');
+            }
+            
+            // Check temp step range
+            if (tempStep < MIN_TEMP_STEP || tempStep > MAX_TEMP_STEP) {
+                errors.push(`⛔ Temperature step must be between ${MIN_TEMP_STEP}°C and ${MAX_TEMP_STEP}°C.`);
+            }
+            
+            // Calculate number of sections
+            const numSections = Math.floor((startTemp - endTemp) / tempStep) + 1;
+            
+            if (numSections < MIN_SECTIONS) {
+                errors.push(`⛔ Too few sections (${numSections}). Need at least ${MIN_SECTIONS} sections. Increase temperature range or decrease step size.`);
+            }
+            
+            if (numSections > MAX_SECTIONS) {
+                warnings.push(`⚠️ Many sections (${numSections}). Tower will be very tall and take a long time to print. Consider increasing step size.`);
+            }
+            
+            // Material-specific validation (warnings only)
+            if (material && material !== 'custom' && materialPresets[material]) {
+                const preset = materialPresets[material];
+                
+                if (startTemp > preset.maxSafe) {
+                    warnings.push(`⚠️ Start temperature (${startTemp}°C) is above recommended maximum for ${preset.name} (${preset.maxSafe}°C). This could cause degradation or burning.`);
+                }
+                
+                if (endTemp < preset.minSafe) {
+                    warnings.push(`⚠️ End temperature (${endTemp}°C) is below recommended minimum for ${preset.name} (${preset.minSafe}°C). This may cause poor adhesion or under-extrusion.`);
+                }
+                
+                if (startTemp > preset.maxSafe || endTemp < preset.minSafe) {
+                    warnings.push(`💡 Recommended range for ${preset.name}: ${preset.minSafe}-${preset.maxSafe}°C`);
+                }
+            }
+            
+            return {
+                valid: errors.length === 0,
+                errors,
+                warnings,
+                numSections
+            };
+        }
+        
+        // Display validation messages
+        function displayValidationMessages(containerId, errors, warnings) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            let html = '';
+            
+            if (errors.length > 0) {
+                html += '<div style="background: rgba(244, 67, 54, 0.2); border-left: 4px solid #f44336; padding: 15px; margin: 10px 0; border-radius: 4px;">';
+                html += '<strong style="color: #f44336;">❌ Errors (Generation Blocked):</strong><ul style="margin: 10px 0 0 20px; color: #f44336;">';
+                errors.forEach(err => html += '<li>' + err + '</li>');
+                html += '</ul></div>';
+            }
+            
+            if (warnings.length > 0) {
+                html += '<div style="background: rgba(255, 193, 7, 0.2); border-left: 4px solid #ff9800; padding: 15px; margin: 10px 0; border-radius: 4px;">';
+                html += '<strong style="color: #f57c00;">⚠️ Warnings:</strong><ul style="margin: 10px 0 0 20px; color: #f57c00;">';
+                warnings.forEach(warn => html += '<li>' + warn + '</li>');
+                html += '</ul></div>';
+            }
+            
+            container.innerHTML = html;
+            container.style.display = (errors.length > 0 || warnings.length > 0) ? 'block' : 'none';
+        }
         
         function loadMaterialPreset() {
             const material = document.getElementById('material').value;
@@ -490,39 +663,130 @@
             }
         }
         
+        // Toggle fade-in settings visibility
+        document.getElementById('enableFadeIn').addEventListener('change', function() {
+            const fadeInSettings = document.getElementById('fadeInSettings');
+            fadeInSettings.style.display = this.checked ? 'grid' : 'none';
+        });
+        
         function generateGcode() {
             const startTemp = parseFloat(document.getElementById('startTemp').value);
             const endTemp = parseFloat(document.getElementById('endTemp').value);
             const tempStep = parseFloat(document.getElementById('tempStep').value);
+            const initialLayerHeight = parseFloat(document.getElementById('initialLayerHeight').value);
             const layerHeight = parseFloat(document.getElementById('layerHeight').value);
+            const startLayer = parseInt(document.getElementById('startLayer').value);
             const sectionHeight = parseFloat(document.getElementById('sectionHeight').value);
+            const material = document.getElementById('material').value;
             
-            if (startTemp <= endTemp) {
-                alert('Start temperature must be higher than end temperature!');
+            // Get fade-in settings
+            const enableFadeIn = document.getElementById('enableFadeIn').checked;
+            const firstLayerTemp = parseFloat(document.getElementById('firstLayerTemp').value) || startTemp;
+            const fadeLength = parseInt(document.getElementById('fadeLength').value) || 4;
+            
+            // Get command type (M104 or M109)
+            const commandType = document.getElementById('useM109').checked ? 'M109' : 'M104';
+            
+            // Validate temperatures
+            const validation = validateTemperatures(startTemp, endTemp, tempStep, material);
+            
+            // Display validation messages
+            displayValidationMessages('validationMessages', validation.errors, validation.warnings);
+            
+            // Block generation if there are errors
+            if (!validation.valid) {
+                document.getElementById('gcodeResults').style.display = 'none';
                 return;
             }
             
+            // Calculate start Z-height with proper offset
+            // startZ = initialLayerHeight + ((startLayer - 1) × layerHeight)
+            const startZ = initialLayerHeight + ((startLayer - 1) * layerHeight);
+            
+            // Generate tower sections
             const sections = [];
             for (let temp = startTemp; temp >= endTemp; temp -= tempStep) {
                 sections.push(temp);
             }
             
-            const layersPerSection = Math.round(sectionHeight / layerHeight);
+            // Generate G-code with detailed configuration
+            let gcode = '; ==========================================\n';
+            gcode += '; Temperature Tower G-Code\n';
+            gcode += '; Generated by 3D Printer Calibration Suite\n';
+            gcode += '; ==========================================\n';
+            gcode += '; Material: ' + (material !== 'custom' ? materialPresets[material].name : 'Custom') + '\n';
+            gcode += '; Temperature Range: ' + startTemp + '°C to ' + endTemp + '°C (step: ' + tempStep + '°C)\n';
+            gcode += '; Command Type: ' + commandType + ' (' + (commandType === 'M104' ? 'Set & Continue' : 'Set & Wait') + ')\n';
+            gcode += '; Initial Layer Height: ' + initialLayerHeight.toFixed(2) + 'mm\n';
+            gcode += '; Layer Height: ' + layerHeight.toFixed(2) + 'mm\n';
+            gcode += '; Start Layer: ' + startLayer + ' (Z=' + startZ.toFixed(2) + 'mm)\n';
+            gcode += '; Section Height: ' + sectionHeight.toFixed(1) + 'mm\n';
+            gcode += '; Total Sections: ' + sections.length + '\n';
             
-            let gcode = '; Temperature Tower G-Code\n';
-            gcode += '; Start Temp: ' + startTemp + '°C, End Temp: ' + endTemp + '°C\n';
-            gcode += '; Layer Height: ' + layerHeight + 'mm, Section Height: ' + sectionHeight + 'mm\n\n';
+            if (enableFadeIn) {
+                gcode += '; Temperature Fade-In: ENABLED\n';
+                gcode += '; Fade from ' + firstLayerTemp + '°C to ' + startTemp + '°C over ' + fadeLength + ' layers\n';
+            }
             
-            let currentLayer = 0;
+            gcode += '; ==========================================\n\n';
+            
+            // Generate fade-in commands if enabled
+            if (enableFadeIn && firstLayerTemp !== startTemp) {
+                gcode += '; ========================================\n';
+                gcode += '; Temperature Fade-In Sequence\n';
+                gcode += '; ========================================\n';
+                
+                const tempDiff = startTemp - firstLayerTemp;
+                const tempIncrement = tempDiff / fadeLength;
+                
+                for (let i = 0; i < fadeLength; i++) {
+                    const fadeTemp = Math.round(firstLayerTemp + (tempIncrement * (i + 1)));
+                    const fadeZ = startZ - ((fadeLength - i) * layerHeight);
+                    
+                    gcode += '; Fade Layer ' + (i + 1) + ' of ' + fadeLength + ': ' + fadeTemp + '°C (Z=' + fadeZ.toFixed(2) + 'mm)\n';
+                    gcode += commandType + ' S' + fadeTemp + ' ; Gradually increase to tower start temp\n';
+                }
+                
+                gcode += '; Fade-in complete, tower sections begin\n\n';
+            }
+            
+            // Generate temperature commands for each section
             sections.forEach(function(temp, index) {
-                const zHeight = (currentLayer * layerHeight).toFixed(2);
-                gcode += '; Section ' + (index + 1) + ': ' + temp + '°C (Layer ' + currentLayer + ', Z=' + zHeight + 'mm)\n';
-                gcode += 'M104 S' + temp + '\n';
-                currentLayer += layersPerSection;
+                // Calculate Z-height: startZ + (sectionNum × sectionHeight)
+                const sectionZ = startZ + (index * sectionHeight);
+                
+                gcode += '; ========================================\n';
+                gcode += '; Section ' + (index + 1) + ' of ' + sections.length + '\n';
+                gcode += '; Temperature: ' + temp + '°C\n';
+                gcode += '; Z-Height: ' + sectionZ.toFixed(2) + 'mm\n';
+                gcode += '; ========================================\n';
+                gcode += commandType + ' S' + temp + ' ; Set hotend temperature to ' + temp + '°C\n\n';
             });
             
+            gcode += '; ==========================================\n';
+            gcode += '; End of temperature tower commands\n';
+            gcode += '; Insert these commands at the Z-heights shown above\n';
+            gcode += '; ==========================================\n';
+            
             document.getElementById('gcodeOutput').textContent = gcode;
-            document.getElementById('towerSummary').innerHTML = '<strong>Sections:</strong> ' + sections.length + ' | <strong>Total Height:</strong> ~' + (sections.length * sectionHeight).toFixed(1) + 'mm';
+            
+            // Calculate total tower height
+            const totalHeight = startZ + (sections.length * sectionHeight);
+            
+            // Build summary with fade-in info if enabled
+            let summaryHTML = '<strong>Material:</strong> ' + (material !== 'custom' ? materialPresets[material].name : 'Custom') + ' | ';
+            summaryHTML += '<strong>Sections:</strong> ' + sections.length + ' | ';
+            summaryHTML += '<strong>Start Z:</strong> ' + startZ.toFixed(2) + 'mm | ';
+            summaryHTML += '<strong>Total Height:</strong> ~' + totalHeight.toFixed(1) + 'mm | ';
+            summaryHTML += '<strong>Range:</strong> ' + startTemp + '°C → ' + endTemp + '°C';
+            
+            if (enableFadeIn) {
+                summaryHTML += '<br><strong>Fade-In:</strong> ' + firstLayerTemp + '°C → ' + startTemp + '°C over ' + fadeLength + ' layers';
+            }
+            
+            summaryHTML += '<br><strong>Command:</strong> ' + commandType + ' (' + (commandType === 'M104' ? 'Set & Continue' : 'Set & Wait') + ')';
+            
+            document.getElementById('towerSummary').innerHTML = summaryHTML;
             document.getElementById('gcodeResults').style.display = 'block';
         }
         
@@ -539,15 +803,121 @@
         
         function processGcodeFile(file) {
             originalFilename = file.name;
+            
+            // File validation before processing
+            const validationResult = validateFile(file);
+            if (!validationResult.valid) {
+                showUploadStatus('ERROR: ' + validationResult.error, 'error');
+                return;
+            }
+            
+            // Show any warnings
+            if (validationResult.warning) {
+                showUploadStatus('WARNING: ' + validationResult.warning, 'info');
+            }
+            
             const reader = new FileReader();
             
+            reader.onerror = function() {
+                showUploadStatus('ERROR: Failed to read file. File may be corrupted.', 'error');
+            };
+            
             reader.onload = function(e) {
-                const gcodeContent = e.target.result;
-                modifyGcode(gcodeContent);
+                try {
+                    const gcodeContent = e.target.result;
+                    
+                    // Validate G-code content
+                    const contentValidation = validateGcodeContent(gcodeContent);
+                    if (!contentValidation.valid) {
+                        showUploadStatus('ERROR: ' + contentValidation.error, 'error');
+                        return;
+                    }
+                    
+                    if (contentValidation.warning) {
+                        showUploadStatus('WARNING: ' + contentValidation.warning + ' Proceeding with modification...', 'info');
+                        setTimeout(() => modifyGcode(gcodeContent), 1500);
+                    } else {
+                        showUploadStatus('Processing G-code...', 'info');
+                        modifyGcode(gcodeContent);
+                    }
+                } catch (error) {
+                    showUploadStatus('ERROR: Failed to process file. ' + error.message, 'error');
+                }
             };
             
             reader.readAsText(file);
-            showUploadStatus('Processing G-code...', 'info');
+        }
+        
+        // File validation function
+        function validateFile(file) {
+            const result = { valid: true, error: null, warning: null };
+            
+            // Check file extension
+            const validExtensions = ['.gcode', '.g', '.gco', '.nc'];
+            const fileName = file.name.toLowerCase();
+            const hasValidExtension = validExtensions.some(ext => fileName.endsWith(ext));
+            
+            if (!hasValidExtension) {
+                result.valid = false;
+                result.error = 'Invalid file type. Please upload a G-code file (.gcode, .g, .gco, or .nc)';
+                return result;
+            }
+            
+            // Check file size (50MB warning, 100MB block)
+            const fileSizeMB = file.size / (1024 * 1024);
+            
+            if (fileSizeMB > 100) {
+                result.valid = false;
+                result.error = `File is too large (${fileSizeMB.toFixed(1)}MB). Maximum size is 100MB. Large files may crash your browser.`;
+                return result;
+            }
+            
+            if (fileSizeMB > 50) {
+                result.warning = `Large file detected (${fileSizeMB.toFixed(1)}MB). Processing may take a moment.`;
+            }
+            
+            // Check if file appears to be binary
+            if (file.type && file.type.includes('application/octet-stream')) {
+                result.warning = 'File appears to be binary. Ensure this is a text-based G-code file.';
+            }
+            
+            return result;
+        }
+        
+        // G-code content validation function
+        function validateGcodeContent(content) {
+            const result = { valid: true, error: null, warning: null };
+            
+            // Check if content is empty
+            if (!content || content.trim().length === 0) {
+                result.valid = false;
+                result.error = 'File is empty or contains no readable content.';
+                return result;
+            }
+            
+            // Check for G-code commands (G0/G1)
+            const hasGcodeCommands = /[Gg][01]\s/.test(content);
+            if (!hasGcodeCommands) {
+                result.valid = false;
+                result.error = 'File does not appear to contain valid G-code. No G0 or G1 movement commands found.';
+                return result;
+            }
+            
+            // Check for Z movements
+            const hasZMovements = /[Zz]([\d.]+)/.test(content);
+            if (!hasZMovements) {
+                result.valid = false;
+                result.error = 'No Z-axis movements detected. Cannot determine layer heights for temperature changes.';
+                return result;
+            }
+            
+            // Check if file appears complete (has end commands)
+            const hasEndCommands = /M104\s+S0|M140\s+S0|M107|M84|M2|M30/.test(content);
+            if (!hasEndCommands) {
+                result.warning = 'File may be incomplete (no end commands detected). Ensure this is the full G-code file.';
+            }
+            
+            return result;
         }
         
         function modifyGcode(gcodeContent) {
@@ -573,8 +943,19 @@
             let tempIndex = 0;
             let insertedTemps = 0;
             
+            // Floating point tolerance for Z-height comparisons (±0.01mm)
+            const Z_TOLERANCE = 0.01;
+            
+            // Helper function to calculate section number with floating point tolerance
+            function calculateSection(zHeight) {
+                // Round to avoid floating point precision issues
+                // Add small epsilon before division to handle edge cases
+                return Math.floor((zHeight + Z_TOLERANCE / 2) / sectionHeight);
+            }
+            
             modifiedLines.push('; Modified by Temperature Tower Generator');
             modifiedLines.push('; Temperature range: ' + startTemp + '°C to ' + endTemp + '°C');
+            modifiedLines.push('; Section height: ' + sectionHeight + 'mm (with ±' + Z_TOLERANCE + 'mm tolerance)');
             modifiedLines.push('');
             
             for (let i = 0; i < lines.length; i++) {
@@ -585,11 +966,18 @@
                     if (zMatch) {
                         currentZ = parseFloat(zMatch[1]);
                         
-                        const currentSection = Math.floor(currentZ / sectionHeight);
-                        const lastSection = Math.floor(lastZ / sectionHeight);
+                        // Use tolerance-based section calculation
+                        const currentSection = calculateSection(currentZ);
+                        const lastSection = calculateSection(lastZ);
                         
+                        // Check if we've crossed into a new section
                         if (currentSection > lastSection && tempIndex < temperatures.length) {
-                            modifiedLines.push('; Section ' + (tempIndex + 1) + ' - Temperature: ' + temperatures[tempIndex] + '°C');
+                            const sectionZHeight = (currentSection * sectionHeight).toFixed(2);
+                            modifiedLines.push('; ========================================');
+                            modifiedLines.push('; Section ' + (tempIndex + 1) + ' of ' + temperatures.length);
+                            modifiedLines.push('; Temperature: ' + temperatures[tempIndex] + '°C');
+                            modifiedLines.push('; Target Z: ' + sectionZHeight + 'mm (Actual Z: ' + currentZ.toFixed(2) + 'mm)');
+                            modifiedLines.push('; ========================================');
                             modifiedLines.push('M104 S' + temperatures[tempIndex]);
                             insertedTemps++;
                             tempIndex++;
