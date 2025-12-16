@@ -257,13 +257,13 @@
     
     /* Status colors adjusted for Bambu theme */
     --success: #00ae42;
-    --success-light: #f0f9f7;
+    --success-light: #a5d6a7;
     --warning: #ffa000;
     --warning-light: #fff8e1;
     --error: #d32f2f;
     --error-light: #ffebee;
     --info: #00ae42;
-    --info-light: #f0f9f7;
+    --info-light: #a5d6a7;
     
     /* Accent colors with green tint */
     --esteps-accent: #00c853;
@@ -405,17 +405,17 @@
     /* Bambu Lab brand colors - enhanced for dark mode */
     --primary: #00c853;
     --primary-hover: #00d45b;
-    --primary-light: #15311f;
+    --primary-light: #1b5e20;
     
     /* Status colors for dark mode */
     --success: #00c853;
-    --success-light: #15311f;
+    --success-light: #2e7d32;
     --warning: #ffb74d;
     --warning-light: #3a2915;
     --error: #ff5252;
     --error-light: #3a1515;
     --info: #00c853;
-    --info-light: #15311f;
+    --info-light: #2e7d32;
     
     /* Accent colors with green tint - brightened */
     --esteps-accent: #00d45b;
