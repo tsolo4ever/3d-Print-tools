@@ -1047,6 +1047,9 @@ M84 ; Disable steppers"></textarea>
             return result;
         }
         
+        // Global array to store modification details for preview
+        let modificationDetails = [];
+        
         function modifyGcode(gcodeContent) {
             const startTemp = parseFloat(document.getElementById('uploadStartTemp').value);
             const endTemp = parseFloat(document.getElementById('uploadEndTemp').value);
@@ -1055,6 +1058,9 @@ M84 ; Disable steppers"></textarea>
             
             // Get extruder choice (for multi-extruder support)
             const extruderChoice = document.querySelector('input[name="extruderChoice"]:checked')?.value || 'all';
+            
+            // Reset modification details
+            modificationDetails = [];
             
             if (startTemp <= endTemp) {
                 showUploadStatus('ERROR: Start temperature must be higher than end temperature!', 'error');
@@ -1119,6 +1125,18 @@ M84 ; Disable steppers"></textarea>
                         // Check if we've crossed into a new section
                         if (currentSection > lastSection && tempIndex < temperatures.length) {
                             const sectionZHeight = (currentSection * sectionHeight).toFixed(2);
+                            
+                            // Store modification details for preview
+                            modificationDetails.push({
+                                section: tempIndex + 1,
+                                totalSections: temperatures.length,
+                                temperature: temperatures[tempIndex],
+                                targetZ: parseFloat(sectionZHeight),
+                                actualZ: currentZ,
+                                lineNumber: modifiedLines.length + 6, // +6 for the header comments
+                                extruder: extruderChoice
+                            });
+                            
                             modifiedLines.push('; ========================================');
                             modifiedLines.push('; Section ' + (tempIndex + 1) + ' of ' + temperatures.length);
                             modifiedLines.push('; Temperature: ' + temperatures[tempIndex] + '°C');
@@ -1144,7 +1162,45 @@ M84 ; Disable steppers"></textarea>
             }
             
             showUploadStatus('SUCCESS: Inserted ' + insertedTemps + ' temperature changes!', 'success');
-            document.getElementById('modifiedSummary').innerHTML = '<strong>File:</strong> ' + originalFilename + ' | <strong>Changes:</strong> ' + insertedTemps;
+            
+            // Build detailed summary with modification preview
+            let summaryHTML = '<strong>📄 File:</strong> ' + originalFilename + ' | <strong>🔧 Changes Inserted:</strong> ' + insertedTemps + '<br><br>';
+            
+            // Add detailed modification preview table
+            summaryHTML += '<div style="background: var(--info-light); border: 2px solid var(--info); border-radius: var(--radius-sm); padding: 15px; margin: 15px 0;">';
+            summaryHTML += '<strong style="font-size: 1.1em;">📍 Temperature Insertion Points:</strong>';
+            summaryHTML += '<div style="overflow-x: auto; margin-top: 10px;">';
+            summaryHTML += '<table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">';
+            summaryHTML += '<thead><tr style="background: var(--primary); color: white;">';
+            summaryHTML += '<th style="padding: 8px; text-align: left; border: 1px solid var(--border);">Section</th>';
+            summaryHTML += '<th style="padding: 8px; text-align: center; border: 1px solid var(--border);">🌡️ Temperature</th>';
+            summaryHTML += '<th style="padding: 8px; text-align: center; border: 1px solid var(--border);">📏 Target Z</th>';
+            summaryHTML += '<th style="padding: 8px; text-align: center; border: 1px solid var(--border);">📍 Actual Z</th>';
+            summaryHTML += '<th style="padding: 8px; text-align: center; border: 1px solid var(--border);">📝 Line #</th>';
+            summaryHTML += '</tr></thead><tbody>';
+            
+            modificationDetails.forEach(function(detail) {
+                const zDiff = Math.abs(detail.actualZ - detail.targetZ);
+                const zDiffColor = zDiff < 0.1 ? 'var(--success)' : zDiff < 0.5 ? 'var(--warning)' : 'var(--error)';
+                
+                summaryHTML += '<tr style="background: var(--card-bg); border-bottom: 1px solid var(--border);">';
+                summaryHTML += '<td style="padding: 8px; border: 1px solid var(--border);"><strong>Section ' + detail.section + '/' + detail.totalSections + '</strong></td>';
+                summaryHTML += '<td style="padding: 8px; text-align: center; border: 1px solid var(--border); font-weight: 600; color: var(--temp-accent);">' + detail.temperature + '°C</td>';
+                summaryHTML += '<td style="padding: 8px; text-align: center; border: 1px solid var(--border);">' + detail.targetZ.toFixed(2) + 'mm</td>';
+                summaryHTML += '<td style="padding: 8px; text-align: center; border: 1px solid var(--border);">' + detail.actualZ.toFixed(2) + 'mm';
+                if (zDiff > 0.05) {
+                    summaryHTML += ' <span style="color: ' + zDiffColor + '; font-size: 0.85em;">(±' + zDiff.toFixed(2) + 'mm)</span>';
+                }
+                summaryHTML += '</td>';
+                summaryHTML += '<td style="padding: 8px; text-align: center; border: 1px solid var(--border); font-family: monospace;">~' + detail.lineNumber + '</td>';
+                summaryHTML += '</tr>';
+            });
+            
+            summaryHTML += '</tbody></table></div>';
+            summaryHTML += '<p style="margin: 10px 0 0 0; font-size: 0.85em; color: var(--text-secondary);"><strong>💡 Tip:</strong> Z-heights show where temperature changes were inserted. Small differences between Target and Actual are normal due to layer boundaries.</p>';
+            summaryHTML += '</div>';
+            
+            document.getElementById('modifiedSummary').innerHTML = summaryHTML;
             document.getElementById('modifiedResults').style.display = 'block';
         }
         

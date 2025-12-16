@@ -97,10 +97,10 @@
 ## ⚠️ PHASE 3: USER EXPERIENCE IMPROVEMENTS
 
 ### Feedback & Visibility
-- [ ] **Enhanced modification preview** 1
-  - [ ] Show exactly where temps will be inserted
-  - [ ] Display Z-heights for each section
-  - [ ] Show before/after comparison
+- [x] ~~**Enhanced modification preview**~~ ✅ 1
+  - [x] ~~Show exactly where temps will be inserted~~
+  - [x] ~~Display Z-heights for each section~~
+  - [x] ~~Detailed table with temperature insertion points, line numbers, and Z-height accuracy~~
 
 - [ ] **Progress indicators** 5
   - [ ] Loading spinner during file processing
@@ -271,12 +271,18 @@
    - Section reorganization (Upload & Modify to top)
    - Manual Generator enhancements (custom start/end G-code)
    - Better visual hierarchy and emphasis
+4. ✅ Enhanced Modification Preview:
+   - Detailed table showing all temperature insertion points
+   - Displays Z-heights (target vs actual) for each section
+   - Shows line numbers where changes were inserted
+   - Color-coded Z-height accuracy indicators
+   - Helps users verify modifications before printing
 
 **NEXT UP - Phase 3 Continued:**
-1. Enhanced modification preview
-2. Manual Modification Trigger (stop auto-modifying on upload)
-3. Auto-Detect Material from G-Code
-4. Progress indicators for large files
+1. Manual Modification Trigger (stop auto-modifying on upload)
+2. Auto-Detect Material from G-Code
+3. Progress indicators for large files
+4. Better error messages with suggestions
 
 **NEW FEATURES ADDED TO ROADMAP:**
 - Max Sections Limiter (Phase 4) - Control tower height
