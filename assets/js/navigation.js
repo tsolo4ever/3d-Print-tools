@@ -74,7 +74,16 @@ function initializeThemeToggle() {
     // Initialize auto-switching features
     initializeAutoSwitching();
     
-    // Check for new theme selector dropdown
+    // Check for dual dropdown system (Brand + Mode)
+    const brandSelector = document.querySelector('.brand-selector');
+    const modeSelector = document.querySelector('.mode-selector');
+    
+    if (brandSelector && modeSelector) {
+        initializeDualDropdownThemeSystem(brandSelector, modeSelector);
+        return;
+    }
+    
+    // Check for new theme selector dropdown (legacy)
     const themeSelector = document.querySelector('.theme-selector');
     if (themeSelector) {
         initializeThemeSelector(themeSelector);
@@ -85,6 +94,73 @@ function initializeThemeToggle() {
     const themeToggle = document.querySelector('.theme-toggle');
     if (themeToggle) {
         initializeLegacyThemeToggle(themeToggle);
+    }
+}
+
+/* ============================================
+   Dual Dropdown Theme System (Brand + Mode)
+   ============================================ */
+
+function initializeDualDropdownThemeSystem(brandSelector, modeSelector) {
+    // Restore saved selections
+    const savedBrand = localStorage.getItem('themeBrand') || 'default';
+    const savedMode = localStorage.getItem('themeMode') || 'light';
+    
+    brandSelector.value = savedBrand;
+    modeSelector.value = savedMode;
+    
+    // Apply the combined theme
+    applyDualDropdownTheme(savedBrand, savedMode);
+    
+    // Handle brand dropdown change
+    brandSelector.addEventListener('change', function() {
+        const brand = this.value;
+        const mode = modeSelector.value;
+        localStorage.setItem('themeBrand', brand);
+        applyDualDropdownTheme(brand, mode);
+    });
+    
+    // Handle mode dropdown change
+    modeSelector.addEventListener('change', function() {
+        const brand = brandSelector.value;
+        const mode = this.value;
+        localStorage.setItem('themeMode', mode);
+        applyDualDropdownTheme(brand, mode);
+    });
+}
+
+function applyDualDropdownTheme(brand, mode) {
+    // Combine brand and mode to create theme name
+    let themeName = '';
+    
+    if (brand === 'default') {
+        // Default brand uses standard theme names
+        themeName = mode;
+    } else {
+        // Brand themes combine with mode
+        if (mode === 'light') {
+            themeName = brand;
+        } else if (mode === 'dark') {
+            themeName = brand + '-dark';
+        } else if (mode === 'high-contrast') {
+            themeName = brand + '-high-contrast';
+        } else if (mode === 'high-contrast-dark') {
+            themeName = brand + '-high-contrast-dark';
+        }
+    }
+    
+    // Apply the theme
+    applyTheme(themeName);
+    
+    // Set manual override flag if auto-switching is enabled
+    const followSystem = localStorage.getItem('followSystemTheme') === 'true';
+    const timeBased = localStorage.getItem('timeBasedSwitching') === 'true';
+    
+    if (followSystem || timeBased) {
+        localStorage.setItem('manualThemeOverride', 'true');
+        setTimeout(() => {
+            localStorage.removeItem('manualThemeOverride');
+        }, 24 * 60 * 60 * 1000);
     }
 }
 

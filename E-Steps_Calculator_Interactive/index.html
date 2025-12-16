@@ -415,6 +415,38 @@
             border-top: 2px solid var(--border);
             margin-top: 40px;
         }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .input-valid {
+            border-color: var(--success) !important;
+            background: rgba(76, 175, 80, 0.1) !important;
+        }
+        
+        .input-invalid {
+            border-color: var(--danger) !important;
+            background: rgba(244, 67, 54, 0.1) !important;
+        }
+        
+        .input-warning {
+            border-color: var(--warning) !important;
+            background: rgba(255, 152, 0, 0.1) !important;
+        }
+        
+        .validation-message {
+            font-size: 0.9em;
+            margin-top: 5px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -441,39 +473,23 @@
                 <a href="../docs/">Docs</a>
             </div>
             <div class="nav-actions">
-                <select class="theme-selector" title="Select Theme">
+                <select class="brand-selector" title="Select Brand">
+                    <option value="default">Default</option>
+                    <optgroup label="Printer Brands">
+                        <option value="prusa">🟠 Prusa Orange</option>
+                        <option value="bambu">🟢 Bambu Lab</option>
+                        <option value="creality">🔵 Creality</option>
+                        <option value="voron">🔴 Voron</option>
+                        <option value="ultimaker">⚙️ Ultimaker</option>
+                        <option value="formlabs">💎 Formlabs</option>
+                        <option value="anycubic">🟣 Anycubic</option>
+                    </optgroup>
+                </select>
+                <select class="mode-selector" title="Select Theme Mode">
                     <option value="light">☀️ Light</option>
                     <option value="dark">🌙 Dark</option>
                     <option value="high-contrast">⚡ High Contrast</option>
-                    <option value="high-contrast-dark">⚡🌙 High Contrast Dark</option>
-                    <optgroup label="🟠 Prusa Orange">
-                        <option value="prusa">☀️ Prusa Light</option>
-                        <option value="prusa-dark">🌙 Prusa Dark</option>
-                    </optgroup>
-                    <optgroup label="🟢 Bambu Lab">
-                        <option value="bambu">☀️ Bambu Light</option>
-                        <option value="bambu-dark">🌙 Bambu Dark</option>
-                    </optgroup>
-                    <optgroup label="🔵 Creality">
-                        <option value="creality">☀️ Creality Light</option>
-                        <option value="creality-dark">🌙 Creality Dark</option>
-                    </optgroup>
-                    <optgroup label="🔴 Voron">
-                        <option value="voron">☀️ Voron Light</option>
-                        <option value="voron-dark">🌙 Voron Dark</option>
-                    </optgroup>
-                    <optgroup label="⚙️ Ultimaker">
-                        <option value="ultimaker">☀️ Ultimaker Light</option>
-                        <option value="ultimaker-dark">🌙 Ultimaker Dark</option>
-                    </optgroup>
-                    <optgroup label="💎 Formlabs">
-                        <option value="formlabs">☀️ Formlabs Light</option>
-                        <option value="formlabs-dark">🌙 Formlabs Dark</option>
-                    </optgroup>
-                    <optgroup label="🟣 Anycubic">
-                        <option value="anycubic">☀️ Anycubic Light</option>
-                        <option value="anycubic-dark">🌙 Anycubic Dark</option>
-                    </optgroup>
+                    <option value="high-contrast-dark">⚡🌙 HC Dark</option>
                 </select>
                 <button class="theme-settings-btn" title="Theme Settings">⚙️</button>
             </div>
@@ -560,6 +576,16 @@
                     </button>
                 </div>
                 
+                <!-- Reset Section -->
+                <div class="calc-section">
+                    <h3>🔄 Reset</h3>
+                    <p style="margin-bottom: 15px;">Clear all saved data:</p>
+                    
+                    <button class="calc-button" style="background: rgba(244, 67, 54, 0.2); color: white; margin-top: 10px; padding: 10px; font-size: 1em;" onclick="clearStorage()">
+                        🗑️ Clear Saved Data<br><small>Start fresh</small>
+                    </button>
+                </div>
+                
                 <!-- Results Section -->
                 <div class="result-section" id="resultsSection" style="display: none;">
                     <h3>📊 Results</h3>
@@ -590,6 +616,63 @@
                         <strong>⚠️ Important:</strong> Don't forget to send <code>M500</code> to save to EEPROM, then verify with <code>M503</code>!
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Test History Section -->
+        <div class="content-card" style="margin-top: 40px;">
+            <h2>📊 Test History & Statistics</h2>
+            <p>Track your calibration tests and see consistency over time.</p>
+            
+            <!-- Statistics Summary -->
+            <div id="historyStats" style="display: none; background: var(--success-light); padding: 20px; border-radius: var(--radius-md); margin: 20px 0;">
+                <h3 style="margin-top: 0; color: var(--success);">📈 Statistics</h3>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <div class="setting-label">Average E-Steps</div>
+                        <div class="setting-value" id="avgEsteps">-</div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-label">Tests Recorded</div>
+                        <div class="setting-value" id="testCount">-</div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-label">Consistency</div>
+                        <div class="setting-value" id="consistency">-</div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-label">Std Deviation</div>
+                        <div class="setting-value" id="stdDev">-</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px; display: flex; gap: 15px;">
+                    <button onclick="useAverageValue()" style="background: var(--success); color: white; border: none; padding: 12px 30px; border-radius: var(--radius-md); cursor: pointer; font-weight: 600; font-size: 1.1em;">
+                        ✅ Use Average Value
+                    </button>
+                    <button onclick="clearHistory()" style="background: var(--danger); color: white; border: none; padding: 12px 30px; border-radius: var(--radius-md); cursor: pointer; font-weight: 600; font-size: 1.1em;">
+                        🗑️ Clear History
+                    </button>
+                </div>
+            </div>
+            
+            <!-- History Table -->
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date & Time</th>
+                            <th>Old E-Steps</th>
+                            <th>Actual Extruded</th>
+                            <th>New E-Steps</th>
+                            <th>Error %</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody">
+                        <tr><td colspan="6" style="text-align: center; color: var(--text-secondary);">No test history yet. Run a calculation to start tracking!</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -858,6 +941,7 @@ M503         ; Verify it saved correctly</pre>
             const requested = parseFloat(document.getElementById('requestedExtrusion').value);
             const actual = parseFloat(document.getElementById('actualExtrusion').value);
             
+            // Basic validation
             if (isNaN(current) || isNaN(requested) || isNaN(actual)) {
                 alert('⚠️ Please fill in all fields with valid numbers!');
                 return;
@@ -874,7 +958,48 @@ M503         ; Verify it saved correctly</pre>
             const changePercent = (change / current) * 100;
             const errorPercent = ((requested - actual) / requested) * 100;
             
-            // Determine status and color
+            // ===== SAFETY CHECKS =====
+            const warnings = [];
+            
+            // Check for extreme changes
+            if (Math.abs(changePercent) > 100) {
+                warnings.push('🚨 EXTREME CHANGE: New value is ' + (changePercent > 0 ? '2x' : 'half') + ' your current E-steps!');
+            } else if (Math.abs(changePercent) > 50) {
+                warnings.push('⚠️ LARGE CHANGE: ' + Math.abs(changePercent).toFixed(0) + '% difference detected');
+            }
+            
+            // Check for extreme error percentage
+            if (Math.abs(errorPercent) > 15) {
+                warnings.push('⚠️ HIGH ERROR: ' + Math.abs(errorPercent).toFixed(1) + '% extrusion error detected');
+                warnings.push('💡 Suggestion: Check for mechanical issues (skipping, clogging, loose belts)');
+            }
+            
+            // Check for unrealistic E-steps values
+            if (newEsteps < 50) {
+                warnings.push('❌ SUSPICIOUS: E-steps too low (<50). Check your measurements!');
+            } else if (newEsteps > 2000) {
+                warnings.push('❌ SUSPICIOUS: E-steps too high (>2000). Check your measurements!');
+            }
+            
+            // Display warnings if any
+            if (warnings.length > 0) {
+                const warningMessage = warnings.join('\n\n');
+                const proceed = confirm(
+                    warningMessage + '\n\n' +
+                    '⚠️ These values look unusual.\n\n' +
+                    'Possible causes:\n' +
+                    '• Measurement error\n' +
+                    '• Extruder skipping during test\n' +
+                    '• Wrong current E-steps value\n\n' +
+                    'Do you want to continue anyway?'
+                );
+                
+                if (!proceed) {
+                    return; // User cancelled
+                }
+            }
+            
+            // Determine status and color (existing code)
             let status = '', statusColor = '';
             
             if (Math.abs(errorPercent) <= 1) {
@@ -917,12 +1042,50 @@ M503              ; Verify settings`;
             
             document.getElementById('gcodeCommands').textContent = gcode;
             
+            // Save successful calculation
+            saveToStorage();
+            
+            // Save to history
+            saveTestToHistory({
+                currentEsteps: current,
+                requested: requested,
+                actual: actual,
+                newEsteps: newEsteps,
+                errorPercent: Math.abs(errorPercent),
+                changePercent: changePercent
+            });
+            
             // Scroll to results
             document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
         
         function copyGcode() {
             const gcode = document.getElementById('gcodeCommands').textContent;
+            
+            // Extract E-steps value from G-code
+            const match = gcode.match(/M92 E(\d+\.?\d*)/);
+            if (match) {
+                const newValue = parseFloat(match[1]);
+                const current = parseFloat(document.getElementById('currentEsteps').value);
+                const changePercent = Math.abs(((newValue - current) / current) * 100);
+                
+                // Extra confirmation for large changes
+                if (changePercent > 20) {
+                    const proceed = confirm(
+                        '⚠️ SAFETY CHECK\n\n' +
+                        `You're about to change E-steps by ${changePercent.toFixed(0)}%!\n\n` +
+                        'Have you:\n' +
+                        '✓ Double-checked your measurements?\n' +
+                        '✓ Made sure extruder didn\'t skip?\n' +
+                        '✓ Used the correct current E-steps?\n\n' +
+                        'Copy G-code anyway?'
+                    );
+                    
+                    if (!proceed) return;
+                }
+            }
+            
+            // Copy to clipboard
             navigator.clipboard.writeText(gcode).then(() => {
                 const btn = document.getElementById('copyBtn');
                 const originalText = btn.textContent;
@@ -952,6 +1115,280 @@ M503              ; Verify settings`;
             if (e.key === 'Enter') {
                 calculateEsteps();
             }
+        });
+        
+        // ===== LOCALSTORAGE MANAGER =====
+        const STORAGE_KEY = 'esteps_calculator_v2';
+        
+        function saveToStorage() {
+            const data = {
+                currentEsteps: document.getElementById('currentEsteps').value,
+                requestedExtrusion: document.getElementById('requestedExtrusion').value,
+                actualExtrusion: document.getElementById('actualExtrusion').value,
+                lastCalculated: document.getElementById('resultsSection').style.display,
+                timestamp: Date.now()
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        }
+        
+        function loadFromStorage() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (!stored) return false;
+            
+            try {
+                const data = JSON.parse(stored);
+                document.getElementById('currentEsteps').value = data.currentEsteps || '';
+                document.getElementById('requestedExtrusion').value = data.requestedExtrusion || '100';
+                document.getElementById('actualExtrusion').value = data.actualExtrusion || '';
+                
+                // Show age of data
+                if (data.timestamp) {
+                    const age = Math.floor((Date.now() - data.timestamp) / 1000 / 60); // minutes
+                    if (age < 60) {
+                        console.log(`Restored session from ${age} minutes ago`);
+                    }
+                }
+                
+                return true;
+            } catch (e) {
+                console.error('Failed to restore session:', e);
+                return false;
+            }
+        }
+        
+        function clearStorage() {
+            if (confirm('🗑️ Clear all saved data and start fresh?')) {
+                localStorage.removeItem(STORAGE_KEY);
+                document.getElementById('currentEsteps').value = '';
+                document.getElementById('requestedExtrusion').value = '100';
+                document.getElementById('actualExtrusion').value = '';
+                document.getElementById('resultsSection').style.display = 'none';
+                alert('✅ Saved data cleared!');
+            }
+        }
+        
+        // Auto-save when user types
+        document.getElementById('currentEsteps').addEventListener('input', saveToStorage);
+        document.getElementById('requestedExtrusion').addEventListener('input', saveToStorage);
+        document.getElementById('actualExtrusion').addEventListener('input', saveToStorage);
+        
+        // ===== TEST HISTORY MANAGER =====
+        const HISTORY_KEY = 'esteps_history_v2';
+        const MAX_HISTORY = 10;
+
+        function saveTestToHistory(testData) {
+            let history = getHistory();
+            
+            // Add new test at beginning
+            history.unshift({
+                ...testData,
+                id: Date.now(),
+                date: new Date().toLocaleString()
+            });
+            
+            // Keep only last 10
+            if (history.length > MAX_HISTORY) {
+                history = history.slice(0, MAX_HISTORY);
+            }
+            
+            localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+            displayHistory();
+        }
+
+        function getHistory() {
+            const stored = localStorage.getItem(HISTORY_KEY);
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        function deleteHistoryItem(id) {
+            let history = getHistory();
+            history = history.filter(item => item.id !== id);
+            localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+            displayHistory();
+        }
+
+        function clearHistory() {
+            if (confirm('🗑️ Clear all test history?')) {
+                localStorage.removeItem(HISTORY_KEY);
+                displayHistory();
+                alert('✅ History cleared!');
+            }
+        }
+
+        function calculateAverage() {
+            const history = getHistory();
+            if (history.length === 0) return null;
+            
+            const sum = history.reduce((acc, test) => acc + test.newEsteps, 0);
+            const avg = sum / history.length;
+            
+            // Calculate standard deviation for consistency
+            const variance = history.reduce((acc, test) => 
+                acc + Math.pow(test.newEsteps - avg, 2), 0) / history.length;
+            const stdDev = Math.sqrt(variance);
+            
+            return {
+                average: avg,
+                stdDev: stdDev,
+                count: history.length,
+                consistency: stdDev < 5 ? 'Excellent' : stdDev < 10 ? 'Good' : 'Variable'
+            };
+        }
+
+        function useAverageValue() {
+            const stats = calculateAverage();
+            if (!stats) {
+                alert('No history available to calculate average.');
+                return;
+            }
+            
+            document.getElementById('currentEsteps').value = stats.average.toFixed(2);
+            alert(`✅ Set to average of ${stats.count} tests: ${stats.average.toFixed(2)}`);
+        }
+
+        function displayHistory() {
+            const history = getHistory();
+            const container = document.getElementById('historyTableBody');
+            
+            if (!container) return; // Table not on page yet
+            
+            if (history.length === 0) {
+                container.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-secondary);">No test history yet. Run a calculation to start tracking!</td></tr>';
+                document.getElementById('historyStats').style.display = 'none';
+                return;
+            }
+            
+            // Show statistics
+            const stats = calculateAverage();
+            document.getElementById('historyStats').style.display = 'block';
+            document.getElementById('avgEsteps').textContent = stats.average.toFixed(2);
+            document.getElementById('testCount').textContent = stats.count;
+            document.getElementById('consistency').textContent = stats.consistency;
+            document.getElementById('stdDev').textContent = stats.stdDev.toFixed(2);
+            
+            // Populate table
+            container.innerHTML = history.map(test => `
+                <tr>
+                    <td>${test.date}</td>
+                    <td>${test.currentEsteps.toFixed(2)}</td>
+                    <td>${test.actual.toFixed(1)}mm</td>
+                    <td><strong>${test.newEsteps.toFixed(2)}</strong></td>
+                    <td>${test.errorPercent.toFixed(2)}%</td>
+                    <td>
+                        <button onclick="deleteHistoryItem(${test.id})" style="background: var(--danger); color: white; border: none; padding: 5px 10px; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9em;">
+                            🗑️ Delete
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        // ===== INPUT VALIDATION =====
+        function validateInput(inputId) {
+            const input = document.getElementById(inputId);
+            const value = parseFloat(input.value);
+            let messageDiv = input.nextElementSibling;
+            
+            // Create message div if it doesn't exist
+            if (!messageDiv || !messageDiv.classList.contains('validation-message')) {
+                messageDiv = document.createElement('div');
+                messageDiv.classList.add('validation-message');
+                input.parentNode.appendChild(messageDiv);
+            }
+            
+            // Clear previous state
+            input.classList.remove('input-valid', 'input-invalid', 'input-warning');
+            messageDiv.textContent = '';
+            messageDiv.style.color = '';
+            
+            if (input.value === '') {
+                return; // Empty is okay, just no feedback
+            }
+            
+            if (isNaN(value) || value <= 0) {
+                input.classList.add('input-invalid');
+                messageDiv.textContent = '❌ Must be a positive number';
+                messageDiv.style.color = 'var(--danger)';
+                return false;
+            }
+            
+            // Field-specific validation
+            if (inputId === 'currentEsteps') {
+                if (value < 50 || value > 2000) {
+                    input.classList.add('input-warning');
+                    messageDiv.textContent = '⚠️ Unusual value - double check!';
+                    messageDiv.style.color = 'var(--warning)';
+                } else {
+                    input.classList.add('input-valid');
+                    messageDiv.textContent = '✅ Valid';
+                    messageDiv.style.color = 'var(--success)';
+                }
+            }
+            
+            if (inputId === 'requestedExtrusion') {
+                if (value !== 100 && value !== 50) {
+                    input.classList.add('input-warning');
+                    messageDiv.textContent = '⚠️ 100mm is standard';
+                    messageDiv.style.color = 'var(--warning)';
+                } else {
+                    input.classList.add('input-valid');
+                    messageDiv.textContent = '✅ Valid';
+                    messageDiv.style.color = 'var(--success)';
+                }
+            }
+            
+            if (inputId === 'actualExtrusion') {
+                const requested = parseFloat(document.getElementById('requestedExtrusion').value) || 100;
+                const errorPercent = Math.abs(((requested - value) / requested) * 100);
+                
+                if (errorPercent > 15) {
+                    input.classList.add('input-warning');
+                    messageDiv.textContent = `⚠️ ${errorPercent.toFixed(0)}% error - check measurement!`;
+                    messageDiv.style.color = 'var(--warning)';
+                } else if (errorPercent < 1) {
+                    input.classList.add('input-valid');
+                    messageDiv.textContent = `✅ Excellent (${errorPercent.toFixed(1)}% error)`;
+                    messageDiv.style.color = 'var(--success)';
+                } else {
+                    input.classList.add('input-valid');
+                    messageDiv.textContent = `✅ Valid (${errorPercent.toFixed(1)}% error)`;
+                    messageDiv.style.color = 'var(--success)';
+                }
+            }
+            
+            return true;
+        }
+        
+        // Attach real-time validation
+        document.getElementById('currentEsteps').addEventListener('input', () => validateInput('currentEsteps'));
+        document.getElementById('requestedExtrusion').addEventListener('input', () => validateInput('requestedExtrusion'));
+        document.getElementById('actualExtrusion').addEventListener('input', () => validateInput('actualExtrusion'));
+        
+        // Load saved data on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const restored = loadFromStorage();
+            if (restored) {
+                // Show subtle notification
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed; top: 80px; right: 20px; 
+                    background: var(--success); color: white; 
+                    padding: 15px 20px; border-radius: var(--radius-md); 
+                    box-shadow: var(--shadow-lg); z-index: 9999;
+                    animation: slideIn 0.3s ease-out;
+                `;
+                notification.textContent = '✅ Previous session restored';
+                document.body.appendChild(notification);
+                setTimeout(() => notification.remove(), 3000);
+            }
+            
+            // Load and display history
+            displayHistory();
+            
+            // Run validation on loaded values
+            validateInput('currentEsteps');
+            validateInput('requestedExtrusion');
+            validateInput('actualExtrusion');
         });
     </script>
 </body>

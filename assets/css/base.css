@@ -726,6 +726,388 @@
     --shadow-lg: 0 8px 20px rgba(0,0,0,0.5);
 }
 
+/* ============================================
+   HIGH CONTRAST BRAND THEMES
+   ============================================ */
+
+/* Prusa Orange High Contrast */
+[data-theme="prusa-high-contrast"] {
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --text-light: #333333;
+    --background: #ffffff;
+    --card-bg: #ffffff;
+    --border: #000000;
+    --primary: #ff6b00;
+    --primary-hover: #cc5500;
+    --primary-light: #ffe6cc;
+    --success: #008000;
+    --success-light: #e6ffe6;
+    --warning: #ff8800;
+    --warning-light: #fff4e6;
+    --error: #cc0000;
+    --error-light: #ffe6e6;
+    --info: #ff6b00;
+    --info-light: #ffe6cc;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.5);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.6);
+    --shadow-lg: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+[data-theme="prusa-high-contrast"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="prusa-high-contrast"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Prusa Orange High Contrast Dark */
+[data-theme="prusa-high-contrast-dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --text-light: #cccccc;
+    --background: #000000;
+    --card-bg: #000000;
+    --border: #ffffff;
+    --primary: #ff9147;
+    --primary-hover: #ffaa77;
+    --primary-light: #3a2515;
+    --success: #00ff00;
+    --success-light: #003300;
+    --warning: #ffaa00;
+    --warning-light: #332200;
+    --error: #ff0000;
+    --error-light: #330000;
+    --info: #ff9147;
+    --info-light: #3a2515;
+    --shadow-sm: 0 2px 5px rgba(255,255,255,0.3);
+    --shadow-md: 0 4px 10px rgba(255,255,255,0.4);
+    --shadow-lg: 0 8px 20px rgba(255,255,255,0.5);
+}
+
+[data-theme="prusa-high-contrast-dark"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="prusa-high-contrast-dark"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Bambu Lab Green High Contrast */
+[data-theme="bambu-high-contrast"] {
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --text-light: #333333;
+    --background: #ffffff;
+    --card-bg: #ffffff;
+    --border: #000000;
+    --primary: #00ae42;
+    --primary-hover: #008833;
+    --primary-light: #ccffcc;
+    --success: #008000;
+    --success-light: #e6ffe6;
+    --warning: #ff8800;
+    --warning-light: #fff4e6;
+    --error: #cc0000;
+    --error-light: #ffe6e6;
+    --info: #00ae42;
+    --info-light: #ccffcc;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.5);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.6);
+    --shadow-lg: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+[data-theme="bambu-high-contrast"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="bambu-high-contrast"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Bambu Lab Green High Contrast Dark */
+[data-theme="bambu-high-contrast-dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --text-light: #cccccc;
+    --background: #000000;
+    --card-bg: #000000;
+    --border: #ffffff;
+    --primary: #00ff00;
+    --primary-hover: #33ff33;
+    --primary-light: #003300;
+    --success: #00ff00;
+    --success-light: #003300;
+    --warning: #ffaa00;
+    --warning-light: #332200;
+    --error: #ff0000;
+    --error-light: #330000;
+    --info: #00ff00;
+    --info-light: #003300;
+    --shadow-sm: 0 2px 5px rgba(255,255,255,0.3);
+    --shadow-md: 0 4px 10px rgba(255,255,255,0.4);
+    --shadow-lg: 0 8px 20px rgba(255,255,255,0.5);
+}
+
+[data-theme="bambu-high-contrast-dark"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="bambu-high-contrast-dark"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Creality Blue High Contrast */
+[data-theme="creality-high-contrast"] {
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --text-light: #333333;
+    --background: #ffffff;
+    --card-bg: #ffffff;
+    --border: #000000;
+    --primary: #0000ff;
+    --primary-hover: #0000cc;
+    --primary-light: #ccccff;
+    --success: #008000;
+    --success-light: #e6ffe6;
+    --warning: #ff8800;
+    --warning-light: #fff4e6;
+    --error: #cc0000;
+    --error-light: #ffe6e6;
+    --info: #0000ff;
+    --info-light: #ccccff;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.5);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.6);
+    --shadow-lg: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+[data-theme="creality-high-contrast"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="creality-high-contrast"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Creality Blue High Contrast Dark */
+[data-theme="creality-high-contrast-dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --text-light: #cccccc;
+    --background: #000000;
+    --card-bg: #000000;
+    --border: #ffffff;
+    --primary: #00aaff;
+    --primary-hover: #00ddff;
+    --primary-light: #002244;
+    --success: #00ff00;
+    --success-light: #003300;
+    --warning: #ffaa00;
+    --warning-light: #332200;
+    --error: #ff0000;
+    --error-light: #330000;
+    --info: #00aaff;
+    --info-light: #002244;
+    --shadow-sm: 0 2px 5px rgba(255,255,255,0.3);
+    --shadow-md: 0 4px 10px rgba(255,255,255,0.4);
+    --shadow-lg: 0 8px 20px rgba(255,255,255,0.5);
+}
+
+[data-theme="creality-high-contrast-dark"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="creality-high-contrast-dark"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Voron Red High Contrast */
+[data-theme="voron-high-contrast"] {
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --text-light: #333333;
+    --background: #ffffff;
+    --card-bg: #ffffff;
+    --border: #000000;
+    --primary: #cc0000;
+    --primary-hover: #990000;
+    --primary-light: #ffcccc;
+    --success: #008000;
+    --success-light: #e6ffe6;
+    --warning: #ff8800;
+    --warning-light: #fff4e6;
+    --error: #cc0000;
+    --error-light: #ffe6e6;
+    --info: #cc0000;
+    --info-light: #ffcccc;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.5);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.6);
+    --shadow-lg: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+[data-theme="voron-high-contrast"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="voron-high-contrast"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Voron Red High Contrast Dark */
+[data-theme="voron-high-contrast-dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --text-light: #cccccc;
+    --background: #000000;
+    --card-bg: #000000;
+    --border: #ffffff;
+    --primary: #ff4444;
+    --primary-hover: #ff6666;
+    --primary-light: #330000;
+    --success: #00ff00;
+    --success-light: #003300;
+    --warning: #ffaa00;
+    --warning-light: #332200;
+    --error: #ff0000;
+    --error-light: #330000;
+    --info: #ff4444;
+    --info-light: #330000;
+    --shadow-sm: 0 2px 5px rgba(255,255,255,0.3);
+    --shadow-md: 0 4px 10px rgba(255,255,255,0.4);
+    --shadow-lg: 0 8px 20px rgba(255,255,255,0.5);
+}
+
+[data-theme="voron-high-contrast-dark"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="voron-high-contrast-dark"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Ultimaker Steel High Contrast */
+[data-theme="ultimaker-high-contrast"] {
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --text-light: #333333;
+    --background: #ffffff;
+    --card-bg: #ffffff;
+    --border: #000000;
+    --primary: #333333;
+    --primary-hover: #000000;
+    --primary-light: #cccccc;
+    --success: #008000;
+    --success-light: #e6ffe6;
+    --warning: #ff8800;
+    --warning-light: #fff4e6;
+    --error: #cc0000;
+    --error-light: #ffe6e6;
+    --info: #333333;
+    --info-light: #cccccc;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.5);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.6);
+    --shadow-lg: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+[data-theme="ultimaker-high-contrast"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="ultimaker-high-contrast"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Ultimaker Steel High Contrast Dark */
+[data-theme="ultimaker-high-contrast-dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --text-light: #cccccc;
+    --background: #000000;
+    --card-bg: #000000;
+    --border: #ffffff;
+    --primary: #cccccc;
+    --primary-hover: #ffffff;
+    --primary-light: #333333;
+    --success: #00ff00;
+    --success-light: #003300;
+    --warning: #ffaa00;
+    --warning-light: #332200;
+    --error: #ff0000;
+    --error-light: #330000;
+    --info: #cccccc;
+    --info-light: #333333;
+    --shadow-sm: 0 2px 5px rgba(255,255,255,0.3);
+    --shadow-md: 0 4px 10px rgba(255,255,255,0.4);
+    --shadow-lg: 0 8px 20px rgba(255,255,255,0.5);
+}
+
+[data-theme="ultimaker-high-contrast-dark"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="ultimaker-high-contrast-dark"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Formlabs Teal High Contrast */
+[data-theme="formlabs-high-contrast"] {
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --text-light: #333333;
+    --background: #ffffff;
+    --card-bg: #ffffff;
+    --border: #000000;
+    --primary: #008888;
+    --primary-hover: #006666;
+    --primary-light: #ccffff;
+    --success: #008000;
+    --success-light: #e6ffe6;
+    --warning: #ff8800;
+    --warning-light: #fff4e6;
+    --error: #cc0000;
+    --error-light: #ffe6e6;
+    --info: #008888;
+    --info-light: #ccffff;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.5);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.6);
+    --shadow-lg: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+[data-theme="formlabs-high-contrast"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="formlabs-high-contrast"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Formlabs Teal High Contrast Dark */
+[data-theme="formlabs-high-contrast-dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --text-light: #cccccc;
+    --background: #000000;
+    --card-bg: #000000;
+    --border: #ffffff;
+    --primary: #00ffff;
+    --primary-hover: #66ffff;
+    --primary-light: #003333;
+    --success: #00ff00;
+    --success-light: #003300;
+    --warning: #ffaa00;
+    --warning-light: #332200;
+    --error: #ff0000;
+    --error-light: #330000;
+    --info: #00ffff;
+    --info-light: #003333;
+    --shadow-sm: 0 2px 5px rgba(255,255,255,0.3);
+    --shadow-md: 0 4px 10px rgba(255,255,255,0.4);
+    --shadow-lg: 0 8px 20px rgba(255,255,255,0.5);
+}
+
+[data-theme="formlabs-high-contrast-dark"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="formlabs-high-contrast-dark"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Anycubic Purple High Contrast */
+[data-theme="anycubic-high-contrast"] {
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --text-light: #333333;
+    --background: #ffffff;
+    --card-bg: #ffffff;
+    --border: #000000;
+    --primary: #7700cc;
+    --primary-hover: #550099;
+    --primary-light: #eeccff;
+    --success: #008000;
+    --success-light: #e6ffe6;
+    --warning: #ff8800;
+    --warning-light: #fff4e6;
+    --error: #cc0000;
+    --error-light: #ffe6e6;
+    --info: #7700cc;
+    --info-light: #eeccff;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.5);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.6);
+    --shadow-lg: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+[data-theme="anycubic-high-contrast"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="anycubic-high-contrast"] button { border: 2px solid var(--border); font-weight: 700; }
+
+/* Anycubic Purple High Contrast Dark */
+[data-theme="anycubic-high-contrast-dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --text-light: #cccccc;
+    --background: #000000;
+    --card-bg: #000000;
+    --border: #ffffff;
+    --primary: #cc66ff;
+    --primary-hover: #dd88ff;
+    --primary-light: #330055;
+    --success: #00ff00;
+    --success-light: #003300;
+    --warning: #ffaa00;
+    --warning-light: #332200;
+    --error: #ff0000;
+    --error-light: #330000;
+    --info: #cc66ff;
+    --info-light: #330055;
+    --shadow-sm: 0 2px 5px rgba(255,255,255,0.3);
+    --shadow-md: 0 4px 10px rgba(255,255,255,0.4);
+    --shadow-lg: 0 8px 20px rgba(255,255,255,0.5);
+}
+
+[data-theme="anycubic-high-contrast-dark"] a { text-decoration: underline; font-weight: 600; }
+[data-theme="anycubic-high-contrast-dark"] button { border: 2px solid var(--border); font-weight: 700; }
+
 /* High contrast dark specific adjustments */
 [data-theme="high-contrast-dark"] a {
     text-decoration: underline;
