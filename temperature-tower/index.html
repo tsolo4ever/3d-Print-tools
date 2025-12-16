@@ -268,145 +268,12 @@
             <p>Find the perfect printing temperature for your filament</p>
         </div>
 
-        <!-- G-Code Generator Section -->
-        <div class="calculator-section">
-            <h2>📐 Manual G-Code Generator</h2>
-            
-            <!-- Quick Preset Buttons -->
-            <div style="margin-bottom: 25px; padding: 20px; background: var(--primary-light); border-radius: var(--radius-md); border: 2px solid var(--primary);">
-                <strong style="display: block; margin-bottom: 12px; color: var(--text-primary);">⚡ Quick Presets - Click to Auto-Fill:</strong>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                    <button class="preset-button" onclick="applyQuickPreset('pla', this)" style="background: var(--primary); color: white; border: none;">
-                        PLA (220-190°C)
-                    </button>
-                    <button class="preset-button" onclick="applyQuickPreset('petg', this)" style="background: var(--primary); color: white; border: none;">
-                        PETG (250-220°C)
-                    </button>
-                    <button class="preset-button" onclick="applyQuickPreset('abs', this)" style="background: var(--primary); color: white; border: none;">
-                        ABS (250-220°C)
-                    </button>
-                    <button class="preset-button" onclick="applyQuickPreset('tpu', this)" style="background: var(--primary); color: white; border: none;">
-                        TPU (230-210°C)
-                    </button>
-                    <button class="preset-button" onclick="applyQuickPreset('nylon', this)" style="background: var(--primary); color: white; border: none;">
-                        Nylon (270-240°C)
-                    </button>
-                </div>
+        <!-- G-Code Upload & Modifier Section (NOW FIRST - RECOMMENDED METHOD) -->
+        <div class="calculator-section" style="border: 3px solid var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+            <div style="background: var(--primary); color: white; margin: calc(-1 * var(--spacing-md)); margin-bottom: var(--spacing-md); padding: 15px 20px; border-radius: var(--radius-md) var(--radius-md) 0 0;">
+                <h2 style="margin: 0; color: white; border: none; padding: 0;">⭐ Upload & Modify G-Code (Recommended)</h2>
+                <p style="margin: 5px 0 0 0; opacity: 0.95;">Easiest method - slice with your settings, we'll add the temperature changes!</p>
             </div>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="material">Material Type</label>
-                    <select id="material" onchange="loadMaterialPreset()">
-                        <option value="custom">Custom</option>
-                        <option value="pla" selected>PLA</option>
-                        <option value="petg">PETG</option>
-                        <option value="abs">ABS</option>
-                        <option value="tpu">TPU</option>
-                        <option value="nylon">Nylon</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="startTemp">Start Temperature (°C)</label>
-                    <input type="number" id="startTemp" value="220" step="5">
-                </div>
-                <div class="form-group">
-                    <label for="endTemp">End Temperature (°C)</label>
-                    <input type="number" id="endTemp" value="190" step="5">
-                </div>
-                <div class="form-group">
-                    <label for="tempStep">Temperature Step (°C)</label>
-                    <input type="number" id="tempStep" value="5" step="1">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="initialLayerHeight">Initial Layer Height (mm)</label>
-                    <input type="number" id="initialLayerHeight" value="0.2" step="0.05" title="Height of the first layer (often thicker for better adhesion)">
-                    <small style="color: var(--text-secondary); font-size: 0.85em;">First layer height (e.g., 0.3mm for better adhesion)</small>
-                </div>
-                <div class="form-group">
-                    <label for="layerHeight">Layer Height (mm)</label>
-                    <input type="number" id="layerHeight" value="0.2" step="0.05" title="Standard layer height for subsequent layers">
-                    <small style="color: var(--text-secondary); font-size: 0.85em;">Height for layers 2+</small>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="startLayer">Start Layer</label>
-                    <input type="number" id="startLayer" value="1" min="1" step="1" title="Layer where temperature tower begins">
-                    <small style="color: var(--text-secondary); font-size: 0.85em;">Recommended: 3-5 for better first layer adhesion</small>
-                </div>
-                <div class="form-group">
-                    <label for="sectionHeight">Section Height (mm)</label>
-                    <input type="number" id="sectionHeight" value="10" step="1" title="Height of each temperature section">
-                    <small style="color: var(--text-secondary); font-size: 0.85em;">Each section will be this tall</small>
-                </div>
-            </div>
-
-            <div style="background: var(--info-light); border-left: 4px solid var(--info); padding: 15px; margin: 15px 0; border-radius: var(--radius-sm);">
-                <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <input type="checkbox" id="enableFadeIn" style="width: auto; margin-right: 10px;">
-                    <label for="enableFadeIn" style="margin: 0; cursor: pointer; font-weight: 600;">
-                        🔄 Enable Temperature Fade-In (Recommended)
-                    </label>
-                </div>
-                <p style="margin: 5px 0 10px 0; font-size: 0.9em; color: var(--text-secondary);">
-                    Gradually transition from first layer temperature to tower starting temperature. Prevents thermal shock and improves adhesion.
-                </p>
-                <div class="form-row" id="fadeInSettings" style="display: none;">
-                    <div class="form-group">
-                        <label for="firstLayerTemp">First Layer Temperature (°C)</label>
-                        <input type="number" id="firstLayerTemp" value="220" step="5" title="Temperature used for first layer (from slicer)">
-                        <small style="color: var(--text-secondary); font-size: 0.85em;">Your slicer's first layer temp</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="fadeLength">Fade Length (layers)</label>
-                        <input type="number" id="fadeLength" value="4" min="2" max="10" step="1" title="Number of layers to fade temperature">
-                        <small style="color: var(--text-secondary); font-size: 0.85em;">Recommended: 3-5 layers</small>
-                    </div>
-                </div>
-            </div>
-
-            <div style="background: var(--card-bg); border: 2px solid var(--border); padding: 15px; margin: 15px 0; border-radius: var(--radius-sm);">
-                <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <strong style="margin-right: 15px;">G-code Command Type:</strong>
-                    <label style="display: flex; align-items: center; margin-right: 15px; cursor: pointer;">
-                        <input type="radio" name="gcodeCommand" id="useM104" value="M104" checked style="width: auto; margin-right: 5px;">
-                        <span>M104 (Set & Continue)</span>
-                    </label>
-                    <label style="display: flex; align-items: center; cursor: pointer;">
-                        <input type="radio" name="gcodeCommand" id="useM109" value="M109" style="width: auto; margin-right: 5px;">
-                        <span>M109 (Set & Wait)</span>
-                    </label>
-                </div>
-                <p style="margin: 5px 0 0 0; font-size: 0.85em; color: var(--text-secondary);">
-                    <strong>M104:</strong> Sets temperature and continues immediately (faster transitions) - <em>Recommended</em><br>
-                    <strong>M109:</strong> Sets temperature and waits until reached (ensures exact temp before each section)
-                </p>
-            </div>
-
-            <div id="validationMessages" style="display: none;"></div>
-
-            <button class="btn" onclick="generateGcode()">🌡️ Generate G-Code</button>
-
-            <div id="gcodeResults" style="display: none;">
-                <div class="result-box">
-                    <h3>📋 Generated G-Code</h3>
-                    <div id="towerSummary"></div>
-                    <div class="gcode-box">
-                        <pre id="gcodeOutput"></pre>
-                    </div>
-                    <button class="btn" onclick="copyGcode()" style="margin-top: 15px;">📋 Copy G-Code</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- G-Code Upload & Modifier Section -->
-        <div class="calculator-section">
-            <h2>📤 Upload & Modify G-Code (Recommended)</h2>
             
             <div class="info-box">
                 <strong>🎯 Easy 3-Step Process:</strong>
@@ -525,14 +392,204 @@
             </div>
         </div>
 
+        <!-- Manual G-Code Generator Section (ALTERNATIVE METHOD) -->
+        <div class="calculator-section">
+            <h2>📐 Manual G-Code Generator (Advanced)</h2>
+            <div class="info-box" style="margin-bottom: 20px;">
+                <strong>ℹ️ Alternative Method:</strong> Generate standalone temperature change commands, or create a complete G-code file from scratch with custom start/end G-code.
+            </div>
+            
+            <!-- Quick Preset Buttons -->
+            <div style="margin-bottom: 25px; padding: 20px; background: var(--primary-light); border-radius: var(--radius-md); border: 2px solid var(--primary);">
+                <strong style="display: block; margin-bottom: 12px; color: var(--text-primary);">⚡ Quick Presets - Click to Auto-Fill:</strong>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <button class="preset-button" onclick="applyQuickPreset('pla', this)" style="background: var(--primary); color: white; border: none;">
+                        PLA (220-190°C)
+                    </button>
+                    <button class="preset-button" onclick="applyQuickPreset('petg', this)" style="background: var(--primary); color: white; border: none;">
+                        PETG (250-220°C)
+                    </button>
+                    <button class="preset-button" onclick="applyQuickPreset('abs', this)" style="background: var(--primary); color: white; border: none;">
+                        ABS (250-220°C)
+                    </button>
+                    <button class="preset-button" onclick="applyQuickPreset('tpu', this)" style="background: var(--primary); color: white; border: none;">
+                        TPU (230-210°C)
+                    </button>
+                    <button class="preset-button" onclick="applyQuickPreset('nylon', this)" style="background: var(--primary); color: white; border: none;">
+                        Nylon (270-240°C)
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="material">Material Type</label>
+                    <select id="material" onchange="loadMaterialPreset()">
+                        <option value="custom">Custom</option>
+                        <option value="pla" selected>PLA</option>
+                        <option value="petg">PETG</option>
+                        <option value="abs">ABS</option>
+                        <option value="tpu">TPU</option>
+                        <option value="nylon">Nylon</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="startTemp">Start Temperature (°C)</label>
+                    <input type="number" id="startTemp" value="220" step="5">
+                </div>
+                <div class="form-group">
+                    <label for="endTemp">End Temperature (°C)</label>
+                    <input type="number" id="endTemp" value="190" step="5">
+                </div>
+                <div class="form-group">
+                    <label for="tempStep">Temperature Step (°C)</label>
+                    <input type="number" id="tempStep" value="5" step="1">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="initialLayerHeight">Initial Layer Height (mm)</label>
+                    <input type="number" id="initialLayerHeight" value="0.2" step="0.05" title="Height of the first layer (often thicker for better adhesion)">
+                    <small style="color: var(--text-secondary); font-size: 0.85em;">First layer height (e.g., 0.3mm for better adhesion)</small>
+                </div>
+                <div class="form-group">
+                    <label for="layerHeight">Layer Height (mm)</label>
+                    <input type="number" id="layerHeight" value="0.2" step="0.05" title="Standard layer height for subsequent layers">
+                    <small style="color: var(--text-secondary); font-size: 0.85em;">Height for layers 2+</small>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="startLayer">Start Layer</label>
+                    <input type="number" id="startLayer" value="1" min="1" step="1" title="Layer where temperature tower begins">
+                    <small style="color: var(--text-secondary); font-size: 0.85em;">Recommended: 3-5 for better first layer adhesion</small>
+                </div>
+                <div class="form-group">
+                    <label for="sectionHeight">Section Height (mm)</label>
+                    <input type="number" id="sectionHeight" value="10" step="1" title="Height of each temperature section">
+                    <small style="color: var(--text-secondary); font-size: 0.85em;">Each section will be this tall</small>
+                </div>
+            </div>
+
+            <div style="background: var(--info-light); border-left: 4px solid var(--info); padding: 15px; margin: 15px 0; border-radius: var(--radius-sm);">
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <input type="checkbox" id="enableFadeIn" style="width: auto; margin-right: 10px;">
+                    <label for="enableFadeIn" style="margin: 0; cursor: pointer; font-weight: 600;">
+                        🔄 Enable Temperature Fade-In (Recommended)
+                    </label>
+                </div>
+                <p style="margin: 5px 0 10px 0; font-size: 0.9em; color: var(--text-secondary);">
+                    Gradually transition from first layer temperature to tower starting temperature. Prevents thermal shock and improves adhesion.
+                </p>
+                <div class="form-row" id="fadeInSettings" style="display: none;">
+                    <div class="form-group">
+                        <label for="firstLayerTemp">First Layer Temperature (°C)</label>
+                        <input type="number" id="firstLayerTemp" value="220" step="5" title="Temperature used for first layer (from slicer)">
+                        <small style="color: var(--text-secondary); font-size: 0.85em;">Your slicer's first layer temp</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="fadeLength">Fade Length (layers)</label>
+                        <input type="number" id="fadeLength" value="4" min="2" max="10" step="1" title="Number of layers to fade temperature">
+                        <small style="color: var(--text-secondary); font-size: 0.85em;">Recommended: 3-5 layers</small>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--card-bg); border: 2px solid var(--border); padding: 15px; margin: 15px 0; border-radius: var(--radius-sm);">
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <strong style="margin-right: 15px;">G-code Command Type:</strong>
+                    <label style="display: flex; align-items: center; margin-right: 15px; cursor: pointer;">
+                        <input type="radio" name="gcodeCommand" id="useM104" value="M104" checked style="width: auto; margin-right: 5px;">
+                        <span>M104 (Set & Continue)</span>
+                    </label>
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="radio" name="gcodeCommand" id="useM109" value="M109" style="width: auto; margin-right: 5px;">
+                        <span>M109 (Set & Wait)</span>
+                    </label>
+                </div>
+                <p style="margin: 5px 0 0 0; font-size: 0.85em; color: var(--text-secondary);">
+                    <strong>M104:</strong> Sets temperature and continues immediately (faster transitions) - <em>Recommended</em><br>
+                    <strong>M109:</strong> Sets temperature and waits until reached (ensures exact temp before each section)
+                </p>
+            </div>
+
+            <!-- Optional Custom Start/End G-code -->
+            <div style="background: var(--info-light); border-left: 4px solid var(--info); padding: 15px; margin: 15px 0; border-radius: var(--radius-sm);">
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <input type="checkbox" id="enableCustomGcode" style="width: auto; margin-right: 10px;">
+                    <label for="enableCustomGcode" style="margin: 0; cursor: pointer; font-weight: 600;">
+                        🔧 Include Custom Start/End G-code (Optional)
+                    </label>
+                </div>
+                <p style="margin: 5px 0 10px 0; font-size: 0.9em; color: var(--text-secondary);">
+                    Add your own start and end G-code to generate a complete, standalone file ready to print.
+                </p>
+                <div id="customGcodeSettings" style="display: none;">
+                    <div class="form-group">
+                        <label for="startGcode">Start G-code (runs at beginning of print)</label>
+                        <textarea id="startGcode" rows="8" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--background); color: var(--text-primary); font-family: 'Courier New', monospace; font-size: 0.9em; resize: vertical;" placeholder="; Example start G-code:
+G28 ; Home all axes
+G1 Z15.0 F6000 ; Move up
+M104 S200 ; Set hotend temp
+M140 S60 ; Set bed temp
+M109 S200 ; Wait for hotend
+M190 S60 ; Wait for bed
+G92 E0 ; Reset extruder
+G1 F200 E3 ; Extrude purge
+G92 E0 ; Reset extruder"></textarea>
+                        <small style="color: var(--text-secondary); font-size: 0.85em;">Homing, heating, bed leveling, purge line, etc.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="endGcode">End G-code (runs at end of print)</label>
+                        <textarea id="endGcode" rows="6" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--background); color: var(--text-primary); font-family: 'Courier New', monospace; font-size: 0.9em; resize: vertical;" placeholder="; Example end G-code:
+M104 S0 ; Turn off hotend
+M140 S0 ; Turn off bed
+G91 ; Relative positioning
+G1 E-2 F2700 ; Retract
+G1 Z10 ; Raise Z
+G28 X0 Y0 ; Home X/Y
+M84 ; Disable steppers"></textarea>
+                        <small style="color: var(--text-secondary); font-size: 0.85em;">Cool down, retract, park nozzle, disable motors, etc.</small>
+                    </div>
+                </div>
+            </div>
+
+            <div id="validationMessages" style="display: none;"></div>
+
+            <button class="btn" onclick="generateGcode()">🌡️ Generate G-Code</button>
+
+            <div id="gcodeResults" style="display: none;">
+                <div class="result-box">
+                    <h3>📋 Generated G-Code</h3>
+                    <div id="towerSummary"></div>
+                    <div class="gcode-box">
+                        <pre id="gcodeOutput"></pre>
+                    </div>
+                    <button class="btn" onclick="copyGcode()" style="margin-top: 15px;">📋 Copy G-Code</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Guide Section -->
         <div class="calculator-section">
             <h2>📚 How to Use Temperature Towers</h2>
             
-            <h3>Method 1: Upload & Modify (Recommended)</h3>
+            <h3>Method 1: Upload & Modify (Recommended) ⭐</h3>
             <p>The easiest way! Download our STL, slice with your settings, upload the G-code, and we'll modify it automatically.</p>
+            <ol style="line-height: 1.8;">
+                <li>Download the STL file above</li>
+                <li>Slice it in your preferred slicer with YOUR settings</li>
+                <li>Upload the sliced G-code file</li>
+                <li>We automatically insert temperature changes at the correct heights</li>
+                <li>Download and print!</li>
+            </ol>
+
+            <h3>Method 2: Manual Generator (Advanced)</h3>
+            <p>Generate temperature change commands manually, or create a complete standalone G-code file with custom start/end code.</p>
             
-            <h3>Step 1: Evaluate Results</h3>
+            <h3>Evaluating Your Results</h3>
             <p>Look for these qualities at each temperature:</p>
             <ul>
                 <li>✅ Layer adhesion - Layers should be well-bonded</li>
@@ -691,6 +748,12 @@
             fadeInSettings.style.display = this.checked ? 'grid' : 'none';
         });
         
+        // Toggle custom G-code settings visibility
+        document.getElementById('enableCustomGcode').addEventListener('change', function() {
+            const customGcodeSettings = document.getElementById('customGcodeSettings');
+            customGcodeSettings.style.display = this.checked ? 'block' : 'none';
+        });
+        
         function generateGcode() {
             const startTemp = parseFloat(document.getElementById('startTemp').value);
             const endTemp = parseFloat(document.getElementById('endTemp').value);
@@ -708,6 +771,11 @@
             
             // Get command type (M104 or M109)
             const commandType = document.getElementById('useM109').checked ? 'M109' : 'M104';
+            
+            // Get custom G-code if enabled
+            const enableCustomGcode = document.getElementById('enableCustomGcode').checked;
+            const startGcode = document.getElementById('startGcode').value.trim();
+            const endGcode = document.getElementById('endGcode').value.trim();
             
             // Validate temperatures
             const validation = validateTemperatures(startTemp, endTemp, tempStep, material);
@@ -732,7 +800,17 @@
             }
             
             // Generate G-code with detailed configuration
-            let gcode = '; ==========================================\n';
+            let gcode = '';
+            
+            // Add custom start G-code if provided
+            if (enableCustomGcode && startGcode) {
+                gcode += '; ==========================================\n';
+                gcode += '; CUSTOM START G-CODE\n';
+                gcode += '; ==========================================\n';
+                gcode += startGcode + '\n\n';
+            }
+            
+            gcode += '; ==========================================\n';
             gcode += '; Temperature Tower G-Code\n';
             gcode += '; Generated by 3D Printer Calibration Suite\n';
             gcode += '; ==========================================\n';
@@ -787,8 +865,18 @@
             
             gcode += '; ==========================================\n';
             gcode += '; End of temperature tower commands\n';
-            gcode += '; Insert these commands at the Z-heights shown above\n';
+            if (!enableCustomGcode || !startGcode) {
+                gcode += '; Insert these commands at the Z-heights shown above\n';
+            }
             gcode += '; ==========================================\n';
+            
+            // Add custom end G-code if provided
+            if (enableCustomGcode && endGcode) {
+                gcode += '\n; ==========================================\n';
+                gcode += '; CUSTOM END G-CODE\n';
+                gcode += '; ==========================================\n';
+                gcode += endGcode + '\n';
+            }
             
             document.getElementById('gcodeOutput').textContent = gcode;
             
@@ -807,6 +895,12 @@
             }
             
             summaryHTML += '<br><strong>Command:</strong> ' + commandType + ' (' + (commandType === 'M104' ? 'Set & Continue' : 'Set & Wait') + ')';
+            
+            if (enableCustomGcode && (startGcode || endGcode)) {
+                summaryHTML += '<br><strong>Custom G-code:</strong> ';
+                if (startGcode) summaryHTML += 'Start ✓ ';
+                if (endGcode) summaryHTML += 'End ✓';
+            }
             
             document.getElementById('towerSummary').innerHTML = summaryHTML;
             document.getElementById('gcodeResults').style.display = 'block';
