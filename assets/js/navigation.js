@@ -173,16 +173,35 @@ function initializeAutoSwitching() {
     const timeBasedSwitching = localStorage.getItem('timeBasedSwitching') === 'true';
     const useHighContrast = localStorage.getItem('useHighContrast') === 'true';
     const timeBasedHighContrast = localStorage.getItem('timeBasedHighContrast') === 'true';
+    const brand = localStorage.getItem('themeBrand') || 'default';
     
     // Apply auto-switching logic
     let autoTheme = null;
     
     if (followSystem) {
         const baseTheme = getSystemPreferredTheme();
-        autoTheme = useHighContrast ? (baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast') : baseTheme;
+        if (useHighContrast) {
+            // Apply brand-specific high contrast
+            if (brand === 'default') {
+                autoTheme = baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast';
+            } else {
+                autoTheme = baseTheme === 'dark' ? brand + '-high-contrast-dark' : brand + '-high-contrast';
+            }
+        } else {
+            autoTheme = baseTheme;
+        }
     } else if (timeBasedSwitching) {
         const baseTheme = getTimeBasedTheme();
-        autoTheme = timeBasedHighContrast ? (baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast') : baseTheme;
+        if (timeBasedHighContrast) {
+            // Apply brand-specific high contrast
+            if (brand === 'default') {
+                autoTheme = baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast';
+            } else {
+                autoTheme = baseTheme === 'dark' ? brand + '-high-contrast-dark' : brand + '-high-contrast';
+            }
+        } else {
+            autoTheme = baseTheme;
+        }
     }
     
     // If auto-switching is enabled and no manual override exists
@@ -212,10 +231,23 @@ function initializeAutoSwitching() {
         setInterval(() => {
             const isTimeBased = localStorage.getItem('timeBasedSwitching') === 'true';
             const timeBasedHC = localStorage.getItem('timeBasedHighContrast') === 'true';
+            const brand = localStorage.getItem('themeBrand') || 'default';
             
             if (isTimeBased && !localStorage.getItem('manualThemeOverride')) {
                 const baseTheme = getTimeBasedTheme();
-                const timeTheme = timeBasedHC ? (baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast') : baseTheme;
+                let timeTheme;
+                
+                if (timeBasedHC) {
+                    // Apply brand-specific high contrast
+                    if (brand === 'default') {
+                        timeTheme = baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast';
+                    } else {
+                        timeTheme = baseTheme === 'dark' ? brand + '-high-contrast-dark' : brand + '-high-contrast';
+                    }
+                } else {
+                    timeTheme = baseTheme;
+                }
+                
                 const currentTheme = document.documentElement.getAttribute('data-theme');
                 if (timeTheme !== currentTheme) {
                     applyTheme(timeTheme);
@@ -327,8 +359,21 @@ function initializeAutoSwitchingToggles() {
             // If follow system is enabled, reapply theme with high contrast
             if (localStorage.getItem('followSystemTheme') === 'true') {
                 localStorage.removeItem('manualThemeOverride');
+                const brand = localStorage.getItem('themeBrand') || 'default';
                 const baseTheme = getSystemPreferredTheme();
-                const finalTheme = this.checked ? (baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast') : baseTheme;
+                let finalTheme;
+                
+                if (this.checked) {
+                    // Apply brand-specific high contrast
+                    if (brand === 'default') {
+                        finalTheme = baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast';
+                    } else {
+                        finalTheme = baseTheme === 'dark' ? brand + '-high-contrast-dark' : brand + '-high-contrast';
+                    }
+                } else {
+                    finalTheme = baseTheme;
+                }
+                
                 applyTheme(finalTheme);
                 updateThemeSelector(finalTheme);
             }
@@ -350,8 +395,21 @@ function initializeAutoSwitchingToggles() {
                 // Clear manual override and apply time-based theme
                 localStorage.removeItem('manualThemeOverride');
                 const timeBasedHighContrast = localStorage.getItem('timeBasedHighContrast') === 'true';
+                const brand = localStorage.getItem('themeBrand') || 'default';
                 const baseTheme = getTimeBasedTheme();
-                const finalTheme = timeBasedHighContrast ? (baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast') : baseTheme;
+                let finalTheme;
+                
+                if (timeBasedHighContrast) {
+                    // Apply brand-specific high contrast
+                    if (brand === 'default') {
+                        finalTheme = baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast';
+                    } else {
+                        finalTheme = baseTheme === 'dark' ? brand + '-high-contrast-dark' : brand + '-high-contrast';
+                    }
+                } else {
+                    finalTheme = baseTheme;
+                }
+                
                 applyTheme(finalTheme);
                 updateThemeSelector(finalTheme);
             }
@@ -367,8 +425,21 @@ function initializeAutoSwitchingToggles() {
             // If time-based is enabled, reapply theme with high contrast
             if (localStorage.getItem('timeBasedSwitching') === 'true') {
                 localStorage.removeItem('manualThemeOverride');
+                const brand = localStorage.getItem('themeBrand') || 'default';
                 const baseTheme = getTimeBasedTheme();
-                const finalTheme = this.checked ? (baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast') : baseTheme;
+                let finalTheme;
+                
+                if (this.checked) {
+                    // Apply brand-specific high contrast
+                    if (brand === 'default') {
+                        finalTheme = baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast';
+                    } else {
+                        finalTheme = baseTheme === 'dark' ? brand + '-high-contrast-dark' : brand + '-high-contrast';
+                    }
+                } else {
+                    finalTheme = baseTheme;
+                }
+                
                 applyTheme(finalTheme);
                 updateThemeSelector(finalTheme);
             }

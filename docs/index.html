@@ -21,7 +21,7 @@
         }
         
         .doc-card {
-            background: white;
+            background: var(--card-bg);
             padding: 30px;
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-sm);
@@ -47,7 +47,7 @@
         }
         
         .section {
-            background: white;
+            background: var(--card-bg);
             padding: 30px;
             border-radius: var(--radius-md);
             margin-bottom: 30px;
@@ -63,13 +63,41 @@
             <button class="mobile-menu-toggle">☰</button>
             <div class="nav-links">
                 <a href="../">Home</a>
-                <a href="../E-Steps_Calculator_Interactive/">E-Steps</a>
-                <a href="../SharePoint_Nozzle_Selection_Guide/">Nozzle Guide</a>
-                <a href="../gear-calculator/">Gear Calc</a>
-                <a href="../docs/">Docs</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">Tools ▾</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../E-Steps_Calculator_Interactive/">🎯 E-Steps</a>
+                        <a href="../flow-calibration/">💧 Flow Rate</a>
+                        <a href="../SharePoint_Nozzle_Selection_Guide/">🔍 Nozzle Guide</a>
+                        <a href="../gear-calculator/">⚙️ Gear Calculator</a>
+                        <a href="../temperature-tower/">🌡️ Temp Tower</a>
+                        <a href="../retraction-tuning/">🔄 Retraction</a>
+                        <a href="../pressure-advance/">⚡ Pressure Advance</a>
+                        <a href="../pid-tuning/">🎛️ PID Tuning</a>
+                    </div>
+                </div>
+                <a href="../docs/" class="active">Docs</a>
             </div>
             <div class="nav-actions">
-                <button class="theme-toggle" title="Toggle Theme">🌙</button>
+                <select class="brand-selector" title="Select Brand">
+                    <option value="default">Default</option>
+                    <optgroup label="Printer Brands">
+                        <option value="prusa">🟠 Prusa Orange</option>
+                        <option value="bambu">🟢 Bambu Lab</option>
+                        <option value="creality">🔵 Creality</option>
+                        <option value="voron">🔴 Voron</option>
+                        <option value="ultimaker">⚙️ Ultimaker</option>
+                        <option value="formlabs">💎 Formlabs</option>
+                        <option value="anycubic">🟣 Anycubic</option>
+                    </optgroup>
+                </select>
+                <select class="mode-selector" title="Select Theme Mode">
+                    <option value="light">☀️ Light</option>
+                    <option value="dark">🌙 Dark</option>
+                    <option value="high-contrast">⚡ High Contrast</option>
+                    <option value="high-contrast-dark">⚡🌙 HC Dark</option>
+                </select>
+                <button class="theme-settings-btn" title="Theme Settings">⚙️</button>
             </div>
         </div>
     </nav>
@@ -186,6 +214,106 @@
             </ul>
         </div>
 
+        <!-- Guides Section -->
+        <div class="section">
+            <h2>📖 Comprehensive Guides</h2>
+            <p>Detailed guides covering all aspects of 3D printer calibration and optimization.</p>
+            
+            <div style="background: var(--info-light); border-left: 4px solid var(--info); padding: 15px; border-radius: var(--radius-sm); margin-bottom: 20px; font-size: 0.95em;">
+                <strong>✨ Credits:</strong> These comprehensive guides were created by <strong>Claude (Anthropic)</strong> to provide in-depth technical resources for 3D printer calibration and optimization.
+            </div>
+            
+            <div class="docs-grid" style="margin-top: 30px;">
+                <!-- Calibration Guides -->
+                <a href="guides/E-Steps_Calibration_Guide.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">🎯</div>
+                    <h3>E-Steps Calibration</h3>
+                    <p>Step-by-step guide to calibrate extruder steps per millimeter</p>
+                </a>
+
+                <a href="guides/flow_rate_calibration.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">💧</div>
+                    <h3>Flow Rate Calibration</h3>
+                    <p>Fine-tune extrusion multiplier for perfect dimensional accuracy</p>
+                </a>
+
+                <a href="guides/Z-Offset_Calibration_Guide.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">📐</div>
+                    <h3>Z-Offset Calibration</h3>
+                    <p>Perfect your first layer height for consistent bed adhesion</p>
+                </a>
+
+                <a href="guides/temperature_tuning.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">🌡️</div>
+                    <h3>Temperature Tuning</h3>
+                    <p>Optimize nozzle and bed temperatures for your filament</p>
+                </a>
+
+                <!-- Material & Quality Guides -->
+                <a href="guides/first_layer_adhesion.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">🔗</div>
+                    <h3>First Layer Adhesion</h3>
+                    <p>Ensure perfect bed adhesion for every print</p>
+                </a>
+
+                <a href="guides/retraction_calibration.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">🔄</div>
+                    <h3>Retraction Calibration</h3>
+                    <p>Eliminate stringing and improve print quality</p>
+                </a>
+
+                <a href="guides/Ironing_Complete_Guide.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">✨</div>
+                    <h3>Ironing Complete Guide</h3>
+                    <p>Achieve smooth, glossy top surfaces on your prints</p>
+                </a>
+
+                <a href="guides/support_material_guide.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">🛠️</div>
+                    <h3>Support Material Guide</h3>
+                    <p>Master support generation and removal techniques</p>
+                </a>
+
+                <!-- Hardware & Configuration -->
+                <a href="guides/Nozzle_Size_Comparison_Guide.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">🔍</div>
+                    <h3>Nozzle Size Comparison</h3>
+                    <p>Choose the right nozzle for your specific printing needs</p>
+                </a>
+
+                <a href="guides/Hole Size Compensation Calibration Guide.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">⚙️</div>
+                    <h3>Hole Size Compensation</h3>
+                    <p>Calibrate hole diameter compensation for precision parts</p>
+                </a>
+
+                <a href="guides/Print_Profiles_Complete_Guide.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">📋</div>
+                    <h3>Print Profiles Guide</h3>
+                    <p>Complete guide to creating and using print profiles</p>
+                </a>
+
+                <a href="guides/firmware_backup_guide.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">💾</div>
+                    <h3>Firmware Backup</h3>
+                    <p>Backup and restore your printer configuration safely</p>
+                </a>
+
+                <!-- Reference & Troubleshooting -->
+                <a href="guides/troubleshooting_flowchart.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">🔧</div>
+                    <h3>Troubleshooting Flowchart</h3>
+                    <p>Systematic approach to diagnosing and solving print issues</p>
+                </a>
+
+                <a href="guides/3D_Printing_Company_Guide.md" class="doc-card" target="_blank">
+                    <div class="doc-icon">🏢</div>
+                    <h3>3D Printing Company Guide</h3>
+                    <p>Best practices for managing 3D printing in production environments</p>
+                </a>
+            </div>
+        </div>
+
         <!-- Support -->
         <div class="section">
             <h2>Support & Contributing</h2>
@@ -202,6 +330,59 @@
         <!-- Back Button -->
         <div style="text-align: center; margin-top: 40px;">
             <a href="../" class="btn btn-primary">← Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Theme Settings Modal -->
+    <div class="theme-settings-modal">
+        <div class="theme-settings-content">
+            <div class="theme-settings-header">
+                <h3>⚙️ Theme Settings</h3>
+                <button class="theme-settings-close" aria-label="Close settings">✕</button>
+            </div>
+            <div class="theme-setting-group">
+                <h4>🌍 Follow System Preference</h4>
+                <p>Automatically match your operating system's light/dark theme setting.</p>
+                <div class="theme-toggle-switch">
+                    <div class="theme-toggle-label">
+                        <strong>Sync with System</strong>
+                        <span>Theme changes when your OS theme changes</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="followSystemTheme">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div style="margin-left: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="useHighContrast" style="width: auto;">
+                        <span style="color: var(--text-secondary); font-size: 0.95em;">⚡ Use High Contrast themes</span>
+                    </label>
+                </div>
+            </div>
+            <div class="theme-setting-group">
+                <h4>🕐 Time-Based Auto-Switching</h4>
+                <p>Automatically switch between light and dark themes based on time of day.</p>
+                <div class="theme-toggle-switch">
+                    <div class="theme-toggle-label">
+                        <strong>Auto-Switch by Time</strong>
+                        <span>Light: 7 AM - 7 PM • Dark: 7 PM - 7 AM</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="timeBasedSwitching">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div style="margin-left: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="timeBasedHighContrast" style="width: auto;">
+                        <span style="color: var(--text-secondary); font-size: 0.95em;">⚡ Use High Contrast themes</span>
+                    </label>
+                </div>
+            </div>
+            <div style="background: var(--info-light); border-left: 4px solid var(--info); padding: var(--spacing-md); margin: 0; border-radius: var(--radius-sm);">
+                <strong>💡 Tip:</strong> Manual theme selection temporarily overrides auto-switching for 24 hours.
+            </div>
         </div>
     </div>
 
