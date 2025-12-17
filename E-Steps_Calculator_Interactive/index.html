@@ -2654,13 +2654,45 @@ M503              ; Verify settings`;
                     <td>${test.actual.toFixed(1)}mm</td>
                     <td><strong>${test.newEsteps.toFixed(2)}</strong></td>
                     <td>${test.errorPercent.toFixed(2)}%</td>
-                    <td>
+                    <td style="display: flex; gap: 5px;">
+                        <button onclick="copyHistoryGcode(${test.newEsteps})" style="background: var(--success); color: white; border: none; padding: 5px 10px; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9em;">
+                            📋 Copy
+                        </button>
                         <button onclick="deleteHistoryItem(${test.id})" style="background: var(--error); color: white; border: none; padding: 5px 10px; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9em;">
                             🗑️ Delete
                         </button>
                     </td>
                 </tr>
             `).join('');
+        }
+
+        /**
+         * Copy G-code from history item to clipboard
+         * Generates M92, M500, and M503 commands from the new E-steps value
+         */
+        function copyHistoryGcode(newEsteps) {
+            // Generate G-code with the E-steps value
+            const gcode = `M92 E${newEsteps.toFixed(2)}  ; Set E-steps from history
+M500              ; Save to EEPROM
+M503              ; Verify settings`;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(gcode).then(() => {
+                // Show success notification
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed; top: 100px; right: 20px; 
+                    background: var(--success); color: white; 
+                    padding: 15px 20px; border-radius: var(--radius-md); 
+                    box-shadow: var(--shadow-lg); z-index: 9999;
+                    animation: slideIn 0.3s ease-out;
+                `;
+                notification.textContent = `✅ G-code copied! (E${newEsteps.toFixed(2)})`;
+                document.body.appendChild(notification);
+                setTimeout(() => notification.remove(), 3000);
+            }).catch(err => {
+                alert(`❌ Failed to copy. E-steps value: ${newEsteps.toFixed(2)}\n\nPlease copy manually:`);
+            });
         }
         
         // ===== INPUT VALIDATION =====
