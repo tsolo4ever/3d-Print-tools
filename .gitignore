@@ -3,3 +3,4 @@ config/secrets.json
 *.token
 *.key
 node_modules/
+3d-Print-tools.code-workspace
