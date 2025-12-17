@@ -610,6 +610,21 @@ Features:
 
 ## Technical Debt & Maintenance
 
+### Minor Bugs & Code Cleanup
+- [x] ~~CSS inline styles on line 1391~~ - FIXED (v2.5.3)
+- [ ] Remaining inline styles (~50 instances) - LOW PRIORITY
+  - Calculator preset buttons (4 instances with repeated `margin-top/padding/font-size`)
+  - "Start Wizard" and "Clear Data" buttons (2 instances)
+  - History statistics section (3 inline styles)
+  - JavaScript-generated styles in `displayHistory()` function
+  - Table cells and rows (JavaScript-generated)
+  - Pre/code elements in guide sections (2 instances)
+  - Footer (1 inline style)
+  - Dynamic notifications (JavaScript-generated with inline CSS)
+  - **Impact:** Minimal - No performance issues, no warnings, acceptable maintainability
+  - **Effort:** Medium (3-4 hours to refactor all JavaScript generators)
+  - **Note:** Original Edge Tools warning resolved. Remaining styles are contextual/dynamic.
+
 ### Code Quality
 - [ ] Add comments throughout JavaScript
 - [ ] Modularize functions (separate file?)

@@ -1240,6 +1240,309 @@
             box-shadow: 0 0 8px var(--esteps-accent);
         }
 
+        /* ============================================
+           INLINE STYLE REPLACEMENTS - CSS CLASSES
+           ============================================ */
+
+        .tip-text {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .instruction-box {
+            background: var(--background);
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            margin: 15px 0;
+        }
+
+        .warning-instruction {
+            font-size: 0.85em;
+            margin: 10px 0 0 0;
+            color: var(--text-secondary);
+        }
+
+        .monospace-block {
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        .success-box-styled {
+            background: var(--success-light);
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            margin: 15px 0;
+        }
+
+        .timer-display {
+            font-size: 2em;
+            font-weight: 700;
+            text-align: center;
+            margin: 10px 0;
+            color: var(--success);
+        }
+
+        .timer-text {
+            font-size: 0.9em;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        .instructions-section {
+            margin: 10px 0 0 20px;
+            font-size: 0.9em;
+        }
+
+        .info-box-styled {
+            background: var(--info-light);
+            padding: 10px;
+            border-radius: var(--radius-sm);
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .calc-summary-box {
+            background: var(--background);
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+
+        .result-box-centered {
+            background: var(--success-light);
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .result-label {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .result-value-large {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .formula-box {
+            background: var(--info-light);
+            padding: 15px;
+            border-radius: var(--radius-sm);
+        }
+
+        .gcode-display-box {
+            background: #263238;
+            color: #4fc3f7;
+            padding: 50px 30px;
+            border-radius: var(--radius-sm);
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 2em;
+            font-weight: bold;
+            line-height: 1.8;
+            text-align: center;
+            letter-spacing: 3px;
+            word-spacing: 15px;
+            overflow-x: auto;
+        }
+
+        .gcode-copy-button {
+            width: 100%;
+            padding: 10px;
+            background: var(--esteps-accent);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .warning-box-styled {
+            background: var(--warning-light);
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            margin: 15px 0;
+        }
+
+        .critical-steps {
+            margin: 10px 0 0 20px;
+            font-size: 0.9em;
+        }
+
+        .calculator-subtitle {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .preset-button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        .wizard-start-button {
+            background: var(--success);
+            margin-top: 10px;
+        }
+
+        .preset-label {
+            margin-bottom: 15px;
+        }
+
+        .clear-button {
+            background: rgba(244, 67, 54, 0.5);
+            color: white;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        .details-expansion {
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+        }
+
+        .summary-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: white;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .expansion-label {
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+
+        .expansion-content {
+            margin-top: 15px;
+        }
+
+        .expansion-description {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .history-empty-row {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .history-section {
+            margin-top: 40px;
+        }
+
+        .history-stats-box {
+            display: none;
+            background: var(--success-light);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 20px 0;
+        }
+
+        .history-stats-title {
+            margin-top: 0;
+            color: var(--success);
+        }
+
+        .history-button-group {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .use-average-button {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .clear-history-button {
+            background: var(--error);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .history-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .table-action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .table-copy-button {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .table-delete-button {
+            background: var(--error);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .visual-guide-box {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-size: 0.9em;
+        }
+
+        .formula-display {
+            background: var(--card-bg);
+            color: var(--text-primary);
+        }
+
+        .formula-code-small {
+            font-size: 0.9em;
+        }
+
+        .table-row-highlight {
+            background-color: var(--success-light);
+        }
+
+        .back-button {
+            display: none;
+        }
+
+        .code-small {
+            font-size: 0.9em;
+        }
+
+        .footer-link {
+            margin-top: 15px;
+        }
+
         @media (max-width: 768px) {
             .wizard-modal {
                 width: 95%;
@@ -1388,7 +1691,7 @@
                             <label>Nozzle Temperature (°C)</label>
                             <input type="number" id="nozzleTemp" value="200" min="150" max="300">
                         </div>
-                        <p style="color: var(--text-secondary); font-size: 0.9em;">💡 Send to printer: <code>M104 S{TEMP}</code> then wait with <code>M109 S{TEMP}</code></p>
+                        <p class="tip-text">💡 Send to printer: <code>M104 S{TEMP}</code> then wait with <code>M109 S{TEMP}</code></p>
                     </div>
                 </div>
 
@@ -1397,9 +1700,9 @@
                     <h3 class="step-title">✏️ Step 2: Mark Your Filament</h3>
                     <p class="step-description">Mark the filament exactly 120mm from the extruder entrance.</p>
                     <div class="step-form">
-                        <div style="background: var(--background); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0;">
+                        <div class="instruction-box">
                             <strong>Instructions:</strong>
-                            <ol style="margin: 10px 0 0 20px; font-size: 0.9em;">
+                            <ol class="instructions-section">
                                 <li>Measure exactly 120mm from extruder entrance</li>
                                 <li>Mark clearly with Sharpie (thick mark!)</li>
                                 <li>Make it visible and permanent</li>
@@ -1418,19 +1721,19 @@
                     <h3 class="step-title">⚡ Step 3: Extrude 100mm</h3>
                     <p class="step-description">Send extrusion commands slowly to your printer.</p>
                     <div class="step-form">
-                        <div style="background: var(--background); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0;">
+                        <div class="instruction-box">
                             <strong>G-Code Commands (in order):</strong>
-                            <div style="margin: 10px 0; font-family: monospace; font-size: 0.9em;">
+                            <div class="monospace-block">
                                 <code>G91</code><br>
                                 <code>G1 E100 F100</code><br>
                                 <code>G90</code>
                             </div>
-                            <p style="font-size: 0.85em; margin: 10px 0 0 0; color: var(--text-secondary);">⚠️ Use F100 (slow speed) - Fast extrusion causes inaccuracy!</p>
+                            <p class="warning-instruction">⚠️ Use F100 (slow speed) - Fast extrusion causes inaccuracy!</p>
                         </div>
-                        <div style="background: var(--success-light); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0;">
+                        <div class="success-box-styled">
                             <strong>⏱️ Countdown Timer:</strong>
-                            <div style="font-size: 2em; font-weight: 700; text-align: center; margin: 10px 0; color: var(--success);" id="timerDisplay">60</div>
-                            <p style="font-size: 0.9em; margin: 0; color: var(--text-secondary);">~60 seconds to complete extrusion</p>
+                            <div class="timer-display" id="timerDisplay">60</div>
+                            <p class="timer-text">~60 seconds to complete extrusion</p>
                         </div>
                         <div class="form-group">
                             <label>
@@ -1445,9 +1748,9 @@
                     <h3 class="step-title">📏 Step 4: Measure Remaining</h3>
                     <p class="step-description">Measure distance from entrance to your mark.</p>
                     <div class="step-form">
-                        <div style="background: var(--background); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0;">
+                        <div class="instruction-box">
                             <strong>Instructions:</strong>
-                            <ol style="margin: 10px 0 0 20px; font-size: 0.9em;">
+                            <ol class="instructions-section">
                                 <li>Measure from extruder entrance to your Sharpie mark</li>
                                 <li>Record the remaining distance (e.g., 23mm)</li>
                                 <li>Calculation: 120mm - Remaining = Actual extruded</li>
@@ -1457,7 +1760,7 @@
                             <label>Remaining Distance (mm)</label>
                             <input type="number" id="remainingDistance" step="0.1" min="0" max="120" placeholder="e.g. 23">
                         </div>
-                        <div style="background: var(--info-light); padding: 10px; border-radius: var(--radius-sm); margin: 10px 0; font-size: 0.9em;">
+                        <div class="info-box-styled">
                             <strong>Expected: ~20mm</strong> (ideal means 100mm was extruded)
                         </div>
                     </div>
@@ -1468,18 +1771,18 @@
                     <h3 class="step-title">🧮 Step 5: Calculate New E-Steps</h3>
                     <p class="step-description">The calculator will compute your new value.</p>
                     <div class="step-form">
-                        <div id="wizardCalcSummary" style="background: var(--background); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0; font-size: 0.95em;">
+                        <div id="wizardCalcSummary" class="calc-summary-box">
                             <p><strong>Current E-Steps:</strong> <span id="wizCalcCurrent">-</span></p>
                             <p><strong>Requested:</strong> 100mm</p>
                             <p><strong>Actual:</strong> <span id="wizCalcActual">-</span>mm</p>
                         </div>
-                        <div style="background: var(--success-light); padding: 20px; border-radius: var(--radius-sm); margin: 15px 0; text-align: center;">
-                            <div style="font-size: 0.9em; color: var(--text-secondary); margin-bottom: 10px;">Your New E-Steps</div>
-                            <div id="wizNewEsteps" style="font-size: 2.5em; font-weight: 700; color: var(--success);">-</div>
+                        <div class="result-box-centered">
+                            <div class="result-label">Your New E-Steps</div>
+                            <div id="wizNewEsteps" class="result-value-large">-</div>
                         </div>
-                        <div style="background: var(--info-light); padding: 15px; border-radius: var(--radius-sm);">
+                        <div class="formula-box">
                             <strong>Formula:</strong><br>
-                            <code style="font-size: 0.9em;">New = (Current × Requested) ÷ Actual</code>
+                            <code class="code-small">New = (Current × Requested) ÷ Actual</code>
                         </div>
                     </div>
                 </div>
@@ -1489,14 +1792,14 @@
                     <h3 class="step-title">✅ Step 6: Apply & Verify</h3>
                     <p class="step-description">Send final commands to your printer.</p>
                     <div class="step-form">
-                        <div style="background: #263238; color: #4fc3f7; padding: 50px 30px; border-radius: var(--radius-sm); margin: 15px 0; font-family: monospace; font-size: 2em; font-weight: bold; line-height: 1.8; text-align: center; letter-spacing: 3px; word-spacing: 15px; overflow-x: auto;">
+                        <div class="gcode-display-box">
                             <div id="wizGcodeCommands">M92 E###.##<br>M500<br>M503</div>
                         </div>
-                        <button onclick="copyWizardGcode()" style="width: 100%; padding: 10px; background: var(--esteps-accent); color: white; border: none; border-radius: var(--radius-sm); font-weight: 600; cursor: pointer;">📋 Copy G-Code</button>
+                        <button onclick="copyWizardGcode()" class="gcode-copy-button">📋 Copy G-Code</button>
                         
-                        <div style="background: var(--warning-light); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0;">
+                        <div class="warning-box-styled">
                             <strong>⚠️ Critical Steps:</strong>
-                            <ol style="margin: 10px 0 0 20px; font-size: 0.9em;">
+                            <ol class="critical-steps">
                                 <li>Send <code>M92</code> with your new E-steps</li>
                                 <li><strong>MUST send M500</strong> to save to EEPROM!</li>
                                 <li>Send M503 to verify it was saved</li>
@@ -1530,7 +1833,7 @@
         <!-- Interactive Calculator -->
         <div class="calculator">
             <h2>🖩 Interactive E-Steps Calculator</h2>
-            <p style="font-size: 1.1em; margin-bottom: 20px;">Enter your measurements below and get instant results!</p>
+            <p class="calculator-subtitle">Enter your measurements below and get instant results!</p>
             
             <div class="calc-grid">
                 <!-- Input Section -->
