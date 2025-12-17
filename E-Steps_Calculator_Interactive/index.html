@@ -433,7 +433,7 @@
         }
         
         .input-invalid {
-            border-color: var(--danger) !important;
+            border-color: var(--error) !important;
             background: rgba(244, 67, 54, 0.1) !important;
         }
         
@@ -650,7 +650,7 @@
                     <button onclick="useAverageValue()" style="background: var(--success); color: white; border: none; padding: 12px 30px; border-radius: var(--radius-md); cursor: pointer; font-weight: 600; font-size: 1.1em;">
                         ✅ Use Average Value
                     </button>
-                    <button onclick="clearHistory()" style="background: var(--danger); color: white; border: none; padding: 12px 30px; border-radius: var(--radius-md); cursor: pointer; font-weight: 600; font-size: 1.1em;">
+                    <button onclick="clearHistory()" style="background: var(--error); color: white; border: none; padding: 12px 30px; border-radius: var(--radius-md); cursor: pointer; font-weight: 600; font-size: 1.1em;">
                         🗑️ Clear History
                     </button>
                 </div>
@@ -1275,7 +1275,7 @@ M503              ; Verify settings`;
                     <td><strong>${test.newEsteps.toFixed(2)}</strong></td>
                     <td>${test.errorPercent.toFixed(2)}%</td>
                     <td>
-                        <button onclick="deleteHistoryItem(${test.id})" style="background: var(--danger); color: white; border: none; padding: 5px 10px; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9em;">
+                        <button onclick="deleteHistoryItem(${test.id})" style="background: var(--error); color: white; border: none; padding: 5px 10px; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9em;">
                             🗑️ Delete
                         </button>
                     </td>
@@ -1308,7 +1308,7 @@ M503              ; Verify settings`;
             if (isNaN(value) || value <= 0) {
                 input.classList.add('input-invalid');
                 messageDiv.textContent = '❌ Must be a positive number';
-                messageDiv.style.color = 'var(--danger)';
+                messageDiv.style.color = 'var(--error)';
                 return false;
             }
             
