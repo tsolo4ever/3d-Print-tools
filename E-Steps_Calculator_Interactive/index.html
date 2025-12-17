@@ -44,6 +44,73 @@
             font-size: 2.5em;
             margin-bottom: 10px;
         }
+
+        /* High Contrast & Brand Theme Page Header */
+        [data-theme="high-contrast"] .page-header,
+        [data-theme="high-contrast-dark"] .page-header,
+        [data-theme="prusa"] .page-header,
+        [data-theme="prusa-dark"] .page-header,
+        [data-theme="prusa-high-contrast"] .page-header,
+        [data-theme="prusa-high-contrast-dark"] .page-header,
+        [data-theme="bambu"] .page-header,
+        [data-theme="bambu-dark"] .page-header,
+        [data-theme="bambu-high-contrast"] .page-header,
+        [data-theme="bambu-high-contrast-dark"] .page-header,
+        [data-theme="creality"] .page-header,
+        [data-theme="creality-dark"] .page-header,
+        [data-theme="creality-high-contrast"] .page-header,
+        [data-theme="creality-high-contrast-dark"] .page-header,
+        [data-theme="voron"] .page-header,
+        [data-theme="voron-dark"] .page-header,
+        [data-theme="voron-high-contrast"] .page-header,
+        [data-theme="voron-high-contrast-dark"] .page-header,
+        [data-theme="ultimaker"] .page-header,
+        [data-theme="ultimaker-dark"] .page-header,
+        [data-theme="ultimaker-high-contrast"] .page-header,
+        [data-theme="ultimaker-high-contrast-dark"] .page-header,
+        [data-theme="formlabs"] .page-header,
+        [data-theme="formlabs-dark"] .page-header,
+        [data-theme="formlabs-high-contrast"] .page-header,
+        [data-theme="formlabs-high-contrast-dark"] .page-header,
+        [data-theme="anycubic"] .page-header,
+        [data-theme="anycubic-dark"] .page-header,
+        [data-theme="anycubic-high-contrast"] .page-header,
+        [data-theme="anycubic-high-contrast-dark"] .page-header {
+            border-top-color: var(--primary);
+        }
+
+        [data-theme="high-contrast"] .page-header h1,
+        [data-theme="high-contrast-dark"] .page-header h1,
+        [data-theme="prusa"] .page-header h1,
+        [data-theme="prusa-dark"] .page-header h1,
+        [data-theme="prusa-high-contrast"] .page-header h1,
+        [data-theme="prusa-high-contrast-dark"] .page-header h1,
+        [data-theme="bambu"] .page-header h1,
+        [data-theme="bambu-dark"] .page-header h1,
+        [data-theme="bambu-high-contrast"] .page-header h1,
+        [data-theme="bambu-high-contrast-dark"] .page-header h1,
+        [data-theme="creality"] .page-header h1,
+        [data-theme="creality-dark"] .page-header h1,
+        [data-theme="creality-high-contrast"] .page-header h1,
+        [data-theme="creality-high-contrast-dark"] .page-header h1,
+        [data-theme="voron"] .page-header h1,
+        [data-theme="voron-dark"] .page-header h1,
+        [data-theme="voron-high-contrast"] .page-header h1,
+        [data-theme="voron-high-contrast-dark"] .page-header h1,
+        [data-theme="ultimaker"] .page-header h1,
+        [data-theme="ultimaker-dark"] .page-header h1,
+        [data-theme="ultimaker-high-contrast"] .page-header h1,
+        [data-theme="ultimaker-high-contrast-dark"] .page-header h1,
+        [data-theme="formlabs"] .page-header h1,
+        [data-theme="formlabs-dark"] .page-header h1,
+        [data-theme="formlabs-high-contrast"] .page-header h1,
+        [data-theme="formlabs-high-contrast-dark"] .page-header h1,
+        [data-theme="anycubic"] .page-header h1,
+        [data-theme="anycubic-dark"] .page-header h1,
+        [data-theme="anycubic-high-contrast"] .page-header h1,
+        [data-theme="anycubic-high-contrast-dark"] .page-header h1 {
+            color: var(--primary);
+        }
         
         .page-header p {
             font-size: 1.2em;
@@ -69,12 +136,76 @@
         
         /* Calculator Styles */
         .calculator {
-            background: linear-gradient(135deg, var(--esteps-accent) 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--esteps-accent) 0%, var(--esteps-accent) 100%);
             color: white;
             padding: 40px;
             border-radius: var(--radius-lg);
             margin: 40px 0;
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* High Contrast Calculator - Use Primary Color */
+        [data-theme="high-contrast"] .calculator,
+        [data-theme="high-contrast-dark"] .calculator {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Brand Theme Calculator - Use Primary Brand Color */
+        [data-theme="prusa"] .calculator,
+        [data-theme="prusa-dark"] .calculator,
+        [data-theme="prusa-high-contrast"] .calculator,
+        [data-theme="prusa-high-contrast-dark"] .calculator {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.3);
+        }
+
+        [data-theme="bambu"] .calculator,
+        [data-theme="bambu-dark"] .calculator,
+        [data-theme="bambu-high-contrast"] .calculator,
+        [data-theme="bambu-high-contrast-dark"] .calculator {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
+            box-shadow: 0 8px 20px rgba(0, 174, 66, 0.3);
+        }
+
+        [data-theme="creality"] .calculator,
+        [data-theme="creality-dark"] .calculator,
+        [data-theme="creality-high-contrast"] .calculator,
+        [data-theme="creality-high-contrast-dark"] .calculator {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
+            box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
+        }
+
+        [data-theme="voron"] .calculator,
+        [data-theme="voron-dark"] .calculator,
+        [data-theme="voron-high-contrast"] .calculator,
+        [data-theme="voron-high-contrast-dark"] .calculator {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
+            box-shadow: 0 8px 20px rgba(211, 47, 47, 0.3);
+        }
+
+        [data-theme="ultimaker"] .calculator,
+        [data-theme="ultimaker-dark"] .calculator,
+        [data-theme="ultimaker-high-contrast"] .calculator,
+        [data-theme="ultimaker-high-contrast-dark"] .calculator {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
+            box-shadow: 0 8px 20px rgba(84, 110, 122, 0.3);
+        }
+
+        [data-theme="formlabs"] .calculator,
+        [data-theme="formlabs-dark"] .calculator,
+        [data-theme="formlabs-high-contrast"] .calculator,
+        [data-theme="formlabs-high-contrast-dark"] .calculator {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
+            box-shadow: 0 8px 20px rgba(0, 184, 169, 0.3);
+        }
+
+        [data-theme="anycubic"] .calculator,
+        [data-theme="anycubic-dark"] .calculator,
+        [data-theme="anycubic-high-contrast"] .calculator,
+        [data-theme="anycubic-high-contrast-dark"] .calculator {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
+            box-shadow: 0 8px 20px rgba(156, 39, 176, 0.3);
         }
         
         .calculator h2 {
@@ -119,7 +250,7 @@
             width: 100%;
             padding: 12px;
             font-size: 1.2em;
-            border: 2px solid var(--border);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: var(--radius-sm);
             background: var(--background);
             color: var(--text-primary);
@@ -128,9 +259,9 @@
         
         .input-group input:focus {
             outline: none;
-            border-color: var(--primary);
-            background: var(--primary-light);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-color: var(--input-focus-border);
+            background: var(--input-focus-bg);
+            box-shadow: var(--input-focus-shadow);
         }
         
         .input-group .unit {
@@ -140,9 +271,9 @@
         }
         
         .calc-button {
-            background: var(--background);
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            background: var(--card-bg);
+            color: var(--esteps-accent);
+            border: none;
             padding: 15px 40px;
             font-size: 1.3em;
             font-weight: 600;
@@ -157,12 +288,72 @@
         .calc-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-            background: var(--primary);
-            color: white;
         }
         
         .calc-button:active {
             transform: translateY(0);
+        }
+        
+        /* High Contrast & Brand Theme Button Text Colors */
+        [data-theme="high-contrast"] .calc-button,
+        [data-theme="high-contrast-dark"] .calc-button,
+        [data-theme="prusa"] .calc-button,
+        [data-theme="prusa-dark"] .calc-button,
+        [data-theme="prusa-high-contrast"] .calc-button,
+        [data-theme="prusa-high-contrast-dark"] .calc-button,
+        [data-theme="bambu"] .calc-button,
+        [data-theme="bambu-dark"] .calc-button,
+        [data-theme="bambu-high-contrast"] .calc-button,
+        [data-theme="bambu-high-contrast-dark"] .calc-button,
+        [data-theme="creality"] .calc-button,
+        [data-theme="creality-dark"] .calc-button,
+        [data-theme="creality-high-contrast"] .calc-button,
+        [data-theme="creality-high-contrast-dark"] .calc-button,
+        [data-theme="voron"] .calc-button,
+        [data-theme="voron-dark"] .calc-button,
+        [data-theme="voron-high-contrast"] .calc-button,
+        [data-theme="voron-high-contrast-dark"] .calc-button,
+        [data-theme="ultimaker"] .calc-button,
+        [data-theme="ultimaker-dark"] .calc-button,
+        [data-theme="ultimaker-high-contrast"] .calc-button,
+        [data-theme="ultimaker-high-contrast-dark"] .calc-button,
+        [data-theme="formlabs"] .calc-button,
+        [data-theme="formlabs-dark"] .calc-button,
+        [data-theme="formlabs-high-contrast"] .calc-button,
+        [data-theme="formlabs-high-contrast-dark"] .calc-button,
+        [data-theme="anycubic"] .calc-button,
+        [data-theme="anycubic-dark"] .calc-button,
+        [data-theme="anycubic-high-contrast"] .calc-button,
+        [data-theme="anycubic-high-contrast-dark"] .calc-button {
+            color: var(--primary);
+        }
+        
+        /* Dark mode button styling */
+        [data-theme="dark"] .calc-button,
+        [data-theme="dark-theme"] .calc-button {
+            background: var(--dark-input-bg);
+            color: var(--dark-input-text);
+        }
+        
+        /* Dark mode input styling */
+        [data-theme="dark"] .input-group input,
+        [data-theme="dark-theme"] .input-group input {
+            background: var(--dark-calc-input-bg) !important;
+            color: var(--dark-calc-input-text) !important;
+            border-color: var(--dark-calc-input-border) !important;
+        }
+        
+        [data-theme="dark"] .input-group input:focus,
+        [data-theme="dark-theme"] .input-group input:focus {
+            background: var(--dark-calc-input-focus-bg) !important;
+            color: var(--dark-calc-input-focus-text) !important;
+            border-color: var(--dark-calc-input-focus-border) !important;
+        }
+        
+        /* Placeholder text styling for dark mode */
+        [data-theme="dark"] .input-group input::placeholder,
+        [data-theme="dark-theme"] .input-group input::placeholder {
+            color: var(--dark-calc-input-placeholder);
         }
         
         .result-section {
@@ -181,7 +372,7 @@
         }
         
         .result-value {
-            font-size: 3em;
+            font-size: 4em;
             font-weight: 700;
             margin: 20px 0;
             text-align: center;
@@ -372,7 +563,7 @@
         }
         
         .current-settings {
-            background: var(--card-bg);
+            background: var(--success-light);
             border: 2px solid var(--success);
             padding: 20px;
             border-radius: var(--radius-md);
@@ -429,41 +620,637 @@
             }
         }
         
-        .input-valid {
+        /* Calculator Input States - Darker for Contrast */
+        .calculator .input-valid {
             border-color: var(--success) !important;
-            background: var(--background) !important;
-            border-left: 4px solid var(--success) !important;
+            background: rgba(76, 175, 80, 0.2) !important;
         }
         
-        .input-invalid {
+        .calculator .input-invalid {
             border-color: var(--error) !important;
-            background: var(--background) !important;
-            border-left: 4px solid var(--error) !important;
+            background: rgba(244, 67, 54, 0.25) !important;
         }
         
-        .input-warning {
+        .calculator .input-warning {
             border-color: var(--warning) !important;
-            background: var(--background) !important;
-            border-left: 4px solid var(--warning) !important;
+            background: rgba(255, 152, 0, 0.25) !important;
+        }
+
+        /* Ensure text is visible in all states */
+        .calculator .input-group input.input-warning,
+        .calculator .input-group input.input-invalid,
+        .calculator .input-group input.input-valid {
+            color: white !important;
+        }
+
+        /* Validation message visibility in calculator */
+        .calculator .validation-message {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 5px 10px;
+            border-radius: var(--radius-sm);
+            margin-top: 5px;
         }
         
         .validation-message {
             font-size: 0.9em;
             margin-top: 5px;
             font-weight: 600;
+        }
+
+        /* ============================================
+           V2.5.1 - PROGRESS BARS & GAUGES STYLING
+           ============================================ */
+
+        .gauges-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-md);
+        }
+
+        /* Accuracy Gauge (Circular SVG) */
+        .accuracy-gauge-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .accuracy-gauge {
+            width: 150px;
+            height: 150px;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .gauge-label {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .gauge-value {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Comparison Bar */
+        .comparison-bar-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .comparison-bar-label {
+            font-size: 0.85em;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        .comparison-bars {
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+            height: 100px;
+        }
+
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            gap: 8px;
+        }
+
+        .bar-container {
+            width: 100%;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(to top, var(--esteps-accent), #667eea);
+            transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.4);
+        }
+
+        .bar-fill.good {
+            background: linear-gradient(to top, #4caf50, #66bb6a);
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+        }
+
+        .bar-fill.warning {
+            background: linear-gradient(to top, #ff9800, #ffa726);
+            box-shadow: 0 0 10px rgba(255, 152, 0, 0.4);
+        }
+
+        .bar-fill.error {
+            background: linear-gradient(to top, #f44336, #ef5350);
+            box-shadow: 0 0 10px rgba(244, 67, 54, 0.4);
+        }
+
+        .bar-label {
+            font-size: 0.75em;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .bar-value {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        /* Progress Ring */
+        .progress-ring-wrapper {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            margin-top: 10px;
+        }
+
+        .progress-ring-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+
+        .progress-ring {
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        .progress-ring-circle {
+            stroke: rgba(255, 255, 255, 0.2);
+            fill: transparent;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            stroke-width: 6;
+        }
+
+        .progress-ring-circle.good {
+            stroke: #4caf50;
+        }
+
+        .progress-ring-circle.warning {
+            stroke: #ff9800;
+        }
+
+        .progress-ring-circle.error {
+            stroke: #f44336;
+        }
+
+        .progress-ring-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .progress-percentage {
+            font-size: 1.8em;
+            line-height: 1;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .progress-label {
+            font-size: 0.75em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 3px;
+        }
+
+        .progress-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            color: white;
+        }
+
+        .progress-info-item {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 12px 15px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--esteps-accent);
+            font-size: 0.95em;
+        }
+
+        .progress-info-item strong {
+            color: rgba(255, 255, 255, 0.9);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .gauges-container {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-ring-wrapper {
+                flex-direction: column;
+            }
+
+            .accuracy-gauge {
+                width: 120px;
+                height: 120px;
+            }
+
+            .progress-info {
+                width: 100%;
+            }
+        }
+
+        /* Animation keyframes */
+        @keyframes gaugeNeedle {
+            from {
+                transform: rotate(-90deg);
+            }
+            to {
+                transform: rotate(var(--needle-rotation));
+            }
+        }
+
+        @keyframes progressFill {
+            from {
+                height: 0;
+            }
+            to {
+                height: var(--fill-height);
+            }
+        }
+
+        .gauge-animate {
+            animation: gaugeNeedle 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .bar-animate {
+            animation: progressFill 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        /* ============================================
+           V2.5.2 - STEP-BY-STEP WIZARD MODE
+           ============================================ */
+
+        .wizard-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+            backdrop-filter: blur(4px);
+        }
+
+        .wizard-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wizard-modal {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 600px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             color: var(--text-primary);
         }
-        
-        .validation-message.valid {
-            color: var(--text-primary);
+
+        .wizard-header {
+            background: linear-gradient(135deg, var(--esteps-accent) 0%, var(--esteps-accent) 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .wizard-title {
+            font-size: calc(1.5em * var(--global-font-scale));
+            font-weight: 700;
+            margin: 0;
         }
         
-        .validation-message.invalid {
-            color: var(--text-primary);
+        .wizard-progress {
+            font-size: calc(0.9em * var(--global-font-scale));
+            opacity: 0.9;
         }
         
-        .validation-message.warning {
+        .wizard-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: calc(1.5em * var(--global-font-scale));
+            cursor: pointer;
+            padding: 0 10px;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+        }
+        
+        .wizard-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .wizard-content {
+            padding: 30px 20px;
+            min-height: 200px;
+            font-size: calc(1em * var(--global-font-scale));
+        }
+        
+        .wizard-step {
+            display: none;
+        }
+        
+        .wizard-step.active {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .step-title {
+            font-size: calc(1.3em * var(--global-font-scale));
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--esteps-accent);
+        }
+        
+        .step-description {
+            font-size: calc(0.95em * var(--global-font-scale));
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .step-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: calc(1em * var(--global-font-scale));
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
             color: var(--text-primary);
+            font-size: calc(1em * var(--global-font-scale));
+        }
+        
+        .form-group input,
+        .form-group select {
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-size: calc(1em * var(--global-font-scale));
+            transition: all var(--transition-fast);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--esteps-accent);
+            box-shadow: 0 0 8px var(--esteps-accent);
+        }
+        
+        .wizard-footer {
+            padding: 20px;
+            border-top: 2px solid var(--border);
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            font-size: calc(1em * var(--global-font-scale));
+        }
+        
+        .wizard-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            font-size: calc(1em * var(--global-font-scale));
+        }
+
+        .wizard-btn-primary {
+            background: var(--esteps-accent);
+            color: white;
+            flex: 1;
+        }
+
+        .wizard-btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .wizard-btn-secondary {
+            background: var(--border);
+            color: var(--text-primary);
+        }
+
+        .wizard-btn-secondary:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .wizard-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .step-indicator {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .step-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: all var(--transition-fast);
+        }
+
+        .step-dot.active {
+            background: var(--esteps-accent);
+            transform: scale(1.2);
+        }
+
+        .step-dot.completed {
+            background: var(--success);
+        }
+
+        /* Theme Selector Group - Stacked Dropdowns */
+        .theme-selector-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .brand-selector,
+        .mode-selector {
+            padding: 8px 12px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .brand-selector:hover,
+        .mode-selector:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-selector:focus,
+        .mode-selector:focus {
+            outline: none;
+            border-color: var(--esteps-accent);
+            box-shadow: 0 0 8px var(--esteps-accent);
+        }
+
+        .font-scale-selector {
+            padding: 8px 12px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .font-scale-selector:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .font-scale-selector:focus {
+            outline: none;
+            border-color: var(--esteps-accent);
+            box-shadow: 0 0 8px var(--esteps-accent);
+        }
+
+        /* High Contrast Dropdown Fixes */
+        [data-theme="high-contrast"] .brand-selector,
+        [data-theme="high-contrast"] .mode-selector,
+        [data-theme="high-contrast"] .font-scale-selector {
+            border: 2px solid var(--primary);
+            background: var(--background);
+            color: var(--text-primary);
+        }
+
+        [data-theme="high-contrast"] .brand-selector:hover,
+        [data-theme="high-contrast"] .mode-selector:hover,
+        [data-theme="high-contrast"] .font-scale-selector:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        [data-theme="high-contrast-dark"] .brand-selector,
+        [data-theme="high-contrast-dark"] .mode-selector,
+        [data-theme="high-contrast-dark"] .font-scale-selector {
+            border: 2px solid var(--primary);
+            background: var(--background);
+            color: var(--text-primary);
+        }
+
+        [data-theme="high-contrast-dark"] .brand-selector:hover,
+        [data-theme="high-contrast-dark"] .mode-selector:hover,
+        [data-theme="high-contrast-dark"] .font-scale-selector:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .theme-settings-btn {
+            padding: 8px 12px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .theme-settings-btn:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-settings-btn:focus {
+            outline: none;
+            border-color: var(--esteps-accent);
+            box-shadow: 0 0 8px var(--esteps-accent);
+        }
+
+        @media (max-width: 768px) {
+            .wizard-modal {
+                width: 95%;
+                max-height: 90vh;
+            }
+
+            .wizard-header {
+                padding: 20px 15px;
+            }
+
+            .wizard-content {
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>
@@ -491,28 +1278,245 @@
                 <a href="../docs/">Docs</a>
             </div>
             <div class="nav-actions">
-                <select class="brand-selector" title="Select Brand">
-                    <option value="default">Default</option>
-                    <optgroup label="Printer Brands">
-                        <option value="prusa">🟠 Prusa Orange</option>
-                        <option value="bambu">🟢 Bambu Lab</option>
-                        <option value="creality">🔵 Creality</option>
-                        <option value="voron">🔴 Voron</option>
-                        <option value="ultimaker">⚙️ Ultimaker</option>
-                        <option value="formlabs">💎 Formlabs</option>
-                        <option value="anycubic">🟣 Anycubic</option>
-                    </optgroup>
+                <select class="font-scale-selector" id="fontScaleSelector" title="Font Size">
+                    <option value="0.8">🔤 Small (0.8x)</option>
+                    <option value="1" selected>🔤 Normal (1x)</option>
+                    <option value="1.2">🔤 Large (1.2x)</option>
+                    <option value="1.5">🔤 XLarge (1.5x)</option>
+                    <option value="2">🔤 XXLarge (2x)</option>
                 </select>
-                <select class="mode-selector" title="Select Theme Mode">
-                    <option value="light">☀️ Light</option>
-                    <option value="dark">🌙 Dark</option>
-                    <option value="high-contrast">⚡ High Contrast</option>
-                    <option value="high-contrast-dark">⚡🌙 HC Dark</option>
-                </select>
+                <div class="theme-selector-group">
+                    <select class="brand-selector" title="Select Brand">
+                        <option value="default">Default</option>
+                        <optgroup label="Printer Brands">
+                            <option value="prusa">🟠 Prusa Orange</option>
+                            <option value="bambu">🟢 Bambu Lab</option>
+                            <option value="creality">🔵 Creality</option>
+                            <option value="voron">🔴 Voron</option>
+                            <option value="ultimaker">⚙️ Ultimaker</option>
+                            <option value="formlabs">💎 Formlabs</option>
+                            <option value="anycubic">🟣 Anycubic</option>
+                        </optgroup>
+                    </select>
+                    <select class="mode-selector" title="Select Theme Mode">
+                        <option value="light">☀️ Light</option>
+                        <option value="dark">🌙 Dark</option>
+                        <option value="high-contrast">⚡ High Contrast</option>
+                        <option value="high-contrast-dark">⚡🌙 HC Dark</option>
+                    </select>
+                </div>
                 <button class="theme-settings-btn" title="Theme Settings">⚙️</button>
             </div>
         </div>
     </nav>
+
+    <!-- Theme Settings Modal -->
+    <div class="theme-settings-modal">
+        <div class="theme-settings-content">
+            <div class="theme-settings-header">
+                <h2>⚙️ Theme Settings</h2>
+                <button class="theme-settings-close">✕</button>
+            </div>
+            <div class="theme-settings-body">
+                <div class="settings-group">
+                    <label>
+                        <input type="checkbox" id="followSystemTheme">
+                        <span>Follow System Theme</span>
+                    </label>
+                    <p class="setting-desc">Automatically use your system's light/dark preference</p>
+                </div>
+                
+                <div class="settings-group">
+                    <label>
+                        <input type="checkbox" id="useHighContrast">
+                        <span>High Contrast Mode</span>
+                    </label>
+                    <p class="setting-desc">Better visibility for accessibility</p>
+                </div>
+                
+                <div class="settings-group">
+                    <label>
+                        <input type="checkbox" id="timeBasedSwitching">
+                        <span>Time-Based Switching</span>
+                    </label>
+                    <p class="setting-desc">Switch to dark mode at 7 PM, light at 7 AM</p>
+                </div>
+                
+                <div class="settings-group">
+                    <label>
+                        <input type="checkbox" id="timeBasedHighContrast">
+                        <span>Time-Based High Contrast</span>
+                    </label>
+                    <p class="setting-desc">Use high contrast with time-based switching</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wizard Modal v2.5.2 -->
+    <div class="wizard-overlay" id="wizardOverlay">
+        <div class="wizard-modal">
+            <div class="wizard-header">
+                <h2 class="wizard-title">🧙 E-Steps Calibration Wizard</h2>
+                <div>
+                    <span class="wizard-progress"><span id="currentStep">1</span>/6</span>
+                    <button class="wizard-close" onclick="closeWizard()">✕</button>
+                </div>
+            </div>
+
+            <div class="step-indicator" id="stepIndicator"></div>
+
+            <div class="wizard-content">
+                <!-- Step 1: Heat Nozzle -->
+                <div class="wizard-step active" id="step1">
+                    <h3 class="step-title">🔥 Step 1: Heat the Nozzle</h3>
+                    <p class="step-description">E-steps calibration must be done at printing temperature.</p>
+                    <div class="step-form">
+                        <div class="form-group">
+                            <label>Select Filament Type</label>
+                            <select id="filamentType" onchange="updateTemp()">
+                                <option value="pla">PLA (200-210°C)</option>
+                                <option value="petg">PETG (230-240°C)</option>
+                                <option value="abs">ABS (240-250°C)</option>
+                                <option value="tpu">TPU (220-230°C)</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Nozzle Temperature (°C)</label>
+                            <input type="number" id="nozzleTemp" value="200" min="150" max="300">
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.9em;">💡 Send to printer: <code>M104 S{TEMP}</code> then wait with <code>M109 S{TEMP}</code></p>
+                    </div>
+                </div>
+
+                <!-- Step 2: Mark Filament -->
+                <div class="wizard-step" id="step2">
+                    <h3 class="step-title">✏️ Step 2: Mark Your Filament</h3>
+                    <p class="step-description">Mark the filament exactly 120mm from the extruder entrance.</p>
+                    <div class="step-form">
+                        <div style="background: var(--background); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0;">
+                            <strong>Instructions:</strong>
+                            <ol style="margin: 10px 0 0 20px; font-size: 0.9em;">
+                                <li>Measure exactly 120mm from extruder entrance</li>
+                                <li>Mark clearly with Sharpie (thick mark!)</li>
+                                <li>Make it visible and permanent</li>
+                            </ol>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="markConfirm"> ✓ I've marked the filament clearly at 120mm
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Extrude -->
+                <div class="wizard-step" id="step3">
+                    <h3 class="step-title">⚡ Step 3: Extrude 100mm</h3>
+                    <p class="step-description">Send extrusion commands slowly to your printer.</p>
+                    <div class="step-form">
+                        <div style="background: var(--background); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0;">
+                            <strong>G-Code Commands (in order):</strong>
+                            <div style="margin: 10px 0; font-family: monospace; font-size: 0.9em;">
+                                <code>G91</code><br>
+                                <code>G1 E100 F100</code><br>
+                                <code>G90</code>
+                            </div>
+                            <p style="font-size: 0.85em; margin: 10px 0 0 0; color: var(--text-secondary);">⚠️ Use F100 (slow speed) - Fast extrusion causes inaccuracy!</p>
+                        </div>
+                        <div style="background: var(--success-light); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0;">
+                            <strong>⏱️ Countdown Timer:</strong>
+                            <div style="font-size: 2em; font-weight: 700; text-align: center; margin: 10px 0; color: var(--success);" id="timerDisplay">60</div>
+                            <p style="font-size: 0.9em; margin: 0; color: var(--text-secondary);">~60 seconds to complete extrusion</p>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="extrudeComplete"> ✓ Extrusion complete - filament moved visibly
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Measure -->
+                <div class="wizard-step" id="step4">
+                    <h3 class="step-title">📏 Step 4: Measure Remaining</h3>
+                    <p class="step-description">Measure distance from entrance to your mark.</p>
+                    <div class="step-form">
+                        <div style="background: var(--background); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0;">
+                            <strong>Instructions:</strong>
+                            <ol style="margin: 10px 0 0 20px; font-size: 0.9em;">
+                                <li>Measure from extruder entrance to your Sharpie mark</li>
+                                <li>Record the remaining distance (e.g., 23mm)</li>
+                                <li>Calculation: 120mm - Remaining = Actual extruded</li>
+                            </ol>
+                        </div>
+                        <div class="form-group">
+                            <label>Remaining Distance (mm)</label>
+                            <input type="number" id="remainingDistance" step="0.1" min="0" max="120" placeholder="e.g. 23">
+                        </div>
+                        <div style="background: var(--info-light); padding: 10px; border-radius: var(--radius-sm); margin: 10px 0; font-size: 0.9em;">
+                            <strong>Expected: ~20mm</strong> (ideal means 100mm was extruded)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Calculate -->
+                <div class="wizard-step" id="step5">
+                    <h3 class="step-title">🧮 Step 5: Calculate New E-Steps</h3>
+                    <p class="step-description">The calculator will compute your new value.</p>
+                    <div class="step-form">
+                        <div id="wizardCalcSummary" style="background: var(--background); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0; font-size: 0.95em;">
+                            <p><strong>Current E-Steps:</strong> <span id="wizCalcCurrent">-</span></p>
+                            <p><strong>Requested:</strong> 100mm</p>
+                            <p><strong>Actual:</strong> <span id="wizCalcActual">-</span>mm</p>
+                        </div>
+                        <div style="background: var(--success-light); padding: 20px; border-radius: var(--radius-sm); margin: 15px 0; text-align: center;">
+                            <div style="font-size: 0.9em; color: var(--text-secondary); margin-bottom: 10px;">Your New E-Steps</div>
+                            <div id="wizNewEsteps" style="font-size: 2.5em; font-weight: 700; color: var(--success);">-</div>
+                        </div>
+                        <div style="background: var(--info-light); padding: 15px; border-radius: var(--radius-sm);">
+                            <strong>Formula:</strong><br>
+                            <code style="font-size: 0.9em;">New = (Current × Requested) ÷ Actual</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6: Apply & Verify -->
+                <div class="wizard-step" id="step6">
+                    <h3 class="step-title">✅ Step 6: Apply & Verify</h3>
+                    <p class="step-description">Send final commands to your printer.</p>
+                    <div class="step-form">
+                        <div style="background: #263238; color: #4fc3f7; padding: 50px 30px; border-radius: var(--radius-sm); margin: 15px 0; font-family: monospace; font-size: 2em; font-weight: bold; line-height: 1.8; text-align: center; letter-spacing: 3px; word-spacing: 15px; overflow-x: auto;">
+                            <div id="wizGcodeCommands">M92 E###.##<br>M500<br>M503</div>
+                        </div>
+                        <button onclick="copyWizardGcode()" style="width: 100%; padding: 10px; background: var(--esteps-accent); color: white; border: none; border-radius: var(--radius-sm); font-weight: 600; cursor: pointer;">📋 Copy G-Code</button>
+                        
+                        <div style="background: var(--warning-light); padding: 15px; border-radius: var(--radius-sm); margin: 15px 0;">
+                            <strong>⚠️ Critical Steps:</strong>
+                            <ol style="margin: 10px 0 0 20px; font-size: 0.9em;">
+                                <li>Send <code>M92</code> with your new E-steps</li>
+                                <li><strong>MUST send M500</strong> to save to EEPROM!</li>
+                                <li>Send M503 to verify it was saved</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="verifyComplete"> ✓ Verified with M503 - value saved correctly
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wizard-footer">
+                <button class="wizard-btn wizard-btn-secondary" onclick="previousStep()" id="backBtn" style="display: none;">← Back</button>
+                <button class="wizard-btn wizard-btn-secondary" onclick="closeWizard()">Skip</button>
+                <button class="wizard-btn wizard-btn-primary" onclick="nextStep()" id="nextBtn">Next →</button>
+            </div>
+        </div>
+    </div>
 
     <div class="main-container">
         <!-- Page Header -->
@@ -553,6 +1557,7 @@
                     </div>
                     
                     <button class="calc-button" onclick="calculateEsteps()">⚡ Calculate New E-Steps</button>
+                    <button class="calc-button" style="background: var(--success); margin-top: 10px;" onclick="openWizard()">🧙 Start Wizard</button>
                 </div>
                 
                 <!-- Quick Presets -->
@@ -582,7 +1587,7 @@
                     <h3>🔄 Reset</h3>
                     <p style="margin-bottom: 15px;">Clear all saved data:</p>
                     
-                    <button class="calc-button" style="background: var(--error-light); color: var(--error); margin-top: 10px; padding: 10px; font-size: 1em; border-color: var(--error);" onclick="clearStorage()">
+                    <button class="calc-button" style="background: rgba(244, 67, 54, 0.5); color: white; margin-top: 10px; padding: 10px; font-size: 1em;" onclick="clearStorage()">
                         🗑️ Clear Saved Data<br><small>Start fresh</small>
                     </button>
                 </div>
@@ -605,17 +1610,21 @@
                         <strong>Status:</strong> <span id="statusMessage">-</span>
                     </div>
                     
-                    <h3 style="margin-top: 30px;">📋 G-Code Commands</h3>
-                    <p>Copy and paste these commands into your printer terminal:</p>
-                    
-                    <div class="gcode-box" id="gcodeBox" onclick="copyGcode()">
-                        <button class="copy-button" id="copyBtn">📋 Copy</button>
-                        <div id="gcodeCommands"></div>
-                    </div>
-                    
-                    <div class="info-box">
-                        <strong>⚠️ Important:</strong> Don't forget to send <code>M500</code> to save to EEPROM, then verify with <code>M503</code>!
-                    </div>
+                    <details style="margin-top: 30px; background: rgba(255, 255, 255, 0.08); padding: 15px; border-radius: var(--radius-md); cursor: pointer;">
+                        <summary style="font-weight: 600; font-size: 1.1em; color: white; user-select: none;">📋 G-Code Commands <span style="font-size: 0.8em; opacity: 0.7;">(Optional - Click to expand)</span></summary>
+                        <div style="margin-top: 15px;">
+                            <p style="color: white; margin-bottom: 10px;">Copy and paste these commands into your printer terminal:</p>
+                            
+                            <div class="gcode-box" id="gcodeBox" onclick="copyGcode()">
+                                <button class="copy-button" id="copyBtn">📋 Copy</button>
+                                <div id="gcodeCommands"></div>
+                            </div>
+                            
+                            <div class="info-box">
+                                <strong>⚠️ Important:</strong> Don't forget to send <code>M500</code> to save to EEPROM, then verify with <code>M503</code>!
+                            </div>
+                        </div>
+                    </details>
                 </div>
             </div>
         </div>
@@ -651,7 +1660,7 @@
                     <button onclick="useAverageValue()" style="background: var(--success); color: white; border: none; padding: 12px 30px; border-radius: var(--radius-md); cursor: pointer; font-weight: 600; font-size: 1.1em;">
                         ✅ Use Average Value
                     </button>
-                    <button onclick="clearHistory()" style="background: var(--danger); color: white; border: none; padding: 12px 30px; border-radius: var(--radius-md); cursor: pointer; font-weight: 600; font-size: 1.1em;">
+                    <button onclick="clearHistory()" style="background: var(--error); color: white; border: none; padding: 12px 30px; border-radius: var(--radius-md); cursor: pointer; font-weight: 600; font-size: 1.1em;">
                         🗑️ Clear History
                     </button>
                 </div>
@@ -927,7 +1936,7 @@ M503         ; Verify it saved correctly</pre>
 
         <!-- Footer -->
         <div class="footer">
-            <p><strong>E-Steps Calibration Guide v2.1</strong></p>
+            <p><strong>E-Steps Calibration Guide v2.5.3</strong></p>
             <p>Part of the 3D Printer Calibration Suite</p>
             <p style="margin-top: 15px;"><a href="../">← Back to Suite Home</a></p>
         </div>
@@ -937,6 +1946,369 @@ M503         ; Verify it saved correctly</pre>
     
     <!-- Calculator JavaScript -->
     <script>
+        // ===== V2.5.1 GAUGE GENERATORS WITH CSS VARIABLES =====
+        
+        /**
+         * Helper: Get CSS variable value dynamically
+         * Supports all theme modes (light, dark, high-contrast, brand themes)
+         */
+        function getCSSVariableColor(varName) {
+            const htmlElement = document.documentElement;
+            const value = getComputedStyle(htmlElement).getPropertyValue(varName).trim();
+            return value || '#667eea'; // fallback
+        }
+
+        /**
+         * Create SVG Accuracy Gauge (Circular Dial)
+         * Shows 0-100% with animated needle and color zones
+         */
+        function createAccuracyGauge(accuracy) {
+            const successColor = getCSSVariableColor('--success');
+            const warningColor = getCSSVariableColor('--warning');
+            const errorColor = getCSSVariableColor('--error');
+            
+            // Clamp accuracy between 0 and 100
+            accuracy = Math.max(0, Math.min(100, accuracy));
+            
+            // Determine color based on accuracy
+            let needleColor = successColor;
+            if (accuracy < 90) needleColor = warningColor;
+            if (accuracy < 85) needleColor = errorColor;
+            
+            // Needle rotation: -90 to 90 degrees (180 degree sweep)
+            const needleRotation = -90 + (accuracy * 1.8);
+            
+            // Create SVG
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('viewBox', '0 0 200 120');
+            svg.setAttribute('class', 'accuracy-gauge');
+            
+            // Background dial
+            const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+            const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+            gradient.setAttribute('id', 'gaugeGradient');
+            gradient.setAttribute('x1', '0%');
+            gradient.setAttribute('y1', '0%');
+            gradient.setAttribute('x2', '100%');
+            gradient.setAttribute('y2', '0%');
+            
+            const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+            stop1.setAttribute('offset', '0%');
+            stop1.setAttribute('stop-color', errorColor);
+            stop1.setAttribute('stop-opacity', '0.3');
+            
+            const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+            stop2.setAttribute('offset', '50%');
+            stop2.setAttribute('stop-color', warningColor);
+            stop2.setAttribute('stop-opacity', '0.3');
+            
+            const stop3 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+            stop3.setAttribute('offset', '100%');
+            stop3.setAttribute('stop-color', successColor);
+            stop3.setAttribute('stop-opacity', '0.3');
+            
+            gradient.appendChild(stop1);
+            gradient.appendChild(stop2);
+            gradient.appendChild(stop3);
+            defs.appendChild(gradient);
+            svg.appendChild(defs);
+            
+            // Dial arc background
+            const dialPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            dialPath.setAttribute('d', 'M 20 100 A 80 80 0 0 1 180 100');
+            dialPath.setAttribute('stroke', 'url(#gaugeGradient)');
+            dialPath.setAttribute('stroke-width', '12');
+            dialPath.setAttribute('fill', 'none');
+            svg.appendChild(dialPath);
+            
+            // Needle (animated line)
+            const needle = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            needle.setAttribute('x1', '100');
+            needle.setAttribute('y1', '100');
+            needle.setAttribute('x2', '100');
+            needle.setAttribute('y2', '25');
+            needle.setAttribute('stroke', needleColor);
+            needle.setAttribute('stroke-width', '3');
+            needle.setAttribute('stroke-linecap', 'round');
+            needle.setAttribute('style', `transform-origin: 100px 100px; animation: gaugeNeedle 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; --needle-rotation: ${needleRotation}deg;`);
+            svg.appendChild(needle);
+            
+            // Center dot
+            const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            dot.setAttribute('cx', '100');
+            dot.setAttribute('cy', '100');
+            dot.setAttribute('r', '6');
+            dot.setAttribute('fill', needleColor);
+            svg.appendChild(dot);
+            
+            // Tick marks
+            for (let i = 0; i <= 10; i++) {
+                const angle = -90 + (i * 18);
+                const rad = angle * Math.PI / 180;
+                const x1 = 100 + 70 * Math.cos(rad);
+                const y1 = 100 + 70 * Math.sin(rad);
+                const x2 = 100 + 78 * Math.cos(rad);
+                const y2 = 100 + 78 * Math.sin(rad);
+                
+                const tick = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                tick.setAttribute('x1', x1);
+                tick.setAttribute('y1', y1);
+                tick.setAttribute('x2', x2);
+                tick.setAttribute('y2', y2);
+                tick.setAttribute('stroke', 'rgba(255,255,255,0.4)');
+                tick.setAttribute('stroke-width', '1');
+                svg.appendChild(tick);
+            }
+            
+            return svg;
+        }
+
+        /**
+         * Create Comparison Bar (Expected vs Actual)
+         */
+        function createComparisonBar(expected, actual) {
+            const successColor = getCSSVariableColor('--success');
+            const warningColor = getCSSVariableColor('--warning');
+            const errorColor = getCSSVariableColor('--error');
+            
+            const container = document.createElement('div');
+            container.className = 'comparison-bars';
+            
+            // Calculate max for scaling
+            const max = Math.max(expected, actual) * 1.1;
+            const expectedPercent = (expected / max) * 100;
+            const actualPercent = (actual / max) * 100;
+            
+            // Expected bar
+            const expectedGroup = document.createElement('div');
+            expectedGroup.className = 'bar-group';
+            
+            const expectedLabel = document.createElement('div');
+            expectedLabel.className = 'bar-label';
+            expectedLabel.textContent = 'Expected';
+            
+            const expectedContainer = document.createElement('div');
+            expectedContainer.className = 'bar-container';
+            
+            const expectedFill = document.createElement('div');
+            expectedFill.className = 'bar-fill good';
+            expectedFill.style.height = expectedPercent + '%';
+            expectedFill.style.setProperty('--fill-height', expectedPercent + '%');
+            expectedFill.classList.add('bar-animate');
+            
+            const expectedValue = document.createElement('div');
+            expectedValue.className = 'bar-value';
+            expectedValue.textContent = expected.toFixed(1) + 'mm';
+            
+            expectedContainer.appendChild(expectedFill);
+            expectedContainer.appendChild(expectedValue);
+            expectedGroup.appendChild(expectedLabel);
+            expectedGroup.appendChild(expectedContainer);
+            
+            // Actual bar
+            const actualGroup = document.createElement('div');
+            actualGroup.className = 'bar-group';
+            
+            const actualLabel = document.createElement('div');
+            actualLabel.className = 'bar-label';
+            actualLabel.textContent = 'Actual';
+            
+            const actualContainer = document.createElement('div');
+            actualContainer.className = 'bar-container';
+            
+            const actualFill = document.createElement('div');
+            actualFill.className = 'bar-fill';
+            
+            // Color based on accuracy
+            const errorPercent = Math.abs(((100 - actual) / 100) * 100);
+            if (errorPercent <= 1) {
+                actualFill.classList.add('good');
+            } else if (errorPercent <= 5) {
+                actualFill.classList.add('warning');
+            } else {
+                actualFill.classList.add('error');
+            }
+            
+            actualFill.style.height = actualPercent + '%';
+            actualFill.style.setProperty('--fill-height', actualPercent + '%');
+            actualFill.classList.add('bar-animate');
+            
+            const actualValue = document.createElement('div');
+            actualValue.className = 'bar-value';
+            actualValue.textContent = actual.toFixed(1) + 'mm';
+            
+            actualContainer.appendChild(actualFill);
+            actualContainer.appendChild(actualValue);
+            actualGroup.appendChild(actualLabel);
+            actualGroup.appendChild(actualContainer);
+            
+            container.appendChild(expectedGroup);
+            container.appendChild(actualGroup);
+            
+            return container;
+        }
+
+        /**
+         * Create Progress Ring (Circular Progress Indicator)
+         */
+        function createProgressRing(percentage) {
+            const successColor = getCSSVariableColor('--success');
+            const warningColor = getCSSVariableColor('--warning');
+            const errorColor = getCSSVariableColor('--error');
+            
+            percentage = Math.max(0, Math.min(100, percentage));
+            
+            // Determine color
+            let ringColor = successColor;
+            if (percentage < 90) ringColor = warningColor;
+            if (percentage < 85) ringColor = errorColor;
+            
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('viewBox', '0 0 120 120');
+            svg.setAttribute('class', 'progress-ring');
+            
+            // Background circle
+            const bgCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            bgCircle.setAttribute('cx', '60');
+            bgCircle.setAttribute('cy', '60');
+            bgCircle.setAttribute('r', '54');
+            bgCircle.setAttribute('fill', 'transparent');
+            bgCircle.setAttribute('stroke', 'rgba(255,255,255,0.1)');
+            bgCircle.setAttribute('stroke-width', '6');
+            svg.appendChild(bgCircle);
+            
+            // Progress circle
+            const progressCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            progressCircle.setAttribute('cx', '60');
+            progressCircle.setAttribute('cy', '60');
+            progressCircle.setAttribute('r', '54');
+            progressCircle.setAttribute('fill', 'transparent');
+            progressCircle.setAttribute('stroke', ringColor);
+            progressCircle.setAttribute('stroke-width', '6');
+            progressCircle.setAttribute('stroke-dasharray', `${3.39 * percentage} 339`);
+            progressCircle.setAttribute('stroke-linecap', 'round');
+            progressCircle.classList.add('progress-ring-circle');
+            
+            // Add color class
+            if (percentage >= 95) {
+                progressCircle.classList.add('good');
+            } else if (percentage >= 90) {
+                progressCircle.classList.add('warning');
+            } else {
+                progressCircle.classList.add('error');
+            }
+            
+            // Animate stroke-dasharray
+            progressCircle.style.animation = `strokeAnimation 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards`;
+            progressCircle.style.setProperty('--dash-offset', `${3.39 * (100 - percentage)}`);
+            
+            svg.appendChild(progressCircle);
+            
+            return svg;
+        }
+
+        /**
+         * Display all gauges in results section
+         */
+        function displayGauges(errorPercent) {
+            // Remove existing gauges if present
+            const existingContainer = document.querySelector('.gauges-container');
+            if (existingContainer) {
+                existingContainer.remove();
+            }
+            
+            // Calculate accuracy percentage (inverse of error)
+            const accuracy = 100 - Math.abs(errorPercent);
+            
+            // Create gauges container
+            const container = document.createElement('div');
+            container.className = 'gauges-container';
+            
+            // Accuracy Gauge
+            const gaugeWrapper = document.createElement('div');
+            gaugeWrapper.className = 'accuracy-gauge-wrapper';
+            
+            const gauge = createAccuracyGauge(accuracy);
+            const gaugeLabel = document.createElement('div');
+            gaugeLabel.className = 'gauge-label';
+            gaugeLabel.textContent = 'Extrusion Accuracy';
+            
+            const gaugeValue = document.createElement('div');
+            gaugeValue.className = 'gauge-value';
+            gaugeValue.textContent = accuracy.toFixed(1) + '%';
+            
+            gaugeWrapper.appendChild(gauge);
+            gaugeWrapper.appendChild(gaugeLabel);
+            gaugeWrapper.appendChild(gaugeValue);
+            
+            // Comparison Bar
+            const barWrapper = document.createElement('div');
+            barWrapper.className = 'comparison-bar-wrapper';
+            
+            const barLabel = document.createElement('div');
+            barLabel.className = 'comparison-bar-label';
+            barLabel.textContent = 'Expected vs Actual Extrusion';
+            
+            const comparisonBar = createComparisonBar(100, 100 - Math.abs(errorPercent));
+            
+            barWrapper.appendChild(barLabel);
+            barWrapper.appendChild(comparisonBar);
+            
+            container.appendChild(gaugeWrapper);
+            container.appendChild(barWrapper);
+            
+            // Progress Ring (full width)
+            const progressWrapper = document.createElement('div');
+            progressWrapper.className = 'progress-ring-wrapper';
+            
+            const ringContainer = document.createElement('div');
+            ringContainer.className = 'progress-ring-container';
+            const progressRing = createProgressRing(accuracy);
+            const ringText = document.createElement('div');
+            ringText.className = 'progress-ring-text';
+            const ringPercent = document.createElement('div');
+            ringPercent.className = 'progress-percentage';
+            ringPercent.textContent = accuracy.toFixed(1) + '%';
+            const ringLabel = document.createElement('div');
+            ringLabel.className = 'progress-label';
+            ringLabel.textContent = 'Calibration Quality';
+            ringText.appendChild(ringPercent);
+            ringText.appendChild(ringLabel);
+            ringContainer.appendChild(progressRing);
+            ringContainer.appendChild(ringText);
+            
+            // Info items
+            const infoContainer = document.createElement('div');
+            infoContainer.className = 'progress-info';
+            
+            const errorItem = document.createElement('div');
+            errorItem.className = 'progress-info-item';
+            errorItem.innerHTML = `<strong>Measurement Error:</strong> ${Math.abs(errorPercent).toFixed(2)}%`;
+            
+            const qualityItem = document.createElement('div');
+            qualityItem.className = 'progress-info-item';
+            let qualityText = '';
+            if (accuracy >= 99) qualityText = 'Perfect! No adjustment needed.';
+            else if (accuracy >= 98) qualityText = 'Excellent! Within 1% tolerance.';
+            else if (accuracy >= 97) qualityText = 'Very good! Within 2% tolerance.';
+            else if (accuracy >= 95) qualityText = 'Good! Noticeable improvement.';
+            else if (accuracy >= 90) qualityText = 'Acceptable. May need refinement.';
+            else qualityText = 'Check for mechanical issues.';
+            qualityItem.innerHTML = `<strong>Quality Assessment:</strong> ${qualityText}`;
+            
+            infoContainer.appendChild(errorItem);
+            infoContainer.appendChild(qualityItem);
+            
+            progressWrapper.appendChild(ringContainer);
+            progressWrapper.appendChild(infoContainer);
+            
+            container.appendChild(progressWrapper);
+            
+            // Insert after result details but before G-code section
+            const detailSpan = document.getElementById('statusMessage');
+            detailSpan.closest('.result-detail').after(container);
+        }
+
         function calculateEsteps() {
             const current = parseFloat(document.getElementById('currentEsteps').value);
             const requested = parseFloat(document.getElementById('requestedExtrusion').value);
@@ -1000,24 +2372,24 @@ M503         ; Verify it saved correctly</pre>
                 }
             }
             
-            // Determine status and color (existing code)
-            let status = '', statusColor = '';
+            // Determine status and background color
+            let status = '', statusBgColor = '';
             
             if (Math.abs(errorPercent) <= 1) {
                 status = '✅ Excellent - Within 1% tolerance';
-                statusColor = '#4caf50';
+                statusBgColor = 'var(--success)';
             } else if (Math.abs(errorPercent) <= 2) {
                 status = '✅ Good - Within 2% tolerance';
-                statusColor = '#8bc34a';
+                statusBgColor = 'var(--success)';
             } else if (Math.abs(errorPercent) <= 5) {
                 status = '⚠️ Acceptable - Should improve quality';
-                statusColor = '#ff9800';
+                statusBgColor = 'var(--warning)';
             } else if (Math.abs(errorPercent) <= 10) {
                 status = '⚠️ Needs Adjustment - Significant error';
-                statusColor = '#ff5722';
+                statusBgColor = 'var(--warning)';
             } else {
                 status = '❌ Critical - Check for mechanical issues';
-                statusColor = '#f44336';
+                statusBgColor = 'var(--error)';
             }
             
             // Display results
@@ -1033,8 +2405,12 @@ M503         ; Verify it saved correctly</pre>
             
             const statusSpan = document.getElementById('statusMessage');
             statusSpan.textContent = status;
-            statusSpan.style.color = statusColor;
+            statusSpan.style.color = 'var(--text-primary)';
             statusSpan.style.fontWeight = '700';
+            statusSpan.style.backgroundColor = statusBgColor;
+            statusSpan.style.padding = '5px 10px';
+            statusSpan.style.borderRadius = 'var(--radius-sm)';
+            statusSpan.style.display = 'inline-block';
             
             // Generate G-code
             const gcode = `M92 E${newEsteps.toFixed(2)}  ; Set new E-steps
@@ -1055,6 +2431,9 @@ M503              ; Verify settings`;
                 errorPercent: Math.abs(errorPercent),
                 changePercent: changePercent
             });
+            
+            // Display visual gauges (v2.5.1)
+            displayGauges(errorPercent);
             
             // Scroll to results
             document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -1276,7 +2655,7 @@ M503              ; Verify settings`;
                     <td><strong>${test.newEsteps.toFixed(2)}</strong></td>
                     <td>${test.errorPercent.toFixed(2)}%</td>
                     <td>
-                        <button onclick="deleteHistoryItem(${test.id})" style="background: var(--danger); color: white; border: none; padding: 5px 10px; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9em;">
+                        <button onclick="deleteHistoryItem(${test.id})" style="background: var(--error); color: white; border: none; padding: 5px 10px; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9em;">
                             🗑️ Delete
                         </button>
                     </td>
@@ -1299,8 +2678,8 @@ M503              ; Verify settings`;
             
             // Clear previous state
             input.classList.remove('input-valid', 'input-invalid', 'input-warning');
-            messageDiv.classList.remove('valid', 'invalid', 'warning');
             messageDiv.textContent = '';
+            messageDiv.style.color = '';
             
             if (input.value === '') {
                 return; // Empty is okay, just no feedback
@@ -1308,8 +2687,8 @@ M503              ; Verify settings`;
             
             if (isNaN(value) || value <= 0) {
                 input.classList.add('input-invalid');
-                messageDiv.classList.add('invalid');
                 messageDiv.textContent = '❌ Must be a positive number';
+                messageDiv.style.color = 'var(--error)';
                 return false;
             }
             
@@ -1317,24 +2696,24 @@ M503              ; Verify settings`;
             if (inputId === 'currentEsteps') {
                 if (value < 50 || value > 2000) {
                     input.classList.add('input-warning');
-                    messageDiv.classList.add('warning');
                     messageDiv.textContent = '⚠️ Unusual value - double check!';
+                    messageDiv.style.color = 'var(--warning)';
                 } else {
                     input.classList.add('input-valid');
-                    messageDiv.classList.add('valid');
                     messageDiv.textContent = '✅ Valid';
+                    messageDiv.style.color = 'var(--text-primary)';
                 }
             }
             
             if (inputId === 'requestedExtrusion') {
                 if (value !== 100 && value !== 50) {
                     input.classList.add('input-warning');
-                    messageDiv.classList.add('warning');
                     messageDiv.textContent = '⚠️ 100mm is standard';
+                    messageDiv.style.color = 'var(--warning)';
                 } else {
                     input.classList.add('input-valid');
-                    messageDiv.classList.add('valid');
                     messageDiv.textContent = '✅ Valid';
+                    messageDiv.style.color = 'var(--text-primary)';
                 }
             }
             
@@ -1344,16 +2723,16 @@ M503              ; Verify settings`;
                 
                 if (errorPercent > 15) {
                     input.classList.add('input-warning');
-                    messageDiv.classList.add('warning');
                     messageDiv.textContent = `⚠️ ${errorPercent.toFixed(0)}% error - check measurement!`;
+                    messageDiv.style.color = 'var(--warning)';
                 } else if (errorPercent < 1) {
                     input.classList.add('input-valid');
-                    messageDiv.classList.add('valid');
                     messageDiv.textContent = `✅ Excellent (${errorPercent.toFixed(1)}% error)`;
+                    messageDiv.style.color = 'var(--text-primary)';
                 } else {
                     input.classList.add('input-valid');
-                    messageDiv.classList.add('valid');
                     messageDiv.textContent = `✅ Valid (${errorPercent.toFixed(1)}% error)`;
+                    messageDiv.style.color = 'var(--text-primary)';
                 }
             }
             
@@ -1365,8 +2744,247 @@ M503              ; Verify settings`;
         document.getElementById('requestedExtrusion').addEventListener('input', () => validateInput('requestedExtrusion'));
         document.getElementById('actualExtrusion').addEventListener('input', () => validateInput('actualExtrusion'));
         
+        // ===== V2.5.2 WIZARD MODE MANAGER =====
+        let currentWizardStep = 1;
+        const TOTAL_STEPS = 6;
+        
+        function initWizard() {
+            renderStepIndicator();
+        }
+        
+        function renderStepIndicator() {
+            const indicator = document.getElementById('stepIndicator');
+            indicator.innerHTML = '';
+            for (let i = 1; i <= TOTAL_STEPS; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'step-dot';
+                if (i === currentWizardStep) dot.classList.add('active');
+                if (i < currentWizardStep) dot.classList.add('completed');
+                indicator.appendChild(dot);
+            }
+        }
+        
+        function openWizard() {
+            currentWizardStep = 1;
+            document.getElementById('wizardOverlay').classList.add('active');
+            showStep(1);
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeWizard() {
+            document.getElementById('wizardOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.wizard-step').forEach(s => s.classList.remove('active'));
+            // Show current step
+            document.getElementById('step' + step).classList.add('active');
+            
+            // Update progress
+            document.getElementById('currentStep').textContent = step;
+            renderStepIndicator();
+            
+            // Update buttons
+            document.getElementById('backBtn').style.display = step === 1 ? 'none' : 'block';
+            
+            // Disable next on incomplete steps
+            const nextBtn = document.getElementById('nextBtn');
+            if (step === 2) {
+                nextBtn.disabled = !document.getElementById('markConfirm').checked;
+            } else if (step >= 3) {
+                nextBtn.disabled = false;
+                nextBtn.textContent = step === TOTAL_STEPS ? 'Complete ✓' : 'Next →';
+            } else {
+                nextBtn.disabled = false;
+                nextBtn.textContent = 'Next →';
+            }
+        }
+        
+        function nextStep() {
+            // Validation
+            if (currentWizardStep === 1) {
+                const temp = parseFloat(document.getElementById('nozzleTemp').value);
+                if (isNaN(temp) || temp < 150 || temp > 300) {
+                    alert('⚠️ Please enter a valid temperature (150-300°C)');
+                    return;
+                }
+            }
+            if (currentWizardStep === 2) {
+                if (!document.getElementById('markConfirm').checked) {
+                    alert('⚠️ Please confirm you\'ve marked the filament');
+                    return;
+                }
+            }
+            if (currentWizardStep === 4) {
+                const remaining = parseFloat(document.getElementById('remainingDistance').value);
+                if (isNaN(remaining) || remaining < 0 || remaining > 120) {
+                    alert('⚠️ Please enter a valid remaining distance (0-120mm)');
+                    return;
+                }
+                // Move to step 5 and calculate
+                currentWizardStep++;
+                showStep(currentWizardStep);
+                calculateWizardEsteps();
+                return;
+            }
+            if (currentWizardStep === TOTAL_STEPS) {
+                // Save wizard results to history before closing
+                if (window.wizardData) {
+                    saveTestToHistory({
+                        currentEsteps: window.wizardData.current,
+                        requested: window.wizardData.requested,
+                        actual: window.wizardData.actual,
+                        newEsteps: window.wizardData.newEsteps,
+                        errorPercent: Math.abs(((window.wizardData.requested - window.wizardData.actual) / window.wizardData.requested) * 100),
+                        changePercent: ((window.wizardData.newEsteps - window.wizardData.current) / window.wizardData.current) * 100
+                    });
+                }
+                closeWizard();
+                return;
+            }
+            
+            currentWizardStep++;
+            showStep(currentWizardStep);
+        }
+        
+        function calculateWizardEsteps() {
+            // Get current E-steps from calculator input
+            let current = parseFloat(document.getElementById('currentEsteps').value);
+            if (isNaN(current) || current <= 0) {
+                current = 424.09; // Default fallback
+            }
+            
+            // Get remaining distance from Step 4
+            const remaining = parseFloat(document.getElementById('remainingDistance').value);
+            if (isNaN(remaining)) return;
+            
+            // Calculate actual extrusion: 120 - remaining
+            const actual = 120 - remaining;
+            const requested = 100;
+            
+            // Calculate new E-steps: (current × requested) ÷ actual
+            const newEsteps = (current * requested) / actual;
+            
+            // Display in Step 5
+            document.getElementById('wizCalcCurrent').textContent = current.toFixed(2);
+            document.getElementById('wizCalcActual').textContent = actual.toFixed(1);
+            document.getElementById('wizNewEsteps').textContent = newEsteps.toFixed(2);
+            
+            // Generate G-code
+            const gcode = `M92 E${newEsteps.toFixed(2)}
+M500
+M503`;
+            document.getElementById('wizGcodeCommands').textContent = gcode;
+            
+            // Store wizard data for later saving (v2.5.2 fix)
+            window.wizardData = {
+                current: current,
+                requested: requested,
+                actual: actual,
+                newEsteps: newEsteps
+            };
+        }
+        
+        function copyWizardGcode() {
+            const gcode = document.getElementById('wizGcodeCommands').textContent;
+            navigator.clipboard.writeText(gcode).then(() => {
+                alert('✅ G-code copied to clipboard!');
+            }).catch(() => {
+                alert('Please copy manually');
+            });
+        }
+        
+        function previousStep() {
+            if (currentWizardStep > 1) {
+                currentWizardStep--;
+                showStep(currentWizardStep);
+            }
+        }
+        
+        function updateTemp() {
+            const type = document.getElementById('filamentType').value;
+            const tempMap = {
+                'pla': 205,
+                'petg': 235,
+                'abs': 245,
+                'tpu': 225,
+                'custom': 200
+            };
+            document.getElementById('nozzleTemp').value = tempMap[type];
+        }
+        
+        // Mark confirmation to enable next button
+        document.addEventListener('change', function(e) {
+            if (e.target.id === 'markConfirm') {
+                document.getElementById('nextBtn').disabled = !e.target.checked;
+            }
+        });
+        
+        // Close wizard on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeWizard();
+            }
+        });
+
+        // ===== V2.5.3 FONT SIZE SCALING (ACCESSIBILITY) =====
+        const FONT_SCALE_KEY = 'esteps_font_scale';
+        
+        /**
+         * Apply font scale to document
+         * Uses CSS variable --global-font-scale
+         * Multiplier applied to all rem/em values
+         */
+        function applyFontScale(scale) {
+            const htmlElement = document.documentElement;
+            htmlElement.style.setProperty('--global-font-scale', scale);
+            
+            // Recalculate body font size with calc()
+            // All scaled elements use calc(value * var(--global-font-scale))
+            document.body.style.fontSize = `calc(16px * ${scale})`;
+            
+            // Store preference
+            localStorage.setItem(FONT_SCALE_KEY, scale);
+        }
+        
+        /**
+         * Load and restore saved font scale preference
+         */
+        function loadFontScale() {
+            const saved = localStorage.getItem(FONT_SCALE_KEY);
+            const scale = saved ? parseFloat(saved) : 1;
+            
+            // Apply saved scale
+            applyFontScale(scale);
+            
+            // Update selector
+            const selector = document.getElementById('fontScaleSelector');
+            if (selector) {
+                selector.value = scale;
+            }
+            
+            return scale;
+        }
+        
         // Load saved data on page load
         window.addEventListener('DOMContentLoaded', () => {
+            initWizard();
+            
+            // Load font scale preference (v2.5.3)
+            loadFontScale();
+            
+            // Add font scale selector event listener
+            const fontScaleSelector = document.getElementById('fontScaleSelector');
+            if (fontScaleSelector) {
+                fontScaleSelector.addEventListener('change', (e) => {
+                    const scale = parseFloat(e.target.value);
+                    applyFontScale(scale);
+                    console.log(`Font size changed to ${(scale * 100).toFixed(0)}%`);
+                });
+            }
+            
             const restored = loadFromStorage();
             if (restored) {
                 // Show subtle notification

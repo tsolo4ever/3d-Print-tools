@@ -48,6 +48,9 @@
     --spacing-lg: 40px;
     --spacing-xl: 60px;
     
+    /* Global Font Scale (v2.5.3 Accessibility) */
+    --global-font-scale: 1;
+    
     /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
@@ -61,6 +64,37 @@
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
+    
+    /* Utility Colors (Calculator & Code Display) */
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Code/Technical Display */
+    --code-bg: #263238;
+    --code-text: #4fc3f7;
+    --code-bg-hover: #2d3e47;
+    --code-accent: #d63384;
+    
+    /* Transparency Helpers */
+    --overlay-light: rgba(255, 255, 255, 0.1);
+    --overlay-medium: rgba(255, 255, 255, 0.15);
+    --overlay-strong: rgba(255, 255, 255, 0.9);
+    
+    /* Input Focus States */
+    --input-focus-bg: rgba(255, 255, 255, 1);
+    --input-focus-border: rgba(255, 255, 255, 0.8);
+    --input-focus-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    
+    /* Dark Mode Input Overrides */
+    --dark-input-bg: rgba(255, 255, 255, 0.95);
+    --dark-input-text: var(--esteps-accent);
+    --dark-calc-input-bg: rgba(0, 0, 0, 0.8);
+    --dark-calc-input-text: rgba(255, 255, 255, 0.95);
+    --dark-calc-input-border: rgba(255, 255, 255, 0.2);
+    --dark-calc-input-focus-bg: rgba(0, 0, 0, 0.9);
+    --dark-calc-input-focus-text: white;
+    --dark-calc-input-focus-border: rgba(255, 255, 255, 0.5);
+    --dark-calc-input-placeholder: rgba(255, 255, 255, 0.5);
 }
 
 /* ============================================
