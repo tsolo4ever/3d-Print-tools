@@ -146,6 +146,243 @@
             background: var(--text-primary);
         }
 
+        /* ============================================
+           CHUNK 1: FONT SCALING SYSTEM (v2.5.3)
+           ============================================ */
+
+        .font-scale-selector {
+            padding: 8px 12px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .font-scale-selector:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .font-scale-selector:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
+
+        /* High Contrast Font Scale Selector */
+        [data-theme="high-contrast"] .font-scale-selector,
+        [data-theme="high-contrast-dark"] .font-scale-selector {
+            border: 2px solid var(--primary);
+            background: var(--background);
+            color: var(--text-primary);
+        }
+
+        [data-theme="high-contrast"] .font-scale-selector:hover,
+        [data-theme="high-contrast-dark"] .font-scale-selector:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* ============================================
+           CHUNK 2: ENHANCED NAVIGATION LAYOUT
+           ============================================ */
+
+        /* Theme Selector Group - Stacked Dropdowns */
+        .theme-selector-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .brand-selector,
+        .mode-selector {
+            padding: 8px 12px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .brand-selector:hover,
+        .mode-selector:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-selector:focus,
+        .mode-selector:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
+
+        /* High Contrast Dropdown Fixes */
+        [data-theme="high-contrast"] .brand-selector,
+        [data-theme="high-contrast"] .mode-selector {
+            border: 2px solid var(--primary);
+            background: var(--background);
+            color: var(--text-primary);
+        }
+
+        [data-theme="high-contrast"] .brand-selector:hover,
+        [data-theme="high-contrast"] .mode-selector:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        [data-theme="high-contrast-dark"] .brand-selector,
+        [data-theme="high-contrast-dark"] .mode-selector {
+            border: 2px solid var(--primary);
+            background: var(--background);
+            color: var(--text-primary);
+        }
+
+        [data-theme="high-contrast-dark"] .brand-selector:hover,
+        [data-theme="high-contrast-dark"] .mode-selector:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .theme-settings-btn {
+            padding: 8px 12px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .theme-settings-btn:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-settings-btn:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
+
+        /* ============================================
+           CHUNK 3: BRAND THEME CSS OVERRIDES
+           ============================================ */
+
+        /* Page Header Brand Theme Support */
+        [data-theme="high-contrast"] .page-header,
+        [data-theme="high-contrast-dark"] .page-header,
+        [data-theme="prusa"] .page-header,
+        [data-theme="prusa-dark"] .page-header,
+        [data-theme="bambu"] .page-header,
+        [data-theme="bambu-dark"] .page-header,
+        [data-theme="creality"] .page-header,
+        [data-theme="creality-dark"] .page-header,
+        [data-theme="voron"] .page-header,
+        [data-theme="voron-dark"] .page-header,
+        [data-theme="ultimaker"] .page-header,
+        [data-theme="ultimaker-dark"] .page-header,
+        [data-theme="formlabs"] .page-header,
+        [data-theme="formlabs-dark"] .page-header,
+        [data-theme="anycubic"] .page-header,
+        [data-theme="anycubic-dark"] .page-header {
+            border-top-color: var(--primary);
+        }
+
+        [data-theme="high-contrast"] .page-header h1,
+        [data-theme="high-contrast-dark"] .page-header h1,
+        [data-theme="prusa"] .page-header h1,
+        [data-theme="prusa-dark"] .page-header h1,
+        [data-theme="bambu"] .page-header h1,
+        [data-theme="bambu-dark"] .page-header h1,
+        [data-theme="creality"] .page-header h1,
+        [data-theme="creality-dark"] .page-header h1,
+        [data-theme="voron"] .page-header h1,
+        [data-theme="voron-dark"] .page-header h1,
+        [data-theme="ultimaker"] .page-header h1,
+        [data-theme="ultimaker-dark"] .page-header h1,
+        [data-theme="formlabs"] .page-header h1,
+        [data-theme="formlabs-dark"] .page-header h1,
+        [data-theme="anycubic"] .page-header h1,
+        [data-theme="anycubic-dark"] .page-header h1 {
+            color: var(--primary);
+        }
+
+        /* ============================================
+           CHUNK 4: INPUT VALIDATION & DARK MODE
+           ============================================ */
+
+        /* Input Validation Classes */
+        .input-valid {
+            border-color: var(--success) !important;
+            background: var(--background) !important;
+        }
+
+        .input-invalid {
+            border-color: var(--error) !important;
+            background: var(--background) !important;
+        }
+
+        .input-warning {
+            border-color: var(--warning) !important;
+            background: var(--background) !important;
+        }
+
+        /* Validation Message */
+        .validation-message {
+            font-size: 0.9em;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        /* Dark Mode Input Styling */
+        [data-theme="dark"] .form-group input,
+        [data-theme="dark"] .form-group select,
+        [data-theme="dark"] .form-group textarea {
+            background: #2d3e47;
+            color: #e0e0e0;
+            border-color: #404040;
+        }
+
+        [data-theme="dark"] .form-group input:focus,
+        [data-theme="dark"] .form-group select:focus,
+        [data-theme="dark"] .form-group textarea:focus {
+            background: #3a4d57;
+            color: #e0e0e0;
+            border-color: var(--primary);
+        }
+
+        /* Dark Mode Placeholder Text */
+        [data-theme="dark"] .form-group input::placeholder,
+        [data-theme="dark"] .form-group textarea::placeholder {
+            color: #90a4ae;
+        }
+
+        /* Dark Mode Button Styling */
+        [data-theme="dark"] .btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        [data-theme="dark"] .btn:hover {
+            background: var(--primary-hover);
+        }
+
         .result-box {
             background: var(--primary-light);
             border: 2px solid var(--primary);
@@ -190,10 +427,333 @@
             border-radius: var(--radius-sm);
         }
 
-        /* Mobile responsive */
+        /* ============================================
+           CHUNK 5: ESSENTIAL CSS HELPER CLASSES
+           ============================================ */
+
+        /* Text Utilities */
+        .tip-text {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        /* Content Helpers */
+        .instruction-box {
+            background: var(--background);
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            margin: 15px 0;
+        }
+
+        .warning-instruction {
+            font-size: 0.85em;
+            margin: 10px 0 0 0;
+            color: var(--text-secondary);
+        }
+
+        .monospace-block {
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        /* Result Display Helpers */
+        .success-box-styled {
+            background: var(--success-light);
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            margin: 15px 0;
+        }
+
+        .result-box-centered {
+            background: var(--success-light);
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .result-label {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .result-value-large {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        /* Code/Formula Display */
+        .formula-box {
+            background: var(--info-light);
+            padding: 15px;
+            border-radius: var(--radius-sm);
+        }
+
+        .gcode-display-box {
+            background: #263238;
+            color: #4fc3f7;
+            padding: 50px 30px;
+            border-radius: var(--radius-sm);
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 2em;
+            font-weight: bold;
+            line-height: 1.8;
+            text-align: center;
+            letter-spacing: 3px;
+            word-spacing: 15px;
+            overflow-x: auto;
+        }
+
+        .formula-code-small {
+            font-size: 0.9em;
+        }
+
+        .code-small {
+            font-size: 0.9em;
+        }
+
+        /* History & Statistics */
+        .history-stats-box {
+            display: none;
+            background: var(--success-light);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 20px 0;
+        }
+
+        .history-stats-title {
+            margin-top: 0;
+            color: var(--success);
+        }
+
+        .history-section {
+            margin-top: 40px;
+        }
+
+        .history-button-group {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .use-average-button {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .clear-history-button {
+            background: var(--error);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .history-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .table-action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .table-copy-button {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .table-delete-button {
+            background: var(--error);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        /* Button Variants */
+        .preset-button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        .wizard-start-button {
+            background: var(--success);
+            margin-top: 10px;
+        }
+
+        .clear-button {
+            background: rgba(244, 67, 54, 0.5);
+            color: white;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        .gcode-copy-button {
+            width: 100%;
+            padding: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Timer Display */
+        .timer-display {
+            font-size: 2em;
+            font-weight: 700;
+            text-align: center;
+            margin: 10px 0;
+            color: var(--success);
+        }
+
+        .timer-text {
+            font-size: 0.9em;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        /* List Styling */
+        .instructions-section {
+            margin: 10px 0 0 20px;
+            font-size: 0.9em;
+        }
+
+        .critical-steps {
+            margin: 10px 0 0 20px;
+            font-size: 0.9em;
+        }
+
+        /* Info Display */
+        .info-box-styled {
+            background: var(--info-light);
+            padding: 10px;
+            border-radius: var(--radius-sm);
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .calc-summary-box {
+            background: var(--background);
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+
+        /* Visual Guide */
+        .visual-guide-box {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-size: 0.9em;
+        }
+
+        .formula-display {
+            background: var(--card-bg);
+            color: var(--text-primary);
+        }
+
+        /* Table Styling */
+        .table-row-highlight {
+            background-color: var(--success-light);
+        }
+
+        /* Details/Expansion */
+        .details-expansion {
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+        }
+
+        .summary-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: var(--text-primary);
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .expansion-label {
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+
+        .expansion-content {
+            margin-top: 15px;
+        }
+
+        .expansion-description {
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        /* Empty States */
+        .history-empty-row {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        /* Utility Classes */
+        .calculator-subtitle {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .preset-label {
+            margin-bottom: 15px;
+        }
+
+        .back-button {
+            display: none;
+        }
+
+        .footer-link {
+            margin-top: 15px;
+        }
+
+        /* Mobile Responsive for Helpers */
         @media (max-width: 768px) {
             .form-row {
                 grid-template-columns: 1fr;
+            }
+
+            .history-button-group {
+                flex-direction: column;
+            }
+
+            .table-action-buttons {
+                flex-direction: column;
+            }
+
+            .gcode-display-box {
+                font-size: 1.2em;
+                padding: 20px 15px;
             }
         }
     </style>
@@ -222,24 +782,33 @@
                 <a href="/docs/">Docs</a>
             </div>
             <div class="nav-actions">
-                <select class="brand-selector" title="Select Brand">
-                    <option value="default">Default</option>
-                    <optgroup label="Printer Brands">
-                        <option value="prusa">🟠 Prusa Orange</option>
-                        <option value="bambu">🟢 Bambu Lab</option>
-                        <option value="creality">🔵 Creality</option>
-                        <option value="voron">🔴 Voron</option>
-                        <option value="ultimaker">⚙️ Ultimaker</option>
-                        <option value="formlabs">💎 Formlabs</option>
-                        <option value="anycubic">🟣 Anycubic</option>
-                    </optgroup>
+                <select class="font-scale-selector" id="fontScaleSelector" title="Font Size">
+                    <option value="0.8">🔤 Small (0.8x)</option>
+                    <option value="1" selected>🔤 Normal (1x)</option>
+                    <option value="1.2">🔤 Large (1.2x)</option>
+                    <option value="1.5">🔤 XLarge (1.5x)</option>
+                    <option value="2">🔤 XXLarge (2x)</option>
                 </select>
-                <select class="mode-selector" title="Select Theme Mode">
-                    <option value="light">☀️ Light</option>
-                    <option value="dark">🌙 Dark</option>
-                    <option value="high-contrast">⚡ High Contrast</option>
-                    <option value="high-contrast-dark">⚡🌙 HC Dark</option>
-                </select>
+                <div class="theme-selector-group">
+                    <select class="brand-selector" title="Select Brand">
+                        <option value="default">Default</option>
+                        <optgroup label="Printer Brands">
+                            <option value="prusa">🟠 Prusa Orange</option>
+                            <option value="bambu">🟢 Bambu Lab</option>
+                            <option value="creality">🔵 Creality</option>
+                            <option value="voron">🔴 Voron</option>
+                            <option value="ultimaker">⚙️ Ultimaker</option>
+                            <option value="formlabs">💎 Formlabs</option>
+                            <option value="anycubic">🟣 Anycubic</option>
+                        </optgroup>
+                    </select>
+                    <select class="mode-selector" title="Select Theme Mode">
+                        <option value="light">☀️ Light</option>
+                        <option value="dark">🌙 Dark</option>
+                        <option value="high-contrast">⚡ High Contrast</option>
+                        <option value="high-contrast-dark">⚡🌙 HC Dark</option>
+                    </select>
+                </div>
                 <button class="theme-settings-btn" title="Theme Settings">⚙️</button>
             </div>
         </div>
@@ -423,6 +992,60 @@
 
     <!-- 📝 TODO: Add your custom JavaScript -->
     <script>
+        // ===== CHUNK 1 & 2: FONT SCALING SYSTEM (v2.5.3) =====
+        const FONT_SCALE_KEY = 'tool_font_scale';
+        
+        /**
+         * Apply font scale to document
+         * Uses CSS variable --global-font-scale
+         * Multiplier applied to all rem/em values
+         */
+        function applyFontScale(scale) {
+            const htmlElement = document.documentElement;
+            htmlElement.style.setProperty('--global-font-scale', scale);
+            
+            // Recalculate body font size with calc()
+            document.body.style.fontSize = `calc(16px * ${scale})`;
+            
+            // Store preference
+            localStorage.setItem(FONT_SCALE_KEY, scale);
+        }
+        
+        /**
+         * Load and restore saved font scale preference
+         */
+        function loadFontScale() {
+            const saved = localStorage.getItem(FONT_SCALE_KEY);
+            const scale = saved ? parseFloat(saved) : 1;
+            
+            // Apply saved scale
+            applyFontScale(scale);
+            
+            // Update selector
+            const selector = document.getElementById('fontScaleSelector');
+            if (selector) {
+                selector.value = scale;
+            }
+            
+            return scale;
+        }
+        
+        // Load font scale on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Load and apply font scale (Chunk 1)
+            loadFontScale();
+            
+            // Add font scale selector event listener (Chunk 2)
+            const fontScaleSelector = document.getElementById('fontScaleSelector');
+            if (fontScaleSelector) {
+                fontScaleSelector.addEventListener('change', (e) => {
+                    const scale = parseFloat(e.target.value);
+                    applyFontScale(scale);
+                    console.log(`Font size changed to ${(scale * 100).toFixed(0)}%`);
+                });
+            }
+        });
+
         // Initialize printer profiles (optional - remove if not needed)
         PrinterProfileManager.render('printerProfiles', {
             showLoadButton: true,
