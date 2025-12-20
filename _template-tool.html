@@ -737,8 +737,63 @@
             margin-top: 15px;
         }
 
+        /* Mobile Theme Controls in Menu */
+        .mobile-theme-controls {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px 0;
+            border-top: 1px solid var(--border);
+            margin-top: 10px;
+        }
+
+        .mobile-theme-controls label {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .mobile-theme-controls select {
+            padding: 8px 10px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            background: var(--background);
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9em;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .mobile-theme-controls select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
+
+        .mobile-theme-controls button {
+            padding: 10px;
+            background: var(--background);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: 0.9em;
+        }
+
+        .mobile-theme-controls button:hover {
+            background: var(--primary);
+            color: white;
+        }
+
         /* Mobile Responsive for Helpers */
         @media (max-width: 768px) {
+            .mobile-theme-controls {
+                display: flex;
+            }
+
             .form-row {
                 grid-template-columns: 1fr;
             }
@@ -780,6 +835,42 @@
                     </div>
                 </div>
                 <a href="/docs/">Docs</a>
+                
+                <!-- Mobile Theme Controls -->
+                <div class="mobile-theme-controls">
+                    <label>Font Size:</label>
+                    <select class="font-scale-selector mobile-font-scale" id="fontScaleSelectormobile" title="Font Size">
+                        <option value="0.8">🔤 Small (0.8x)</option>
+                        <option value="1" selected>🔤 Normal (1x)</option>
+                        <option value="1.2">🔤 Large (1.2x)</option>
+                        <option value="1.5">🔤 XLarge (1.5x)</option>
+                        <option value="2">🔤 XXLarge (2x)</option>
+                    </select>
+                    
+                    <label>Theme Brand:</label>
+                    <select class="brand-selector mobile-brand-selector" title="Select Brand">
+                        <option value="default">Default</option>
+                        <optgroup label="Printer Brands">
+                            <option value="prusa">🟠 Prusa Orange</option>
+                            <option value="bambu">🟢 Bambu Lab</option>
+                            <option value="creality">🔵 Creality</option>
+                            <option value="voron">🔴 Voron</option>
+                            <option value="ultimaker">⚙️ Ultimaker</option>
+                            <option value="formlabs">💎 Formlabs</option>
+                            <option value="anycubic">🟣 Anycubic</option>
+                        </optgroup>
+                    </select>
+                    
+                    <label>Theme Mode:</label>
+                    <select class="mode-selector mobile-mode-selector" title="Select Theme Mode">
+                        <option value="light">☀️ Light</option>
+                        <option value="dark">🌙 Dark</option>
+                        <option value="high-contrast">⚡ High Contrast</option>
+                        <option value="high-contrast-dark">⚡🌙 HC Dark</option>
+                    </select>
+                    
+                    <button class="theme-settings-btn mobile-theme-settings-btn" title="Theme Settings">⚙️ Theme Settings</button>
+                </div>
             </div>
             <div class="nav-actions">
                 <select class="font-scale-selector" id="fontScaleSelector" title="Font Size">
