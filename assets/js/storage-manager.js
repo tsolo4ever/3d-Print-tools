@@ -102,8 +102,60 @@ const StorageManager = {
         printer.created = new Date().toISOString();
         printer.modified = new Date().toISOString();
         
-        data.printers.push(printer);
-        return this.saveData(data) ? printer : null;
+        // Ensure extended schema fields exist with defaults
+        const extendedPrinter = {
+            ...printer,
+            // Basic Info (legacy support)
+            name: printer.name || 'New Printer',
+            esteps: printer.esteps || null,
+            extruder: printer.extruder || null,
+            notes: printer.notes || '',
+            
+            // Extended Fields (new)
+            printerModel: printer.printerModel || null,
+            firmwareVersion: printer.firmwareVersion || null,
+            
+            // Hotend Configuration
+            hotend: printer.hotend || {
+                type: null,              // hotend ID from database
+                heaterType: 'cartridge', // 'cartridge', 'ceramic', 'high-flow', 'custom'
+                maxFlow: null,           // mm³/s
+                maxTemp: null,           // °C
+                pidTuned: false,         // Has PID been tuned?
+                pidValues: null          // { p, i, d } if available
+            },
+            
+            // Extruder Configuration
+            extruderType: printer.extruderType || 'bowden', // 'direct' or 'bowden'
+            
+            // EEPROM Data
+            eeprom: printer.eeprom || {
+                maxFeedrate: { x: null, y: null, z: null, e: null },
+                maxAccel: { x: null, y: null, z: null, e: null },
+                jerk: { x: null, y: null, z: null, e: null },
+                esteps: printer.esteps || null, // Link to legacy field
+                pidHotend: null,     // { p, i, d }
+                pidBed: null,        // { p, i, d }
+                linearAdvance: null, // K factor
+                zOffset: null,       // Baby stepping offset
+                bedSize: { x: null, y: null, z: null },
+                bedLevelingType: null // 'UBL', 'Bilinear', 'Manual', etc.
+            },
+            
+            // Nozzle Inventory
+            nozzles: printer.nozzles || [
+                { size: 0.4, material: 'brass', installed: true }
+            ],
+            
+            // Slicer Preference
+            preferredSlicer: printer.preferredSlicer || 'superslicer',
+            
+            // Materials
+            commonMaterials: printer.commonMaterials || ['PLA', 'PETG']
+        };
+        
+        data.printers.push(extendedPrinter);
+        return this.saveData(data) ? extendedPrinter : null;
     },
     
     /**
@@ -114,11 +166,19 @@ const StorageManager = {
         const index = data.printers.findIndex(p => p.id === id);
         
         if (index !== -1) {
+            // Deep merge for nested objects (eeprom, hotend, etc.)
+            const currentPrinter = data.printers[index];
             data.printers[index] = {
-                ...data.printers[index],
+                ...currentPrinter,
                 ...updates,
                 id: id, // Preserve ID
-                modified: new Date().toISOString()
+                created: currentPrinter.created, // Preserve creation date
+                modified: new Date().toISOString(),
+                // Deep merge nested objects
+                hotend: updates.hotend ? { ...currentPrinter.hotend, ...updates.hotend } : currentPrinter.hotend,
+                eeprom: updates.eeprom ? { ...currentPrinter.eeprom, ...updates.eeprom } : currentPrinter.eeprom,
+                nozzles: updates.nozzles || currentPrinter.nozzles,
+                commonMaterials: updates.commonMaterials || currentPrinter.commonMaterials
             };
             return this.saveData(data) ? data.printers[index] : null;
         }
@@ -146,6 +206,132 @@ const StorageManager = {
         const data = this.getData() || this.init();
         data.printers = [];
         return this.saveData(data);
+    },
+    
+    /**
+     * Update EEPROM data for a printer
+     */
+    updatePrinterEEPROM(id, eepromData) {
+        const printer = this.getPrinter(id);
+        if (!printer) return null;
+        
+        const updates = {
+            eeprom: {
+                ...printer.eeprom,
+                ...eepromData
+            }
+        };
+        
+        // If e-steps is in EEPROM, sync with legacy field
+        if (eepromData.esteps !== undefined) {
+            updates.esteps = eepromData.esteps;
+        }
+        
+        return this.updatePrinter(id, updates);
+    },
+    
+    /**
+     * Update hotend configuration for a printer
+     */
+    updatePrinterHotend(id, hotendData) {
+        const printer = this.getPrinter(id);
+        if (!printer) return null;
+        
+        return this.updatePrinter(id, {
+            hotend: {
+                ...printer.hotend,
+                ...hotendData
+            }
+        });
+    },
+    
+    /**
+     * Update nozzle inventory for a printer
+     */
+    updatePrinterNozzles(id, nozzles) {
+        return this.updatePrinter(id, { nozzles });
+    },
+    
+    /**
+     * Set PID tuning status for a printer
+     */
+    setPIDTuned(id, tuned, pidValues = null) {
+        const printer = this.getPrinter(id);
+        if (!printer) return null;
+        
+        return this.updatePrinter(id, {
+            hotend: {
+                ...printer.hotend,
+                pidTuned: tuned,
+                pidValues: pidValues
+            }
+        });
+    },
+    
+    /**
+     * Get printer by name (for quick lookup)
+     */
+    getPrinterByName(name) {
+        const printers = this.getPrinters();
+        return printers.find(p => p.name === name);
+    },
+    
+    /**
+     * Migrate legacy printer profiles to new extended schema
+     */
+    migratePrinterProfiles() {
+        const data = this.getData();
+        if (!data || !data.printers) return false;
+        
+        let migrated = false;
+        data.printers = data.printers.map(printer => {
+            // Check if already has extended fields
+            if (printer.hotend && printer.eeprom) {
+                return printer;
+            }
+            
+            migrated = true;
+            
+            // Migrate to extended schema
+            return {
+                ...printer,
+                printerModel: printer.printerModel || null,
+                firmwareVersion: printer.firmwareVersion || null,
+                hotend: printer.hotend || {
+                    type: null,
+                    heaterType: 'cartridge',
+                    maxFlow: null,
+                    maxTemp: null,
+                    pidTuned: false,
+                    pidValues: null
+                },
+                extruderType: printer.extruderType || (printer.extruder?.toLowerCase().includes('direct') ? 'direct' : 'bowden'),
+                eeprom: printer.eeprom || {
+                    maxFeedrate: { x: null, y: null, z: null, e: null },
+                    maxAccel: { x: null, y: null, z: null, e: null },
+                    jerk: { x: null, y: null, z: null, e: null },
+                    esteps: printer.esteps || null,
+                    pidHotend: null,
+                    pidBed: null,
+                    linearAdvance: null,
+                    zOffset: null,
+                    bedSize: { x: null, y: null, z: null },
+                    bedLevelingType: null
+                },
+                nozzles: printer.nozzles || [
+                    { size: 0.4, material: 'brass', installed: true }
+                ],
+                preferredSlicer: printer.preferredSlicer || 'superslicer',
+                commonMaterials: printer.commonMaterials || ['PLA', 'PETG']
+            };
+        });
+        
+        if (migrated) {
+            this.saveData(data);
+            console.log('Printer profiles migrated to extended schema');
+        }
+        
+        return migrated;
     },
     
     // ==========================================

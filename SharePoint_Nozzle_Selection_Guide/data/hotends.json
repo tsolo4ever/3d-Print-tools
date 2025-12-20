@@ -1,0 +1,259 @@
+{
+  "hotends": [
+    {
+      "id": "stock-creality-ender3",
+      "name": "Stock Creality (Ender 3/5)",
+      "manufacturer": "Creality",
+      "type": "ptfe-lined",
+      "heaterType": "cartridge",
+      "maxFlow": 8,
+      "maxTemp": 260,
+      "recommendedFor": ["PLA", "PETG", "TPU"],
+      "mountType": ["bowden"],
+      "retraction": {
+        "direct": [1.0, 2.0],
+        "bowden": [4.0, 7.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "Standard PTFE-lined hotend, limited temperature range"
+    },
+    {
+      "id": "micro-swiss-all-metal",
+      "name": "Micro Swiss All-Metal",
+      "manufacturer": "Micro Swiss",
+      "type": "all-metal",
+      "heaterType": "cartridge",
+      "maxFlow": 11,
+      "maxTemp": 300,
+      "recommendedFor": ["PLA", "PETG", "ABS", "TPU", "Nylon"],
+      "mountType": ["bowden"],
+      "retraction": {
+        "direct": [1.0, 2.0],
+        "bowden": [3.5, 6.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "All-metal upgrade, better temperature range"
+    },
+    {
+      "id": "micro-swiss-ng-dd",
+      "name": "Micro Swiss NG Direct Drive",
+      "manufacturer": "Micro Swiss",
+      "type": "all-metal",
+      "heaterType": "cartridge",
+      "maxFlow": 15,
+      "maxTemp": 300,
+      "recommendedFor": ["PLA", "PETG", "ABS", "TPU", "Nylon"],
+      "mountType": ["direct"],
+      "retraction": {
+        "direct": [1.0, 2.5],
+        "bowden": [3.5, 6.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "Direct drive conversion, excellent for flexible filaments"
+    },
+    {
+      "id": "e3d-v6",
+      "name": "E3D V6",
+      "manufacturer": "E3D",
+      "type": "all-metal",
+      "heaterType": "cartridge",
+      "maxFlow": 11,
+      "maxTemp": 285,
+      "recommendedFor": ["PLA", "PETG", "ABS", "TPU", "Nylon"],
+      "mountType": ["direct", "bowden"],
+      "retraction": {
+        "direct": [0.8, 2.0],
+        "bowden": [4.0, 6.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "Industry standard, reliable and consistent"
+    },
+    {
+      "id": "e3d-volcano",
+      "name": "E3D Volcano",
+      "manufacturer": "E3D",
+      "type": "all-metal",
+      "heaterType": "cartridge",
+      "maxFlow": 25,
+      "maxTemp": 285,
+      "recommendedFor": ["PLA", "PETG", "ABS", "Nylon"],
+      "mountType": ["direct", "bowden"],
+      "retraction": {
+        "direct": [1.0, 2.5],
+        "bowden": [4.5, 7.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "High flow design, excellent for large nozzles (0.8mm+)"
+    },
+    {
+      "id": "e3d-revo-six",
+      "name": "E3D Revo Six",
+      "manufacturer": "E3D",
+      "type": "all-metal",
+      "heaterType": "ceramic",
+      "maxFlow": 15,
+      "maxTemp": 300,
+      "recommendedFor": ["PLA", "PETG", "ABS", "TPU", "Nylon"],
+      "mountType": ["direct", "bowden"],
+      "retraction": {
+        "direct": [0.8, 2.0],
+        "bowden": [4.0, 6.0]
+      },
+      "nozzleThreadSize": "Revo",
+      "notes": "Quick-change nozzles, ceramic heater for stability"
+    },
+    {
+      "id": "e3d-revo-volcano",
+      "name": "E3D Revo Volcano",
+      "manufacturer": "E3D",
+      "type": "all-metal",
+      "heaterType": "ceramic",
+      "maxFlow": 30,
+      "maxTemp": 300,
+      "recommendedFor": ["PLA", "PETG", "ABS", "Nylon"],
+      "mountType": ["direct", "bowden"],
+      "retraction": {
+        "direct": [1.0, 2.5],
+        "bowden": [4.5, 7.0]
+      },
+      "nozzleThreadSize": "Revo",
+      "notes": "High flow with ceramic heater, excellent for speed printing"
+    },
+    {
+      "id": "dragon-standard",
+      "name": "Dragon Standard Flow",
+      "manufacturer": "Trianglelab/Phaetus",
+      "type": "all-metal",
+      "heaterType": "cartridge",
+      "maxFlow": 15,
+      "maxTemp": 300,
+      "recommendedFor": ["PLA", "PETG", "ABS", "TPU", "Nylon"],
+      "mountType": ["direct", "bowden"],
+      "retraction": {
+        "direct": [0.8, 2.0],
+        "bowden": [4.0, 6.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "Compact design, excellent heat dissipation"
+    },
+    {
+      "id": "dragon-high-flow",
+      "name": "Dragon High Flow",
+      "manufacturer": "Trianglelab/Phaetus",
+      "type": "all-metal",
+      "heaterType": "cartridge",
+      "maxFlow": 30,
+      "maxTemp": 300,
+      "recommendedFor": ["PLA", "PETG", "ABS", "Nylon"],
+      "mountType": ["direct", "bowden"],
+      "retraction": {
+        "direct": [1.0, 2.5],
+        "bowden": [4.5, 7.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "High flow variant, excellent for speed printing and large nozzles"
+    },
+    {
+      "id": "dragonfly-bms",
+      "name": "Dragonfly BMS",
+      "manufacturer": "Phaetus",
+      "type": "all-metal",
+      "heaterType": "cartridge",
+      "maxFlow": 13,
+      "maxTemp": 300,
+      "recommendedFor": ["PLA", "PETG", "ABS", "TPU", "Nylon"],
+      "mountType": ["direct", "bowden"],
+      "retraction": {
+        "direct": [0.8, 2.0],
+        "bowden": [4.0, 6.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "Ultra-lightweight design, excellent for fast movements"
+    },
+    {
+      "id": "mosquito",
+      "name": "Mosquito",
+      "manufacturer": "Slice Engineering",
+      "type": "all-metal",
+      "heaterType": "cartridge",
+      "maxFlow": 15,
+      "maxTemp": 450,
+      "recommendedFor": ["PLA", "PETG", "ABS", "TPU", "Nylon", "PEEK", "Polycarbonate"],
+      "mountType": ["direct", "bowden"],
+      "retraction": {
+        "direct": [0.8, 2.0],
+        "bowden": [4.0, 6.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "Premium hotend, exceptional temperature range"
+    },
+    {
+      "id": "mosquito-magnum",
+      "name": "Mosquito Magnum",
+      "manufacturer": "Slice Engineering",
+      "type": "all-metal",
+      "heaterType": "cartridge",
+      "maxFlow": 35,
+      "maxTemp": 450,
+      "recommendedFor": ["PLA", "PETG", "ABS", "Nylon", "PEEK", "Polycarbonate"],
+      "mountType": ["direct", "bowden"],
+      "retraction": {
+        "direct": [1.0, 2.5],
+        "bowden": [4.5, 7.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "Ultra-high flow, professional grade"
+    },
+    {
+      "id": "rapido",
+      "name": "Phaetus Rapido",
+      "manufacturer": "Phaetus",
+      "type": "all-metal",
+      "heaterType": "high-flow",
+      "maxFlow": 40,
+      "maxTemp": 300,
+      "recommendedFor": ["PLA", "PETG", "ABS", "Nylon"],
+      "mountType": ["direct"],
+      "retraction": {
+        "direct": [1.0, 2.5],
+        "bowden": [4.5, 7.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "Ultra-high flow hotend, designed for speed printing"
+    },
+    {
+      "id": "copperhead",
+      "name": "Copperhead",
+      "manufacturer": "Slice Engineering",
+      "type": "all-metal",
+      "heaterType": "cartridge",
+      "maxFlow": 12,
+      "maxTemp": 450,
+      "recommendedFor": ["PLA", "PETG", "ABS", "TPU", "Nylon", "PEEK"],
+      "mountType": ["direct", "bowden"],
+      "retraction": {
+        "direct": [0.8, 2.0],
+        "bowden": [4.0, 6.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "Compact design with exceptional temperature capability"
+    },
+    {
+      "id": "custom",
+      "name": "Custom/Other",
+      "manufacturer": "Various",
+      "type": "custom",
+      "heaterType": "custom",
+      "maxFlow": 12,
+      "maxTemp": 260,
+      "recommendedFor": ["PLA", "PETG", "ABS"],
+      "mountType": ["direct", "bowden"],
+      "retraction": {
+        "direct": [1.0, 2.0],
+        "bowden": [4.0, 6.0]
+      },
+      "nozzleThreadSize": "M6",
+      "notes": "Custom hotend - user will manually configure settings"
+    }
+  ]
+}
