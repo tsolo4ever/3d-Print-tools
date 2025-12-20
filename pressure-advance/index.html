@@ -75,6 +75,102 @@
             position: absolute;
             left: 0;
         }
+        
+        /* Navigation Control Styles */
+        .font-scale-selector {
+            padding: 8px 12px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .font-scale-selector:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .font-scale-selector:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
+        [data-theme="high-contrast"] .font-scale-selector,
+        [data-theme="high-contrast-dark"] .font-scale-selector {
+            border: 2px solid var(--primary);
+            background: var(--background);
+            color: var(--text-primary);
+        }
+        [data-theme="high-contrast"] .font-scale-selector:hover,
+        [data-theme="high-contrast-dark"] .font-scale-selector:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .brand-selector,
+        .mode-selector {
+            padding: 8px 12px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .brand-selector:hover,
+        .mode-selector:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .brand-selector:focus,
+        .mode-selector:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
+        [data-theme="high-contrast"] .brand-selector,
+        [data-theme="high-contrast"] .mode-selector,
+        [data-theme="high-contrast-dark"] .brand-selector,
+        [data-theme="high-contrast-dark"] .mode-selector {
+            border: 2px solid var(--primary);
+            background: var(--background);
+            color: var(--text-primary);
+        }
+        [data-theme="high-contrast"] .brand-selector:hover,
+        [data-theme="high-contrast"] .mode-selector:hover,
+        [data-theme="high-contrast-dark"] .brand-selector:hover,
+        [data-theme="high-contrast-dark"] .mode-selector:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .theme-settings-btn {
+            padding: 8px 12px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .theme-settings-btn:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .theme-settings-btn:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
     </style>
 </head>
 <body>
@@ -99,9 +195,53 @@
                     </div>
                 </div>
                 <a href="../docs/">Docs</a>
+                
+                <!-- Mobile Theme Controls -->
+                <div class="mobile-theme-controls">
+                    <label>Font Size:</label>
+                    <select class="font-scale-selector mobile-font-scale" id="fontScaleSelectormobile" title="Font Size">
+                        <option value="0.8">🔤 Small (0.8x)</option>
+                        <option value="1" selected>🔤 Normal (1x)</option>
+                        <option value="1.2">🔤 Large (1.2x)</option>
+                        <option value="1.5">🔤 XLarge (1.5x)</option>
+                        <option value="2">🔤 XXLarge (2x)</option>
+                    </select>
+                    
+                    <label>Theme Brand:</label>
+                    <select class="brand-selector mobile-brand-selector" title="Select Brand">
+                        <option value="default">Default</option>
+                        <optgroup label="Printer Brands">
+                            <option value="prusa">🟠 Prusa Orange</option>
+                            <option value="bambu">🟢 Bambu Lab</option>
+                            <option value="creality">🔵 Creality</option>
+                            <option value="voron">🔴 Voron</option>
+                            <option value="ultimaker">⚙️ Ultimaker</option>
+                            <option value="formlabs">💎 Formlabs</option>
+                            <option value="anycubic">🟣 Anycubic</option>
+                        </optgroup>
+                    </select>
+                    
+                    <label>Theme Mode:</label>
+                    <select class="mode-selector mobile-mode-selector" title="Select Theme Mode">
+                        <option value="light">☀️ Light</option>
+                        <option value="dark">🌙 Dark</option>
+                        <option value="high-contrast">⚡ High Contrast</option>
+                        <option value="high-contrast-dark">⚡🌙 HC Dark</option>
+                    </select>
+                    
+                    <button class="theme-settings-btn mobile-theme-settings-btn" title="Theme Settings">⚙️ Theme Settings</button>
+                </div>
             </div>
             <div class="nav-actions">
-                <select class="brand-selector" title="Select Brand">
+                <select class="font-scale-selector" id="fontScaleSelector" title="Font Size">
+                    <option value="0.8">🔤 Small (0.8x)</option>
+                    <option value="1" selected>🔤 Normal (1x)</option>
+                    <option value="1.2">🔤 Large (1.2x)</option>
+                    <option value="1.5">🔤 XLarge (1.5x)</option>
+                    <option value="2">🔤 XXLarge (2x)</option>
+                </select>
+                <div class="theme-selector-group">
+                    <select class="brand-selector" title="Select Brand">
                     <option value="default">Default</option>
                     <optgroup label="Printer Brands">
                         <option value="prusa">🟠 Prusa Orange</option>

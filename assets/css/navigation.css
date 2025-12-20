@@ -134,12 +134,32 @@
     color: var(--primary);
 }
 
+/* ============================================
+   CRITICAL LAYOUT: DO NOT MODIFY UNLESS DOING LAYOUT WORK
+   
+   3-COLUMN HORIZONTAL NAVIGATION LAYOUT:
+   - Column 1: Font Size Selector
+   - Column 2: Theme Group (Brand + Mode stacked vertically)
+   - Column 3: Settings Button
+   
+   nav-actions MUST be flex-direction: row
+   theme-selector-group MUST be flex-direction: column
+   ============================================ */
+
 .nav-actions {
     display: flex;
+    flex-direction: row;
     gap: var(--spacing-sm);
     align-items: center;
     margin-left: auto; /* Push to right */
     flex-shrink: 0; /* Don't shrink */
+}
+
+.theme-selector-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: stretch;
 }
 
 .nav-actions button {
@@ -368,6 +388,30 @@ input:focus + .toggle-slider {
     box-shadow: 0 0 0 2px var(--primary-light);
 }
 
+/* Mobile Theme Controls - Hidden on Desktop */
+.mobile-theme-controls {
+    display: none;
+}
+
+/* Desktop - Hide mobile controls, show desktop controls */
+@media (min-width: 769px) {
+    .mobile-theme-controls {
+        display: none !important;
+    }
+    
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+    
+    .theme-selector-group {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 6px;
+        align-items: stretch;
+    }
+}
+
+/* Mobile - Show mobile controls, hide desktop controls */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -389,11 +433,51 @@ input:focus + .toggle-slider {
         display: block;
     }
     
+    .mobile-theme-controls {
+        display: flex !important;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md) 0;
+        border-top: 1px solid var(--border);
+        margin-top: var(--spacing-md);
+    }
+    
+    .mobile-theme-controls label {
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.9em;
+    }
+    
+    .mobile-theme-controls select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid var(--border);
+        background: var(--background);
+        color: var(--text-primary);
+        border-radius: var(--radius-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .mobile-theme-controls button {
+        width: 100%;
+        padding: 10px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        font-weight: 500;
+    }
+    
     .suite-nav .container {
         padding: 0 var(--spacing-md);
     }
     
     .nav-actions {
+        display: none !important;
+    }
+    
+    .theme-selector-group {
         display: none !important;
     }
     
