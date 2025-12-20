@@ -102,30 +102,47 @@ function initializeThemeToggle() {
    ============================================ */
 
 function initializeDualDropdownThemeSystem(brandSelector, modeSelector) {
-    // Restore saved selections
-    const savedBrand = localStorage.getItem('themeBrand') || 'default';
+    // Get ALL brand and mode selectors (desktop + mobile)
+    const brandSelectors = document.querySelectorAll('.brand-selector');
+    const modeSelectors = document.querySelectorAll('.mode-selector');
+    
+    // Restore saved selections - DEFAULT TO CREALITY
+    const savedBrand = localStorage.getItem('themeBrand') || 'creality';
     const savedMode = localStorage.getItem('themeMode') || 'light';
     
-    brandSelector.value = savedBrand;
-    modeSelector.value = savedMode;
+    // Apply saved values to ALL selectors
+    brandSelectors.forEach(sel => sel.value = savedBrand);
+    modeSelectors.forEach(sel => sel.value = savedMode);
     
     // Apply the combined theme
     applyDualDropdownTheme(savedBrand, savedMode);
     
-    // Handle brand dropdown change
-    brandSelector.addEventListener('change', function() {
-        const brand = this.value;
-        const mode = modeSelector.value;
-        localStorage.setItem('themeBrand', brand);
-        applyDualDropdownTheme(brand, mode);
+    // Handle brand dropdown change - attach to ALL brand selectors
+    brandSelectors.forEach(brandSel => {
+        brandSel.addEventListener('change', function() {
+            const brand = this.value;
+            const mode = localStorage.getItem('themeMode') || 'light';
+            
+            // Update ALL brand selectors to match
+            brandSelectors.forEach(sel => sel.value = brand);
+            
+            localStorage.setItem('themeBrand', brand);
+            applyDualDropdownTheme(brand, mode);
+        });
     });
     
-    // Handle mode dropdown change
-    modeSelector.addEventListener('change', function() {
-        const brand = brandSelector.value;
-        const mode = this.value;
-        localStorage.setItem('themeMode', mode);
-        applyDualDropdownTheme(brand, mode);
+    // Handle mode dropdown change - attach to ALL mode selectors
+    modeSelectors.forEach(modeSel => {
+        modeSel.addEventListener('change', function() {
+            const brand = localStorage.getItem('themeBrand') || 'creality';
+            const mode = this.value;
+            
+            // Update ALL mode selectors to match
+            modeSelectors.forEach(sel => sel.value = mode);
+            
+            localStorage.setItem('themeMode', mode);
+            applyDualDropdownTheme(brand, mode);
+        });
     });
 }
 
@@ -339,11 +356,21 @@ function initializeAutoSwitchingToggles() {
                 const timeBasedToggle = document.getElementById('timeBasedSwitching');
                 if (timeBasedToggle) timeBasedToggle.checked = false;
                 
-                // Clear manual override and apply system theme
+                // Clear manual override and apply system theme WITH current brand
                 localStorage.removeItem('manualThemeOverride');
                 const useHighContrast = localStorage.getItem('useHighContrast') === 'true';
+                const brand = localStorage.getItem('themeBrand') || 'creality';
                 const baseTheme = getSystemPreferredTheme();
-                const finalTheme = useHighContrast ? (baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast') : baseTheme;
+                let finalTheme;
+                
+                if (useHighContrast) {
+                    // Apply brand-specific high contrast
+                    finalTheme = baseTheme === 'dark' ? brand + '-high-contrast-dark' : brand + '-high-contrast';
+                } else {
+                    // Apply brand with light/dark mode
+                    finalTheme = baseTheme === 'dark' ? brand + '-dark' : brand;
+                }
+                
                 applyTheme(finalTheme);
                 updateThemeSelector(finalTheme);
             }
@@ -425,19 +452,24 @@ function initializeAutoSwitchingToggles() {
             // If time-based is enabled, reapply theme with high contrast
             if (localStorage.getItem('timeBasedSwitching') === 'true') {
                 localStorage.removeItem('manualThemeOverride');
-                const brand = localStorage.getItem('themeBrand') || 'default';
-                const baseTheme = getTimeBasedTheme();
+                const brand = localStorage.getItem('themeBrand') || 'creality';
+                const mode = localStorage.getItem('themeMode') || 'light'; // Respect user's mode setting
                 let finalTheme;
                 
                 if (this.checked) {
-                    // Apply brand-specific high contrast
-                    if (brand === 'default') {
-                        finalTheme = baseTheme === 'dark' ? 'high-contrast-dark' : 'high-contrast';
+                    // Apply high contrast based on user's selected mode, not time
+                    if (mode === 'dark' || mode === 'high-contrast-dark') {
+                        finalTheme = brand + '-high-contrast-dark';
                     } else {
-                        finalTheme = baseTheme === 'dark' ? brand + '-high-contrast-dark' : brand + '-high-contrast';
+                        finalTheme = brand + '-high-contrast';
                     }
                 } else {
-                    finalTheme = baseTheme;
+                    // Apply normal theme based on user's mode
+                    if (mode === 'dark' || mode === 'high-contrast-dark') {
+                        finalTheme = brand + '-dark';
+                    } else {
+                        finalTheme = brand;
+                    }
                 }
                 
                 applyTheme(finalTheme);
@@ -512,16 +544,18 @@ function updateThemeIcon(button, theme) {
    ============================================ */
 
 function initializeThemeSettingsModal() {
-    const settingsBtn = document.querySelector('.theme-settings-btn');
+    const settingsBtns = document.querySelectorAll('.theme-settings-btn'); // Get ALL buttons
     const modal = document.querySelector('.theme-settings-modal');
     const closeBtn = document.querySelector('.theme-settings-close');
     
-    if (!settingsBtn || !modal) return;
+    if (!settingsBtns.length || !modal) return;
     
-    // Open modal
-    settingsBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        modal.classList.add('active');
+    // Open modal - attach handler to ALL settings buttons
+    settingsBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            modal.classList.add('active');
+        });
     });
     
     // Close modal on close button

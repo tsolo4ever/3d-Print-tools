@@ -26,6 +26,8 @@
     gap: 20px;
     flex-wrap: nowrap; /* Prevent wrapping */
     padding: 0 var(--spacing-lg);
+    overflow-x: auto; /* Allow horizontal scroll if needed */
+    max-width: 100%;
 }
 
 .suite-nav .logo {
@@ -220,14 +222,17 @@
     padding: 8px 12px;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    font-size: 0.95em;
+    font-size: 1.2em;
     color: var(--text-primary);
     transition: all var(--transition-fast);
+    flex-shrink: 0; /* Don't let it shrink */
+    min-width: 40px; /* Ensure minimum width */
 }
 
 .theme-settings-btn:hover {
     background: var(--background);
     border-color: var(--primary);
+    transform: scale(1.1);
 }
 
 .theme-settings-modal {

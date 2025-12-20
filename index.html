@@ -418,16 +418,13 @@
                     
                     <label>Theme Brand:</label>
                     <select class="brand-selector mobile-brand-selector" title="Select Brand">
-                        <option value="default">Default</option>
-                        <optgroup label="Printer Brands">
-                            <option value="prusa">🟠 Prusa Orange</option>
-                            <option value="bambu">🟢 Bambu Lab</option>
-                            <option value="creality">🔵 Creality</option>
-                            <option value="voron">🔴 Voron</option>
-                            <option value="ultimaker">⚙️ Ultimaker</option>
-                            <option value="formlabs">💎 Formlabs</option>
-                            <option value="anycubic">🟣 Anycubic</option>
-                        </optgroup>
+                        <option value="creality">🔵 Creality</option>
+                        <option value="prusa">🟠 Prusa Orange</option>
+                        <option value="bambu">🟢 Bambu Lab</option>
+                        <option value="voron">🔴 Voron</option>
+                        <option value="ultimaker">⚙️ Ultimaker</option>
+                        <option value="formlabs">💎 Formlabs</option>
+                        <option value="anycubic">🟣 Anycubic</option>
                     </select>
                     
                     <label>Theme Mode:</label>
@@ -451,16 +448,13 @@
                 </select>
                 <div class="theme-selector-group">
                     <select class="brand-selector" title="Select Brand">
-                        <option value="default">Default</option>
-                        <optgroup label="Printer Brands">
-                            <option value="prusa">🟠 Prusa Orange</option>
-                            <option value="bambu">🟢 Bambu Lab</option>
-                            <option value="creality">🔵 Creality</option>
-                            <option value="voron">🔴 Voron</option>
-                            <option value="ultimaker">⚙️ Ultimaker</option>
-                            <option value="formlabs">💎 Formlabs</option>
-                            <option value="anycubic">🟣 Anycubic</option>
-                        </optgroup>
+                        <option value="creality">🔵 Creality</option>
+                        <option value="prusa">🟠 Prusa Orange</option>
+                        <option value="bambu">🟢 Bambu Lab</option>
+                        <option value="voron">🔴 Voron</option>
+                        <option value="ultimaker">⚙️ Ultimaker</option>
+                        <option value="formlabs">💎 Formlabs</option>
+                        <option value="anycubic">🟣 Anycubic</option>
                     </select>
                     <select class="mode-selector" title="Select Theme Mode">
                         <option value="light">☀️ Light</option>
@@ -687,6 +681,22 @@
     <script src="assets/js/navigation.js"></script>
     <script src="assets/js/storage-manager.js"></script>
     <script src="assets/js/printer-profiles.js"></script>
+
+    <script>
+        // Force re-initialize theme settings modal
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Checking theme settings button...');
+            const btn = document.querySelector('.theme-settings-btn');
+            console.log('Button found:', btn);
+            if (btn) {
+                // Reinitialize to ensure it works
+                setTimeout(() => {
+                    initializeThemeSettingsModal();
+                    console.log('Theme settings modal reinitialized');
+                }, 100);
+            }
+        });
+    </script>
 
     <script>
         // ===== FONT SCALING SYSTEM =====
