@@ -1,0 +1,279 @@
+{
+  "thermistors": [
+    {
+      "id": "1",
+      "name": "100kΩ EPCOS",
+      "resistance": "100kΩ",
+      "beta": "4092",
+      "manufacturer": "EPCOS",
+      "type": "NTC",
+      "notes": "Most common thermistor. Best choice for EPCOS thermistors.",
+      "maxTemp": "300°C",
+      "commonOn": ["Most hotends", "Most heated beds"]
+    },
+    {
+      "id": "2",
+      "name": "200kΩ ATC Semitec 204GT-2",
+      "resistance": "200kΩ",
+      "beta": "4338",
+      "manufacturer": "ATC Semitec",
+      "type": "NTC",
+      "notes": "Less common, used in some specialized applications.",
+      "maxTemp": "300°C",
+      "commonOn": ["Some custom builds"]
+    },
+    {
+      "id": "3",
+      "name": "Mendel-parts thermistor",
+      "resistance": "100kΩ",
+      "beta": "Unknown",
+      "manufacturer": "Generic",
+      "type": "NTC",
+      "notes": "Legacy thermistor from Mendel printers. Rarely used.",
+      "maxTemp": "Unknown",
+      "commonOn": ["Old RepRap printers"]
+    },
+    {
+      "id": "4",
+      "name": "10kΩ Generic",
+      "resistance": "10kΩ",
+      "beta": "3950",
+      "manufacturer": "Generic",
+      "type": "NTC",
+      "notes": "DO NOT use for hotend - bad resolution at high temp!",
+      "maxTemp": "150°C",
+      "commonOn": ["Heated beds only"]
+    },
+    {
+      "id": "5",
+      "name": "100kΩ ATC Semitec 104GT-2",
+      "resistance": "100kΩ",
+      "beta": "4267",
+      "manufacturer": "ATC Semitec",
+      "type": "NTC",
+      "notes": "Used in ParCan, J-Head, E3D, SliceEngineering 300°C",
+      "maxTemp": "300°C",
+      "commonOn": ["E3D hotends", "J-Head", "ParCan"]
+    },
+    {
+      "id": "11",
+      "name": "100kΩ Keenovo (Beta 3950)",
+      "resistance": "100kΩ",
+      "beta": "3950",
+      "manufacturer": "Keenovo",
+      "type": "NTC",
+      "notes": "AC silicone mats, most Wanhao i3 machines. 1% tolerance.",
+      "maxTemp": "300°C",
+      "commonOn": ["Wanhao i3", "Keenovo heaters"]
+    },
+    {
+      "id": "13",
+      "name": "100kΩ Hisens (Beta 3950)",
+      "resistance": "100kΩ",
+      "beta": "3950",
+      "manufacturer": "Hisens",
+      "type": "NTC",
+      "notes": "Up to 300°C - for Simple ONE & All In ONE hotend. 1% tolerance.",
+      "maxTemp": "300°C",
+      "commonOn": ["Simple ONE hotend", "All In ONE hotend"]
+    },
+    {
+      "id": "20",
+      "name": "PT100 (Ultimainboard V2.x)",
+      "resistance": "100Ω @ 0°C",
+      "beta": "N/A (RTD)",
+      "manufacturer": "Generic",
+      "type": "RTD",
+      "notes": "PT100 with Ultimainboard circuit. Requires ADC without pullup.",
+      "maxTemp": "400°C",
+      "commonOn": ["Ultimaker printers", "High-temp applications"]
+    },
+    {
+      "id": "51",
+      "name": "100kΩ EPCOS (1kΩ pullup)",
+      "resistance": "100kΩ",
+      "beta": "4092",
+      "manufacturer": "EPCOS",
+      "type": "NTC",
+      "notes": "Atypical - requires changing 4.7kΩ pullup to 1kΩ. Better accuracy.",
+      "maxTemp": "300°C",
+      "commonOn": ["Custom builds with 1kΩ pullup"]
+    },
+    {
+      "id": "60",
+      "name": "100kΩ Maker's Tool Works",
+      "resistance": "100kΩ",
+      "beta": "3950",
+      "manufacturer": "Maker's Tool Works",
+      "type": "NTC",
+      "notes": "Kapton Bed Thermistor - beta 3950",
+      "maxTemp": "150°C",
+      "commonOn": ["Heated beds", "Kapton heaters"]
+    },
+    {
+      "id": "61",
+      "name": "100kΩ Formbot/Vivedino 350°C",
+      "resistance": "100kΩ",
+      "beta": "3950",
+      "manufacturer": "Formbot",
+      "type": "NTC",
+      "notes": "High temperature thermistor - beta 3950",
+      "maxTemp": "350°C",
+      "commonOn": ["High-temp hotends"]
+    },
+    {
+      "id": "66",
+      "name": "4.7MΩ Dyze Design 500°C",
+      "resistance": "4.7MΩ",
+      "beta": "Unknown",
+      "manufacturer": "Dyze Design",
+      "type": "NTC",
+      "notes": "T-D500 500°C High Temperature Thermistor",
+      "maxTemp": "500°C",
+      "commonOn": ["Dyze hotends", "Extreme high-temp"]
+    },
+    {
+      "id": "67",
+      "name": "500kΩ SliceEngineering 450°C",
+      "resistance": "500kΩ",
+      "beta": "Unknown",
+      "manufacturer": "SliceEngineering",
+      "type": "NTC",
+      "notes": "450°C High Temperature Thermistor",
+      "maxTemp": "450°C",
+      "commonOn": ["SliceEngineering hotends"]
+    },
+    {
+      "id": "70",
+      "name": "100kΩ bq Hephestos 2",
+      "resistance": "100kΩ",
+      "beta": "4267",
+      "manufacturer": "bq",
+      "type": "NTC",
+      "notes": "For bq Hephestos 2 printer",
+      "maxTemp": "300°C",
+      "commonOn": ["bq Hephestos 2"]
+    },
+    {
+      "id": "75",
+      "name": "100kΩ Generic Silicon Heat Pad",
+      "resistance": "100kΩ",
+      "beta": "3950",
+      "manufacturer": "Generic",
+      "type": "NTC",
+      "notes": "MGB18-104F39050L32",
+      "maxTemp": "150°C",
+      "commonOn": ["Generic heat pads", "Heated beds"]
+    },
+    {
+      "id": "110",
+      "name": "PT100 (1kΩ pullup)",
+      "resistance": "100Ω @ 0°C",
+      "beta": "N/A (RTD)",
+      "manufacturer": "Generic",
+      "type": "RTD",
+      "notes": "Atypical - requires 1kΩ pullup instead of 4.7kΩ",
+      "maxTemp": "400°C",
+      "commonOn": ["Custom builds"]
+    },
+    {
+      "id": "147",
+      "name": "PT100 (4.7kΩ pullup)",
+      "resistance": "100Ω @ 0°C",
+      "beta": "N/A (RTD)",
+      "manufacturer": "Generic",
+      "type": "RTD",
+      "notes": "Standard PT100 with 4.7kΩ pullup",
+      "maxTemp": "400°C",
+      "commonOn": ["High-temp applications"]
+    },
+    {
+      "id": "1010",
+      "name": "PT1000 (1kΩ pullup)",
+      "resistance": "1000Ω @ 0°C",
+      "beta": "N/A (RTD)",
+      "manufacturer": "Generic",
+      "type": "RTD",
+      "notes": "Atypical - requires 1kΩ pullup",
+      "maxTemp": "400°C",
+      "commonOn": ["High-precision applications"]
+    },
+    {
+      "id": "1047",
+      "name": "PT1000 (4.7kΩ pullup)",
+      "resistance": "1000Ω @ 0°C",
+      "beta": "N/A (RTD)",
+      "manufacturer": "E3D",
+      "type": "RTD",
+      "notes": "E3D PT1000 with 4.7kΩ pullup",
+      "maxTemp": "400°C",
+      "commonOn": ["E3D high-temp hotends"]
+    },
+    {
+      "id": "2000",
+      "name": "100kΩ Ultimachine Rambo",
+      "resistance": "100kΩ",
+      "beta": "Unknown",
+      "manufacturer": "TDK",
+      "type": "NTC",
+      "notes": "TDK NTCG104LH104KT1 - for Rambo motherboard",
+      "maxTemp": "300°C",
+      "commonOn": ["Rambo boards", "Ultimachine printers"]
+    },
+    {
+      "id": "998",
+      "name": "Dummy - 25°C",
+      "resistance": "N/A",
+      "beta": "N/A",
+      "manufacturer": "Testing",
+      "type": "Virtual",
+      "notes": "TESTING ONLY - Always reads 25°C or defined value",
+      "maxTemp": "N/A",
+      "commonOn": ["Development/Testing"]
+    },
+    {
+      "id": "999",
+      "name": "Dummy - 100°C",
+      "resistance": "N/A",
+      "beta": "N/A",
+      "manufacturer": "Testing",
+      "type": "Virtual",
+      "notes": "TESTING ONLY - Always reads 100°C or defined value",
+      "maxTemp": "N/A",
+      "commonOn": ["Development/Testing"]
+    },
+    {
+      "id": "-2",
+      "name": "MAX6675 Thermocouple",
+      "resistance": "N/A",
+      "beta": "N/A",
+      "manufacturer": "Maxim",
+      "type": "Thermocouple (K-type)",
+      "notes": "SPI thermocouple. 0-700°C range. Requires MAX6675 chip.",
+      "maxTemp": "700°C",
+      "commonOn": ["High-temp applications", "Industrial"]
+    },
+    {
+      "id": "-3",
+      "name": "MAX31855 Thermocouple",
+      "resistance": "N/A",
+      "beta": "N/A",
+      "manufacturer": "Maxim",
+      "type": "Thermocouple (K-type)",
+      "notes": "SPI thermocouple. -200 to +700°C range. Better than MAX6675.",
+      "maxTemp": "700°C",
+      "commonOn": ["High-temp applications", "Industrial"]
+    },
+    {
+      "id": "-5",
+      "name": "MAX31865 PT100/PT1000",
+      "resistance": "100Ω or 1000Ω",
+      "beta": "N/A (RTD)",
+      "manufacturer": "Maxim",
+      "type": "RTD (SPI)",
+      "notes": "SPI RTD sensor. Supports 2/3/4-wire PT100 or PT1000.",
+      "maxTemp": "850°C",
+      "commonOn": ["High-precision applications", "Industrial"]
+    }
+  ]
+}

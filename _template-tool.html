@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/navigation.css">
     <link rel="stylesheet" href="assets/css/printer-profiles.css">
+    <link rel="stylesheet" href="assets/css/safety-gate.css">
+    <link rel="stylesheet" href="assets/css/enhanced-profiles.css">
     
     <!-- 📝 TODO: Add your custom styles here or in a separate CSS file -->
     <style>
@@ -1006,6 +1008,39 @@
             <h3 style="color: var(--text-primary);">Question 2?</h3>
             <p style="color: var(--text-secondary);">Answer to question 2...</p>
         </div>
+
+        <!-- DEMO: Safety Gate Test -->
+        <div class="calculator-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2 style="color: white; border-bottom-color: rgba(255,255,255,0.3);">🧪 New Feature Demos</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <div>
+                    <h3 style="color: white;">Safety Gate System</h3>
+                    <p>Test the firmware safety warning system that blocks access until acknowledged.</p>
+                    
+                    <button class="btn" onclick="testSafetyGate()" style="background: white; color: #667eea; width: 100%;">
+                        ⚠️ Test Safety Gate
+                    </button>
+                    
+                    <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.9;">
+                        Expires after 24 hours to ensure regular review of safety procedures.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 style="color: white;">Enhanced Profiles (Coming Soon)</h3>
+                    <p>10-tab printer profile editor with Configuration.h import and full hardware database.</p>
+                    
+                    <button class="btn" onclick="testEnhancedProfiles()" style="background: white; color: #667eea; width: 100%;">
+                        🖨️ Test Enhanced Profiles
+                    </button>
+                    
+                    <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.9;">
+                        Upload Configuration.h, select hardware from databases, export slicer profiles.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -1076,6 +1111,8 @@
     <script src="assets/js/storage-manager.js"></script>
     <script src="assets/js/printer-profiles.js"></script>
     <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/safety-gate.js"></script>
+    <script src="assets/js/enhanced-printer-profiles.js"></script>
 
     <!-- 📝 TODO: Add your custom JavaScript -->
     <script>
@@ -1185,6 +1222,28 @@
             // Auto-fill form fields
             console.log('Printer loaded:', printer);
         });
+
+        // Safety Gate Test Function
+        function testSafetyGate() {
+            // Create a test safety gate instance
+            const testGate = new SafetyGate({
+                onAccept: () => {
+                    alert('✅ Safety warnings acknowledged!\n\nIn a real firmware tool, this would enable Configuration.h upload and firmware generation features.');
+                    console.log('Safety gate accepted - firmware features would now be enabled');
+                }
+            });
+            
+            // Force show the gate (bypasses the 24hr check for demo)
+            testGate.forceShow();
+        }
+
+        // Enhanced Profiles Test Function
+        function testEnhancedProfiles() {
+            // Create and show the enhanced profile editor
+            const profileEditor = new EnhancedPrinterProfiles();
+            profileEditor.show();
+            console.log('✅ Enhanced profiles modal opened!');
+        }
     </script>
 </body>
 </html>

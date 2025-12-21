@@ -114,8 +114,55 @@ const StorageManager = {
             // Extended Fields (new)
             printerModel: printer.printerModel || null,
             firmwareVersion: printer.firmwareVersion || null,
+            machineUUID: printer.machineUUID || null,
             
-            // Hotend Configuration
+            // Hardware Configuration
+            hardware: printer.hardware || {
+                motherboard: null,        // BOARD_XXXX ID
+                drivers: {                // Driver types per axis
+                    x: null,
+                    y: null,
+                    z: null,
+                    e0: null,
+                    e1: null
+                },
+                thermistors: {           // Thermistor types
+                    hotend: 1,           // Default Type 1
+                    bed: 1,
+                    chamber: 0
+                },
+                endstops: {              // Which endstops are used
+                    xMin: false,
+                    xMax: true,
+                    yMin: false,
+                    yMax: true,
+                    zMin: true,
+                    zMax: false
+                },
+                displayType: null,       // Display ID from database
+                serialPort: 1,
+                baudRate: 115200
+            },
+            
+            // Temperature Configuration
+            temperature: printer.temperature || {
+                hotend: {
+                    min: 5,
+                    max: 275,
+                    pidP: null,
+                    pidI: null,
+                    pidD: null
+                },
+                bed: {
+                    min: 5,
+                    max: 125,
+                    pidP: null,
+                    pidI: null,
+                    pidD: null
+                }
+            },
+            
+            // Hotend Configuration (legacy support + extended)
             hotend: printer.hotend || {
                 type: null,              // hotend ID from database
                 heaterType: 'cartridge', // 'cartridge', 'ceramic', 'high-flow', 'custom'
@@ -128,7 +175,65 @@ const StorageManager = {
             // Extruder Configuration
             extruderType: printer.extruderType || 'bowden', // 'direct' or 'bowden'
             
-            // EEPROM Data
+            // Motion Settings
+            motion: printer.motion || {
+                stepsPerMM: {
+                    x: 80,
+                    y: 80,
+                    z: 800,
+                    e: printer.esteps || 93
+                },
+                maxFeedrate: { x: 500, y: 500, z: 5, e: 25 },
+                maxAcceleration: { x: 500, y: 500, z: 100, e: 1000 },
+                defaultAcceleration: 500,
+                retractAcceleration: 500,
+                travelAcceleration: 1000,
+                junctionDeviation: null, // If using Junction Deviation
+                classicJerk: {           // If using Classic Jerk
+                    x: 8,
+                    y: 8,
+                    z: 0.4,
+                    e: 5
+                },
+                sCurveAcceleration: false
+            },
+            
+            // Probe Configuration
+            probe: printer.probe || {
+                type: null,              // 'BLTouch', 'Inductive', 'Capacitive', etc.
+                offset: { x: 0, y: 0, z: 0 },
+                usesZMinPin: true
+            },
+            
+            // Bed Leveling
+            bedLeveling: printer.bedLeveling || {
+                type: null,              // 'BILINEAR', 'UBL', 'MANUAL', etc.
+                gridPoints: { x: 3, y: 3 },
+                fadeHeight: 10,
+                restoreAfterG28: true
+            },
+            
+            // Bed Size
+            bedSize: printer.bedSize || { x: 220, y: 220, z: 250 },
+            
+            // Advanced Features
+            advanced: printer.advanced || {
+                linearAdvance: false,
+                linearAdvanceK: 0,
+                arcSupport: false,
+                nozzlePark: false,
+                powerLossRecovery: false,
+                babystepping: true
+            },
+            
+            // Safety Features
+            safety: printer.safety || {
+                thermalProtectionHotend: true,
+                thermalProtectionBed: true,
+                filamentSensor: false
+            },
+            
+            // EEPROM Data (legacy support)
             eeprom: printer.eeprom || {
                 maxFeedrate: { x: null, y: null, z: null, e: null },
                 maxAccel: { x: null, y: null, z: null, e: null },
