@@ -1,0 +1,1031 @@
+{
+  "_comment": "G-code Reference Database for Marlin",
+  "_lastUpdated": "2024-12-21",
+  "_version": "Marlin 2.1.x",
+  
+  "gcodes": {
+    "movement": [
+      {
+        "code": "G0",
+        "name": "Rapid Move",
+        "description": "Move to position at maximum speed",
+        "parameters": [
+          { "param": "X", "description": "X position", "unit": "mm" },
+          { "param": "Y", "description": "Y position", "unit": "mm" },
+          { "param": "Z", "description": "Z position", "unit": "mm" },
+          { "param": "E", "description": "Extruder position", "unit": "mm" },
+          { "param": "F", "description": "Feedrate", "unit": "mm/min" }
+        ],
+        "example": "G0 X100 Y100 F3000",
+        "notes": "Same as G1 in Marlin (no speed difference)"
+      },
+      {
+        "code": "G1",
+        "name": "Linear Move",
+        "description": "Move to position at specified feedrate",
+        "parameters": [
+          { "param": "X", "description": "X position", "unit": "mm" },
+          { "param": "Y", "description": "Y position", "unit": "mm" },
+          { "param": "Z", "description": "Z position", "unit": "mm" },
+          { "param": "E", "description": "Extruder position", "unit": "mm" },
+          { "param": "F", "description": "Feedrate", "unit": "mm/min" }
+        ],
+        "example": "G1 X50 Y50 Z0.2 E10 F1500",
+        "notes": "Primary printing move command"
+      },
+      {
+        "code": "G2",
+        "name": "Clockwise Arc",
+        "description": "Clockwise arc move",
+        "requires": "ARC_SUPPORT",
+        "parameters": [
+          { "param": "X", "description": "End X position", "unit": "mm" },
+          { "param": "Y", "description": "End Y position", "unit": "mm" },
+          { "param": "I", "description": "X offset to center", "unit": "mm" },
+          { "param": "J", "description": "Y offset to center", "unit": "mm" },
+          { "param": "R", "description": "Radius (alternative to I/J)", "unit": "mm" },
+          { "param": "E", "description": "Extruder position", "unit": "mm" },
+          { "param": "F", "description": "Feedrate", "unit": "mm/min" }
+        ],
+        "example": "G2 X10 Y10 I5 J5 F1000",
+        "notes": "Arc Welder plugin generates these"
+      },
+      {
+        "code": "G3",
+        "name": "Counter-Clockwise Arc",
+        "description": "Counter-clockwise arc move",
+        "requires": "ARC_SUPPORT",
+        "parameters": [
+          { "param": "X", "description": "End X position", "unit": "mm" },
+          { "param": "Y", "description": "End Y position", "unit": "mm" },
+          { "param": "I", "description": "X offset to center", "unit": "mm" },
+          { "param": "J", "description": "Y offset to center", "unit": "mm" },
+          { "param": "R", "description": "Radius", "unit": "mm" },
+          { "param": "E", "description": "Extruder position", "unit": "mm" },
+          { "param": "F", "description": "Feedrate", "unit": "mm/min" }
+        ],
+        "example": "G3 X10 Y10 I5 J5 F1000"
+      },
+      {
+        "code": "G4",
+        "name": "Dwell",
+        "description": "Pause for specified time",
+        "parameters": [
+          { "param": "P", "description": "Time to wait", "unit": "milliseconds" },
+          { "param": "S", "description": "Time to wait", "unit": "seconds" }
+        ],
+        "example": "G4 P1000 ; Wait 1 second",
+        "notes": "Use for cooling, settling"
+      },
+      {
+        "code": "G5",
+        "name": "Bezier Cubic Spline",
+        "description": "Cubic bezier curve move",
+        "requires": "BEZIER_CURVE_SUPPORT",
+        "parameters": [
+          { "param": "X", "description": "End X position", "unit": "mm" },
+          { "param": "Y", "description": "End Y position", "unit": "mm" },
+          { "param": "I", "description": "X offset to first control point", "unit": "mm" },
+          { "param": "J", "description": "Y offset to first control point", "unit": "mm" },
+          { "param": "P", "description": "X offset to second control point", "unit": "mm" },
+          { "param": "Q", "description": "Y offset to second control point", "unit": "mm" }
+        ],
+        "example": "G5 X10 Y10 I2 J3 P4 Q5"
+      }
+    ],
+    
+    "homing": [
+      {
+        "code": "G28",
+        "name": "Home",
+        "description": "Home one or more axes",
+        "parameters": [
+          { "param": "X", "description": "Home X axis", "unit": "flag" },
+          { "param": "Y", "description": "Home Y axis", "unit": "flag" },
+          { "param": "Z", "description": "Home Z axis", "unit": "flag" },
+          { "param": "O", "description": "Home only if not already homed", "unit": "flag" },
+          { "param": "L", "description": "Restore leveling after home", "unit": "flag" }
+        ],
+        "example": "G28 ; Home all\nG28 X Y ; Home X and Y only\nG28 O ; Home only if needed",
+        "notes": "Always home before printing!"
+      }
+    ],
+    
+    "bedLeveling": [
+      {
+        "code": "G29",
+        "name": "Bed Leveling",
+        "description": "Run auto bed leveling procedure",
+        "requires": "AUTO_BED_LEVELING_* or MESH_BED_LEVELING",
+        "parameters": [
+          { "param": "S", "description": "Store mesh slot (UBL)", "unit": "slot number" },
+          { "param": "L", "description": "Load mesh slot (UBL)", "unit": "slot number" },
+          { "param": "A", "description": "Activate UBL", "unit": "flag" },
+          { "param": "D", "description": "Deactivate UBL", "unit": "flag" },
+          { "param": "J", "description": "Tilt mesh based on 3 points (UBL)", "unit": "flag" },
+          { "param": "P", "description": "Phase (UBL)", "unit": "1-6" },
+          { "param": "T", "description": "Topology map type", "unit": "0-2" }
+        ],
+        "example": "G29 ; Run leveling\nG29 L1 ; Load mesh slot 1 (UBL)\nG29 A ; Activate UBL",
+        "notes": "Behavior depends on leveling type enabled"
+      },
+      {
+        "code": "G29 (Bilinear)",
+        "name": "Bilinear Bed Leveling",
+        "description": "Probe bed and create mesh",
+        "requires": "AUTO_BED_LEVELING_BILINEAR",
+        "parameters": [
+          { "param": "A", "description": "Abort on probe failure", "unit": "flag" },
+          { "param": "C", "description": "Generate fake mesh for testing", "unit": "flag" },
+          { "param": "O", "description": "Optional - skip if already probed", "unit": "flag" },
+          { "param": "E", "description": "Stow probe after probing", "unit": "flag" }
+        ],
+        "example": "G28\nG29 ; Probe bed\nM500 ; Save mesh"
+      },
+      {
+        "code": "G29 (UBL)",
+        "name": "Unified Bed Leveling",
+        "description": "Advanced bed leveling with mesh storage",
+        "requires": "AUTO_BED_LEVELING_UBL",
+        "phases": {
+          "P1": "Phase 1: Probe accessible areas",
+          "P2": "Phase 2: Manual probing of remaining points",
+          "P3": "Phase 3: Fill unpopulated mesh points",
+          "P4": "Phase 4: Fine tuning",
+          "P5": "Phase 5: Find mean mesh height",
+          "P6": "Phase 6: Shift mesh to new Z height"
+        },
+        "example": "G29 P1 ; Probe bed\nG29 P3 ; Fill gaps\nG29 S0 ; Save to slot 0\nG29 A ; Activate"
+      },
+      {
+        "code": "G29 (MBL)",
+        "name": "Mesh Bed Leveling",
+        "description": "Manual mesh bed leveling",
+        "requires": "MESH_BED_LEVELING",
+        "parameters": [
+          { "param": "S", "description": "State: 0=reset, 1=next, 2=set Z, 3=abort, 4=load, 5=save", "unit": "0-5" },
+          { "param": "Z", "description": "Z offset for current point", "unit": "mm" },
+          { "param": "I", "description": "X index for setting Z", "unit": "index" },
+          { "param": "J", "description": "Y index for setting Z", "unit": "index" }
+        ],
+        "example": "G29 S0 ; Reset and start\nG29 S1 ; Move to next point\nG29 S2 Z0.1 ; Set Z offset"
+      },
+      {
+        "code": "G30",
+        "name": "Single Probe",
+        "description": "Probe bed at current or specified position",
+        "parameters": [
+          { "param": "X", "description": "X position to probe", "unit": "mm" },
+          { "param": "Y", "description": "Y position to probe", "unit": "mm" },
+          { "param": "E", "description": "Engage probe before probing", "unit": "flag" }
+        ],
+        "example": "G30 ; Probe at current position\nG30 X100 Y100 ; Probe at specific position",
+        "notes": "Reports Z height at probe point"
+      },
+      {
+        "code": "G31",
+        "name": "Dock Probe",
+        "description": "Dock the probe (Klicky, Euclid)",
+        "requires": "MAG_MOUNTED_PROBE",
+        "example": "G31"
+      },
+      {
+        "code": "G32",
+        "name": "Undock Probe",
+        "description": "Undock the probe (Klicky, Euclid)",
+        "requires": "MAG_MOUNTED_PROBE",
+        "example": "G32"
+      },
+      {
+        "code": "G33",
+        "name": "Delta Auto Calibration",
+        "description": "Automatic delta calibration",
+        "requires": "DELTA_AUTO_CALIBRATION",
+        "parameters": [
+          { "param": "P", "description": "Probe points (n*n)", "unit": "1-10" },
+          { "param": "T", "description": "Don't adjust tower angle", "unit": "flag" },
+          { "param": "V", "description": "Verbosity level", "unit": "0-3" }
+        ],
+        "example": "G33 P5 V2 ; 5-point calibration with verbose output"
+      }
+    ],
+    
+    "coordinates": [
+      {
+        "code": "G90",
+        "name": "Absolute Positioning",
+        "description": "Use absolute coordinates",
+        "example": "G90",
+        "notes": "G1 X10 moves TO X=10"
+      },
+      {
+        "code": "G91",
+        "name": "Relative Positioning",
+        "description": "Use relative coordinates",
+        "example": "G91",
+        "notes": "G1 X10 moves BY 10mm in X"
+      },
+      {
+        "code": "G92",
+        "name": "Set Position",
+        "description": "Set current position to specified values",
+        "parameters": [
+          { "param": "X", "description": "New X position", "unit": "mm" },
+          { "param": "Y", "description": "New Y position", "unit": "mm" },
+          { "param": "Z", "description": "New Z position", "unit": "mm" },
+          { "param": "E", "description": "New E position", "unit": "mm" }
+        ],
+        "example": "G92 E0 ; Reset extruder position to 0",
+        "notes": "Does NOT move! Just redefines position."
+      }
+    ],
+    
+    "units": [
+      {
+        "code": "G20",
+        "name": "Inches",
+        "description": "Set units to inches",
+        "example": "G20",
+        "notes": "Rarely used in 3D printing"
+      },
+      {
+        "code": "G21",
+        "name": "Millimeters",
+        "description": "Set units to millimeters",
+        "example": "G21",
+        "notes": "Default for 3D printing"
+      }
+    ],
+    
+    "parking": [
+      {
+        "code": "G27",
+        "name": "Park Toolhead",
+        "description": "Park the nozzle",
+        "requires": "NOZZLE_PARK_FEATURE",
+        "parameters": [
+          { "param": "P", "description": "Park behavior (0=XY only, 1=XYZ, 2=Z then XY)", "unit": "0-2" }
+        ],
+        "example": "G27 P2 ; Raise Z then park XY"
+      }
+    ],
+    
+    "probeControl": [
+      {
+        "code": "G38.2",
+        "name": "Probe Toward Workpiece",
+        "description": "Probe toward target, stop on contact, error if no contact",
+        "requires": "G38_PROBE_TARGET",
+        "parameters": [
+          { "param": "X", "description": "X target", "unit": "mm" },
+          { "param": "Y", "description": "Y target", "unit": "mm" },
+          { "param": "Z", "description": "Z target", "unit": "mm" },
+          { "param": "F", "description": "Feedrate", "unit": "mm/min" }
+        ],
+        "example": "G38.2 Z-10 F100 ; Probe down up to 10mm"
+      },
+      {
+        "code": "G38.3",
+        "name": "Probe Toward Workpiece (No Error)",
+        "description": "Probe toward target, stop on contact, no error if no contact",
+        "requires": "G38_PROBE_TARGET",
+        "example": "G38.3 Z-10 F100"
+      }
+    ]
+  },
+  
+  "mcodes": {
+    "temperature": [
+      {
+        "code": "M104",
+        "name": "Set Hotend Temperature",
+        "description": "Set hotend temperature, don't wait",
+        "parameters": [
+          { "param": "S", "description": "Target temperature", "unit": "°C" },
+          { "param": "T", "description": "Tool index", "unit": "index" }
+        ],
+        "example": "M104 S200 ; Set hotend to 200°C"
+      },
+      {
+        "code": "M109",
+        "name": "Set Hotend Temperature and Wait",
+        "description": "Set hotend temperature and wait to reach it",
+        "parameters": [
+          { "param": "S", "description": "Target temperature (wait for cooling too)", "unit": "°C" },
+          { "param": "R", "description": "Target temperature (wait for cooling too)", "unit": "°C" },
+          { "param": "T", "description": "Tool index", "unit": "index" }
+        ],
+        "example": "M109 S200 ; Heat and wait for 200°C",
+        "notes": "Use M108 to abort wait"
+      },
+      {
+        "code": "M140",
+        "name": "Set Bed Temperature",
+        "description": "Set bed temperature, don't wait",
+        "parameters": [
+          { "param": "S", "description": "Target temperature", "unit": "°C" }
+        ],
+        "example": "M140 S60 ; Set bed to 60°C"
+      },
+      {
+        "code": "M190",
+        "name": "Set Bed Temperature and Wait",
+        "description": "Set bed temperature and wait to reach it",
+        "parameters": [
+          { "param": "S", "description": "Target temperature", "unit": "°C" },
+          { "param": "R", "description": "Target temperature (wait for cooling too)", "unit": "°C" }
+        ],
+        "example": "M190 S60 ; Heat bed and wait for 60°C"
+      },
+      {
+        "code": "M105",
+        "name": "Report Temperatures",
+        "description": "Report current temperatures",
+        "example": "M105",
+        "response": "ok T:200.0 /200.0 B:60.0 /60.0"
+      },
+      {
+        "code": "M106",
+        "name": "Set Fan Speed",
+        "description": "Set part cooling fan speed",
+        "parameters": [
+          { "param": "S", "description": "Speed (0-255)", "unit": "PWM" },
+          { "param": "P", "description": "Fan index", "unit": "index" }
+        ],
+        "example": "M106 S255 ; Fan 100%\nM106 S127 ; Fan 50%"
+      },
+      {
+        "code": "M107",
+        "name": "Fan Off",
+        "description": "Turn part cooling fan off",
+        "parameters": [
+          { "param": "P", "description": "Fan index", "unit": "index" }
+        ],
+        "example": "M107 ; Fan off"
+      }
+    ],
+    
+    "pidTuning": [
+      {
+        "code": "M301",
+        "name": "Set Hotend PID",
+        "description": "Set PID values for hotend",
+        "parameters": [
+          { "param": "P", "description": "Proportional value", "unit": "float" },
+          { "param": "I", "description": "Integral value", "unit": "float" },
+          { "param": "D", "description": "Derivative value", "unit": "float" },
+          { "param": "E", "description": "Extruder index", "unit": "index" }
+        ],
+        "example": "M301 P22.2 I1.08 D114.0"
+      },
+      {
+        "code": "M303",
+        "name": "PID Autotune",
+        "description": "Run PID autotune",
+        "parameters": [
+          { "param": "E", "description": "Heater index (-1 for bed)", "unit": "index" },
+          { "param": "S", "description": "Target temperature", "unit": "°C" },
+          { "param": "C", "description": "Number of cycles", "unit": "count" },
+          { "param": "U", "description": "Apply result automatically", "unit": "flag" }
+        ],
+        "example": "M303 E0 S200 C8 ; Tune hotend at 200°C, 8 cycles\nM303 E-1 S60 C8 ; Tune bed at 60°C"
+      },
+      {
+        "code": "M304",
+        "name": "Set Bed PID",
+        "description": "Set PID values for bed",
+        "parameters": [
+          { "param": "P", "description": "Proportional value", "unit": "float" },
+          { "param": "I", "description": "Integral value", "unit": "float" },
+          { "param": "D", "description": "Derivative value", "unit": "float" }
+        ],
+        "example": "M304 P97.1 I1.41 D1675.16"
+      }
+    ],
+    
+    "motion": [
+      {
+        "code": "M92",
+        "name": "Set Steps Per Unit",
+        "description": "Set axis steps per unit",
+        "parameters": [
+          { "param": "X", "description": "X steps/mm", "unit": "steps/mm" },
+          { "param": "Y", "description": "Y steps/mm", "unit": "steps/mm" },
+          { "param": "Z", "description": "Z steps/mm", "unit": "steps/mm" },
+          { "param": "E", "description": "E steps/mm", "unit": "steps/mm" }
+        ],
+        "example": "M92 X80 Y80 Z400 E93"
+      },
+      {
+        "code": "M201",
+        "name": "Set Max Acceleration",
+        "description": "Set maximum acceleration per axis",
+        "parameters": [
+          { "param": "X", "description": "X max accel", "unit": "mm/s²" },
+          { "param": "Y", "description": "Y max accel", "unit": "mm/s²" },
+          { "param": "Z", "description": "Z max accel", "unit": "mm/s²" },
+          { "param": "E", "description": "E max accel", "unit": "mm/s²" }
+        ],
+        "example": "M201 X500 Y500 Z100 E5000"
+      },
+      {
+        "code": "M203",
+        "name": "Set Max Feedrate",
+        "description": "Set maximum feedrate per axis",
+        "parameters": [
+          { "param": "X", "description": "X max feedrate", "unit": "mm/s" },
+          { "param": "Y", "description": "Y max feedrate", "unit": "mm/s" },
+          { "param": "Z", "description": "Z max feedrate", "unit": "mm/s" },
+          { "param": "E", "description": "E max feedrate", "unit": "mm/s" }
+        ],
+        "example": "M203 X500 Y500 Z10 E50"
+      },
+      {
+        "code": "M204",
+        "name": "Set Default Acceleration",
+        "description": "Set acceleration for print moves, retract, and travel",
+        "parameters": [
+          { "param": "P", "description": "Print acceleration", "unit": "mm/s²" },
+          { "param": "R", "description": "Retract acceleration", "unit": "mm/s²" },
+          { "param": "T", "description": "Travel acceleration", "unit": "mm/s²" }
+        ],
+        "example": "M204 P500 T1000"
+      },
+      {
+        "code": "M205",
+        "name": "Set Jerk/Junction Deviation",
+        "description": "Set jerk limits or junction deviation",
+        "parameters": [
+          { "param": "X", "description": "X jerk", "unit": "mm/s" },
+          { "param": "Y", "description": "Y jerk", "unit": "mm/s" },
+          { "param": "Z", "description": "Z jerk", "unit": "mm/s" },
+          { "param": "E", "description": "E jerk", "unit": "mm/s" },
+          { "param": "J", "description": "Junction deviation", "unit": "mm" }
+        ],
+        "example": "M205 X10 Y10 Z0.3 E5 ; Classic jerk\nM205 J0.013 ; Junction deviation"
+      },
+      {
+        "code": "M220",
+        "name": "Set Feedrate Percentage",
+        "description": "Scale feedrate by percentage",
+        "parameters": [
+          { "param": "S", "description": "Percentage", "unit": "%" }
+        ],
+        "example": "M220 S100 ; 100% speed\nM220 S50 ; 50% speed"
+      },
+      {
+        "code": "M221",
+        "name": "Set Flow Percentage",
+        "description": "Scale flow rate by percentage",
+        "parameters": [
+          { "param": "S", "description": "Percentage", "unit": "%" },
+          { "param": "T", "description": "Tool index", "unit": "index" }
+        ],
+        "example": "M221 S100 ; 100% flow\nM221 S95 ; 95% flow"
+      }
+    ],
+    
+    "stepperDrivers": [
+      {
+        "code": "M122",
+        "name": "TMC Debug Info",
+        "description": "Report TMC driver status",
+        "requires": "TMC drivers + TMC_DEBUG",
+        "parameters": [
+          { "param": "V", "description": "Verbose output", "unit": "flag" },
+          { "param": "X/Y/Z/E", "description": "Specific axis", "unit": "flag" }
+        ],
+        "example": "M122 ; Report all TMC drivers"
+      },
+      {
+        "code": "M569",
+        "name": "Set TMC Stepping Mode",
+        "description": "Set StealthChop/SpreadCycle mode",
+        "requires": "TMC drivers",
+        "parameters": [
+          { "param": "S", "description": "0=SpreadCycle, 1=StealthChop", "unit": "0-1" },
+          { "param": "X/Y/Z/E", "description": "Axis to set", "unit": "flag" }
+        ],
+        "example": "M569 S1 X Y ; StealthChop for X and Y"
+      },
+      {
+        "code": "M906",
+        "name": "Set TMC Motor Current",
+        "description": "Set stepper driver current",
+        "requires": "TMC drivers",
+        "parameters": [
+          { "param": "X", "description": "X current", "unit": "mA" },
+          { "param": "Y", "description": "Y current", "unit": "mA" },
+          { "param": "Z", "description": "Z current", "unit": "mA" },
+          { "param": "E", "description": "E current", "unit": "mA" },
+          { "param": "I", "description": "Index for E stepper", "unit": "index" }
+        ],
+        "example": "M906 X800 Y800 Z800 E800"
+      },
+      {
+        "code": "M913",
+        "name": "Set TMC Hybrid Threshold",
+        "description": "Set speed threshold for StealthChop/SpreadCycle switch",
+        "requires": "HYBRID_THRESHOLD",
+        "parameters": [
+          { "param": "X", "description": "X threshold", "unit": "mm/s" },
+          { "param": "Y", "description": "Y threshold", "unit": "mm/s" },
+          { "param": "Z", "description": "Z threshold", "unit": "mm/s" },
+          { "param": "E", "description": "E threshold", "unit": "mm/s" }
+        ],
+        "example": "M913 X100 Y100 ; Switch to SpreadCycle above 100mm/s"
+      },
+      {
+        "code": "M914",
+        "name": "Set TMC StallGuard Sensitivity",
+        "description": "Set sensorless homing sensitivity",
+        "requires": "SENSORLESS_HOMING",
+        "parameters": [
+          { "param": "X", "description": "X sensitivity", "unit": "-64 to 63" },
+          { "param": "Y", "description": "Y sensitivity", "unit": "-64 to 63" },
+          { "param": "Z", "description": "Z sensitivity", "unit": "-64 to 63" }
+        ],
+        "example": "M914 X50 Y50 ; Higher = less sensitive",
+        "notes": "Lower value = more sensitive, triggers earlier"
+      }
+    ],
+    
+    "probeOffset": [
+      {
+        "code": "M851",
+        "name": "Set Probe Z Offset",
+        "description": "Set Z offset between nozzle and probe",
+        "parameters": [
+          { "param": "X", "description": "X offset", "unit": "mm" },
+          { "param": "Y", "description": "Y offset", "unit": "mm" },
+          { "param": "Z", "description": "Z offset", "unit": "mm" }
+        ],
+        "example": "M851 Z-1.5 ; Probe triggers 1.5mm above nozzle",
+        "notes": "Negative Z means probe triggers BEFORE nozzle touches bed"
+      }
+    ],
+    
+    "leveling": [
+      {
+        "code": "M420",
+        "name": "Bed Leveling State",
+        "description": "Get/set bed leveling state and mesh data",
+        "parameters": [
+          { "param": "S", "description": "Enable (1) or disable (0) leveling", "unit": "0-1" },
+          { "param": "V", "description": "Verbose - print mesh", "unit": "flag" },
+          { "param": "T", "description": "Topology map type", "unit": "0-2" },
+          { "param": "Z", "description": "Set Z fade height", "unit": "mm" },
+          { "param": "L", "description": "Load mesh from slot (UBL)", "unit": "slot" }
+        ],
+        "example": "M420 S1 ; Enable leveling\nM420 V ; Print mesh\nM420 S1 Z10 ; Enable with 10mm fade"
+      }
+    ],
+    
+    "babystepping": [
+      {
+        "code": "M290",
+        "name": "Babystep",
+        "description": "Adjust Z offset during print",
+        "requires": "BABYSTEPPING",
+        "parameters": [
+          { "param": "Z", "description": "Z adjustment", "unit": "mm" },
+          { "param": "P", "description": "Apply to probe offset too", "unit": "flag" }
+        ],
+        "example": "M290 Z0.05 ; Move Z up 0.05mm\nM290 Z-0.1 ; Move Z down 0.1mm"
+      }
+    ],
+    
+    "linearAdvance": [
+      {
+        "code": "M900",
+        "name": "Linear Advance K Factor",
+        "description": "Set Linear Advance K value",
+        "requires": "LIN_ADVANCE",
+        "parameters": [
+          { "param": "K", "description": "K factor value", "unit": "float" },
+          { "param": "T", "description": "Tool index", "unit": "index" }
+        ],
+        "example": "M900 K0.06 ; Set K to 0.06\nM900 K0 ; Disable Linear Advance",
+        "notes": "Bowden: 0.2-1.5, Direct: 0.02-0.2"
+      }
+    ],
+    
+    "inputShaping": [
+      {
+        "code": "M593",
+        "name": "Input Shaping Parameters",
+        "description": "Set input shaper frequency and damping",
+        "requires": "INPUT_SHAPING",
+        "parameters": [
+          { "param": "X/Y", "description": "Axis to configure", "unit": "flag" },
+          { "param": "F", "description": "Frequency", "unit": "Hz" },
+          { "param": "D", "description": "Damping ratio (zeta)", "unit": "float" }
+        ],
+        "example": "M593 X F40 D0.1 ; Set X shaper to 40Hz, zeta 0.1\nM593 F0 ; Disable input shaping"
+      }
+    ],
+    
+    "eeprom": [
+      {
+        "code": "M500",
+        "name": "Save Settings",
+        "description": "Save current settings to EEPROM",
+        "example": "M500"
+      },
+      {
+        "code": "M501",
+        "name": "Load Settings",
+        "description": "Load settings from EEPROM",
+        "example": "M501"
+      },
+      {
+        "code": "M502",
+        "name": "Factory Reset",
+        "description": "Reset settings to firmware defaults",
+        "example": "M502",
+        "notes": "Does NOT save! Use M500 after to make permanent."
+      },
+      {
+        "code": "M503",
+        "name": "Report Settings",
+        "description": "Print current settings",
+        "parameters": [
+          { "param": "S", "description": "Include detailed settings", "unit": "flag" }
+        ],
+        "example": "M503"
+      },
+      {
+        "code": "M504",
+        "name": "Validate EEPROM",
+        "description": "Validate EEPROM contents",
+        "example": "M504"
+      }
+    ],
+    
+    "sdCard": [
+      {
+        "code": "M20",
+        "name": "List SD Card",
+        "description": "List files on SD card",
+        "example": "M20"
+      },
+      {
+        "code": "M21",
+        "name": "Init SD Card",
+        "description": "Initialize SD card",
+        "example": "M21"
+      },
+      {
+        "code": "M22",
+        "name": "Release SD Card",
+        "description": "Release SD card",
+        "example": "M22"
+      },
+      {
+        "code": "M23",
+        "name": "Select SD File",
+        "description": "Select file for printing",
+        "parameters": [
+          { "param": "filename", "description": "File to select", "unit": "string" }
+        ],
+        "example": "M23 test.gcode"
+      },
+      {
+        "code": "M24",
+        "name": "Start/Resume SD Print",
+        "description": "Start or resume SD print",
+        "example": "M24"
+      },
+      {
+        "code": "M25",
+        "name": "Pause SD Print",
+        "description": "Pause current SD print",
+        "example": "M25"
+      },
+      {
+        "code": "M26",
+        "name": "Set SD Position",
+        "description": "Set SD file position",
+        "parameters": [
+          { "param": "S", "description": "Byte position", "unit": "bytes" }
+        ],
+        "example": "M26 S1000"
+      },
+      {
+        "code": "M27",
+        "name": "Report SD Print Status",
+        "description": "Report SD printing status",
+        "parameters": [
+          { "param": "S", "description": "Auto-report interval", "unit": "seconds" }
+        ],
+        "example": "M27 ; Report once\nM27 S5 ; Auto-report every 5 seconds"
+      },
+      {
+        "code": "M28",
+        "name": "Start SD Write",
+        "description": "Start writing to SD file",
+        "parameters": [
+          { "param": "filename", "description": "File to write", "unit": "string" }
+        ],
+        "example": "M28 test.gcode"
+      },
+      {
+        "code": "M29",
+        "name": "Stop SD Write",
+        "description": "Stop writing to SD file",
+        "example": "M29"
+      },
+      {
+        "code": "M30",
+        "name": "Delete SD File",
+        "description": "Delete file from SD card",
+        "parameters": [
+          { "param": "filename", "description": "File to delete", "unit": "string" }
+        ],
+        "example": "M30 test.gcode"
+      },
+      {
+        "code": "M32",
+        "name": "Select and Start",
+        "description": "Select file and start print from SD",
+        "parameters": [
+          { "param": "filename", "description": "File to print", "unit": "string" },
+          { "param": "S", "description": "Starting byte", "unit": "bytes" }
+        ],
+        "example": "M32 test.gcode"
+      },
+      {
+        "code": "M524",
+        "name": "Abort SD Print",
+        "description": "Abort current SD print",
+        "example": "M524"
+      }
+    ],
+    
+    "emergency": [
+      {
+        "code": "M108",
+        "name": "Break and Continue",
+        "description": "Break out of heating wait",
+        "example": "M108",
+        "notes": "Cancels M109/M190 wait. Works with EMERGENCY_PARSER."
+      },
+      {
+        "code": "M112",
+        "name": "Emergency Stop",
+        "description": "Immediate shutdown",
+        "example": "M112",
+        "notes": "Full stop. Requires reset to continue."
+      },
+      {
+        "code": "M410",
+        "name": "Quick Stop",
+        "description": "Abort all motion",
+        "example": "M410",
+        "notes": "Stops steppers, clears queue. No reset needed."
+      }
+    ],
+    
+    "filament": [
+      {
+        "code": "M600",
+        "name": "Filament Change",
+        "description": "Pause for filament change",
+        "requires": "ADVANCED_PAUSE_FEATURE",
+        "parameters": [
+          { "param": "X", "description": "Park X position", "unit": "mm" },
+          { "param": "Y", "description": "Park Y position", "unit": "mm" },
+          { "param": "Z", "description": "Z raise", "unit": "mm" },
+          { "param": "E", "description": "Initial retract", "unit": "mm" },
+          { "param": "L", "description": "Load length", "unit": "mm" },
+          { "param": "U", "description": "Unload length", "unit": "mm" }
+        ],
+        "example": "M600 ; Trigger filament change"
+      },
+      {
+        "code": "M701",
+        "name": "Load Filament",
+        "description": "Load filament",
+        "requires": "FILAMENT_LOAD_UNLOAD_GCODES",
+        "parameters": [
+          { "param": "T", "description": "Tool index", "unit": "index" },
+          { "param": "L", "description": "Load length", "unit": "mm" }
+        ],
+        "example": "M701 ; Load filament"
+      },
+      {
+        "code": "M702",
+        "name": "Unload Filament",
+        "description": "Unload filament",
+        "requires": "FILAMENT_LOAD_UNLOAD_GCODES",
+        "parameters": [
+          { "param": "T", "description": "Tool index", "unit": "index" },
+          { "param": "U", "description": "Unload length", "unit": "mm" }
+        ],
+        "example": "M702 ; Unload filament"
+      }
+    ],
+    
+    "bltouch": [
+      {
+        "code": "M280",
+        "name": "Servo Position",
+        "description": "Set servo position (BLTouch control)",
+        "parameters": [
+          { "param": "P", "description": "Servo index", "unit": "index" },
+          { "param": "S", "description": "Angle", "unit": "degrees" }
+        ],
+        "example": "M280 P0 S10 ; BLTouch deploy\nM280 P0 S90 ; BLTouch stow\nM280 P0 S120 ; BLTouch self-test\nM280 P0 S160 ; BLTouch reset"
+      },
+      {
+        "code": "M401",
+        "name": "Deploy Probe",
+        "description": "Deploy the Z probe",
+        "example": "M401"
+      },
+      {
+        "code": "M402",
+        "name": "Stow Probe",
+        "description": "Stow the Z probe",
+        "example": "M402"
+      }
+    ],
+    
+    "powerLoss": [
+      {
+        "code": "M413",
+        "name": "Power Loss Recovery",
+        "description": "Enable/disable power loss recovery",
+        "requires": "POWER_LOSS_RECOVERY",
+        "parameters": [
+          { "param": "S", "description": "Enable (1) or disable (0)", "unit": "0-1" }
+        ],
+        "example": "M413 S1 ; Enable PLR"
+      },
+      {
+        "code": "M1000",
+        "name": "Resume Power Loss Print",
+        "description": "Resume print after power loss",
+        "requires": "POWER_LOSS_RECOVERY",
+        "example": "M1000 ; Resume print"
+      }
+    ],
+    
+    "debug": [
+      {
+        "code": "M111",
+        "name": "Debug Level",
+        "description": "Set debug output level",
+        "parameters": [
+          { "param": "S", "description": "Debug flags", "unit": "bitmask" }
+        ],
+        "example": "M111 S0 ; Disable debug\nM111 S247 ; All debug"
+      },
+      {
+        "code": "M114",
+        "name": "Get Current Position",
+        "description": "Report current position",
+        "parameters": [
+          { "param": "D", "description": "Detailed report", "unit": "flag" }
+        ],
+        "example": "M114"
+      },
+      {
+        "code": "M115",
+        "name": "Firmware Info",
+        "description": "Report firmware info and capabilities",
+        "example": "M115"
+      },
+      {
+        "code": "M119",
+        "name": "Endstop Status",
+        "description": "Report endstop states",
+        "example": "M119",
+        "notes": "Shows TRIGGERED or open for each endstop"
+      },
+      {
+        "code": "M155",
+        "name": "Auto Report Temperatures",
+        "description": "Set auto temperature report interval",
+        "parameters": [
+          { "param": "S", "description": "Interval in seconds (0 to disable)", "unit": "seconds" }
+        ],
+        "example": "M155 S1 ; Report every second"
+      }
+    ],
+    
+    "misc": [
+      {
+        "code": "M17",
+        "name": "Enable Steppers",
+        "description": "Enable stepper motors",
+        "parameters": [
+          { "param": "X/Y/Z/E", "description": "Specific axis", "unit": "flag" }
+        ],
+        "example": "M17 ; Enable all\nM17 X Y ; Enable X and Y"
+      },
+      {
+        "code": "M18",
+        "name": "Disable Steppers",
+        "description": "Disable stepper motors",
+        "parameters": [
+          { "param": "X/Y/Z/E", "description": "Specific axis", "unit": "flag" },
+          { "param": "S", "description": "Timeout in seconds", "unit": "seconds" }
+        ],
+        "example": "M18 ; Disable all\nM18 S60 ; Disable after 60 seconds"
+      },
+      {
+        "code": "M84",
+        "name": "Disable Steppers (Alias)",
+        "description": "Same as M18",
+        "example": "M84"
+      },
+      {
+        "code": "M82",
+        "name": "Absolute Extruder Mode",
+        "description": "Use absolute E coordinates",
+        "example": "M82",
+        "notes": "Default mode. E10 means extrude to position 10."
+      },
+      {
+        "code": "M83",
+        "name": "Relative Extruder Mode",
+        "description": "Use relative E coordinates",
+        "example": "M83",
+        "notes": "E10 means extrude 10mm more."
+      },
+      {
+        "code": "M85",
+        "name": "Inactivity Shutdown",
+        "description": "Set inactivity timeout",
+        "parameters": [
+          { "param": "S", "description": "Timeout in seconds", "unit": "seconds" }
+        ],
+        "example": "M85 S300 ; Shutdown after 5 min inactivity"
+      },
+      {
+        "code": "M117",
+        "name": "Set LCD Message",
+        "description": "Display message on LCD",
+        "parameters": [
+          { "param": "message", "description": "Text to display", "unit": "string" }
+        ],
+        "example": "M117 Printing..."
+      },
+      {
+        "code": "M118",
+        "name": "Serial Print",
+        "description": "Print message to serial",
+        "parameters": [
+          { "param": "message", "description": "Text to print", "unit": "string" }
+        ],
+        "example": "M118 Hello from printer"
+      },
+      {
+        "code": "M400",
+        "name": "Wait for Moves",
+        "description": "Wait for all moves to finish",
+        "example": "M400",
+        "notes": "Ensures buffer is empty before next command"
+      }
+    ]
+  },
+  
+  "startGcodeTemplate": {
+    "description": "Common start G-code template",
+    "code": [
+      "; Start G-code",
+      "M140 S{bed_temperature} ; Start bed heating",
+      "G28 ; Home all axes",
+      "G29 ; Bed leveling (if enabled)",
+      "M190 S{bed_temperature} ; Wait for bed",
+      "M109 S{hotend_temperature} ; Wait for hotend",
+      "G92 E0 ; Reset extruder",
+      "G1 Z2.0 F3000 ; Move Z up",
+      "G1 X0.1 Y20 Z0.3 F5000.0 ; Move to start position",
+      "G1 X0.1 Y200.0 Z0.3 F1500.0 E15 ; Draw first line",
+      "G1 X0.4 Y200.0 Z0.3 F5000.0 ; Move to side",
+      "G1 X0.4 Y20 Z0.3 F1500.0 E30 ; Draw second line",
+      "G92 E0 ; Reset extruder",
+      "G1 Z2.0 F3000 ; Move Z up"
+    ]
+  },
+  
+  "endGcodeTemplate": {
+    "description": "Common end G-code template",
+    "code": [
+      "; End G-code",
+      "G91 ; Relative positioning",
+      "G1 E-2 F2700 ; Retract",
+      "G1 E-2 Z0.2 F2400 ; Retract and raise Z",
+      "G1 X5 Y5 F3000 ; Wipe",
+      "G1 Z10 ; Raise Z",
+      "G90 ; Absolute positioning",
+      "G1 X0 Y200 ; Present print",
+      "M106 S0 ; Fan off",
+      "M104 S0 ; Hotend off",
+      "M140 S0 ; Bed off",
+      "M84 ; Disable steppers"
+    ]
+  }
+}

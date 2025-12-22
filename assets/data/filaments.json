@@ -1,0 +1,564 @@
+{
+  "_comment": "Filament Material Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "materials": [
+    {
+      "id": "PLA",
+      "name": "PLA (Polylactic Acid)",
+      "category": "Basic",
+      "difficulty": "Easy",
+      "hotendTemp": {
+        "min": 180,
+        "typical": 200,
+        "max": 230
+      },
+      "bedTemp": {
+        "min": 0,
+        "typical": 60,
+        "max": 70
+      },
+      "chamberTemp": null,
+      "coolingFan": {
+        "firstLayer": 0,
+        "afterFirstLayer": 100
+      },
+      "printSpeed": {
+        "typical": 50,
+        "max": 100
+      },
+      "retraction": {
+        "bowden": {
+          "distance": 6,
+          "speed": 45
+        },
+        "directDrive": {
+          "distance": 1,
+          "speed": 35
+        }
+      },
+      "flowRate": 100,
+      "requiresEnclosure": false,
+      "requiresAllMetal": false,
+      "requiresDryer": false,
+      "hygroscopic": "Low",
+      "warping": "Minimal",
+      "odor": "Mild sweet",
+      "postProcessing": ["Sanding", "Painting", "Gluing"],
+      "strength": "Medium",
+      "flexibility": "Low",
+      "heatResistance": "Low (50-60°C)",
+      "uvResistance": "Low",
+      "foodSafe": "With FDA compliant filament",
+      "biodegradable": true,
+      "surfaceTypes": ["SURFACE_PEI_SMOOTH", "SURFACE_PEI_TEXTURED", "SURFACE_GLASS", "SURFACE_BUILDTAK"],
+      "adhesionNotes": "Sticks to almost everything. Easy first material.",
+      "notes": "Best beginner material. Biodegradable. Low warp. Not for outdoor or high-temp use."
+    },
+    {
+      "id": "PLA_PLUS",
+      "name": "PLA+ / PLA Pro",
+      "category": "Basic",
+      "difficulty": "Easy",
+      "hotendTemp": {
+        "min": 200,
+        "typical": 215,
+        "max": 235
+      },
+      "bedTemp": {
+        "min": 50,
+        "typical": 60,
+        "max": 70
+      },
+      "chamberTemp": null,
+      "coolingFan": {
+        "firstLayer": 0,
+        "afterFirstLayer": 100
+      },
+      "printSpeed": {
+        "typical": 50,
+        "max": 80
+      },
+      "retraction": {
+        "bowden": {
+          "distance": 6,
+          "speed": 45
+        },
+        "directDrive": {
+          "distance": 1,
+          "speed": 35
+        }
+      },
+      "flowRate": 100,
+      "requiresEnclosure": false,
+      "requiresAllMetal": false,
+      "requiresDryer": false,
+      "hygroscopic": "Low",
+      "warping": "Minimal",
+      "strength": "Medium-High",
+      "flexibility": "Low",
+      "heatResistance": "Low (55-65°C)",
+      "notes": "Tougher than standard PLA. Slightly higher temps."
+    },
+    {
+      "id": "PETG",
+      "name": "PETG (Polyethylene Terephthalate Glycol)",
+      "category": "Intermediate",
+      "difficulty": "Easy-Medium",
+      "hotendTemp": {
+        "min": 220,
+        "typical": 240,
+        "max": 260
+      },
+      "bedTemp": {
+        "min": 70,
+        "typical": 80,
+        "max": 90
+      },
+      "chamberTemp": null,
+      "coolingFan": {
+        "firstLayer": 0,
+        "afterFirstLayer": 50
+      },
+      "printSpeed": {
+        "typical": 45,
+        "max": 70
+      },
+      "retraction": {
+        "bowden": {
+          "distance": 5,
+          "speed": 40
+        },
+        "directDrive": {
+          "distance": 0.8,
+          "speed": 30
+        }
+      },
+      "flowRate": 95,
+      "requiresEnclosure": false,
+      "requiresAllMetal": true,
+      "requiresDryer": true,
+      "hygroscopic": "Medium",
+      "warping": "Low",
+      "odor": "None",
+      "postProcessing": ["Sanding (difficult)", "Painting"],
+      "strength": "High",
+      "flexibility": "Medium",
+      "heatResistance": "Medium (70-80°C)",
+      "uvResistance": "Good",
+      "foodSafe": "Yes (with FDA filament)",
+      "surfaceTypes": ["SURFACE_PEI_TEXTURED", "SURFACE_GLASS"],
+      "adhesionNotes": "⚠️ BONDS to smooth PEI - use glue stick barrier! Safe on textured PEI.",
+      "notes": "Good all-rounder. Slightly stringy. Keep dry. All-metal hotend recommended above 240°C."
+    },
+    {
+      "id": "ABS",
+      "name": "ABS (Acrylonitrile Butadiene Styrene)",
+      "category": "Intermediate",
+      "difficulty": "Medium-Hard",
+      "hotendTemp": {
+        "min": 220,
+        "typical": 245,
+        "max": 260
+      },
+      "bedTemp": {
+        "min": 90,
+        "typical": 100,
+        "max": 110
+      },
+      "chamberTemp": {
+        "min": 40,
+        "typical": 50
+      },
+      "coolingFan": {
+        "firstLayer": 0,
+        "afterFirstLayer": 0
+      },
+      "printSpeed": {
+        "typical": 45,
+        "max": 60
+      },
+      "retraction": {
+        "bowden": {
+          "distance": 5,
+          "speed": 40
+        },
+        "directDrive": {
+          "distance": 0.8,
+          "speed": 35
+        }
+      },
+      "flowRate": 100,
+      "requiresEnclosure": true,
+      "requiresAllMetal": true,
+      "requiresDryer": true,
+      "hygroscopic": "Low",
+      "warping": "High",
+      "odor": "Strong (styrene) - ventilate!",
+      "postProcessing": ["Acetone vapor smoothing", "Sanding", "Painting", "Gluing (acetone)"],
+      "strength": "High",
+      "flexibility": "Medium",
+      "heatResistance": "Medium-High (85-100°C)",
+      "uvResistance": "Low",
+      "surfaceTypes": ["SURFACE_PEI_SMOOTH", "SURFACE_KAPTON", "SURFACE_ABS_SLURRY"],
+      "adhesionNotes": "Use ABS slurry, Kapton, or well-prepped PEI. Enclosure essential!",
+      "notes": "Strong, temperature resistant. NEEDS ENCLOSURE. Toxic fumes - ventilate!"
+    },
+    {
+      "id": "ASA",
+      "name": "ASA (Acrylonitrile Styrene Acrylate)",
+      "category": "Intermediate",
+      "difficulty": "Medium",
+      "hotendTemp": {
+        "min": 235,
+        "typical": 250,
+        "max": 265
+      },
+      "bedTemp": {
+        "min": 90,
+        "typical": 100,
+        "max": 110
+      },
+      "chamberTemp": {
+        "min": 40,
+        "typical": 50
+      },
+      "coolingFan": {
+        "firstLayer": 0,
+        "afterFirstLayer": 0
+      },
+      "printSpeed": {
+        "typical": 45,
+        "max": 60
+      },
+      "retraction": {
+        "bowden": {
+          "distance": 5,
+          "speed": 40
+        },
+        "directDrive": {
+          "distance": 0.8,
+          "speed": 35
+        }
+      },
+      "flowRate": 100,
+      "requiresEnclosure": true,
+      "requiresAllMetal": true,
+      "requiresDryer": true,
+      "hygroscopic": "Low",
+      "warping": "Medium-High",
+      "odor": "Moderate (less than ABS)",
+      "strength": "High",
+      "flexibility": "Medium",
+      "heatResistance": "Medium-High (85-100°C)",
+      "uvResistance": "Excellent",
+      "surfaceTypes": ["SURFACE_PEI_SMOOTH", "SURFACE_KAPTON"],
+      "adhesionNotes": "Similar to ABS. Enclosure recommended.",
+      "notes": "UV-resistant ABS alternative. Great for outdoor use. Still needs enclosure."
+    },
+    {
+      "id": "TPU_95A",
+      "name": "TPU 95A (Flexible)",
+      "category": "Specialty",
+      "difficulty": "Medium",
+      "hotendTemp": {
+        "min": 210,
+        "typical": 230,
+        "max": 250
+      },
+      "bedTemp": {
+        "min": 30,
+        "typical": 50,
+        "max": 60
+      },
+      "chamberTemp": null,
+      "coolingFan": {
+        "firstLayer": 0,
+        "afterFirstLayer": 50
+      },
+      "printSpeed": {
+        "typical": 25,
+        "max": 40
+      },
+      "retraction": {
+        "bowden": {
+          "distance": 0,
+          "speed": 0,
+          "notes": "DISABLE retraction for Bowden!"
+        },
+        "directDrive": {
+          "distance": 0.5,
+          "speed": 20
+        }
+      },
+      "flowRate": 100,
+      "requiresEnclosure": false,
+      "requiresAllMetal": false,
+      "requiresDryer": true,
+      "hygroscopic": "High",
+      "warping": "None",
+      "odor": "Mild",
+      "strength": "High (flexible)",
+      "flexibility": "Very High",
+      "heatResistance": "Medium (70-80°C)",
+      "surfaceTypes": ["SURFACE_GLASS", "SURFACE_PEI_TEXTURED"],
+      "adhesionNotes": "Sticks well. May be hard to remove from smooth PEI.",
+      "notes": "Flexible rubber-like. Direct drive HIGHLY recommended. Very slow printing. Keep dry!"
+    },
+    {
+      "id": "TPU_85A",
+      "name": "TPU 85A (Very Flexible)",
+      "category": "Specialty",
+      "difficulty": "Hard",
+      "hotendTemp": {
+        "min": 210,
+        "typical": 225,
+        "max": 240
+      },
+      "bedTemp": {
+        "min": 30,
+        "typical": 45,
+        "max": 60
+      },
+      "printSpeed": {
+        "typical": 15,
+        "max": 25
+      },
+      "retraction": {
+        "bowden": {
+          "notes": "Not recommended for Bowden"
+        },
+        "directDrive": {
+          "distance": 0.3,
+          "speed": 15
+        }
+      },
+      "flowRate": 100,
+      "requiresEnclosure": false,
+      "requiresAllMetal": false,
+      "requiresDryer": true,
+      "hygroscopic": "High",
+      "notes": "Softer than 95A. Very difficult to print. Direct drive required."
+    },
+    {
+      "id": "NYLON",
+      "name": "Nylon (PA6/PA12)",
+      "category": "Advanced",
+      "difficulty": "Hard",
+      "hotendTemp": {
+        "min": 240,
+        "typical": 260,
+        "max": 280
+      },
+      "bedTemp": {
+        "min": 60,
+        "typical": 80,
+        "max": 100
+      },
+      "chamberTemp": {
+        "min": 40,
+        "typical": 50
+      },
+      "coolingFan": {
+        "firstLayer": 0,
+        "afterFirstLayer": 0
+      },
+      "printSpeed": {
+        "typical": 40,
+        "max": 60
+      },
+      "retraction": {
+        "directDrive": {
+          "distance": 1,
+          "speed": 30
+        }
+      },
+      "flowRate": 100,
+      "requiresEnclosure": true,
+      "requiresAllMetal": true,
+      "requiresDryer": true,
+      "hygroscopic": "Very High",
+      "warping": "High",
+      "odor": "Mild",
+      "strength": "Very High",
+      "flexibility": "Medium",
+      "heatResistance": "High (100-120°C)",
+      "surfaceTypes": ["SURFACE_GAROLITE"],
+      "adhesionNotes": "Use Garolite (G10) surface. Glue stick on PEI.",
+      "notes": "Very strong and wear resistant. EXTREMELY hygroscopic - print from dry box!"
+    },
+    {
+      "id": "NYLON_CF",
+      "name": "Nylon Carbon Fiber",
+      "category": "Advanced",
+      "difficulty": "Hard",
+      "hotendTemp": {
+        "min": 250,
+        "typical": 270,
+        "max": 290
+      },
+      "bedTemp": {
+        "min": 70,
+        "typical": 90,
+        "max": 100
+      },
+      "chamberTemp": {
+        "min": 45,
+        "typical": 55
+      },
+      "coolingFan": {
+        "firstLayer": 0,
+        "afterFirstLayer": 0
+      },
+      "printSpeed": {
+        "typical": 35,
+        "max": 50
+      },
+      "flowRate": 100,
+      "requiresEnclosure": true,
+      "requiresAllMetal": true,
+      "requiresHardenedNozzle": true,
+      "requiresDryer": true,
+      "hygroscopic": "Very High",
+      "warping": "Medium-High",
+      "strength": "Very High",
+      "stiffness": "Very High",
+      "heatResistance": "High (120°C+)",
+      "surfaceTypes": ["SURFACE_GAROLITE"],
+      "notes": "HARDENED NOZZLE REQUIRED! Stiff, strong, light. Very abrasive."
+    },
+    {
+      "id": "POLYCARBONATE",
+      "name": "Polycarbonate (PC)",
+      "category": "Advanced",
+      "difficulty": "Very Hard",
+      "hotendTemp": {
+        "min": 270,
+        "typical": 290,
+        "max": 310
+      },
+      "bedTemp": {
+        "min": 100,
+        "typical": 120,
+        "max": 140
+      },
+      "chamberTemp": {
+        "min": 60,
+        "typical": 80
+      },
+      "coolingFan": {
+        "firstLayer": 0,
+        "afterFirstLayer": 0
+      },
+      "printSpeed": {
+        "typical": 30,
+        "max": 50
+      },
+      "flowRate": 100,
+      "requiresEnclosure": true,
+      "requiresAllMetal": true,
+      "requiresDryer": true,
+      "hygroscopic": "High",
+      "warping": "Very High",
+      "strength": "Very High",
+      "heatResistance": "Very High (140°C+)",
+      "notes": "Very strong, clear, heat resistant. Difficult to print. Heated chamber essential."
+    },
+    {
+      "id": "PVA",
+      "name": "PVA (Water Soluble Support)",
+      "category": "Specialty",
+      "difficulty": "Medium",
+      "hotendTemp": {
+        "min": 180,
+        "typical": 200,
+        "max": 210
+      },
+      "bedTemp": {
+        "min": 45,
+        "typical": 55,
+        "max": 60
+      },
+      "coolingFan": {
+        "afterFirstLayer": 100
+      },
+      "printSpeed": {
+        "typical": 35,
+        "max": 50
+      },
+      "retraction": {
+        "directDrive": {
+          "distance": 1,
+          "speed": 30
+        }
+      },
+      "requiresEnclosure": false,
+      "requiresAllMetal": false,
+      "requiresDryer": true,
+      "hygroscopic": "Extreme",
+      "notes": "Water-soluble support material. MUST print from dry box. Use with PLA."
+    },
+    {
+      "id": "HIPS",
+      "name": "HIPS (ABS Support)",
+      "category": "Specialty",
+      "difficulty": "Medium",
+      "hotendTemp": {
+        "min": 220,
+        "typical": 240,
+        "max": 250
+      },
+      "bedTemp": {
+        "min": 90,
+        "typical": 100,
+        "max": 110
+      },
+      "coolingFan": {
+        "afterFirstLayer": 0
+      },
+      "requiresEnclosure": true,
+      "requiresAllMetal": true,
+      "soluble": "Limonene",
+      "notes": "Dissolves in Limonene. Use as support for ABS."
+    }
+  ],
+  
+  "filamentDiameters": {
+    "1.75mm": {
+      "tolerance": "±0.03mm",
+      "commonOn": "Most printers",
+      "volumetricFlow": "Lower"
+    },
+    "2.85mm": {
+      "tolerance": "±0.05mm",
+      "commonOn": "Ultimaker, LulzBot, older printers",
+      "volumetricFlow": "Higher"
+    }
+  },
+  
+  "storageRecommendations": {
+    "dryBox": {
+      "description": "Airtight container with desiccant",
+      "humidity": "< 20% RH",
+      "materials": ["All hygroscopic filaments"]
+    },
+    "filamentDryer": {
+      "description": "Active heating to remove moisture",
+      "temps": {
+        "PLA": 45,
+        "PETG": 65,
+        "ABS": 65,
+        "ASA": 65,
+        "Nylon": 80,
+        "PC": 80,
+        "TPU": 55,
+        "PVA": 45
+      },
+      "duration": "4-8 hours"
+    },
+    "vaccumBags": {
+      "description": "Vacuum seal with desiccant",
+      "notes": "Good for long-term storage"
+    }
+  }
+}

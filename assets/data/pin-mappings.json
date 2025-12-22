@@ -1,0 +1,354 @@
+{
+  "_comment": "Board Pin Mapping Reference",
+  "_lastUpdated": "2024-12-21",
+  "_notes": "Pin numbers are board-specific. Check your board's pins file!",
+  
+  "pinCategories": {
+    "steppers": {
+      "description": "Stepper motor control pins",
+      "pins": {
+        "X_STEP_PIN": "X axis step pulse",
+        "X_DIR_PIN": "X axis direction",
+        "X_ENABLE_PIN": "X axis enable (active low usually)",
+        "X_CS_PIN": "X axis SPI chip select (TMC)",
+        "Y_STEP_PIN": "Y axis step pulse",
+        "Y_DIR_PIN": "Y axis direction",
+        "Y_ENABLE_PIN": "Y axis enable",
+        "Y_CS_PIN": "Y axis SPI chip select (TMC)",
+        "Z_STEP_PIN": "Z axis step pulse",
+        "Z_DIR_PIN": "Z axis direction",
+        "Z_ENABLE_PIN": "Z axis enable",
+        "Z_CS_PIN": "Z axis SPI chip select (TMC)",
+        "E0_STEP_PIN": "Extruder 0 step pulse",
+        "E0_DIR_PIN": "Extruder 0 direction",
+        "E0_ENABLE_PIN": "Extruder 0 enable",
+        "E0_CS_PIN": "Extruder 0 SPI chip select (TMC)"
+      }
+    },
+    "endstops": {
+      "description": "Endstop and limit switch pins",
+      "pins": {
+        "X_MIN_PIN": "X minimum endstop",
+        "X_MAX_PIN": "X maximum endstop",
+        "Y_MIN_PIN": "Y minimum endstop",
+        "Y_MAX_PIN": "Y maximum endstop",
+        "Z_MIN_PIN": "Z minimum endstop (or probe)",
+        "Z_MAX_PIN": "Z maximum endstop",
+        "Z_MIN_PROBE_PIN": "Dedicated probe pin"
+      }
+    },
+    "heaters": {
+      "description": "Heater control pins",
+      "pins": {
+        "HEATER_0_PIN": "Hotend 0 heater",
+        "HEATER_1_PIN": "Hotend 1 heater (if dual)",
+        "HEATER_BED_PIN": "Heated bed",
+        "HEATER_CHAMBER_PIN": "Chamber heater"
+      }
+    },
+    "thermistors": {
+      "description": "Temperature sensor pins",
+      "pins": {
+        "TEMP_0_PIN": "Hotend 0 thermistor (analog)",
+        "TEMP_1_PIN": "Hotend 1 thermistor (analog)",
+        "TEMP_BED_PIN": "Bed thermistor (analog)",
+        "TEMP_CHAMBER_PIN": "Chamber thermistor (analog)"
+      }
+    },
+    "fans": {
+      "description": "Fan control pins",
+      "pins": {
+        "FAN_PIN": "Part cooling fan (PWM)",
+        "FAN1_PIN": "Secondary fan",
+        "E0_AUTO_FAN_PIN": "Hotend heatsink fan",
+        "CONTROLLER_FAN_PIN": "Electronics cooling fan"
+      }
+    },
+    "display": {
+      "description": "LCD/Display pins",
+      "pins": {
+        "LCD_PINS_RS": "LCD register select",
+        "LCD_PINS_ENABLE": "LCD enable",
+        "LCD_PINS_D4": "LCD data 4",
+        "LCD_PINS_D5": "LCD data 5",
+        "LCD_PINS_D6": "LCD data 6",
+        "LCD_PINS_D7": "LCD data 7",
+        "BEEPER_PIN": "Beeper/buzzer",
+        "BTN_EN1": "Encoder pin 1",
+        "BTN_EN2": "Encoder pin 2",
+        "BTN_ENC": "Encoder button",
+        "KILL_PIN": "Kill/reset button",
+        "SD_DETECT_PIN": "SD card detect",
+        "SD_SS_PIN": "SD card SPI select"
+      }
+    },
+    "communication": {
+      "description": "Serial and communication pins",
+      "pins": {
+        "SERIAL_PORT": "Primary serial port number",
+        "SERIAL_PORT_2": "Secondary serial port",
+        "X_SERIAL_TX_PIN": "TMC UART TX",
+        "X_SERIAL_RX_PIN": "TMC UART RX"
+      }
+    },
+    "probe": {
+      "description": "Probe related pins",
+      "pins": {
+        "Z_MIN_PROBE_PIN": "Probe signal",
+        "SERVO0_PIN": "BLTouch servo control"
+      }
+    },
+    "misc": {
+      "description": "Miscellaneous pins",
+      "pins": {
+        "PS_ON_PIN": "Power supply control",
+        "POWER_LOSS_PIN": "Power loss detection",
+        "FIL_RUNOUT_PIN": "Filament runout sensor",
+        "LED_PIN": "Status LED",
+        "NEOPIXEL_PIN": "NeoPixel data",
+        "CASE_LIGHT_PIN": "Case lighting"
+      }
+    }
+  },
+  
+  "boardPinExamples": {
+    "BOARD_RAMPS_14": {
+      "description": "Arduino MEGA + RAMPS 1.4",
+      "mcu": "ATmega2560",
+      "pins": {
+        "X_STEP_PIN": 54,
+        "X_DIR_PIN": 55,
+        "X_ENABLE_PIN": 38,
+        "X_MIN_PIN": 3,
+        "X_MAX_PIN": 2,
+        "Y_STEP_PIN": 60,
+        "Y_DIR_PIN": 61,
+        "Y_ENABLE_PIN": 56,
+        "Y_MIN_PIN": 14,
+        "Y_MAX_PIN": 15,
+        "Z_STEP_PIN": 46,
+        "Z_DIR_PIN": 48,
+        "Z_ENABLE_PIN": 62,
+        "Z_MIN_PIN": 18,
+        "Z_MAX_PIN": 19,
+        "E0_STEP_PIN": 26,
+        "E0_DIR_PIN": 28,
+        "E0_ENABLE_PIN": 24,
+        "E1_STEP_PIN": 36,
+        "E1_DIR_PIN": 34,
+        "E1_ENABLE_PIN": 30,
+        "HEATER_0_PIN": 10,
+        "HEATER_1_PIN": 9,
+        "HEATER_BED_PIN": 8,
+        "TEMP_0_PIN": 13,
+        "TEMP_1_PIN": 15,
+        "TEMP_BED_PIN": 14,
+        "FAN_PIN": 9,
+        "SERVO0_PIN": 11,
+        "SD_SS_PIN": 53,
+        "BEEPER_PIN": 37,
+        "LCD_PINS_RS": 16,
+        "LCD_PINS_ENABLE": 17,
+        "LCD_PINS_D4": 23,
+        "LCD_PINS_D5": 25,
+        "LCD_PINS_D6": 27,
+        "LCD_PINS_D7": 29,
+        "BTN_EN1": 31,
+        "BTN_EN2": 33,
+        "BTN_ENC": 35
+      }
+    },
+    
+    "BOARD_BTT_SKR_MINI_E3_V3": {
+      "description": "BigTreeTech SKR Mini E3 V3.0",
+      "mcu": "STM32G0B1RET6",
+      "pins": {
+        "X_STEP_PIN": "PB13",
+        "X_DIR_PIN": "PB12",
+        "X_ENABLE_PIN": "PB14",
+        "X_UART_TX": "PC11",
+        "X_MIN_PIN": "PC0",
+        "Y_STEP_PIN": "PB10",
+        "Y_DIR_PIN": "PB2",
+        "Y_ENABLE_PIN": "PB11",
+        "Y_UART_TX": "PC10",
+        "Y_MIN_PIN": "PC1",
+        "Z_STEP_PIN": "PB0",
+        "Z_DIR_PIN": "PC5",
+        "Z_ENABLE_PIN": "PB1",
+        "Z_UART_TX": "PC9",
+        "Z_MIN_PIN": "PC2",
+        "E0_STEP_PIN": "PB3",
+        "E0_DIR_PIN": "PB4",
+        "E0_ENABLE_PIN": "PD1",
+        "E0_UART_TX": "PC12",
+        "HEATER_0_PIN": "PC8",
+        "HEATER_BED_PIN": "PC9",
+        "TEMP_0_PIN": "PA0",
+        "TEMP_BED_PIN": "PC4",
+        "FAN_PIN": "PC6",
+        "FAN1_PIN": "PC7",
+        "FAN2_PIN": "PB15",
+        "SERVO0_PIN": "PA1",
+        "Z_MIN_PROBE_PIN": "PC14",
+        "NEOPIXEL_PIN": "PA8",
+        "FIL_RUNOUT_PIN": "PC15",
+        "BEEPER_PIN": "PB5",
+        "BTN_EN1": "PB8",
+        "BTN_EN2": "PB9",
+        "BTN_ENC": "PA15",
+        "LCD_PINS_RS": "PB6",
+        "LCD_PINS_ENABLE": "PB7",
+        "EXP1_03": "PD6",
+        "EXP1_04": "PA4",
+        "EXP1_05": "PA5",
+        "EXP1_06": "PA6",
+        "EXP1_07": "PA7",
+        "EXP1_08": "PB6",
+        "EXP1_09": "PA15",
+        "EXP1_10": "PB7"
+      },
+      "notes": "STM32 uses port/pin naming (PA0, PB13, etc.)"
+    },
+    
+    "BOARD_CREALITY_V427": {
+      "description": "Creality V4.2.7 Silent Board",
+      "mcu": "STM32F103RET6",
+      "pins": {
+        "X_STEP_PIN": "PC2",
+        "X_DIR_PIN": "PB9",
+        "X_ENABLE_PIN": "PC3",
+        "Y_STEP_PIN": "PB8",
+        "Y_DIR_PIN": "PB7",
+        "Y_ENABLE_PIN": "PC3",
+        "Z_STEP_PIN": "PB6",
+        "Z_DIR_PIN": "PB5",
+        "Z_ENABLE_PIN": "PC3",
+        "E0_STEP_PIN": "PB4",
+        "E0_DIR_PIN": "PB3",
+        "E0_ENABLE_PIN": "PC3",
+        "X_MIN_PIN": "PA5",
+        "Y_MIN_PIN": "PA6",
+        "Z_MIN_PIN": "PA7",
+        "Z_MIN_PROBE_PIN": "PB1",
+        "HEATER_0_PIN": "PA1",
+        "HEATER_BED_PIN": "PA2",
+        "TEMP_0_PIN": "PC5",
+        "TEMP_BED_PIN": "PC4",
+        "FAN_PIN": "PA0",
+        "BEEPER_PIN": "PC6"
+      },
+      "notes": "Single enable pin for all steppers (shared)"
+    },
+    
+    "BOARD_BTT_OCTOPUS_V1_1": {
+      "description": "BigTreeTech Octopus V1.1",
+      "mcu": "STM32F446ZET6",
+      "pins": {
+        "X_STEP_PIN": "PF13",
+        "X_DIR_PIN": "PF12",
+        "X_ENABLE_PIN": "PF14",
+        "X_CS_PIN": "PC4",
+        "Y_STEP_PIN": "PG0",
+        "Y_DIR_PIN": "PG1",
+        "Y_ENABLE_PIN": "PF15",
+        "Y_CS_PIN": "PD11",
+        "Z_STEP_PIN": "PF11",
+        "Z_DIR_PIN": "PG3",
+        "Z_ENABLE_PIN": "PG5",
+        "Z_CS_PIN": "PC6",
+        "Z2_STEP_PIN": "PG4",
+        "Z2_DIR_PIN": "PC1",
+        "Z2_ENABLE_PIN": "PA0",
+        "Z2_CS_PIN": "PC7",
+        "E0_STEP_PIN": "PF9",
+        "E0_DIR_PIN": "PF10",
+        "E0_ENABLE_PIN": "PG2",
+        "E0_CS_PIN": "PF2",
+        "E1_STEP_PIN": "PC13",
+        "E1_DIR_PIN": "PF0",
+        "E1_ENABLE_PIN": "PF1",
+        "E1_CS_PIN": "PE4",
+        "E2_STEP_PIN": "PE2",
+        "E2_DIR_PIN": "PE3",
+        "E2_ENABLE_PIN": "PD4",
+        "E2_CS_PIN": "PE1",
+        "E3_STEP_PIN": "PE6",
+        "E3_DIR_PIN": "PA14",
+        "E3_ENABLE_PIN": "PE0",
+        "E3_CS_PIN": "PD3",
+        "HEATER_0_PIN": "PA2",
+        "HEATER_1_PIN": "PA3",
+        "HEATER_2_PIN": "PB10",
+        "HEATER_3_PIN": "PB11",
+        "HEATER_BED_PIN": "PA1",
+        "TEMP_0_PIN": "PF4",
+        "TEMP_1_PIN": "PF5",
+        "TEMP_2_PIN": "PF6",
+        "TEMP_3_PIN": "PF7",
+        "TEMP_BED_PIN": "PF3",
+        "FAN0_PIN": "PA8",
+        "FAN1_PIN": "PE5",
+        "FAN2_PIN": "PD12",
+        "FAN3_PIN": "PD13",
+        "FAN4_PIN": "PD14",
+        "FAN5_PIN": "PD15",
+        "SERVO0_PIN": "PB6",
+        "NEOPIXEL_PIN": "PB0"
+      },
+      "notes": "8 driver slots! Check TMC SPI/UART configuration."
+    }
+  },
+  
+  "pinModification": {
+    "description": "How to change pin assignments",
+    "steps": [
+      "Find your board's pins file in Marlin/src/pins/",
+      "Copy pin definitions to Configuration.h or pins_YOURBOARD.h",
+      "Use #undef to remove existing definition",
+      "Use #define to set new pin",
+      "Example: #undef FAN_PIN\\n#define FAN_PIN PA3"
+    ],
+    "example": {
+      "description": "Change BLTouch servo pin",
+      "code": [
+        "#undef SERVO0_PIN",
+        "#define SERVO0_PIN PB6"
+      ]
+    },
+    "warnings": [
+      "Check pin capabilities (PWM, analog, interrupt)",
+      "Avoid pins used by other functions",
+      "Verify voltage levels (3.3V vs 5V tolerant)",
+      "Some pins may be shared with other functions"
+    ]
+  },
+  
+  "commonPinIssues": [
+    {
+      "issue": "BLTouch not working",
+      "cause": "Wrong servo pin or probe pin",
+      "solution": "Check SERVO0_PIN and Z_MIN_PROBE_PIN"
+    },
+    {
+      "issue": "Fan always on",
+      "cause": "Non-PWM pin used for fan",
+      "solution": "Use a PWM-capable pin"
+    },
+    {
+      "issue": "Temperature reading wrong",
+      "cause": "Wrong analog pin",
+      "solution": "TEMP pins must be analog capable"
+    },
+    {
+      "issue": "TMC drivers not responding",
+      "cause": "Wrong UART/SPI pins",
+      "solution": "Check X_SERIAL_TX_PIN or X_CS_PIN"
+    },
+    {
+      "issue": "Display blank",
+      "cause": "Wrong EXP1/EXP2 wiring",
+      "solution": "Verify LCD pin definitions match your display"
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "_comment": "Communication and Buffer Settings Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "baudRates": {
+    "available": [9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000],
+    "recommended": {
+      "sdCardPrinting": {
+        "baudRate": 115200,
+        "notes": "SD printing doesn't need fast serial. 115200 is reliable."
+      },
+      "octoPrint": {
+        "baudRate": 250000,
+        "notes": "Good balance of speed and reliability for streaming."
+      },
+      "octoPrintHighSpeed": {
+        "baudRate": 500000,
+        "notes": "For fast printers. May need quality USB cable."
+      },
+      "pronterface": {
+        "baudRate": 115200,
+        "notes": "Standard for Pronterface/Printrun."
+      },
+      "klipperUSB": {
+        "baudRate": 250000,
+        "notes": "Klipper uses USB CDC, baud rate less critical."
+      },
+      "wifi": {
+        "baudRate": 115200,
+        "notes": "ESP8266/ESP32 WiFi modules typically 115200."
+      },
+      "bluetooth": {
+        "baudRate": 115200,
+        "notes": "HC-05/HC-06 default is 9600, configure to 115200."
+      }
+    }
+  },
+  
+  "serialBuffers": {
+    "_comment": "Buffer sizes in bytes",
+    
+    "profiles": {
+      "sdCardMinimal": {
+        "name": "SD Card Only (Minimal)",
+        "TX_BUFFER_SIZE": 0,
+        "RX_BUFFER_SIZE": 128,
+        "BUFSIZE": 4,
+        "MAX_CMD_SIZE": 96,
+        "ramUsage": 520,
+        "useCase": "Standalone SD printing, no host connection",
+        "notes": "Smallest buffers. Fine for SD-only printing."
+      },
+      
+      "sdCardDefault": {
+        "name": "SD Card (Default)",
+        "TX_BUFFER_SIZE": 0,
+        "RX_BUFFER_SIZE": 256,
+        "BUFSIZE": 4,
+        "MAX_CMD_SIZE": 96,
+        "ramUsage": 640,
+        "useCase": "SD card with occasional USB commands",
+        "notes": "Default Marlin settings. Good baseline."
+      },
+      
+      "hostPrintingBasic": {
+        "name": "Host Printing (Basic)",
+        "TX_BUFFER_SIZE": 32,
+        "RX_BUFFER_SIZE": 256,
+        "BUFSIZE": 8,
+        "MAX_CMD_SIZE": 96,
+        "ramUsage": 1064,
+        "useCase": "OctoPrint/Pronterface basic printing",
+        "notes": "Small TX buffer helps with ok responses."
+      },
+      
+      "hostPrintingRecommended": {
+        "name": "Host Printing (Recommended)",
+        "TX_BUFFER_SIZE": 64,
+        "RX_BUFFER_SIZE": 512,
+        "BUFSIZE": 16,
+        "MAX_CMD_SIZE": 96,
+        "ramUsage": 2152,
+        "useCase": "OctoPrint with plugins, normal speed printing",
+        "notes": "Good balance for most host printing scenarios."
+      },
+      
+      "hostPrintingHighSpeed": {
+        "name": "Host Printing (High Speed)",
+        "TX_BUFFER_SIZE": 128,
+        "RX_BUFFER_SIZE": 1024,
+        "BUFSIZE": 32,
+        "MAX_CMD_SIZE": 96,
+        "ramUsage": 4296,
+        "useCase": "High-speed printing, Voron, fast deltas",
+        "notes": "Large buffers for 200+ mm/s printing from host."
+      },
+      
+      "hostPrintingExtreme": {
+        "name": "Host Printing (Extreme)",
+        "TX_BUFFER_SIZE": 256,
+        "RX_BUFFER_SIZE": 2048,
+        "BUFSIZE": 64,
+        "MAX_CMD_SIZE": 96,
+        "ramUsage": 8552,
+        "useCase": "Very high speed, complex G-code, arc welder",
+        "notes": "Maximum buffers. Only for 32-bit boards with RAM to spare."
+      },
+      
+      "arcWelderOptimized": {
+        "name": "Arc Welder Optimized",
+        "TX_BUFFER_SIZE": 64,
+        "RX_BUFFER_SIZE": 512,
+        "BUFSIZE": 8,
+        "MAX_CMD_SIZE": 256,
+        "ramUsage": 2632,
+        "useCase": "OctoPrint with Arc Welder plugin",
+        "notes": "Larger MAX_CMD_SIZE for long G2/G3 commands."
+      },
+      
+      "wifiModule": {
+        "name": "WiFi Module (ESP3D)",
+        "TX_BUFFER_SIZE": 64,
+        "RX_BUFFER_SIZE": 256,
+        "BUFSIZE": 8,
+        "MAX_CMD_SIZE": 96,
+        "ramUsage": 1064,
+        "useCase": "ESP8266/ESP32 WiFi serial bridge",
+        "notes": "WiFi adds latency, moderate buffers help."
+      },
+      
+      "lowMemory8bit": {
+        "name": "8-bit Low Memory",
+        "TX_BUFFER_SIZE": 0,
+        "RX_BUFFER_SIZE": 128,
+        "BUFSIZE": 4,
+        "MAX_CMD_SIZE": 96,
+        "ramUsage": 520,
+        "useCase": "ATmega1284P with many features enabled",
+        "notes": "Minimum buffers to save RAM on constrained boards."
+      }
+    }
+  },
+  
+  "bufferCalculation": {
+    "_comment": "RAM usage formulas",
+    "formulas": {
+      "txBuffer": "TX_BUFFER_SIZE (direct)",
+      "rxBuffer": "RX_BUFFER_SIZE (direct)",
+      "commandBuffer": "BUFSIZE * MAX_CMD_SIZE",
+      "total": "TX_BUFFER_SIZE + RX_BUFFER_SIZE + (BUFSIZE * MAX_CMD_SIZE) + 64 (overhead)"
+    },
+    "example": {
+      "TX_BUFFER_SIZE": 64,
+      "RX_BUFFER_SIZE": 512,
+      "BUFSIZE": 16,
+      "MAX_CMD_SIZE": 96,
+      "calculation": "64 + 512 + (16 * 96) + 64 = 2176 bytes"
+    }
+  },
+  
+  "emergencyParser": {
+    "_comment": "Emergency parser settings",
+    "EMERGENCY_PARSER": {
+      "enabled": true,
+      "ramCost": 100,
+      "flashCost": 1500,
+      "notes": "Allows M108, M112, M410 even when buffer full. HIGHLY RECOMMENDED."
+    },
+    "HOST_KEEPALIVE_FEATURE": {
+      "enabled": true,
+      "DEFAULT_KEEPALIVE_INTERVAL": 2,
+      "ramCost": 50,
+      "flashCost": 500,
+      "notes": "Sends 'busy' messages to host. Prevents timeout disconnects."
+    }
+  },
+  
+  "hostActions": {
+    "_comment": "Host action commands for better OctoPrint integration",
+    "features": {
+      "HOST_ACTION_COMMANDS": {
+        "enabled": true,
+        "ramCost": 100,
+        "flashCost": 2000,
+        "notes": "Send action commands to host (pause, resume, cancel)."
+      },
+      "HOST_PROMPT_SUPPORT": {
+        "enabled": true,
+        "ramCost": 100,
+        "flashCost": 1500,
+        "notes": "Prompt dialogs on host. Requires OctoPrint plugin."
+      },
+      "HOST_STATUS_NOTIFICATIONS": {
+        "enabled": true,
+        "ramCost": 50,
+        "flashCost": 1000,
+        "notes": "Send status changes to host."
+      }
+    }
+  },
+  
+  "printModes": {
+    "_comment": "Recommended settings by print source",
+    
+    "sdCard": {
+      "name": "SD Card Printing",
+      "description": "Printing from onboard SD card",
+      "baudRate": 115200,
+      "bufferProfile": "sdCardDefault",
+      "features": {
+        "SDSUPPORT": true,
+        "SD_CHECK_AND_RETRY": true,
+        "LONG_FILENAME_HOST_SUPPORT": false,
+        "HOST_ACTION_COMMANDS": false,
+        "EMERGENCY_PARSER": true
+      },
+      "notes": "Fast, reliable, no host dependency. Best for long prints."
+    },
+    
+    "octoPrintNormal": {
+      "name": "OctoPrint (Normal Speed)",
+      "description": "USB streaming from OctoPrint at normal speeds",
+      "baudRate": 250000,
+      "bufferProfile": "hostPrintingRecommended",
+      "features": {
+        "SDSUPPORT": true,
+        "HOST_ACTION_COMMANDS": true,
+        "HOST_KEEPALIVE_FEATURE": true,
+        "EMERGENCY_PARSER": true,
+        "REPORT_FAN_CHANGE": true,
+        "HOST_STATUS_NOTIFICATIONS": true
+      },
+      "notes": "Good for most printing. Upload to SD for long prints."
+    },
+    
+    "octoPrintHighSpeed": {
+      "name": "OctoPrint (High Speed)",
+      "description": "USB streaming for high-speed printers",
+      "baudRate": 500000,
+      "bufferProfile": "hostPrintingHighSpeed",
+      "features": {
+        "SDSUPPORT": true,
+        "HOST_ACTION_COMMANDS": true,
+        "HOST_KEEPALIVE_FEATURE": true,
+        "EMERGENCY_PARSER": true,
+        "ARC_SUPPORT": true
+      },
+      "notes": "Use quality USB cable. Consider Arc Welder plugin."
+    },
+    
+    "octoPrintArcWelder": {
+      "name": "OctoPrint + Arc Welder",
+      "description": "USB streaming with Arc Welder G2/G3 commands",
+      "baudRate": 250000,
+      "bufferProfile": "arcWelderOptimized",
+      "features": {
+        "ARC_SUPPORT": true,
+        "MIN_ARC_SEGMENT_MM": 0.1,
+        "MAX_ARC_SEGMENT_MM": 1.0,
+        "MIN_CIRCLE_SEGMENTS": 72,
+        "N_ARC_CORRECTION": 25,
+        "HOST_ACTION_COMMANDS": true
+      },
+      "notes": "Arc Welder reduces G-code size. Fewer commands = less buffer pressure."
+    },
+    
+    "pronterface": {
+      "name": "Pronterface/Printrun",
+      "description": "Basic host control software",
+      "baudRate": 115200,
+      "bufferProfile": "hostPrintingBasic",
+      "features": {
+        "EMERGENCY_PARSER": true
+      },
+      "notes": "Simple and reliable. Good for debugging."
+    },
+    
+    "cura": {
+      "name": "Cura USB Printing",
+      "description": "Direct from Cura via USB",
+      "baudRate": 115200,
+      "bufferProfile": "hostPrintingBasic",
+      "features": {
+        "EMERGENCY_PARSER": true
+      },
+      "notes": "Not recommended for long prints. Save to SD instead."
+    },
+    
+    "wifiESP3D": {
+      "name": "WiFi (ESP3D)",
+      "description": "WiFi printing via ESP8266/ESP32 serial bridge",
+      "baudRate": 115200,
+      "bufferProfile": "wifiModule",
+      "features": {
+        "HOST_ACTION_COMMANDS": true,
+        "EMERGENCY_PARSER": true
+      },
+      "notes": "WiFi adds latency. May need slower print speeds."
+    },
+    
+    "standalone": {
+      "name": "Standalone (No Host)",
+      "description": "LCD/Touchscreen control only, no computer",
+      "baudRate": 115200,
+      "bufferProfile": "sdCardMinimal",
+      "features": {
+        "SDSUPPORT": true,
+        "SD_CHECK_AND_RETRY": true,
+        "HOST_ACTION_COMMANDS": false,
+        "EMERGENCY_PARSER": true
+      },
+      "notes": "Minimal host features. Saves memory."
+    }
+  },
+  
+  "troubleshooting": {
+    "_comment": "Common issues and solutions",
+    
+    "issues": [
+      {
+        "symptom": "Printer pauses/stutters during print",
+        "causes": [
+          "Buffer underrun - host can't send G-code fast enough",
+          "Baud rate too low",
+          "USB cable too long or poor quality",
+          "Host system under load"
+        ],
+        "solutions": [
+          "Increase BUFSIZE to 16 or 32",
+          "Increase RX_BUFFER_SIZE to 512 or 1024",
+          "Increase baud rate to 250000",
+          "Use short, quality USB cable",
+          "Print from SD card instead"
+        ]
+      },
+      {
+        "symptom": "Printer disconnects during print",
+        "causes": [
+          "USB power management (Windows)",
+          "Serial timeout",
+          "EMI interference",
+          "Buffer overflow"
+        ],
+        "solutions": [
+          "Disable USB selective suspend in Windows",
+          "Enable HOST_KEEPALIVE_FEATURE",
+          "Use powered USB hub",
+          "Add ferrite beads to USB cable",
+          "Reduce baud rate to 115200"
+        ]
+      },
+      {
+        "symptom": "Random characters or garbled output",
+        "causes": [
+          "Baud rate mismatch",
+          "EMI interference",
+          "Loose connections"
+        ],
+        "solutions": [
+          "Verify baud rate matches in firmware and host",
+          "Use shielded USB cable",
+          "Check cable connections"
+        ]
+      },
+      {
+        "symptom": "'ok' responses delayed",
+        "causes": [
+          "TX_BUFFER_SIZE is 0",
+          "Slow serial speed"
+        ],
+        "solutions": [
+          "Set TX_BUFFER_SIZE to 32 or 64",
+          "Increase baud rate"
+        ]
+      },
+      {
+        "symptom": "Cannot cancel print with M112",
+        "causes": [
+          "EMERGENCY_PARSER not enabled",
+          "Command buffer full"
+        ],
+        "solutions": [
+          "Enable EMERGENCY_PARSER (highly recommended)"
+        ]
+      },
+      {
+        "symptom": "Arcs/circles are faceted (not smooth)",
+        "causes": [
+          "Buffer underrun during arc execution",
+          "MM_PER_ARC_SEGMENT too large"
+        ],
+        "solutions": [
+          "Increase BUFSIZE",
+          "Decrease MIN_ARC_SEGMENT_MM",
+          "Increase MIN_CIRCLE_SEGMENTS"
+        ]
+      }
+    ]
+  },
+  
+  "usbCableRecommendations": {
+    "_comment": "USB cable quality matters!",
+    "requirements": {
+      "maxLength": "1.8m (6ft) for reliable high-speed",
+      "preferredLength": "1m (3ft) or less",
+      "shielding": "Required for EMI resistance",
+      "ferriteBeads": "Recommended for noisy environments",
+      "dataCapable": "NOT charge-only cables"
+    },
+    "recommendations": [
+      "Use the cable that came with your printer",
+      "Avoid USB hubs unless powered",
+      "Front USB ports often more reliable than rear",
+      "If using extension, use powered hub at the end"
+    ]
+  }
+}

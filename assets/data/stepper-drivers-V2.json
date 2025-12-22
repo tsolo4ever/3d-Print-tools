@@ -1,0 +1,868 @@
+Here's the expanded stepper drivers database with board matching and aftermarket options:
+
+```json
+{
+  "_comment": "Stepper Driver Database v2.0 - Matches to boards and printers",
+  "_lastUpdated": "2024-12-21",
+  "drivers": [
+    {
+      "_comment": "=== BASIC STEP/DIR DRIVERS ===",
+      "id": "A4988",
+      "name": "A4988",
+      "manufacturer": "Allegro",
+      "type": "Basic",
+      "category": "Stock",
+      "interface": "Step/Dir",
+      "maxCurrent": "2A",
+      "rmsCurrent": "1.4A",
+      "microstepping": [1, 2, 4, 8, 16],
+      "maxMicrostepping": 16,
+      "stealthChop": false,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "8-35V",
+      "notes": "Basic, affordable driver. Good for budget builds. Noisy but reliable.",
+      "stockOnBoards": [
+        "BOARD_RAMPS_14_EFB",
+        "BOARD_RAMPS_14_EEB",
+        "BOARD_RAMPS_14_EFF",
+        "BOARD_MKS_BASE",
+        "BOARD_MKS_BASE_14",
+        "BOARD_MKS_BASE_15",
+        "BOARD_MKS_GEN_L",
+        "BOARD_GT2560_REV_A",
+        "BOARD_GT2560_REV_A_PLUS",
+        "BOARD_ANET_10",
+        "BOARD_MELZI",
+        "BOARD_MELZI_V2",
+        "BOARD_MELZI_CREALITY",
+        "BOARD_SANGUINOLOLU_11",
+        "BOARD_SANGUINOLOLU_12",
+        "BOARD_MINIRAMBO",
+        "BOARD_ANET_ET4",
+        "BOARD_ANET_ET5"
+      ],
+      "stockOnPrinters": [
+        "Anet A8",
+        "Anet A6",
+        "Anet ET4",
+        "Creality Ender 3 (original 8-bit)",
+        "Creality CR-10 (original)",
+        "Geeetech A10",
+        "Geeetech i3 Pro",
+        "Tronxy X1",
+        "Tronxy P802",
+        "Wanhao i3 (original)",
+        "Monoprice Maker Select",
+        "Prusa i3 MK1",
+        "Most DIY RAMPS builds"
+      ],
+      "aftermarketFor": [
+        "Any board with removable drivers"
+      ],
+      "marlinDefine": "A4988"
+    },
+    {
+      "id": "A4982",
+      "name": "A4982",
+      "manufacturer": "Allegro",
+      "type": "Basic",
+      "category": "Stock",
+      "interface": "Step/Dir",
+      "maxCurrent": "2A",
+      "rmsCurrent": "1.4A",
+      "microstepping": [1, 2, 4, 8, 16],
+      "maxMicrostepping": 16,
+      "stealthChop": false,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "8-35V",
+      "notes": "Similar to A4988. Integrated on some boards.",
+      "stockOnBoards": [
+        "BOARD_MINIRAMBO"
+      ],
+      "stockOnPrinters": [
+        "Prusa MK2 (original)",
+        "LulzBot Mini (original)"
+      ],
+      "aftermarketFor": [],
+      "marlinDefine": "A4988"
+    },
+    {
+      "id": "DRV8825",
+      "name": "DRV8825",
+      "manufacturer": "Texas Instruments",
+      "type": "Basic",
+      "category": "Aftermarket",
+      "interface": "Step/Dir",
+      "maxCurrent": "2.5A",
+      "rmsCurrent": "1.75A",
+      "microstepping": [1, 2, 4, 8, 16, 32],
+      "maxMicrostepping": 32,
+      "stealthChop": false,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "8.2-45V",
+      "notes": "Higher microstepping than A4988, runs HOT - needs heatsink and cooling. Can cause layer artifacts.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "BOARD_RAMPS_14_EFB",
+        "BOARD_RAMPS_14_EEB",
+        "BOARD_MKS_GEN_L",
+        "BOARD_GT2560_REV_A",
+        "Any board with removable drivers"
+      ],
+      "marlinDefine": "DRV8825"
+    },
+    {
+      "id": "LV8729",
+      "name": "LV8729",
+      "manufacturer": "OnSemi",
+      "type": "Quiet",
+      "category": "Aftermarket",
+      "interface": "Step/Dir",
+      "maxCurrent": "1.5A",
+      "rmsCurrent": "1.0A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128],
+      "maxMicrostepping": 128,
+      "stealthChop": false,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "6-36V",
+      "notes": "Quieter than A4988/DRV8825. Budget silent option. Lower current than TMC drivers.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "BOARD_RAMPS_14_EFB",
+        "BOARD_MKS_GEN_L",
+        "BOARD_GT2560_REV_A",
+        "Any board with removable drivers"
+      ],
+      "marlinDefine": "LV8729"
+    },
+    {
+      "id": "ST820",
+      "name": "ST820",
+      "manufacturer": "STMicroelectronics",
+      "type": "Quiet",
+      "category": "Aftermarket",
+      "interface": "Step/Dir",
+      "maxCurrent": "2.5A",
+      "rmsCurrent": "1.7A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": false,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "7-45V",
+      "notes": "256 microstepping at budget price. Quieter than A4988.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "Any board with removable drivers"
+      ],
+      "marlinDefine": "ST820"
+    },
+    {
+      "_comment": "=== TMC2208 VARIANTS ===",
+      "id": "TMC2208_STANDALONE",
+      "name": "TMC2208 (Standalone)",
+      "manufacturer": "Trinamic",
+      "type": "Silent",
+      "category": "Stock",
+      "interface": "Step/Dir",
+      "maxCurrent": "2A",
+      "rmsCurrent": "1.4A",
+      "microstepping": [2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "4.75-36V",
+      "notes": "Silent operation. Standalone mode - no UART config. SpreadCycle via CFG pins. StealthChop default.",
+      "stockOnBoards": [
+        "BOARD_CREALITY_V427",
+        "BOARD_CREALITY_V422",
+        "BOARD_CREALITY_V423",
+        "BOARD_CREALITY_V425"
+      ],
+      "stockOnPrinters": [
+        "Creality Ender 3 V2",
+        "Creality Ender 3 Pro (V4.2.7 board)",
+        "Creality Ender 5 (V4.2.7 board)",
+        "Creality Ender 5 Plus",
+        "Creality CR-10 V2",
+        "Creality CR-10 V3",
+        "Artillery Sidewinder X1",
+        "Artillery Sidewinder X2",
+        "Artillery Genius"
+      ],
+      "aftermarketFor": [
+        "Any board with removable drivers"
+      ],
+      "marlinDefine": "TMC2208_STANDALONE"
+    },
+    {
+      "id": "TMC2208",
+      "name": "TMC2208 (UART)",
+      "manufacturer": "Trinamic",
+      "type": "Silent",
+      "category": "Aftermarket",
+      "interface": "UART",
+      "maxCurrent": "2A",
+      "rmsCurrent": "1.4A",
+      "microstepping": [2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "4.75-36V",
+      "notes": "Silent operation. UART allows runtime configuration. Switch between StealthChop/SpreadCycle via gcode.",
+      "stockOnBoards": [
+        "BOARD_BTT_SKR_V1_3",
+        "BOARD_BTT_SKR_V1_4",
+        "BOARD_MKS_SGEN_L"
+      ],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "BOARD_RAMPS_14_EFB",
+        "BOARD_MKS_GEN_L",
+        "BOARD_MKS_GEN_L_V2",
+        "BOARD_GT2560_REV_A",
+        "BOARD_BTT_SKR_V1_3",
+        "BOARD_BTT_SKR_V1_4",
+        "Any board with UART capable driver sockets"
+      ],
+      "marlinDefine": "TMC2208"
+    },
+    {
+      "_comment": "=== TMC2209 VARIANTS ===",
+      "id": "TMC2209_STANDALONE",
+      "name": "TMC2209 (Standalone)",
+      "manufacturer": "Trinamic",
+      "type": "Silent",
+      "category": "Stock",
+      "interface": "Step/Dir",
+      "maxCurrent": "2.8A",
+      "rmsCurrent": "2.0A",
+      "microstepping": [8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "4.75-29V",
+      "notes": "Silent operation. StallGuard disabled without UART. Higher current than 2208.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [
+        "Some budget printers"
+      ],
+      "aftermarketFor": [
+        "Any board with removable drivers"
+      ],
+      "marlinDefine": "TMC2209_STANDALONE"
+    },
+    {
+      "id": "TMC2209",
+      "name": "TMC2209 (UART)",
+      "manufacturer": "Trinamic",
+      "type": "Silent + Sensorless",
+      "category": "Stock",
+      "interface": "UART",
+      "maxCurrent": "2.8A",
+      "rmsCurrent": "2.0A",
+      "microstepping": [8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": true,
+      "sensorlessHoming": true,
+      "voltage": "4.75-29V",
+      "notes": "BEST VALUE driver. Silent + sensorless homing. Higher current than 2208. Most versatile TMC.",
+      "stockOnBoards": [
+        "BOARD_BTT_SKR_MINI_E3_V1_0",
+        "BOARD_BTT_SKR_MINI_E3_V1_2",
+        "BOARD_BTT_SKR_MINI_E3_V2_0",
+        "BOARD_BTT_SKR_MINI_E3_V3_0",
+        "BOARD_BTT_SKR_E3_TURBO",
+        "BOARD_BTT_SKR_E3_DIP",
+        "BOARD_BTT_SKR_CR6",
+        "BOARD_BTT_SKR_PICO",
+        "BOARD_BTT_MANTA_E3_EZ",
+        "BOARD_BTT_MANTA_M4P",
+        "BOARD_BTT_MANTA_M5P",
+        "BOARD_MKS_ROBIN_E3",
+        "BOARD_MKS_ROBIN_E3_V1_1",
+        "BOARD_MKS_ROBIN_E3D",
+        "BOARD_FYSETC_CHEETAH",
+        "BOARD_FYSETC_CHEETAH_V12",
+        "BOARD_FYSETC_CHEETAH_V20"
+      ],
+      "stockOnPrinters": [
+        "BTT SKR Mini E3 upgrades",
+        "Voron 0",
+        "Voron Switchwire"
+      ],
+      "aftermarketFor": [
+        "Creality Ender 3",
+        "Creality Ender 3 Pro",
+        "Creality Ender 3 V2",
+        "Creality Ender 5",
+        "Creality CR-10",
+        "Any board with UART driver sockets"
+      ],
+      "marlinDefine": "TMC2209"
+    },
+    {
+      "_comment": "=== TMC2130 VARIANTS ===",
+      "id": "TMC2130_STANDALONE",
+      "name": "TMC2130 (Standalone)",
+      "manufacturer": "Trinamic",
+      "type": "Silent",
+      "category": "Aftermarket",
+      "interface": "Step/Dir",
+      "maxCurrent": "2A",
+      "rmsCurrent": "1.4A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "4.75-46V",
+      "notes": "Limited features without SPI. Rarely used standalone.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "Legacy upgrades"
+      ],
+      "marlinDefine": "TMC2130_STANDALONE"
+    },
+    {
+      "id": "TMC2130",
+      "name": "TMC2130 (SPI)",
+      "manufacturer": "Trinamic",
+      "type": "Silent + Sensorless",
+      "category": "Stock",
+      "interface": "SPI",
+      "maxCurrent": "2A",
+      "rmsCurrent": "1.4A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": true,
+      "sensorlessHoming": true,
+      "voltage": "4.75-46V",
+      "notes": "SPI control for full features. Used by Prusa. Sensorless homing via StallGuard.",
+      "stockOnBoards": [
+        "BOARD_EINSY_RAMBO",
+        "BOARD_EINSY_RETRO",
+        "BOARD_ARCHIM2"
+      ],
+      "stockOnPrinters": [
+        "Prusa MK2.5",
+        "Prusa MK2.5S",
+        "Prusa MK3",
+        "Prusa MK3S",
+        "Prusa MK3S+"
+      ],
+      "aftermarketFor": [
+        "Any board with SPI driver sockets"
+      ],
+      "marlinDefine": "TMC2130"
+    },
+    {
+      "_comment": "=== TMC2160 ===",
+      "id": "TMC2160_STANDALONE",
+      "name": "TMC2160 (Standalone)",
+      "manufacturer": "Trinamic",
+      "type": "High Current",
+      "category": "Aftermarket",
+      "interface": "Step/Dir",
+      "maxCurrent": "4.33A",
+      "rmsCurrent": "3.1A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "8-60V",
+      "notes": "External MOSFETs for high current. Limited features standalone.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "High-current applications"
+      ],
+      "marlinDefine": "TMC2160_STANDALONE"
+    },
+    {
+      "id": "TMC2160",
+      "name": "TMC2160 (SPI)",
+      "manufacturer": "Trinamic",
+      "type": "High Current + Performance",
+      "category": "Aftermarket",
+      "interface": "SPI",
+      "maxCurrent": "4.33A",
+      "rmsCurrent": "3.1A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": true,
+      "sensorlessHoming": true,
+      "voltage": "8-60V",
+      "notes": "External MOSFETs for HIGH current motors. All TMC features. For NEMA23/large NEMA17.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "Large printers",
+        "CNC machines",
+        "High-current applications"
+      ],
+      "marlinDefine": "TMC2160"
+    },
+    {
+      "_comment": "=== TMC2225 ===",
+      "id": "TMC2225",
+      "name": "TMC2225 (UART)",
+      "manufacturer": "Trinamic",
+      "type": "Silent",
+      "category": "Aftermarket",
+      "interface": "UART",
+      "maxCurrent": "2A",
+      "rmsCurrent": "1.4A",
+      "microstepping": [8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "4.75-36V",
+      "notes": "Basically TMC2208 with better thermals. Pin compatible with 2208.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "Any board that accepts TMC2208"
+      ],
+      "marlinDefine": "TMC2208"
+    },
+    {
+      "_comment": "=== TMC2226 ===",
+      "id": "TMC2226",
+      "name": "TMC2226 (UART)",
+      "manufacturer": "Trinamic",
+      "type": "Silent + Sensorless",
+      "category": "Aftermarket",
+      "interface": "UART",
+      "maxCurrent": "2.8A",
+      "rmsCurrent": "2.0A",
+      "microstepping": [8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": true,
+      "sensorlessHoming": true,
+      "voltage": "4.75-29V",
+      "notes": "Basically TMC2209 with better thermals. Pin compatible with 2209.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "Any board that accepts TMC2209"
+      ],
+      "marlinDefine": "TMC2209"
+    },
+    {
+      "_comment": "=== TMC2240 ===",
+      "id": "TMC2240",
+      "name": "TMC2240 (SPI/UART)",
+      "manufacturer": "Trinamic",
+      "type": "High Current + Performance",
+      "category": "Aftermarket",
+      "interface": "SPI/UART",
+      "maxCurrent": "3A",
+      "rmsCurrent": "2.1A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": true,
+      "sensorlessHoming": true,
+      "voltage": "4.5-36V",
+      "notes": "Latest TMC. Supports both SPI and UART! Higher current than 2209.",
+      "stockOnBoards": [
+        "BOARD_BTT_KRAKEN"
+      ],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "High-end builds",
+        "Voron"
+      ],
+      "marlinDefine": "TMC2240"
+    },
+    {
+      "_comment": "=== TMC2660 ===",
+      "id": "TMC2660",
+      "name": "TMC2660 (SPI)",
+      "manufacturer": "Trinamic",
+      "type": "High Current",
+      "category": "Stock",
+      "interface": "SPI",
+      "maxCurrent": "4A",
+      "rmsCurrent": "2.8A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": false,
+      "spreadCycle": true,
+      "stallGuard": true,
+      "sensorlessHoming": true,
+      "voltage": "10-30V",
+      "notes": "High current with SPI. NO StealthChop - SpreadCycle only. Used on Duet boards.",
+      "stockOnBoards": [
+        "BOARD_DUET_WIFI",
+        "BOARD_DUET_ETHERNET",
+        "BOARD_DUET2_MAESTRO"
+      ],
+      "stockOnPrinters": [
+        "Duet-based printers"
+      ],
+      "aftermarketFor": [
+        "High-torque applications"
+      ],
+      "marlinDefine": "TMC2660"
+    },
+    {
+      "_comment": "=== TMC5160 VARIANTS ===",
+      "id": "TMC5160_STANDALONE",
+      "name": "TMC5160 (Standalone)",
+      "manufacturer": "Trinamic",
+      "type": "High Current",
+      "category": "Aftermarket",
+      "interface": "Step/Dir",
+      "maxCurrent": "4.4A",
+      "rmsCurrent": "3.1A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "8-40V",
+      "notes": "Limited features without SPI. Rarely used standalone.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "Rare use cases"
+      ],
+      "marlinDefine": "TMC5160_STANDALONE"
+    },
+    {
+      "id": "TMC5160",
+      "name": "TMC5160 (SPI)",
+      "manufacturer": "Trinamic",
+      "type": "High Current + Performance",
+      "category": "Stock",
+      "interface": "SPI",
+      "maxCurrent": "4.4A",
+      "rmsCurrent": "3.1A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": true,
+      "sensorlessHoming": true,
+      "voltage": "8-40V",
+      "notes": "PREMIUM high-current driver. All TMC features. External MOSFETs. For large motors.",
+      "stockOnBoards": [
+        "BOARD_BTT_OCTOPUS_PRO_V1_0",
+        "BOARD_BTT_KRAKEN",
+        "BOARD_FYSETC_SPIDER_KING407"
+      ],
+      "stockOnPrinters": [
+        "Voron 2.4 (common upgrade)",
+        "Large CoreXY printers"
+      ],
+      "aftermarketFor": [
+        "BOARD_BTT_OCTOPUS_V1_1",
+        "BOARD_FYSETC_SPIDER",
+        "BOARD_FYSETC_SPIDER_V2_2",
+        "Any board with SPI 5160 sockets",
+        "Voron 2.4",
+        "Voron Trident",
+        "RatRig V-Core",
+        "VzBot"
+      ],
+      "marlinDefine": "TMC5160"
+    },
+    {
+      "_comment": "=== TMC5161 ===",
+      "id": "TMC5161",
+      "name": "TMC5161 (SPI)",
+      "manufacturer": "Trinamic",
+      "type": "High Current + Performance",
+      "category": "Aftermarket",
+      "interface": "SPI",
+      "maxCurrent": "4.6A",
+      "rmsCurrent": "3.3A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": true,
+      "sensorlessHoming": true,
+      "voltage": "8-60V",
+      "notes": "Higher voltage version of 5160. For 48V systems.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "48V printer systems",
+        "Industrial applications"
+      ],
+      "marlinDefine": "TMC5161"
+    },
+    {
+      "_comment": "=== LEGACY/INDUSTRIAL DRIVERS ===",
+      "id": "TB6560",
+      "name": "TB6560",
+      "manufacturer": "Toshiba",
+      "type": "Basic",
+      "category": "Legacy",
+      "interface": "Step/Dir",
+      "maxCurrent": "3A",
+      "rmsCurrent": "2.1A",
+      "microstepping": [1, 2, 8, 16],
+      "maxMicrostepping": 16,
+      "stealthChop": false,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "10-35V",
+      "notes": "LEGACY - Noisy and unreliable. Avoid for new builds. Common on cheap CNC.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [
+        "Old CNC machines",
+        "Very old 3D printers"
+      ],
+      "aftermarketFor": [],
+      "marlinDefine": "TB6560"
+    },
+    {
+      "id": "TB6600",
+      "name": "TB6600",
+      "manufacturer": "Toshiba",
+      "type": "High Current",
+      "category": "CNC",
+      "interface": "Step/Dir",
+      "maxCurrent": "4A",
+      "rmsCurrent": "2.8A",
+      "microstepping": [1, 2, 4, 8, 16],
+      "maxMicrostepping": 16,
+      "stealthChop": false,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "9-42V",
+      "notes": "External driver for large steppers. Common on CNC. Noisy but high current.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [
+        "CNC machines",
+        "Large format printers"
+      ],
+      "aftermarketFor": [
+        "Large printers needing external drivers"
+      ],
+      "marlinDefine": "TB6600"
+    },
+    {
+      "id": "DM542",
+      "name": "DM542 / DM556",
+      "manufacturer": "Various",
+      "type": "High Current",
+      "category": "CNC",
+      "interface": "Step/Dir",
+      "maxCurrent": "4.2A",
+      "rmsCurrent": "3.0A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": false,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "18-50V",
+      "notes": "External CNC driver. High current for NEMA23. Needs separate power supply.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [
+        "CNC routers",
+        "Large format printers"
+      ],
+      "aftermarketFor": [
+        "CNC conversions",
+        "Large NEMA23 printers"
+      ],
+      "marlinDefine": "A4988"
+    },
+    {
+      "id": "DM860",
+      "name": "DM860",
+      "manufacturer": "Various",
+      "type": "High Current",
+      "category": "CNC",
+      "interface": "Step/Dir",
+      "maxCurrent": "7.2A",
+      "rmsCurrent": "5.0A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": false,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "24-80V",
+      "notes": "External driver for NEMA34. Very high current. Industrial applications.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [
+        "Industrial CNC",
+        "Very large printers"
+      ],
+      "aftermarketFor": [
+        "Industrial conversions"
+      ],
+      "marlinDefine": "A4988"
+    },
+    {
+      "_comment": "=== SPECIALTY DRIVERS ===",
+      "id": "HR4988",
+      "name": "HR4988",
+      "manufacturer": "Heroic",
+      "type": "Basic Clone",
+      "category": "Stock",
+      "interface": "Step/Dir",
+      "maxCurrent": "2A",
+      "rmsCurrent": "1.4A",
+      "microstepping": [1, 2, 4, 8, 16],
+      "maxMicrostepping": 16,
+      "stealthChop": false,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "8-35V",
+      "notes": "A4988 clone. Found on cheap Chinese boards. Quality varies.",
+      "stockOnBoards": [
+        "BOARD_ANET_10",
+        "Various clone boards"
+      ],
+      "stockOnPrinters": [
+        "Anet A8",
+        "Cheap Chinese printers"
+      ],
+      "aftermarketFor": [],
+      "marlinDefine": "A4988"
+    },
+    {
+      "id": "THB6128",
+      "name": "THB6128",
+      "manufacturer": "Toshiba",
+      "type": "Quiet",
+      "category": "Legacy",
+      "interface": "Step/Dir",
+      "maxCurrent": "2.2A",
+      "rmsCurrent": "1.5A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128],
+      "maxMicrostepping": 128,
+      "stealthChop": false,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "10-38V",
+      "notes": "Quieter than A4988. Legacy driver - TMC recommended instead.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [],
+      "marlinDefine": "A4988"
+    },
+    {
+      "id": "S109",
+      "name": "S109 / Fysetc S109",
+      "manufacturer": "Fysetc",
+      "type": "Silent Clone",
+      "category": "Aftermarket",
+      "interface": "Step/Dir",
+      "maxCurrent": "2A",
+      "rmsCurrent": "1.4A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": false,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "8-35V",
+      "notes": "Budget TMC2100 alternative. Silent but no UART/SPI.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [
+        "Budget silent upgrades"
+      ],
+      "marlinDefine": "A4988"
+    },
+    {
+      "id": "TMC2100",
+      "name": "TMC2100 (Standalone)",
+      "manufacturer": "Trinamic",
+      "type": "Silent",
+      "category": "Legacy",
+      "interface": "Step/Dir",
+      "maxCurrent": "2A",
+      "rmsCurrent": "1.4A",
+      "microstepping": [1, 2, 4, 8, 16, 32, 64, 128, 256],
+      "maxMicrostepping": 256,
+      "stealthChop": true,
+      "spreadCycle": true,
+      "stallGuard": false,
+      "sensorlessHoming": false,
+      "voltage": "5.5-46V",
+      "notes": "First silent TMC. No UART/SPI - standalone only. Replaced by TMC2208.",
+      "stockOnBoards": [],
+      "stockOnPrinters": [],
+      "aftermarketFor": [],
+      "marlinDefine": "TMC2100"
+    }
+  ]
+}
+
+
+---
+
+## Summary
+
+| Category | Count |
+|----------|-------|
+| **Stock Drivers** | 12 |
+| **Aftermarket Drivers** | 18 |
+| **Legacy/CNC Drivers** | 8 |
+| **Total** | 38 |
+
+### Key Features Added:
+- **`stockOnBoards`**: Array of board IDs that ship with this driver
+- **`stockOnPrinters`**: Printers that have this driver stock
+- **`aftermarketFor`**: Compatible boards/printers for upgrades
+- **`marlinDefine`**: Exact Marlin define to use
+- **`rmsCurrent`**: Real-world continuous current
+- **`microstepping`**: Array of supported values
+- **`sensorlessHoming`**: Boolean for quick filtering
+
+### Manufacturers Covered:
+- Trinamic (TMC series)
+- Allegro (A4988, A4982)
+- Texas Instruments (DRV8825)
+- OnSemi (LV8729)
+- STMicroelectronics (ST820)
+- Toshiba (TB6560, TB6600, THB6128)
+- Various CNC (DM542, DM860)

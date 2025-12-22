@@ -1,0 +1,299 @@
+{
+  "_comment": "Stepper Motor Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "stepperMotors": [
+    {
+      "id": "NEMA17_42_34",
+      "name": "NEMA 17 (42x34mm)",
+      "size": "NEMA17",
+      "dimensions": {
+        "width": 42,
+        "height": 42,
+        "length": 34
+      },
+      "stepAngle": 1.8,
+      "stepsPerRevolution": 200,
+      "ratedCurrent": 1.5,
+      "holdingTorque": "0.4 N·m",
+      "weight": 280,
+      "inductance": "2.5mH",
+      "resistance": "1.5Ω",
+      "commonOn": ["X axis", "Y axis", "Extruder"],
+      "stockOnPrinters": [
+        "Creality Ender 3 (X/Y/E)",
+        "Most budget printers"
+      ],
+      "notes": "Most common 3D printer motor. Good for X/Y/E."
+    },
+    {
+      "id": "NEMA17_42_40",
+      "name": "NEMA 17 (42x40mm)",
+      "size": "NEMA17",
+      "dimensions": {
+        "width": 42,
+        "height": 42,
+        "length": 40
+      },
+      "stepAngle": 1.8,
+      "stepsPerRevolution": 200,
+      "ratedCurrent": 1.7,
+      "holdingTorque": "0.45 N·m",
+      "weight": 320,
+      "inductance": "3.0mH",
+      "resistance": "1.8Ω",
+      "commonOn": ["X axis", "Y axis", "Z axis"],
+      "stockOnPrinters": [
+        "Prusa MK3 (X/Y)",
+        "Artillery Sidewinder"
+      ],
+      "notes": "Slightly more torque than 34mm. Good all-rounder."
+    },
+    {
+      "id": "NEMA17_42_48",
+      "name": "NEMA 17 (42x48mm)",
+      "size": "NEMA17",
+      "dimensions": {
+        "width": 42,
+        "height": 42,
+        "length": 48
+      },
+      "stepAngle": 1.8,
+      "stepsPerRevolution": 200,
+      "ratedCurrent": 2.0,
+      "holdingTorque": "0.55 N·m",
+      "weight": 390,
+      "inductance": "3.5mH",
+      "resistance": "2.0Ω",
+      "commonOn": ["Z axis", "Heavy X/Y"],
+      "stockOnPrinters": [
+        "CR-10 (Z axis)",
+        "Large printers"
+      ],
+      "notes": "Higher torque for Z axis or heavy carriages."
+    },
+    {
+      "id": "NEMA17_42_48_HIGHTEMP",
+      "name": "NEMA 17 High Temp (42x48mm)",
+      "size": "NEMA17",
+      "dimensions": {
+        "width": 42,
+        "height": 42,
+        "length": 48
+      },
+      "stepAngle": 1.8,
+      "stepsPerRevolution": 200,
+      "ratedCurrent": 2.0,
+      "holdingTorque": "0.55 N·m",
+      "weight": 390,
+      "maxTemp": 180,
+      "commonOn": ["Enclosed printers", "Direct drive"],
+      "notes": "Class H insulation. For heated chambers."
+    },
+    {
+      "id": "NEMA17_PANCAKE",
+      "name": "NEMA 17 Pancake (42x20mm)",
+      "size": "NEMA17",
+      "dimensions": {
+        "width": 42,
+        "height": 42,
+        "length": 20
+      },
+      "stepAngle": 1.8,
+      "stepsPerRevolution": 200,
+      "ratedCurrent": 1.0,
+      "holdingTorque": "0.18 N·m",
+      "weight": 140,
+      "commonOn": ["Direct drive extruders", "Lightweight builds"],
+      "stockOnPrinters": [
+        "Voron Stealthburner",
+        "Orbiter extruder"
+      ],
+      "notes": "Lightweight for direct drive. Lower torque."
+    },
+    {
+      "id": "NEMA17_GEARED",
+      "name": "NEMA 17 Geared (Planetary)",
+      "size": "NEMA17",
+      "dimensions": {
+        "width": 42,
+        "height": 42,
+        "length": 60
+      },
+      "stepAngle": 1.8,
+      "stepsPerRevolution": 200,
+      "gearRatio": "5.18:1",
+      "effectiveSteps": 1036,
+      "ratedCurrent": 1.5,
+      "holdingTorque": "2.0 N·m (output)",
+      "weight": 450,
+      "commonOn": ["Z axis", "Heavy applications"],
+      "notes": "High torque but adds backlash. Good for Z."
+    },
+    {
+      "id": "NEMA14_35_26",
+      "name": "NEMA 14 (35x26mm)",
+      "size": "NEMA14",
+      "dimensions": {
+        "width": 35,
+        "height": 35,
+        "length": 26
+      },
+      "stepAngle": 1.8,
+      "stepsPerRevolution": 200,
+      "ratedCurrent": 1.0,
+      "holdingTorque": "0.14 N·m",
+      "weight": 150,
+      "commonOn": ["Extruders", "Small printers"],
+      "stockOnPrinters": [
+        "Some Voron extruders"
+      ],
+      "notes": "Compact. Lower torque. Good for geared extruders."
+    },
+    {
+      "id": "NEMA23_57_56",
+      "name": "NEMA 23 (57x56mm)",
+      "size": "NEMA23",
+      "dimensions": {
+        "width": 57,
+        "height": 57,
+        "length": 56
+      },
+      "stepAngle": 1.8,
+      "stepsPerRevolution": 200,
+      "ratedCurrent": 3.0,
+      "holdingTorque": "1.3 N·m",
+      "weight": 700,
+      "commonOn": ["Large printers", "CNC"],
+      "notes": "High torque. Requires high-current drivers (TMC5160, external)."
+    },
+    {
+      "id": "LDO_42STH48_2504AC",
+      "name": "LDO 42STH48-2504AC",
+      "size": "NEMA17",
+      "dimensions": {
+        "width": 42,
+        "height": 42,
+        "length": 48
+      },
+      "stepAngle": 1.8,
+      "stepsPerRevolution": 200,
+      "ratedCurrent": 2.5,
+      "holdingTorque": "0.55 N·m",
+      "weight": 390,
+      "commonOn": ["Voron A/B motors"],
+      "stockOnPrinters": [
+        "Voron 2.4 kits",
+        "Voron Trident kits"
+      ],
+      "notes": "Popular Voron motor. High current capable."
+    },
+    {
+      "id": "LDO_42STH20_1004ASH",
+      "name": "LDO 42STH20-1004ASH (Pancake)",
+      "size": "NEMA17",
+      "dimensions": {
+        "width": 42,
+        "height": 42,
+        "length": 20
+      },
+      "stepAngle": 1.8,
+      "stepsPerRevolution": 200,
+      "ratedCurrent": 1.0,
+      "holdingTorque": "0.18 N·m",
+      "weight": 135,
+      "commonOn": ["Voron Stealthburner"],
+      "stockOnPrinters": [
+        "Voron kits (extruder)"
+      ],
+      "notes": "Voron extruder pancake motor."
+    },
+    {
+      "id": "MOONS_MS17HD6P4200",
+      "name": "Moons MS17HD6P4200",
+      "size": "NEMA17",
+      "dimensions": {
+        "width": 42,
+        "height": 42,
+        "length": 48
+      },
+      "stepAngle": 0.9,
+      "stepsPerRevolution": 400,
+      "ratedCurrent": 2.0,
+      "holdingTorque": "0.5 N·m",
+      "weight": 380,
+      "commonOn": ["High precision builds"],
+      "notes": "0.9° step angle = 400 steps/rev. Higher resolution."
+    }
+  ],
+  
+  "stepCalculations": {
+    "_comment": "Steps per mm calculations",
+    
+    "formulas": {
+      "belt": "(steps_per_rev * microstepping) / (pulley_teeth * belt_pitch)",
+      "leadscrew": "(steps_per_rev * microstepping) / lead",
+      "directExtruder": "(steps_per_rev * microstepping) / (gear_circumference)",
+      "gearedExtruder": "(steps_per_rev * microstepping * gear_ratio) / (drive_gear_circumference)"
+    },
+    
+    "commonPulleys": {
+      "GT2_16T": { "teeth": 16, "pitch": 2, "effectivePitch": 32 },
+      "GT2_20T": { "teeth": 20, "pitch": 2, "effectivePitch": 40 },
+      "GT2_36T": { "teeth": 36, "pitch": 2, "effectivePitch": 72 },
+      "GT2_40T": { "teeth": 40, "pitch": 2, "effectivePitch": 80 }
+    },
+    
+    "commonLeadscrews": {
+      "T8_2mm": { "diameter": 8, "pitch": 2, "starts": 1, "lead": 2 },
+      "T8_4mm": { "diameter": 8, "pitch": 2, "starts": 2, "lead": 4 },
+      "T8_8mm": { "diameter": 8, "pitch": 2, "starts": 4, "lead": 8 },
+      "M5_0.8": { "diameter": 5, "pitch": 0.8, "starts": 1, "lead": 0.8 },
+      "M8_1.25": { "diameter": 8, "pitch": 1.25, "starts": 1, "lead": 1.25 },
+      "BallScrew_1204": { "diameter": 12, "pitch": 4, "starts": 1, "lead": 4 },
+      "BallScrew_1605": { "diameter": 16, "pitch": 5, "starts": 1, "lead": 5 }
+    },
+    
+    "commonDriveGears": {
+      "MK8_40T": { "teeth": 40, "effectiveDiameter": 7.3, "circumference": 22.9 },
+      "BMG": { "teeth": 50, "effectiveDiameter": 7.3, "circumference": 22.9, "gearRatio": 3 },
+      "Titan": { "teeth": 40, "effectiveDiameter": 7.3, "circumference": 22.9, "gearRatio": 3 },
+      "Orbiter": { "gearRatio": 7.5, "effectiveDiameter": 4.63, "circumference": 14.55 },
+      "LGX": { "effectiveDiameter": 8.0, "circumference": 25.1 }
+    },
+    
+    "examples": {
+      "ender3_XY": {
+        "motor": "NEMA17_42_34 (200 steps)",
+        "microstepping": 16,
+        "pulley": "GT2_20T",
+        "calculation": "(200 * 16) / (20 * 2) = 80 steps/mm"
+      },
+      "ender3_Z": {
+        "motor": "NEMA17_42_34 (200 steps)",
+        "microstepping": 16,
+        "leadscrew": "T8_8mm",
+        "calculation": "(200 * 16) / 8 = 400 steps/mm"
+      },
+      "ender3_E": {
+        "motor": "NEMA17_42_34 (200 steps)",
+        "microstepping": 16,
+        "driveGear": "MK8_40T (7.3mm effective)",
+        "calculation": "(200 * 16) / (π * 7.3) = 93 steps/mm"
+      },
+      "bmgExtruder": {
+        "motor": "NEMA17 (200 steps)",
+        "microstepping": 16,
+        "gearRatio": 3,
+        "driveGear": "7.3mm effective",
+        "calculation": "(200 * 16 * 3) / (π * 7.3) = 415 steps/mm"
+      },
+      "voron_XY": {
+        "motor": "NEMA17_42_48 (200 steps)",
+        "microstepping": 16,
+        "pulley": "GT2_20T",
+        "calculation": "(200 * 16) / (20 * 2) = 80 steps/mm"
+      }
+    }
+  }
+}

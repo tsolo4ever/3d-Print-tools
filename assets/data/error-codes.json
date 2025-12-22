@@ -1,0 +1,566 @@
+{
+  "_comment": "Marlin Error Messages and Troubleshooting",
+  "_lastUpdated": "2024-12-21",
+  
+  "errorCategories": {
+    "thermal": {
+      "name": "Thermal Errors",
+      "critical": true,
+      "errors": [
+        {
+          "code": "THERMAL_RUNAWAY",
+          "message": "Thermal Runaway",
+          "description": "Temperature reading is unstable or heater is failing",
+          "causes": [
+            "Loose thermistor connection",
+            "Heater cartridge failing",
+            "PID values incorrect",
+            "Thermistor damaged",
+            "Heater wires loose",
+            "MOSFET failure",
+            "Drafts cooling hotend/bed"
+          ],
+          "solutions": [
+            "Check thermistor wiring and connections",
+            "Verify heater cartridge with multimeter",
+            "Run PID autotune: M303 E0 S200 C8",
+            "Inspect thermistor for damage",
+            "Check heater wire connections",
+            "Test in enclosed space (no drafts)",
+            "Replace thermistor or heater if damaged"
+          ],
+          "prevention": "Run PID tune after any hardware changes",
+          "safetyNote": "This error prevents fires. Do NOT disable!"
+        },
+        {
+          "code": "HEATING_FAILED",
+          "message": "Heating Failed",
+          "description": "Temperature not rising fast enough during heatup",
+          "subTypes": {
+            "E1": "Hotend 0 heating failed",
+            "E2": "Hotend 1 heating failed",
+            "BED": "Bed heating failed"
+          },
+          "causes": [
+            "Heater cartridge dead",
+            "Heater wires disconnected",
+            "MOSFET burned out",
+            "Wrong voltage heater (12V on 24V system)",
+            "Thermistor reading wrong (thinks it's heating)",
+            "Power supply overloaded"
+          ],
+          "solutions": [
+            "Check heater resistance with multimeter",
+            "Verify wiring connections",
+            "Test MOSFET with external heater",
+            "Confirm heater voltage matches system",
+            "Check thermistor readings at room temp",
+            "Reduce load on power supply"
+          ]
+        },
+        {
+          "code": "TEMP_SENSOR_FAIL",
+          "message": "Temperature Sensor Failed",
+          "description": "Temperature reading is out of range",
+          "subTypes": {
+            "MINTEMP": "Reading below minimum (open circuit)",
+            "MAXTEMP": "Reading above maximum (short circuit)"
+          },
+          "causes": {
+            "MINTEMP": [
+              "Thermistor disconnected",
+              "Wire broken",
+              "Bad crimp connection",
+              "Wrong thermistor type configured"
+            ],
+            "MAXTEMP": [
+              "Thermistor shorted",
+              "Wires touching",
+              "Wrong thermistor type configured",
+              "Actual overtemperature"
+            ]
+          },
+          "solutions": [
+            "Check thermistor connections",
+            "Test thermistor resistance with multimeter",
+            "Verify TEMP_SENSOR_X matches your thermistor",
+            "Replace thermistor if damaged",
+            "Check for wire damage or shorts"
+          ]
+        },
+        {
+          "code": "TEMP_NOT_STABLE",
+          "message": "Temperature not stable",
+          "description": "Temperature fluctuating too much",
+          "causes": [
+            "PID values need tuning",
+            "Loose thermistor",
+            "Drafts or cooling",
+            "Heater intermittent"
+          ],
+          "solutions": [
+            "Run PID autotune",
+            "Secure thermistor in place",
+            "Eliminate drafts",
+            "Check heater connections"
+          ]
+        }
+      ]
+    },
+    
+    "probing": {
+      "name": "Probe Errors",
+      "critical": false,
+      "errors": [
+        {
+          "code": "PROBING_FAILED",
+          "message": "Probing Failed",
+          "description": "Probe did not trigger during probing",
+          "causes": [
+            "Probe not deploying",
+            "Probe stuck in triggered state",
+            "Probe wiring issue",
+            "Bed too far from nozzle",
+            "Probe offset wrong",
+            "Surface not conductive (for inductive)"
+          ],
+          "solutions": [
+            "Check M119 endstop status",
+            "Verify probe deploys with M401",
+            "Check probe wiring",
+            "Adjust Z_PROBE_OFFSET",
+            "Lower bed or raise probe",
+            "For BLTouch: try M280 P0 S160 to reset"
+          ],
+          "diagnostic": "M119 ; Check endstop states\nM401 ; Deploy probe\nM402 ; Stow probe"
+        },
+        {
+          "code": "PROBE_TRIGGERED",
+          "message": "Probe already triggered",
+          "description": "Probe is in triggered state before probing",
+          "causes": [
+            "Probe stuck in triggered position",
+            "Wiring short",
+            "BLTouch needs reset",
+            "Probe endstop inverting wrong"
+          ],
+          "solutions": [
+            "Check M119 - probe should show 'open'",
+            "For BLTouch: M280 P0 S160 (reset)",
+            "Check wiring for shorts",
+            "Toggle Z_MIN_PROBE_ENDSTOP_INVERTING"
+          ]
+        },
+        {
+          "code": "BLTOUCH_DEPLOY_FAIL",
+          "message": "BLTouch Deploy Failed",
+          "description": "BLTouch failed to deploy pin",
+          "causes": [
+            "BLTouch obstructed",
+            "Pin bent or stuck",
+            "Wiring issue",
+            "Servo signal problem"
+          ],
+          "solutions": [
+            "Check for obstructions",
+            "Inspect pin for damage",
+            "Try M280 P0 S10 (deploy)",
+            "Try M280 P0 S120 (self-test)",
+            "Check wiring connections"
+          ]
+        },
+        {
+          "code": "BLTOUCH_STOW_FAIL",
+          "message": "BLTouch Stow Failed",
+          "description": "BLTouch failed to retract pin",
+          "causes": [
+            "Pin stuck",
+            "Debris in probe",
+            "Magnet weak"
+          ],
+          "solutions": [
+            "Push pin up manually to reset",
+            "Clean probe",
+            "Try M280 P0 S90 (stow)",
+            "Replace BLTouch if magnet failing"
+          ]
+        }
+      ]
+    },
+    
+    "motion": {
+      "name": "Motion Errors",
+      "critical": false,
+      "errors": [
+        {
+          "code": "HOMING_FAILED",
+          "message": "Homing Failed",
+          "description": "Axis did not reach endstop during homing",
+          "causes": [
+            "Endstop not triggering",
+            "Endstop wiring issue",
+            "Motor not moving",
+            "Axis physically blocked",
+            "Wrong endstop configured"
+          ],
+          "solutions": [
+            "Check M119 endstop status",
+            "Trigger endstop manually, check M119",
+            "Verify motor moves with M17 then manual jog",
+            "Check for physical obstructions",
+            "Verify X/Y/Z_HOME_DIR setting"
+          ]
+        },
+        {
+          "code": "DRIVER_ERROR",
+          "message": "Driver Error",
+          "description": "TMC driver reporting error",
+          "subTypes": {
+            "ot": "Over temperature",
+            "otpw": "Over temperature pre-warning",
+            "s2g": "Short to ground",
+            "ola": "Open load A",
+            "olb": "Open load B"
+          },
+          "causes": {
+            "ot/otpw": ["Current too high", "Poor cooling", "Ambient temp too high"],
+            "s2g": ["Motor wire short", "Driver damaged", "Motor coil short"],
+            "ola/olb": ["Motor disconnected", "Wire broken", "Motor damaged"]
+          },
+          "solutions": [
+            "Check M122 for detailed TMC status",
+            "Reduce motor current with M906",
+            "Improve driver cooling",
+            "Check motor wiring",
+            "Test motor on different driver"
+          ],
+          "diagnostic": "M122 ; TMC driver status"
+        },
+        {
+          "code": "STALLGUARD_TRIGGERED",
+          "message": "Sensorless homing stall",
+          "description": "StallGuard triggered (possibly too early)",
+          "causes": [
+            "Sensitivity too high",
+            "Speed too fast/slow",
+            "Current too low",
+            "Mechanical resistance"
+          ],
+          "solutions": [
+            "Adjust M914 sensitivity value",
+            "Try different homing speed",
+            "Increase motor current slightly",
+            "Lubricate axis, check mechanics"
+          ]
+        },
+        {
+          "code": "KILL_ENDSTOP",
+          "message": "Kill button pressed",
+          "description": "Emergency stop triggered",
+          "causes": [
+            "Kill button pressed",
+            "Endstop triggered during move (if configured)"
+          ],
+          "solutions": [
+            "Release kill button",
+            "Reset printer",
+            "Check endstop wiring if false trigger"
+          ]
+        }
+      ]
+    },
+    
+    "sdCard": {
+      "name": "SD Card Errors",
+      "critical": false,
+      "errors": [
+        {
+          "code": "SD_INIT_FAIL",
+          "message": "SD Card Init Failed",
+          "description": "Unable to initialize SD card",
+          "causes": [
+            "No SD card inserted",
+            "SD card not formatted correctly",
+            "SD card damaged",
+            "SD card slot issue",
+            "Wrong SPI configuration"
+          ],
+          "solutions": [
+            "Remove and reinsert SD card",
+            "Format SD card as FAT32",
+            "Try different SD card",
+            "Clean SD card contacts",
+            "Try card < 32GB",
+            "Check SD_SS_PIN configuration"
+          ]
+        },
+        {
+          "code": "SD_READ_ERROR",
+          "message": "SD Card Read Error",
+          "description": "Error reading from SD card",
+          "causes": [
+            "Card pulled during read",
+            "Card damaged",
+            "File corrupted",
+            "SPI speed too high"
+          ],
+          "solutions": [
+            "Re-slice and copy file again",
+            "Try different SD card",
+            "Enable SD_CHECK_AND_RETRY",
+            "Reduce SPI speed"
+          ]
+        },
+        {
+          "code": "SD_FILE_NOT_FOUND",
+          "message": "File not found",
+          "description": "Requested file not on SD card",
+          "causes": [
+            "File doesn't exist",
+            "Filename too long",
+            "Wrong path",
+            "Unsupported characters in filename"
+          ],
+          "solutions": [
+            "Check filename (8.3 format safest)",
+            "Avoid special characters in filename",
+            "Put file in root directory",
+            "Enable LONG_FILENAME_HOST_SUPPORT"
+          ]
+        },
+        {
+          "code": "SD_WRITE_ERROR",
+          "message": "SD Card Write Error",
+          "description": "Error writing to SD card",
+          "causes": [
+            "Card full",
+            "Card write protected",
+            "Card failing"
+          ],
+          "solutions": [
+            "Delete files from card",
+            "Check write protect switch",
+            "Replace SD card"
+          ]
+        }
+      ]
+    },
+    
+    "communication": {
+      "name": "Communication Errors",
+      "critical": false,
+      "errors": [
+        {
+          "code": "LINE_NUM_ERROR",
+          "message": "Line Number Error",
+          "description": "Received command with wrong line number",
+          "causes": [
+            "Connection interrupted",
+            "Commands lost",
+            "USB cable issue",
+            "Buffer overflow"
+          ],
+          "solutions": [
+            "Host should resend commands",
+            "Check USB cable",
+            "Reduce baud rate",
+            "Increase buffer sizes"
+          ]
+        },
+        {
+          "code": "CHECKSUM_ERROR",
+          "message": "Checksum Error",
+          "description": "Command checksum mismatch",
+          "causes": [
+            "Data corruption",
+            "EMI interference",
+            "Bad USB cable",
+            "Serial noise"
+          ],
+          "solutions": [
+            "Use shielded USB cable",
+            "Add ferrite beads",
+            "Reduce baud rate",
+            "Move cables away from steppers"
+          ]
+        },
+        {
+          "code": "UNKNOWN_COMMAND",
+          "message": "Unknown command",
+          "description": "Unrecognized G-code command",
+          "causes": [
+            "Feature not enabled in firmware",
+            "Typo in G-code",
+            "Slicer using unsupported command"
+          ],
+          "solutions": [
+            "Check if feature is enabled",
+            "Verify command syntax",
+            "Update Marlin or adjust slicer"
+          ]
+        },
+        {
+          "code": "BUSY_PROCESSING",
+          "message": "busy: processing",
+          "description": "Printer busy with current operation",
+          "causes": [
+            "Normal during operation",
+            "Waiting for temperature",
+            "Processing G-code"
+          ],
+          "solutions": [
+            "Wait for operation to complete",
+            "Use M108 to break out of heating wait",
+            "Enable HOST_KEEPALIVE_FEATURE to see status"
+          ]
+        }
+      ]
+    },
+    
+    "safety": {
+      "name": "Safety Errors",
+      "critical": true,
+      "errors": [
+        {
+          "code": "COLD_EXTRUSION",
+          "message": "Cold Extrusion Prevented",
+          "description": "Attempted to extrude below minimum temperature",
+          "causes": [
+            "Hotend not heated",
+            "Temperature dropped during print"
+          ],
+          "solutions": [
+            "Heat hotend: M104 S200",
+            "Wait for temp: M109 S200",
+            "Override with M302 P0 (NOT recommended)"
+          ],
+          "configOption": "EXTRUDE_MINTEMP"
+        },
+        {
+          "code": "LENGTHY_EXTRUDE",
+          "message": "Extrude too much",
+          "description": "Single extrusion exceeds maximum length",
+          "causes": [
+            "G-code trying to extrude too much at once",
+            "E value error in G-code"
+          ],
+          "solutions": [
+            "Check G-code for errors",
+            "Increase EXTRUDE_MAXLENGTH if needed",
+            "Reset E: G92 E0"
+          ],
+          "configOption": "EXTRUDE_MAXLENGTH"
+        },
+        {
+          "code": "SOFT_ENDSTOP",
+          "message": "Soft Endstop triggered",
+          "description": "Move would exceed software limits",
+          "causes": [
+            "Commanded position outside bed area",
+            "Homing not done",
+            "Software limits too restrictive"
+          ],
+          "solutions": [
+            "Home first: G28",
+            "Check X_MIN_POS, X_MAX_POS settings",
+            "Disable temporarily: M211 S0"
+          ]
+        },
+        {
+          "code": "POWER_LOSS",
+          "message": "Power Loss Detected",
+          "description": "Power failure detected (if PLR enabled)",
+          "causes": [
+            "Actual power failure",
+            "Power supply unstable"
+          ],
+          "solutions": [
+            "Resume with M1000 after power restored",
+            "Check power supply capacity",
+            "Add UPS if critical"
+          ]
+        }
+      ]
+    },
+    
+    "eeprom": {
+      "name": "EEPROM Errors",
+      "critical": false,
+      "errors": [
+        {
+          "code": "EEPROM_VERSION",
+          "message": "EEPROM Version Mismatch",
+          "description": "Stored settings incompatible with firmware",
+          "causes": [
+            "Firmware updated",
+            "EEPROM layout changed"
+          ],
+          "solutions": [
+            "Initialize EEPROM: M502 then M500",
+            "Reconfigure all settings"
+          ]
+        },
+        {
+          "code": "EEPROM_CRC",
+          "message": "EEPROM CRC Mismatch",
+          "description": "EEPROM data corrupted",
+          "causes": [
+            "Data corruption",
+            "EEPROM wear",
+            "Incomplete write"
+          ],
+          "solutions": [
+            "Reset EEPROM: M502 then M500",
+            "If recurring, EEPROM chip may be failing"
+          ]
+        }
+      ]
+    }
+  },
+  
+  "diagnosticCommands": {
+    "description": "Useful commands for troubleshooting",
+    "commands": [
+      {
+        "command": "M119",
+        "description": "Report endstop states",
+        "useFor": "Endstop/probe issues"
+      },
+      {
+        "command": "M122",
+        "description": "TMC driver debug info",
+        "useFor": "Motor/driver issues"
+      },
+      {
+        "command": "M105",
+        "description": "Report temperatures",
+        "useFor": "Temperature issues"
+      },
+      {
+        "command": "M503",
+        "description": "Report settings",
+        "useFor": "Configuration issues"
+      },
+      {
+        "command": "M114",
+        "description": "Report current position",
+        "useFor": "Position/homing issues"
+      },
+      {
+        "command": "M115",
+        "description": "Report firmware info",
+        "useFor": "Version/capability check"
+      },
+      {
+        "command": "M420 V",
+        "description": "Print bed mesh",
+        "useFor": "Leveling issues"
+      },
+      {
+        "command": "M303 E0 S200 C8",
+        "description": "PID autotune hotend",
+        "useFor": "Temperature stability issues"
+      }
+    ]
+  }
+}

@@ -354,23 +354,27 @@
 .modal-tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-sm);
+    gap: 4px;
+    padding: 8px;
     background: var(--background);
     border-bottom: 2px solid var(--border);
-    overflow-x: auto;
+    overflow: visible;
+    max-height: none;
 }
 
 .tab-btn {
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: 6px 10px;
     background: transparent;
     border: 2px solid transparent;
     border-radius: var(--radius-sm);
     cursor: pointer;
     color: var(--text-secondary);
     font-weight: 500;
+    font-size: 0.85em;
     transition: all var(--transition-fast);
     white-space: nowrap;
+    flex: 0 0 auto;
+    min-width: fit-content;
 }
 
 .tab-btn:hover {

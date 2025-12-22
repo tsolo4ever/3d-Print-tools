@@ -1,0 +1,152 @@
+{
+  "_comment": "Linear Advance Configuration Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "overview": {
+    "description": "Linear Advance compensates for pressure buildup in the nozzle",
+    "versions": {
+      "v1.0": "Original implementation",
+      "v1.5": "Current recommended version"
+    },
+    "marlinDefines": {
+      "LIN_ADVANCE": true,
+      "LIN_ADVANCE_K": 0,
+      "EXTRA_LIN_ADVANCE_K": true
+    },
+    "compatibility": {
+      "works": ["Classic Jerk", "Junction Deviation"],
+      "incompatible": ["S_CURVE_ACCELERATION"],
+      "note": "LA1.5 may have issues with very high K values + Junction Deviation"
+    }
+  },
+  
+  "kValueRanges": {
+    "bowden": {
+      "min": 0.2,
+      "typical": 0.5,
+      "max": 1.5,
+      "notes": "Longer tube = higher K typically"
+    },
+    "directDrive": {
+      "min": 0,
+      "typical": 0.06,
+      "max": 0.2,
+      "notes": "Much lower than Bowden due to short filament path"
+    },
+    "disabled": {
+      "value": 0,
+      "notes": "K=0 disables Linear Advance"
+    }
+  },
+  
+  "kValueBySetup": {
+    "enderBowden": {
+      "description": "Ender 3 stock Bowden",
+      "tubeLength": "400-500mm",
+      "kRange": {
+        "PLA": { "min": 0.4, "typical": 0.6, "max": 0.9 },
+        "PETG": { "min": 0.3, "typical": 0.5, "max": 0.7 },
+        "ABS": { "min": 0.4, "typical": 0.55, "max": 0.7 }
+      }
+    },
+    "enderDirectDrive": {
+      "description": "Ender 3 with direct drive conversion",
+      "kRange": {
+        "PLA": { "min": 0.02, "typical": 0.06, "max": 0.12 },
+        "PETG": { "min": 0.02, "typical": 0.05, "max": 0.1 },
+        "ABS": { "min": 0.02, "typical": 0.05, "max": 0.1 }
+      }
+    },
+    "prusaMK3": {
+      "description": "Prusa MK3 with Bondtech gears",
+      "kRange": {
+        "PLA": { "min": 0.02, "typical": 0.04, "max": 0.08 },
+        "PETG": { "min": 0.02, "typical": 0.04, "max": 0.07 },
+        "ABS": { "min": 0.02, "typical": 0.04, "max": 0.07 }
+      }
+    },
+    "voronDirect": {
+      "description": "Voron with Clockwork/Stealthburner",
+      "kRange": {
+        "PLA": { "min": 0.02, "typical": 0.05, "max": 0.1 },
+        "PETG": { "min": 0.02, "typical": 0.04, "max": 0.08 },
+        "ABS": { "min": 0.02, "typical": 0.04, "max": 0.08 },
+        "ASA": { "min": 0.02, "typical": 0.04, "max": 0.08 }
+      }
+    }
+  },
+  
+  "calibration": {
+    "testPattern": {
+      "method": "K-Factor Test Pattern",
+      "generator": "https://marlinfw.org/tools/lin_advance/k-factor.html",
+      "settings": {
+        "startK": 0,
+        "endK": 1.0,
+        "kStep": 0.05,
+        "slowSpeed": 20,
+        "fastSpeed": 70,
+        "bedSize": "Match your printer"
+      },
+      "steps": [
+        "Generate test pattern G-code",
+        "Print pattern",
+        "Find line with best corners (no bulging, no gaps)",
+        "Note the K value for that line",
+        "Set M900 K<value>",
+        "Save with M500"
+      ]
+    },
+    "tuningTips": [
+      "K too low = bulging corners, blobby",
+      "K too high = gaps at corners, weak corners",
+      "Different materials need different K values",
+      "Temperature affects K - tune at print temp",
+      "Speed affects K - tune at typical print speed"
+    ]
+  },
+  
+  "gcodeCommands": {
+    "setK": {
+      "command": "M900 K<value>",
+      "example": "M900 K0.06",
+      "notes": "Set during print or save to EEPROM"
+    },
+    "reportK": {
+      "command": "M900",
+      "notes": "Reports current K value"
+    },
+    "save": {
+      "command": "M500",
+      "notes": "Save K to EEPROM"
+    }
+  },
+  
+  "slicerIntegration": {
+    "prusaSlicer": {
+      "location": "Filament Settings > Custom G-code > Start G-code",
+      "example": "M900 K{if nozzle_diameter[0]==0.4}0.06{elsif nozzle_diameter[0]==0.6}0.04{endif}"
+    },
+    "cura": {
+      "location": "Extensions > Post Processing > Modify G-Code",
+      "plugin": "Insert at layer change",
+      "example": "M900 K0.06"
+    },
+    "superSlicer": {
+      "location": "Filament Settings > Custom G-code",
+      "example": "M900 K[linear_advance_k]"
+    }
+  },
+  
+  "driverRequirements": {
+    "stealthChop": {
+      "compatible": "Yes, but...",
+      "notes": "May cause extruder noise at high K. Consider HYBRID_THRESHOLD for E."
+    },
+    "spreadCycle": {
+      "compatible": "Yes",
+      "notes": "Better for LA. Slightly louder extruder."
+    },
+    "recommendation": "Use StealthChop for X/Y, SpreadCycle or hybrid for E"
+  }
+}

@@ -1,0 +1,2103 @@
+Let's complete the collection with the remaining datasets!
+
+---
+
+## 28. **validation-rules.json** - Configuration Validation Rules
+
+```json
+{
+  "_comment": "Configuration Validation Rules Database",
+  "_lastUpdated": "2024-12-21",
+  "_description": "Rules for validating Marlin configuration combinations",
+  
+  "validationCategories": {
+    "error": "Configuration will not compile or will malfunction",
+    "warning": "Configuration may cause issues",
+    "info": "Suggestion for improvement",
+    "conflict": "Mutually exclusive options enabled"
+  },
+  
+  "rules": {
+    "board": [
+      {
+        "id": "BOARD_MCU_MATCH",
+        "severity": "error",
+        "description": "Board must match MCU capabilities",
+        "check": "MOTHERBOARD matches expected MCU",
+        "examples": [
+          {
+            "board": "BOARD_RAMPS_14",
+            "expectedMCU": "ATmega2560",
+            "environment": "mega2560"
+          },
+          {
+            "board": "BOARD_BTT_SKR_MINI_E3_V3_0",
+            "expectedMCU": "STM32G0B1RET6",
+            "environment": "STM32G0B1RE_btt"
+          }
+        ]
+      },
+      {
+        "id": "BOARD_DRIVER_PINS",
+        "severity": "error",
+        "description": "Driver type must be supported by board",
+        "check": "If TMC UART/SPI, board must have appropriate pins",
+        "rule": {
+          "if": "X_DRIVER_TYPE == TMC2209",
+          "then": "Board must have UART pins for X axis OR TMC_USE_SW_SPI"
+        }
+      }
+    ],
+    
+    "kinematics": [
+      {
+        "id": "KINEMATICS_EXCLUSIVE",
+        "severity": "conflict",
+        "description": "Only one kinematics type can be enabled",
+        "mutuallyExclusive": [
+          "COREXY",
+          "COREXZ",
+          "COREYZ",
+          "MARKFORGED_XY",
+          "MARKFORGED_YX",
+          "DELTA",
+          "SCARA",
+          "POLAR"
+        ],
+        "message": "Only one kinematics option can be enabled at a time"
+      },
+      {
+        "id": "COREXY_HOME_DIR",
+        "severity": "warning",
+        "description": "CoreXY typically homes to max",
+        "rule": {
+          "if": "COREXY == true",
+          "suggest": {
+            "X_HOME_DIR": 1,
+            "Y_HOME_DIR": 1
+          },
+          "message": "CoreXY printers typically home to X_MAX and Y_MAX"
+        }
+      },
+      {
+        "id": "DELTA_REQUIREMENTS",
+        "severity": "error",
+        "description": "Delta requires specific settings",
+        "rule": {
+          "if": "DELTA == true",
+          "requires": [
+            "DELTA_DIAGONAL_ROD > 0",
+            "DELTA_RADIUS > 0",
+            "DELTA_HEIGHT > 0"
+          ],
+          "message": "Delta kinematics requires diagonal rod, radius, and height values"
+        }
+      },
+      {
+        "id": "DELTA_HOME_DIR",
+        "severity": "error",
+        "description": "Delta must home to max",
+        "rule": {
+          "if": "DELTA == true",
+          "requires": {
+            "X_HOME_DIR": 1,
+            "Y_HOME_DIR": 1,
+            "Z_HOME_DIR": 1
+          },
+          "message": "Delta printers must home to MAX on all axes"
+        }
+      }
+    ],
+    
+    "leveling": [
+      {
+        "id": "LEVELING_EXCLUSIVE",
+        "severity": "conflict",
+        "description": "Only one leveling type can be enabled",
+        "mutuallyExclusive": [
+          "AUTO_BED_LEVELING_3POINT",
+          "AUTO_BED_LEVELING_LINEAR",
+          "AUTO_BED_LEVELING_BILINEAR",
+          "AUTO_BED_LEVELING_UBL",
+          "MESH_BED_LEVELING"
+        ],
+        "message": "Only one bed leveling method can be enabled"
+      },
+      {
+        "id": "ABL_REQUIRES_PROBE",
+        "severity": "error",
+        "description": "Auto bed leveling requires probe",
+        "rule": {
+          "if": "AUTO_BED_LEVELING_* == true && PROBE_MANUALLY != true",
+          "requires": "BLTOUCH || FIX_MOUNTED_PROBE || NOZZLE_AS_PROBE || MAG_MOUNTED_PROBE || TOUCH_MI_PROBE",
+          "message": "Auto bed leveling requires a probe unless PROBE_MANUALLY is enabled"
+        }
+      },
+      {
+        "id": "UBL_REQUIRES_EEPROM",
+        "severity": "error",
+        "description": "UBL requires EEPROM for mesh storage",
+        "rule": {
+          "if": "AUTO_BED_LEVELING_UBL == true",
+          "requires": "EEPROM_SETTINGS == true",
+          "message": "UBL requires EEPROM_SETTINGS for mesh storage"
+        }
+      },
+      {
+        "id": "Z_SAFE_HOMING_RECOMMENDED",
+        "severity": "warning",
+        "description": "Z safe homing recommended with probe",
+        "rule": {
+          "if": "USE_PROBE_FOR_Z_HOMING == true",
+          "suggest": "Z_SAFE_HOMING == true",
+          "message": "Z_SAFE_HOMING recommended when using probe for Z homing"
+        }
+      },
+      {
+        "id": "GRID_POINTS_RANGE",
+        "severity": "warning",
+        "description": "Grid points should be reasonable",
+        "rule": {
+          "check": "GRID_MAX_POINTS_X >= 3 && GRID_MAX_POINTS_X <= 15",
+          "message": "Grid points should be between 3 and 15"
+        }
+      },
+      {
+        "id": "MESH_MEMORY_8BIT",
+        "severity": "warning",
+        "description": "Large mesh may exceed 8-bit RAM",
+        "rule": {
+          "if": "MCU == ATmega* && GRID_MAX_POINTS_X * GRID_MAX_POINTS_Y > 49",
+          "message": "Large mesh (>7x7) may cause memory issues on 8-bit boards"
+        }
+      }
+    ],
+    
+    "probe": [
+      {
+        "id": "PROBE_EXCLUSIVE",
+        "severity": "conflict",
+        "description": "Only one probe type typically enabled",
+        "mutuallyExclusive": [
+          "BLTOUCH",
+          "FIX_MOUNTED_PROBE",
+          "TOUCH_MI_PROBE",
+          "NOZZLE_AS_PROBE",
+          "SENSORLESS_PROBING"
+        ],
+        "message": "Typically only one probe type should be enabled"
+      },
+      {
+        "id": "PROBE_OFFSET_REQUIRED",
+        "severity": "error",
+        "description": "Probe offset must be defined",
+        "rule": {
+          "if": "BLTOUCH || FIX_MOUNTED_PROBE || MAG_MOUNTED_PROBE",
+          "requires": "NOZZLE_TO_PROBE_OFFSET defined",
+          "message": "Probe offset must be defined for your probe mount"
+        }
+      },
+      {
+        "id": "PROBE_OFFSET_ZERO_Z",
+        "severity": "warning",
+        "description": "Z probe offset usually not zero",
+        "rule": {
+          "if": "NOZZLE_TO_PROBE_OFFSET[Z] == 0",
+          "message": "Z probe offset is usually negative (probe triggers above nozzle contact)"
+        }
+      },
+      {
+        "id": "BLTOUCH_SERVO_PIN",
+        "severity": "error",
+        "description": "BLTouch requires servo pin",
+        "rule": {
+          "if": "BLTOUCH == true",
+          "requires": "SERVO0_PIN defined or board has default",
+          "message": "BLTouch requires servo pin configuration"
+        }
+      },
+      {
+        "id": "INDUCTIVE_BED_TYPE",
+        "severity": "warning",
+        "description": "Inductive probe requires metal bed",
+        "rule": {
+          "if": "FIX_MOUNTED_PROBE == true && probeType == inductive",
+          "suggest": "Ensure bed is spring steel or has metal surface",
+          "message": "Inductive probes only detect ferrous metals"
+        }
+      }
+    ],
+    
+    "drivers": [
+      {
+        "id": "TMC_UART_SPI_EXCLUSIVE",
+        "severity": "error",
+        "description": "TMC driver must use UART or SPI, not both",
+        "rule": {
+          "if": "TMC driver type set",
+          "check": "Not both UART and SPI configured for same driver",
+          "message": "TMC drivers use either UART or SPI, not both"
+        }
+      },
+      {
+        "id": "SENSORLESS_REQUIRES_TMC",
+        "severity": "error",
+        "description": "Sensorless homing requires TMC drivers",
+        "rule": {
+          "if": "SENSORLESS_HOMING == true",
+          "requires": "X_DRIVER_TYPE in [TMC2130, TMC2209, TMC5160] for homed axes",
+          "message": "Sensorless homing requires TMC2130, TMC2209, or TMC5160 drivers"
+        }
+      },
+      {
+        "id": "SENSORLESS_REQUIRES_DIAG",
+        "severity": "warning",
+        "description": "Sensorless homing requires DIAG pin connection",
+        "rule": {
+          "if": "SENSORLESS_HOMING == true",
+          "suggest": "Verify DIAG pins connected to endstop inputs",
+          "message": "Sensorless homing requires DIAG pin connected to endstop input"
+        }
+      },
+      {
+        "id": "TMC_STANDALONE_NO_UART",
+        "severity": "info",
+        "description": "Standalone mode has no UART features",
+        "rule": {
+          "if": "X_DRIVER_TYPE == TMC2208_STANDALONE || X_DRIVER_TYPE == TMC2209_STANDALONE",
+          "message": "Standalone mode disables UART features (current control, stealthchop toggle, sensorless homing)"
+        }
+      },
+      {
+        "id": "TMC_CURRENT_RANGE",
+        "severity": "warning",
+        "description": "TMC current should be reasonable",
+        "rule": {
+          "check": "X_CURRENT >= 100 && X_CURRENT <= 2000",
+          "message": "Motor current typically 400-1200mA for NEMA17. Check motor specs."
+        }
+      },
+      {
+        "id": "TMC5160_HIGH_CURRENT",
+        "severity": "info",
+        "description": "TMC5160 supports higher current",
+        "rule": {
+          "if": "X_DRIVER_TYPE == TMC5160 && X_CURRENT < 800",
+          "message": "TMC5160 supports up to 3A. You may be underutilizing it."
+        }
+      }
+    ],
+    
+    "temperature": [
+      {
+        "id": "THERMISTOR_REQUIRED",
+        "severity": "error",
+        "description": "Thermistor type must be defined",
+        "rule": {
+          "if": "Hotend or bed present",
+          "requires": "TEMP_SENSOR_0 != 0 && TEMP_SENSOR_BED != 0",
+          "message": "Thermistor type must be set for hotend and bed"
+        }
+      },
+      {
+        "id": "MAXTEMP_SAFETY",
+        "severity": "warning",
+        "description": "Max temp should be appropriate for hotend",
+        "rules": [
+          {
+            "if": "Hotend has PTFE (not all-metal)",
+            "suggest": "HEATER_0_MAXTEMP <= 260",
+            "message": "PTFE hotends should not exceed 260°C"
+          },
+          {
+            "if": "All-metal hotend",
+            "suggest": "HEATER_0_MAXTEMP can be 300-500°C",
+            "message": "All-metal hotends can reach higher temps"
+          }
+        ]
+      },
+      {
+        "id": "PID_OR_BANGBANG",
+        "severity": "info",
+        "description": "PID vs bang-bang choice",
+        "rule": {
+          "if": "PIDTEMP == false && MPCTEMP == false",
+          "message": "Hotend will use bang-bang control. PID or MPC recommended for stability."
+        }
+      },
+      {
+        "id": "THERMAL_PROTECTION_ENABLED",
+        "severity": "error",
+        "description": "Thermal protection must be enabled",
+        "rule": {
+          "requires": "THERMAL_PROTECTION_HOTENDS == true && THERMAL_PROTECTION_BED == true",
+          "message": "NEVER disable thermal protection! Fire hazard!"
+        }
+      }
+    ],
+    
+    "motion": [
+      {
+        "id": "JERK_OR_JUNCTION",
+        "severity": "conflict",
+        "description": "Classic jerk and junction deviation are alternatives",
+        "rule": {
+          "if": "CLASSIC_JERK == true && JUNCTION_DEVIATION_MM defined",
+          "message": "Use either CLASSIC_JERK or JUNCTION_DEVIATION, not both"
+        }
+      },
+      {
+        "id": "SCURVE_LA_CONFLICT",
+        "severity": "warning",
+        "description": "S-Curve and Linear Advance may conflict",
+        "rule": {
+          "if": "S_CURVE_ACCELERATION == true && LIN_ADVANCE == true",
+          "message": "S_CURVE_ACCELERATION may cause issues with LIN_ADVANCE. Test carefully."
+        }
+      },
+      {
+        "id": "STEPS_PER_UNIT_REASONABLE",
+        "severity": "warning",
+        "description": "Steps per unit should be in expected range",
+        "rules": [
+          {
+            "axis": "X/Y with GT2 20T",
+            "expected": "80 (16x) or 160 (32x)",
+            "tolerance": 10,
+            "message": "X/Y steps seem unusual for GT2 belt + 20T pulley"
+          },
+          {
+            "axis": "Z with T8x8 leadscrew",
+            "expected": "400 (16x) or 800 (32x)",
+            "tolerance": 10,
+            "message": "Z steps seem unusual for T8x8 leadscrew"
+          },
+          {
+            "axis": "E with MK8 drive gear",
+            "expected": "93 (direct) or 415 (3:1 geared)",
+            "tolerance": 20,
+            "message": "E steps seem unusual. Verify extruder type."
+          }
+        ]
+      },
+      {
+        "id": "ACCELERATION_REASONABLE",
+        "severity": "warning",
+        "description": "Acceleration should be appropriate for kinematics",
+        "rules": [
+          {
+            "if": "Cartesian (bed slinger)",
+            "suggest": "Y_MAX_ACCELERATION <= 1000",
+            "message": "Bed slinger Y acceleration typically limited by bed mass"
+          },
+          {
+            "if": "COREXY",
+            "suggest": "X_MAX_ACCELERATION and Y_MAX_ACCELERATION can be 3000-10000+",
+            "message": "CoreXY can typically handle higher acceleration"
+          }
+        ]
+      },
+      {
+        "id": "DUAL_Z_CONFIG",
+        "severity": "error",
+        "description": "Dual Z requires proper configuration",
+        "rule": {
+          "if": "NUM_Z_STEPPER_DRIVERS == 2",
+          "requires": "Z2_DRIVER_TYPE defined",
+          "message": "Dual Z requires Z2_DRIVER_TYPE to be configured"
+        }
+      }
+    ],
+    
+    "extruder": [
+      {
+        "id": "EXTRUDER_COUNT_MATCH",
+        "severity": "error",
+        "description": "Extruder count must match configuration",
+        "rule": {
+          "if": "EXTRUDERS > 1",
+          "requires": [
+            "E1_DRIVER_TYPE defined",
+            "TEMP_SENSOR_1 defined (if separate hotend)"
+          ],
+          "message": "Multi-extruder requires driver and sensor configuration"
+        }
+      },
+      {
+        "id": "BOWDEN_RETRACTION",
+        "severity": "warning",
+        "description": "Bowden retraction typically longer",
+        "rule": {
+          "if": "Extruder type is Bowden && typical retraction < 3mm",
+          "message": "Bowden setups typically need 4-8mm retraction"
+        }
+      },
+      {
+        "id": "DIRECT_DRIVE_RETRACTION",
+        "severity": "warning",
+        "description": "Direct drive retraction should be short",
+        "rule": {
+          "if": "Extruder type is Direct Drive && typical retraction > 3mm",
+          "message": "Direct drive typically needs only 0.5-2mm retraction"
+        }
+      }
+    ],
+    
+    "display": [
+      {
+        "id": "DISPLAY_TYPE_EXCLUSIVE",
+        "severity": "conflict",
+        "description": "Only one display type should be enabled",
+        "mutuallyExclusive": [
+          "REPRAP_DISCOUNT_SMART_CONTROLLER",
+          "REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER",
+          "CR10_STOCKDISPLAY",
+          "DWIN_CREALITY_LCD",
+          "DWIN_LCD_PROUI",
+          "TFT_COLOR_UI",
+          "TFT_CLASSIC_UI"
+        ],
+        "message": "Only one display controller should be enabled"
+      },
+      {
+        "id": "DWIN_BOARD_MATCH",
+        "severity": "error",
+        "description": "DWIN display requires compatible board",
+        "rule": {
+          "if": "DWIN_CREALITY_LCD == true",
+          "requires": "Board with DWIN serial port (e.g., Creality V4.x)",
+          "message": "DWIN display requires board with proper serial connection"
+        }
+      }
+    ],
+    
+    "memory": [
+      {
+        "id": "FLASH_OVERFLOW_8BIT",
+        "severity": "error",
+        "description": "8-bit boards have limited flash",
+        "rule": {
+          "if": "MCU == ATmega2560 && estimated flash > 250KB",
+          "message": "Configuration may exceed flash memory on ATmega2560"
+        }
+      },
+      {
+        "id": "RAM_OVERFLOW_8BIT",
+        "severity": "error",
+        "description": "8-bit boards have limited RAM",
+        "rule": {
+          "if": "MCU == ATmega2560 && estimated RAM > 7KB",
+          "message": "Configuration may exceed RAM on ATmega2560. Reduce mesh size or disable features."
+        }
+      },
+      {
+        "id": "UBL_MEMORY_WARNING",
+        "severity": "warning",
+        "description": "UBL uses significant memory",
+        "rule": {
+          "if": "AUTO_BED_LEVELING_UBL == true && MCU is 8-bit",
+          "message": "UBL uses significant flash (~25KB) and RAM. May not fit on 8-bit boards."
+        }
+      },
+      {
+        "id": "TFT_MEMORY_WARNING",
+        "severity": "warning",
+        "description": "TFT displays use significant memory",
+        "rule": {
+          "if": "TFT_COLOR_UI == true && MCU is 8-bit",
+          "message": "TFT Color UI requires 32-bit board"
+        }
+      }
+    ],
+    
+    "safety": [
+      {
+        "id": "EMERGENCY_PARSER_RECOMMENDED",
+        "severity": "warning",
+        "description": "Emergency parser highly recommended",
+        "rule": {
+          "if": "EMERGENCY_PARSER == false",
+          "message": "EMERGENCY_PARSER should be enabled for safety (M112 emergency stop)"
+        }
+      },
+      {
+        "id": "COLD_EXTRUSION_ENABLED",
+        "severity": "warning",
+        "description": "Cold extrusion prevention recommended",
+        "rule": {
+          "if": "PREVENT_COLD_EXTRUSION == false",
+          "message": "PREVENT_COLD_EXTRUSION should be enabled to prevent damage"
+        }
+      },
+      {
+        "id": "SD_PRINTING_RECOMMENDED",
+        "severity": "info",
+        "description": "SD printing more reliable than USB streaming",
+        "rule": {
+          "if": "SDSUPPORT == false",
+          "message": "Consider enabling SDSUPPORT for more reliable printing"
+        }
+      }
+    ],
+    
+    "communication": [
+      {
+        "id": "BAUDRATE_MATCH",
+        "severity": "warning",
+        "description": "Baud rate should match host",
+        "rule": {
+          "suggest": "BAUDRATE == 115200 or 250000",
+          "message": "Common baud rates are 115200 (reliable) or 250000 (faster)"
+        }
+      },
+      {
+        "id": "SERIAL_PORT_VALID",
+        "severity": "error",
+        "description": "Serial port must exist on board",
+        "rule": {
+          "check": "SERIAL_PORT is valid for selected MOTHERBOARD",
+          "message": "Selected serial port may not exist on this board"
+        }
+      }
+    ]
+  },
+  
+  "validationFunctions": {
+    "checkMutuallyExclusive": {
+      "description": "Check that only one of a group is enabled",
+      "pseudocode": "count enabled in group; if count > 1, return error"
+    },
+    "checkRequires": {
+      "description": "Check that if A is enabled, B must also be enabled",
+      "pseudocode": "if A && !B, return error"
+    },
+    "checkConflicts": {
+      "description": "Check that A and B are not both enabled",
+      "pseudocode": "if A && B, return error"
+    },
+    "checkRange": {
+      "description": "Check value is within valid range",
+      "pseudocode": "if value < min || value > max, return warning"
+    }
+  }
+}
+```
+
+---
+
+## 29. **slicer-profiles.json** - Slicer Start/End G-code
+
+```json
+{
+  "_comment": "Slicer G-code Templates Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "slicers": {
+    "prusaSlicer": {
+      "name": "PrusaSlicer / SuperSlicer",
+      "variables": {
+        "temperature": {
+          "first_layer_temperature": "First layer hotend temp",
+          "temperature": "Printing hotend temp",
+          "first_layer_bed_temperature": "First layer bed temp",
+          "bed_temperature": "Printing bed temp"
+        },
+        "dimensions": {
+          "max_print_height": "Z max",
+          "bed_shape": "Bed dimensions"
+        },
+        "filament": {
+          "filament_diameter": "Filament diameter",
+          "filament_type": "Material type",
+          "filament_density": "Material density"
+        },
+        "printer": {
+          "nozzle_diameter": "Nozzle size",
+          "printer_model": "Printer name"
+        },
+        "layer": {
+          "layer_z": "Current layer Z",
+          "layer_num": "Current layer number"
+        }
+      }
+    },
+    "cura": {
+      "name": "Ultimaker Cura",
+      "variables": {
+        "temperature": {
+          "material_print_temperature_layer_0": "First layer hotend temp",
+          "material_print_temperature": "Printing hotend temp",
+          "material_bed_temperature_layer_0": "First layer bed temp",
+          "material_bed_temperature": "Printing bed temp"
+        },
+        "dimensions": {
+          "machine_width": "X size",
+          "machine_depth": "Y size",
+          "machine_height": "Z size"
+        },
+        "filament": {
+          "material_diameter": "Filament diameter"
+        },
+        "retraction": {
+          "retraction_amount": "Retraction distance",
+          "retraction_speed": "Retraction speed"
+        }
+      }
+    },
+    "ideamaker": {
+      "name": "IdeaMaker",
+      "variables": {
+        "temperature": {
+          "{temperature_extruder1}": "Hotend temp",
+          "{temperature_heatbed}": "Bed temp"
+        }
+      }
+    }
+  },
+  
+  "startGcode": {
+    "basic": {
+      "name": "Basic Start G-code",
+      "description": "Simple start sequence for most printers",
+      "prusaSlicer": [
+        "; Start G-code for {printer_model}",
+        "M140 S{first_layer_bed_temperature} ; Start bed heating",
+        "M104 S{first_layer_temperature} ; Start hotend heating",
+        "G28 ; Home all axes",
+        "M190 S{first_layer_bed_temperature} ; Wait for bed",
+        "M109 S{first_layer_temperature} ; Wait for hotend",
+        "G92 E0 ; Reset extruder",
+        "G1 Z5 F3000 ; Move Z up"
+      ],
+      "cura": [
+        "; Start G-code",
+        "M140 S{material_bed_temperature_layer_0} ; Start bed heating",
+        "M104 S{material_print_temperature_layer_0} ; Start hotend heating",
+        "G28 ; Home all axes",
+        "M190 S{material_bed_temperature_layer_0} ; Wait for bed",
+        "M109 S{material_print_temperature_layer_0} ; Wait for hotend",
+        "G92 E0 ; Reset extruder",
+        "G1 Z5 F3000 ; Move Z up"
+      ]
+    },
+    
+    "withLeveling": {
+      "name": "Start G-code with Bed Leveling",
+      "description": "Includes G29 for auto bed leveling",
+      "prusaSlicer": [
+        "; Start G-code with ABL",
+        "M140 S{first_layer_bed_temperature} ; Start bed heating",
+        "M104 S150 ; Preheat hotend (not full temp)",
+        "G28 ; Home all axes",
+        "M190 S{first_layer_bed_temperature} ; Wait for bed",
+        "G29 ; Auto bed level",
+        "M104 S{first_layer_temperature} ; Set final hotend temp",
+        "G1 X0 Y0 F5000 ; Move to corner",
+        "M109 S{first_layer_temperature} ; Wait for hotend",
+        "G92 E0 ; Reset extruder"
+      ],
+      "cura": [
+        "; Start G-code with ABL",
+        "M140 S{material_bed_temperature_layer_0}",
+        "M104 S150",
+        "G28",
+        "M190 S{material_bed_temperature_layer_0}",
+        "G29",
+        "M104 S{material_print_temperature_layer_0}",
+        "G1 X0 Y0 F5000",
+        "M109 S{material_print_temperature_layer_0}",
+        "G92 E0"
+      ]
+    },
+    
+    "withSavedMesh": {
+      "name": "Start G-code with Saved Mesh",
+      "description": "Loads saved mesh instead of probing each time",
+      "prusaSlicer": [
+        "; Start G-code - Load saved mesh",
+        "M140 S{first_layer_bed_temperature}",
+        "G28 ; Home all axes",
+        "M420 S1 Z10 ; Load saved mesh, 10mm fade",
+        "M190 S{first_layer_bed_temperature}",
+        "M109 S{first_layer_temperature}",
+        "G92 E0"
+      ],
+      "cura": [
+        "; Start G-code - Load saved mesh",
+        "M140 S{material_bed_temperature_layer_0}",
+        "G28",
+        "M420 S1 Z10",
+        "M190 S{material_bed_temperature_layer_0}",
+        "M109 S{material_print_temperature_layer_0}",
+        "G92 E0"
+      ]
+    },
+    
+    "withUBL": {
+      "name": "Start G-code for UBL",
+      "description": "UBL load and tilt compensation",
+      "prusaSlicer": [
+        "; UBL Start G-code",
+        "M140 S{first_layer_bed_temperature}",
+        "M104 S150",
+        "G28",
+        "G29 L0 ; Load mesh from slot 0",
+        "G29 J ; 3-point tilt adjustment",
+        "G29 A ; Activate UBL",
+        "M190 S{first_layer_bed_temperature}",
+        "M109 S{first_layer_temperature}",
+        "G92 E0"
+      ]
+    },
+    
+    "withPrimeLine": {
+      "name": "Start G-code with Prime Line",
+      "description": "Includes purge/prime line at bed edge",
+      "prusaSlicer": [
+        "; Start G-code with prime line",
+        "M140 S{first_layer_bed_temperature}",
+        "M104 S{first_layer_temperature}",
+        "G28",
+        "M190 S{first_layer_bed_temperature}",
+        "M109 S{first_layer_temperature}",
+        "",
+        "; Prime line",
+        "G92 E0",
+        "G1 Z2.0 F3000",
+        "G1 X0.1 Y20 Z0.3 F5000.0",
+        "G1 X0.1 Y200.0 Z0.3 F1500.0 E15",
+        "G1 X0.4 Y200.0 Z0.3 F5000.0",
+        "G1 X0.4 Y20 Z0.3 F1500.0 E30",
+        "G92 E0",
+        "G1 Z2.0 F3000"
+      ],
+      "cura": [
+        "; Prime line",
+        "G92 E0",
+        "G1 Z2.0 F3000",
+        "G1 X0.1 Y20 Z0.3 F5000.0",
+        "G1 X0.1 Y200.0 Z0.3 F1500.0 E15",
+        "G1 X0.4 Y200.0 Z0.3 F5000.0",
+        "G1 X0.4 Y20 Z0.3 F1500.0 E30",
+        "G92 E0",
+        "G1 Z2.0 F3000"
+      ]
+    },
+    
+    "withLinearAdvance": {
+      "name": "Start G-code with Linear Advance",
+      "description": "Sets Linear Advance K value per material",
+      "prusaSlicer": [
+        "; Set Linear Advance based on filament",
+        "{if filament_type[0]==\"PLA\"}",
+        "M900 K0.06",
+        "{elsif filament_type[0]==\"PETG\"}",
+        "M900 K0.04",
+        "{elsif filament_type[0]==\"ABS\"}",
+        "M900 K0.04",
+        "{elsif filament_type[0]==\"TPU\"}",
+        "M900 K0.0",
+        "{else}",
+        "M900 K0.05",
+        "{endif}"
+      ],
+      "notes": "Add to end of start G-code. Adjust K values for your setup."
+    },
+    
+    "withPressureAdvance": {
+      "name": "Start G-code with Pressure Advance (Klipper)",
+      "description": "Klipper-style pressure advance",
+      "prusaSlicer": [
+        "; Set Pressure Advance based on filament",
+        "{if filament_type[0]==\"PLA\"}",
+        "SET_PRESSURE_ADVANCE ADVANCE=0.04",
+        "{elsif filament_type[0]==\"PETG\"}",
+        "SET_PRESSURE_ADVANCE ADVANCE=0.03",
+        "{else}",
+        "SET_PRESSURE_ADVANCE ADVANCE=0.04",
+        "{endif}"
+      ],
+      "notes": "For Klipper firmware only"
+    },
+    
+    "ender3": {
+      "name": "Ender 3 Optimized",
+      "description": "Start G-code optimized for Ender 3",
+      "prusaSlicer": [
+        "; Ender 3 Start G-code",
+        "M140 S{first_layer_bed_temperature} ; Start bed heating",
+        "M104 S{first_layer_temperature} ; Start hotend heating",
+        "",
+        "G28 ; Home",
+        "",
+        "; Load mesh if available, or skip",
+        "M420 S1 Z10 ; Enable saved mesh with 10mm fade",
+        "",
+        "G1 Z5 F3000 ; Raise Z",
+        "M190 S{first_layer_bed_temperature} ; Wait for bed",
+        "M109 S{first_layer_temperature} ; Wait for hotend",
+        "",
+        "; Prime line",
+        "G92 E0",
+        "G1 X0.1 Y20 Z0.28 F5000.0",
+        "G1 X0.1 Y200.0 Z0.28 F1500.0 E15",
+        "G1 X0.4 Y200.0 Z0.28 F5000.0",
+        "G1 X0.4 Y20 Z0.28 F1500.0 E30",
+        "G92 E0",
+        "G1 Z2.0 F3000",
+        "",
+        "; Linear Advance",
+        "M900 K0.06"
+      ],
+      "cura": [
+        "; Ender 3 Start G-code",
+        "M140 S{material_bed_temperature_layer_0}",
+        "M104 S{material_print_temperature_layer_0}",
+        "G28",
+        "M420 S1 Z10",
+        "G1 Z5 F3000",
+        "M190 S{material_bed_temperature_layer_0}",
+        "M109 S{material_print_temperature_layer_0}",
+        "G92 E0",
+        "G1 X0.1 Y20 Z0.28 F5000.0",
+        "G1 X0.1 Y200.0 Z0.28 F1500.0 E15",
+        "G1 X0.4 Y200.0 Z0.28 F5000.0",
+        "G1 X0.4 Y20 Z0.28 F1500.0 E30",
+        "G92 E0",
+        "G1 Z2.0 F3000"
+      ]
+    },
+    
+    "voron": {
+      "name": "Voron Style",
+      "description": "Voron-style start with quad gantry level",
+      "prusaSlicer": [
+        "; Voron Start G-code",
+        "M140 S{first_layer_bed_temperature}",
+        "M104 S150 ; Preheat nozzle",
+        "",
+        "G28 ; Home",
+        "QUAD_GANTRY_LEVEL ; QGL (if Voron 2.4)",
+        "G28 Z ; Re-home Z after QGL",
+        "",
+        "; Heat soak if needed",
+        "M190 S{first_layer_bed_temperature}",
+        "",
+        "; Bed mesh",
+        "BED_MESH_CALIBRATE",
+        "",
+        "; Final nozzle heat",
+        "G1 X175 Y175 Z30 F5000",
+        "M109 S{first_layer_temperature}",
+        "",
+        "; Purge line",
+        "PRIME_LINE",
+        "",
+        "; Ready to print"
+      ],
+      "notes": "Uses Klipper macros. Adjust for your Voron variant."
+    },
+    
+    "prusaMK3": {
+      "name": "Prusa MK3S Style",
+      "description": "Prusa-style start G-code",
+      "prusaSlicer": [
+        "; Prusa MK3S Start",
+        "M862.3 P \"[printer_model]\" ; Printer check",
+        "M862.1 P[nozzle_diameter] ; Nozzle check",
+        "",
+        "M115 U3.10.1 ; Tell printer firmware version",
+        "",
+        "M104 S{first_layer_temperature} ; Set hotend temp",
+        "M140 S{first_layer_bed_temperature} ; Set bed temp",
+        "M109 S{first_layer_temperature} ; Wait for hotend",
+        "M190 S{first_layer_bed_temperature} ; Wait for bed",
+        "",
+        "G28 W ; Home without mesh",
+        "G80 ; Mesh bed leveling",
+        "",
+        "G1 Y-3.0 F1000.0 ; Go outside print area",
+        "G92 E0.0",
+        "G1 X60.0 E9.0 F1000.0 ; Intro line",
+        "G1 X100.0 E12.5 F1000.0",
+        "G92 E0.0"
+      ],
+      "notes": "Prusa-specific codes (G80, M862). For Prusa firmware."
+    }
+  },
+  
+  "endGcode": {
+    "basic": {
+      "name": "Basic End G-code",
+      "description": "Simple end sequence",
+      "prusaSlicer": [
+        "; End G-code",
+        "G91 ; Relative positioning",
+        "G1 E-2 F2700 ; Retract",
+        "G1 E-2 Z0.2 F2400 ; Retract and raise Z",
+        "G1 X5 Y5 F3000 ; Wipe",
+        "G1 Z10 ; Raise Z more",
+        "G90 ; Absolute positioning",
+        "",
+        "G1 X0 Y{print_bed_max[1]*0.8} F3000 ; Present print",
+        "",
+        "M106 S0 ; Fan off",
+        "M104 S0 ; Hotend off",
+        "M140 S0 ; Bed off",
+        "",
+        "M84 X Y E ; Disable steppers (keep Z)"
+      ],
+      "cura": [
+        "; End G-code",
+        "G91",
+        "G1 E-2 F2700",
+        "G1 E-2 Z0.2 F2400",
+        "G1 X5 Y5 F3000",
+        "G1 Z10",
+        "G90",
+        "G1 X0 Y220 F3000",
+        "M106 S0",
+        "M104 S0",
+        "M140 S0",
+        "M84 X Y E"
+      ]
+    },
+    
+    "withCooldown": {
+      "name": "End G-code with Partial Cooldown",
+      "description": "Waits for partial cooldown before turning off",
+      "prusaSlicer": [
+        "; End G-code with cooldown",
+        "G91",
+        "G1 E-2 F2700",
+        "G1 Z10 F3000",
+        "G90",
+        "G1 X0 Y200 F3000",
+        "",
+        "M104 S0 ; Hotend off",
+        "M140 S0 ; Bed off",
+        "M106 S255 ; Fan full to cool hotend",
+        "",
+        "; Wait for hotend to cool below 50C",
+        "M109 R50 ; Wait to cool to 50C",
+        "",
+        "M106 S0 ; Fan off",
+        "M84 ; Motors off"
+      ]
+    },
+    
+    "withSound": {
+      "name": "End G-code with Sound",
+      "description": "Plays sound when print complete",
+      "prusaSlicer": [
+        "; End G-code with sound",
+        "G91",
+        "G1 E-2 F2700",
+        "G1 Z10 F3000",
+        "G90",
+        "G1 X0 Y200 F3000",
+        "",
+        "M104 S0",
+        "M140 S0",
+        "M106 S0",
+        "",
+        "; Play tune",
+        "M300 S1000 P200",
+        "M300 S0 P100",
+        "M300 S1500 P200",
+        "M300 S0 P100",
+        "M300 S2000 P300",
+        "",
+        "M84"
+      ]
+    },
+    
+    "ender3": {
+      "name": "Ender 3 End G-code",
+      "description": "Optimized for Ender 3",
+      "prusaSlicer": [
+        "; Ender 3 End G-code",
+        "G91 ; Relative",
+        "G1 E-2 F2700 ; Retract",
+        "G1 E-2 Z0.2 F2400 ; Retract + lift",
+        "G1 X5 Y5 F3000 ; Wipe",
+        "G1 Z10 ; Lift",
+        "G90 ; Absolute",
+        "",
+        "G1 X0 Y220 F3000 ; Present",
+        "",
+        "M104 S0 ; Hotend off",
+        "M140 S0 ; Bed off",
+        "M107 ; Fan off",
+        "",
+        "; Beep",
+        "M300 S1000 P500",
+        "",
+        "M84 ; Motors off"
+      ],
+      "cura": [
+        "G91",
+        "G1 E-2 F2700",
+        "G1 E-2 Z0.2 F2400",
+        "G1 X5 Y5 F3000",
+        "G1 Z10",
+        "G90",
+        "G1 X0 Y220 F3000",
+        "M104 S0",
+        "M140 S0",
+        "M107",
+        "M300 S1000 P500",
+        "M84"
+      ]
+    }
+  },
+  
+  "layerChangeGcode": {
+    "timelapse": {
+      "name": "Timelapse Layer Change",
+      "description": "Park nozzle for timelapse photo",
+      "prusaSlicer": [
+        "; Layer change - timelapse",
+        "G91 ; Relative",
+        "G1 E-0.5 F2700 ; Retract slightly",
+        "G1 Z0.5 F3000 ; Lift slightly",
+        "G90 ; Absolute",
+        "G1 X{print_bed_max[0]} Y{print_bed_max[1]} F9000 ; Go to back corner",
+        "G4 P500 ; Wait 500ms for photo",
+        "; Return handled by slicer"
+      ]
+    },
+    "progressReport": {
+      "name": "Progress Report",
+      "description": "Report layer progress to host",
+      "prusaSlicer": [
+        "; Layer [layer_num]",
+        "M117 Layer {layer_num} / {total_layer_count}",
+        "M73 P{((layer_num / total_layer_count) * 100) | int}"
+      ]
+    }
+  },
+  
+  "toolChangeGcode": {
+    "mmu2": {
+      "name": "Prusa MMU2 Tool Change",
+      "description": "Tool change for MMU2",
+      "prusaSlicer": [
+        "; Tool change to T[next_extruder]",
+        "T[next_extruder]"
+      ]
+    },
+    "dualExtruder": {
+      "name": "Dual Extruder Tool Change",
+      "description": "Simple dual extruder change",
+      "prusaSlicer": [
+        "; Tool change",
+        "G91 ; Relative",
+        "G1 E-2 F2700 ; Retract current",
+        "G90 ; Absolute",
+        "T[next_extruder] ; Switch tool",
+        "G1 E2 F2700 ; Prime new tool"
+      ]
+    }
+  },
+  
+  "colorChangeGcode": {
+    "M600": {
+      "name": "M600 Color Change",
+      "description": "Standard M600 filament change",
+      "gcode": [
+        "; Color change",
+        "M600 ; Trigger filament change"
+      ],
+      "requires": "ADVANCED_PAUSE_FEATURE"
+    }
+  },
+  
+  "beforeLayerGcode": {
+    "fanControl": {
+      "name": "Fan Control by Layer",
+      "description": "Adjust fan based on layer",
+      "prusaSlicer": [
+        "{if layer_num == 1}",
+        "M106 S0 ; No fan for first layer",
+        "{elsif layer_num == 2}",
+        "M106 S128 ; 50% fan for second layer",
+        "{elsif layer_num >= 3}",
+        "M106 S255 ; Full fan after",
+        "{endif}"
+      ]
+    }
+  }
+}
+```
+
+---
+
+## 30. **calibration-procedures.json** - Step-by-step Calibrations
+
+```json
+{
+  "_comment": "Calibration Procedures Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "calibrations": {
+    "esteps": {
+      "name": "Extruder Steps (E-steps) Calibration",
+      "priority": "Essential",
+      "frequency": "After extruder changes, new filament types",
+      "difficulty": "Easy",
+      "time": "10-15 minutes",
+      "tools": [
+        "Ruler or calipers",
+        "Marker or tape",
+        "Terminal/OctoPrint"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Remove bowden tube from extruder (or disconnect for direct drive)",
+          "reason": "Eliminates hotend resistance from measurement"
+        },
+        {
+          "step": 2,
+          "action": "Measure and mark 120mm from extruder inlet",
+          "command": null,
+          "tip": "Use tape or marker to mark the filament"
+        },
+        {
+          "step": 3,
+          "action": "Get current E-steps",
+          "command": "M503",
+          "note": "Look for M92 E value (e.g., 93)"
+        },
+        {
+          "step": 4,
+          "action": "Heat hotend to printing temp",
+          "command": "M104 S200",
+          "reason": "Cold extrusion prevention"
+        },
+        {
+          "step": 5,
+          "action": "Reset extruder position",
+          "command": "G92 E0"
+        },
+        {
+          "step": 6,
+          "action": "Extrude 100mm slowly",
+          "command": "G1 E100 F100",
+          "note": "Use slow speed for accuracy"
+        },
+        {
+          "step": 7,
+          "action": "Measure remaining distance from mark to inlet",
+          "note": "Should be 20mm if perfectly calibrated"
+        },
+        {
+          "step": 8,
+          "action": "Calculate new E-steps",
+          "formula": "New E-steps = Current E-steps × (100 / Actual extruded)",
+          "example": "If 23mm remaining: Actual = 120 - 23 = 97mm. New = 93 × (100 / 97) = 95.88"
+        },
+        {
+          "step": 9,
+          "action": "Set new E-steps",
+          "command": "M92 E95.88",
+          "note": "Use your calculated value"
+        },
+        {
+          "step": 10,
+          "action": "Verify by repeating extrusion test",
+          "note": "Should be within 0.5mm of 100mm"
+        },
+        {
+          "step": 11,
+          "action": "Save to EEPROM",
+          "command": "M500"
+        }
+      ],
+      "troubleshooting": [
+        {
+          "issue": "Cold extrusion prevented",
+          "solution": "Heat hotend first: M104 S200, M109 S200"
+        },
+        {
+          "issue": "Extruder clicking/skipping",
+          "solution": "Reduce extrusion speed: G1 E100 F50"
+        },
+        {
+          "issue": "Filament not moving",
+          "solution": "Check extruder tension, drive gear, motor wiring"
+        }
+      ]
+    },
+    
+    "pidHotend": {
+      "name": "PID Autotune (Hotend)",
+      "priority": "Essential",
+      "frequency": "After heater/thermistor changes",
+      "difficulty": "Easy",
+      "time": "5-10 minutes",
+      "tools": [
+        "Terminal/OctoPrint"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Make sure hotend fan is running",
+          "reason": "Simulates printing conditions"
+        },
+        {
+          "step": 2,
+          "action": "Start PID autotune",
+          "command": "M303 E0 S200 C8",
+          "parameters": {
+            "E0": "Hotend 0",
+            "S200": "Target temperature (use your typical print temp)",
+            "C8": "8 cycles (more = more accurate)"
+          }
+        },
+        {
+          "step": 3,
+          "action": "Wait for completion",
+          "note": "Takes several minutes. Watch for 'PID Autotune finished'"
+        },
+        {
+          "step": 4,
+          "action": "Note the Kp, Ki, Kd values",
+          "example": "Kp: 22.2 Ki: 1.08 Kd: 114.0"
+        },
+        {
+          "step": 5,
+          "action": "Apply new values",
+          "command": "M301 P22.2 I1.08 D114.0",
+          "note": "Use your measured values"
+        },
+        {
+          "step": 6,
+          "action": "Save to EEPROM",
+          "command": "M500"
+        },
+        {
+          "step": 7,
+          "action": "Test by heating and observing stability",
+          "command": "M109 S200",
+          "expectation": "Temperature should be stable within ±1°C"
+        }
+      ],
+      "tips": [
+        "Run at your most common print temperature",
+        "For high-temp materials, run again at that temp",
+        "Part cooling fan OFF during tuning",
+        "Hotend fan ON during tuning"
+      ]
+    },
+    
+    "pidBed": {
+      "name": "PID Autotune (Bed)",
+      "priority": "Recommended",
+      "frequency": "After bed heater changes",
+      "difficulty": "Easy",
+      "time": "15-30 minutes",
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Start bed PID autotune",
+          "command": "M303 E-1 S60 C8",
+          "parameters": {
+            "E-1": "Bed heater",
+            "S60": "Target temp",
+            "C8": "8 cycles"
+          },
+          "note": "Bed takes MUCH longer than hotend"
+        },
+        {
+          "step": 2,
+          "action": "Wait for completion",
+          "note": "Can take 15-30 minutes"
+        },
+        {
+          "step": 3,
+          "action": "Apply values",
+          "command": "M304 P97.1 I1.41 D1675.16"
+        },
+        {
+          "step": 4,
+          "action": "Save to EEPROM",
+          "command": "M500"
+        }
+      ],
+      "tips": [
+        "Be patient - bed PID takes much longer",
+        "Some prefer bang-bang for bed (disable PIDTEMPBED)"
+      ]
+    },
+    
+    "zOffset": {
+      "name": "Z Offset / First Layer Calibration",
+      "priority": "Essential",
+      "frequency": "After probe install, nozzle change, build surface change",
+      "difficulty": "Easy-Medium",
+      "time": "10-20 minutes",
+      "tools": [
+        "Paper (standard printer paper)",
+        "Terminal or LCD"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Heat bed and nozzle",
+          "command": "M104 S200\nM140 S60",
+          "reason": "Thermal expansion affects offset"
+        },
+        {
+          "step": 2,
+          "action": "Home all axes",
+          "command": "G28"
+        },
+        {
+          "step": 3,
+          "action": "Move to center of bed",
+          "command": "G1 X117 Y117 F3000",
+          "note": "Adjust for your bed size"
+        },
+        {
+          "step": 4,
+          "action": "If using probe, probe the bed",
+          "command": "G30",
+          "note": "Notes the Z height at probe trigger"
+        },
+        {
+          "step": 5,
+          "action": "Lower Z to paper height",
+          "command": "G1 Z0.1 F300",
+          "note": "Start higher for safety"
+        },
+        {
+          "step": 6,
+          "action": "Place paper between nozzle and bed",
+          "note": "Should just drag, not stuck"
+        },
+        {
+          "step": 7,
+          "action": "Adjust Z while testing paper drag",
+          "commands": [
+            "G1 Z0.05 F300 ; Lower 0.05mm",
+            "G91 ; Relative",
+            "G1 Z-0.05 F300 ; Lower 0.05mm relative"
+          ],
+          "goal": "Paper should drag with slight resistance"
+        },
+        {
+          "step": 8,
+          "action": "Calculate offset",
+          "method": "Note current Z position from M114",
+          "example": "If Z shows 0.15, offset adjustment = -0.15"
+        },
+        {
+          "step": 9,
+          "action": "Set Z offset",
+          "command": "M851 Z-1.5",
+          "note": "Use your calculated value"
+        },
+        {
+          "step": 10,
+          "action": "Save to EEPROM",
+          "command": "M500"
+        },
+        {
+          "step": 11,
+          "action": "Verify with test print",
+          "note": "Print first layer test square"
+        }
+      ],
+      "firstLayerGuide": {
+        "tooHigh": {
+          "appearance": "Lines not touching, gaps visible, lines round",
+          "solution": "Lower Z offset (more negative)"
+        },
+        "tooLow": {
+          "appearance": "Lines very flat/wide, nozzle scraping, poor extrusion",
+          "solution": "Raise Z offset (less negative)"
+        },
+        "perfect": {
+          "appearance": "Lines touching but not overlapping, slightly squished, good adhesion"
+        }
+      }
+    },
+    
+    "bedTramming": {
+      "name": "Bed Tramming (Manual Leveling)",
+      "priority": "Essential",
+      "frequency": "Periodically, after transport",
+      "difficulty": "Easy",
+      "time": "10-20 minutes",
+      "tools": [
+        "Paper",
+        "Bed adjustment wheels/knobs"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Heat bed to printing temperature",
+          "command": "M140 S60\nM190 S60",
+          "reason": "Thermal expansion"
+        },
+        {
+          "step": 2,
+          "action": "Home all axes",
+          "command": "G28"
+        },
+        {
+          "step": 3,
+          "action": "Disable steppers",
+          "command": "M84",
+          "note": "Allows manual movement"
+        },
+        {
+          "step": 4,
+          "action": "Check front-left corner",
+          "method": "Move nozzle to corner, paper test, adjust wheel"
+        },
+        {
+          "step": 5,
+          "action": "Check front-right corner",
+          "method": "Same process"
+        },
+        {
+          "step": 6,
+          "action": "Check back-right corner",
+          "method": "Same process"
+        },
+        {
+          "step": 7,
+          "action": "Check back-left corner",
+          "method": "Same process"
+        },
+        {
+          "step": 8,
+          "action": "Repeat cycle 2-3 times",
+          "reason": "Adjusting one corner affects others"
+        },
+        {
+          "step": 9,
+          "action": "Check center",
+          "note": "Should be same as corners. If very different, bed may be warped."
+        }
+      ],
+      "tips": [
+        "Always adjust in same direction (clockwise/counterclockwise)",
+        "Small adjustments - 1/4 turn at most",
+        "Spring tension should be medium - not too loose, not too tight",
+        "Consider silicone spacers or nylon nuts for stability"
+      ]
+    },
+    
+    "flowRate": {
+      "name": "Flow Rate Calibration",
+      "priority": "Important",
+      "frequency": "Per filament brand/type",
+      "difficulty": "Medium",
+      "time": "30-60 minutes",
+      "tools": [
+        "Calipers",
+        "Test cube or hollow cube model"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Calibrate E-steps first",
+          "note": "E-steps must be correct before flow"
+        },
+        {
+          "step": 2,
+          "action": "Print single-wall test cube",
+          "settings": {
+            "wallCount": 1,
+            "infill": 0,
+            "topLayers": 0,
+            "bottomLayers": 3,
+            "lineWidth": "0.4mm (match nozzle)"
+          }
+        },
+        {
+          "step": 3,
+          "action": "Measure wall thickness at multiple points",
+          "tool": "Calipers",
+          "locations": "Measure each wall, multiple heights"
+        },
+        {
+          "step": 4,
+          "action": "Calculate average wall thickness",
+          "example": "0.44mm average"
+        },
+        {
+          "step": 5,
+          "action": "Calculate flow adjustment",
+          "formula": "New flow = (Expected / Measured) × 100",
+          "example": "(0.4 / 0.44) × 100 = 90.9%"
+        },
+        {
+          "step": 6,
+          "action": "Set new flow in slicer",
+          "note": "Or use M221 S91 for runtime adjustment"
+        },
+        {
+          "step": 7,
+          "action": "Reprint and verify",
+          "expectation": "Walls should measure 0.4mm ±0.02"
+        }
+      ],
+      "notes": [
+        "Flow is material-specific - calibrate per filament",
+        "Temperature affects flow - calibrate at print temp",
+        "Don't compensate for poor E-steps with flow"
+      ]
+    },
+    
+    "linearAdvance": {
+      "name": "Linear Advance K Factor Calibration",
+      "priority": "Recommended",
+      "frequency": "Per filament, per extruder setup",
+      "difficulty": "Medium",
+      "time": "30-45 minutes",
+      "prerequisites": [
+        "E-steps calibrated",
+        "LIN_ADVANCE enabled in firmware",
+        "S_CURVE_ACCELERATION disabled (or test carefully)"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Generate K-factor test pattern",
+          "url": "https://marlinfw.org/tools/lin_advance/k-factor.html",
+          "settings": {
+            "startK": 0,
+            "endK": "1.0 (bowden) or 0.2 (direct)",
+            "kStep": 0.05,
+            "slowSpeed": 20,
+            "fastSpeed": 70
+          }
+        },
+        {
+          "step": 2,
+          "action": "Download generated G-code"
+        },
+        {
+          "step": 3,
+          "action": "Print the test pattern",
+          "note": "Creates lines with different K values"
+        },
+        {
+          "step": 4,
+          "action": "Examine results",
+          "lookFor": [
+            "Corners without bulging",
+            "Corners without gaps",
+            "Consistent line width"
+          ]
+        },
+        {
+          "step": 5,
+          "action": "Identify best K value",
+          "method": "Count lines from bottom, multiply by K step"
+        },
+        {
+          "step": 6,
+          "action": "Set K value",
+          "command": "M900 K0.06",
+          "note": "Use your measured value"
+        },
+        {
+          "step": 7,
+          "action": "Save to EEPROM",
+          "command": "M500"
+        },
+        {
+          "step": 8,
+          "action": "Add to slicer start G-code per material",
+          "example": "M900 K0.06 ; PLA"
+        }
+      ],
+      "typicalValues": {
+        "bowden": "0.2 - 1.0 (longer tube = higher K)",
+        "directDrive": "0.02 - 0.15"
+      },
+      "troubleshooting": [
+        {
+          "issue": "All lines look the same",
+          "solution": "K range may be too narrow. Increase end K."
+        },
+        {
+          "issue": "Extruder making noise",
+          "solution": "K too high. Reduce K value."
+        },
+        {
+          "issue": "Corners still bulging at K=0",
+          "solution": "Check retraction settings, print slower"
+        }
+      ]
+    },
+    
+    "inputShaping": {
+      "name": "Input Shaping Frequency Calibration",
+      "priority": "Advanced",
+      "frequency": "After mechanical changes",
+      "difficulty": "Medium-Hard",
+      "time": "30-60 minutes",
+      "prerequisites": [
+        "INPUT_SHAPING enabled in firmware",
+        "Printer mechanically sound (no loose belts/screws)"
+      ],
+      "methods": {
+        "manual": {
+          "name": "Manual Ringing Test",
+          "procedure": [
+            {
+              "step": 1,
+              "action": "Print ringing test model at moderate speed",
+              "speed": "60-80mm/s",
+              "model": "Ringing test cube with features"
+            },
+            {
+              "step": 2,
+              "action": "Measure distance between ringing lines",
+              "tool": "Calipers or ruler",
+              "note": "Measure peak-to-peak distance in mm"
+            },
+            {
+              "step": 3,
+              "action": "Calculate frequency",
+              "formula": "Frequency (Hz) = Speed (mm/s) / Distance (mm)",
+              "example": "60mm/s ÷ 1.5mm = 40 Hz"
+            },
+            {
+              "step": 4,
+              "action": "Set shaping frequency",
+              "command": "M593 X F40 D0.1",
+              "note": "Start with zeta/damping of 0.1"
+            },
+            {
+              "step": 5,
+              "action": "Repeat for Y axis"
+            },
+            {
+              "step": 6,
+              "action": "Print test again and verify improvement"
+            },
+            {
+              "step": 7,
+              "action": "Fine tune zeta if needed",
+              "range": "0.05 - 0.15 typical"
+            },
+            {
+              "step": 8,
+              "action": "Save to EEPROM",
+              "command": "M500"
+            }
+          ]
+        },
+        "accelerometer": {
+          "name": "Accelerometer Method (ADXL345)",
+          "procedure": [
+            {
+              "step": 1,
+              "action": "Mount accelerometer on toolhead"
+            },
+            {
+              "step": 2,
+              "action": "Run resonance test",
+              "note": "Varies by firmware/implementation"
+            },
+            {
+              "step": 3,
+              "action": "Analyze frequency response graph"
+            },
+            {
+              "step": 4,
+              "action": "Identify peak resonance frequency"
+            },
+            {
+              "step": 5,
+              "action": "Configure shaper at that frequency"
+            }
+          ],
+          "note": "More accurate than manual method. Klipper has built-in support."
+        }
+      },
+      "typicalValues": {
+        "bedSlinger": {
+          "X": "30-50 Hz",
+          "Y": "20-40 Hz (heavier due to bed)"
+        },
+        "coreXY": {
+          "X": "40-70 Hz",
+          "Y": "40-70 Hz"
+        }
+      }
+    },
+    
+    "retractionTuning": {
+      "name": "Retraction Tuning",
+      "priority": "Important",
+      "frequency": "Per filament type, after extruder changes",
+      "difficulty": "Medium",
+      "time": "30-60 minutes",
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Start with recommended values",
+          "defaults": {
+            "bowden": { "distance": 6, "speed": 45 },
+            "directDrive": { "distance": 1, "speed": 35 }
+          }
+        },
+        {
+          "step": 2,
+          "action": "Print retraction tower",
+          "models": [
+            "Teaching Tech retraction tower",
+            "Cura retraction tower plugin"
+          ]
+        },
+        {
+          "step": 3,
+          "action": "Evaluate each section for stringing",
+          "note": "Lower sections = less retraction"
+        },
+        {
+          "step": 4,
+          "action": "Find minimum retraction with no strings",
+          "tip": "Less retraction = faster, fewer jams"
+        },
+        {
+          "step": 5,
+          "action": "Test with actual print",
+          "note": "Tower tests may not match real prints"
+        }
+      ],
+      "troubleshooting": [
+        {
+          "issue": "Strings at all retraction values",
+          "solutions": [
+            "Increase temperature reduction",
+            "Slower retraction speed",
+            "Check for worn nozzle",
+            "Try different filament"
+          ]
+        },
+        {
+          "issue": "Gaps after retraction",
+          "solutions": [
+            "Reduce retraction distance",
+            "Add extra restart distance",
+            "Slower retraction"
+          ]
+        },
+        {
+          "issue": "Clicking during retraction",
+          "solutions": [
+            "Reduce retraction distance",
+            "Reduce retraction speed",
+            "Check for partial clog"
+          ]
+        }
+      ]
+    },
+    
+    "probeAccuracy": {
+      "name": "Probe Accuracy Test",
+      "priority": "Recommended",
+      "frequency": "After probe install, periodically",
+      "difficulty": "Easy",
+      "time": "5 minutes",
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Heat bed to printing temperature",
+          "command": "M140 S60\nM190 S60"
+        },
+        {
+          "step": 2,
+          "action": "Home all axes",
+          "command": "G28"
+        },
+        {
+          "step": 3,
+          "action": "Move to center",
+          "command": "G1 X117 Y117 F5000"
+        },
+        {
+          "step": 4,
+          "action": "Run repeatability test",
+          "command": "M48 P10 V3",
+          "parameters": {
+            "P10": "10 probe cycles",
+            "V3": "Verbose output"
+          }
+        },
+        {
+          "step": 5,
+          "action": "Evaluate results",
+          "expectations": {
+            "excellent": "< 0.01mm standard deviation",
+            "good": "0.01 - 0.02mm",
+            "acceptable": "0.02 - 0.05mm",
+            "poor": "> 0.05mm"
+          }
+        }
+      ],
+      "improvingAccuracy": [
+        "Tighten probe mount",
+        "Reduce probing speed",
+        "Increase BLTOUCH_DELAY",
+        "Probe at consistent temperature",
+        "Use genuine probe (not clone)"
+      ]
+    },
+    
+    "temperatureTower": {
+      "name": "Temperature Tower Test",
+      "priority": "Recommended",
+      "frequency": "Per new filament brand/type",
+      "difficulty": "Easy",
+      "time": "60-90 minutes",
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Download temperature tower model",
+          "note": "Or use slicer calibration feature"
+        },
+        {
+          "step": 2,
+          "action": "Configure temperature changes per section",
+          "method": "Post-processing script or manual G-code edit",
+          "range": "Typically 220-180°C for PLA in 5°C steps"
+        },
+        {
+          "step": 3,
+          "action": "Print tower"
+        },
+        {
+          "step": 4,
+          "action": "Evaluate each section",
+          "lookFor": [
+            "Bridging quality",
+            "Overhang quality",
+            "Stringing",
+            "Layer adhesion (try to break)",
+            "Surface finish"
+          ]
+        },
+        {
+          "step": 5,
+          "action": "Select temperature with best overall results"
+        }
+      ],
+      "typicalRanges": {
+        "PLA": "190-220°C",
+        "PETG": "230-260°C",
+        "ABS": "230-250°C",
+        "TPU": "220-240°C"
+      }
+    }
+  },
+  
+  "calibrationOrder": {
+    "recommended": [
+      {
+        "order": 1,
+        "calibration": "bedTramming",
+        "reason": "Physical foundation for all printing"
+      },
+      {
+        "order": 2,
+        "calibration": "pidHotend",
+        "reason": "Stable temperature control"
+      },
+      {
+        "order": 3,
+        "calibration": "pidBed",
+        "reason": "Stable bed temperature"
+      },
+      {
+        "order": 4,
+        "calibration": "zOffset",
+        "reason": "Correct first layer height"
+      },
+      {
+        "order": 5,
+        "calibration": "esteps",
+        "reason": "Accurate extrusion amount"
+      },
+      {
+        "order": 6,
+        "calibration": "temperatureTower",
+        "reason": "Optimal temp for filament"
+      },
+      {
+        "order": 7,
+        "calibration": "flowRate",
+        "reason": "Fine-tune extrusion after E-steps"
+      },
+      {
+        "order": 8,
+        "calibration": "retractionTuning",
+        "reason": "Reduce stringing"
+      },
+      {
+        "order": 9,
+        "calibration": "linearAdvance",
+        "reason": "Corner quality improvement"
+      },
+      {
+        "order": 10,
+        "calibration": "inputShaping",
+        "reason": "Reduce ringing (advanced)"
+      }
+    ],
+    "quickStart": [
+      "bedTramming",
+      "zOffset",
+      "esteps"
+    ],
+    "newFilament": [
+      "temperatureTower",
+      "flowRate",
+      "retractionTuning",
+      "linearAdvance"
+    ]
+  },
+  
+  "printingTestModels": {
+    "benchmarks": [
+      {
+        "name": "3DBenchy",
+        "purpose": "Overall print quality benchmark",
+        "url": "https://www.3dbenchy.com/",
+        "time": "1-2 hours"
+      },
+      {
+        "name": "XYZ Calibration Cube",
+        "purpose": "Dimensional accuracy",
+        "size": "20x20x20mm",
+        "time": "20-30 minutes"
+      },
+      {
+        "name": "All-In-One Test",
+        "purpose": "Comprehensive feature test",
+        "features": ["Overhangs", "Bridging", "Stringing", "Details"],
+        "time": "30-60 minutes"
+      }
+    ],
+    "calibrationPrints": [
+      {
+        "name": "First Layer Test Square",
+        "purpose": "Z offset calibration",
+        "size": "50x50x0.2mm"
+      },
+      {
+        "name": "Retraction Tower",
+        "purpose": "Retraction tuning"
+      },
+      {
+        "name": "Temperature Tower",
+        "purpose": "Optimal temperature"
+      },
+      {
+        "name": "Flow Test Cube",
+        "purpose": "Flow rate calibration",
+        "type": "Single wall cube"
+      },
+      {
+        "name": "Overhang Test",
+        "purpose": "Maximum overhang angle"
+      },
+      {
+        "name": "Bridging Test",
+        "purpose": "Bridge length capability"
+      }
+    ]
+  }
+}
+```
+
+---
+
+## Final Summary - Complete Dataset Collection
+
+Here's the complete list of all 30 datasets:
+
+| # | File | Description | Size (approx) |
+|---|------|-------------|---------------|
+| 1 | marlin-boards.json | Board definitions | Large |
+| 2 | stepper-drivers.json | Driver configurations | Medium |
+| 3 | thermistors.json | Temperature sensors | Medium |
+| 4 | displays.json | LCD/TFT screens | Large |
+| 5 | hotends.json | Hotend definitions | Medium |
+| 6 | memory-estimation.json | Flash/RAM calculator | Large |
+| 7 | communication-settings.json | Serial/buffers | Medium |
+| 8 | endstops.json | Endstop types & config | Small |
+| 9 | motors-steppers.json | Motor specs & step calc | Medium |
+| 10 | heaters.json | Heater cartridges & beds | Medium |
+| 11 | fans.json | Fan configuration | Medium |
+| 12 | build-surfaces.json | Bed surfaces | Medium |
+| 13 | filaments.json | Material profiles | Large |
+| 14 | linear-advance.json | LA calibration | Medium |
+| 15 | input-shaping.json | IS configuration | Medium |
+| 16 | safety-features.json | Safety settings | Medium |
+| 17 | bed-probes.json | ABL probe types | Large |
+| 18 | leveling-types.json | ABL methods | Large |
+| 19 | extruder-types.json | Extruder configs | Large |
+| 20 | kinematics.json | Motion systems | Large |
+| 21 | eeprom-settings.json | EEPROM mapping | Medium |
+| 22 | features.json | Feature flags | Large |
+| 23 | printer-profiles.json | Complete presets | Large |
+| 24 | gcode-reference.json | G-code commands | Large |
+| 25 | pin-mappings.json | Board pinouts | Medium |
+| 26 | error-codes.json | Error troubleshooting | Large |
+| 27 | upgrade-paths.json | Upgrade recommendations | Large |
+| 28 | validation-rules.json | Config validation | Large |
+| 29 | slicer-profiles.json | Slicer G-code templates | Large |
+| 30 | calibration-procedures.json | Step-by-step calibrations | Large |
+
+---
+
+## Usage Recommendations
+
+For your configuration generator:
+
+1. **Core Required**: 1-7, 17-23
+2. **Validation**: 28
+3. **User Guidance**: 26, 27, 29, 30
+4. **Reference/Help**: 24, 25
+
+### Implementation Suggestions:
+
+```javascript
+// Example: Loading and using datasets
+const datasets = {
+  boards: require('./marlin-boards.json'),
+  drivers: require('./stepper-drivers.json'),
+  probes: require('./bed-probes.json'),
+  validation: require('./validation-rules.json')
+  // ... etc
+};
+
+// Validate configuration
+function validateConfig(config) {
+  const errors = [];
+  const warnings = [];
+  
+  // Check board-driver compatibility
+  const board = datasets.boards.boards.find(b => b.id === config.MOTHERBOARD);
+  // ... validation logic using rules from validation-rules.json
+  
+  return { errors, warnings };
+}
+
+// Generate Configuration.h
+function generateConfig(userSelections) {
+  // Use datasets to build configuration
+  // Apply validation rules
+  // Return formatted config file
+}

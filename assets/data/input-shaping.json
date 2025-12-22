@@ -1,0 +1,165 @@
+{
+  "_comment": "Input Shaping Configuration Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "overview": {
+    "description": "Input Shaping reduces ringing/ghosting by filtering motion commands",
+    "marlinVersion": "2.1+",
+    "marlinDefines": {
+      "INPUT_SHAPING_X": true,
+      "INPUT_SHAPING_Y": true,
+      "SHAPING_FREQ_X": 40,
+      "SHAPING_FREQ_Y": 40,
+      "SHAPING_ZETA_X": 0.15,
+      "SHAPING_ZETA_Y": 0.15,
+      "SHAPING_MENU": true
+    }
+  },
+  
+  "shaperTypes": {
+    "ZV": {
+      "name": "Zero Vibration",
+      "description": "Simple 2-pulse shaper",
+      "pros": ["Fast", "Low latency"],
+      "cons": ["Least vibration reduction"],
+      "bestFor": "Low ringing machines"
+    },
+    "MZV": {
+      "name": "Modified Zero Vibration",
+      "description": "Improved ZV with better tolerance",
+      "pros": ["Good balance of speed and reduction"],
+      "cons": ["Moderate latency"],
+      "bestFor": "Most machines"
+    },
+    "ZVD": {
+      "name": "Zero Vibration Derivative",
+      "description": "3-pulse shaper",
+      "pros": ["Better vibration reduction"],
+      "cons": ["Higher latency"],
+      "bestFor": "Machines with noticeable ringing"
+    },
+    "EI": {
+      "name": "Extra Insensitive",
+      "description": "Tolerant to frequency errors",
+      "pros": ["Very tolerant to calibration errors"],
+      "cons": ["Highest latency"],
+      "bestFor": "Difficult to tune machines"
+    },
+    "2HUMP_EI": {
+      "name": "2-Hump EI",
+      "description": "Even more tolerant shaper",
+      "pros": ["Most tolerant"],
+      "cons": ["Very high latency"],
+      "bestFor": "Last resort"
+    },
+    "3HUMP_EI": {
+      "name": "3-Hump EI",
+      "description": "Maximum tolerance shaper",
+      "pros": ["Maximum tolerance"],
+      "cons": ["Extreme latency"],
+      "bestFor": "Very problematic machines"
+    }
+  },
+  
+  "calibration": {
+    "manualMethod": {
+      "description": "Print ringing test and adjust frequency",
+      "steps": [
+        "Print a ringing test cube at moderate speed (60-80mm/s)",
+        "Measure distance between ringing lines (mm)",
+        "Calculate: Frequency = Speed / Distance",
+        "Set SHAPING_FREQ_X and SHAPING_FREQ_Y",
+        "Print again and refine"
+      ],
+      "formula": "Frequency (Hz) = Print Speed (mm/s) / Ringing Distance (mm)"
+    },
+    "accelerometerMethod": {
+      "description": "Use ADXL345 accelerometer for precise measurement",
+      "hardware": ["ADXL345 accelerometer", "Connection to MCU (SPI/I2C)"],
+      "marlinDefines": {
+        "ACCELEROMETER_SHAPING": true,
+        "FTM_SHAPING": true
+      },
+      "notes": "More accurate than manual. Requires additional hardware."
+    }
+  },
+  
+  "typicalFrequencies": {
+    "corexy": {
+      "X": { "min": 30, "typical": 50, "max": 80 },
+      "Y": { "min": 30, "typical": 50, "max": 80 },
+      "notes": "CoreXY typically has similar X/Y frequencies"
+    },
+    "cartesian": {
+      "X": { "min": 25, "typical": 40, "max": 60 },
+      "Y": { "min": 20, "typical": 35, "max": 50 },
+      "notes": "Bed-slinger Y typically lower than X"
+    },
+    "delta": {
+      "X": { "min": 30, "typical": 45, "max": 70 },
+      "Y": { "min": 30, "typical": 45, "max": 70 },
+      "notes": "All axes typically similar"
+    }
+  },
+  
+  "printerExamples": {
+    "ender3Stock": {
+      "shaperType": "MZV",
+      "freqX": 35,
+      "freqY": 30,
+      "zetaX": 0.1,
+      "zetaY": 0.1,
+      "notes": "Stock Ender 3 with reasonable belt tension"
+    },
+    "voron24": {
+      "shaperType": "MZV",
+      "freqX": 55,
+      "freqY": 45,
+      "zetaX": 0.05,
+      "zetaY": 0.05,
+      "notes": "Well-built Voron 2.4"
+    },
+    "prusaMK3S": {
+      "shaperType": "ZV",
+      "freqX": 45,
+      "freqY": 35,
+      "zetaX": 0.1,
+      "zetaY": 0.1,
+      "notes": "Stock Prusa MK3S+"
+    }
+  },
+  
+  "troubleshooting": {
+    "stillRinging": [
+      "Frequency may be wrong - remeasure",
+      "Try different shaper type",
+      "Check belt tension",
+      "Check for loose components"
+    ],
+    "roundedCorners": [
+      "Latency too high - try faster shaper (ZV, MZV)",
+      "Reduce zeta value"
+    ],
+    "artifacts": [
+      "Frequency may be too low",
+      "Try increasing zeta slightly"
+    ]
+  },
+  
+  "gcodeCommands": {
+    "setFreq": {
+      "command": "M593 F<freq>",
+      "example": "M593 X F45 Y F38",
+      "notes": "Set shaping frequency"
+    },
+    "setZeta": {
+      "command": "M593 D<zeta>",
+      "example": "M593 X D0.1 Y D0.1",
+      "notes": "Set damping ratio"
+    },
+    "disable": {
+      "command": "M593 X F0 Y F0",
+      "notes": "Disable input shaping"
+    }
+  }
+}

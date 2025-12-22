@@ -1,0 +1,883 @@
+{
+  "_comment": "Calibration Procedures Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "calibrations": {
+    "esteps": {
+      "name": "Extruder Steps (E-steps) Calibration",
+      "priority": "Essential",
+      "frequency": "After extruder changes, new filament types",
+      "difficulty": "Easy",
+      "time": "10-15 minutes",
+      "tools": [
+        "Ruler or calipers",
+        "Marker or tape",
+        "Terminal/OctoPrint"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Remove bowden tube from extruder (or disconnect for direct drive)",
+          "reason": "Eliminates hotend resistance from measurement"
+        },
+        {
+          "step": 2,
+          "action": "Measure and mark 120mm from extruder inlet",
+          "command": null,
+          "tip": "Use tape or marker to mark the filament"
+        },
+        {
+          "step": 3,
+          "action": "Get current E-steps",
+          "command": "M503",
+          "note": "Look for M92 E value (e.g., 93)"
+        },
+        {
+          "step": 4,
+          "action": "Heat hotend to printing temp",
+          "command": "M104 S200",
+          "reason": "Cold extrusion prevention"
+        },
+        {
+          "step": 5,
+          "action": "Reset extruder position",
+          "command": "G92 E0"
+        },
+        {
+          "step": 6,
+          "action": "Extrude 100mm slowly",
+          "command": "G1 E100 F100",
+          "note": "Use slow speed for accuracy"
+        },
+        {
+          "step": 7,
+          "action": "Measure remaining distance from mark to inlet",
+          "note": "Should be 20mm if perfectly calibrated"
+        },
+        {
+          "step": 8,
+          "action": "Calculate new E-steps",
+          "formula": "New E-steps = Current E-steps × (100 / Actual extruded)",
+          "example": "If 23mm remaining: Actual = 120 - 23 = 97mm. New = 93 × (100 / 97) = 95.88"
+        },
+        {
+          "step": 9,
+          "action": "Set new E-steps",
+          "command": "M92 E95.88",
+          "note": "Use your calculated value"
+        },
+        {
+          "step": 10,
+          "action": "Verify by repeating extrusion test",
+          "note": "Should be within 0.5mm of 100mm"
+        },
+        {
+          "step": 11,
+          "action": "Save to EEPROM",
+          "command": "M500"
+        }
+      ],
+      "troubleshooting": [
+        {
+          "issue": "Cold extrusion prevented",
+          "solution": "Heat hotend first: M104 S200, M109 S200"
+        },
+        {
+          "issue": "Extruder clicking/skipping",
+          "solution": "Reduce extrusion speed: G1 E100 F50"
+        },
+        {
+          "issue": "Filament not moving",
+          "solution": "Check extruder tension, drive gear, motor wiring"
+        }
+      ]
+    },
+    
+    "pidHotend": {
+      "name": "PID Autotune (Hotend)",
+      "priority": "Essential",
+      "frequency": "After heater/thermistor changes",
+      "difficulty": "Easy",
+      "time": "5-10 minutes",
+      "tools": [
+        "Terminal/OctoPrint"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Make sure hotend fan is running",
+          "reason": "Simulates printing conditions"
+        },
+        {
+          "step": 2,
+          "action": "Start PID autotune",
+          "command": "M303 E0 S200 C8",
+          "parameters": {
+            "E0": "Hotend 0",
+            "S200": "Target temperature (use your typical print temp)",
+            "C8": "8 cycles (more = more accurate)"
+          }
+        },
+        {
+          "step": 3,
+          "action": "Wait for completion",
+          "note": "Takes several minutes. Watch for 'PID Autotune finished'"
+        },
+        {
+          "step": 4,
+          "action": "Note the Kp, Ki, Kd values",
+          "example": "Kp: 22.2 Ki: 1.08 Kd: 114.0"
+        },
+        {
+          "step": 5,
+          "action": "Apply new values",
+          "command": "M301 P22.2 I1.08 D114.0",
+          "note": "Use your measured values"
+        },
+        {
+          "step": 6,
+          "action": "Save to EEPROM",
+          "command": "M500"
+        },
+        {
+          "step": 7,
+          "action": "Test by heating and observing stability",
+          "command": "M109 S200",
+          "expectation": "Temperature should be stable within ±1°C"
+        }
+      ],
+      "tips": [
+        "Run at your most common print temperature",
+        "For high-temp materials, run again at that temp",
+        "Part cooling fan OFF during tuning",
+        "Hotend fan ON during tuning"
+      ]
+    },
+    
+    "pidBed": {
+      "name": "PID Autotune (Bed)",
+      "priority": "Recommended",
+      "frequency": "After bed heater changes",
+      "difficulty": "Easy",
+      "time": "15-30 minutes",
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Start bed PID autotune",
+          "command": "M303 E-1 S60 C8",
+          "parameters": {
+            "E-1": "Bed heater",
+            "S60": "Target temp",
+            "C8": "8 cycles"
+          },
+          "note": "Bed takes MUCH longer than hotend"
+        },
+        {
+          "step": 2,
+          "action": "Wait for completion",
+          "note": "Can take 15-30 minutes"
+        },
+        {
+          "step": 3,
+          "action": "Apply values",
+          "command": "M304 P97.1 I1.41 D1675.16"
+        },
+        {
+          "step": 4,
+          "action": "Save to EEPROM",
+          "command": "M500"
+        }
+      ],
+      "tips": [
+        "Be patient - bed PID takes much longer",
+        "Some prefer bang-bang for bed (disable PIDTEMPBED)"
+      ]
+    },
+    
+    "zOffset": {
+      "name": "Z Offset / First Layer Calibration",
+      "priority": "Essential",
+      "frequency": "After probe install, nozzle change, build surface change",
+      "difficulty": "Easy-Medium",
+      "time": "10-20 minutes",
+      "tools": [
+        "Paper (standard printer paper)",
+        "Terminal or LCD"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Heat bed and nozzle",
+          "command": "M104 S200\nM140 S60",
+          "reason": "Thermal expansion affects offset"
+        },
+        {
+          "step": 2,
+          "action": "Home all axes",
+          "command": "G28"
+        },
+        {
+          "step": 3,
+          "action": "Move to center of bed",
+          "command": "G1 X117 Y117 F3000",
+          "note": "Adjust for your bed size"
+        },
+        {
+          "step": 4,
+          "action": "If using probe, probe the bed",
+          "command": "G30",
+          "note": "Notes the Z height at probe trigger"
+        },
+        {
+          "step": 5,
+          "action": "Lower Z to paper height",
+          "command": "G1 Z0.1 F300",
+          "note": "Start higher for safety"
+        },
+        {
+          "step": 6,
+          "action": "Place paper between nozzle and bed",
+          "note": "Should just drag, not stuck"
+        },
+        {
+          "step": 7,
+          "action": "Adjust Z while testing paper drag",
+          "commands": [
+            "G1 Z0.05 F300 ; Lower 0.05mm",
+            "G91 ; Relative",
+            "G1 Z-0.05 F300 ; Lower 0.05mm relative"
+          ],
+          "goal": "Paper should drag with slight resistance"
+        },
+        {
+          "step": 8,
+          "action": "Calculate offset",
+          "method": "Note current Z position from M114",
+          "example": "If Z shows 0.15, offset adjustment = -0.15"
+        },
+        {
+          "step": 9,
+          "action": "Set Z offset",
+          "command": "M851 Z-1.5",
+          "note": "Use your calculated value"
+        },
+        {
+          "step": 10,
+          "action": "Save to EEPROM",
+          "command": "M500"
+        },
+        {
+          "step": 11,
+          "action": "Verify with test print",
+          "note": "Print first layer test square"
+        }
+      ],
+      "firstLayerGuide": {
+        "tooHigh": {
+          "appearance": "Lines not touching, gaps visible, lines round",
+          "solution": "Lower Z offset (more negative)"
+        },
+        "tooLow": {
+          "appearance": "Lines very flat/wide, nozzle scraping, poor extrusion",
+          "solution": "Raise Z offset (less negative)"
+        },
+        "perfect": {
+          "appearance": "Lines touching but not overlapping, slightly squished, good adhesion"
+        }
+      }
+    },
+    
+    "bedTramming": {
+      "name": "Bed Tramming (Manual Leveling)",
+      "priority": "Essential",
+      "frequency": "Periodically, after transport",
+      "difficulty": "Easy",
+      "time": "10-20 minutes",
+      "tools": [
+        "Paper",
+        "Bed adjustment wheels/knobs"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Heat bed to printing temperature",
+          "command": "M140 S60\nM190 S60",
+          "reason": "Thermal expansion"
+        },
+        {
+          "step": 2,
+          "action": "Home all axes",
+          "command": "G28"
+        },
+        {
+          "step": 3,
+          "action": "Disable steppers",
+          "command": "M84",
+          "note": "Allows manual movement"
+        },
+        {
+          "step": 4,
+          "action": "Check front-left corner",
+          "method": "Move nozzle to corner, paper test, adjust wheel"
+        },
+        {
+          "step": 5,
+          "action": "Check front-right corner",
+          "method": "Same process"
+        },
+        {
+          "step": 6,
+          "action": "Check back-right corner",
+          "method": "Same process"
+        },
+        {
+          "step": 7,
+          "action": "Check back-left corner",
+          "method": "Same process"
+        },
+        {
+          "step": 8,
+          "action": "Repeat cycle 2-3 times",
+          "reason": "Adjusting one corner affects others"
+        },
+        {
+          "step": 9,
+          "action": "Check center",
+          "note": "Should be same as corners. If very different, bed may be warped."
+        }
+      ],
+      "tips": [
+        "Always adjust in same direction (clockwise/counterclockwise)",
+        "Small adjustments - 1/4 turn at most",
+        "Spring tension should be medium - not too loose, not too tight",
+        "Consider silicone spacers or nylon nuts for stability"
+      ]
+    },
+    
+    "flowRate": {
+      "name": "Flow Rate Calibration",
+      "priority": "Important",
+      "frequency": "Per filament brand/type",
+      "difficulty": "Medium",
+      "time": "30-60 minutes",
+      "tools": [
+        "Calipers",
+        "Test cube or hollow cube model"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Calibrate E-steps first",
+          "note": "E-steps must be correct before flow"
+        },
+        {
+          "step": 2,
+          "action": "Print single-wall test cube",
+          "settings": {
+            "wallCount": 1,
+            "infill": 0,
+            "topLayers": 0,
+            "bottomLayers": 3,
+            "lineWidth": "0.4mm (match nozzle)"
+          }
+        },
+        {
+          "step": 3,
+          "action": "Measure wall thickness at multiple points",
+          "tool": "Calipers",
+          "locations": "Measure each wall, multiple heights"
+        },
+        {
+          "step": 4,
+          "action": "Calculate average wall thickness",
+          "example": "0.44mm average"
+        },
+        {
+          "step": 5,
+          "action": "Calculate flow adjustment",
+          "formula": "New flow = (Expected / Measured) × 100",
+          "example": "(0.4 / 0.44) × 100 = 90.9%"
+        },
+        {
+          "step": 6,
+          "action": "Set new flow in slicer",
+          "note": "Or use M221 S91 for runtime adjustment"
+        },
+        {
+          "step": 7,
+          "action": "Reprint and verify",
+          "expectation": "Walls should measure 0.4mm ±0.02"
+        }
+      ],
+      "notes": [
+        "Flow is material-specific - calibrate per filament",
+        "Temperature affects flow - calibrate at print temp",
+        "Don't compensate for poor E-steps with flow"
+      ]
+    },
+    
+    "linearAdvance": {
+      "name": "Linear Advance K Factor Calibration",
+      "priority": "Recommended",
+      "frequency": "Per filament, per extruder setup",
+      "difficulty": "Medium",
+      "time": "30-45 minutes",
+      "prerequisites": [
+        "E-steps calibrated",
+        "LIN_ADVANCE enabled in firmware",
+        "S_CURVE_ACCELERATION disabled (or test carefully)"
+      ],
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Generate K-factor test pattern",
+          "url": "https://marlinfw.org/tools/lin_advance/k-factor.html",
+          "settings": {
+            "startK": 0,
+            "endK": "1.0 (bowden) or 0.2 (direct)",
+            "kStep": 0.05,
+            "slowSpeed": 20,
+            "fastSpeed": 70
+          }
+        },
+        {
+          "step": 2,
+          "action": "Download generated G-code"
+        },
+        {
+          "step": 3,
+          "action": "Print the test pattern",
+          "note": "Creates lines with different K values"
+        },
+        {
+          "step": 4,
+          "action": "Examine results",
+          "lookFor": [
+            "Corners without bulging",
+            "Corners without gaps",
+            "Consistent line width"
+          ]
+        },
+        {
+          "step": 5,
+          "action": "Identify best K value",
+          "method": "Count lines from bottom, multiply by K step"
+        },
+        {
+          "step": 6,
+          "action": "Set K value",
+          "command": "M900 K0.06",
+          "note": "Use your measured value"
+        },
+        {
+          "step": 7,
+          "action": "Save to EEPROM",
+          "command": "M500"
+        },
+        {
+          "step": 8,
+          "action": "Add to slicer start G-code per material",
+          "example": "M900 K0.06 ; PLA"
+        }
+      ],
+      "typicalValues": {
+        "bowden": "0.2 - 1.0 (longer tube = higher K)",
+        "directDrive": "0.02 - 0.15"
+      },
+      "troubleshooting": [
+        {
+          "issue": "All lines look the same",
+          "solution": "K range may be too narrow. Increase end K."
+        },
+        {
+          "issue": "Extruder making noise",
+          "solution": "K too high. Reduce K value."
+        },
+        {
+          "issue": "Corners still bulging at K=0",
+          "solution": "Check retraction settings, print slower"
+        }
+      ]
+    },
+    
+    "inputShaping": {
+      "name": "Input Shaping Frequency Calibration",
+      "priority": "Advanced",
+      "frequency": "After mechanical changes",
+      "difficulty": "Medium-Hard",
+      "time": "30-60 minutes",
+      "prerequisites": [
+        "INPUT_SHAPING enabled in firmware",
+        "Printer mechanically sound (no loose belts/screws)"
+      ],
+      "methods": {
+        "manual": {
+          "name": "Manual Ringing Test",
+          "procedure": [
+            {
+              "step": 1,
+              "action": "Print ringing test model at moderate speed",
+              "speed": "60-80mm/s",
+              "model": "Ringing test cube with features"
+            },
+            {
+              "step": 2,
+              "action": "Measure distance between ringing lines",
+              "tool": "Calipers or ruler",
+              "note": "Measure peak-to-peak distance in mm"
+            },
+            {
+              "step": 3,
+              "action": "Calculate frequency",
+              "formula": "Frequency (Hz) = Speed (mm/s) / Distance (mm)",
+              "example": "60mm/s ÷ 1.5mm = 40 Hz"
+            },
+            {
+              "step": 4,
+              "action": "Set shaping frequency",
+              "command": "M593 X F40 D0.1",
+              "note": "Start with zeta/damping of 0.1"
+            },
+            {
+              "step": 5,
+              "action": "Repeat for Y axis"
+            },
+            {
+              "step": 6,
+              "action": "Print test again and verify improvement"
+            },
+            {
+              "step": 7,
+              "action": "Fine tune zeta if needed",
+              "range": "0.05 - 0.15 typical"
+            },
+            {
+              "step": 8,
+              "action": "Save to EEPROM",
+              "command": "M500"
+            }
+          ]
+        },
+        "accelerometer": {
+          "name": "Accelerometer Method (ADXL345)",
+          "procedure": [
+            {
+              "step": 1,
+              "action": "Mount accelerometer on toolhead"
+            },
+            {
+              "step": 2,
+              "action": "Run resonance test",
+              "note": "Varies by firmware/implementation"
+            },
+            {
+              "step": 3,
+              "action": "Analyze frequency response graph"
+            },
+            {
+              "step": 4,
+              "action": "Identify peak resonance frequency"
+            },
+            {
+              "step": 5,
+              "action": "Configure shaper at that frequency"
+            }
+          ],
+          "note": "More accurate than manual method. Klipper has built-in support."
+        }
+      },
+      "typicalValues": {
+        "bedSlinger": {
+          "X": "30-50 Hz",
+          "Y": "20-40 Hz (heavier due to bed)"
+        },
+        "coreXY": {
+          "X": "40-70 Hz",
+          "Y": "40-70 Hz"
+        }
+      }
+    },
+    
+    "retractionTuning": {
+      "name": "Retraction Tuning",
+      "priority": "Important",
+      "frequency": "Per filament type, after extruder changes",
+      "difficulty": "Medium",
+      "time": "30-60 minutes",
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Start with recommended values",
+          "defaults": {
+            "bowden": { "distance": 6, "speed": 45 },
+            "directDrive": { "distance": 1, "speed": 35 }
+          }
+        },
+        {
+          "step": 2,
+          "action": "Print retraction tower",
+          "models": [
+            "Teaching Tech retraction tower",
+            "Cura retraction tower plugin"
+          ]
+        },
+        {
+          "step": 3,
+          "action": "Evaluate each section for stringing",
+          "note": "Lower sections = less retraction"
+        },
+        {
+          "step": 4,
+          "action": "Find minimum retraction with no strings",
+          "tip": "Less retraction = faster, fewer jams"
+        },
+        {
+          "step": 5,
+          "action": "Test with actual print",
+          "note": "Tower tests may not match real prints"
+        }
+      ],
+      "troubleshooting": [
+        {
+          "issue": "Strings at all retraction values",
+          "solutions": [
+            "Increase temperature reduction",
+            "Slower retraction speed",
+            "Check for worn nozzle",
+            "Try different filament"
+          ]
+        },
+        {
+          "issue": "Gaps after retraction",
+          "solutions": [
+            "Reduce retraction distance",
+            "Add extra restart distance",
+            "Slower retraction"
+          ]
+        },
+        {
+          "issue": "Clicking during retraction",
+          "solutions": [
+            "Reduce retraction distance",
+            "Reduce retraction speed",
+            "Check for partial clog"
+          ]
+        }
+      ]
+    },
+    
+    "probeAccuracy": {
+      "name": "Probe Accuracy Test",
+      "priority": "Recommended",
+      "frequency": "After probe install, periodically",
+      "difficulty": "Easy",
+      "time": "5 minutes",
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Heat bed to printing temperature",
+          "command": "M140 S60\nM190 S60"
+        },
+        {
+          "step": 2,
+          "action": "Home all axes",
+          "command": "G28"
+        },
+        {
+          "step": 3,
+          "action": "Move to center",
+          "command": "G1 X117 Y117 F5000"
+        },
+        {
+          "step": 4,
+          "action": "Run repeatability test",
+          "command": "M48 P10 V3",
+          "parameters": {
+            "P10": "10 probe cycles",
+            "V3": "Verbose output"
+          }
+        },
+        {
+          "step": 5,
+          "action": "Evaluate results",
+          "expectations": {
+            "excellent": "< 0.01mm standard deviation",
+            "good": "0.01 - 0.02mm",
+            "acceptable": "0.02 - 0.05mm",
+            "poor": "> 0.05mm"
+          }
+        }
+      ],
+      "improvingAccuracy": [
+        "Tighten probe mount",
+        "Reduce probing speed",
+        "Increase BLTOUCH_DELAY",
+        "Probe at consistent temperature",
+        "Use genuine probe (not clone)"
+      ]
+    },
+    
+    "temperatureTower": {
+      "name": "Temperature Tower Test",
+      "priority": "Recommended",
+      "frequency": "Per new filament brand/type",
+      "difficulty": "Easy",
+      "time": "60-90 minutes",
+      "procedure": [
+        {
+          "step": 1,
+          "action": "Download temperature tower model",
+          "note": "Or use slicer calibration feature"
+        },
+        {
+          "step": 2,
+          "action": "Configure temperature changes per section",
+          "method": "Post-processing script or manual G-code edit",
+          "range": "Typically 220-180°C for PLA in 5°C steps"
+        },
+        {
+          "step": 3,
+          "action": "Print tower"
+        },
+        {
+          "step": 4,
+          "action": "Evaluate each section",
+          "lookFor": [
+            "Bridging quality",
+            "Overhang quality",
+            "Stringing",
+            "Layer adhesion (try to break)",
+            "Surface finish"
+          ]
+        },
+        {
+          "step": 5,
+          "action": "Select temperature with best overall results"
+        }
+      ],
+      "typicalRanges": {
+        "PLA": "190-220°C",
+        "PETG": "230-260°C",
+        "ABS": "230-250°C",
+        "TPU": "220-240°C"
+      }
+    }
+  },
+  
+  "calibrationOrder": {
+    "recommended": [
+      {
+        "order": 1,
+        "calibration": "bedTramming",
+        "reason": "Physical foundation for all printing"
+      },
+      {
+        "order": 2,
+        "calibration": "pidHotend",
+        "reason": "Stable temperature control"
+      },
+      {
+        "order": 3,
+        "calibration": "pidBed",
+        "reason": "Stable bed temperature"
+      },
+      {
+        "order": 4,
+        "calibration": "zOffset",
+        "reason": "Correct first layer height"
+      },
+      {
+        "order": 5,
+        "calibration": "esteps",
+        "reason": "Accurate extrusion amount"
+      },
+      {
+        "order": 6,
+        "calibration": "temperatureTower",
+        "reason": "Optimal temp for filament"
+      },
+      {
+        "order": 7,
+        "calibration": "flowRate",
+        "reason": "Fine-tune extrusion after E-steps"
+      },
+      {
+        "order": 8,
+        "calibration": "retractionTuning",
+        "reason": "Reduce stringing"
+      },
+      {
+        "order": 9,
+        "calibration": "linearAdvance",
+        "reason": "Corner quality improvement"
+      },
+      {
+        "order": 10,
+        "calibration": "inputShaping",
+        "reason": "Reduce ringing (advanced)"
+      }
+    ],
+    "quickStart": [
+      "bedTramming",
+      "zOffset",
+      "esteps"
+    ],
+    "newFilament": [
+      "temperatureTower",
+      "flowRate",
+      "retractionTuning",
+      "linearAdvance"
+    ]
+  },
+  
+  "printingTestModels": {
+    "benchmarks": [
+      {
+        "name": "3DBenchy",
+        "purpose": "Overall print quality benchmark",
+        "url": "https://www.3dbenchy.com/",
+        "time": "1-2 hours"
+      },
+      {
+        "name": "XYZ Calibration Cube",
+        "purpose": "Dimensional accuracy",
+        "size": "20x20x20mm",
+        "time": "20-30 minutes"
+      },
+      {
+        "name": "All-In-One Test",
+        "purpose": "Comprehensive feature test",
+        "features": ["Overhangs", "Bridging", "Stringing", "Details"],
+        "time": "30-60 minutes"
+      }
+    ],
+    "calibrationPrints": [
+      {
+        "name": "First Layer Test Square",
+        "purpose": "Z offset calibration",
+        "size": "50x50x0.2mm"
+      },
+      {
+        "name": "Retraction Tower",
+        "purpose": "Retraction tuning"
+      },
+      {
+        "name": "Temperature Tower",
+        "purpose": "Optimal temperature"
+      },
+      {
+        "name": "Flow Test Cube",
+        "purpose": "Flow rate calibration",
+        "type": "Single wall cube"
+      },
+      {
+        "name": "Overhang Test",
+        "purpose": "Maximum overhang angle"
+      },
+      {
+        "name": "Bridging Test",
+        "purpose": "Bridge length capability"
+      }
+    ]
+  }
+}

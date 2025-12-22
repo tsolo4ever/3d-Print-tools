@@ -1,0 +1,202 @@
+{
+  "_comment": "Fan Configuration Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "fanTypes": [
+    {
+      "id": "FAN_4010_AXIAL",
+      "name": "4010 Axial Fan (40x10mm)",
+      "type": "Axial",
+      "size": "40x40x10mm",
+      "voltage": [5, 12, 24],
+      "cfm": "3-8",
+      "noise": "20-35 dBA",
+      "rpm": "4000-8000",
+      "commonUse": ["Hotend cooling", "Part cooling (basic)"],
+      "stockOnPrinters": [
+        "Creality Ender 3 (hotend)",
+        "Most budget printers"
+      ],
+      "notes": "Common hotend heatsink fan."
+    },
+    {
+      "id": "FAN_4010_BLOWER",
+      "name": "4010 Blower/Radial Fan (40x10mm)",
+      "type": "Blower",
+      "size": "40x40x10mm",
+      "voltage": [12, 24],
+      "cfm": "2-4",
+      "noise": "30-45 dBA",
+      "rpm": "5000-10000",
+      "commonUse": ["Part cooling"],
+      "stockOnPrinters": [
+        "Creality Ender 3 (part cooling)"
+      ],
+      "notes": "Directional airflow. Stock Ender part fan."
+    },
+    {
+      "id": "FAN_4020_AXIAL",
+      "name": "4020 Axial Fan (40x20mm)",
+      "type": "Axial",
+      "size": "40x40x20mm",
+      "voltage": [12, 24],
+      "cfm": "5-12",
+      "noise": "20-30 dBA",
+      "rpm": "4000-7000",
+      "commonUse": ["Hotend cooling", "Electronics cooling"],
+      "notes": "Higher CFM than 4010. Better cooling."
+    },
+    {
+      "id": "FAN_5015_BLOWER",
+      "name": "5015 Blower Fan (50x15mm)",
+      "type": "Blower",
+      "size": "50x50x15mm",
+      "voltage": [12, 24],
+      "cfm": "4-8",
+      "noise": "35-50 dBA",
+      "rpm": "5000-8000",
+      "commonUse": ["Part cooling (upgrade)"],
+      "stockOnPrinters": [
+        "Artillery Sidewinder",
+        "Voron (some toolheads)"
+      ],
+      "notes": "Popular part cooling upgrade. Much more airflow."
+    },
+    {
+      "id": "FAN_5015_DUAL",
+      "name": "Dual 5015 Blower Fans",
+      "type": "Blower",
+      "size": "50x50x15mm (x2)",
+      "voltage": [24],
+      "cfm": "8-16 (combined)",
+      "noise": "40-55 dBA",
+      "commonUse": ["High-speed part cooling"],
+      "stockOnPrinters": [
+        "Voron Stealthburner",
+        "High-speed printers"
+      ],
+      "notes": "Maximum cooling for high-speed printing."
+    },
+    {
+      "id": "FAN_6020_AXIAL",
+      "name": "6020 Axial Fan (60x20mm)",
+      "type": "Axial",
+      "size": "60x60x20mm",
+      "voltage": [12, 24],
+      "cfm": "15-25",
+      "noise": "25-35 dBA",
+      "rpm": "3000-5000",
+      "commonUse": ["Electronics cooling", "Chamber exhaust"],
+      "notes": "Good for electronics enclosure."
+    },
+    {
+      "id": "FAN_SUNON_4010",
+      "name": "Sunon 4010 (MF40100V1)",
+      "type": "Axial",
+      "size": "40x40x10mm",
+      "voltage": 24,
+      "cfm": 6,
+      "noise": "20 dBA",
+      "rpm": 5000,
+      "commonUse": ["Hotend cooling (quiet)"],
+      "notes": "High quality, quiet. Popular upgrade."
+    },
+    {
+      "id": "FAN_GDSTime_5015",
+      "name": "GDSTime 5015 Blower",
+      "type": "Blower",
+      "size": "50x50x15mm",
+      "voltage": 24,
+      "cfm": 6.5,
+      "noise": "38 dBA",
+      "rpm": 6500,
+      "commonUse": ["Part cooling"],
+      "notes": "Good budget option for 5015 upgrade."
+    },
+    {
+      "id": "FAN_DELTA_5015",
+      "name": "Delta 5015 Blower (BFB0524HH)",
+      "type": "Blower",
+      "size": "50x50x15mm",
+      "voltage": 24,
+      "cfm": 8.5,
+      "noise": "45 dBA",
+      "rpm": 7500,
+      "commonUse": ["High-performance part cooling"],
+      "notes": "Very high CFM. Louder but excellent cooling."
+    }
+  ],
+  
+  "fanConfiguration": {
+    "FAN_PIN": {
+      "description": "Part cooling fan",
+      "pwm": true,
+      "defaultSpeed": 255,
+      "kickstart": 100,
+      "notes": "PWM controlled. M106 S0-255."
+    },
+    "E0_AUTO_FAN_PIN": {
+      "description": "Hotend heatsink fan",
+      "pwm": false,
+      "autoOn": true,
+      "autoOnTemp": 50,
+      "notes": "Auto turns on when hotend > 50°C. Usually not PWM."
+    },
+    "CONTROLLER_FAN_PIN": {
+      "description": "Electronics/controller fan",
+      "pwm": true,
+      "autoOn": true,
+      "idleSpeed": 0,
+      "activeSpeed": 255,
+      "notes": "Cools stepper drivers and board. Auto on during movement."
+    },
+    "CASE_FAN_PIN": {
+      "description": "Case/enclosure fan",
+      "pwm": true,
+      "notes": "For enclosed printers. Can be controlled via menu."
+    },
+    "CHAMBER_FAN_PIN": {
+      "description": "Chamber circulation/exhaust fan",
+      "pwm": true,
+      "autoOn": true,
+      "notes": "For heated chambers. Can auto-regulate."
+    }
+  },
+  
+  "marlinConfig": {
+    "FAN_SOFT_PWM": {
+      "description": "Use software PWM for fans",
+      "default": false,
+      "useWhen": "Fan whines at low speed",
+      "notes": "Reduces noise but increases CPU load."
+    },
+    "SOFT_PWM_SCALE": {
+      "description": "PWM resolution divider",
+      "default": 0,
+      "range": "0-5",
+      "notes": "Higher = slower PWM frequency, quieter."
+    },
+    "FAN_MIN_PWM": {
+      "description": "Minimum PWM value to spin fan",
+      "default": 0,
+      "typical": "30-50",
+      "notes": "Below this, fan won't spin. Set to your fan's minimum."
+    },
+    "FAN_MAX_PWM": {
+      "description": "Maximum PWM value",
+      "default": 255,
+      "notes": "Can limit max speed if fan is too loud."
+    },
+    "FAN_KICKSTART_TIME": {
+      "description": "Milliseconds at full speed to start fan",
+      "default": 100,
+      "range": "0-1000",
+      "notes": "Helps fan start spinning from stop."
+    },
+    "E0_AUTO_FAN_TEMPERATURE": {
+      "description": "Temp to turn on hotend fan",
+      "default": 50,
+      "notes": "Auto fan turns on above this temp."
+    }
+  }
+}

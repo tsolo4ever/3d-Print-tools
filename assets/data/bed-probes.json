@@ -1,0 +1,727 @@
+{
+  "_comment": "Bed Leveling Probe Database - Expanded",
+  "_lastUpdated": "2024-12-21",
+  
+  "probeTypes": {
+    "servo": {
+      "name": "Servo Deploy Probes",
+      "description": "Motor-deployed pin probes",
+      "examples": ["BLTouch", "CR Touch", "3DTouch"]
+    },
+    "fixed": {
+      "name": "Fixed Mount Probes",
+      "description": "Permanently mounted proximity sensors",
+      "examples": ["PINDA", "Inductive", "Capacitive"]
+    },
+    "magnetic": {
+      "name": "Magnetic Detach Probes",
+      "description": "Magnetically attached, dock when not in use",
+      "examples": ["Klicky", "Euclid", "Unklicky"]
+    },
+    "mechanical": {
+      "name": "Mechanical Probes",
+      "description": "Physical contact switches",
+      "examples": ["Microswitch probe", "Touch-Mi"]
+    },
+    "sensorless": {
+      "name": "Sensorless Probing",
+      "description": "Uses motor stall detection",
+      "examples": ["TMC StallGuard"]
+    },
+    "scanning": {
+      "name": "Scanning Probes",
+      "description": "High-speed surface scanning",
+      "examples": ["Beacon", "Cartographer", "BTT Eddy"]
+    }
+  },
+  
+  "probes": [
+    {
+      "id": "BLTOUCH",
+      "name": "BLTouch",
+      "manufacturer": "ANTCLABS",
+      "type": "servo",
+      "category": "Stock/Aftermarket",
+      "versions": ["BLTouch V3.0", "BLTouch V3.1", "BLTouch Smart V3.1"],
+      "signal": {
+        "control": "PWM (servo)",
+        "output": "Digital (open-drain)",
+        "voltage": "5V"
+      },
+      "specs": {
+        "repeatability": "0.005mm",
+        "triggerDistance": "Variable (set by user)",
+        "deployTime": "300ms",
+        "probingSpeed": "5-10mm/s recommended"
+      },
+      "wiring": {
+        "pins": 5,
+        "wires": [
+          { "color": "Brown", "function": "GND" },
+          { "color": "Red", "function": "5V" },
+          { "color": "Orange", "function": "Servo Control" },
+          { "color": "Black", "function": "GND" },
+          { "color": "White", "function": "Z Probe Signal" }
+        ],
+        "connector": "JST-XH or Dupont"
+      },
+      "hsMode": {
+        "available": true,
+        "description": "High-Speed mode for faster probing",
+        "marlinDefine": "BLTOUCH_HS_MODE"
+      },
+      "stockOnPrinters": [
+        "Creality Ender 3 V2 (some)",
+        "Creality Ender 3 S1",
+        "Creality CR-10 Smart",
+        "Artillery Genius Pro"
+      ],
+      "compatibleBoards": [
+        "Most boards with servo pin",
+        "BOARD_BTT_SKR_MINI_E3 (dedicated port)",
+        "BOARD_CREALITY_V4x (needs wiring)",
+        "BOARD_RAMPS_14 (servo pins)"
+      ],
+      "marlinConfig": {
+        "defines": [
+          "BLTOUCH"
+        ],
+        "options": {
+          "BLTOUCH_DELAY": { "default": 500, "description": "Delay after deploy/stow (ms)" },
+          "BLTOUCH_HS_MODE": { "default": false, "description": "Enable high-speed mode" },
+          "BLTOUCH_LCD_VOLTAGE_MENU": { "default": false, "description": "LCD menu for 5V/OD mode" },
+          "BLTOUCH_FORCE_SW_MODE": { "default": false, "description": "Force software endstop mode" }
+        }
+      },
+      "troubleshooting": [
+        { "issue": "Probe not deploying", "solution": "Check servo pin wiring, try M280 P0 S10" },
+        { "issue": "Always triggered", "solution": "Check signal wire, try M280 P0 S160 to reset" },
+        { "issue": "Inconsistent readings", "solution": "Tighten mount, reduce probing speed" },
+        { "issue": "Red LED flashing", "solution": "Self-test failed, check pin and wiring" }
+      ],
+      "gcodeCommands": {
+        "deploy": "M280 P0 S10",
+        "stow": "M280 P0 S90",
+        "selfTest": "M280 P0 S120",
+        "reset": "M280 P0 S160",
+        "releaseAlarm": "M280 P0 S160",
+        "set5V": "M280 P0 S60",
+        "setOD": "M280 P0 S50"
+      },
+      "notes": "Most popular probe. Many clones available (3DTouch, etc). Genuine recommended for reliability."
+    },
+    {
+      "id": "CRTOUCH",
+      "name": "CR Touch",
+      "manufacturer": "Creality",
+      "type": "servo",
+      "category": "Stock/Aftermarket",
+      "signal": {
+        "control": "PWM (servo)",
+        "output": "Digital",
+        "voltage": "5V"
+      },
+      "specs": {
+        "repeatability": "0.01mm",
+        "triggerDistance": "Variable",
+        "deployTime": "250ms"
+      },
+      "wiring": {
+        "pins": 5,
+        "wires": [
+          { "color": "Blue", "function": "GND" },
+          { "color": "Red", "function": "5V" },
+          { "color": "Yellow", "function": "Servo Control" },
+          { "color": "Black", "function": "GND" },
+          { "color": "White", "function": "Z Probe Signal" }
+        ],
+        "connector": "JST-XH"
+      },
+      "stockOnPrinters": [
+        "Creality Ender 3 S1",
+        "Creality Ender 3 S1 Pro",
+        "Creality Ender 3 S1 Plus"
+      ],
+      "marlinConfig": {
+        "defines": ["BLTOUCH"],
+        "notes": "Uses same Marlin config as BLTouch"
+      },
+      "differences": [
+        "Metal pin instead of plastic",
+        "Different wire colors",
+        "Slightly different timing",
+        "No HS mode support"
+      ],
+      "notes": "Creality's BLTouch alternative. Use BLTOUCH define in Marlin."
+    },
+    {
+      "id": "3DTOUCH",
+      "name": "3DTouch (BLTouch Clone)",
+      "manufacturer": "Various (TriangleLab, Geeetech, etc)",
+      "type": "servo",
+      "category": "Aftermarket",
+      "signal": {
+        "control": "PWM (servo)",
+        "output": "Digital",
+        "voltage": "5V"
+      },
+      "specs": {
+        "repeatability": "0.01-0.05mm (varies by quality)",
+        "triggerDistance": "Variable"
+      },
+      "wiring": {
+        "notes": "Usually same as BLTouch, but verify colors!"
+      },
+      "marlinConfig": {
+        "defines": ["BLTOUCH"]
+      },
+      "quality": "Varies greatly by manufacturer",
+      "notes": "Budget BLTouch clone. Quality inconsistent. TriangleLab versions generally good."
+    },
+    {
+      "id": "PINDA_V1",
+      "name": "PINDA V1",
+      "manufacturer": "Prusa Research",
+      "type": "fixed",
+      "subtype": "inductive",
+      "category": "Stock",
+      "signal": {
+        "output": "Digital (NPN)",
+        "voltage": "5V"
+      },
+      "specs": {
+        "repeatability": "0.01mm",
+        "triggerDistance": "0.5-2mm",
+        "detectionMaterial": "Ferrous metals only"
+      },
+      "wiring": {
+        "pins": 3,
+        "wires": [
+          { "color": "Brown", "function": "VCC (5V)" },
+          { "color": "Blue", "function": "GND" },
+          { "color": "Black", "function": "Signal" }
+        ]
+      },
+      "tempCompensation": false,
+      "stockOnPrinters": [
+        "Prusa MK2",
+        "Prusa MK2S"
+      ],
+      "requiredBedType": "Spring steel or PEI on steel",
+      "marlinConfig": {
+        "defines": ["FIX_MOUNTED_PROBE"],
+        "options": {
+          "Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN": true,
+          "NOZZLE_TO_PROBE_OFFSET": "{ -23, -5, 0 }"
+        }
+      },
+      "notes": "Original Prusa probe. No temp compensation - readings drift with temperature."
+    },
+    {
+      "id": "PINDA_V2",
+      "name": "PINDA V2",
+      "manufacturer": "Prusa Research",
+      "type": "fixed",
+      "subtype": "inductive",
+      "category": "Stock",
+      "signal": {
+        "output": "Digital (NPN)",
+        "voltage": "5V"
+      },
+      "specs": {
+        "repeatability": "0.005mm",
+        "triggerDistance": "0.5-2mm"
+      },
+      "wiring": {
+        "pins": 4,
+        "wires": [
+          { "color": "Brown", "function": "VCC (5V)" },
+          { "color": "Blue", "function": "GND" },
+          { "color": "Black", "function": "Signal" },
+          { "color": "Green", "function": "Thermistor" }
+        ]
+      },
+      "tempCompensation": true,
+      "thermistor": "Built-in for temperature compensation",
+      "stockOnPrinters": [
+        "Prusa MK2.5",
+        "Prusa MK2.5S",
+        "Prusa MK3",
+        "Prusa MK3S"
+      ],
+      "marlinConfig": {
+        "defines": ["FIX_MOUNTED_PROBE"],
+        "options": {
+          "PINDA_THERMISTOR": true,
+          "PROBE_TEMP_COMPENSATION": true
+        }
+      },
+      "notes": "Includes thermistor for temperature compensation."
+    },
+    {
+      "id": "SUPERPINDA",
+      "name": "SuperPINDA",
+      "manufacturer": "Prusa Research",
+      "type": "fixed",
+      "subtype": "inductive",
+      "category": "Stock",
+      "signal": {
+        "output": "Digital",
+        "voltage": "5V"
+      },
+      "specs": {
+        "repeatability": "0.0025mm",
+        "triggerDistance": "0.5-2mm"
+      },
+      "wiring": {
+        "pins": 3,
+        "notes": "No external thermistor - internal compensation"
+      },
+      "tempCompensation": true,
+      "stockOnPrinters": [
+        "Prusa MK3S+",
+        "Prusa Mini",
+        "Prusa Mini+"
+      ],
+      "marlinConfig": {
+        "defines": ["FIX_MOUNTED_PROBE"]
+      },
+      "notes": "Built-in temperature compensation. No external thermistor needed."
+    },
+    {
+      "id": "INDUCTIVE_NPN",
+      "name": "Inductive Proximity Sensor (NPN)",
+      "manufacturer": "Various (LJ12A3, LJ18A3)",
+      "type": "fixed",
+      "subtype": "inductive",
+      "category": "Aftermarket",
+      "signal": {
+        "output": "Digital (NPN - sinks to ground)",
+        "voltage": "6-36V (typically 12V or 24V)"
+      },
+      "specs": {
+        "repeatability": "0.01-0.05mm",
+        "triggerDistance": "1-4mm (model dependent)"
+      },
+      "wiring": {
+        "pins": 3,
+        "wires": [
+          { "color": "Brown", "function": "VCC (12V/24V)" },
+          { "color": "Blue", "function": "GND" },
+          { "color": "Black", "function": "Signal (NPN)" }
+        ]
+      },
+      "voltageLevel": {
+        "issue": "Output voltage too high for 3.3V boards",
+        "solution": "Use voltage divider or level shifter"
+      },
+      "commonModels": ["LJ12A3-4-Z/BX", "LJ18A3-8-Z/BX"],
+      "marlinConfig": {
+        "defines": ["FIX_MOUNTED_PROBE"],
+        "options": {
+          "Z_MIN_PROBE_ENDSTOP_INVERTING": true,
+          "NOZZLE_TO_PROBE_OFFSET": "Calculate for your mount"
+        }
+      },
+      "notes": "Cheap but requires metal bed. May need voltage divider for 3.3V boards."
+    },
+    {
+      "id": "INDUCTIVE_PNP",
+      "name": "Inductive Proximity Sensor (PNP)",
+      "manufacturer": "Various",
+      "type": "fixed",
+      "subtype": "inductive",
+      "category": "Aftermarket",
+      "signal": {
+        "output": "Digital (PNP - sources voltage)",
+        "voltage": "6-36V"
+      },
+      "wiring": {
+        "pins": 3,
+        "wires": [
+          { "color": "Brown", "function": "VCC" },
+          { "color": "Blue", "function": "GND" },
+          { "color": "Black", "function": "Signal (PNP)" }
+        ]
+      },
+      "voltageLevel": {
+        "issue": "Output voltage equals input voltage",
+        "solution": "MUST use voltage divider or level shifter"
+      },
+      "marlinConfig": {
+        "defines": ["FIX_MOUNTED_PROBE"],
+        "options": {
+          "Z_MIN_PROBE_ENDSTOP_INVERTING": false
+        }
+      },
+      "notes": "Less common than NPN. Always needs voltage conversion."
+    },
+    {
+      "id": "CAPACITIVE",
+      "name": "Capacitive Proximity Sensor",
+      "manufacturer": "Various",
+      "type": "fixed",
+      "subtype": "capacitive",
+      "category": "Aftermarket",
+      "signal": {
+        "output": "Digital",
+        "voltage": "12-24V"
+      },
+      "specs": {
+        "repeatability": "0.02mm",
+        "triggerDistance": "1-8mm (adjustable)"
+      },
+      "detectionMaterial": "Any material (glass, wood, plastic, metal)",
+      "adjustment": "Sensitivity potentiometer",
+      "marlinConfig": {
+        "defines": ["FIX_MOUNTED_PROBE"]
+      },
+      "notes": "Works with any bed material. Sensitive to humidity and temperature."
+    },
+    {
+      "id": "KLICKY",
+      "name": "Klicky Probe",
+      "manufacturer": "Voron Community (jlas1)",
+      "type": "magnetic",
+      "category": "Aftermarket DIY",
+      "signal": {
+        "output": "Digital (microswitch)",
+        "voltage": "3.3V/5V"
+      },
+      "specs": {
+        "repeatability": "0.005mm",
+        "triggerDistance": "Fixed (switch travel)"
+      },
+      "components": [
+        "Microswitch (Omron D2F)",
+        "Magnets (6x3mm)",
+        "Printed parts",
+        "Steel balls (optional)"
+      ],
+      "dock": {
+        "required": true,
+        "type": "Magnetic dock on bed frame"
+      },
+      "marlinConfig": {
+        "defines": [
+          "MAG_MOUNTED_PROBE",
+          "PAUSE_BEFORE_DEPLOY_STOW"
+        ],
+        "macros": "Requires G-code macros for dock/undock"
+      },
+      "compatibleToolheads": [
+        "Voron Stealthburner",
+        "Voron Afterburner",
+        "Various Voron mounts"
+      ],
+      "notes": "Very popular on Voron. Requires printed parts and dock macros."
+    },
+    {
+      "id": "UNKLICKY",
+      "name": "Unklicky Probe",
+      "manufacturer": "Voron Community",
+      "type": "magnetic",
+      "category": "Aftermarket DIY",
+      "signal": {
+        "output": "Digital (microswitch)",
+        "voltage": "3.3V/5V"
+      },
+      "specs": {
+        "repeatability": "0.005mm"
+      },
+      "components": [
+        "Microswitch",
+        "Magnets",
+        "Single printed part (simpler than Klicky)"
+      ],
+      "marlinConfig": {
+        "defines": ["MAG_MOUNTED_PROBE"]
+      },
+      "notes": "Simplified Klicky design. Easier to build."
+    },
+    {
+      "id": "EUCLID",
+      "name": "Euclid Probe",
+      "manufacturer": "Euclid Probe Project",
+      "type": "magnetic",
+      "category": "Aftermarket",
+      "signal": {
+        "output": "Digital (microswitch)",
+        "voltage": "3.3V/5V"
+      },
+      "specs": {
+        "repeatability": "0.005mm"
+      },
+      "dock": {
+        "required": true,
+        "type": "Side-mounted dock"
+      },
+      "marlinConfig": {
+        "defines": ["MAG_MOUNTED_PROBE"]
+      },
+      "notes": "Alternative to Klicky with different dock design."
+    },
+    {
+      "id": "TOUCH_MI",
+      "name": "Touch-Mi Probe",
+      "manufacturer": "hotends.fr",
+      "type": "mechanical",
+      "category": "Aftermarket",
+      "signal": {
+        "output": "Digital (microswitch)",
+        "voltage": "5V"
+      },
+      "specs": {
+        "repeatability": "0.01mm"
+      },
+      "deployment": {
+        "method": "Nozzle pushes lever to deploy",
+        "retraction": "Nozzle contact on bed retracts"
+      },
+      "stockOnPrinters": [],
+      "marlinConfig": {
+        "defines": ["TOUCH_MI_PROBE"],
+        "options": {
+          "TOUCH_MI_RETRACT_Z": 0.5,
+          "TOUCH_MI_DEPLOY_XPOS": 0,
+          "TOUCH_MI_MANUAL_DEPLOY": false
+        }
+      },
+      "notes": "Unique design - nozzle operates the mechanism. No servo needed."
+    },
+    {
+      "id": "SENSORLESS_TMC",
+      "name": "Sensorless Probing (TMC StallGuard)",
+      "manufacturer": "Trinamic (via TMC drivers)",
+      "type": "sensorless",
+      "category": "Built-in",
+      "signal": {
+        "type": "StallGuard threshold",
+        "voltage": "N/A"
+      },
+      "specs": {
+        "repeatability": "0.05-0.1mm (less accurate than dedicated probes)"
+      },
+      "requiredDrivers": [
+        "TMC2130 (SPI)",
+        "TMC2209 (UART)",
+        "TMC5160 (SPI)"
+      ],
+      "marlinConfig": {
+        "defines": ["SENSORLESS_PROBING"],
+        "options": {
+          "Z_STALL_SENSITIVITY": { "default": 500, "range": "0-255 (2209) or -64 to 63 (5160)" }
+        }
+      },
+      "limitations": [
+        "Less accurate than physical probes",
+        "Requires careful tuning",
+        "Speed dependent",
+        "Can miss on soft surfaces"
+      ],
+      "notes": "Uses Z motor stall for detection. Not recommended as primary probe."
+    },
+    {
+      "id": "BEACON",
+      "name": "Beacon Probe",
+      "manufacturer": "Beacon3D",
+      "type": "scanning",
+      "category": "Aftermarket Premium",
+      "signal": {
+        "type": "Eddy current",
+        "interface": "USB or I2C"
+      },
+      "specs": {
+        "repeatability": "0.001mm",
+        "scanSpeed": "Up to 500mm/s",
+        "triggerDistance": "0.5-3mm"
+      },
+      "features": [
+        "Ultra-fast bed scanning",
+        "Temperature compensation",
+        "Surface analysis"
+      ],
+      "marlinSupport": "Limited - primarily Klipper",
+      "notes": "Very high speed scanning. Best with Klipper."
+    },
+    {
+      "id": "CARTOGRAPHER",
+      "name": "Cartographer Probe",
+      "manufacturer": "Cartographer3D",
+      "type": "scanning",
+      "category": "Aftermarket Premium",
+      "signal": {
+        "type": "Eddy current",
+        "interface": "USB"
+      },
+      "specs": {
+        "repeatability": "0.001mm",
+        "scanSpeed": "Up to 500mm/s"
+      },
+      "features": [
+        "High-speed bed mesh generation",
+        "Touch capability for Z calibration"
+      ],
+      "marlinSupport": "Limited - primarily Klipper",
+      "notes": "Similar to Beacon. Klipper-focused."
+    },
+    {
+      "id": "BTT_EDDY",
+      "name": "BTT Eddy",
+      "manufacturer": "BigTreeTech",
+      "type": "scanning",
+      "category": "Aftermarket",
+      "signal": {
+        "type": "Eddy current",
+        "interface": "USB or I2C"
+      },
+      "specs": {
+        "repeatability": "0.001mm"
+      },
+      "marlinSupport": "In development",
+      "notes": "BTT's eddy current probe. Newer product."
+    },
+    {
+      "id": "PROBE_MANUAL",
+      "name": "Manual Probe (Paper Test)",
+      "manufacturer": "N/A",
+      "type": "manual",
+      "category": "Default",
+      "specs": {
+        "repeatability": "User-dependent (0.1mm typical)"
+      },
+      "marlinConfig": {
+        "defines": ["PROBE_MANUALLY"]
+      },
+      "procedure": [
+        "G28 to home",
+        "G29 to start manual leveling",
+        "Use paper between nozzle and bed",
+        "Adjust Z until paper drags slightly",
+        "Save with M500"
+      ],
+      "notes": "No hardware needed. LCD-guided process."
+    },
+    {
+      "id": "ZPROBE_ALLEN_KEY",
+      "name": "Allen Key Probe (Delta)",
+      "manufacturer": "Various",
+      "type": "mechanical",
+      "category": "Aftermarket",
+      "signal": {
+        "output": "Digital (microswitch)"
+      },
+      "deployment": {
+        "method": "Servo deploys allen key holder"
+      },
+      "stockOnPrinters": [
+        "Some delta printers"
+      ],
+      "marlinConfig": {
+        "defines": ["Z_PROBE_ALLEN_KEY"]
+      },
+      "notes": "Uses servo to deploy allen key probe. Mostly delta printers."
+    }
+  ],
+  
+  "probeConfiguration": {
+    "offsetMeasurement": {
+      "description": "How to measure NOZZLE_TO_PROBE_OFFSET",
+      "xOffset": {
+        "method": "Measure distance from nozzle to probe center in X direction",
+        "sign": "Negative if probe is LEFT of nozzle, positive if RIGHT"
+      },
+      "yOffset": {
+        "method": "Measure distance from nozzle to probe center in Y direction",
+        "sign": "Negative if probe is FRONT of nozzle, positive if BEHIND"
+      },
+      "zOffset": {
+        "method": "Set via probe and paper test",
+        "sign": "Usually negative (probe triggers ABOVE nozzle contact)",
+        "procedure": [
+          "Home all axes: G28",
+          "Heat hotend: M109 S200",
+          "Move to center: G1 X117 Y117 F3000",
+          "Probe to find Z: G30",
+          "Lower to paper height: G1 Z0.1",
+          "Adjust Z until paper grabs",
+          "Note the Z value",
+          "Set offset: M851 Z-VALUE",
+          "Save: M500"
+        ]
+      }
+    },
+    
+    "margins": {
+      "PROBING_MARGIN": {
+        "description": "Distance from bed edge to keep probe within",
+        "default": 10,
+        "unit": "mm",
+        "calculation": "Must account for probe offset + bed clips"
+      },
+      "PROBING_MARGIN_LEFT": { "description": "Override margin for left side" },
+      "PROBING_MARGIN_RIGHT": { "description": "Override margin for right side" },
+      "PROBING_MARGIN_FRONT": { "description": "Override margin for front" },
+      "PROBING_MARGIN_BACK": { "description": "Override margin for back" }
+    },
+    
+    "speeds": {
+      "Z_PROBE_FEEDRATE_FAST": {
+        "description": "Speed for initial probe approach",
+        "default": 240,
+        "unit": "mm/min"
+      },
+      "Z_PROBE_FEEDRATE_SLOW": {
+        "description": "Speed for second, accurate probe",
+        "default": 60,
+        "unit": "mm/min"
+      },
+      "XY_PROBE_FEEDRATE": {
+        "description": "Speed for XY moves during probing",
+        "default": 8000,
+        "unit": "mm/min"
+      }
+    }
+  },
+  
+  "troubleshootingGuide": {
+    "commonIssues": [
+      {
+        "symptom": "Probe always shows TRIGGERED in M119",
+        "causes": ["Wiring short", "Wrong endstop inverting", "Probe stuck"],
+        "solutions": [
+          "Check wiring for shorts",
+          "Toggle Z_MIN_PROBE_ENDSTOP_INVERTING",
+          "For BLTouch: M280 P0 S160 to reset"
+        ]
+      },
+      {
+        "symptom": "Probe always shows OPEN in M119",
+        "causes": ["Disconnected wire", "Wrong pin", "Probe not triggering"],
+        "solutions": [
+          "Check wiring connections",
+          "Verify Z_MIN_PROBE_PIN",
+          "Manually trigger probe and check M119"
+        ]
+      },
+      {
+        "symptom": "Probing fails mid-sequence",
+        "causes": ["Probe not resetting", "Wiring intermittent", "Speed too fast"],
+        "solutions": [
+          "Reduce probing speed",
+          "Check wire connections",
+          "Add BLTOUCH_DELAY if using BLTouch"
+        ]
+      },
+      {
+        "symptom": "Inconsistent Z offset",
+        "causes": ["Probe mount loose", "Thermal expansion", "Probe quality"],
+        "solutions": [
+          "Tighten probe mount",
+          "Let printer warm up before probing",
+          "Use genuine probe or high-quality clone"
+        ]
+      }
+    ]
+  }
+}

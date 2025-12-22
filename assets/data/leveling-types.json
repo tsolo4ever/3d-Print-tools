@@ -1,0 +1,404 @@
+{
+  "_comment": "Bed Leveling Types Database - Expanded",
+  "_lastUpdated": "2024-12-21",
+  
+  "overview": {
+    "description": "Bed leveling compensates for imperfect bed surfaces by adjusting Z during printing",
+    "types": {
+      "planar": "Calculates best-fit flat plane (3-point, linear)",
+      "mesh": "Creates grid of Z offsets (bilinear, UBL, MBL)"
+    },
+    "whenToUse": {
+      "planar": "Bed is flat but tilted",
+      "mesh": "Bed is warped or has inconsistencies"
+    }
+  },
+  
+  "levelingTypes": [
+    {
+      "id": "NONE",
+      "name": "No Auto Leveling",
+      "description": "Manual bed tramming only",
+      "probeRequired": false,
+      "marlinDefines": [],
+      "flashCost": 0,
+      "ramCost": 0,
+      "eepromUsage": 0,
+      "procedure": [
+        "Adjust bed screws manually",
+        "Use paper test at each corner",
+        "Repeat until level"
+      ],
+      "pros": [
+        "No probe needed",
+        "No firmware complexity",
+        "No probing time"
+      ],
+      "cons": [
+        "Time consuming",
+        "Must repeat frequently",
+        "Doesn't compensate for warped beds"
+      ],
+      "bestFor": "Printers with very flat beds and good tramming"
+    },
+    {
+      "id": "AUTO_BED_LEVELING_3POINT",
+      "name": "3-Point Leveling",
+      "description": "Probes 3 points to define a flat plane",
+      "probeRequired": true,
+      "meshBased": false,
+      "marlinDefines": ["AUTO_BED_LEVELING_3POINT"],
+      "flashCost": 3000,
+      "ramCost": 100,
+      "eepromUsage": "Minimal (just tilt values)",
+      "probePoints": 3,
+      "probeTime": "~30 seconds",
+      "configOptions": {
+        "PROBE_PT_1_X": { "description": "X coordinate of point 1", "default": 15 },
+        "PROBE_PT_1_Y": { "description": "Y coordinate of point 1", "default": 180 },
+        "PROBE_PT_2_X": { "description": "X coordinate of point 2", "default": 15 },
+        "PROBE_PT_2_Y": { "description": "Y coordinate of point 2", "default": 20 },
+        "PROBE_PT_3_X": { "description": "X coordinate of point 3", "default": 170 },
+        "PROBE_PT_3_Y": { "description": "Y coordinate of point 3", "default": 20 }
+      },
+      "pros": [
+        "Very fast",
+        "Low memory usage",
+        "Simple to configure"
+      ],
+      "cons": [
+        "Assumes bed is flat (just tilted)",
+        "Won't compensate for warped beds",
+        "Only 3 points - less accurate"
+      ],
+      "bestFor": "Flat, rigid beds that may be slightly tilted"
+    },
+    {
+      "id": "AUTO_BED_LEVELING_LINEAR",
+      "name": "Linear Leveling (Grid)",
+      "description": "Probes grid of points, fits to flat plane using least-squares",
+      "probeRequired": true,
+      "meshBased": false,
+      "marlinDefines": ["AUTO_BED_LEVELING_LINEAR"],
+      "flashCost": 4000,
+      "ramCost": 200,
+      "eepromUsage": "Minimal",
+      "probePoints": "GRID_MAX_POINTS_X * GRID_MAX_POINTS_Y",
+      "probeTime": "1-3 minutes (grid size dependent)",
+      "configOptions": {
+        "GRID_MAX_POINTS_X": { "description": "Grid points in X", "default": 3, "range": "2-15" },
+        "GRID_MAX_POINTS_Y": { "description": "Grid points in Y", "default": 3, "range": "2-15" }
+      },
+      "pros": [
+        "More accurate than 3-point",
+        "Low memory usage",
+        "Good for flat beds"
+      ],
+      "cons": [
+        "Still assumes flat bed",
+        "More probing time than 3-point",
+        "Won't compensate for warped beds"
+      ],
+      "bestFor": "Flat beds where you want more accuracy than 3-point"
+    },
+    {
+      "id": "AUTO_BED_LEVELING_BILINEAR",
+      "name": "Bilinear Leveling (Mesh)",
+      "description": "Creates mesh grid, interpolates Z between points",
+      "probeRequired": true,
+      "meshBased": true,
+      "marlinDefines": ["AUTO_BED_LEVELING_BILINEAR"],
+      "flashCost": 6000,
+      "ramCost": 800,
+      "eepromUsage": "GRID_X * GRID_Y * 4 bytes",
+      "probePoints": "GRID_MAX_POINTS_X * GRID_MAX_POINTS_Y",
+      "probeTime": "2-5 minutes (grid size dependent)",
+      "configOptions": {
+        "GRID_MAX_POINTS_X": { 
+          "description": "Grid points in X", 
+          "default": 5, 
+          "range": "3-15",
+          "recommendation": "5-7 for 235mm beds, 7-10 for 300mm+"
+        },
+        "GRID_MAX_POINTS_Y": { 
+          "description": "Grid points in Y", 
+          "default": 5, 
+          "range": "3-15" 
+        },
+        "EXTRAPOLATE_BEYOND_GRID": {
+          "description": "Extend mesh beyond probed area",
+          "default": true,
+          "notes": "Helps when probe can't reach bed edges"
+        },
+        "ABL_BILINEAR_SUBDIVISION": {
+          "description": "Subdivide mesh for smoother Z changes",
+          "default": false,
+          "options": {
+            "BILINEAR_SUBDIVISIONS": { "default": 3, "description": "Subdivision factor" }
+          }
+        }
+      },
+      "pros": [
+        "Compensates for warped beds",
+        "Good balance of speed and accuracy",
+        "Most popular choice",
+        "Mesh saved to EEPROM"
+      ],
+      "cons": [
+        "More RAM than planar methods",
+        "More probing time",
+        "Mesh must be regenerated if bed changes"
+      ],
+      "bestFor": "Most printers - handles warped beds well",
+      "typicalMeshSizes": {
+        "3x3": { "points": 9, "ram": 36, "time": "1 min" },
+        "5x5": { "points": 25, "ram": 100, "time": "2-3 min" },
+        "7x7": { "points": 49, "ram": 196, "time": "4-5 min" },
+        "9x9": { "points": 81, "ram": 324, "time": "6-8 min" }
+      }
+    },
+    {
+      "id": "AUTO_BED_LEVELING_UBL",
+      "name": "Unified Bed Leveling (UBL)",
+      "description": "Advanced mesh system with persistence, editing, and multiple mesh slots",
+      "probeRequired": true,
+      "manualProbingOption": true,
+      "meshBased": true,
+      "marlinDefines": ["AUTO_BED_LEVELING_UBL"],
+      "flashCost": 25000,
+      "ramCost": 3500,
+      "eepromUsage": "GRID_X * GRID_Y * 4 bytes per slot",
+      "probePoints": "GRID_MAX_POINTS_X * GRID_MAX_POINTS_Y",
+      "probeTime": "3-10 minutes (can be sped up)",
+      "configOptions": {
+        "GRID_MAX_POINTS_X": { 
+          "description": "Grid points in X", 
+          "default": 10, 
+          "range": "3-15" 
+        },
+        "GRID_MAX_POINTS_Y": { 
+          "description": "Grid points in Y", 
+          "default": 10, 
+          "range": "3-15" 
+        },
+        "UBL_MESH_EDIT_MOVES_Z": {
+          "description": "Move Z during manual mesh editing",
+          "default": true
+        },
+        "UBL_SAVE_ACTIVE_ON_M500": {
+          "description": "Save mesh when saving settings",
+          "default": true
+        },
+        "UBL_Z_RAISE_WHEN_OFF_MESH": {
+          "description": "Z raise amount when moving off mesh",
+          "default": 2.5
+        }
+      },
+      "phases": {
+        "P0": "Zero mesh (clear)",
+        "P1": "Automatic probing of reachable points",
+        "P2": "Manual probing of unreachable points",
+        "P3": "Fill in missing points by interpolation",
+        "P4": "Fine tune mesh using nozzle as probe",
+        "P5": "Find mean mesh height",
+        "P6": "Shift mesh to new Z height"
+      },
+      "gcodeWorkflow": {
+        "initialSetup": [
+          "G28 ; Home",
+          "G29 P1 ; Auto probe reachable points",
+          "G29 P3 ; Fill in unreachable points",
+          "G29 S0 ; Save to slot 0",
+          "G29 A ; Activate UBL"
+        ],
+        "startGcode": [
+          "G28 ; Home",
+          "G29 L0 ; Load mesh from slot 0",
+          "G29 J ; Tilt mesh based on 3-point probe",
+          "G29 A ; Activate mesh"
+        ]
+      },
+      "slots": {
+        "description": "Multiple mesh storage slots",
+        "typical": 3,
+        "useCase": "Different meshes for different build surfaces"
+      },
+      "pros": [
+        "Most advanced leveling system",
+        "Persistent mesh storage",
+        "Multiple mesh slots",
+        "Manual point editing",
+        "Tilt adjustment without full reprobe",
+        "Larger meshes possible"
+      ],
+      "cons": [
+        "High flash usage (~25KB)",
+        "Complex to configure",
+        "Learning curve for G29 subcommands",
+        "May be overkill for simple printers"
+      ],
+      "bestFor": "Advanced users, large beds, multiple build surfaces"
+    },
+    {
+      "id": "MESH_BED_LEVELING",
+      "name": "Mesh Bed Leveling (Manual)",
+      "description": "LCD-guided manual mesh creation using paper test",
+      "probeRequired": false,
+      "meshBased": true,
+      "marlinDefines": ["MESH_BED_LEVELING"],
+      "flashCost": 5000,
+      "ramCost": 500,
+      "eepromUsage": "GRID_X * GRID_Y * 4 bytes",
+      "probePoints": "GRID_MAX_POINTS_X * GRID_MAX_POINTS_Y",
+      "probeTime": "5-15 minutes (user speed dependent)",
+      "configOptions": {
+        "GRID_MAX_POINTS_X": { 
+          "description": "Grid points in X", 
+          "default": 3, 
+          "range": "2-9" 
+        },
+        "GRID_MAX_POINTS_Y": { 
+          "description": "Grid points in Y", 
+          "default": 3, 
+          "range": "2-9" 
+        },
+        "MESH_INSET": {
+          "description": "Distance from bed edge for mesh points",
+          "default": 10
+        }
+      },
+      "procedure": [
+        "Start from LCD menu: Motion > Bed Leveling",
+        "Or use G29 S0 to reset, G29 S1 to start",
+        "Move to each point, adjust Z with paper test",
+        "Click to confirm and move to next point",
+        "Save with M500"
+      ],
+      "gcodeCommands": {
+        "reset": "G29 S0",
+        "nextPoint": "G29 S1",
+        "setZOffset": "G29 S2 Z<offset>",
+        "setSpecificPoint": "G29 S2 I<x> J<y> Z<offset>",
+        "abort": "G29 S3",
+        "loadMesh": "G29 S4",
+        "saveMesh": "G29 S5"
+      },
+      "pros": [
+        "No probe hardware needed",
+        "Good for tight budgets",
+        "Still creates mesh for warped beds",
+        "LCD guided process"
+      ],
+      "cons": [
+        "Time consuming",
+        "User accuracy dependent",
+        "Must repeat if bed changes",
+        "Not as accurate as auto probing"
+      ],
+      "bestFor": "Budget printers without ABL probe"
+    }
+  ],
+  
+  "fadeHeight": {
+    "description": "Gradually reduce leveling compensation as Z increases",
+    "define": "ENABLE_LEVELING_FADE_HEIGHT",
+    "defaultHeight": 10,
+    "configOptions": {
+      "DEFAULT_LEVELING_FADE_HEIGHT": {
+        "description": "Height at which compensation reaches zero",
+        "default": 10,
+        "range": "0-100",
+        "unit": "mm"
+      }
+    },
+    "purpose": [
+      "Reduce layer line artifacts from compensation",
+      "Smooth transition to non-compensated printing",
+      "Better vertical walls on tall prints"
+    ],
+    "gcodeCommand": "M420 Z<height>",
+    "recommendation": "Set to 2-3x your typical warp height (e.g., 10mm for 3mm warp)"
+  },
+  
+  "meshVisualization": {
+    "lcdMenu": {
+      "location": "Motion > Bed Leveling > View Mesh",
+      "requires": "LCD_BED_LEVELING"
+    },
+    "gcodeCommand": "M420 V",
+    "outputFormat": {
+      "description": "Prints mesh as grid of Z values",
+      "example": "Bilinear Leveling Grid:\n      0      1      2      3      4\n 0 +0.125 +0.100 +0.075 +0.050 +0.025\n 1 +0.100 +0.075 +0.050 +0.025 +0.000\n..."
+    },
+    "topologyMap": {
+      "command": "M420 T",
+      "description": "ASCII art representation of bed surface"
+    }
+  },
+  
+  "recommendations": {
+    "byBedSize": {
+      "small": {
+        "size": "< 200mm",
+        "recommendation": "BILINEAR 3x3 or 5x5",
+        "notes": "Small beds usually flat enough"
+      },
+      "medium": {
+        "size": "200-300mm",
+        "recommendation": "BILINEAR 5x5 or 7x7",
+        "notes": "Most common size range"
+      },
+      "large": {
+        "size": "> 300mm",
+        "recommendation": "UBL 10x10 or higher",
+        "notes": "Large beds benefit from high-resolution mesh"
+      }
+    },
+    "byPrinter": {
+      "ender3": {
+        "bedSize": "235x235",
+        "recommendation": "BILINEAR 5x5",
+        "notes": "Stock bed often warped in center"
+      },
+      "prusaMK3": {
+        "bedSize": "250x210",
+        "recommendation": "BILINEAR 7x7 (stock firmware)",
+        "notes": "Prusa uses modified bilinear"
+      },
+      "voron": {
+        "bedSize": "250-350mm",
+        "recommendation": "UBL or BILINEAR 7x7+",
+        "notes": "Flat beds but large size benefits from mesh"
+      }
+    }
+  },
+  
+  "startGcodeExamples": {
+    "bilinear": {
+      "description": "Start G-code for BILINEAR leveling",
+      "code": [
+        "G28 ; Home all axes",
+        "G29 ; Probe bed and enable leveling",
+        "; OR if mesh already saved:",
+        "G28 ; Home all axes",
+        "M420 S1 Z10 ; Load saved mesh, 10mm fade"
+      ]
+    },
+    "ubl": {
+      "description": "Start G-code for UBL",
+      "code": [
+        "G28 ; Home all axes",
+        "G29 L0 ; Load mesh from slot 0",
+        "G29 J ; Tilt mesh to current bed orientation",
+        "G29 A ; Activate UBL"
+      ]
+    },
+    "mbl": {
+      "description": "Start G-code for MBL",
+      "code": [
+        "G28 ; Home all axes",
+        "M420 S1 ; Activate saved mesh"
+      ]
+    }
+  }
+}

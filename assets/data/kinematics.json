@@ -1,0 +1,537 @@
+{
+  "_comment": "Printer Kinematics Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "kinematicTypes": [
+    {
+      "id": "CARTESIAN",
+      "name": "Cartesian (Bed Slinger)",
+      "description": "Most common type. X moves gantry, Y moves bed, Z moves gantry up/down",
+      "marlinDefine": "Default (no special define)",
+      "axes": {
+        "X": "Toolhead left/right",
+        "Y": "Bed front/back",
+        "Z": "Gantry up/down"
+      },
+      "characteristics": {
+        "maxSpeed": "60-100mm/s typical",
+        "maxAcceleration": "500-1500mm/s² typical",
+        "limitations": "Y speed limited by bed mass"
+      },
+      "stepsPerUnit": {
+        "formula": "(motor_steps * microstepping) / (pulley_teeth * belt_pitch)",
+        "typical": {
+          "XY_GT2_20T": 80,
+          "XY_GT2_16T": 100,
+          "Z_T8_8mm": 400,
+          "Z_T8_2mm": 1600
+        }
+      },
+      "pros": [
+        "Simple mechanics",
+        "Easy to build and maintain",
+        "Good X accuracy",
+        "Affordable"
+      ],
+      "cons": [
+        "Bed moves - momentum limits speed",
+        "Y acceleration limited",
+        "Bed wobble possible",
+        "Print can shift at high speeds"
+      ],
+      "popularPrinters": [
+        "Creality Ender 3",
+        "Creality CR-10",
+        "Prusa MK3S",
+        "Anycubic i3 Mega"
+      ],
+      "configuration": {
+        "COREXY": false,
+        "DELTA": false,
+        "X_DRIVER_TYPE": "Standard",
+        "Y_DRIVER_TYPE": "Standard"
+      }
+    },
+    {
+      "id": "COREXY",
+      "name": "CoreXY",
+      "description": "Both motors work together for XY motion. Bed only moves in Z.",
+      "marlinDefine": "COREXY",
+      "axes": {
+        "X": "Derived from A+B motors",
+        "Y": "Derived from A-B motors",
+        "Z": "Bed up/down"
+      },
+      "motorMapping": {
+        "description": "X and Y motors work together",
+        "Xmovement": "A and B rotate same direction",
+        "Ymovement": "A and B rotate opposite directions",
+        "formulas": {
+          "X": "(A + B) / 2",
+          "Y": "(A - B) / 2"
+        }
+      },
+      "characteristics": {
+        "maxSpeed": "200-500mm/s achievable",
+        "maxAcceleration": "5000-20000mm/s² achievable",
+        "limitations": "Belt path complexity, frame rigidity critical"
+      },
+      "stepsPerUnit": {
+        "typical": {
+          "XY_GT2_20T": 80,
+          "Z_leadscrew": 400
+        }
+      },
+      "pros": [
+        "Stationary bed (except Z)",
+        "Very high speeds possible",
+        "Excellent acceleration",
+        "Great for tall prints"
+      ],
+      "cons": [
+        "Complex belt path",
+        "Both motors engaged for all XY moves",
+        "Requires rigid frame",
+        "More expensive"
+      ],
+      "popularPrinters": [
+        "Voron 2.4",
+        "Voron Trident",
+        "RatRig V-Core 3",
+        "Bambu Lab X1C",
+        "Creativity ELF"
+      ],
+      "configuration": {
+        "COREXY": true,
+        "X_DRIVER_TYPE": "TMC2209 (recommended)",
+        "Y_DRIVER_TYPE": "TMC2209 (recommended)"
+      },
+      "troubleshooting": {
+        "symptom": "X moves when Y commanded",
+        "solution": "Swap X and Y motor connectors or invert direction"
+      }
+    },
+    {
+      "id": "COREXZ",
+      "name": "CoreXZ",
+      "description": "CoreXY concept applied to X and Z axes",
+      "marlinDefine": "COREXZ",
+      "axes": {
+        "X": "Derived from motors",
+        "Y": "Standard (bed or gantry)",
+        "Z": "Derived from motors"
+      },
+      "characteristics": {
+        "usage": "Rare configuration"
+      },
+      "pros": [
+        "Interesting mechanical properties"
+      ],
+      "cons": [
+        "Complex",
+        "Rare, limited support"
+      ],
+      "popularPrinters": [
+        "Some custom builds"
+      ],
+      "configuration": {
+        "COREXZ": true
+      }
+    },
+    {
+      "id": "COREYZ",
+      "name": "CoreYZ",
+      "description": "CoreXY concept applied to Y and Z axes",
+      "marlinDefine": "COREYZ",
+      "configuration": {
+        "COREYZ": true
+      }
+    },
+    {
+      "id": "MARKFORGED_XY",
+      "name": "MarkForged XY",
+      "description": "Modified CoreXY with different belt path",
+      "marlinDefine": "MARKFORGED_XY",
+      "configuration": {
+        "MARKFORGED_XY": true
+      },
+      "notes": "Used by MarkForged printers. Belt crossover in different location."
+    },
+    {
+      "id": "MARKFORGED_YX",
+      "name": "MarkForged YX",
+      "description": "MarkForged with swapped motor assignment",
+      "marlinDefine": "MARKFORGED_YX",
+      "configuration": {
+        "MARKFORGED_YX": true
+      }
+    },
+    {
+      "id": "DELTA",
+      "name": "Delta",
+      "description": "Three vertical towers with arms connecting to effector",
+      "marlinDefine": "DELTA",
+      "axes": {
+        "description": "All three motors work together for XYZ",
+        "towers": ["A (front-left)", "B (front-right)", "C (back)"]
+      },
+      "characteristics": {
+        "maxSpeed": "200-400mm/s",
+        "maxAcceleration": "High possible",
+        "buildVolume": "Cylindrical, tall",
+        "limitations": "Complex kinematics, accuracy varies across bed"
+      },
+      "stepsPerUnit": {
+        "formula": "(motor_steps * microstepping) / (pulley_teeth * belt_pitch)",
+        "notes": "Same for all three towers"
+      },
+      "calibration": {
+        "parameters": [
+          "DELTA_DIAGONAL_ROD",
+          "DELTA_RADIUS",
+          "DELTA_HEIGHT",
+          "Tower angles",
+          "Endstop offsets"
+        ],
+        "autoCalibration": "G33 command"
+      },
+      "pros": [
+        "Very fast",
+        "Tall build volume",
+        "Moving mass is light",
+        "Mesmerizing to watch"
+      ],
+      "cons": [
+        "Complex calibration",
+        "Accuracy varies by position",
+        "Smaller X/Y footprint",
+        "Effector can rotate slightly"
+      ],
+      "popularPrinters": [
+        "Anycubic Predator",
+        "FLSUN Super Racer",
+        "FLSUN V400",
+        "SeeMeCNC"
+      ],
+      "configuration": {
+        "DELTA": true,
+        "DELTA_DIAGONAL_ROD": "Rod length in mm",
+        "DELTA_SMOOTH_ROD_OFFSET": "Effector offset",
+        "DELTA_RADIUS": "Horizontal radius",
+        "DELTA_HEIGHT": "Maximum Z height",
+        "DELTA_CALIBRATION_MENU": true,
+        "DELTA_AUTO_CALIBRATION": true
+      }
+    },
+    {
+      "id": "SCARA",
+      "name": "SCARA",
+      "description": "Selective Compliance Articulated Robot Arm",
+      "marlinDefine": "SCARA",
+      "axes": {
+        "description": "Two rotary joints forming arm",
+        "shoulder": "Base rotation",
+        "elbow": "Second joint rotation",
+        "Z": "Vertical movement"
+      },
+      "characteristics": {
+        "buildVolume": "Circular sector",
+        "limitations": "Variable accuracy, singularities"
+      },
+      "types": {
+        "MORGAN_SCARA": "Morgan SCARA configuration",
+        "MP_SCARA": "Makerbot-style SCARA"
+      },
+      "pros": [
+        "Compact footprint",
+        "Interesting mechanics",
+        "Can reach around obstacles"
+      ],
+      "cons": [
+        "Variable resolution across build area",
+        "Complex kinematics",
+        "Singularity points",
+        "Limited software support"
+      ],
+      "popularPrinters": [
+        "Morgan SCARA",
+        "Custom builds"
+      ],
+      "configuration": {
+        "SCARA": true,
+        "SCARA_LINKAGE_1": "Shoulder arm length",
+        "SCARA_LINKAGE_2": "Elbow arm length"
+      }
+    },
+    {
+      "id": "POLAR",
+      "name": "Polar",
+      "description": "Rotating bed with radial arm",
+      "marlinDefine": "POLAR",
+      "axes": {
+        "Theta": "Bed rotation",
+        "Radius": "Arm extends/retracts",
+        "Z": "Vertical"
+      },
+      "characteristics": {
+        "buildVolume": "Circular",
+        "limitations": "Center resolution issues"
+      },
+      "pros": [
+        "Simple mechanics",
+        "Compact",
+        "Infinite rotation possible"
+      ],
+      "cons": [
+        "Poor resolution at center",
+        "Limited software support",
+        "Slicing complexity"
+      ],
+      "popularPrinters": [
+        "Polar3D"
+      ],
+      "configuration": {
+        "POLAR": true
+      }
+    },
+    {
+      "id": "ARTICULATED_ROBOT_ARM",
+      "name": "Articulated Robot Arm",
+      "description": "Industrial robot arm style",
+      "marlinDefine": "ARTICULATED_ROBOT_ARM",
+      "notes": "Multi-joint arm configuration. Experimental.",
+      "configuration": {
+        "ARTICULATED_ROBOT_ARM": true
+      }
+    },
+    {
+      "id": "CARTESIAN_XZ_GANTRY",
+      "name": "Cartesian (Fixed Bed)",
+      "description": "Bed stationary, toolhead moves in XY, gantry in Z",
+      "marlinDefine": "Default (Cartesian)",
+      "axes": {
+        "X": "Toolhead",
+        "Y": "Toolhead (gantry moves)",
+        "Z": "Gantry up/down"
+      },
+      "characteristics": {
+        "maxSpeed": "100-200mm/s",
+        "advantages": "Stable bed, good for heavy beds"
+      },
+      "pros": [
+        "Bed doesn't move",
+        "Can have very heavy heated bed",
+        "Good for large printers"
+      ],
+      "cons": [
+        "Large footprint",
+        "Moving gantry mass"
+      ],
+      "popularPrinters": [
+        "Creality Ender 5",
+        "Creality Ender 5 Plus",
+        "Some large format printers"
+      ]
+    },
+    {
+      "id": "HBOT",
+      "name": "H-Bot",
+      "description": "Similar to CoreXY but simpler belt path",
+      "marlinDefine": "Typically uses CoreXY define with adjustments",
+      "beltPath": "Single continuous belt in H pattern",
+      "characteristics": {
+        "differences": "Simpler than CoreXY but can have racking issues"
+      },
+      "pros": [
+        "Simpler belt path",
+        "Fewer idlers"
+      ],
+      "cons": [
+        "Prone to racking (frame twisting)",
+        "Requires very rigid frame"
+      ],
+      "notes": "Often CoreXY is preferred due to racking resistance"
+    }
+  ],
+  
+  "zAxisConfigurations": [
+    {
+      "id": "SINGLE_Z",
+      "name": "Single Z Motor",
+      "description": "One motor driving Z axis",
+      "marlinDefine": "Default",
+      "numMotors": 1,
+      "variants": {
+        "singleLeadscrew": "One leadscrew, often with belt to second screw",
+        "beltDriven": "Belt from motor to leadscrew(s)"
+      },
+      "pros": ["Simple", "Fewer drivers needed"],
+      "cons": ["Gantry can sag on unsupported side", "Must be well-supported"],
+      "popularPrinters": ["Creality Ender 3", "Prusa MK3"]
+    },
+    {
+      "id": "DUAL_Z",
+      "name": "Dual Z Motors",
+      "description": "Two motors for Z axis, one each side",
+      "marlinDefine": "NUM_Z_STEPPER_DRIVERS 2",
+      "numMotors": 2,
+      "variants": {
+        "independent": "Each motor has own driver (preferred)",
+        "parallel": "Both motors on same driver (simpler)"
+      },
+      "autoAlign": {
+        "feature": "Z_STEPPER_AUTO_ALIGN",
+        "description": "Automatically aligns Z leadscrews using probe",
+        "command": "G34"
+      },
+      "pros": [
+        "Even gantry support",
+        "Can auto-align if independent",
+        "Reduces X gantry sag"
+      ],
+      "cons": [
+        "More drivers (if independent)",
+        "More complex wiring"
+      ],
+      "configuration": {
+        "NUM_Z_STEPPER_DRIVERS": 2,
+        "Z2_DRIVER_TYPE": "TMC2209",
+        "Z_STEPPER_AUTO_ALIGN": "Optional",
+        "Z_STEPPER_ALIGN_XY": "Probe positions for alignment"
+      },
+      "popularPrinters": ["Artillery Sidewinder", "Creality CR-10 (upgrade)"]
+    },
+    {
+      "id": "TRIPLE_Z",
+      "name": "Triple Z Motors",
+      "description": "Three Z motors in triangle pattern (bed or gantry)",
+      "marlinDefine": "NUM_Z_STEPPER_DRIVERS 3",
+      "numMotors": 3,
+      "autoAlign": true,
+      "useCase": "Large beds, automatic bed tramming",
+      "pros": [
+        "Full bed/gantry control",
+        "Auto tramming possible",
+        "Very stable"
+      ],
+      "cons": [
+        "Complex",
+        "3 drivers needed"
+      ],
+      "configuration": {
+        "NUM_Z_STEPPER_DRIVERS": 3,
+        "Z_STEPPER_AUTO_ALIGN": true
+      },
+      "popularPrinters": ["Voron Trident", "RatRig V-Core 3"]
+    },
+    {
+      "id": "QUAD_Z",
+      "name": "Quad Z Motors",
+      "description": "Four Z motors, one at each corner",
+      "marlinDefine": "NUM_Z_STEPPER_DRIVERS 4",
+      "numMotors": 4,
+      "useCase": "Very large printers",
+      "configuration": {
+        "NUM_Z_STEPPER_DRIVERS": 4
+      },
+      "popularPrinters": ["Voron 2.4", "Large custom builds"]
+    }
+  ],
+  
+  "commonDriveComponents": {
+    "belts": {
+      "GT2_6mm": {
+        "pitch": 2,
+        "width": 6,
+        "use": "Standard XY for small-medium printers"
+      },
+      "GT2_9mm": {
+        "pitch": 2,
+        "width": 9,
+        "use": "Heavy toolheads, higher tension"
+      },
+      "GT2_10mm": {
+        "pitch": 2,
+        "width": 10,
+        "use": "High-performance builds"
+      }
+    },
+    "pulleys": {
+      "GT2_16T": {
+        "teeth": 16,
+        "pitch": 2,
+        "effectivePitch": 32,
+        "stepsPerMm_16x": 100
+      },
+      "GT2_20T": {
+        "teeth": 20,
+        "pitch": 2,
+        "effectivePitch": 40,
+        "stepsPerMm_16x": 80
+      }
+    },
+    "leadscrews": {
+      "T8_8mm": {
+        "diameter": 8,
+        "lead": 8,
+        "pitch": 2,
+        "starts": 4,
+        "stepsPerMm_16x": 400
+      },
+      "T8_4mm": {
+        "diameter": 8,
+        "lead": 4,
+        "pitch": 2,
+        "starts": 2,
+        "stepsPerMm_16x": 800
+      },
+      "T8_2mm": {
+        "diameter": 8,
+        "lead": 2,
+        "pitch": 2,
+        "starts": 1,
+        "stepsPerMm_16x": 1600
+      }
+    },
+    "ballscrews": {
+      "1204": {
+        "diameter": 12,
+        "lead": 4,
+        "stepsPerMm_16x": 800,
+        "notes": "Higher precision, less backlash"
+      },
+      "1605": {
+        "diameter": 16,
+        "lead": 5,
+        "stepsPerMm_16x": 640
+      }
+    },
+    "linearMotion": {
+      "rods": {
+        "types": ["6mm", "8mm", "10mm", "12mm"],
+        "bearings": ["LM8UU", "LM10UU", "LM12UU"],
+        "notes": "Budget option, can develop play"
+      },
+      "mgn_rails": {
+        "types": ["MGN7", "MGN9", "MGN12", "MGN15"],
+        "MGN12H": "Most common for 3D printers",
+        "notes": "Precise linear motion, recommended for quality builds"
+      }
+    }
+  },
+  
+  "stepsPerMmCalculations": {
+    "belt": {
+      "formula": "(motor_steps * microstepping) / (teeth * pitch)",
+      "example_20T_GT2": "(200 * 16) / (20 * 2) = 80 steps/mm"
+    },
+    "leadscrew": {
+      "formula": "(motor_steps * microstepping) / lead",
+      "example_T8_8mm": "(200 * 16) / 8 = 400 steps/mm"
+    },
+    "geared": {
+      "formula": "(motor_steps * microstepping * gear_ratio) / (teeth * pitch)",
+      "notes": "Add gear ratio to calculation"
+    }
+  }
+}

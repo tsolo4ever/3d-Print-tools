@@ -1,0 +1,387 @@
+{
+  "_comment": "Memory Usage Estimation Database",
+  "_lastUpdated": "2024-12-21",
+  "_notes": "Values are approximate. Actual usage varies by compiler, Marlin version, and board.",
+  
+  "baseMemory": {
+    "_comment": "Base Marlin with minimal features",
+    "flash": {
+      "ATmega2560": 85000,
+      "ATmega1284P": 75000,
+      "LPC1768": 120000,
+      "LPC1769": 120000,
+      "STM32F103": 95000,
+      "STM32F401": 100000,
+      "STM32F407": 110000,
+      "STM32F446": 115000,
+      "STM32G0B1": 100000,
+      "STM32H743": 130000
+    },
+    "ram": {
+      "ATmega2560": 4500,
+      "ATmega1284P": 8000,
+      "LPC1768": 12000,
+      "LPC1769": 12000,
+      "STM32F103": 10000,
+      "STM32F401": 14000,
+      "STM32F407": 18000,
+      "STM32F446": 18000,
+      "STM32G0B1": 16000,
+      "STM32H743": 45000
+    }
+  },
+  
+  "mcuLimits": {
+    "ATmega2560": {
+      "flash": 253952,
+      "ram": 8192,
+      "eeprom": 4096,
+      "clockSpeed": 16,
+      "bootloaderSize": 8192,
+      "usableFlash": 245760,
+      "notes": "8-bit AVR. Very limited. Disable features to fit."
+    },
+    "ATmega1284P": {
+      "flash": 131072,
+      "ram": 16384,
+      "eeprom": 4096,
+      "clockSpeed": 16,
+      "bootloaderSize": 4096,
+      "usableFlash": 126976,
+      "notes": "8-bit AVR. More RAM than 2560 but less flash."
+    },
+    "LPC1768": {
+      "flash": 524288,
+      "ram": 65536,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 100,
+      "bootloaderSize": 16384,
+      "usableFlash": 507904,
+      "notes": "32-bit ARM. Good balance of features."
+    },
+    "LPC1769": {
+      "flash": 524288,
+      "ram": 65536,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 120,
+      "bootloaderSize": 16384,
+      "usableFlash": 507904,
+      "notes": "Faster LPC1768. 120MHz vs 100MHz."
+    },
+    "STM32F103RCT6": {
+      "flash": 262144,
+      "ram": 49152,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 72,
+      "bootloaderSize": 28672,
+      "usableFlash": 233472,
+      "notes": "Common Creality MCU. Limited flash."
+    },
+    "STM32F103RET6": {
+      "flash": 524288,
+      "ram": 65536,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 72,
+      "bootloaderSize": 28672,
+      "usableFlash": 495616,
+      "notes": "Larger flash F103. Good for features."
+    },
+    "STM32F401RCT6": {
+      "flash": 262144,
+      "ram": 65536,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 84,
+      "bootloaderSize": 16384,
+      "usableFlash": 245760,
+      "notes": "F4 series. Faster than F103."
+    },
+    "STM32F401RET6": {
+      "flash": 524288,
+      "ram": 98304,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 84,
+      "bootloaderSize": 16384,
+      "usableFlash": 507904,
+      "notes": "Larger F401 variant."
+    },
+    "STM32F407VET6": {
+      "flash": 524288,
+      "ram": 131072,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 168,
+      "bootloaderSize": 16384,
+      "usableFlash": 507904,
+      "notes": "Fast F4. Lots of RAM."
+    },
+    "STM32F407VGT6": {
+      "flash": 1048576,
+      "ram": 131072,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 168,
+      "bootloaderSize": 16384,
+      "usableFlash": 1032192,
+      "notes": "1MB flash F407. Room for everything."
+    },
+    "STM32F446VET6": {
+      "flash": 524288,
+      "ram": 131072,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 180,
+      "bootloaderSize": 16384,
+      "usableFlash": 507904,
+      "notes": "Popular for Voron. Fast and capable."
+    },
+    "STM32F446ZET6": {
+      "flash": 524288,
+      "ram": 131072,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 180,
+      "bootloaderSize": 16384,
+      "usableFlash": 507904,
+      "notes": "More pins than VET6. BTT Octopus."
+    },
+    "STM32G0B1RET6": {
+      "flash": 524288,
+      "ram": 147456,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 64,
+      "bootloaderSize": 8192,
+      "usableFlash": 516096,
+      "notes": "Newer G0 series. BTT SKR Mini E3 V3."
+    },
+    "STM32H723ZET6": {
+      "flash": 1048576,
+      "ram": 569344,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 550,
+      "bootloaderSize": 16384,
+      "usableFlash": 1032192,
+      "notes": "High performance H7. Very fast."
+    },
+    "STM32H743VIT6": {
+      "flash": 2097152,
+      "ram": 1048576,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 480,
+      "bootloaderSize": 16384,
+      "usableFlash": 2080768,
+      "notes": "2MB flash, 1MB RAM. Top tier."
+    },
+    "RP2040": {
+      "flash": 2097152,
+      "ram": 264000,
+      "eeprom": 0,
+      "eepromEmulated": 4096,
+      "clockSpeed": 133,
+      "bootloaderSize": 16384,
+      "usableFlash": 2080768,
+      "notes": "Raspberry Pi MCU. Dual core. External flash."
+    }
+  },
+  
+  "featureMemoryCost": {
+    "_comment": "Approximate memory cost per feature (bytes)",
+    
+    "core": {
+      "EEPROM_SETTINGS": { "flash": 2500, "ram": 200 },
+      "HOST_KEEPALIVE_FEATURE": { "flash": 500, "ram": 50 },
+      "EMERGENCY_PARSER": { "flash": 1500, "ram": 100 }
+    },
+    
+    "display": {
+      "ULTRA_LCD": { "flash": 8000, "ram": 500 },
+      "REPRAP_DISCOUNT_SMART_CONTROLLER": { "flash": 12000, "ram": 700 },
+      "REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER": { "flash": 25000, "ram": 1200 },
+      "DWIN_CREALITY_LCD": { "flash": 35000, "ram": 3000 },
+      "DWIN_LCD_PROUI": { "flash": 45000, "ram": 4000 },
+      "TFT_COLOR_UI": { "flash": 50000, "ram": 8000 },
+      "TFT_CLASSIC_UI": { "flash": 40000, "ram": 5000 },
+      "TOUCH_UI_FTDI_EVE": { "flash": 55000, "ram": 6000 },
+      "MKS_TS35_V2_0": { "flash": 48000, "ram": 6000 },
+      "NO_LCD_MENUS": { "flash": -8000, "ram": -400 }
+    },
+    
+    "sdCard": {
+      "SDSUPPORT": { "flash": 12000, "ram": 1200 },
+      "LONG_FILENAME_HOST_SUPPORT": { "flash": 1500, "ram": 512 },
+      "SCROLL_LONG_FILENAMES": { "flash": 800, "ram": 100 },
+      "SDCARD_SORT_ALPHA": { "flash": 3000, "ram": 1500 },
+      "SDSORT_USES_RAM": { "flash": -500, "ram": 2000 },
+      "SDSORT_CACHE_NAMES": { "flash": 200, "ram": 4000 },
+      "BINARY_FILE_TRANSFER": { "flash": 4000, "ram": 500 },
+      "SD_CHECK_AND_RETRY": { "flash": 500, "ram": 50 }
+    },
+    
+    "leveling": {
+      "AUTO_BED_LEVELING_3POINT": { "flash": 3000, "ram": 100 },
+      "AUTO_BED_LEVELING_LINEAR": { "flash": 4000, "ram": 200 },
+      "AUTO_BED_LEVELING_BILINEAR": { "flash": 6000, "ram": 800 },
+      "AUTO_BED_LEVELING_UBL": { "flash": 25000, "ram": 3500 },
+      "MESH_BED_LEVELING": { "flash": 5000, "ram": 500 },
+      "G26_MESH_VALIDATION": { "flash": 4000, "ram": 300 },
+      "EXTRAPOLATE_BEYOND_GRID": { "flash": 500, "ram": 50 },
+      "ABL_BILINEAR_SUBDIVISION": { "flash": 1500, "ram": 200 },
+      "PROBE_MANUALLY": { "flash": 2000, "ram": 100 },
+      "LCD_BED_LEVELING": { "flash": 2500, "ram": 200 }
+    },
+    
+    "probe": {
+      "BLTOUCH": { "flash": 3500, "ram": 100 },
+      "Z_MIN_PROBE_REPEATABILITY_TEST": { "flash": 1500, "ram": 50 },
+      "PROBING_HEATERS_OFF": { "flash": 300, "ram": 20 },
+      "WAIT_FOR_BED_HEATER": { "flash": 200, "ram": 10 },
+      "Z_PROBE_SLED": { "flash": 1000, "ram": 50 },
+      "TOUCH_MI_PROBE": { "flash": 1500, "ram": 50 },
+      "MAG_MOUNTED_PROBE": { "flash": 2000, "ram": 100 }
+    },
+    
+    "motion": {
+      "S_CURVE_ACCELERATION": { "flash": 2000, "ram": 100 },
+      "JUNCTION_DEVIATION": { "flash": 1000, "ram": 50 },
+      "LIN_ADVANCE": { "flash": 2500, "ram": 100 },
+      "INPUT_SHAPING": { "flash": 8000, "ram": 1000 },
+      "BEZIER_CURVE_SUPPORT": { "flash": 2500, "ram": 100 },
+      "ARC_SUPPORT": { "flash": 3500, "ram": 200 },
+      "ARC_P_CIRCLES": { "flash": 500, "ram": 50 },
+      "CNC_COORDINATE_SYSTEMS": { "flash": 1500, "ram": 200 },
+      "ADAPTIVE_STEP_SMOOTHING": { "flash": 500, "ram": 50 },
+      "BABYSTEPPING": { "flash": 2000, "ram": 100 },
+      "INTEGRATED_BABYSTEPPING": { "flash": 500, "ram": 50 }
+    },
+    
+    "temperature": {
+      "PIDTEMP": { "flash": 2000, "ram": 100 },
+      "PIDTEMPBED": { "flash": 1500, "ram": 100 },
+      "PID_AUTOTUNE_MENU": { "flash": 2000, "ram": 100 },
+      "PID_EDIT_MENU": { "flash": 1000, "ram": 50 },
+      "TEMP_STAT_LEDS": { "flash": 500, "ram": 20 },
+      "THERMAL_PROTECTION_HOTENDS": { "flash": 1500, "ram": 50 },
+      "THERMAL_PROTECTION_BED": { "flash": 1000, "ram": 50 },
+      "THERMAL_PROTECTION_CHAMBER": { "flash": 1000, "ram": 50 },
+      "PREHEAT_1_SETTING": { "flash": 500, "ram": 50 },
+      "PREHEAT_2_SETTING": { "flash": 500, "ram": 50 }
+    },
+    
+    "stepperDrivers": {
+      "TMC_USE_SW_SPI": { "flash": 1000, "ram": 100 },
+      "MONITOR_DRIVER_STATUS": { "flash": 2500, "ram": 100 },
+      "TMC_DEBUG": { "flash": 5000, "ram": 500 },
+      "SENSORLESS_HOMING": { "flash": 2000, "ram": 100 },
+      "SENSORLESS_PROBING": { "flash": 1500, "ram": 50 },
+      "HYBRID_THRESHOLD": { "flash": 1500, "ram": 100 },
+      "STEALTHCHOP_XY": { "flash": 500, "ram": 50 },
+      "STEALTHCHOP_Z": { "flash": 500, "ram": 50 },
+      "STEALTHCHOP_E": { "flash": 500, "ram": 50 },
+      "TMC_STEALTHCHOP": { "flash": 1000, "ram": 100 },
+      "TMC2208_STANDALONE": { "flash": 500, "ram": 50 },
+      "TMC2209": { "flash": 3000, "ram": 200 },
+      "TMC2130": { "flash": 4000, "ram": 250 },
+      "TMC5160": { "flash": 4500, "ram": 300 }
+    },
+    
+    "filament": {
+      "FILAMENT_RUNOUT_SENSOR": { "flash": 2000, "ram": 100 },
+      "FILAMENT_RUNOUT_DISTANCE_MM": { "flash": 500, "ram": 50 },
+      "ADVANCED_PAUSE_FEATURE": { "flash": 6000, "ram": 500 },
+      "PARK_HEAD_ON_PAUSE": { "flash": 500, "ram": 50 },
+      "FILAMENT_LOAD_UNLOAD_GCODES": { "flash": 1500, "ram": 100 },
+      "NOZZLE_PARK_FEATURE": { "flash": 1500, "ram": 100 }
+    },
+    
+    "safety": {
+      "POWER_LOSS_RECOVERY": { "flash": 5000, "ram": 500 },
+      "POWER_LOSS_PIN": { "flash": 500, "ram": 50 },
+      "POWER_LOSS_STATE": { "flash": 200, "ram": 20 },
+      "PLR_ENABLED_DEFAULT": { "flash": 100, "ram": 10 },
+      "SOFT_ENDSTOPS": { "flash": 500, "ram": 50 },
+      "PREVENT_COLD_EXTRUSION": { "flash": 500, "ram": 20 },
+      "PREVENT_LENGTHY_EXTRUDE": { "flash": 300, "ram": 20 }
+    },
+    
+    "communication": {
+      "HOST_ACTION_COMMANDS": { "flash": 2000, "ram": 100 },
+      "HOST_PAUSE_M76": { "flash": 500, "ram": 50 },
+      "HOST_PROMPT_SUPPORT": { "flash": 1500, "ram": 100 },
+      "HOST_STATUS_NOTIFICATIONS": { "flash": 1000, "ram": 50 },
+      "REPORT_FAN_CHANGE": { "flash": 300, "ram": 20 },
+      "M115_GEOMETRY_REPORT": { "flash": 500, "ram": 50 },
+      "M114_DETAIL": { "flash": 800, "ram": 50 },
+      "REPORT_POSITION_EXTENDED": { "flash": 300, "ram": 20 },
+      "GCODE_MACROS": { "flash": 3000, "ram": 500 }
+    },
+    
+    "extras": {
+      "NEOPIXEL_LED": { "flash": 4000, "ram": 300 },
+      "LED_CONTROL_MENU": { "flash": 1500, "ram": 100 },
+      "CASE_LIGHT_ENABLE": { "flash": 1500, "ram": 50 },
+      "GCODE_REPEAT_MARKERS": { "flash": 2000, "ram": 200 },
+      "CANCEL_OBJECTS": { "flash": 3000, "ram": 300 },
+      "PRINTCOUNTER": { "flash": 1500, "ram": 100 },
+      "SOUND_MENU_ITEM": { "flash": 500, "ram": 20 },
+      "SPEAKER": { "flash": 1500, "ram": 100 }
+    },
+    
+    "multiExtruder": {
+      "EXTRUDERS_2": { "flash": 3000, "ram": 500 },
+      "EXTRUDERS_3": { "flash": 4500, "ram": 750 },
+      "EXTRUDERS_4": { "flash": 6000, "ram": 1000 },
+      "EXTRUDERS_5": { "flash": 7500, "ram": 1250 },
+      "MIXING_EXTRUDER": { "flash": 5000, "ram": 500 },
+      "SINGLENOZZLE": { "flash": 2000, "ram": 200 },
+      "TOOLCHANGE_FILAMENT_SWAP": { "flash": 3000, "ram": 300 },
+      "TOOLCHANGE_PARK": { "flash": 1500, "ram": 100 }
+    },
+    
+    "delta": {
+      "DELTA": { "flash": 8000, "ram": 500 },
+      "DELTA_AUTO_CALIBRATION": { "flash": 4000, "ram": 300 },
+      "DELTA_CALIBRATION_MENU": { "flash": 2000, "ram": 100 }
+    },
+    
+    "corexy": {
+      "COREXY": { "flash": 500, "ram": 50 },
+      "COREXZ": { "flash": 500, "ram": 50 },
+      "COREYZ": { "flash": 500, "ram": 50 },
+      "MARKFORGED_XY": { "flash": 500, "ram": 50 }
+    }
+  },
+  
+  "meshMemoryCalc": {
+    "_comment": "UBL mesh memory = points * points * 4 bytes",
+    "_formula": "GRID_MAX_POINTS_X * GRID_MAX_POINTS_Y * 4",
+    "examples": {
+      "3x3": 36,
+      "5x5": 100,
+      "7x7": 196,
+      "9x9": 324,
+      "10x10": 400,
+      "15x15": 900,
+      "20x20": 1600
+    }
+  },
+  
+  "sdSortMemoryCalc": {
+    "_comment": "SD sort cache memory usage",
+    "SDSORT_LIMIT": {
+      "perFile": 13,
+      "_formula": "SDSORT_LIMIT * 13"
+    },
+    "SDSORT_CACHE_NAMES": {
+      "perFile": 52,
+      "_formula": "SDSORT_LIMIT * (LONG_FILENAME_LENGTH + 13)"
+    }
+  }
+}

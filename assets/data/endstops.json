@@ -1,0 +1,190 @@
+{
+  "_comment": "Endstop Configuration Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "endstopTypes": [
+    {
+      "id": "MECHANICAL_NC",
+      "name": "Mechanical Switch (Normally Closed)",
+      "type": "Mechanical",
+      "circuit": "NC",
+      "signal": "Digital",
+      "voltage": "3.3V/5V",
+      "invertLogic": false,
+      "pullup": true,
+      "debounce": true,
+      "marlinConfig": {
+        "X_MIN_ENDSTOP_INVERTING": false,
+        "ENDSTOPPULLUPS": true
+      },
+      "stockOnPrinters": [
+        "Creality Ender 3",
+        "Creality CR-10",
+        "Prusa MK3",
+        "Most printers"
+      ],
+      "notes": "Most common type. NC is safer - broken wire triggers endstop."
+    },
+    {
+      "id": "MECHANICAL_NO",
+      "name": "Mechanical Switch (Normally Open)",
+      "type": "Mechanical",
+      "circuit": "NO",
+      "signal": "Digital",
+      "voltage": "3.3V/5V",
+      "invertLogic": true,
+      "pullup": true,
+      "debounce": true,
+      "marlinConfig": {
+        "X_MIN_ENDSTOP_INVERTING": true,
+        "ENDSTOPPULLUPS": true
+      },
+      "stockOnPrinters": [
+        "Some budget printers"
+      ],
+      "notes": "Less safe - broken wire won't trigger endstop."
+    },
+    {
+      "id": "OPTICAL",
+      "name": "Optical Endstop",
+      "type": "Optical",
+      "circuit": "NO",
+      "signal": "Digital",
+      "voltage": "5V",
+      "invertLogic": true,
+      "pullup": false,
+      "debounce": false,
+      "marlinConfig": {
+        "X_MIN_ENDSTOP_INVERTING": true,
+        "ENDSTOPPULLUPS": false
+      },
+      "stockOnPrinters": [
+        "Some delta printers",
+        "Older RepRap"
+      ],
+      "notes": "No mechanical wear. Can be affected by dust/debris."
+    },
+    {
+      "id": "HALL_EFFECT",
+      "name": "Hall Effect Sensor",
+      "type": "Magnetic",
+      "circuit": "Various",
+      "signal": "Digital/Analog",
+      "voltage": "5V",
+      "invertLogic": "Varies",
+      "pullup": false,
+      "debounce": false,
+      "marlinConfig": {},
+      "stockOnPrinters": [
+        "Voron (some builds)"
+      ],
+      "notes": "Contactless. Requires magnet on carriage."
+    },
+    {
+      "id": "SENSORLESS_TMC",
+      "name": "Sensorless (TMC StallGuard)",
+      "type": "Sensorless",
+      "circuit": "N/A",
+      "signal": "StallGuard",
+      "voltage": "N/A",
+      "invertLogic": false,
+      "pullup": false,
+      "debounce": false,
+      "marlinConfig": {
+        "SENSORLESS_HOMING": true,
+        "X_STALL_SENSITIVITY": 50,
+        "Y_STALL_SENSITIVITY": 50
+      },
+      "requiredDrivers": ["TMC2130", "TMC2209", "TMC5160"],
+      "stockOnPrinters": [
+        "Prusa MK3 (X/Y)",
+        "Voron (optional)"
+      ],
+      "notes": "No physical endstops needed. Requires tuning. TMC drivers in SPI/UART mode."
+    },
+    {
+      "id": "PROBE_AS_ENDSTOP",
+      "name": "Probe as Z Endstop",
+      "type": "Probe",
+      "circuit": "N/A",
+      "signal": "Digital",
+      "voltage": "5V",
+      "invertLogic": "Varies by probe",
+      "pullup": true,
+      "debounce": false,
+      "marlinConfig": {
+        "USE_PROBE_FOR_Z_HOMING": true,
+        "Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN": true
+      },
+      "stockOnPrinters": [
+        "Creality Ender 3 V2 (with BLTouch)",
+        "Prusa MK3 (PINDA)"
+      ],
+      "notes": "Uses ABL probe for Z homing. Common modern setup."
+    }
+  ],
+  
+  "endstopPositions": {
+    "X_MIN": {
+      "description": "Home to X minimum (left)",
+      "defines": {
+        "USE_XMIN_PLUG": true,
+        "X_HOME_DIR": -1
+      },
+      "commonOn": ["Most cartesian printers"]
+    },
+    "X_MAX": {
+      "description": "Home to X maximum (right)",
+      "defines": {
+        "USE_XMAX_PLUG": true,
+        "X_HOME_DIR": 1
+      },
+      "commonOn": ["Some CoreXY", "Delta"]
+    },
+    "Y_MIN": {
+      "description": "Home to Y minimum (front)",
+      "defines": {
+        "USE_YMIN_PLUG": true,
+        "Y_HOME_DIR": -1
+      },
+      "commonOn": ["Most cartesian printers"]
+    },
+    "Y_MAX": {
+      "description": "Home to Y maximum (back)",
+      "defines": {
+        "USE_YMAX_PLUG": true,
+        "Y_HOME_DIR": 1
+      },
+      "commonOn": ["Some CoreXY", "Ender 5"]
+    },
+    "Z_MIN": {
+      "description": "Home to Z minimum (bed)",
+      "defines": {
+        "USE_ZMIN_PLUG": true,
+        "Z_HOME_DIR": -1
+      },
+      "commonOn": ["Most printers"]
+    },
+    "Z_MAX": {
+      "description": "Home to Z maximum (top)",
+      "defines": {
+        "USE_ZMAX_PLUG": true,
+        "Z_HOME_DIR": 1
+      },
+      "commonOn": ["Delta", "Some CoreXY"]
+    }
+  },
+  
+  "endstopWiring": {
+    "2wire": {
+      "name": "2-Wire (Signal + Ground)",
+      "wires": ["Signal", "Ground"],
+      "notes": "Most common for mechanical switches"
+    },
+    "3wire": {
+      "name": "3-Wire (VCC + Signal + Ground)",
+      "wires": ["VCC", "Signal", "Ground"],
+      "notes": "Used by optical, some inductive probes"
+    }
+  }
+}

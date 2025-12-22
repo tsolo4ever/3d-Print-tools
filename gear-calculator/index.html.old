@@ -161,54 +161,6 @@
       .wrap{grid-template-columns:1fr;padding:8px}
       .gear-header>div{flex-direction:column;align-items:flex-start}
       .row,.row3{grid-template-columns:1fr}
-      
-      /* Fix input overflow on mobile */
-      input, select, textarea {
-        max-width: 100%;
-        font-size: 16px; /* Prevents iOS zoom on focus */
-        padding: 8px;
-      }
-      
-      /* Ensure panels don't overflow */
-      .panel {
-        padding: 10px;
-        overflow-x: hidden;
-      }
-      
-      /* Make buttons more touch-friendly */
-      button {
-        min-height: 44px;
-        padding: 10px 8px;
-        font-size: 15px;
-      }
-      
-      /* Adjust help button */
-      .help-btn {
-        width: 100%;
-        margin-top: 10px;
-      }
-      
-      /* Ensure pre/code don't overflow */
-      pre {
-        overflow-x: auto;
-        max-width: 100%;
-        font-size: 12px;
-      }
-      
-      /* Make pill items wrap better */
-      .pill {
-        font-size: 14px;
-        padding: 6px 8px;
-      }
-      
-      /* Adjust actions flex */
-      .actions {
-        flex-direction: column;
-      }
-      
-      .actions button {
-        width: 100%;
-      }
     }
     /* Copy button */
     .copy-btn{background:var(--gear-ok);color:white;border-color:var(--gear-ok);font-weight:bold}

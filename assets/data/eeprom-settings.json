@@ -1,0 +1,391 @@
+{
+  "_comment": "EEPROM Settings Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "overview": {
+    "description": "EEPROM stores persistent settings that survive power cycles",
+    "marlinDefine": "EEPROM_SETTINGS",
+    "storage": {
+      "AVR": "Built-in EEPROM (1-4KB)",
+      "STM32": "Emulated in Flash or external I2C",
+      "LPC": "SD card file or flash emulation",
+      "ESP32": "Flash partition"
+    }
+  },
+  
+  "gcodeCommands": {
+    "M500": {
+      "name": "Save Settings",
+      "description": "Save current settings to EEPROM",
+      "example": "M500"
+    },
+    "M501": {
+      "name": "Load Settings",
+      "description": "Load settings from EEPROM",
+      "example": "M501"
+    },
+    "M502": {
+      "name": "Factory Reset",
+      "description": "Reset settings to firmware defaults (in RAM only)",
+      "example": "M502",
+      "notes": "Does NOT save! Use M500 after to make permanent."
+    },
+    "M503": {
+      "name": "Report Settings",
+      "description": "Print current settings to serial",
+      "parameters": {
+        "S0": "Verbose output with descriptions",
+        "C": "Include calibration data"
+      },
+      "example": "M503"
+    },
+    "M504": {
+      "name": "Validate EEPROM",
+      "description": "Check EEPROM data integrity",
+      "example": "M504"
+    }
+  },
+  
+  "storedSettings": {
+    "motion": {
+      "category": "Motion Settings",
+      "settings": [
+        {
+          "name": "Steps Per Unit",
+          "gcode": "M92",
+          "parameters": ["X", "Y", "Z", "E"],
+          "example": "M92 X80.00 Y80.00 Z400.00 E93.00",
+          "units": "steps/mm"
+        },
+        {
+          "name": "Maximum Feedrates",
+          "gcode": "M203",
+          "parameters": ["X", "Y", "Z", "E"],
+          "example": "M203 X500.00 Y500.00 Z10.00 E50.00",
+          "units": "mm/s"
+        },
+        {
+          "name": "Maximum Acceleration",
+          "gcode": "M201",
+          "parameters": ["X", "Y", "Z", "E"],
+          "example": "M201 X500.00 Y500.00 Z100.00 E5000.00",
+          "units": "mm/s²"
+        },
+        {
+          "name": "Default Acceleration",
+          "gcode": "M204",
+          "parameters": ["P", "R", "T"],
+          "example": "M204 P500.00 R1000.00 T1000.00",
+          "description": "P=Print, R=Retract, T=Travel",
+          "units": "mm/s²"
+        },
+        {
+          "name": "Jerk / Junction Deviation",
+          "gcode": "M205",
+          "parameters": ["X", "Y", "Z", "E", "J"],
+          "example_jerk": "M205 X10.00 Y10.00 Z0.30 E5.00",
+          "example_junction": "M205 J0.013",
+          "units": "mm/s (jerk) or mm (junction deviation)"
+        }
+      ]
+    },
+    
+    "homing": {
+      "category": "Homing Settings",
+      "settings": [
+        {
+          "name": "Home Offset",
+          "gcode": "M206",
+          "parameters": ["X", "Y", "Z"],
+          "example": "M206 X0.00 Y0.00 Z0.00",
+          "units": "mm",
+          "notes": "Offset applied after homing"
+        }
+      ]
+    },
+    
+    "probeOffset": {
+      "category": "Probe Settings",
+      "settings": [
+        {
+          "name": "Probe Z Offset",
+          "gcode": "M851",
+          "parameters": ["X", "Y", "Z"],
+          "example": "M851 X-40.00 Y-10.00 Z-1.50",
+          "units": "mm",
+          "notes": "Distance from nozzle to probe trigger point"
+        }
+      ]
+    },
+    
+    "temperature": {
+      "category": "Temperature Settings",
+      "settings": [
+        {
+          "name": "Hotend PID",
+          "gcode": "M301",
+          "parameters": ["P", "I", "D"],
+          "example": "M301 P22.20 I1.08 D114.00",
+          "requires": "PIDTEMP"
+        },
+        {
+          "name": "Bed PID",
+          "gcode": "M304",
+          "parameters": ["P", "I", "D"],
+          "example": "M304 P97.10 I1.41 D1675.16",
+          "requires": "PIDTEMPBED"
+        },
+        {
+          "name": "Hotend MPC",
+          "gcode": "M306",
+          "parameters": ["A", "C", "F", "H", "P", "R"],
+          "requires": "MPCTEMP",
+          "notes": "Model Predictive Control - newer than PID"
+        }
+      ]
+    },
+    
+    "linearAdvance": {
+      "category": "Linear Advance",
+      "settings": [
+        {
+          "name": "Linear Advance K",
+          "gcode": "M900",
+          "parameters": ["K", "T"],
+          "example": "M900 K0.06 T0",
+          "requires": "LIN_ADVANCE",
+          "notes": "T selects tool, K is the factor (0=disabled)"
+        }
+      ]
+    },
+    
+    "inputShaping": {
+      "category": "Input Shaping",
+      "settings": [
+        {
+          "name": "Input Shaper",
+          "gcode": "M593",
+          "parameters": ["F", "D"],
+          "example": "M593 F40.0 D0.15",
+          "requires": "INPUT_SHAPING",
+          "notes": "F=frequency(Hz), D=damping ratio"
+        }
+      ]
+    },
+    
+    "stepperDrivers": {
+      "category": "TMC Driver Settings",
+      "settings": [
+        {
+          "name": "TMC Current",
+          "gcode": "M906",
+          "parameters": ["X", "Y", "Z", "E", "I"],
+          "example": "M906 X800 Y800 Z800 E800",
+          "units": "mA",
+          "requires": "TMC drivers"
+        },
+        {
+          "name": "TMC Hybrid Threshold",
+          "gcode": "M913",
+          "parameters": ["X", "Y", "Z", "E"],
+          "example": "M913 X100 Y100",
+          "units": "mm/s",
+          "requires": "HYBRID_THRESHOLD"
+        },
+        {
+          "name": "TMC StallGuard Sensitivity",
+          "gcode": "M914",
+          "parameters": ["X", "Y", "Z"],
+          "example": "M914 X50 Y50",
+          "requires": "SENSORLESS_HOMING"
+        }
+      ]
+    },
+    
+    "bedLeveling": {
+      "category": "Bed Leveling",
+      "settings": [
+        {
+          "name": "Leveling State",
+          "gcode": "M420",
+          "parameters": ["S", "Z"],
+          "example": "M420 S1 Z10.00",
+          "notes": "S=enable/disable, Z=fade height"
+        },
+        {
+          "name": "Bed Mesh Data",
+          "storage": "Stored as array of Z values",
+          "notes": "Size depends on GRID_MAX_POINTS"
+        },
+        {
+          "name": "UBL Mesh Slot",
+          "gcode": "G29 S/L",
+          "requires": "AUTO_BED_LEVELING_UBL",
+          "notes": "Multiple slots available"
+        }
+      ]
+    },
+    
+    "endstops": {
+      "category": "Endstop Settings",
+      "settings": [
+        {
+          "name": "Software Endstops",
+          "gcode": "M211",
+          "parameters": ["S"],
+          "example": "M211 S1",
+          "notes": "S1=enable, S0=disable"
+        }
+      ]
+    },
+    
+    "filament": {
+      "category": "Filament Settings",
+      "settings": [
+        {
+          "name": "Filament Diameter",
+          "gcode": "M200",
+          "parameters": ["D", "T"],
+          "example": "M200 D1.75 T0",
+          "units": "mm"
+        },
+        {
+          "name": "Filament Runout",
+          "gcode": "M412",
+          "parameters": ["S"],
+          "example": "M412 S1",
+          "requires": "FILAMENT_RUNOUT_SENSOR"
+        }
+      ]
+    },
+    
+    "powerLoss": {
+      "category": "Power Loss Recovery",
+      "settings": [
+        {
+          "name": "Power Loss Recovery State",
+          "gcode": "M413",
+          "parameters": ["S"],
+          "example": "M413 S1",
+          "requires": "POWER_LOSS_RECOVERY"
+        }
+      ]
+    },
+    
+    "misc": {
+      "category": "Miscellaneous",
+      "settings": [
+        {
+          "name": "Stepper Timeout",
+          "gcode": "M18/M84",
+          "parameters": ["S"],
+          "example": "M84 S120",
+          "units": "seconds"
+        },
+        {
+          "name": "Print Counter",
+          "storage": "Automatic",
+          "requires": "PRINTCOUNTER",
+          "data": ["Total prints", "Finished prints", "Total print time", "Longest print"]
+        }
+      ]
+    }
+  },
+  
+  "eepromSize": {
+    "description": "EEPROM usage by feature",
+    "baseUsage": 200,
+    "features": {
+      "bedMesh_3x3": 36,
+      "bedMesh_5x5": 100,
+      "bedMesh_7x7": 196,
+      "bedMesh_9x9": 324,
+      "bedMesh_10x10": 400,
+      "ublMesh_10x10": 400,
+      "pidValues": 12,
+      "tmcSettings": 50,
+      "linearAdvance": 4,
+      "printCounter": 16
+    },
+    "typicalTotal": {
+      "minimal": 300,
+      "withMesh5x5": 400,
+      "withUBL10x10": 700,
+      "full": 1000
+    }
+  },
+  
+  "eepromTypes": {
+    "EEPROM_SETTINGS": {
+      "description": "Enable EEPROM storage",
+      "required": true
+    },
+    "DISABLE_M503": {
+      "description": "Disable M503 to save flash",
+      "saves": "~2.5KB flash"
+    },
+    "EEPROM_CHITCHAT": {
+      "description": "Verbose EEPROM feedback",
+      "default": true
+    },
+    "EEPROM_BOOT_SILENT": {
+      "description": "Suppress EEPROM messages at boot",
+      "default": false
+    },
+    "EEPROM_AUTO_INIT": {
+      "description": "Initialize EEPROM if invalid",
+      "default": false,
+      "notes": "Prevents 'EEPROM Version Mismatch' errors"
+    }
+  },
+  
+  "backupRestore": {
+    "description": "How to backup and restore EEPROM",
+    "methods": {
+      "serial": {
+        "backup": "M503 ; Copy output to text file",
+        "restore": "Send saved G-codes, then M500",
+        "limitations": "Doesn't include mesh data directly"
+      },
+      "meshBackup": {
+        "bilinear": "M420 V ; Shows mesh, copy values",
+        "ubl": "G29 T ; Shows topology, harder to restore"
+      }
+    },
+    "octoPrintPlugins": [
+      "EEPROM Marlin Editor",
+      "Backup & Restore"
+    ],
+    "tips": [
+      "Save M503 output before firmware update",
+      "After M502, use M500 to save defaults",
+      "After firmware update, may need to reconfigure"
+    ]
+  },
+  
+  "troubleshooting": {
+    "versionMismatch": {
+      "error": "EEPROM Version Mismatch",
+      "cause": "Firmware EEPROM structure changed",
+      "solution": "M502 then M500 to initialize"
+    },
+    "crcError": {
+      "error": "EEPROM CRC Mismatch",
+      "cause": "Data corruption",
+      "solution": "M502 then M500 to reinitialize"
+    },
+    "settingsNotSaved": {
+      "symptoms": "Settings reset after power cycle",
+      "causes": [
+        "Forgot M500 after changes",
+        "EEPROM_SETTINGS not enabled",
+        "EEPROM hardware failure"
+      ],
+      "solutions": [
+        "Always M500 after M92, M301, M851, etc.",
+        "Enable EEPROM_SETTINGS in Configuration.h",
+        "Check EEPROM chip (I2C boards)"
+      ]
+    }
+  }
+}

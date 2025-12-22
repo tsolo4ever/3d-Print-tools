@@ -1,0 +1,283 @@
+{
+  "_comment": "Heater Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "hotendHeaters": [
+    {
+      "id": "HEATER_40W_24V",
+      "name": "40W 24V Heater Cartridge",
+      "type": "Cartridge",
+      "wattage": 40,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 20,
+      "resistance": 14.4,
+      "current": 1.67,
+      "maxTemp": 300,
+      "stockOnPrinters": [
+        "Creality Ender 3",
+        "Creality Ender 3 V2",
+        "Creality CR-10",
+        "Most 24V printers"
+      ],
+      "stockOnHotends": [
+        "HOTEND_CREALITY_MK8",
+        "HOTEND_E3D_V6"
+      ],
+      "notes": "Most common heater. Good for PLA/PETG/ABS."
+    },
+    {
+      "id": "HEATER_40W_12V",
+      "name": "40W 12V Heater Cartridge",
+      "type": "Cartridge",
+      "wattage": 40,
+      "voltage": 12,
+      "diameter": 6,
+      "length": 20,
+      "resistance": 3.6,
+      "current": 3.33,
+      "maxTemp": 300,
+      "stockOnPrinters": [
+        "Anet A8",
+        "Older 12V printers"
+      ],
+      "notes": "For 12V systems. Higher current than 24V equivalent."
+    },
+    {
+      "id": "HEATER_50W_24V",
+      "name": "50W 24V Heater Cartridge",
+      "type": "Cartridge",
+      "wattage": 50,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 20,
+      "resistance": 11.5,
+      "current": 2.08,
+      "maxTemp": 350,
+      "stockOnPrinters": [
+        "Artillery Sidewinder",
+        "Some Voron builds"
+      ],
+      "stockOnHotends": [
+        "HOTEND_PHAETUS_DRAGON_STANDARD",
+        "HOTEND_SLICE_MOSQUITO"
+      ],
+      "notes": "Faster heat-up. Good for high-temp materials."
+    },
+    {
+      "id": "HEATER_60W_24V",
+      "name": "60W 24V Heater Cartridge",
+      "type": "Cartridge",
+      "wattage": 60,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 20,
+      "resistance": 9.6,
+      "current": 2.5,
+      "maxTemp": 450,
+      "stockOnPrinters": [
+        "High-speed printers"
+      ],
+      "stockOnHotends": [
+        "HOTEND_E3D_VOLCANO",
+        "HOTEND_PHAETUS_RAPIDO"
+      ],
+      "notes": "High-flow hotends. Faster recovery during fast printing."
+    },
+    {
+      "id": "HEATER_70W_24V",
+      "name": "70W 24V Heater Cartridge",
+      "type": "Cartridge",
+      "wattage": 70,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 25,
+      "resistance": 8.2,
+      "current": 2.9,
+      "maxTemp": 500,
+      "stockOnHotends": [
+        "HOTEND_E3D_SUPERVOLCANO"
+      ],
+      "notes": "Super high-flow applications."
+    },
+    {
+      "id": "HEATER_80W_24V",
+      "name": "80W 24V Heater Cartridge",
+      "type": "Cartridge",
+      "wattage": 80,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 25,
+      "resistance": 7.2,
+      "current": 3.33,
+      "maxTemp": 500,
+      "stockOnPrinters": [
+        "Creality K1"
+      ],
+      "stockOnHotends": [
+        "HOTEND_CREALITY_SPIDER"
+      ],
+      "notes": "Very fast heat-up. High-speed printing."
+    },
+    {
+      "id": "HEATER_115W_CERAMIC",
+      "name": "115W Ceramic Heater (Rapido)",
+      "type": "Ceramic",
+      "wattage": 115,
+      "voltage": 24,
+      "diameter": 10,
+      "length": 18,
+      "resistance": 5.0,
+      "current": 4.8,
+      "maxTemp": 500,
+      "stockOnHotends": [
+        "HOTEND_PHAETUS_RAPIDO",
+        "HOTEND_PHAETUS_RAPIDO_2"
+      ],
+      "notes": "Ultra-fast heat-up. Integrated heater + heatsink."
+    }
+  ],
+  
+  "bedHeaters": [
+    {
+      "id": "BED_SILICONE_200W_24V",
+      "name": "Silicone Heater Pad 200W 24V",
+      "type": "Silicone Pad",
+      "wattage": 200,
+      "voltage": 24,
+      "size": "235x235mm",
+      "maxTemp": 120,
+      "heatupTime": "3-5 min to 60°C",
+      "thermistor": "Embedded 100K",
+      "stockOnPrinters": [
+        "Creality Ender 3",
+        "Similar size printers"
+      ],
+      "notes": "Common upgrade from PCB heater."
+    },
+    {
+      "id": "BED_SILICONE_300W_24V",
+      "name": "Silicone Heater Pad 300W 24V",
+      "type": "Silicone Pad",
+      "wattage": 300,
+      "voltage": 24,
+      "size": "310x310mm",
+      "maxTemp": 120,
+      "heatupTime": "3-5 min to 60°C",
+      "thermistor": "Embedded 100K",
+      "stockOnPrinters": [
+        "Creality CR-10",
+        "Artillery Sidewinder"
+      ],
+      "notes": "Medium-large bed heater."
+    },
+    {
+      "id": "BED_SILICONE_750W_AC",
+      "name": "Silicone Heater Pad 750W AC",
+      "type": "Silicone Pad",
+      "wattage": 750,
+      "voltage": "110V/220V AC",
+      "size": "300x300mm",
+      "maxTemp": 150,
+      "heatupTime": "2-3 min to 100°C",
+      "thermistor": "100K 3950",
+      "safteyFeatures": ["SSR Required", "Thermal fuse recommended"],
+      "stockOnPrinters": [
+        "Voron 2.4 300mm"
+      ],
+      "notes": "AC powered - requires SSR. Fast heat-up. DANGEROUS - proper wiring required!"
+    },
+    {
+      "id": "BED_PCB_235",
+      "name": "PCB Heated Bed (235mm)",
+      "type": "PCB",
+      "wattage": 200,
+      "voltage": 24,
+      "size": "235x235mm",
+      "maxTemp": 110,
+      "heatupTime": "4-6 min to 60°C",
+      "thermistor": "100K NTC (wired)",
+      "stockOnPrinters": [
+        "Creality Ender 3 (stock)",
+        "Creality Ender 3 V2"
+      ],
+      "notes": "Stock Creality bed. Slower than silicone pad."
+    },
+    {
+      "id": "BED_ALUMINUM_310",
+      "name": "Aluminum Heated Bed (310mm)",
+      "type": "Aluminum",
+      "wattage": 300,
+      "voltage": 24,
+      "size": "310x310mm",
+      "maxTemp": 110,
+      "heatupTime": "5-7 min to 60°C",
+      "thermistor": "100K NTC (screw mount)",
+      "stockOnPrinters": [
+        "Creality CR-10"
+      ],
+      "notes": "Aluminum with PCB traces. Heavy but flat."
+    },
+    {
+      "id": "BED_KEENOVO_400W",
+      "name": "Keenovo 400W Silicone Heater",
+      "type": "Silicone Pad",
+      "wattage": 400,
+      "voltage": 24,
+      "size": "250x250mm",
+      "maxTemp": 130,
+      "heatupTime": "2-4 min to 100°C",
+      "thermistor": "100K 3950",
+      "stockOnPrinters": [],
+      "notes": "Popular Voron upgrade. High quality."
+    }
+  ],
+  
+  "pidTuning": {
+    "_comment": "PID tuning guidelines",
+    
+    "hotend": {
+      "command": "M303 E0 S200 C8",
+      "temperature": 200,
+      "cycles": 8,
+      "notes": "Run at your typical print temp. More cycles = more accurate."
+    },
+    "bed": {
+      "command": "M303 E-1 S60 C8",
+      "temperature": 60,
+      "cycles": 8,
+      "notes": "Bed PID takes longer. Be patient."
+    },
+    "bangBangVsPID": {
+      "bangBang": {
+        "pros": ["Simple", "No tuning needed"],
+        "cons": ["Temperature swings", "Audible relay clicking"],
+        "useFor": "Beds with SSR, simple setups"
+      },
+      "pid": {
+        "pros": ["Stable temperature", "Quiet"],
+        "cons": ["Requires tuning"],
+        "useFor": "Hotends (always), beds (recommended)"
+      }
+    }
+  },
+  
+  "thermalProtection": {
+    "_comment": "Thermal runaway protection settings",
+    
+    "hotend": {
+      "THERMAL_PROTECTION_PERIOD": 40,
+      "THERMAL_PROTECTION_HYSTERESIS": 4,
+      "WATCH_TEMP_PERIOD": 20,
+      "WATCH_TEMP_INCREASE": 2,
+      "notes": "If temp doesn't rise 2°C in 20 sec when heating, error triggered."
+    },
+    "bed": {
+      "THERMAL_PROTECTION_BED_PERIOD": 40,
+      "THERMAL_PROTECTION_BED_HYSTERESIS": 4,
+      "WATCH_BED_TEMP_PERIOD": 60,
+      "WATCH_BED_TEMP_INCREASE": 2,
+      "notes": "Bed heats slower, longer watch period."
+    }
+  }
+}

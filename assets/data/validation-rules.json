@@ -1,0 +1,576 @@
+{
+  "_comment": "Configuration Validation Rules Database",
+  "_lastUpdated": "2024-12-21",
+  "_description": "Rules for validating Marlin configuration combinations",
+  
+  "validationCategories": {
+    "error": "Configuration will not compile or will malfunction",
+    "warning": "Configuration may cause issues",
+    "info": "Suggestion for improvement",
+    "conflict": "Mutually exclusive options enabled"
+  },
+  
+  "rules": {
+    "board": [
+      {
+        "id": "BOARD_MCU_MATCH",
+        "severity": "error",
+        "description": "Board must match MCU capabilities",
+        "check": "MOTHERBOARD matches expected MCU",
+        "examples": [
+          {
+            "board": "BOARD_RAMPS_14",
+            "expectedMCU": "ATmega2560",
+            "environment": "mega2560"
+          },
+          {
+            "board": "BOARD_BTT_SKR_MINI_E3_V3_0",
+            "expectedMCU": "STM32G0B1RET6",
+            "environment": "STM32G0B1RE_btt"
+          }
+        ]
+      },
+      {
+        "id": "BOARD_DRIVER_PINS",
+        "severity": "error",
+        "description": "Driver type must be supported by board",
+        "check": "If TMC UART/SPI, board must have appropriate pins",
+        "rule": {
+          "if": "X_DRIVER_TYPE == TMC2209",
+          "then": "Board must have UART pins for X axis OR TMC_USE_SW_SPI"
+        }
+      }
+    ],
+    
+    "kinematics": [
+      {
+        "id": "KINEMATICS_EXCLUSIVE",
+        "severity": "conflict",
+        "description": "Only one kinematics type can be enabled",
+        "mutuallyExclusive": [
+          "COREXY",
+          "COREXZ",
+          "COREYZ",
+          "MARKFORGED_XY",
+          "MARKFORGED_YX",
+          "DELTA",
+          "SCARA",
+          "POLAR"
+        ],
+        "message": "Only one kinematics option can be enabled at a time"
+      },
+      {
+        "id": "COREXY_HOME_DIR",
+        "severity": "warning",
+        "description": "CoreXY typically homes to max",
+        "rule": {
+          "if": "COREXY == true",
+          "suggest": {
+            "X_HOME_DIR": 1,
+            "Y_HOME_DIR": 1
+          },
+          "message": "CoreXY printers typically home to X_MAX and Y_MAX"
+        }
+      },
+      {
+        "id": "DELTA_REQUIREMENTS",
+        "severity": "error",
+        "description": "Delta requires specific settings",
+        "rule": {
+          "if": "DELTA == true",
+          "requires": [
+            "DELTA_DIAGONAL_ROD > 0",
+            "DELTA_RADIUS > 0",
+            "DELTA_HEIGHT > 0"
+          ],
+          "message": "Delta kinematics requires diagonal rod, radius, and height values"
+        }
+      },
+      {
+        "id": "DELTA_HOME_DIR",
+        "severity": "error",
+        "description": "Delta must home to max",
+        "rule": {
+          "if": "DELTA == true",
+          "requires": {
+            "X_HOME_DIR": 1,
+            "Y_HOME_DIR": 1,
+            "Z_HOME_DIR": 1
+          },
+          "message": "Delta printers must home to MAX on all axes"
+        }
+      }
+    ],
+    
+    "leveling": [
+      {
+        "id": "LEVELING_EXCLUSIVE",
+        "severity": "conflict",
+        "description": "Only one leveling type can be enabled",
+        "mutuallyExclusive": [
+          "AUTO_BED_LEVELING_3POINT",
+          "AUTO_BED_LEVELING_LINEAR",
+          "AUTO_BED_LEVELING_BILINEAR",
+          "AUTO_BED_LEVELING_UBL",
+          "MESH_BED_LEVELING"
+        ],
+        "message": "Only one bed leveling method can be enabled"
+      },
+      {
+        "id": "ABL_REQUIRES_PROBE",
+        "severity": "error",
+        "description": "Auto bed leveling requires probe",
+        "rule": {
+          "if": "AUTO_BED_LEVELING_* == true && PROBE_MANUALLY != true",
+          "requires": "BLTOUCH || FIX_MOUNTED_PROBE || NOZZLE_AS_PROBE || MAG_MOUNTED_PROBE || TOUCH_MI_PROBE",
+          "message": "Auto bed leveling requires a probe unless PROBE_MANUALLY is enabled"
+        }
+      },
+      {
+        "id": "UBL_REQUIRES_EEPROM",
+        "severity": "error",
+        "description": "UBL requires EEPROM for mesh storage",
+        "rule": {
+          "if": "AUTO_BED_LEVELING_UBL == true",
+          "requires": "EEPROM_SETTINGS == true",
+          "message": "UBL requires EEPROM_SETTINGS for mesh storage"
+        }
+      },
+      {
+        "id": "Z_SAFE_HOMING_RECOMMENDED",
+        "severity": "warning",
+        "description": "Z safe homing recommended with probe",
+        "rule": {
+          "if": "USE_PROBE_FOR_Z_HOMING == true",
+          "suggest": "Z_SAFE_HOMING == true",
+          "message": "Z_SAFE_HOMING recommended when using probe for Z homing"
+        }
+      },
+      {
+        "id": "GRID_POINTS_RANGE",
+        "severity": "warning",
+        "description": "Grid points should be reasonable",
+        "rule": {
+          "check": "GRID_MAX_POINTS_X >= 3 && GRID_MAX_POINTS_X <= 15",
+          "message": "Grid points should be between 3 and 15"
+        }
+      },
+      {
+        "id": "MESH_MEMORY_8BIT",
+        "severity": "warning",
+        "description": "Large mesh may exceed 8-bit RAM",
+        "rule": {
+          "if": "MCU == ATmega* && GRID_MAX_POINTS_X * GRID_MAX_POINTS_Y > 49",
+          "message": "Large mesh (>7x7) may cause memory issues on 8-bit boards"
+        }
+      }
+    ],
+    
+    "probe": [
+      {
+        "id": "PROBE_EXCLUSIVE",
+        "severity": "conflict",
+        "description": "Only one probe type typically enabled",
+        "mutuallyExclusive": [
+          "BLTOUCH",
+          "FIX_MOUNTED_PROBE",
+          "TOUCH_MI_PROBE",
+          "NOZZLE_AS_PROBE",
+          "SENSORLESS_PROBING"
+        ],
+        "message": "Typically only one probe type should be enabled"
+      },
+      {
+        "id": "PROBE_OFFSET_REQUIRED",
+        "severity": "error",
+        "description": "Probe offset must be defined",
+        "rule": {
+          "if": "BLTOUCH || FIX_MOUNTED_PROBE || MAG_MOUNTED_PROBE",
+          "requires": "NOZZLE_TO_PROBE_OFFSET defined",
+          "message": "Probe offset must be defined for your probe mount"
+        }
+      },
+      {
+        "id": "PROBE_OFFSET_ZERO_Z",
+        "severity": "warning",
+        "description": "Z probe offset usually not zero",
+        "rule": {
+          "if": "NOZZLE_TO_PROBE_OFFSET[Z] == 0",
+          "message": "Z probe offset is usually negative (probe triggers above nozzle contact)"
+        }
+      },
+      {
+        "id": "BLTOUCH_SERVO_PIN",
+        "severity": "error",
+        "description": "BLTouch requires servo pin",
+        "rule": {
+          "if": "BLTOUCH == true",
+          "requires": "SERVO0_PIN defined or board has default",
+          "message": "BLTouch requires servo pin configuration"
+        }
+      },
+      {
+        "id": "INDUCTIVE_BED_TYPE",
+        "severity": "warning",
+        "description": "Inductive probe requires metal bed",
+        "rule": {
+          "if": "FIX_MOUNTED_PROBE == true && probeType == inductive",
+          "suggest": "Ensure bed is spring steel or has metal surface",
+          "message": "Inductive probes only detect ferrous metals"
+        }
+      }
+    ],
+    
+    "drivers": [
+      {
+        "id": "TMC_UART_SPI_EXCLUSIVE",
+        "severity": "error",
+        "description": "TMC driver must use UART or SPI, not both",
+        "rule": {
+          "if": "TMC driver type set",
+          "check": "Not both UART and SPI configured for same driver",
+          "message": "TMC drivers use either UART or SPI, not both"
+        }
+      },
+      {
+        "id": "SENSORLESS_REQUIRES_TMC",
+        "severity": "error",
+        "description": "Sensorless homing requires TMC drivers",
+        "rule": {
+          "if": "SENSORLESS_HOMING == true",
+          "requires": "X_DRIVER_TYPE in [TMC2130, TMC2209, TMC5160] for homed axes",
+          "message": "Sensorless homing requires TMC2130, TMC2209, or TMC5160 drivers"
+        }
+      },
+      {
+        "id": "SENSORLESS_REQUIRES_DIAG",
+        "severity": "warning",
+        "description": "Sensorless homing requires DIAG pin connection",
+        "rule": {
+          "if": "SENSORLESS_HOMING == true",
+          "suggest": "Verify DIAG pins connected to endstop inputs",
+          "message": "Sensorless homing requires DIAG pin connected to endstop input"
+        }
+      },
+      {
+        "id": "TMC_STANDALONE_NO_UART",
+        "severity": "info",
+        "description": "Standalone mode has no UART features",
+        "rule": {
+          "if": "X_DRIVER_TYPE == TMC2208_STANDALONE || X_DRIVER_TYPE == TMC2209_STANDALONE",
+          "message": "Standalone mode disables UART features (current control, stealthchop toggle, sensorless homing)"
+        }
+      },
+      {
+        "id": "TMC_CURRENT_RANGE",
+        "severity": "warning",
+        "description": "TMC current should be reasonable",
+        "rule": {
+          "check": "X_CURRENT >= 100 && X_CURRENT <= 2000",
+          "message": "Motor current typically 400-1200mA for NEMA17. Check motor specs."
+        }
+      },
+      {
+        "id": "TMC5160_HIGH_CURRENT",
+        "severity": "info",
+        "description": "TMC5160 supports higher current",
+        "rule": {
+          "if": "X_DRIVER_TYPE == TMC5160 && X_CURRENT < 800",
+          "message": "TMC5160 supports up to 3A. You may be underutilizing it."
+        }
+      }
+    ],
+    
+    "temperature": [
+      {
+        "id": "THERMISTOR_REQUIRED",
+        "severity": "error",
+        "description": "Thermistor type must be defined",
+        "rule": {
+          "if": "Hotend or bed present",
+          "requires": "TEMP_SENSOR_0 != 0 && TEMP_SENSOR_BED != 0",
+          "message": "Thermistor type must be set for hotend and bed"
+        }
+      },
+      {
+        "id": "MAXTEMP_SAFETY",
+        "severity": "warning",
+        "description": "Max temp should be appropriate for hotend",
+        "rules": [
+          {
+            "if": "Hotend has PTFE (not all-metal)",
+            "suggest": "HEATER_0_MAXTEMP <= 260",
+            "message": "PTFE hotends should not exceed 260°C"
+          },
+          {
+            "if": "All-metal hotend",
+            "suggest": "HEATER_0_MAXTEMP can be 300-500°C",
+            "message": "All-metal hotends can reach higher temps"
+          }
+        ]
+      },
+      {
+        "id": "PID_OR_BANGBANG",
+        "severity": "info",
+        "description": "PID vs bang-bang choice",
+        "rule": {
+          "if": "PIDTEMP == false && MPCTEMP == false",
+          "message": "Hotend will use bang-bang control. PID or MPC recommended for stability."
+        }
+      },
+      {
+        "id": "THERMAL_PROTECTION_ENABLED",
+        "severity": "error",
+        "description": "Thermal protection must be enabled",
+        "rule": {
+          "requires": "THERMAL_PROTECTION_HOTENDS == true && THERMAL_PROTECTION_BED == true",
+          "message": "NEVER disable thermal protection! Fire hazard!"
+        }
+      }
+    ],
+    
+    "motion": [
+      {
+        "id": "JERK_OR_JUNCTION",
+        "severity": "conflict",
+        "description": "Classic jerk and junction deviation are alternatives",
+        "rule": {
+          "if": "CLASSIC_JERK == true && JUNCTION_DEVIATION_MM defined",
+          "message": "Use either CLASSIC_JERK or JUNCTION_DEVIATION, not both"
+        }
+      },
+      {
+        "id": "SCURVE_LA_CONFLICT",
+        "severity": "warning",
+        "description": "S-Curve and Linear Advance may conflict",
+        "rule": {
+          "if": "S_CURVE_ACCELERATION == true && LIN_ADVANCE == true",
+          "message": "S_CURVE_ACCELERATION may cause issues with LIN_ADVANCE. Test carefully."
+        }
+      },
+      {
+        "id": "STEPS_PER_UNIT_REASONABLE",
+        "severity": "warning",
+        "description": "Steps per unit should be in expected range",
+        "rules": [
+          {
+            "axis": "X/Y with GT2 20T",
+            "expected": "80 (16x) or 160 (32x)",
+            "tolerance": 10,
+            "message": "X/Y steps seem unusual for GT2 belt + 20T pulley"
+          },
+          {
+            "axis": "Z with T8x8 leadscrew",
+            "expected": "400 (16x) or 800 (32x)",
+            "tolerance": 10,
+            "message": "Z steps seem unusual for T8x8 leadscrew"
+          },
+          {
+            "axis": "E with MK8 drive gear",
+            "expected": "93 (direct) or 415 (3:1 geared)",
+            "tolerance": 20,
+            "message": "E steps seem unusual. Verify extruder type."
+          }
+        ]
+      },
+      {
+        "id": "ACCELERATION_REASONABLE",
+        "severity": "warning",
+        "description": "Acceleration should be appropriate for kinematics",
+        "rules": [
+          {
+            "if": "Cartesian (bed slinger)",
+            "suggest": "Y_MAX_ACCELERATION <= 1000",
+            "message": "Bed slinger Y acceleration typically limited by bed mass"
+          },
+          {
+            "if": "COREXY",
+            "suggest": "X_MAX_ACCELERATION and Y_MAX_ACCELERATION can be 3000-10000+",
+            "message": "CoreXY can typically handle higher acceleration"
+          }
+        ]
+      },
+      {
+        "id": "DUAL_Z_CONFIG",
+        "severity": "error",
+        "description": "Dual Z requires proper configuration",
+        "rule": {
+          "if": "NUM_Z_STEPPER_DRIVERS == 2",
+          "requires": "Z2_DRIVER_TYPE defined",
+          "message": "Dual Z requires Z2_DRIVER_TYPE to be configured"
+        }
+      }
+    ],
+    
+    "extruder": [
+      {
+        "id": "EXTRUDER_COUNT_MATCH",
+        "severity": "error",
+        "description": "Extruder count must match configuration",
+        "rule": {
+          "if": "EXTRUDERS > 1",
+          "requires": [
+            "E1_DRIVER_TYPE defined",
+            "TEMP_SENSOR_1 defined (if separate hotend)"
+          ],
+          "message": "Multi-extruder requires driver and sensor configuration"
+        }
+      },
+      {
+        "id": "BOWDEN_RETRACTION",
+        "severity": "warning",
+        "description": "Bowden retraction typically longer",
+        "rule": {
+          "if": "Extruder type is Bowden && typical retraction < 3mm",
+          "message": "Bowden setups typically need 4-8mm retraction"
+        }
+      },
+      {
+        "id": "DIRECT_DRIVE_RETRACTION",
+        "severity": "warning",
+        "description": "Direct drive retraction should be short",
+        "rule": {
+          "if": "Extruder type is Direct Drive && typical retraction > 3mm",
+          "message": "Direct drive typically needs only 0.5-2mm retraction"
+        }
+      }
+    ],
+    
+    "display": [
+      {
+        "id": "DISPLAY_TYPE_EXCLUSIVE",
+        "severity": "conflict",
+        "description": "Only one display type should be enabled",
+        "mutuallyExclusive": [
+          "REPRAP_DISCOUNT_SMART_CONTROLLER",
+          "REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER",
+          "CR10_STOCKDISPLAY",
+          "DWIN_CREALITY_LCD",
+          "DWIN_LCD_PROUI",
+          "TFT_COLOR_UI",
+          "TFT_CLASSIC_UI"
+        ],
+        "message": "Only one display controller should be enabled"
+      },
+      {
+        "id": "DWIN_BOARD_MATCH",
+        "severity": "error",
+        "description": "DWIN display requires compatible board",
+        "rule": {
+          "if": "DWIN_CREALITY_LCD == true",
+          "requires": "Board with DWIN serial port (e.g., Creality V4.x)",
+          "message": "DWIN display requires board with proper serial connection"
+        }
+      }
+    ],
+    
+    "memory": [
+      {
+        "id": "FLASH_OVERFLOW_8BIT",
+        "severity": "error",
+        "description": "8-bit boards have limited flash",
+        "rule": {
+          "if": "MCU == ATmega2560 && estimated flash > 250KB",
+          "message": "Configuration may exceed flash memory on ATmega2560"
+        }
+      },
+      {
+        "id": "RAM_OVERFLOW_8BIT",
+        "severity": "error",
+        "description": "8-bit boards have limited RAM",
+        "rule": {
+          "if": "MCU == ATmega2560 && estimated RAM > 7KB",
+          "message": "Configuration may exceed RAM on ATmega2560. Reduce mesh size or disable features."
+        }
+      },
+      {
+        "id": "UBL_MEMORY_WARNING",
+        "severity": "warning",
+        "description": "UBL uses significant memory",
+        "rule": {
+          "if": "AUTO_BED_LEVELING_UBL == true && MCU is 8-bit",
+          "message": "UBL uses significant flash (~25KB) and RAM. May not fit on 8-bit boards."
+        }
+      },
+      {
+        "id": "TFT_MEMORY_WARNING",
+        "severity": "warning",
+        "description": "TFT displays use significant memory",
+        "rule": {
+          "if": "TFT_COLOR_UI == true && MCU is 8-bit",
+          "message": "TFT Color UI requires 32-bit board"
+        }
+      }
+    ],
+    
+    "safety": [
+      {
+        "id": "EMERGENCY_PARSER_RECOMMENDED",
+        "severity": "warning",
+        "description": "Emergency parser highly recommended",
+        "rule": {
+          "if": "EMERGENCY_PARSER == false",
+          "message": "EMERGENCY_PARSER should be enabled for safety (M112 emergency stop)"
+        }
+      },
+      {
+        "id": "COLD_EXTRUSION_ENABLED",
+        "severity": "warning",
+        "description": "Cold extrusion prevention recommended",
+        "rule": {
+          "if": "PREVENT_COLD_EXTRUSION == false",
+          "message": "PREVENT_COLD_EXTRUSION should be enabled to prevent damage"
+        }
+      },
+      {
+        "id": "SD_PRINTING_RECOMMENDED",
+        "severity": "info",
+        "description": "SD printing more reliable than USB streaming",
+        "rule": {
+          "if": "SDSUPPORT == false",
+          "message": "Consider enabling SDSUPPORT for more reliable printing"
+        }
+      }
+    ],
+    
+    "communication": [
+      {
+        "id": "BAUDRATE_MATCH",
+        "severity": "warning",
+        "description": "Baud rate should match host",
+        "rule": {
+          "suggest": "BAUDRATE == 115200 or 250000",
+          "message": "Common baud rates are 115200 (reliable) or 250000 (faster)"
+        }
+      },
+      {
+        "id": "SERIAL_PORT_VALID",
+        "severity": "error",
+        "description": "Serial port must exist on board",
+        "rule": {
+          "check": "SERIAL_PORT is valid for selected MOTHERBOARD",
+          "message": "Selected serial port may not exist on this board"
+        }
+      }
+    ]
+  },
+  
+  "validationFunctions": {
+    "checkMutuallyExclusive": {
+      "description": "Check that only one of a group is enabled",
+      "pseudocode": "count enabled in group; if count > 1, return error"
+    },
+    "checkRequires": {
+      "description": "Check that if A is enabled, B must also be enabled",
+      "pseudocode": "if A && !B, return error"
+    },
+    "checkConflicts": {
+      "description": "Check that A and B are not both enabled",
+      "pseudocode": "if A && B, return error"
+    },
+    "checkRange": {
+      "description": "Check value is within valid range",
+      "pseudocode": "if value < min || value > max, return warning"
+    }
+  }
+}

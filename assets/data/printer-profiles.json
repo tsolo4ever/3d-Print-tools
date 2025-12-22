@@ -1,0 +1,171 @@
+{
+  "_comment": "Known Printer Configuration Profiles",
+  "printers": [
+    {
+      "id": "ENDER3",
+      "name": "Creality Ender 3",
+      "manufacturer": "Creality",
+      "variants": ["Ender 3", "Ender 3 Pro", "Ender 3 X"],
+      "kinematics": "CARTESIAN",
+      "bedSize": {
+        "x": 235,
+        "y": 235,
+        "z": 250
+      },
+      "stockBoard": "BOARD_MELZI_CREALITY",
+      "upgradeBoards": ["BOARD_BTT_SKR_MINI_E3_V2_0", "BOARD_BTT_SKR_MINI_E3_V3_0"],
+      "stockDisplay": "CR10_STOCKDISPLAY",
+      "stockHotend": "HOTEND_CREALITY_MK8",
+      "stockThermistor": "1",
+      "stockDrivers": "A4988",
+      "stockProbe": null,
+      "defaultStepsPerMM": {
+        "x": 80,
+        "y": 80,
+        "z": 400,
+        "e": 93
+      },
+      "defaultAcceleration": 500,
+      "defaultJerk": {
+        "x": 10,
+        "y": 10,
+        "z": 0.3,
+        "e": 5
+      },
+      "voltage": 24,
+      "notes": "Most popular budget printer. Huge community support."
+    },
+    {
+      "id": "ENDER3_V2",
+      "name": "Creality Ender 3 V2",
+      "manufacturer": "Creality",
+      "variants": ["Ender 3 V2"],
+      "kinematics": "CARTESIAN",
+      "bedSize": {
+        "x": 235,
+        "y": 235,
+        "z": 250
+      },
+      "stockBoard": "BOARD_CREALITY_V422",
+      "upgradeBoards": ["BOARD_BTT_SKR_MINI_E3_V3_0"],
+      "stockDisplay": "DWIN_CREALITY_LCD",
+      "stockHotend": "HOTEND_CREALITY_MK8",
+      "stockThermistor": "1",
+      "stockDrivers": "TMC2208_STANDALONE",
+      "stockProbe": null,
+      "defaultStepsPerMM": {
+        "x": 80,
+        "y": 80,
+        "z": 400,
+        "e": 93
+      },
+      "defaultAcceleration": 500,
+      "defaultJerk": {
+        "x": 10,
+        "y": 10,
+        "z": 0.3,
+        "e": 5
+      },
+      "voltage": 24,
+      "notes": "Silent 32-bit upgrade. DWIN color screen."
+    },
+    {
+      "id": "ENDER3_S1",
+      "name": "Creality Ender 3 S1",
+      "manufacturer": "Creality",
+      "variants": ["Ender 3 S1", "Ender 3 S1 Pro", "Ender 3 S1 Plus"],
+      "kinematics": "CARTESIAN",
+      "bedSize": {
+        "x": 235,
+        "y": 235,
+        "z": 270
+      },
+      "stockBoard": "BOARD_CREALITY_V452",
+      "upgradeBoards": [],
+      "stockDisplay": "DWIN_CREALITY_LCD",
+      "stockHotend": "HOTEND_CREALITY_SPRITE",
+      "stockThermistor": "1",
+      "stockDrivers": "TMC2208_STANDALONE",
+      "stockProbe": "PROBE_CR_TOUCH",
+      "defaultStepsPerMM": {
+        "x": 80,
+        "y": 80,
+        "z": 400,
+        "e": 424.9
+      },
+      "defaultAcceleration": 500,
+      "defaultJerk": {
+        "x": 10,
+        "y": 10,
+        "z": 0.3,
+        "e": 5
+      },
+      "voltage": 24,
+      "notes": "Direct drive Sprite extruder. CR Touch included."
+    },
+    {
+      "id": "PRUSA_MK3S",
+      "name": "Prusa i3 MK3S+",
+      "manufacturer": "Prusa Research",
+      "variants": ["MK3", "MK3S", "MK3S+"],
+      "kinematics": "CARTESIAN",
+      "bedSize": {
+        "x": 250,
+        "y": 210,
+        "z": 210
+      },
+      "stockBoard": "BOARD_EINSY_RAMBO",
+      "upgradeBoards": [],
+      "stockDisplay": "REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER",
+      "stockHotend": "HOTEND_PRUSA_E3D_V6",
+      "stockThermistor": "5",
+      "stockDrivers": "TMC2130",
+      "stockProbe": "PROBE_PINDA",
+      "defaultStepsPerMM": {
+        "x": 100,
+        "y": 100,
+        "z": 400,
+        "e": 280
+      },
+      "defaultAcceleration": 1250,
+      "defaultJerk": {
+        "x": 10,
+        "y": 10,
+        "z": 0.4,
+        "e": 2.5
+      },
+      "voltage": 24,
+      "notes": "Industry standard. Excellent documentation."
+    },
+    {
+      "id": "VORON_2_4",
+      "name": "Voron 2.4",
+      "manufacturer": "Voron Design (Community)",
+      "variants": ["250mm", "300mm", "350mm"],
+      "kinematics": "COREXY",
+      "bedSize": {
+        "x": "250/300/350",
+        "y": "250/300/350",
+        "z": "250/300/350"
+      },
+      "stockBoard": "BOARD_BTT_OCTOPUS_V1_1",
+      "alternateBoards": ["BOARD_FYSETC_SPIDER", "BOARD_BTT_MANTA_M8P"],
+      "stockDisplay": "FYSETC_MINI_12864_2_1",
+      "stockHotend": "HOTEND_PHAETUS_DRAGON_STANDARD",
+      "alternateHotends": ["HOTEND_E3D_REVO_VORON", "HOTEND_PHAETUS_RAPIDO"],
+      "stockThermistor": "5",
+      "stockDrivers": "TMC2209",
+      "alternateDrivers": ["TMC5160"],
+      "stockProbe": "PROBE_KLICKY",
+      "defaultStepsPerMM": {
+        "x": 80,
+        "y": 80,
+        "z": 400,
+        "e": 562
+      },
+      "defaultAcceleration": 3000,
+      "voltage": 24,
+      "notes": "High-performance CoreXY. Usually runs Klipper, but Marlin supported."
+    }
+  ]
+}

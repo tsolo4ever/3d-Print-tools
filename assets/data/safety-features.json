@@ -1,0 +1,264 @@
+{
+  "_comment": "Safety Features Configuration",
+  "_lastUpdated": "2024-12-21",
+  
+  "thermalProtection": {
+    "hotend": {
+      "THERMAL_PROTECTION_HOTENDS": {
+        "description": "Enable thermal runaway protection for hotend",
+        "default": true,
+        "critical": true,
+        "notes": "NEVER DISABLE! Prevents fires from heater failures."
+      },
+      "THERMAL_PROTECTION_PERIOD": {
+        "description": "Seconds to wait before checking temp stability",
+        "default": 40,
+        "range": "20-60",
+        "notes": "Time hotend has to stabilize at target temp"
+      },
+      "THERMAL_PROTECTION_HYSTERESIS": {
+        "description": "Temperature variance allowed",
+        "default": 4,
+        "range": "2-10",
+        "unit": "°C",
+        "notes": "Allowed deviation from target. Lower = stricter."
+      },
+      "WATCH_TEMP_PERIOD": {
+        "description": "Seconds to watch for heating progress",
+        "default": 20,
+        "range": "15-40",
+        "notes": "How long to wait for temp to rise while heating"
+      },
+      "WATCH_TEMP_INCREASE": {
+        "description": "Minimum temp rise during watch period",
+        "default": 2,
+        "range": "1-5",
+        "unit": "°C",
+        "notes": "If temp doesn't rise this much, trigger error"
+      }
+    },
+    "bed": {
+      "THERMAL_PROTECTION_BED": {
+        "description": "Enable thermal runaway protection for bed",
+        "default": true,
+        "critical": true
+      },
+      "THERMAL_PROTECTION_BED_PERIOD": {
+        "description": "Seconds for bed temp check",
+        "default": 40,
+        "range": "20-120"
+      },
+      "THERMAL_PROTECTION_BED_HYSTERESIS": {
+        "description": "Bed temp variance allowed",
+        "default": 4,
+        "range": "2-10"
+      },
+      "WATCH_BED_TEMP_PERIOD": {
+        "description": "Seconds to watch bed heating",
+        "default": 60,
+        "range": "40-180",
+        "notes": "Longer than hotend because beds heat slower"
+      },
+      "WATCH_BED_TEMP_INCREASE": {
+        "description": "Minimum bed temp rise",
+        "default": 2,
+        "range": "1-5"
+      }
+    },
+    "chamber": {
+      "THERMAL_PROTECTION_CHAMBER": {
+        "description": "Enable thermal protection for heated chamber",
+        "default": true
+      }
+    }
+  },
+  
+  "coldExtrusion": {
+    "PREVENT_COLD_EXTRUSION": {
+      "description": "Prevent extrusion when hotend cold",
+      "default": true,
+      "notes": "Protects against cold extrusion damage"
+    },
+    "EXTRUDE_MINTEMP": {
+      "description": "Minimum temp for extrusion",
+      "default": 170,
+      "range": "150-200",
+      "unit": "°C",
+      "notes": "Below this temp, extrusion blocked. M302 P0 to override."
+    }
+  },
+  
+  "lengthyExtrude": {
+    "PREVENT_LENGTHY_EXTRUDE": {
+      "description": "Limit single extrusion length",
+      "default": true
+    },
+    "EXTRUDE_MAXLENGTH": {
+      "description": "Maximum extrusion length per command",
+      "default": 200,
+      "range": "100-1000",
+      "unit": "mm",
+      "notes": "Prevents accidental huge extrusions"
+    }
+  },
+  
+  "softwareEndstops": {
+    "MIN_SOFTWARE_ENDSTOPS": {
+      "description": "Prevent moves below min position",
+      "default": true,
+      "notes": "Stops moves that would go past software limits"
+    },
+    "MAX_SOFTWARE_ENDSTOPS": {
+      "description": "Prevent moves above max position",
+      "default": true
+    },
+    "SOFT_ENDSTOPS_MENU_ITEM": {
+      "description": "Menu item to toggle software endstops",
+      "default": false,
+      "notes": "Allows disabling via LCD for maintenance"
+    }
+  },
+  
+  "powerLoss": {
+    "POWER_LOSS_RECOVERY": {
+      "description": "Resume print after power failure",
+      "default": false,
+      "flashCost": 5000,
+      "ramCost": 500,
+      "dependencies": ["SDSUPPORT"]
+    },
+    "POWER_LOSS_PIN": {
+      "description": "Pin to detect power loss",
+      "notes": "Some boards have dedicated PLR pin"
+    },
+    "POWER_LOSS_STATE": {
+      "description": "Pin state when power is lost",
+      "values": ["HIGH", "LOW"],
+      "default": "LOW"
+    },
+    "POWER_LOSS_ZRAISE": {
+      "description": "Z raise on power loss (mm)",
+      "default": 2,
+      "notes": "Lifts nozzle to prevent blob on resume"
+    },
+    "POWER_LOSS_PULL": {
+      "description": "Retract on power loss (mm)",
+      "default": 10,
+      "notes": "Retracts filament to prevent ooze"
+    },
+    "PLR_ENABLED_DEFAULT": {
+      "description": "Enable PLR by default",
+      "default": false,
+      "notes": "Can enable via M413 S1"
+    }
+  },
+  
+  "motorSafety": {
+    "DISABLE_IDLE_X": {
+      "description": "Disable X motor after idle timeout",
+      "default": true
+    },
+    "DISABLE_IDLE_Y": {
+      "description": "Disable Y motor after idle timeout",
+      "default": true
+    },
+    "DISABLE_IDLE_Z": {
+      "description": "Disable Z motor after idle timeout",
+      "default": false,
+      "notes": "WARNING: Z may fall if disabled!"
+    },
+    "DISABLE_IDLE_E": {
+      "description": "Disable extruder after idle timeout",
+      "default": true
+    },
+    "DEFAULT_STEPPER_DEACTIVE_TIME": {
+      "description": "Seconds before motors disable",
+      "default": 120,
+      "range": "0-600",
+      "notes": "0 = never disable. Set via M18 Sxxx"
+    }
+  },
+  
+  "homingSafety": {
+    "NO_MOTION_BEFORE_HOMING": {
+      "description": "Require homing before movement",
+      "default": true,
+      "notes": "Prevents crashes from unknown position"
+    },
+    "HOME_AFTER_DEACTIVATE": {
+      "description": "Invalidate position when motors disabled",
+      "default": true
+    },
+    "Z_SAFE_HOMING": {
+      "description": "Move to safe position for Z homing",
+      "default": true,
+      "notes": "Prevents Z probe missing the bed"
+    },
+    "Z_SAFE_HOMING_X_POINT": {
+      "description": "X position for safe Z home",
+      "default": "X_CENTER",
+      "notes": "Usually bed center"
+    },
+    "Z_SAFE_HOMING_Y_POINT": {
+      "description": "Y position for safe Z home",
+      "default": "Y_CENTER"
+    },
+    "HOMING_FEEDRATE_MM_M": {
+      "description": "Homing speed (mm/min)",
+      "default": "{ 50*60, 50*60, 4*60 }",
+      "notes": "X, Y, Z speeds. Z typically slowest."
+    }
+  },
+  
+  "probeDeployRetract": {
+    "PAUSE_BEFORE_DEPLOY_STOW": {
+      "description": "Pause and beep before probe deploy/stow",
+      "default": false,
+      "notes": "For manual deploy probes"
+    },
+    "PROBING_HEATERS_OFF": {
+      "description": "Turn off heaters during probing",
+      "default": false,
+      "notes": "Reduces electrical noise. May cause temp drop."
+    },
+    "PROBING_FANS_OFF": {
+      "description": "Turn off fans during probing",
+      "default": false,
+      "notes": "Reduces vibration/noise during probing"
+    }
+  },
+  
+  "emergencyCommands": {
+    "EMERGENCY_PARSER": {
+      "description": "Always parse emergency commands",
+      "default": true,
+      "critical": true,
+      "commands": ["M108", "M112", "M410"],
+      "notes": "HIGHLY RECOMMENDED! Allows stop even when buffer full."
+    },
+    "M112": {
+      "description": "Emergency stop",
+      "notes": "Immediate shutdown. Requires reset."
+    },
+    "M108": {
+      "description": "Break out of heating wait",
+      "notes": "Cancels M109/M190 wait"
+    },
+    "M410": {
+      "description": "Quick stop - abort all motion",
+      "notes": "Stops current move, clears queue"
+    }
+  },
+  
+  "warnings": {
+    "_comment": "CRITICAL SAFETY NOTES",
+    "items": [
+      "NEVER disable thermal protection features!",
+      "Always enable EMERGENCY_PARSER",
+      "Test thermal runaway protection before leaving prints unattended",
+      "Use proper wire gauge for heated bed",
+      "Install smoke detector near printer",
+      "Never leave printer unattended for first few prints"
+    ]
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "_comment": "Build Surface Database",
+  "_lastUpdated": "2024-12-21",
+  
+  "surfaces": [
+    {
+      "id": "SURFACE_GLASS",
+      "name": "Borosilicate Glass",
+      "type": "Glass",
+      "material": "Borosilicate",
+      "adhesion": "Medium",
+      "maxTemp": 120,
+      "releaseTemp": "Room temp",
+      "adhesionAids": ["Glue stick", "Hairspray", "None for PETG"],
+      "cleaningMethod": "IPA wipe",
+      "pros": [
+        "Very flat",
+        "Easy to clean",
+        "Durable",
+        "Smooth bottom finish"
+      ],
+      "cons": [
+        "Heavy",
+        "Can crack from thermal shock",
+        "Poor adhesion without aids",
+        "Difficult part removal"
+      ],
+      "bestFor": ["PLA", "PETG"],
+      "avoidFor": ["ABS (warping)", "TPU (too much adhesion)"],
+      "stockOnPrinters": [
+        "Creality Ender 3 (upgrade)",
+        "Creality CR-10 (some versions)"
+      ],
+      "zOffsetAdjustment": 0,
+      "notes": "Popular upgrade. Very flat. Use clips or thermal paste to hold."
+    },
+    {
+      "id": "SURFACE_CREALITY_TEXTURED",
+      "name": "Creality Textured Plate",
+      "type": "Coated Steel",
+      "material": "Spring Steel + PEI-like coating",
+      "adhesion": "Medium-High",
+      "maxTemp": 100,
+      "releaseTemp": "50°C or below",
+      "adhesionAids": ["None usually", "Glue stick for PETG"],
+      "cleaningMethod": "IPA wipe, occasional soap wash",
+      "pros": [
+        "Good adhesion",
+        "Easy removal when cool",
+        "Flexible",
+        "Magnetic (on upgraded bed)"
+      ],
+      "cons": [
+        "Coating can wear",
+        "Not as flat as glass",
+        "PETG can damage coating"
+      ],
+      "bestFor": ["PLA", "ABS", "TPU"],
+      "avoidFor": ["PETG (use glue stick barrier)"],
+      "stockOnPrinters": [
+        "Creality Ender 3 V2",
+        "Creality Ender 3 S1"
+      ],
+      "zOffsetAdjustment": 0,
+      "notes": "Stock on newer Creality. PETG bonds too well - use glue stick!"
+    },
+    {
+      "id": "SURFACE_PEI_SMOOTH",
+      "name": "Smooth PEI Sheet",
+      "type": "PEI",
+      "material": "Polyetherimide (Ultem)",
+      "adhesion": "High",
+      "maxTemp": 130,
+      "releaseTemp": "Below 50°C",
+      "adhesionAids": ["None for most materials"],
+      "cleaningMethod": "IPA wipe, acetone occasionally",
+      "pros": [
+        "Excellent adhesion",
+        "No adhesion aids needed",
+        "Parts release when cool",
+        "Smooth bottom finish",
+        "Very durable"
+      ],
+      "cons": [
+        "PETG bonds too well",
+        "Scratches visible",
+        "Needs occasional scuffing for ABS"
+      ],
+      "bestFor": ["PLA", "ABS", "ASA", "Nylon"],
+      "avoidFor": ["PETG (will damage surface)"],
+      "stockOnPrinters": [
+        "Prusa MK3S (one side)",
+        "Voron (common)"
+      ],
+      "zOffsetAdjustment": 0,
+      "notes": "Gold standard. Print PLA/ABS directly. Use glue stick for PETG!"
+    },
+    {
+      "id": "SURFACE_PEI_TEXTURED",
+      "name": "Textured PEI Sheet",
+      "type": "PEI",
+      "material": "Powder-coated PEI on Spring Steel",
+      "adhesion": "Medium-High",
+      "maxTemp": 130,
+      "releaseTemp": "Below 50°C",
+      "adhesionAids": ["None usually"],
+      "cleaningMethod": "IPA wipe, soap wash",
+      "pros": [
+        "Great adhesion",
+        "Easy release",
+        "Textured bottom finish",
+        "Safe for PETG",
+        "Hides scratches"
+      ],
+      "cons": [
+        "Textured finish not for all prints",
+        "Can wear over time"
+      ],
+      "bestFor": ["PLA", "PETG", "ABS", "TPU"],
+      "avoidFor": [],
+      "stockOnPrinters": [
+        "Prusa MK3S (one side)",
+        "Bambu Lab (textured plate)"
+      ],
+      "zOffsetAdjustment": 0.05,
+      "notes": "Safe for all materials. Slightly higher Z offset than smooth."
+    },
+    {
+      "id": "SURFACE_BUILDTAK",
+      "name": "BuildTak",
+      "type": "Adhesive Sheet",
+      "material": "Proprietary polymer",
+      "adhesion": "High",
+      "maxTemp": 100,
+      "releaseTemp": "Room temp",
+      "adhesionAids": ["None"],
+      "cleaningMethod": "IPA wipe",
+      "pros": [
+        "Very good adhesion",
+        "Works with many materials"
+      ],
+      "cons": [
+        "Wears out (500+ prints)",
+        "Parts can stick too well",
+        "Replacement cost"
+      ],
+      "bestFor": ["PLA", "ABS", "PETG", "Nylon"],
+      "avoidFor": [],
+      "stockOnPrinters": [
+        "Some MakerBot",
+        "Flashforge (some models)"
+      ],
+      "zOffsetAdjustment": 0.1,
+      "notes": "Adhesive sticker surface. Needs replacement periodically."
+    },
+    {
+      "id": "SURFACE_ULTRABASE",
+      "name": "Anycubic Ultrabase",
+      "type": "Coated Glass",
+      "material": "Microporous glass coating",
+      "adhesion": "Medium-High",
+      "maxTemp": 110,
+      "releaseTemp": "Below 40°C",
+      "adhesionAids": ["None"],
+      "cleaningMethod": "IPA wipe, soap wash",
+      "pros": [
+        "Self-adhesive when hot",
+        "Parts pop off when cool",
+        "Glass flatness"
+      ],
+      "cons": [
+        "Coating can degrade",
+        "Heavy"
+      ],
+      "bestFor": ["PLA", "PETG", "ABS"],
+      "avoidFor": [],
+      "stockOnPrinters": [
+        "Anycubic i3 Mega",
+        "Anycubic Kobra"
+      ],
+      "zOffsetAdjustment": 0,
+      "notes": "Stock Anycubic surface. Very popular."
+    },
+    {
+      "id": "SURFACE_GAROLITE",
+      "name": "Garolite (G10/FR4)",
+      "type": "Composite",
+      "material": "Fiberglass + Epoxy",
+      "adhesion": "High for Nylon",
+      "maxTemp": 150,
+      "releaseTemp": "Any",
+      "adhesionAids": ["None for Nylon", "Glue stick for PLA"],
+      "cleaningMethod": "IPA wipe",
+      "pros": [
+        "Excellent Nylon adhesion",
+        "Very durable",
+        "High temp capable"
+      ],
+      "cons": [
+        "Poor PLA adhesion",
+        "Expensive",
+        "Can warp if thin"
+      ],
+      "bestFor": ["Nylon", "Carbon fiber Nylon"],
+      "avoidFor": ["PLA (poor adhesion)"],
+      "stockOnPrinters": [],
+      "zOffsetAdjustment": 0,
+      "notes": "Specialty surface for Nylon. Also called G10."
+    },
+    {
+      "id": "SURFACE_WHAMBAM",
+      "name": "WhamBam Flexi Plate",
+      "type": "Magnetic Flex",
+      "material": "Spring Steel + PEX coating",
+      "adhesion": "High",
+      "maxTemp": 120,
+      "releaseTemp": "Below 45°C",
+      "adhesionAids": ["None"],
+      "cleaningMethod": "IPA wipe",
+      "pros": [
+        "Flex to release parts",
+        "Magnetic quick change",
+        "PEX very durable"
+      ],
+      "cons": [
+        "Cost",
+        "Requires magnetic base"
+      ],
+      "bestFor": ["PLA", "PETG", "ABS", "TPU"],
+      "avoidFor": [],
+      "stockOnPrinters": [],
+      "zOffsetAdjustment": 0,
+      "notes": "Popular upgrade system. Magnetic base + multiple plates."
+    }
+  ],
+  
+  "adhesionHelpers": {
+    "glueStick": {
+      "name": "Glue Stick (PVA)",
+      "use": "Barrier layer, improved adhesion",
+      "bestFor": ["PETG on PEI", "ABS", "Nylon (water soluble base)"],
+      "notes": "Apply thin layer. Creates release barrier for PETG."
+    },
+    "hairspray": {
+      "name": "Hairspray (Extra Hold)",
+      "use": "Improved adhesion",
+      "bestFor": ["ABS", "PLA on glass"],
+      "notes": "Use unscented. Builds up - clean occasionally."
+    },
+    "abs_slurry": {
+      "name": "ABS Slurry/Juice",
+      "use": "ABS adhesion on glass",
+      "bestFor": ["ABS"],
+      "recipe": "Dissolve ABS scraps in acetone",
+      "notes": "Creates thin ABS layer. Great for ABS on glass."
+    },
+    "painters_tape": {
+      "name": "Blue Painter's Tape",
+      "use": "Temporary build surface",
+      "bestFor": ["PLA"],
+      "notes": "Easy, cheap. Replace frequently."
+    },
+    "kapton_tape": {
+      "name": "Kapton Tape (Polyimide)",
+      "use": "High-temp build surface",
+      "bestFor": ["ABS", "Nylon"],
+      "maxTemp": 280,
+      "notes": "Heat resistant. Classic RepRap surface."
+    },
+    "magigoo": {
+      "name": "Magigoo",
+      "use": "All-in-one adhesive",
+      "bestFor": ["Various materials (material-specific versions)"],
+      "notes": "Premium adhesive. Different formulas for different materials."
+    },
+    "windex": {
+      "name": "Windex (Ammonia-based)",
+      "use": "PEI cleaning",
+      "bestFor": ["Refreshing PEI adhesion"],
+      "notes": "Occasional Windex wipe can restore PEI adhesion."
+    }
+  },
+  
+  "zOffsetNotes": {
+    "description": "Different surfaces may need Z offset adjustment",
+    "factors": [
+      "Surface thickness",
+      "Surface texture depth",
+      "Magnetic base thickness"
+    ],
+    "tipFirstLayer": "First layer should be slightly squished. Use 0.2mm first layer and adjust Z until lines merge without gaps."
+  }
+}

@@ -1,0 +1,672 @@
+{
+  "_comment": "Extruder Types Database - Expanded",
+  "_lastUpdated": "2024-12-21",
+  
+  "extruderTypes": {
+    "direct": {
+      "name": "Direct Drive",
+      "description": "Motor mounted on toolhead, short filament path",
+      "filamentPathLength": "20-50mm",
+      "pros": [
+        "Excellent for flexible filaments",
+        "Shorter retractions (0.5-2mm)",
+        "More responsive extrusion",
+        "Better pressure control"
+      ],
+      "cons": [
+        "Heavier toolhead",
+        "Lower max acceleration",
+        "Motor heat near hotend"
+      ]
+    },
+    "bowden": {
+      "name": "Bowden",
+      "description": "Motor on frame, filament pushed through PTFE tube",
+      "filamentPathLength": "300-700mm typical",
+      "pros": [
+        "Light toolhead",
+        "Higher acceleration possible",
+        "Less motor heat at hotend"
+      ],
+      "cons": [
+        "Poor for flexible filaments",
+        "Longer retractions (4-8mm)",
+        "More stringing",
+        "Delayed extrusion response"
+      ]
+    },
+    "geared": {
+      "name": "Geared",
+      "description": "Gear reduction for higher torque",
+      "gearRatios": "3:1 to 7.5:1 typical",
+      "pros": [
+        "Higher grip force",
+        "Better with hard filaments",
+        "Smaller motor possible",
+        "More precise control"
+      ],
+      "cons": [
+        "Higher E-steps",
+        "Potential backlash",
+        "More complex"
+      ]
+    }
+  },
+  
+  "extruders": [
+    {
+      "id": "CREALITY_STOCK_BOWDEN",
+      "name": "Creality Stock Bowden Extruder",
+      "manufacturer": "Creality",
+      "type": "bowden",
+      "geared": false,
+      "gearRatio": "1:1",
+      "driveGear": {
+        "type": "MK8",
+        "teeth": 40,
+        "effectiveDiameter": 7.3
+      },
+      "motor": {
+        "type": "NEMA17 (42-34)",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 93,
+      "stepsFormula": "(200 * 16) / (π * 7.3) = 93",
+      "retraction": {
+        "distance": { "min": 4, "typical": 6, "max": 8 },
+        "speed": { "min": 25, "typical": 45, "max": 60 }
+      },
+      "linearAdvanceK": {
+        "PLA": { "min": 0.4, "typical": 0.6, "max": 0.9 },
+        "PETG": { "min": 0.3, "typical": 0.5, "max": 0.7 }
+      },
+      "material": "Plastic",
+      "knownIssues": [
+        "Plastic arm cracks over time",
+        "Spring tension inconsistent"
+      ],
+      "stockOnPrinters": [
+        "Creality Ender 3",
+        "Creality Ender 3 Pro",
+        "Creality CR-10",
+        "Creality Ender 5"
+      ],
+      "notes": "Known to crack. Metal extruder upgrade recommended."
+    },
+    {
+      "id": "CREALITY_METAL_BOWDEN",
+      "name": "Creality Metal Bowden Extruder",
+      "manufacturer": "Creality / Various",
+      "type": "bowden",
+      "geared": false,
+      "gearRatio": "1:1",
+      "driveGear": {
+        "type": "MK8",
+        "teeth": 40,
+        "effectiveDiameter": 7.3
+      },
+      "motor": {
+        "type": "NEMA17",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 93,
+      "retraction": {
+        "distance": { "min": 4, "typical": 6, "max": 8 },
+        "speed": { "min": 25, "typical": 45, "max": 60 }
+      },
+      "material": "Aluminum",
+      "upgradePriority": "Essential",
+      "notes": "Direct replacement for plastic extruder. Much more reliable."
+    },
+    {
+      "id": "CREALITY_SPRITE",
+      "name": "Creality Sprite Extruder",
+      "manufacturer": "Creality",
+      "type": "direct",
+      "geared": true,
+      "gearRatio": "3.5:1",
+      "driveGear": {
+        "type": "Dual gear",
+        "effectiveDiameter": 7.3
+      },
+      "motor": {
+        "type": "NEMA17 integrated",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 424.9,
+      "stepsFormula": "(200 * 16 * 3.5) / (π * 7.3) = 424.9",
+      "retraction": {
+        "distance": { "min": 0.3, "typical": 0.8, "max": 1.5 },
+        "speed": { "min": 25, "typical": 35, "max": 45 }
+      },
+      "linearAdvanceK": {
+        "PLA": { "min": 0.02, "typical": 0.04, "max": 0.08 }
+      },
+      "stockOnPrinters": [
+        "Creality Ender 3 S1",
+        "Creality Ender 3 S1 Pro",
+        "Creality Ender 3 S1 Plus"
+      ],
+      "versions": {
+        "standard": "For PLA/PETG up to 260°C",
+        "pro": "All-metal, up to 300°C"
+      },
+      "notes": "Creality's first serious direct drive. Good for flexibles."
+    },
+    {
+      "id": "BMG_CLONE",
+      "name": "BMG Extruder (Clone)",
+      "manufacturer": "Various (TriangleLab, Mellow, etc)",
+      "type": "direct/bowden",
+      "geared": true,
+      "gearRatio": "3:1",
+      "driveGear": {
+        "type": "Dual drive gears",
+        "teeth": 50,
+        "effectiveDiameter": 7.3
+      },
+      "motor": {
+        "type": "External NEMA17",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 415,
+      "stepsFormula": "(200 * 16 * 3) / (π * 7.3) = 415",
+      "retraction": {
+        "directDrive": {
+          "distance": { "min": 0.3, "typical": 0.6, "max": 1.2 },
+          "speed": { "min": 25, "typical": 35, "max": 45 }
+        },
+        "bowden": {
+          "distance": { "min": 2, "typical": 4, "max": 6 },
+          "speed": { "min": 25, "typical": 40, "max": 50 }
+        }
+      },
+      "linearAdvanceK": {
+        "directDrive": {
+          "PLA": { "min": 0.02, "typical": 0.06, "max": 0.12 }
+        }
+      },
+      "versions": ["Left hand", "Right hand", "Mirrored"],
+      "compatibleWith": [
+        "Most printers with NEMA17 mount",
+        "E3D V6 mount",
+        "Voron (Clockwork uses BMG guts)"
+      ],
+      "notes": "Bondtech gears are excellent. Good clones available from TriangleLab."
+    },
+    {
+      "id": "BONDTECH_BMG",
+      "name": "Bondtech BMG (Genuine)",
+      "manufacturer": "Bondtech",
+      "type": "direct/bowden",
+      "geared": true,
+      "gearRatio": "3:1",
+      "driveGear": {
+        "type": "Bondtech dual drive",
+        "teeth": 50,
+        "effectiveDiameter": 7.3
+      },
+      "motor": {
+        "type": "External NEMA17",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 415,
+      "retraction": {
+        "directDrive": {
+          "distance": { "typical": 0.5 },
+          "speed": { "typical": 35 }
+        }
+      },
+      "notes": "Original high-quality dual-drive extruder."
+    },
+    {
+      "id": "E3D_TITAN",
+      "name": "E3D Titan Extruder",
+      "manufacturer": "E3D",
+      "type": "direct/bowden",
+      "geared": true,
+      "gearRatio": "3:1",
+      "driveGear": {
+        "type": "Hobb-Goblin",
+        "effectiveDiameter": 5.0
+      },
+      "motor": {
+        "type": "External NEMA17",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 837,
+      "stepsFormula": "(200 * 16 * 3) / (π * 5.0) ≈ 837",
+      "retraction": {
+        "directDrive": {
+          "distance": { "typical": 0.5 },
+          "speed": { "typical": 35 }
+        }
+      },
+      "notes": "E3D's geared extruder. 3:1 ratio with smaller drive gear."
+    },
+    {
+      "id": "E3D_TITAN_AERO",
+      "name": "E3D Titan Aero",
+      "manufacturer": "E3D",
+      "type": "direct",
+      "geared": true,
+      "gearRatio": "3:1",
+      "driveGear": {
+        "type": "Hobb-Goblin",
+        "effectiveDiameter": 5.0
+      },
+      "motor": {
+        "type": "NEMA17 pancake",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 837,
+      "integratedHotend": true,
+      "hotendCompatibility": ["V6 compatible"],
+      "notes": "Titan + V6 combined. Direct drive package."
+    },
+    {
+      "id": "E3D_HEMERA",
+      "name": "E3D Hemera",
+      "manufacturer": "E3D",
+      "type": "direct",
+      "geared": true,
+      "gearRatio": "3.5:1",
+      "driveGear": {
+        "type": "Dual drive",
+        "effectiveDiameter": 6.5
+      },
+      "motor": {
+        "type": "Integrated stepper",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 397,
+      "stepsFormula": "(200 * 16 * 3.5) / (π * 6.5) ≈ 397",
+      "retraction": {
+        "distance": { "typical": 0.5 },
+        "speed": { "typical": 35 }
+      },
+      "linearAdvanceK": {
+        "PLA": { "typical": 0.04 }
+      },
+      "integratedHotend": true,
+      "hotendCompatibility": ["V6 compatible"],
+      "notes": "Improved dual-drive with integrated motor."
+    },
+    {
+      "id": "E3D_HEMERA_XS",
+      "name": "E3D Hemera XS",
+      "manufacturer": "E3D",
+      "type": "direct",
+      "geared": true,
+      "gearRatio": "3.5:1",
+      "motor": {
+        "type": "Short motor",
+        "length": 20
+      },
+      "defaultStepsPerMM": 397,
+      "notes": "Compact version of Hemera for weight-sensitive builds."
+    },
+    {
+      "id": "ORBITER_V1_5",
+      "name": "Orbiter V1.5",
+      "manufacturer": "Orbiter Project",
+      "type": "direct",
+      "geared": true,
+      "gearType": "Planetary",
+      "gearRatio": "7.5:1",
+      "driveGear": {
+        "effectiveDiameter": 4.63
+      },
+      "motor": {
+        "type": "LDO-36STH17-1004AHG",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 690,
+      "stepsFormula": "(200 * 16 * 7.5) / (π * 4.63) ≈ 690",
+      "weight": 135,
+      "retraction": {
+        "distance": { "min": 0.2, "typical": 0.4, "max": 0.8 },
+        "speed": { "typical": 35 }
+      },
+      "linearAdvanceK": {
+        "PLA": { "typical": 0.03 }
+      },
+      "notes": "Very lightweight planetary gearbox. High grip."
+    },
+    {
+      "id": "ORBITER_V2",
+      "name": "Orbiter V2.0",
+      "manufacturer": "Orbiter Project / LDO",
+      "type": "direct",
+      "geared": true,
+      "gearType": "Planetary",
+      "gearRatio": "7.5:1",
+      "driveGear": {
+        "effectiveDiameter": 4.63
+      },
+      "motor": {
+        "type": "LDO-36STH20-1004AHG",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 690,
+      "weight": 140,
+      "retraction": {
+        "distance": { "typical": 0.4 },
+        "speed": { "typical": 35 }
+      },
+      "improvements": [
+        "Better filament path",
+        "Easier loading",
+        "Improved gears"
+      ],
+      "notes": "Updated Orbiter. One of the best lightweight extruders."
+    },
+    {
+      "id": "SHERPA_MINI",
+      "name": "Sherpa Mini",
+      "manufacturer": "Annex Engineering",
+      "type": "direct",
+      "geared": true,
+      "gearType": "Compound planetary",
+      "gearRatio": "50:10 (5:1)",
+      "motor": {
+        "type": "NEMA14",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 690,
+      "weight": 110,
+      "retraction": {
+        "distance": { "typical": 0.4 },
+        "speed": { "typical": 35 }
+      },
+      "compatibleWith": ["Voron 0", "Voron Trident", "Voron 2.4"],
+      "notes": "Ultra-compact extruder. Popular on Voron builds."
+    },
+    {
+      "id": "CLOCKWORK2",
+      "name": "Voron Clockwork 2",
+      "manufacturer": "Voron Design",
+      "type": "direct",
+      "geared": true,
+      "gearRatio": "3:1",
+      "driveGear": {
+        "type": "BMG internals",
+        "effectiveDiameter": 7.3
+      },
+      "motor": {
+        "type": "NEMA14",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 562,
+      "stepsFormula": "(200 * 16 * 3) / (π * 7.3) ≈ 415 with 1.8° motor\nWith 0.9° motor: 830",
+      "weight": 180,
+      "retraction": {
+        "distance": { "typical": 0.5 },
+        "speed": { "typical": 35 }
+      },
+      "compatibleWith": ["Voron Stealthburner", "Voron Trident", "Voron 2.4"],
+      "notes": "Voron's standard extruder. Uses BMG gears. Mounts to Stealthburner."
+    },
+    {
+      "id": "BONDTECH_LGX",
+      "name": "Bondtech LGX",
+      "manufacturer": "Bondtech",
+      "type": "direct",
+      "geared": true,
+      "gearType": "Large gear",
+      "gearRatio": "1:1 (large gears)",
+      "driveGear": {
+        "type": "Large drive gears",
+        "effectiveDiameter": 8.0
+      },
+      "motor": {
+        "type": "Integrated pancake",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 400,
+      "stepsFormula": "(200 * 16) / (π * 8.0) ≈ 400",
+      "weight": 160,
+      "retraction": {
+        "distance": { "typical": 0.5 },
+        "speed": { "typical": 35 }
+      },
+      "versions": ["LGX Standard", "LGX Lite"],
+      "notes": "Large gear design for high flow. No gear reduction."
+    },
+    {
+      "id": "BONDTECH_LGX_LITE",
+      "name": "Bondtech LGX Lite",
+      "manufacturer": "Bondtech",
+      "type": "direct",
+      "geared": true,
+      "gearType": "Large gear",
+      "gearRatio": "1:1",
+      "motor": {
+        "type": "Pancake",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 400,
+      "weight": 127,
+      "notes": "Lighter version of LGX without motor."
+    },
+    {
+      "id": "GALILEO_2",
+      "name": "Galileo 2",
+      "manufacturer": "JaredC01",
+      "type": "direct",
+      "geared": true,
+      "gearType": "Planetary",
+      "gearRatio": "7.5:1",
+      "motor": {
+        "type": "NEMA14 or NEMA17",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 690,
+      "weight": 150,
+      "retraction": {
+        "distance": { "typical": 0.4 },
+        "speed": { "typical": 35 }
+      },
+      "features": [
+        "Standalone design",
+        "High torque planetary",
+        "Open source"
+      ],
+      "compatibleWith": ["Voron Stealthburner", "Various toolheads"],
+      "notes": "Open source high-performance extruder. Standalone planetary design."
+    },
+    {
+      "id": "MICROSWISS_NG",
+      "name": "Micro Swiss NG Direct Drive",
+      "manufacturer": "Micro Swiss",
+      "type": "direct",
+      "geared": false,
+      "gearRatio": "1:1",
+      "driveGear": {
+        "effectiveDiameter": 7.3
+      },
+      "motor": {
+        "type": "NEMA17",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 130,
+      "retraction": {
+        "distance": { "typical": 1.0 },
+        "speed": { "typical": 35 }
+      },
+      "compatibleWith": [
+        "Creality Ender 3",
+        "Creality Ender 3 Pro",
+        "Creality Ender 3 V2",
+        "Creality CR-10"
+      ],
+      "notes": "Drop-in direct drive conversion for Creality printers."
+    },
+    {
+      "id": "PRUSA_MK3S",
+      "name": "Prusa MK3S Extruder",
+      "manufacturer": "Prusa Research",
+      "type": "direct",
+      "geared": true,
+      "gearType": "Bondtech compatible",
+      "gearRatio": "3:1",
+      "driveGear": {
+        "type": "Bondtech",
+        "effectiveDiameter": 7.3
+      },
+      "motor": {
+        "type": "NEMA17 pancake",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": 280,
+      "stepsFormula": "Prusa calibrates per-printer",
+      "retraction": {
+        "distance": { "typical": 0.8 },
+        "speed": { "typical": 35 }
+      },
+      "stockOnPrinters": [
+        "Prusa MK2.5",
+        "Prusa MK2.5S",
+        "Prusa MK3",
+        "Prusa MK3S",
+        "Prusa MK3S+"
+      ],
+      "notes": "Prusa R3 extruder. Uses Bondtech gears. MMU2S compatible."
+    },
+    {
+      "id": "PRUSA_NEXTRUDER",
+      "name": "Prusa Nextruder",
+      "manufacturer": "Prusa Research",
+      "type": "direct",
+      "geared": true,
+      "gearType": "Planetary",
+      "gearRatio": "10:1",
+      "motor": {
+        "type": "Integrated",
+        "stepAngle": 1.8
+      },
+      "defaultStepsPerMM": "Per-printer calibration",
+      "features": [
+        "Integrated load cell for auto Z",
+        "Quick-swap nozzle",
+        "High gear ratio"
+      ],
+      "stockOnPrinters": [
+        "Prusa MK4",
+        "Prusa XL"
+      ],
+      "notes": "New Prusa extruder with load cell auto-leveling."
+    }
+  ],
+  
+  "stepsCalculation": {
+    "formula": "(motor_steps * microstepping * gear_ratio) / (π * effective_diameter)",
+    "examples": [
+      {
+        "name": "Creality Stock (MK8)",
+        "motorSteps": 200,
+        "microstepping": 16,
+        "gearRatio": 1,
+        "effectiveDiameter": 7.3,
+        "calculation": "(200 * 16 * 1) / (π * 7.3) = 93 steps/mm"
+      },
+      {
+        "name": "BMG / Clockwork",
+        "motorSteps": 200,
+        "microstepping": 16,
+        "gearRatio": 3,
+        "effectiveDiameter": 7.3,
+        "calculation": "(200 * 16 * 3) / (π * 7.3) = 415 steps/mm"
+      },
+      {
+        "name": "Orbiter",
+        "motorSteps": 200,
+        "microstepping": 16,
+        "gearRatio": 7.5,
+        "effectiveDiameter": 4.63,
+        "calculation": "(200 * 16 * 7.5) / (π * 4.63) = 690 steps/mm"
+      },
+      {
+        "name": "E3D Titan",
+        "motorSteps": 200,
+        "microstepping": 16,
+        "gearRatio": 3,
+        "effectiveDiameter": 5.0,
+        "calculation": "(200 * 16 * 3) / (π * 5.0) = 611 steps/mm"
+      }
+    ],
+    "calibrationProcedure": [
+      "1. Mark filament 120mm from extruder inlet",
+      "2. Heat hotend to printing temperature",
+      "3. Extrude 100mm: G1 E100 F100",
+      "4. Measure remaining distance to mark",
+      "5. Calculate actual extruded: 120 - remaining",
+      "6. New steps = Current steps * (100 / actual extruded)",
+      "7. Set new steps: M92 E<new_value>",
+      "8. Save: M500",
+      "9. Repeat to verify"
+    ]
+  },
+  
+  "retractionGuidelines": {
+    "byType": {
+      "directDrive": {
+        "distance": { "min": 0.2, "typical": 0.5, "max": 2.0 },
+        "speed": { "min": 20, "typical": 35, "max": 50 },
+        "notes": "Short retractions. Too much can cause jams."
+      },
+      "bowden": {
+        "distance": { "min": 3, "typical": 6, "max": 10 },
+        "speed": { "min": 25, "typical": 45, "max": 70 },
+        "notes": "Longer to compensate for tube compliance."
+      }
+    },
+    "byMaterial": {
+      "PLA": {
+        "directDrive": { "distance": 0.5, "speed": 35 },
+        "bowden": { "distance": 6, "speed": 45 }
+      },
+      "PETG": {
+        "directDrive": { "distance": 0.8, "speed": 30 },
+        "bowden": { "distance": 5, "speed": 40 },
+        "notes": "PETG is stringy - may need more distance"
+      },
+      "TPU": {
+        "directDrive": { "distance": 0.5, "speed": 20 },
+        "bowden": { "distance": 0, "speed": 0 },
+        "notes": "Disable retraction for bowden with TPU!"
+      },
+      "ABS": {
+        "directDrive": { "distance": 0.5, "speed": 35 },
+        "bowden": { "distance": 5, "speed": 45 }
+      }
+    }
+  },
+  
+  "firmwareSettings": {
+    "marlinConfig": {
+      "DEFAULT_AXIS_STEPS_PER_UNIT": {
+        "description": "Steps per mm for each axis",
+        "format": "{ X, Y, Z, E }",
+        "example": "{ 80, 80, 400, 93 }"
+      },
+      "DEFAULT_MAX_FEEDRATE": {
+        "description": "Max speed for each axis (mm/s)",
+        "example": "{ 500, 500, 10, 50 }"
+      },
+      "DEFAULT_MAX_ACCELERATION": {
+        "description": "Max acceleration (mm/s²)",
+        "example": "{ 500, 500, 100, 5000 }"
+      },
+      "DEFAULT_RETRACT_ACCELERATION": {
+        "description": "Retraction acceleration",
+        "default": 500
+      },
+      "INVERT_E0_DIR": {
+        "description": "Reverse extruder direction",
+        "default": false,
+        "notes": "Set true if filament extrudes when retracting"
+      }
+    }
+  }
+}
