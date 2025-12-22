@@ -1,6 +1,3 @@
-Here's the expanded stepper drivers database with board matching and aftermarket options:
-
-```json
 {
   "_comment": "Stepper Driver Database v2.0 - Matches to boards and printers",
   "_lastUpdated": "2024-12-21",
@@ -836,33 +833,3 @@ Here's the expanded stepper drivers database with board matching and aftermarket
     }
   ]
 }
-
-
----
-
-## Summary
-
-| Category | Count |
-|----------|-------|
-| **Stock Drivers** | 12 |
-| **Aftermarket Drivers** | 18 |
-| **Legacy/CNC Drivers** | 8 |
-| **Total** | 38 |
-
-### Key Features Added:
-- **`stockOnBoards`**: Array of board IDs that ship with this driver
-- **`stockOnPrinters`**: Printers that have this driver stock
-- **`aftermarketFor`**: Compatible boards/printers for upgrades
-- **`marlinDefine`**: Exact Marlin define to use
-- **`rmsCurrent`**: Real-world continuous current
-- **`microstepping`**: Array of supported values
-- **`sensorlessHoming`**: Boolean for quick filtering
-
-### Manufacturers Covered:
-- Trinamic (TMC series)
-- Allegro (A4988, A4982)
-- Texas Instruments (DRV8825)
-- OnSemi (LV8729)
-- STMicroelectronics (ST820)
-- Toshiba (TB6560, TB6600, THB6128)
-- Various CNC (DM542, DM860)
