@@ -35,13 +35,13 @@ Visit: https://tsolo4ever.github.io/3d-Print-tools
 - 🆓 **Free & Open Source** - Completely free to use
 - ♿ **Accessible** - High contrast modes and keyboard navigation
 
-## 📁 Project Structure
+## 📁 Updated Project Structure
 
 ```
 3d-print-tools/
 ├── index.html                          # Main hub page with tool grid
-├── _template-tool.html                 # Template for new tools
-├── assets/                             # Shared resources
+├── update-themes.js                    # Script for updating themes
+├── assets/
 │   ├── css/
 │   │   ├── base.css                   # Theme system & core styles
 │   │   ├── navigation.css             # Navigation component
@@ -51,17 +51,22 @@ Visit: https://tsolo4ever.github.io/3d-Print-tools
 │   │   ├── printer-profiles.js        # Multi-printer profiles
 │   │   └── storage-manager.js         # LocalStorage management
 │   └── images/                        # Shared images & assets
+├── _template-tool.html                 # Template for new tools
 ├── E-Steps_Calculator_Interactive/    # E-Steps calculator (complete)
+│   └── README.md                      # Documentation & Guide
 ├── flow-calibration/                  # Flow rate calibration (complete)
 ├── SharePoint_Nozzle_Selection_Guide/ # Nozzle selection guide (complete)
-├── gear-calculator/                   # Gear ratio calculator (complete)
-├── temperature-tower/                 # Temperature tower generator (complete)
-├── retraction-tuning/                 # Retraction tuning (in progress)
-├── pressure-advance/                  # Pressure advance (planned)
-├── pid-tuning/                        # PID tuning (planned)
-└── docs/                              # Documentation & guides
-    ├── index.html                     # Documentation hub
-    └── guides/                        # Comprehensive guides
+│   └── README.md                      # Documentation & Guide
+├── docs/                              # Documentation & guides
+│   ├── index.html                     # Documentation hub
+│   └── guides/                        # Comprehensive guides
+├── firmware-helper/                   # Firmware helper tools
+├── gear-calculator/                   # Gear ratio calculator
+├── retraction-tuning/                 # Retraction tuning (in-progress)
+├── pid-tuning/                        # PID tuning assistant (planned)
+├── pressure-advance/                  # Pressure advance assistant
+├── temperature-tower/                 # Temperature tower generator
+└── CHANGELOG.md                       # Project changelog
 ```
 
 ## 🛠️ Technology Stack
@@ -115,94 +120,11 @@ Contributions are welcome! Here's how you can help:
 3. **Improve Documentation** - Fix typos, add examples
 4. **Submit Pull Requests** - Add new features or fix bugs
 
-### Development Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/tsolo4ever/3d-Print-tools.git
-
-# Navigate to the directory
-cd 3d-Print-tools
-
-# Open in browser (no build required!)
-# Just open index.html in your browser
-```
-
 ## 📝 Roadmap
 
-### Phase 1: Foundation ✅ Complete
-- [x] Create hub page and navigation system
-- [x] Build unified folder structure
-- [x] Design comprehensive theme framework
-- [x] Implement E-Steps Calculator
-- [x] Create Nozzle Selection Guide
-- [x] Build Gear Calculator
+### Current Progress:
 
-### Phase 2: Enhancement ✅ Complete
-- [x] Flow Rate Calibration tool
-- [x] Theme system with brand themes
-- [x] Time-based auto-switching
-- [x] System preference sync
-- [x] Test history tracking
-- [x] LocalStorage persistence
-- [x] Mobile responsive design
-- [x] Shared component library
+- E-Steps calculator 100% completed.
+- Additional guides in draft mode/early iteration stages.
 
-### Phase 3: Expansion (In Progress)
-- [x] Temperature Tower Generator
-- [ ] Retraction Tuning Tool (10% complete)
-- [ ] Pressure/Linear Advance Calculator
-- [ ] PID Tuning Assistant
-- [ ] First Layer Calibration
-- [ ] Complete documentation hub
-- [ ] Video tutorials
-
-### Phase 4: Advanced Features (Planned)
-- [ ] Multi-printer profile management
-- [ ] Export/import configurations
-- [ ] PWA support (offline, installable)
-- [ ] Print quality diagnostic tool
-- [ ] Belt tension calculator
-- [ ] Volumetric flow rate calculator
-- [ ] OctoPrint/Klipper integration (optional)
-- [ ] Multi-language support
-
-## 📄 License
-
-[MIT License](LICENSE) - Feel free to use and modify
-
-## 🙏 Acknowledgments
-
-- Inspired by the 3D printing community
-- Special thanks to all contributors
-- Built with ❤️ for makers everywhere
-
-## 📞 Support
-
-- **Issues:** [GitHub Issues](https://github.com/tsolo4ever/3d-Print-tools/issues)
-- **Documentation:** [Full Docs](docs/)
-- **FAQ:** [Frequently Asked Questions](docs/faq.html)
-
-## 🔗 Links
-
-- **GitHub:** [tsolo4ever/3d-Print-tools](https://github.com/tsolo4ever/3d-Print-tools)
-- **Documentation:** [Full Guide](docs/)
-- **Live Site:** https://tsolo4ever.github.io/3d-Print-tools
-
----
-
-## 🎯 Recommended Calibration Order
-
-For best results, calibrate your printer in this order:
-
-1. **E-Steps Calculator** - Foundation for all other calibrations
-2. **Flow Rate Calibration** - Fine-tune after E-steps are correct
-3. **Temperature Tower** - Find optimal temperature for your filament
-4. **Retraction Tuning** - Eliminate stringing (temperature-dependent)
-5. **Pressure Advance** - Advanced fine-tuning for corner quality
-
----
-
-**Made with 🔧 for the 3D printing community**
-
-*Last Updated: December 15, 2025*
+[MIT Open license ref URL-info summarized attachments].
