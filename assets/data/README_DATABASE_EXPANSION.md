@@ -8,10 +8,12 @@ This guide shows you how to expand each database with accurate, real-world hardw
 
 ## 📁 Current Databases
 
-### **1. marlin-boards.json** (Currently: 19 boards)
-### **2. stepper-drivers.json** (Currently: 14 drivers)
-### **3. thermistors.json** (Currently: 15 types)
+### **1. marlin-boards-V2.json** (Currently: Enhanced with board mapping)
+### **2. stepper-drivers-V2.json** (Currently: 38 drivers with full compatibility data)
+### **3. thermistors-V2.json** (Currently: 50+ thermistors with hotend/printer mapping)
 ### **4. displays.json** (Currently: 28 displays)
+
+> **Note:** V2 databases include enhanced compatibility data (boards, printers, hotends) and are the current working versions. V1 files have been deprecated.
 
 ---
 
@@ -253,9 +255,24 @@ This guide shows you how to expand each database with accurate, real-world hardw
 ## 🧪 Testing Your Changes
 
 ### **1. Validate JSON:**
+
+**Option A: Use validation scripts (Recommended)**
+```bash
+# Validate single file
+cd assets/data
+python validate_single.py <filename.json>
+
+# Examples:
+python validate_single.py stepper-drivers-V2.json
+python validate_single.py thermistors-V2.json
+```
+
+**Option B: Online validators**
 - Use [jsonlint.com](https://jsonlint.com)
 - Or VS Code's built-in JSON validator
 - No syntax errors = good to go!
+
+> **Note:** For large files (like gcode-reference.json), use `validate_single.py` to avoid browser/system freezing.
 
 ### **2. Test in Browser:**
 ```javascript
