@@ -32,6 +32,7 @@ class EnhancedPrinterProfiles {
                 'displays', 
                 'Hotends', 
                 'bed-probes',
+                'heaters',  // Heater cartridges
                 'printer-profiles'  // Add printer profiles database
             ];
             
@@ -506,6 +507,42 @@ class EnhancedPrinterProfiles {
     }
     
     /**
+     * Render hotend dropdown options
+     */
+    renderHotendOptions(selectedHotend) {
+        if (!this.databases['Hotends']) return '';
+        
+        return this.databases['Hotends'].hotends.map(hotend => {
+            const selected = selectedHotend === hotend.id ? 'selected' : '';
+            return `<option value="${hotend.id}" ${selected}>${hotend.name} (${hotend.category})</option>`;
+        }).join('');
+    }
+    
+    /**
+     * Render probe dropdown options
+     */
+    renderProbeOptions(selectedProbe) {
+        if (!this.databases['bed-probes']) return '';
+        
+        return this.databases['bed-probes'].probes.map(probe => {
+            const selected = selectedProbe === probe.id ? 'selected' : '';
+            return `<option value="${probe.id}" ${selected}>${probe.name}</option>`;
+        }).join('');
+    }
+    
+    /**
+     * Render heater cartridge dropdown options
+     */
+    renderHeaterOptions(selectedHeater) {
+        if (!this.databases['heaters']) return '';
+        
+        return this.databases['heaters'].hotendHeaters.map(heater => {
+            const selected = selectedHeater === heater.id ? 'selected' : '';
+            return `<option value="${heater.id}" ${selected}>${heater.name} (${heater.wattage}W ${heater.voltage}V)</option>`;
+        }).join('');
+    }
+    
+    /**
      * Get current printer display name
      */
     getCurrentPrinterDisplayName() {
@@ -704,6 +741,31 @@ class EnhancedPrinterProfiles {
             }
         }
         
+        // Auto-fill hotend
+        if (printer.stockHotend && this.databases['Hotends']) {
+            const hotend = this.databases['Hotends'].hotends.find(h => h.id === printer.stockHotend);
+            if (hotend) {
+                this.currentProfile.hotendType = printer.stockHotend;
+                console.log('  ✅ Hotend:', printer.stockHotend);
+                
+                // Auto-fill thermistor and temp from hotend
+                if (!this.currentProfile.hardware) this.currentProfile.hardware = {};
+                if (!this.currentProfile.hardware.thermistors) this.currentProfile.hardware.thermistors = {};
+                if (!this.currentProfile.temperature) this.currentProfile.temperature = {};
+                if (!this.currentProfile.temperature.hotend) this.currentProfile.temperature.hotend = {};
+                
+                if (hotend.thermistor) {
+                    this.currentProfile.hardware.thermistors.hotend = hotend.thermistor.toString();
+                    console.log('    ✅ Thermistor:', hotend.thermistor);
+                }
+                
+                if (hotend.maxTemp) {
+                    this.currentProfile.temperature.hotend.max = hotend.maxTemp;
+                    console.log('    ✅ Max Temp:', hotend.maxTemp, '°C');
+                }
+            }
+        }
+        
         // Auto-fill display
         if (printer.stockDisplay && this.databases['displays']) {
             const display = this.databases['displays'].displays.find(d => d.id === printer.stockDisplay);
@@ -758,19 +820,25 @@ class EnhancedPrinterProfiles {
                         <label>Hotend Model *</label>
                         <select id="hotendType" class="form-control">
                             <option value="">Select hotend...</option>
-                            <option value="stock">Stock Hotend</option>
-                            <option value="e3d-v6">E3D V6</option>
-                            <option value="e3d-volcano">E3D Volcano</option>
-                            <option value="micro-swiss">Micro Swiss All-Metal</option>
-                            <option value="dragon">Dragon Standard Flow</option>
-                            <option value="dragon-hf">Dragon High Flow</option>
-                            <option value="mosquito">Mosquito</option>
-                            <option value="rapido">Phaetus Rapido</option>
+                            ${this.renderHotendOptions(this.currentProfile.hotendType)}
+                            <option value="__custom__">🔧 Custom / Other...</option>
                         </select>
+                        <input type="text" id="hotendTypeCustom" class="form-control" 
+                               value="${this.currentProfile.hotendType && this.currentProfile.hotendType.startsWith('custom:') ? this.currentProfile.hotendType.replace('custom:', '') : ''}" 
+                               placeholder="Enter custom hotend"
+                               style="display: ${this.currentProfile.hotendType && this.currentProfile.hotendType.startsWith('custom:') ? 'block' : 'none'}; margin-top: 10px;">
                     </div>
                     <div class="form-group">
                         <label>Max Temperature (°C) *</label>
                         <input type="number" id="hotendMaxTemp" value="${temp.max}" min="200" max="500">
+                    </div>
+                    <div class="form-group">
+                        <label>Heater Cartridge</label>
+                        <select id="hotendHeater" class="form-control">
+                            <option value="">Select heater...</option>
+                            ${this.renderHeaterOptions(this.currentProfile.hotendHeater)}
+                        </select>
+                        <p class="field-help">Heater wattage affects heat-up speed</p>
                     </div>
                 </div>
                 
@@ -923,17 +991,7 @@ class EnhancedPrinterProfiles {
                 <div class="form-group">
                     <label>Probe/Z-Endstop Type *</label>
                     <select id="probeType" class="form-control">
-                        <option value="none" ${probe.type === 'none' ? 'selected' : ''}>None (Manual Leveling)</option>
-                        <option value="bltouch" ${probe.type === 'bltouch' ? 'selected' : ''}>BLTouch</option>
-                        <option value="3dtouch" ${probe.type === '3dtouch' ? 'selected' : ''}>3DTouch</option>
-                        <option value="crtouch" ${probe.type === 'crtouch' ? 'selected' : ''}>CR Touch</option>
-                        <option value="inductive" ${probe.type === 'inductive' ? 'selected' : ''}>Inductive (PL-08N, LJ12A3, etc.)</option>
-                        <option value="capacitive" ${probe.type === 'capacitive' ? 'selected' : ''}>Capacitive</option>
-                        <option value="optical" ${probe.type === 'optical' ? 'selected' : ''}>Optical</option>
-                        <option value="microswitch" ${probe.type === 'microswitch' ? 'selected' : ''}>Microswitch</option>
-                        <option value="pinda" ${probe.type === 'pinda' ? 'selected' : ''}>PINDA/SuperPINDA (Prusa)</option>
-                        <option value="klicky" ${probe.type === 'klicky' ? 'selected' : ''}>Klicky Probe</option>
-                        <option value="euclid" ${probe.type === 'euclid' ? 'selected' : ''}>Euclid Probe</option>
+                        ${this.renderProbeOptions(probe.type)}
                         <option value="__custom__" ${probe.type && probe.type.startsWith('custom:') ? 'selected' : ''}>🔧 Custom / Other...</option>
                     </select>
                     <input type="text" id="probeTypeCustom" class="form-control" 
@@ -1732,6 +1790,9 @@ class EnhancedPrinterProfiles {
         
         // Hardware Tab inputs
         this.attachHardwareListeners();
+        
+        // Other tab-specific listeners
+        this.attachTabSpecificListeners();
     }
     
     /**
@@ -1885,6 +1946,390 @@ class EnhancedPrinterProfiles {
     }
     
     /**
+     * Attach tab-specific listeners for tabs 3-10
+     */
+    attachTabSpecificListeners() {
+        // Tab 3: Hotend dropdown with auto-population
+        const hotendType = document.getElementById('hotendType');
+        const hotendCustom = document.getElementById('hotendTypeCustom');
+        
+        if (hotendType) {
+            hotendType.addEventListener('change', (e) => {
+                if (e.target.value === '__custom__') {
+                    // Show custom input
+                    if (hotendCustom) {
+                        hotendCustom.style.display = 'block';
+                    }
+                } else if (e.target.value) {
+                    // Hide custom input
+                    if (hotendCustom) {
+                        hotendCustom.style.display = 'none';
+                    }
+                    
+                    // Save selection
+                    this.currentProfile.hotendType = e.target.value;
+                    this.currentProfile.modified = new Date().toISOString();
+                    
+                    // Auto-fill thermistor and temperature from hotend database
+                    this.autofillFromHotend(e.target.value);
+                }
+            });
+        }
+        
+        // Custom hotend input
+        if (hotendCustom) {
+            hotendCustom.addEventListener('input', (e) => {
+                this.currentProfile.hotendType = 'custom:' + e.target.value;
+                this.currentProfile.modified = new Date().toISOString();
+            });
+        }
+        
+        // Tab 3: Heater cartridge
+        const hotendHeater = document.getElementById('hotendHeater');
+        if (hotendHeater) {
+            hotendHeater.addEventListener('change', (e) => {
+                this.currentProfile.hotendHeater = e.target.value;
+                this.currentProfile.modified = new Date().toISOString();
+            });
+        }
+
+        // Tab 3: Hotend - Temperature inputs
+        const hotendMaxTemp = document.getElementById('hotendMaxTemp');
+        if (hotendMaxTemp) {
+            hotendMaxTemp.addEventListener('input', (e) => {
+                if (!this.currentProfile.temperature) this.currentProfile.temperature = {};
+                if (!this.currentProfile.temperature.hotend) this.currentProfile.temperature.hotend = {};
+                this.currentProfile.temperature.hotend.max = parseFloat(e.target.value) || 275;
+                this.currentProfile.modified = new Date().toISOString();
+            });
+        }
+        
+        // Tab 3: Hotend PID
+        ['hotendPidP', 'hotendPidI', 'hotendPidD'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    const pidType = id.replace('hotendPid', '').toLowerCase();
+                    if (!this.currentProfile.temperature) this.currentProfile.temperature = {};
+                    if (!this.currentProfile.temperature.hotend) this.currentProfile.temperature.hotend = {};
+                    if (!this.currentProfile.temperature.hotend.pid) this.currentProfile.temperature.hotend.pid = {};
+                    this.currentProfile.temperature.hotend.pid[pidType] = parseFloat(e.target.value) || 0;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 4: Bed - Temperature inputs
+        const bedMaxTemp = document.getElementById('bedMaxTemp');
+        if (bedMaxTemp) {
+            bedMaxTemp.addEventListener('input', (e) => {
+                if (!this.currentProfile.temperature) this.currentProfile.temperature = {};
+                if (!this.currentProfile.temperature.bed) this.currentProfile.temperature.bed = {};
+                this.currentProfile.temperature.bed.max = parseFloat(e.target.value) || 110;
+                this.currentProfile.modified = new Date().toISOString();
+            });
+        }
+        
+        // Tab 4: Bed PID
+        ['bedPidP', 'bedPidI', 'bedPidD'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    const pidType = id.replace('bedPid', '').toLowerCase();
+                    if (!this.currentProfile.temperature) this.currentProfile.temperature = {};
+                    if (!this.currentProfile.temperature.bed) this.currentProfile.temperature.bed = {};
+                    if (!this.currentProfile.temperature.bed.pid) this.currentProfile.temperature.bed.pid = {};
+                    this.currentProfile.temperature.bed.pid[pidType] = parseFloat(e.target.value) || 0;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 4: Bed Size
+        ['bedSizeX', 'bedSizeY', 'bedSizeZ'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    const axis = id.replace('bedSize', '').toLowerCase();
+                    if (!this.currentProfile.bedSize) this.currentProfile.bedSize = {};
+                    this.currentProfile.bedSize[axis] = parseFloat(e.target.value) || 0;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 5: Probe type with dynamic visibility
+        const probeType = document.getElementById('probeType');
+        if (probeType) {
+            probeType.addEventListener('change', (e) => {
+                if (!this.currentProfile.probe) this.currentProfile.probe = { offsets: { x: 0, y: 0, z: 0 } };
+                this.currentProfile.probe.type = e.target.value;
+                this.currentProfile.modified = new Date().toISOString();
+                
+                // Show/hide probe settings
+                const probeSettings = document.getElementById('probeSettings');
+                if (probeSettings) {
+                    probeSettings.style.display = e.target.value !== 'none' ? 'block' : 'none';
+                }
+            });
+        }
+        
+        // Tab 5: Probe offsets
+        ['probeOffsetX', 'probeOffsetY', 'probeOffsetZ'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    const axis = id.replace('probeOffset', '').toLowerCase();
+                    if (!this.currentProfile.probe) this.currentProfile.probe = { offsets: {} };
+                    if (!this.currentProfile.probe.offsets) this.currentProfile.probe.offsets = {};
+                    this.currentProfile.probe.offsets[axis] = parseFloat(e.target.value) || 0;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 5: Bed leveling type with dynamic visibility
+        const bedLevelingType = document.getElementById('bedLevelingType');
+        if (bedLevelingType) {
+            bedLevelingType.addEventListener('change', (e) => {
+                if (!this.currentProfile.bedLeveling) this.currentProfile.bedLeveling = {};
+                this.currentProfile.bedLeveling.type = e.target.value;
+                this.currentProfile.modified = new Date().toISOString();
+                
+                // Show/hide mesh settings
+                const meshSettings = document.getElementById('meshSettings');
+                if (meshSettings) {
+                    meshSettings.style.display = e.target.value !== 'none' ? 'block' : 'none';
+                }
+            });
+        }
+        
+        // Tab 5: Grid points and fade height
+        ['gridPointsX', 'gridPointsY', 'fadeHeight'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    if (!this.currentProfile.bedLeveling) this.currentProfile.bedLeveling = {};
+                    
+                    if (id === 'fadeHeight') {
+                        this.currentProfile.bedLeveling.fadeHeight = parseFloat(e.target.value) || 0;
+                    } else {
+                        const axis = id.replace('gridPoints', '').toLowerCase();
+                        if (!this.currentProfile.bedLeveling.gridPoints) this.currentProfile.bedLeveling.gridPoints = {};
+                        this.currentProfile.bedLeveling.gridPoints[axis] = parseInt(e.target.value) || 3;
+                    }
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 6: Motion - Steps per mm
+        ['stepsX', 'stepsY', 'stepsZ', 'stepsE'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    const axis = id.replace('steps', '').toLowerCase();
+                    if (!this.currentProfile.motion) this.currentProfile.motion = {};
+                    if (!this.currentProfile.motion.steps) this.currentProfile.motion.steps = {};
+                    this.currentProfile.motion.steps[axis] = parseFloat(e.target.value) || 0;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 6: Max Feedrates
+        ['maxFeedrateX', 'maxFeedrateY', 'maxFeedrateZ', 'maxFeedrateE'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    const axis = id.replace('maxFeedrate', '').toLowerCase();
+                    if (!this.currentProfile.motion) this.currentProfile.motion = {};
+                    if (!this.currentProfile.motion.maxFeedrates) this.currentProfile.motion.maxFeedrates = {};
+                    this.currentProfile.motion.maxFeedrates[axis] = parseFloat(e.target.value) || 0;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 6: Max Acceleration
+        ['maxAccelX', 'maxAccelY', 'maxAccelZ', 'maxAccelE'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    const axis = id.replace('maxAccel', '').toLowerCase();
+                    if (!this.currentProfile.motion) this.currentProfile.motion = {};
+                    if (!this.currentProfile.motion.maxAccel) this.currentProfile.motion.maxAccel = {};
+                    this.currentProfile.motion.maxAccel[axis] = parseFloat(e.target.value) || 0;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 6: Jerk
+        ['jerkX', 'jerkY', 'jerkZ', 'jerkE'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    const axis = id.replace('jerk', '').toLowerCase();
+                    if (!this.currentProfile.motion) this.currentProfile.motion = {};
+                    if (!this.currentProfile.motion.jerk) this.currentProfile.motion.jerk = {};
+                    this.currentProfile.motion.jerk[axis] = parseFloat(e.target.value) || 0;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 6: Travel Accelerations
+        ['printAccel', 'retractAccel', 'travelAccel'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    if (!this.currentProfile.motion) this.currentProfile.motion = {};
+                    this.currentProfile.motion[id] = parseFloat(e.target.value) || 0;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 7: Linear Advance
+        const linearAdvanceK = document.getElementById('linearAdvanceK');
+        if (linearAdvanceK) {
+            linearAdvanceK.addEventListener('input', (e) => {
+                if (!this.currentProfile.advanced) this.currentProfile.advanced = {};
+                if (!this.currentProfile.advanced.linearAdvance) this.currentProfile.advanced.linearAdvance = {};
+                this.currentProfile.advanced.linearAdvance.k = parseFloat(e.target.value) || 0;
+                this.currentProfile.advanced.linearAdvance.enabled = parseFloat(e.target.value) > 0;
+                this.currentProfile.modified = new Date().toISOString();
+            });
+        }
+        
+        // Tab 7: Arc Support checkbox
+        const arcSupport = document.getElementById('arcSupport');
+        if (arcSupport) {
+            arcSupport.addEventListener('change', (e) => {
+                if (!this.currentProfile.advanced) this.currentProfile.advanced = {};
+                this.currentProfile.advanced.arcSupport = e.target.checked;
+                this.currentProfile.modified = new Date().toISOString();
+            });
+        }
+        
+        // Tab 7: Junction Deviation
+        const junctionDeviationValue = document.getElementById('junctionDeviationValue');
+        if (junctionDeviationValue) {
+            junctionDeviationValue.addEventListener('input', (e) => {
+                if (!this.currentProfile.advanced) this.currentProfile.advanced = {};
+                if (!this.currentProfile.advanced.junctionDeviation) this.currentProfile.advanced.junctionDeviation = {};
+                this.currentProfile.advanced.junctionDeviation.value = parseFloat(e.target.value) || 0.005;
+                this.currentProfile.modified = new Date().toISOString();
+            });
+        }
+        
+        // Tab 7: Other checkboxes
+        ['autoReportTemp', 'sdCardSupport', 'eepromSupport'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('change', (e) => {
+                    if (!this.currentProfile.advanced) this.currentProfile.advanced = {};
+                    this.currentProfile.advanced[id] = e.target.checked;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 8: Safety - Thermal protection checkboxes
+        ['thermalProtectionHotend', 'thermalProtectionBed'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('change', (e) => {
+                    const type = id.replace('thermalProtection', '').toLowerCase();
+                    if (!this.currentProfile.safety) this.currentProfile.safety = {};
+                    if (!this.currentProfile.safety.thermalProtection) this.currentProfile.safety.thermalProtection = {};
+                    this.currentProfile.safety.thermalProtection[type] = e.target.checked;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 8: Runaway parameters
+        ['runawayPeriod', 'runawayHysteresis'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    const param = id.replace('runaway', '').toLowerCase();
+                    if (!this.currentProfile.safety) this.currentProfile.safety = {};
+                    if (!this.currentProfile.safety.runaway) this.currentProfile.safety.runaway = {};
+                    this.currentProfile.safety.runaway[param] = parseInt(e.target.value) || 0;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 8: Temperature safety limits
+        ['hotendMinTemp', 'hotendMaxTempSafety', 'bedMinTemp', 'bedMaxTempSafety', 'minExtrusionTemp', 'maxExtrusionLength'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', (e) => {
+                    if (!this.currentProfile.safety) this.currentProfile.safety = {};
+                    this.currentProfile.safety[id] = parseFloat(e.target.value) || 0;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 8: Safety checkboxes
+        ['preventColdExtrusion', 'noMovesBeforeHoming', 'softwareEndstops'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('change', (e) => {
+                    if (!this.currentProfile.safety) this.currentProfile.safety = {};
+                    this.currentProfile.safety[id] = e.target.checked;
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 10: Preferences - Materials checkboxes
+        ['matPLA', 'matPETG', 'matABS', 'matASA', 'matTPU', 'matNylon', 'matPC', 'matCF', 'matWood'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('change', (e) => {
+                    if (!this.currentProfile.preferences) this.currentProfile.preferences = {};
+                    if (!this.currentProfile.preferences.materials) this.currentProfile.preferences.materials = [];
+                    
+                    const material = id.replace('mat', '');
+                    if (e.target.checked) {
+                        if (!this.currentProfile.preferences.materials.includes(material)) {
+                            this.currentProfile.preferences.materials.push(material);
+                        }
+                    } else {
+                        this.currentProfile.preferences.materials = this.currentProfile.preferences.materials.filter(m => m !== material);
+                    }
+                    this.currentProfile.modified = new Date().toISOString();
+                });
+            }
+        });
+        
+        // Tab 10: Other materials text input
+        const matOther = document.getElementById('matOther');
+        if (matOther) {
+            matOther.addEventListener('input', (e) => {
+                if (!this.currentProfile.preferences) this.currentProfile.preferences = {};
+                this.currentProfile.preferences.materialsOther = e.target.value;
+                this.currentProfile.modified = new Date().toISOString();
+            });
+        }
+        
+        // Tab 10: Profile notes textarea
+        const profileNotes = document.getElementById('profileNotes');
+        if (profileNotes) {
+            profileNotes.addEventListener('input', (e) => {
+                this.currentProfile.notes = e.target.value;
+                this.currentProfile.modified = new Date().toISOString();
+            });
+        }
+    }
+    
+    /**
      * Auto-fill board details from database
      */
     autofillBoardDetails(boardId) {
@@ -1925,6 +2370,136 @@ class EnhancedPrinterProfiles {
         
         // Auto-populate drivers based on common board configurations
         this.autofillDrivers(board);
+    }
+    
+    /**
+     * Auto-fill thermistor and temperature from hotend selection
+     */
+    autofillFromHotend(hotendId) {
+        console.log('🔥 Auto-filling from hotend:', hotendId);
+        
+        if (!this.databases['Hotends']) {
+            console.log('❌ No Hotends database!');
+            return;
+        }
+        
+        // Find the hotend in the database
+        const hotend = this.databases['Hotends'].hotends.find(h => h.id === hotendId);
+        
+        if (!hotend) {
+            console.log('❌ Hotend not found in database:', hotendId);
+            return;
+        }
+        
+        console.log('✅ Found hotend:', hotend.name);
+        
+        // Initialize profile structures if needed
+        if (!this.currentProfile.hardware) this.currentProfile.hardware = {};
+        if (!this.currentProfile.hardware.thermistors) this.currentProfile.hardware.thermistors = {};
+        if (!this.currentProfile.temperature) this.currentProfile.temperature = {};
+        if (!this.currentProfile.temperature.hotend) this.currentProfile.temperature.hotend = {};
+        
+        // Auto-fill thermistor
+        if (hotend.thermistor) {
+            this.currentProfile.hardware.thermistors.hotend = hotend.thermistor.toString();
+            console.log('  ✅ Thermistor:', hotend.thermistor);
+            
+            // Update thermistor dropdown if on Tab 3
+            const thermistorEl = document.getElementById('thermistorHotend');
+            if (thermistorEl) {
+                thermistorEl.value = hotend.thermistor.toString();
+            }
+        }
+        
+        // Auto-fill max temperature
+        if (hotend.maxTemp) {
+            this.currentProfile.temperature.hotend.max = hotend.maxTemp;
+            console.log('  ✅ Max Temp:', hotend.maxTemp, '°C');
+            
+            // Update max temp input if on Tab 3
+            const maxTempEl = document.getElementById('hotendMaxTemp');
+            if (maxTempEl) {
+                maxTempEl.value = hotend.maxTemp;
+            }
+        }
+        
+        // Auto-fill heater cartridge (find compatible heater from database)
+        if (this.databases['heaters'] && this.databases['heaters'].hotendHeaters) {
+            // Find heater that lists this hotend in its stockOnHotends array
+            const compatibleHeater = this.databases['heaters'].hotendHeaters.find(heater => 
+                heater.stockOnHotends && heater.stockOnHotends.includes(hotendId)
+            );
+            
+            if (compatibleHeater) {
+                this.currentProfile.hotendHeater = compatibleHeater.id;
+                console.log('  ✅ Heater:', compatibleHeater.name, `(${compatibleHeater.wattage}W ${compatibleHeater.voltage}V)`);
+                
+                // Update heater dropdown if on Tab 3
+                const heaterEl = document.getElementById('hotendHeater');
+                if (heaterEl) {
+                    heaterEl.value = compatibleHeater.id;
+                }
+            }
+        }
+        
+        // Auto-fill E-steps from extruder data
+        if (hotend.extruder && hotend.extruder.defaultESteps) {
+            if (!this.currentProfile.motion) this.currentProfile.motion = {};
+            if (!this.currentProfile.motion.steps) this.currentProfile.motion.steps = {};
+            this.currentProfile.motion.steps.e = hotend.extruder.defaultESteps;
+            console.log('  ✅ E-Steps:', hotend.extruder.defaultESteps, `(${hotend.extruder.type}, ${hotend.extruder.gearType})`);
+            
+            // Update E-steps input if on Tab 3
+            const estepsEl = document.getElementById('esteps');
+            if (estepsEl) {
+                estepsEl.value = hotend.extruder.defaultESteps;
+            }
+        }
+        
+        // Auto-fill extruder type (Direct Drive vs Bowden)
+        if (hotend.extruder && hotend.extruder.type && hotend.extruder.type !== 'Varies') {
+            // Map database values to dropdown values
+            const typeMap = {
+                'Direct Drive': 'direct',
+                'Bowden': 'bowden',
+                'Both': 'direct' // Default to direct if "Both"
+            };
+            
+            const extruderType = typeMap[hotend.extruder.type] || 'direct';
+            this.currentProfile.extruderType = extruderType;
+            console.log('  ✅ Extruder Type:', hotend.extruder.type, `(${extruderType})`);
+            
+            // Update extruder type dropdown if on Tab 3
+            const extruderTypeEl = document.getElementById('extruderType');
+            if (extruderTypeEl) {
+                extruderTypeEl.value = extruderType;
+            }
+        }
+        
+        // Show notification
+        const hotendTypeEl = document.getElementById('hotendType');
+        if (hotendTypeEl) {
+            // Find or create help text element
+            let helpText = hotendTypeEl.parentElement.querySelector('.field-help');
+            if (!helpText) {
+                helpText = document.createElement('p');
+                helpText.className = 'field-help';
+                hotendTypeEl.parentElement.appendChild(helpText);
+            }
+            
+            helpText.innerHTML = `
+                <div style="background: #e3f2fd; padding: 12px; border-radius: 4px; margin-top: 10px; border-left: 3px solid #2196f3;">
+                    <strong>🔥 ${hotend.name}</strong><br>
+                    <strong>Category:</strong> ${hotend.category} | <strong>Max Temp:</strong> ${hotend.maxTemp}°C<br>
+                    <strong>Thermistor:</strong> Type ${hotend.thermistor}<br>
+                    ${hotend.notes ? `<em>${hotend.notes}</em>` : ''}
+                    <br><br>
+                    <strong style="color: #1565c0;">✨ Auto-filled:</strong> Thermistor type ${hotend.thermistor}, Max temp ${hotend.maxTemp}°C
+                </div>
+            `;
+        }
+        
+        this.currentProfile.modified = new Date().toISOString();
     }
     
     /**
@@ -1977,32 +2552,39 @@ class EnhancedPrinterProfiles {
         
         console.log('✅ Found driver:', driver.id, driver.name);
         
-        // Set all driver dropdowns
+        // Initialize drivers object if needed
+        if (!this.currentProfile.hardware.drivers) {
+            this.currentProfile.hardware.drivers = {};
+        }
+        
+        // Save driver values to profile (will be used when Tab 2 renders)
         ['X', 'Y', 'Z', 'E'].forEach(axis => {
-            const driverEl = document.getElementById(`driver${axis}`);
-            console.log(`📍 driver${axis} element:`, driverEl ? 'EXISTS' : 'NOT FOUND');
-            
-            if (driverEl) {
-                console.log(`  Setting driver${axis} to:`, driver.id);
-                driverEl.value = driver.id;
-                
-                // Save to profile
-                if (!this.currentProfile.hardware.drivers) {
-                    this.currentProfile.hardware.drivers = {};
-                }
-                this.currentProfile.hardware.drivers[axis.toLowerCase()] = driver.id;
-            }
+            this.currentProfile.hardware.drivers[axis.toLowerCase()] = driver.id;
+            console.log(`✅ Saved driver${axis} to profile:`, driver.id);
         });
         
-        console.log('✅ All drivers set! Profile drivers:', this.currentProfile.hardware.drivers);
-        
-        // Update help text
-        const helpText = document.querySelector('#hardwareBoard + input + .field-help');
-        if (helpText) {
-            const currentHTML = helpText.innerHTML;
-            helpText.innerHTML = currentHTML.replace('</div>', 
-                `<strong>✨ Auto-filled drivers:</strong> ${defaultDriver} (all axes)<br></div>`);
+        // If we're on Tab 2 (Hardware), update the dropdowns immediately
+        if (this.currentTab === 2) {
+            ['X', 'Y', 'Z', 'E'].forEach(axis => {
+                const driverEl = document.getElementById(`driver${axis}`);
+                if (driverEl) {
+                    driverEl.value = driver.id;
+                    console.log(`📍 Updated driver${axis} dropdown to:`, driver.id);
+                }
+            });
+            
+            // Update help text on Hardware tab
+            const helpText = document.querySelector('#hardwareBoard + input + .field-help');
+            if (helpText) {
+                const currentHTML = helpText.innerHTML;
+                if (!currentHTML.includes('Auto-filled drivers')) {
+                    helpText.innerHTML = currentHTML.replace('</div>', 
+                        `<strong>✨ Auto-filled drivers:</strong> ${defaultDriver} (all axes)<br></div>`);
+                }
+            }
         }
+        
+        console.log('✅ Profile drivers saved:', this.currentProfile.hardware.drivers);
         
         this.currentProfile.modified = new Date().toISOString();
     }
@@ -2586,6 +3168,15 @@ class EnhancedPrinterProfiles {
         const parsed = this.tempParsedConfig;
         console.log('📥 Applying parsed config:', parsed);
         
+        // Detect mismatches if profile already has data
+        const mismatches = this.detectConfigMismatches(parsed);
+        
+        // If mismatches found, show confirmation dialog
+        if (mismatches.length > 0) {
+            this.showMismatchDialog(mismatches, parsed);
+            return; // Wait for user decision
+        }
+        
         // Basic Info
         if (parsed.basic) {
             console.log('📋 parsed.basic:', parsed.basic);
@@ -2663,6 +3254,7 @@ class EnhancedPrinterProfiles {
             // Display
             if (parsed.hardware.displayType) {
                 this.currentProfile.hardware.display = parsed.hardware.displayType;
+                console.log('✅ Display set from import:', parsed.hardware.displayType);
             }
         }
         
@@ -2858,25 +3450,172 @@ class EnhancedPrinterProfiles {
     }
     
     /**
-     * Show M503 paste interface
+     * Detect configuration mismatches between current profile and import
      */
-    showM503Paste() {
-        const importArea = document.getElementById('importArea');
-        importArea.style.display = 'block';
-        importArea.innerHTML = `
-            <div class="m503-paste-zone">
-                <label>Paste M503 output here:</label>
-                <textarea id="m503Input" rows="10" placeholder="Paste your M503 output..." style="width: 100%; padding: 10px; border: 2px solid var(--border); border-radius: 4px; background: var(--background); color: var(--text-primary); font-family: monospace;"></textarea>
-                <button class="btn-primary" id="parseM503Btn" style="margin-top: 10px; padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 4px; cursor: pointer;">Parse & Apply M503</button>
-                <div id="m503Result" style="display: none; margin-top: 15px;"></div>
+    detectConfigMismatches(parsed) {
+        const mismatches = [];
+        
+        // Only check for mismatches if profile already has data (not empty/default)
+        const hasExistingData = this.currentProfile.name && this.currentProfile.name.trim() !== '';
+        
+        if (!hasExistingData) {
+            return []; // New profile, no mismatches
+        }
+        
+        // Check motherboard mismatch
+        if (this.currentProfile.hardware?.board && parsed.basic?.motherboard) {
+            if (this.currentProfile.hardware.board !== parsed.basic.motherboard) {
+                mismatches.push({
+                    field: 'Motherboard',
+                    current: this.currentProfile.hardware.board,
+                    imported: parsed.basic.motherboard,
+                    category: 'hardware'
+                });
+            }
+        }
+        
+        // Check thermistor mismatches
+        if (this.currentProfile.hardware?.thermistors?.hotend && parsed.hardware?.thermistorHotend) {
+            const currentTherm = this.currentProfile.hardware.thermistors.hotend.toString();
+            const importedTherm = parsed.hardware.thermistorHotend.toString();
+            if (currentTherm !== importedTherm) {
+                mismatches.push({
+                    field: 'Hotend Thermistor',
+                    current: currentTherm,
+                    imported: importedTherm,
+                    category: 'hardware'
+                });
+            }
+        }
+        
+        // Check max temperature mismatch
+        if (this.currentProfile.temperature?.hotend?.max && parsed.temperature?.hotendMaxTemp) {
+            if (Math.abs(this.currentProfile.temperature.hotend.max - parsed.temperature.hotendMaxTemp) > 5) {
+                mismatches.push({
+                    field: 'Hotend Max Temperature',
+                    current: this.currentProfile.temperature.hotend.max + '°C',
+                    imported: parsed.temperature.hotendMaxTemp + '°C',
+                    category: 'temperature'
+                });
+            }
+        }
+        
+        // Check E-steps mismatch
+        if (this.currentProfile.motion?.steps?.e && parsed.motion?.stepsPerMM?.e) {
+            if (Math.abs(this.currentProfile.motion.steps.e - parsed.motion.stepsPerMM.e) > 5) {
+                mismatches.push({
+                    field: 'E-Steps',
+                    current: this.currentProfile.motion.steps.e.toFixed(2),
+                    imported: parsed.motion.stepsPerMM.e.toFixed(2),
+                    category: 'motion'
+                });
+            }
+        }
+        
+        // Check bed size mismatch
+        if (this.currentProfile.bedSize?.x && parsed.basic?.bedSizeX) {
+            if (this.currentProfile.bedSize.x !== parsed.basic.bedSizeX || 
+                this.currentProfile.bedSize.y !== parsed.basic.bedSizeY) {
+                mismatches.push({
+                    field: 'Bed Size',
+                    current: `${this.currentProfile.bedSize.x}×${this.currentProfile.bedSize.y}mm`,
+                    imported: `${parsed.basic.bedSizeX}×${parsed.basic.bedSizeY}mm`,
+                    category: 'basic'
+                });
+            }
+        }
+        
+        return mismatches;
+    }
+    
+    
+    /**
+     * Actually apply the parsed config (called after user confirms mismatch dialog)
+     */
+    actuallyApplyParsedConfig(parsed) {
+        // Store temporarily
+        const oldTemp = this.tempParsedConfig;
+        this.tempParsedConfig = parsed;
+        
+        // Call the main apply logic (which does all the real work)
+        this.applyParsedConfig();
+        
+        // Restore
+        this.tempParsedConfig = oldTemp;
+    }
+        /**
+     * Show mismatch dialog to user
+     */
+    showMismatchDialog(mismatches, parsed) {
+        const mismatchHTML = mismatches.map(m => `
+            <div style="padding: 10px; margin: 5px 0; background: #fff3e0; border-left: 3px solid #ff9800; border-radius: 4px;">
+                <strong style="color: #e65100;">${m.field}</strong><br>
+                <div style="display: grid; grid-template-columns: auto 1fr; gap: 10px; margin-top: 5px; font-size: 0.9em;">
+                    <span style="color: #666;">Current:</span>
+                    <span style="color: #1976d2; font-weight: 500;">${m.current}</span>
+                    <span style="color: #666;">Import:</span>
+                    <span style="color: #d32f2f; font-weight: 500;">${m.imported}</span>
+                </div>
+            </div>
+        `).join('');
+        
+        const resultDiv = document.getElementById('uploadResult');
+        resultDiv.innerHTML = `
+            <div style="background: #fff3e0; padding: 20px; border-radius: 5px; border-left: 4px solid #ff9800;">
+                <h4 style="margin: 0 0 15px 0; color: #e65100;">⚠️ Configuration Mismatch Detected</h4>
+                <p style="margin-bottom: 15px;">The imported configuration doesn't match your current profile settings. The following differences were found:</p>
+                
+                ${mismatchHTML}
+                
+                <div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 4px;">
+                    <strong style="color: #0d47a1;">What would you like to do?</strong>
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <button class="btn-primary" id="applyMismatchBtn" style="flex: 1; padding: 10px 20px;">
+                            ✅ Overwrite with Imported Values
+                        </button>
+                        <button class="btn-secondary" id="keepCurrentBtn" style="flex: 1; padding: 10px 20px;">
+                            🛡️ Keep Current Values
+                        </button>
+                        <button class="btn-secondary" id="cancelImportBtn" style="padding: 10px 20px;">
+                            ❌ Cancel Import
+                        </button>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                    <strong>Tip:</strong> If you're importing a config from the same printer, choose "Overwrite". 
+                    If this is a different printer config, choose "Cancel" and create a new profile instead.
+                </p>
             </div>
         `;
         
-        // Add parse button handler
-        document.getElementById('parseM503Btn').addEventListener('click', () => {
-            this.parseAndApplyM503();
+        // Add button handlers
+        document.getElementById('applyMismatchBtn').addEventListener('click', () => {
+            // Continue with normal application - call the actual apply logic
+            this.actuallyApplyParsedConfig(parsed);
+        });
+        
+        document.getElementById('keepCurrentBtn').addEventListener('click', () => {
+            resultDiv.innerHTML = `
+                <div style="background: #e3f2fd; padding: 15px; border-radius: 5px; border-left: 4px solid #2196f3;">
+                    <h4 style="margin: 0 0 10px 0; color: #1565c0;">ℹ️ Current Values Preserved</h4>
+                    <p style="margin: 0;">Your existing profile settings have been kept. No changes were made.</p>
+                </div>
+            `;
+        });
+        
+        document.getElementById('cancelImportBtn').addEventListener('click', () => {
+            resultDiv.innerHTML = `
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; border-left: 4px solid #757575;">
+                    <h4 style="margin: 0 0 10px 0; color: #424242;">Import Cancelled</h4>
+                    <p style="margin: 0;">No changes were made to your profile.</p>
+                </div>
+            `;
         });
     }
+    
+
+
     
     /**
      * Parse M503 output and apply to profile
@@ -3357,13 +4096,20 @@ class EnhancedPrinterProfiles {
             return;
         }
         
-        // Save to storage
-        StorageManager.savePrinter(this.currentProfile);
+        // Save to storage - use addPrinter for new or updatePrinter for existing
+        if (this.currentProfile.id && StorageManager.getPrinter(this.currentProfile.id)) {
+            // Update existing profile
+            StorageManager.updatePrinter(this.currentProfile.id, this.currentProfile);
+        } else {
+            // Add new profile
+            const savedProfile = StorageManager.addPrinter(this.currentProfile);
+            this.currentProfile = savedProfile; // Get the profile with generated ID
+        }
         
         // Close modal
         this.close();
         
-        // Trigger event
+        // Trigger event to refresh printer profiles display
         window.dispatchEvent(new CustomEvent('printerProfileSaved', {
             detail: this.currentProfile
         }));

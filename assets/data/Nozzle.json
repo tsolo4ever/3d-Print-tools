@@ -1,0 +1,1056 @@
+{
+  "_comment": "Nozzle Database",
+  "_lastUpdated": "2025-01-15",
+  
+  "nozzles": [
+    {
+      "id": "NOZZLE_BRASS_MK8",
+      "name": "Brass MK8 Nozzle",
+      "type": "MK8",
+      "material": "Brass",
+      "category": "Stock",
+      "diameterOptions": [0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0],
+      "threadSize": "M6x1",
+      "threadLength": 5,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_CREALITY_MK8",
+        "HOTEND_CREALITY_SPRITE",
+        "HOTEND_MICROSWISS_ALLM_MK8",
+        "HOTEND_MICROSWISS_NG"
+      ],
+      "stockOnPrinters": [
+        "Creality Ender 3",
+        "Creality Ender 3 V2",
+        "Creality Ender 3 Max",
+        "Creality Ender 5",
+        "Creality CR-10",
+        "Anycubic Kobra",
+        "Elegoo Neptune"
+      ],
+      "notes": "Most common nozzle. Good thermal conductivity. Wears quickly with abrasive filaments."
+    },
+    {
+      "id": "NOZZLE_BRASS_E3D_V6",
+      "name": "Brass E3D V6 Nozzle",
+      "type": "E3D V6",
+      "material": "Brass",
+      "category": "Stock",
+      "diameterOptions": [0.25, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_E3D_V6",
+        "HOTEND_E3D_V6_CLONE",
+        "HOTEND_PRUSA_E3D_V6",
+        "HOTEND_PRUSA_MINI"
+      ],
+      "stockOnPrinters": [
+        "Prusa MK3S+",
+        "Prusa Mini"
+      ],
+      "notes": "E3D standard. Slightly longer thread than MK8. Genuine vs clone quality varies."
+    },
+    {
+      "id": "NOZZLE_BRASS_VOLCANO",
+      "name": "Brass Volcano Nozzle",
+      "type": "Volcano",
+      "material": "Brass",
+      "category": "High-Flow",
+      "diameterOptions": [0.4, 0.6, 0.8, 1.0, 1.2],
+      "threadSize": "M6x1",
+      "threadLength": 8,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": true,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_E3D_VOLCANO",
+        "HOTEND_CREALITY_SPIDER"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Extended melt zone for higher flow rates. Longer than standard V6 nozzles."
+    },
+    {
+      "id": "NOZZLE_BRASS_SUPERVOLCANO",
+      "name": "Brass SuperVolcano Nozzle",
+      "type": "SuperVolcano",
+      "material": "Brass",
+      "category": "Ultra High-Flow",
+      "diameterOptions": [0.6, 0.8, 1.0, 1.2, 1.4],
+      "threadSize": "M6x1",
+      "threadLength": 15,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": true,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_E3D_SUPERVOLCANO"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Extreme flow rates. For very large nozzle printing."
+    },
+    {
+      "id": "NOZZLE_BRASS_DRAGON",
+      "name": "Brass Dragon Nozzle",
+      "type": "Dragon",
+      "material": "Brass",
+      "category": "Stock",
+      "diameterOptions": [0.25, 0.4, 0.5, 0.6, 0.8],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_PHAETUS_DRAGON_STANDARD",
+        "HOTEND_PHAETUS_DRAGON_HF"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Phaetus Dragon compatible. Similar dimensions to V6."
+    },
+    {
+      "id": "NOZZLE_BRASS_RAPIDO",
+      "name": "Brass Rapido Nozzle",
+      "type": "Rapido",
+      "material": "Brass",
+      "category": "High-Flow",
+      "diameterOptions": [0.4, 0.6, 0.8, 1.0],
+      "threadSize": "M6x1",
+      "threadLength": 6.5,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": true,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_PHAETUS_RAPIDO"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Designed for Rapido high-flow system."
+    },
+    {
+      "id": "NOZZLE_BRASS_MOSQUITO",
+      "name": "Brass Mosquito Nozzle",
+      "type": "Mosquito",
+      "material": "Brass",
+      "category": "Premium",
+      "diameterOptions": [0.25, 0.4, 0.5, 0.6, 0.8, 1.0],
+      "threadSize": "M5.5x0.5",
+      "threadLength": 4,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_SLICE_MOSQUITO"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Proprietary Slice Engineering thread. Not compatible with standard M6 hotends."
+    },
+    {
+      "id": "NOZZLE_REVO",
+      "name": "E3D Revo Nozzle",
+      "type": "Revo",
+      "material": "Brass",
+      "category": "Quick-Change",
+      "diameterOptions": [0.25, 0.4, 0.6, 0.8],
+      "threadSize": "Proprietary",
+      "threadLength": null,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_E3D_REVO_SIX",
+        "HOTEND_E3D_REVO_VORON"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Quick-change system. Nozzle includes heater block. Cold swap capable."
+    },
+    {
+      "id": "NOZZLE_REVO_HIGHFLOW",
+      "name": "E3D Revo High Flow Nozzle",
+      "type": "Revo",
+      "material": "Brass",
+      "category": "Quick-Change High-Flow",
+      "diameterOptions": [0.6, 0.8],
+      "threadSize": "Proprietary",
+      "threadLength": null,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": true,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_E3D_REVO_SIX",
+        "HOTEND_E3D_REVO_VORON"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Extended melt zone Revo nozzle for higher flow rates."
+    },
+    {
+      "id": "NOZZLE_PRUSA",
+      "name": "Prusa Nextruder Nozzle",
+      "type": "Prusa Nozzle",
+      "material": "Brass",
+      "category": "Quick-Change",
+      "diameterOptions": [0.4, 0.6],
+      "threadSize": "Proprietary",
+      "threadLength": null,
+      "maxTemp": 290,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_PRUSA_NEXTRUDER"
+      ],
+      "stockOnPrinters": [
+        "Prusa MK4",
+        "Prusa XL"
+      ],
+      "notes": "Prusa quick-change system. Proprietary design."
+    },
+    {
+      "id": "NOZZLE_BAMBU",
+      "name": "Bambu Lab Nozzle",
+      "type": "Bambu",
+      "material": "Brass",
+      "category": "Proprietary",
+      "diameterOptions": [0.2, 0.4, 0.6, 0.8],
+      "threadSize": "Proprietary",
+      "threadLength": null,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "High",
+      "compatibleHotends": [],
+      "stockOnPrinters": [
+        "Bambu Lab X1C",
+        "Bambu Lab X1",
+        "Bambu Lab P1P",
+        "Bambu Lab P1S",
+        "Bambu Lab A1"
+      ],
+      "notes": "Bambu proprietary quick-change nozzle system."
+    },
+    {
+      "id": "NOZZLE_STAINLESS_MK8",
+      "name": "Stainless Steel MK8 Nozzle",
+      "type": "MK8",
+      "material": "Stainless Steel",
+      "category": "Specialty",
+      "diameterOptions": [0.3, 0.4, 0.5, 0.6, 0.8],
+      "threadSize": "M6x1",
+      "threadLength": 5,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "Low",
+      "compatibleHotends": [
+        "HOTEND_CREALITY_MK8",
+        "HOTEND_CREALITY_SPRITE",
+        "HOTEND_MICROSWISS_ALLM_MK8"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Food-safe option. Poor thermal conductivity - print slower. Not abrasion resistant despite being steel."
+    },
+    {
+      "id": "NOZZLE_STAINLESS_V6",
+      "name": "Stainless Steel V6 Nozzle",
+      "type": "E3D V6",
+      "material": "Stainless Steel",
+      "category": "Specialty",
+      "diameterOptions": [0.3, 0.4, 0.5, 0.6],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "Low",
+      "compatibleHotends": [
+        "HOTEND_E3D_V6",
+        "HOTEND_E3D_V6_CLONE",
+        "HOTEND_PRUSA_E3D_V6"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Food-safe. Requires slower print speeds due to poor thermal transfer."
+    },
+    {
+      "id": "NOZZLE_HARDENED_MK8",
+      "name": "Hardened Steel MK8 Nozzle",
+      "type": "MK8",
+      "material": "Hardened Steel",
+      "category": "Abrasive-Resistant",
+      "diameterOptions": [0.3, 0.4, 0.5, 0.6, 0.8, 1.0],
+      "threadSize": "M6x1",
+      "threadLength": 5,
+      "maxTemp": 450,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "Medium",
+      "compatibleHotends": [
+        "HOTEND_CREALITY_MK8",
+        "HOTEND_CREALITY_SPRITE",
+        "HOTEND_MICROSWISS_ALLM_MK8",
+        "HOTEND_MICROSWISS_NG"
+      ],
+      "stockOnPrinters": [],
+      "notes": "For carbon fiber, glass-filled, glow-in-dark. Slower heat transfer than brass - may need higher temps."
+    },
+    {
+      "id": "NOZZLE_HARDENED_V6",
+      "name": "Hardened Steel V6 Nozzle",
+      "type": "E3D V6",
+      "material": "Hardened Steel",
+      "category": "Abrasive-Resistant",
+      "diameterOptions": [0.25, 0.3, 0.4, 0.5, 0.6, 0.8],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 450,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "Medium",
+      "compatibleHotends": [
+        "HOTEND_E3D_V6",
+        "HOTEND_E3D_V6_CLONE",
+        "HOTEND_PRUSA_E3D_V6"
+      ],
+      "stockOnPrinters": [],
+      "notes": "E3D genuine available. Essential for abrasive filaments."
+    },
+    {
+      "id": "NOZZLE_HARDENED_VOLCANO",
+      "name": "Hardened Steel Volcano Nozzle",
+      "type": "Volcano",
+      "material": "Hardened Steel",
+      "category": "Abrasive-Resistant High-Flow",
+      "diameterOptions": [0.4, 0.6, 0.8, 1.0, 1.2],
+      "threadSize": "M6x1",
+      "threadLength": 8,
+      "maxTemp": 450,
+      "abrasiveResistant": true,
+      "highFlow": true,
+      "thermalConductivity": "Medium",
+      "compatibleHotends": [
+        "HOTEND_E3D_VOLCANO"
+      ],
+      "stockOnPrinters": [],
+      "notes": "High-flow abrasive printing. Great for large CF parts."
+    },
+    {
+      "id": "NOZZLE_HARDENED_DRAGON",
+      "name": "Hardened Steel Dragon Nozzle",
+      "type": "Dragon",
+      "material": "Hardened Steel",
+      "category": "Abrasive-Resistant",
+      "diameterOptions": [0.4, 0.5, 0.6, 0.8],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 500,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "Medium",
+      "compatibleHotends": [
+        "HOTEND_PHAETUS_DRAGON_STANDARD",
+        "HOTEND_PHAETUS_DRAGON_HF"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Phaetus hardened option for abrasive materials."
+    },
+    {
+      "id": "NOZZLE_HARDENED_RAPIDO",
+      "name": "Hardened Steel Rapido Nozzle",
+      "type": "Rapido",
+      "material": "Hardened Steel",
+      "category": "Abrasive-Resistant High-Flow",
+      "diameterOptions": [0.4, 0.6, 0.8],
+      "threadSize": "M6x1",
+      "threadLength": 6.5,
+      "maxTemp": 500,
+      "abrasiveResistant": true,
+      "highFlow": true,
+      "thermalConductivity": "Medium",
+      "compatibleHotends": [
+        "HOTEND_PHAETUS_RAPIDO"
+      ],
+      "stockOnPrinters": [],
+      "notes": "High-flow hardened for fast abrasive printing."
+    },
+    {
+      "id": "NOZZLE_NOZZLEX_MK8",
+      "name": "NozzleX (Hardened) MK8",
+      "type": "MK8",
+      "material": "Tool Steel (NozzleX)",
+      "category": "Premium Abrasive-Resistant",
+      "diameterOptions": [0.3, 0.4, 0.5, 0.6, 0.8],
+      "threadSize": "M6x1",
+      "threadLength": 5,
+      "maxTemp": 500,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "Medium-High",
+      "compatibleHotends": [
+        "HOTEND_CREALITY_MK8",
+        "HOTEND_CREALITY_SPRITE",
+        "HOTEND_MICROSWISS_ALLM_MK8"
+      ],
+      "stockOnPrinters": [],
+      "notes": "E3D premium hardened nozzle. Better thermal conductivity than standard hardened steel."
+    },
+    {
+      "id": "NOZZLE_NOZZLEX_V6",
+      "name": "NozzleX (Hardened) V6",
+      "type": "E3D V6",
+      "material": "Tool Steel (NozzleX)",
+      "category": "Premium Abrasive-Resistant",
+      "diameterOptions": [0.25, 0.3, 0.4, 0.5, 0.6, 0.8],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 500,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "Medium-High",
+      "compatibleHotends": [
+        "HOTEND_E3D_V6",
+        "HOTEND_PRUSA_E3D_V6"
+      ],
+      "stockOnPrinters": [],
+      "notes": "E3D premium hardened. Excellent abrasion resistance with better thermal transfer."
+    },
+    {
+      "id": "NOZZLE_NOZZLEX_VOLCANO",
+      "name": "NozzleX (Hardened) Volcano",
+      "type": "Volcano",
+      "material": "Tool Steel (NozzleX)",
+      "category": "Premium Abrasive-Resistant High-Flow",
+      "diameterOptions": [0.4, 0.6, 0.8, 1.0, 1.2],
+      "threadSize": "M6x1",
+      "threadLength": 8,
+      "maxTemp": 500,
+      "abrasiveResistant": true,
+      "highFlow": true,
+      "thermalConductivity": "Medium-High",
+      "compatibleHotends": [
+        "HOTEND_E3D_VOLCANO"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Premium high-flow hardened nozzle."
+    },
+    {
+      "id": "NOZZLE_RUBY_V6",
+      "name": "Ruby Tipped V6 Nozzle",
+      "type": "E3D V6",
+      "material": "Brass/Ruby",
+      "category": "Premium Abrasive-Resistant",
+      "diameterOptions": [0.4],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 450,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_E3D_V6",
+        "HOTEND_PRUSA_E3D_V6"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Brass body with ruby tip. Best of both worlds - high thermal conductivity and abrasion resistance. Expensive."
+    },
+    {
+      "id": "NOZZLE_RUBY_MOSQUITO",
+      "name": "Ruby Tipped Mosquito Nozzle",
+      "type": "Mosquito",
+      "material": "Brass/Ruby",
+      "category": "Premium Abrasive-Resistant",
+      "diameterOptions": [0.4, 0.6],
+      "threadSize": "M5.5x0.5",
+      "threadLength": 4,
+      "maxTemp": 500,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_SLICE_MOSQUITO"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Slice Engineering ruby nozzle. Premium abrasive resistance."
+    },
+    {
+      "id": "NOZZLE_TUNGSTEN_CARBIDE_V6",
+      "name": "Tungsten Carbide V6 Nozzle",
+      "type": "E3D V6",
+      "material": "Tungsten Carbide",
+      "category": "Premium Abrasive-Resistant",
+      "diameterOptions": [0.4, 0.6],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 500,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "Medium-High",
+      "compatibleHotends": [
+        "HOTEND_E3D_V6",
+        "HOTEND_PRUSA_E3D_V6"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Extremely hard wearing. Good thermal properties. Very expensive."
+    },
+    {
+      "id": "NOZZLE_COPPER_PLATED_MK8",
+      "name": "Copper Plated MK8 Nozzle",
+      "type": "MK8",
+      "material": "Copper (Nickel Plated)",
+      "category": "High-Performance",
+      "diameterOptions": [0.4, 0.6, 0.8],
+      "threadSize": "M6x1",
+      "threadLength": 5,
+      "maxTemp": 350,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "Very High",
+      "compatibleHotends": [
+        "HOTEND_CREALITY_MK8",
+        "HOTEND_CREALITY_SPRITE",
+        "HOTEND_MICROSWISS_ALLM_MK8"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Better thermal conductivity than brass. Nickel plating prevents oxidation and improves release."
+    },
+    {
+      "id": "NOZZLE_COPPER_PLATED_V6",
+      "name": "Copper Plated V6 Nozzle",
+      "type": "E3D V6",
+      "material": "Copper (Nickel Plated)",
+      "category": "High-Performance",
+      "diameterOptions": [0.4, 0.5, 0.6, 0.8],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 350,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "Very High",
+      "compatibleHotends": [
+        "HOTEND_E3D_V6",
+        "HOTEND_E3D_V6_CLONE"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Superior heat transfer. Great for high-speed printing with non-abrasive filaments."
+    },
+    {
+      "id": "NOZZLE_CHT_BRASS_MK8",
+      "name": "CHT High-Flow Brass MK8 Nozzle",
+      "type": "MK8",
+      "material": "Brass",
+      "category": "High-Flow Clone",
+      "diameterOptions": [0.4, 0.6, 0.8, 1.0],
+      "threadSize": "M6x1",
+      "threadLength": 5,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": true,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_CREALITY_MK8",
+        "HOTEND_CREALITY_SPRITE",
+        "HOTEND_MICROSWISS_ALLM_MK8",
+        "HOTEND_MICROSWISS_NG"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Triple-channel internal design increases melt rate. Clone of Bondtech CHT technology."
+    },
+    {
+      "id": "NOZZLE_CHT_BRASS_V6",
+      "name": "CHT High-Flow Brass V6 Nozzle",
+      "type": "E3D V6",
+      "material": "Brass",
+      "category": "High-Flow Clone",
+      "diameterOptions": [0.4, 0.6, 0.8, 1.0],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": true,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_E3D_V6",
+        "HOTEND_E3D_V6_CLONE",
+        "HOTEND_PHAETUS_DRAGON_STANDARD",
+        "HOTEND_PHAETUS_DRAGON_HF"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Multi-channel design for increased flow without upgrading hotend."
+    },
+    {
+      "id": "NOZZLE_CHT_HARDENED_MK8",
+      "name": "CHT High-Flow Hardened MK8 Nozzle",
+      "type": "MK8",
+      "material": "Hardened Steel",
+      "category": "High-Flow Abrasive-Resistant",
+      "diameterOptions": [0.4, 0.6, 0.8],
+      "threadSize": "M6x1",
+      "threadLength": 5,
+      "maxTemp": 450,
+      "abrasiveResistant": true,
+      "highFlow": true,
+      "thermalConductivity": "Medium",
+      "compatibleHotends": [
+        "HOTEND_CREALITY_MK8",
+        "HOTEND_CREALITY_SPRITE",
+        "HOTEND_MICROSWISS_ALLM_MK8"
+      ],
+      "stockOnPrinters": [],
+      "notes": "High-flow design with abrasive resistance. Best for fast CF/GF printing."
+    },
+    {
+      "id": "NOZZLE_CHT_HARDENED_V6",
+      "name": "CHT High-Flow Hardened V6 Nozzle",
+      "type": "E3D V6",
+      "material": "Hardened Steel",
+      "category": "High-Flow Abrasive-Resistant",
+      "diameterOptions": [0.4, 0.6, 0.8],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 450,
+      "abrasiveResistant": true,
+      "highFlow": true,
+      "thermalConductivity": "Medium",
+      "compatibleHotends": [
+        "HOTEND_E3D_V6",
+        "HOTEND_E3D_V6_CLONE",
+        "HOTEND_PHAETUS_DRAGON_STANDARD",
+        "HOTEND_PHAETUS_DRAGON_HF"
+      ],
+      "stockOnPrinters": [],
+      "notes": "High-flow + hardened. Excellent for fast abrasive filament printing."
+    },
+    {
+      "id": "NOZZLE_BONDTECH_CHT_MK8",
+      "name": "Bondtech CHT Brass MK8 Nozzle",
+      "type": "MK8",
+      "material": "Brass (Coated)",
+      "category": "Premium High-Flow",
+      "diameterOptions": [0.4, 0.6, 0.8, 1.0],
+      "threadSize": "M6x1",
+      "threadLength": 5,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": true,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_CREALITY_MK8",
+        "HOTEND_CREALITY_SPRITE",
+        "HOTEND_MICROSWISS_ALLM_MK8"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Original Bondtech CHT design. BiMetal coating option available. Premium quality."
+    },
+    {
+      "id": "NOZZLE_BONDTECH_CHT_V6",
+      "name": "Bondtech CHT Brass V6 Nozzle",
+      "type": "E3D V6",
+      "material": "Brass (Coated)",
+      "category": "Premium High-Flow",
+      "diameterOptions": [0.4, 0.5, 0.6, 0.8, 1.0],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": true,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_E3D_V6",
+        "HOTEND_PRUSA_E3D_V6",
+        "HOTEND_PHAETUS_DRAGON_STANDARD"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Original CHT design. Significantly increases volumetric flow rate."
+    },
+    {
+      "id": "NOZZLE_BONDTECH_CHT_VOLCANO",
+      "name": "Bondtech CHT Volcano Nozzle",
+      "type": "Volcano",
+      "material": "Brass (Coated)",
+      "category": "Premium Ultra High-Flow",
+      "diameterOptions": [0.6, 0.8, 1.0, 1.2],
+      "threadSize": "M6x1",
+      "threadLength": 8,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": true,
+      "thermalConductivity": "High",
+      "compatibleHotends": [
+        "HOTEND_E3D_VOLCANO"
+      ],
+      "stockOnPrinters": [],
+      "notes": "CHT + Volcano = extreme flow rates. For very fast large nozzle printing."
+    },
+    {
+      "id": "NOZZLE_DIAMONDBACK_V6",
+      "name": "Slice Diamondback V6 Nozzle",
+      "type": "E3D V6",
+      "material": "Copper/Diamond-Like Carbon",
+      "category": "Premium Abrasive-Resistant",
+      "diameterOptions": [0.4, 0.5, 0.6],
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "maxTemp": 450,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "Very High",
+      "compatibleHotends": [
+        "HOTEND_E3D_V6",
+        "HOTEND_PRUSA_E3D_V6"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Copper core with DLC coating. Excellent thermal transfer + abrasion resistance."
+    },
+    {
+      "id": "NOZZLE_DIAMONDBACK_MOSQUITO",
+      "name": "Slice Diamondback Mosquito Nozzle",
+      "type": "Mosquito",
+      "material": "Copper/Diamond-Like Carbon",
+      "category": "Premium Abrasive-Resistant",
+      "diameterOptions": [0.4, 0.5, 0.6, 0.8],
+      "threadSize": "M5.5x0.5",
+      "threadLength": 4,
+      "maxTemp": 500,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "Very High",
+      "compatibleHotends": [
+        "HOTEND_SLICE_MOSQUITO"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Premium Slice Engineering nozzle. Best thermal + abrasive combo."
+    },
+    {
+      "id": "NOZZLE_BAMBU_HARDENED",
+      "name": "Bambu Lab Hardened Steel Nozzle",
+      "type": "Bambu",
+      "material": "Hardened Steel",
+      "category": "Proprietary Abrasive-Resistant",
+      "diameterOptions": [0.4, 0.6],
+      "threadSize": "Proprietary",
+      "threadLength": null,
+      "maxTemp": 300,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "Medium",
+      "compatibleHotends": [],
+      "stockOnPrinters": [
+        "Bambu Lab X1C",
+        "Bambu Lab P1P",
+        "Bambu Lab P1S",
+        "Bambu Lab A1"
+      ],
+      "notes": "Bambu proprietary hardened nozzle for abrasive filaments."
+    },
+    {
+      "id": "NOZZLE_BAMBU_STAINLESS",
+      "name": "Bambu Lab Stainless Steel Nozzle",
+      "type": "Bambu",
+      "material": "Stainless Steel",
+      "category": "Proprietary Specialty",
+      "diameterOptions": [0.4],
+      "threadSize": "Proprietary",
+      "threadLength": null,
+      "maxTemp": 300,
+      "abrasiveResistant": false,
+      "highFlow": false,
+      "thermalConductivity": "Low",
+      "compatibleHotends": [],
+      "stockOnPrinters": [
+        "Bambu Lab X1C",
+        "Bambu Lab P1P",
+        "Bambu Lab P1S"
+      ],
+      "notes": "Bambu food-safe option."
+    },
+    {
+      "id": "NOZZLE_REVO_OBXIDIAN",
+      "name": "E3D Revo ObXidian Nozzle",
+      "type": "Revo",
+      "material": "Hardened Steel",
+      "category": "Quick-Change Abrasive-Resistant",
+      "diameterOptions": [0.4, 0.6, 0.8],
+      "threadSize": "Proprietary",
+      "threadLength": null,
+      "maxTemp": 300,
+      "abrasiveResistant": true,
+      "highFlow": false,
+      "thermalConductivity": "Medium",
+      "compatibleHotends": [
+        "HOTEND_E3D_REVO_SIX",
+        "HOTEND_E3D_REVO_VORON"
+      ],
+      "stockOnPrinters": [],
+      "notes": "Revo quick-change hardened nozzle for abrasive filaments."
+    }
+  ],
+  
+  "nozzleTypes": {
+    "MK8": {
+      "description": "Creality/clone standard",
+      "threadSize": "M6x1",
+      "threadLength": 5,
+      "compatibilityNotes": "Most common, fits Creality, Anycubic, Elegoo, etc."
+    },
+    "E3D V6": {
+      "description": "E3D/Prusa standard",
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "compatibilityNotes": "Slightly longer thread than MK8. May need washer for MK8 blocks."
+    },
+    "Volcano": {
+      "description": "E3D extended melt zone",
+      "threadSize": "M6x1",
+      "threadLength": 8,
+      "compatibilityNotes": "Requires Volcano heater block."
+    },
+    "SuperVolcano": {
+      "description": "E3D extreme melt zone",
+      "threadSize": "M6x1",
+      "threadLength": 15,
+      "compatibilityNotes": "Requires SuperVolcano heater block."
+    },
+    "Dragon": {
+      "description": "Phaetus Dragon compatible",
+      "threadSize": "M6x1",
+      "threadLength": 6,
+      "compatibilityNotes": "Similar to V6, may work cross-compatible."
+    },
+    "Rapido": {
+      "description": "Phaetus Rapido specific",
+      "threadSize": "M6x1",
+      "threadLength": 6.5,
+      "compatibilityNotes": "Designed for Rapido hotend."
+    },
+    "Mosquito": {
+      "description": "Slice Engineering proprietary",
+      "threadSize": "M5.5x0.5",
+      "threadLength": 4,
+      "compatibilityNotes": "ONLY fits Mosquito hotends. Not M6 compatible!"
+    },
+    "Revo": {
+      "description": "E3D Revo quick-change",
+      "threadSize": "Proprietary",
+      "threadLength": null,
+      "compatibilityNotes": "Integrated heater block + nozzle. Cold-swap capable."
+    },
+    "Prusa Nozzle": {
+      "description": "Prusa MK4/XL quick-change",
+      "threadSize": "Proprietary",
+      "threadLength": null,
+      "compatibilityNotes": "Only fits Prusa Nextruder."
+    },
+    "Bambu": {
+      "description": "Bambu Lab proprietary",
+      "threadSize": "Proprietary",
+      "threadLength": null,
+      "compatibilityNotes": "Only fits Bambu printers."
+    }
+  },
+  
+  "nozzleMaterials": {
+    "Brass": {
+      "thermalConductivity": "High (109 W/mK)",
+      "abrasiveResistance": "Low",
+      "maxTemp": 300,
+      "pros": ["Excellent heat transfer", "Cheap", "Easy to find"],
+      "cons": ["Wears quickly with abrasives", "Degrades above 300°C"],
+      "bestFor": ["PLA", "PETG", "ABS", "TPU", "ASA"]
+    },
+    "Copper (Nickel Plated)": {
+      "thermalConductivity": "Very High (385 W/mK)",
+      "abrasiveResistance": "Low",
+      "maxTemp": 350,
+      "pros": ["Best heat transfer", "Non-stick coating"],
+      "cons": ["Expensive", "Not abrasion resistant"],
+      "bestFor": ["High-speed printing", "Non-abrasive materials"]
+    },
+    "Stainless Steel": {
+      "thermalConductivity": "Low (16 W/mK)",
+      "abrasiveResistance": "Low",
+      "maxTemp": 300,
+      "pros": ["Food-safe", "Corrosion resistant"],
+      "cons": ["Poor heat transfer", "Slower printing", "NOT abrasion resistant"],
+      "bestFor": ["Food-contact items", "Medical applications"]
+    },
+    "Hardened Steel": {
+      "thermalConductivity": "Medium (30-50 W/mK)",
+      "abrasiveResistance": "High",
+      "maxTemp": 450,
+      "pros": ["Handles abrasive filaments", "Long-lasting"],
+      "cons": ["Worse heat transfer than brass", "May need +5-10°C temp"],
+      "bestFor": ["Carbon fiber", "Glass fiber", "Glow-in-dark", "Metal-fill"]
+    },
+    "Tool Steel (NozzleX)": {
+      "thermalConductivity": "Medium-High (50-80 W/mK)",
+      "abrasiveResistance": "Very High",
+      "maxTemp": 500,
+      "pros": ["Excellent abrasion resistance", "Better thermal than standard hardened"],
+      "cons": ["Expensive"],
+      "bestFor": ["Heavy abrasive use", "High-temp abrasive materials"]
+    },
+    "Brass/Ruby": {
+      "thermalConductivity": "High (109 W/mK body)",
+      "abrasiveResistance": "Very High",
+      "maxTemp": 450,
+      "pros": ["Brass thermal + ruby abrasion resistance"],
+      "cons": ["Very expensive", "Ruby can crack if hit"],
+      "bestFor": ["Abrasive filaments when quality matters"]
+    },
+    "Tungsten Carbide": {
+      "thermalConductivity": "Medium-High (84 W/mK)",
+      "abrasiveResistance": "Extreme",
+      "maxTemp": 500,
+      "pros": ["Extremely hard", "Very long lasting"],
+      "cons": ["Very expensive", "Limited sizes"],
+      "bestFor": ["Production printing with abrasives"]
+    },
+    "Copper/Diamond-Like Carbon": {
+      "thermalConductivity": "Very High (copper core)",
+      "abrasiveResistance": "High",
+      "maxTemp": 500,
+      "pros": ["Best of both worlds", "Excellent thermal + good abrasion"],
+      "cons": ["Expensive"],
+      "bestFor": ["High-performance abrasive printing"]
+    }
+  },
+  
+  "nozzleCategories": {
+    "Stock": {
+      "description": "Factory default nozzles",
+      "highFlow": false,
+      "abrasiveResistant": false
+    },
+    "High-Flow": {
+      "description": "Extended melt zone designs",
+      "highFlow": true,
+      "abrasiveResistant": false
+    },
+    "High-Flow Clone": {
+      "description": "CHT-style multi-channel nozzles (clones)",
+      "highFlow": true,
+      "abrasiveResistant": false
+    },
+    "Premium High-Flow": {
+      "description": "Genuine Bondtech CHT and similar",
+      "highFlow": true,
+      "abrasiveResistant": false
+    },
+    "Ultra High-Flow": {
+      "description": "SuperVolcano and extreme flow designs",
+      "highFlow": true,
+      "abrasiveResistant": false
+    },
+    "Abrasive-Resistant": {
+      "description": "Hardened steel and similar",
+      "highFlow": false,
+      "abrasiveResistant": true
+    },
+    "Premium Abrasive-Resistant": {
+      "description": "NozzleX, Ruby, Tungsten Carbide",
+      "highFlow": false,
+      "abrasiveResistant": true
+    },
+    "High-Flow Abrasive-Resistant": {
+      "description": "CHT hardened and similar",
+      "highFlow": true,
+      "abrasiveResistant": true
+    },
+    "Quick-Change": {
+      "description": "Tool-free nozzle systems (Revo, Prusa)",
+      "highFlow": false,
+      "abrasiveResistant": false
+    },
+    "Quick-Change High-Flow": {
+      "description": "Revo High Flow and similar",
+      "highFlow": true,
+      "abrasiveResistant": false
+    },
+    "Quick-Change Abrasive-Resistant": {
+      "description": "Revo ObXidian and similar",
+      "highFlow": false,
+      "abrasiveResistant": true
+    },
+    "Specialty": {
+      "description": "Stainless steel, food-safe",
+      "highFlow": false,
+      "abrasiveResistant": false
+    },
+    "High-Performance": {
+      "description": "Copper plated for max thermal transfer",
+      "highFlow": false,
+      "abrasiveResistant": false
+    },
+    "Premium": {
+      "description": "High-quality aftermarket (Mosquito, etc.)",
+      "highFlow": false,
+      "abrasiveResistant": false
+    },
+    "Proprietary": {
+      "description": "Manufacturer-specific (Bambu)",
+      "highFlow": false,
+      "abrasiveResistant": false
+    }
+  },
+  
+  "diameterOptions": [0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.2, 1.4],
+  
+  "flowRates": {
+    "_comment": "Approximate max volumetric flow rates (mm³/s) at 0.4mm nozzle",
+    "standard": {
+      "brass": 15,
+      "hardened": 12,
+      "description": "Stock V6/MK8 style hotends"
+    },
+    "highFlowHotend": {
+      "brass": 25,
+      "hardened": 20,
+      "description": "Dragon HF, Volcano, Rapido, etc."
+    },
+    "chtNozzle": {
+      "brass": 25,
+      "hardened": 20,
+      "description": "CHT nozzle on standard hotend"
+    },
+    "chtHighFlowHotend": {
+      "brass": 40,
+      "hardened": 32,
+      "description": "CHT nozzle on high-flow hotend"
+    },
+    "notes": [
+      "Actual flow depends on temperature, filament, and cooling",
+      "Larger nozzles increase max flow proportionally",
+      "These are rough estimates - test with your setup"
+    ]
+  },
+  
+  "nozzleNotes": {
+    "installation": [
+      "Heat hotend to 250-285°C before tightening",
+      "Do NOT tighten cold - will leak or crack",
+      "Tighten snug but not overtight",
+      "Check for leaks on first heat-up"
+    ],
+    "mk8VsV6": "V6 nozzles are 1mm longer thread - may need washer in MK8 blocks or will bottom out",
+    "abrasiveFilaments": [
+      "Carbon fiber",
+      "Glass fiber",
+      "Glow-in-dark (phosphorescent particles)",
+      "Metal-fill",
+      "Wood-fill (some)",
+      "Ceramic-fill"
+    ],
+    "tempAdjustment": "Hardened steel nozzles may need +5-15°C vs brass due to lower thermal conductivity",
+    "qualityMatters": "Cheap clone nozzles often have poor bore quality - affects print quality"
+  }
+}

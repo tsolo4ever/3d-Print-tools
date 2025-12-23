@@ -1,0 +1,272 @@
+{
+  "_comment": "Standalone Extruder Database - Reference data for aftermarket extruders that can be paired with various hotends",
+  "_lastUpdated": "2025-01-15",
+  
+  "extruderTypes": {
+    "Bowden": {
+      "description": "Extruder mounted on frame, PTFE tube to hotend",
+      "pros": ["Lighter toolhead", "Faster movement", "Simpler toolhead"],
+      "cons": ["Worse retraction", "Bad for flexibles", "Retraction distance 4-6mm"],
+      "typicalESteps": "85-100 (1:1 ratio)",
+      "retractionRange": [4, 7]
+    },
+    "Direct Drive": {
+      "description": "Extruder mounted directly above hotend",
+      "pros": ["Better retraction", "Great for flexibles", "More precise extrusion"],
+      "cons": ["Heavier toolhead", "May need slower accel"],
+      "typicalESteps": "Varies by gear ratio",
+      "retractionRange": [0.5, 2]
+    }
+  },
+
+  "gearTypes": {
+    "Single-Gear": {
+      "description": "One driven gear, one idler",
+      "gripStrength": "Medium",
+      "slipRisk": "Higher",
+      "bestFor": "Standard filaments"
+    },
+    "Dual-Gear": {
+      "description": "Two driven gears grip filament",
+      "gripStrength": "High",
+      "slipRisk": "Low",
+      "bestFor": "All filaments including flexibles"
+    },
+    "Single-Gear (Bondtech)": {
+      "description": "Bondtech drive gear with idler",
+      "gripStrength": "Medium-High",
+      "slipRisk": "Low",
+      "bestFor": "Premium single-gear option"
+    },
+    "Planetary Dual-Gear": {
+      "description": "Dual gears with planetary gearbox",
+      "gripStrength": "Very High",
+      "slipRisk": "Very Low",
+      "bestFor": "High torque applications, fast printing"
+    }
+  },
+
+  "extruders": [
+    {
+      "id": "EXTRUDER_STOCK_CREALITY",
+      "name": "Creality Stock Extruder",
+      "type": "Bowden",
+      "gearType": "Single-Gear",
+      "gearRatio": "1:1",
+      "defaultESteps": 93,
+      "eStepsRange": [90, 96],
+      "driveGearDiameter": 7.3,
+      "notes": "Stock brass gear. Known to wear. Aluminum upgrade available."
+    },
+    {
+      "id": "EXTRUDER_CREALITY_ALUMINUM",
+      "name": "Creality Aluminum Extruder",
+      "type": "Bowden",
+      "gearType": "Single-Gear",
+      "gearRatio": "1:1",
+      "defaultESteps": 93,
+      "eStepsRange": [90, 96],
+      "driveGearDiameter": 7.3,
+      "notes": "Aluminum frame, same brass gear. Better arm than stock."
+    },
+    {
+      "id": "EXTRUDER_DUAL_GEAR_CLONE",
+      "name": "Dual-Gear Extruder (Clone)",
+      "type": "Bowden",
+      "gearType": "Dual-Gear",
+      "gearRatio": "3:1",
+      "defaultESteps": 140,
+      "eStepsRange": [135, 145],
+      "driveGearDiameter": 8.0,
+      "notes": "Common BMG clone. Verify gear ratio - some are 3:1, some 3.5:1."
+    },
+    {
+      "id": "EXTRUDER_BMG",
+      "name": "Bondtech BMG",
+      "type": "Both",
+      "gearType": "Dual-Gear",
+      "gearRatio": "3:1",
+      "defaultESteps": 415,
+      "eStepsRange": [410, 420],
+      "driveGearDiameter": 8.0,
+      "notes": "Premium dual-gear. Can be Bowden or Direct Drive mount."
+    },
+    {
+      "id": "EXTRUDER_BMG_CLONE",
+      "name": "BMG Clone (Trianglelab/Mellow)",
+      "type": "Both",
+      "gearType": "Dual-Gear",
+      "gearRatio": "3:1",
+      "defaultESteps": 415,
+      "eStepsRange": [405, 425],
+      "driveGearDiameter": 8.0,
+      "notes": "Clone quality varies. Trianglelab generally good quality."
+    },
+    {
+      "id": "EXTRUDER_TITAN",
+      "name": "E3D Titan",
+      "type": "Both",
+      "gearType": "Single-Gear",
+      "gearRatio": "3:1",
+      "defaultESteps": 420,
+      "eStepsRange": [415, 430],
+      "driveGearDiameter": 8.0,
+      "notes": "E3D design. Good for most filaments."
+    },
+    {
+      "id": "EXTRUDER_TITAN_CLONE",
+      "name": "Titan Clone",
+      "type": "Both",
+      "gearType": "Single-Gear",
+      "gearRatio": "3:1",
+      "defaultESteps": 420,
+      "eStepsRange": [410, 440],
+      "driveGearDiameter": 8.0,
+      "notes": "Clone quality varies. Check gear engagement."
+    },
+    {
+      "id": "EXTRUDER_ORBITER_V1_5",
+      "name": "Orbiter v1.5",
+      "type": "Direct Drive",
+      "gearType": "Dual-Gear",
+      "gearRatio": "7.5:1",
+      "defaultESteps": 690,
+      "eStepsRange": [685, 695],
+      "driveGearDiameter": 5.0,
+      "notes": "Lightweight high-ratio extruder. LDO or clone versions."
+    },
+    {
+      "id": "EXTRUDER_ORBITER_V2",
+      "name": "Orbiter v2.0",
+      "type": "Direct Drive",
+      "gearType": "Dual-Gear",
+      "gearRatio": "7.5:1",
+      "defaultESteps": 690,
+      "eStepsRange": [685, 695],
+      "driveGearDiameter": 5.0,
+      "notes": "Updated Orbiter. Filament sensor option. Very lightweight."
+    },
+    {
+      "id": "EXTRUDER_SHERPA_MINI",
+      "name": "Sherpa Mini",
+      "type": "Direct Drive",
+      "gearType": "Dual-Gear",
+      "gearRatio": "5.4:1",
+      "defaultESteps": 690,
+      "eStepsRange": [685, 700],
+      "driveGearDiameter": 5.0,
+      "notes": "Annex Engineering design. Very compact and light."
+    },
+    {
+      "id": "EXTRUDER_CLOCKWORK2",
+      "name": "Voron Clockwork2",
+      "type": "Direct Drive",
+      "gearType": "Dual-Gear",
+      "gearRatio": "4:1",
+      "defaultESteps": 293,
+      "eStepsRange": [290, 296],
+      "driveGearDiameter": 8.0,
+      "notes": "Standard Voron Stealthburner extruder. Reliable."
+    },
+    {
+      "id": "EXTRUDER_GALILEO",
+      "name": "Galileo Extruder",
+      "type": "Direct Drive",
+      "gearType": "Planetary Dual-Gear",
+      "gearRatio": "7.5:1",
+      "defaultESteps": 562,
+      "eStepsRange": [558, 568],
+      "driveGearDiameter": 7.5,
+      "notes": "LDO Galileo. High torque planetary gearbox."
+    },
+    {
+      "id": "EXTRUDER_GALILEO_2",
+      "name": "Galileo 2 Extruder",
+      "type": "Direct Drive",
+      "gearType": "Planetary Dual-Gear",
+      "gearRatio": "9:1",
+      "defaultESteps": 700,
+      "eStepsRange": [695, 710],
+      "driveGearDiameter": 7.5,
+      "notes": "Updated Galileo. Higher ratio, more torque."
+    },
+    {
+      "id": "EXTRUDER_LGX",
+      "name": "Bondtech LGX",
+      "type": "Direct Drive",
+      "gearType": "Dual-Gear",
+      "gearRatio": "44:10",
+      "defaultESteps": 400,
+      "eStepsRange": [395, 410],
+      "driveGearDiameter": 8.0,
+      "notes": "Large gears, high torque. Great for high-flow printing."
+    },
+    {
+      "id": "EXTRUDER_LGX_LITE",
+      "name": "Bondtech LGX Lite",
+      "type": "Direct Drive",
+      "gearType": "Dual-Gear",
+      "gearRatio": "44:10",
+      "defaultESteps": 562,
+      "eStepsRange": [558, 568],
+      "driveGearDiameter": 8.0,
+      "notes": "Lighter version of LGX. External motor."
+    },
+    {
+      "id": "EXTRUDER_HEMERA",
+      "name": "E3D Hemera",
+      "type": "Direct Drive",
+      "gearType": "Dual-Gear",
+      "gearRatio": "3.46:1",
+      "defaultESteps": 409,
+      "eStepsRange": [405, 415],
+      "driveGearDiameter": 7.3,
+      "notes": "Integrated hotend + extruder. Dual-drive Bondtech gears."
+    },
+    {
+      "id": "EXTRUDER_HEMERA_XS",
+      "name": "E3D Hemera XS",
+      "type": "Direct Drive",
+      "gearType": "Dual-Gear",
+      "gearRatio": "3.46:1",
+      "defaultESteps": 409,
+      "eStepsRange": [405, 415],
+      "driveGearDiameter": 7.3,
+      "notes": "Compact Hemera. Lighter than original."
+    },
+    {
+      "id": "EXTRUDER_SPRITE",
+      "name": "Creality Sprite Extruder",
+      "type": "Direct Drive",
+      "gearType": "Dual-Gear",
+      "gearRatio": "3.5:1",
+      "defaultESteps": 425,
+      "eStepsRange": [420, 430],
+      "driveGearDiameter": 7.3,
+      "notes": "Creality direct drive. Standard and Pro versions."
+    },
+    {
+      "id": "EXTRUDER_MICRO_SWISS_DD",
+      "name": "Micro Swiss Direct Drive",
+      "type": "Direct Drive",
+      "gearType": "Dual-Gear",
+      "gearRatio": "3:1",
+      "defaultESteps": 130,
+      "eStepsRange": [125, 135],
+      "driveGearDiameter": 7.5,
+      "notes": "Micro Swiss NG extruder kit."
+    }
+  ],
+
+  "eStepsCalculation": {
+    "formula": "E-Steps = (Motor Steps × Microstepping × Gear Ratio) / (π × Drive Gear Diameter)",
+    "example": {
+      "motorSteps": 200,
+      "microstepping": 16,
+      "gearRatio": 3,
+      "driveGearDiameter": 8,
+      "result": "200 × 16 × 3 / (3.14159 × 8) = 382 steps/mm"
+    },
+    "calibrationNote": "Always calibrate! Measure 100mm, extrude 100mm, measure actual, calculate: New E-Steps = Current E-Steps × (100 / Actual)"
+  }
+}

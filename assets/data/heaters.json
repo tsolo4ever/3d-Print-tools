@@ -1,109 +1,132 @@
 {
   "_comment": "Heater Database",
-  "_lastUpdated": "2024-12-21",
+  "_lastUpdated": "2025-01-15",
   
   "hotendHeaters": [
     {
-      "id": "HEATER_40W_24V",
-      "name": "40W 24V Heater Cartridge",
+      "id": "HEATER_STOCK_40W_12V",
+      "name": "Stock Cartridge 40W 12V",
       "type": "Cartridge",
-      "wattage": 40,
-      "voltage": 24,
-      "diameter": 6,
-      "length": 20,
-      "resistance": 14.4,
-      "current": 1.67,
-      "maxTemp": 300,
-      "stockOnPrinters": [
-        "Creality Ender 3",
-        "Creality Ender 3 V2",
-        "Creality CR-10",
-        "Most 24V printers"
-      ],
-      "stockOnHotends": [
-        "HOTEND_CREALITY_MK8",
-        "HOTEND_E3D_V6"
-      ],
-      "notes": "Most common heater. Good for PLA/PETG/ABS."
-    },
-    {
-      "id": "HEATER_40W_12V",
-      "name": "40W 12V Heater Cartridge",
-      "type": "Cartridge",
+      "category": "Stock",
       "wattage": 40,
       "voltage": 12,
       "diameter": 6,
       "length": 20,
       "resistance": 3.6,
       "current": 3.33,
-      "maxTemp": 300,
+      "maxTemp": 260,
       "stockOnPrinters": [
         "Anet A8",
+        "Anet A6",
+        "Tronxy X3",
         "Older 12V printers"
       ],
-      "notes": "For 12V systems. Higher current than 24V equivalent."
+      "stockOnHotends": [
+        "HOTEND_CREALITY_MK8"
+      ],
+      "notes": "Legacy 12V systems. Higher current draw than 24V equivalent."
     },
     {
-      "id": "HEATER_50W_24V",
-      "name": "50W 24V Heater Cartridge",
+      "id": "HEATER_STOCK_40W_24V",
+      "name": "Stock Cartridge 40W 24V",
       "type": "Cartridge",
+      "category": "Stock",
+      "wattage": 40,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 20,
+      "resistance": 14.4,
+      "current": 1.67,
+      "maxTemp": 280,
+      "stockOnPrinters": [
+        "Creality Ender 3",
+        "Creality Ender 3 V2",
+        "Creality Ender 3 Max",
+        "Creality Ender 5",
+        "Creality CR-10",
+        "Anycubic Kobra",
+        "Elegoo Neptune",
+        "Most 24V printers"
+      ],
+      "stockOnHotends": [
+        "HOTEND_CREALITY_MK8",
+        "HOTEND_CREALITY_SPRITE",
+        "HOTEND_E3D_V6",
+        "HOTEND_E3D_V6_CLONE",
+        "HOTEND_MICROSWISS_ALLM_MK8"
+      ],
+      "notes": "Most common heater. Standard for PLA/PETG/ABS. Adequate for normal print speeds."
+    },
+    {
+      "id": "HEATER_CARTRIDGE_50W_24V",
+      "name": "High-Power Cartridge 50W 24V",
+      "type": "Cartridge",
+      "category": "High-Power",
       "wattage": 50,
       "voltage": 24,
       "diameter": 6,
       "length": 20,
       "resistance": 11.5,
       "current": 2.08,
-      "maxTemp": 350,
+      "maxTemp": 300,
       "stockOnPrinters": [
-        "Artillery Sidewinder",
+        "Artillery Sidewinder X1",
+        "Artillery Genius",
         "Some Voron builds"
       ],
       "stockOnHotends": [
         "HOTEND_PHAETUS_DRAGON_STANDARD",
-        "HOTEND_SLICE_MOSQUITO"
+        "HOTEND_SLICE_MOSQUITO",
+        "HOTEND_E3D_V6"
       ],
-      "notes": "Faster heat-up. Good for high-temp materials."
+      "notes": "Faster heat-up than 40W. Good upgrade for high-temp materials."
     },
     {
-      "id": "HEATER_60W_24V",
-      "name": "60W 24V Heater Cartridge",
+      "id": "HEATER_CARTRIDGE_60W_24V",
+      "name": "High-Power Cartridge 60W 24V",
       "type": "Cartridge",
+      "category": "High-Power",
       "wattage": 60,
       "voltage": 24,
       "diameter": 6,
       "length": 20,
       "resistance": 9.6,
       "current": 2.5,
-      "maxTemp": 450,
+      "maxTemp": 350,
       "stockOnPrinters": [
-        "High-speed printers"
+        "Voron 2.4",
+        "Voron Trident",
+        "RatRig V-Core"
       ],
       "stockOnHotends": [
         "HOTEND_E3D_VOLCANO",
-        "HOTEND_PHAETUS_RAPIDO"
+        "HOTEND_PHAETUS_DRAGON_HF"
       ],
-      "notes": "High-flow hotends. Faster recovery during fast printing."
+      "notes": "Standard for high-flow hotends. Better temp recovery during fast printing."
     },
     {
-      "id": "HEATER_70W_24V",
-      "name": "70W 24V Heater Cartridge",
+      "id": "HEATER_CARTRIDGE_70W_24V",
+      "name": "High-Power Cartridge 70W 24V",
       "type": "Cartridge",
+      "category": "High-Power",
       "wattage": 70,
       "voltage": 24,
       "diameter": 6,
       "length": 25,
       "resistance": 8.2,
-      "current": 2.9,
-      "maxTemp": 500,
+      "current": 2.92,
+      "maxTemp": 450,
+      "stockOnPrinters": [],
       "stockOnHotends": [
         "HOTEND_E3D_SUPERVOLCANO"
       ],
-      "notes": "Super high-flow applications."
+      "notes": "Extended length. Super high-flow applications. Check heater block compatibility."
     },
     {
-      "id": "HEATER_80W_24V",
-      "name": "80W 24V Heater Cartridge",
+      "id": "HEATER_CARTRIDGE_80W_24V",
+      "name": "High-Power Cartridge 80W 24V",
       "type": "Cartridge",
+      "category": "High-Power",
       "wattage": 80,
       "voltage": 24,
       "diameter": 6,
@@ -112,17 +135,116 @@
       "current": 3.33,
       "maxTemp": 500,
       "stockOnPrinters": [
-        "Creality K1"
+        "Creality K1",
+        "Creality K1 Max"
       ],
       "stockOnHotends": [
-        "HOTEND_CREALITY_SPIDER"
+        "HOTEND_CREALITY_SPIDER",
+        "HOTEND_CREALITY_K1"
       ],
-      "notes": "Very fast heat-up. High-speed printing."
+      "notes": "Very fast heat-up. Designed for high-speed printing. Verify PSU capacity."
     },
     {
-      "id": "HEATER_115W_CERAMIC",
-      "name": "115W Ceramic Heater (Rapido)",
+      "id": "HEATER_CERAMIC_40W_24V",
+      "name": "Ceramic Heater 40W 24V",
       "type": "Ceramic",
+      "category": "Ceramic",
+      "wattage": 40,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 20,
+      "resistance": 14.4,
+      "current": 1.67,
+      "maxTemp": 300,
+      "stockOnPrinters": [],
+      "stockOnHotends": [],
+      "notes": "Drop-in ceramic upgrade. More stable temps, longer lifespan than standard cartridge."
+    },
+    {
+      "id": "HEATER_CERAMIC_50W_24V",
+      "name": "Ceramic Heater 50W 24V",
+      "type": "Ceramic",
+      "category": "Ceramic",
+      "wattage": 50,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 20,
+      "resistance": 11.5,
+      "current": 2.08,
+      "maxTemp": 350,
+      "stockOnPrinters": [],
+      "stockOnHotends": [],
+      "notes": "Popular upgrade. Faster response and more stable PID than cartridge equivalent."
+    },
+    {
+      "id": "HEATER_CERAMIC_60W_24V",
+      "name": "Ceramic Heater 60W 24V",
+      "type": "Ceramic",
+      "category": "Ceramic",
+      "wattage": 60,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 20,
+      "resistance": 9.6,
+      "current": 2.5,
+      "maxTemp": 400,
+      "stockOnPrinters": [],
+      "stockOnHotends": [],
+      "notes": "High-performance ceramic. Great for high-temp materials and fast printing."
+    },
+    {
+      "id": "HEATER_CERAMIC_70W_24V",
+      "name": "Ceramic Heater 70W 24V",
+      "type": "Ceramic",
+      "category": "Ceramic",
+      "wattage": 70,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 22,
+      "resistance": 8.2,
+      "current": 2.92,
+      "maxTemp": 450,
+      "stockOnPrinters": [],
+      "stockOnHotends": [],
+      "notes": "High-wattage ceramic. Excellent thermal response. Check block compatibility."
+    },
+    {
+      "id": "HEATER_CERAMIC_80W_24V",
+      "name": "Ceramic Heater 80W 24V",
+      "type": "Ceramic",
+      "category": "Ceramic",
+      "wattage": 80,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 25,
+      "resistance": 7.2,
+      "current": 3.33,
+      "maxTemp": 500,
+      "stockOnPrinters": [],
+      "stockOnHotends": [],
+      "notes": "High-power ceramic for demanding applications. PID retune required."
+    },
+    {
+      "id": "HEATER_CERAMIC_100W_24V",
+      "name": "Ceramic Heater 100W 24V",
+      "type": "Ceramic",
+      "category": "Ceramic High-Power",
+      "wattage": 100,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 25,
+      "resistance": 5.76,
+      "current": 4.17,
+      "maxTemp": 500,
+      "stockOnPrinters": [],
+      "stockOnHotends": [],
+      "notes": "Extreme heating capacity. Verify PSU and wiring can handle 4A+ current."
+    },
+    {
+      "id": "HEATER_RAPIDO_115W_CERAMIC",
+      "name": "Rapido Ceramic Heater 115W",
+      "type": "Ceramic",
+      "category": "Integrated",
       "wattage": 115,
       "voltage": 24,
       "diameter": 10,
@@ -130,35 +252,207 @@
       "resistance": 5.0,
       "current": 4.8,
       "maxTemp": 500,
+      "stockOnPrinters": [],
       "stockOnHotends": [
-        "HOTEND_PHAETUS_RAPIDO",
-        "HOTEND_PHAETUS_RAPIDO_2"
+        "HOTEND_PHAETUS_RAPIDO"
       ],
-      "notes": "Ultra-fast heat-up. Integrated heater + heatsink."
+      "notes": "Proprietary integrated heater. Ultra-fast heat-up. Not compatible with standard blocks."
+    },
+    {
+      "id": "HEATER_REVO_40W",
+      "name": "E3D Revo Heater Core 40W",
+      "type": "Integrated",
+      "category": "Integrated",
+      "wattage": 40,
+      "voltage": 24,
+      "diameter": null,
+      "length": null,
+      "resistance": 14.4,
+      "current": 1.67,
+      "maxTemp": 300,
+      "stockOnPrinters": [],
+      "stockOnHotends": [
+        "HOTEND_E3D_REVO_SIX",
+        "HOTEND_E3D_REVO_VORON"
+      ],
+      "notes": "Proprietary Revo heater core. Not compatible with standard systems."
+    },
+    {
+      "id": "HEATER_REVO_60W",
+      "name": "E3D Revo Heater Core 60W",
+      "type": "Integrated",
+      "category": "Integrated",
+      "wattage": 60,
+      "voltage": 24,
+      "diameter": null,
+      "length": null,
+      "resistance": 9.6,
+      "current": 2.5,
+      "maxTemp": 300,
+      "stockOnPrinters": [],
+      "stockOnHotends": [
+        "HOTEND_E3D_REVO_SIX",
+        "HOTEND_E3D_REVO_VORON"
+      ],
+      "notes": "High-flow Revo heater core upgrade. Proprietary system."
+    },
+    {
+      "id": "HEATER_BAMBU_CERAMIC",
+      "name": "Bambu Lab Ceramic Heater",
+      "type": "Ceramic",
+      "category": "Proprietary",
+      "wattage": 48,
+      "voltage": 24,
+      "diameter": 6,
+      "length": 18,
+      "resistance": 12,
+      "current": 2.0,
+      "maxTemp": 300,
+      "stockOnPrinters": [
+        "Bambu Lab X1C",
+        "Bambu Lab X1",
+        "Bambu Lab P1P",
+        "Bambu Lab P1S"
+      ],
+      "stockOnHotends": [],
+      "notes": "Bambu proprietary heater. Ceramic construction for stable temps."
     }
   ],
   
+  "heaterCategories": {
+    "Stock": {
+      "description": "Factory standard heaters",
+      "wattageRange": [40],
+      "recommendedFor": "Normal printing speeds, PLA/PETG/ABS"
+    },
+    "High-Power": {
+      "description": "Upgraded cartridge heaters with higher wattage",
+      "wattageRange": [50, 60, 70, 80],
+      "recommendedFor": "High-flow hotends, fast printing, high-temp materials"
+    },
+    "Ceramic": {
+      "description": "Ceramic heating element for improved thermal stability",
+      "wattageRange": [40, 50, 60, 70, 80, 100],
+      "recommendedFor": "Precision printing, high-temp materials, long print jobs"
+    },
+    "Ceramic High-Power": {
+      "description": "High-wattage ceramic heaters for demanding applications",
+      "wattageRange": [80, 100, 115],
+      "recommendedFor": "High-speed printing, large nozzles, high-flow setups"
+    },
+    "Integrated": {
+      "description": "Proprietary heaters built into hotend systems",
+      "wattageRange": [40, 60, 115],
+      "recommendedFor": "Specific hotend ecosystems (Revo, Rapido)"
+    },
+    "Proprietary": {
+      "description": "Manufacturer-specific heaters",
+      "wattageRange": [48],
+      "recommendedFor": "OEM replacement only"
+    }
+  },
+  
+  "wattageOptions": [40, 48, 50, 60, 70, 80, 100, 115],
+  
+  "voltageOptions": [12, 24],
+  
+  "heaterUpgradeNotes": {
+    "pidRetuning": "Always run PID autotune (M303) after changing heaters",
+    "currentDraw": "Higher wattage = higher current. Verify PSU and MOSFET ratings.",
+    "wiringCheck": "Heaters over 60W may need thicker wiring (18AWG recommended)",
+    "thermalRunaway": "Ensure thermal protection is enabled after any heater change",
+    "compatibility": {
+      "diameter": "Most hotends use 6mm diameter heaters",
+      "length": "Standard is 20mm, high-power may be 22-25mm",
+      "voltage": "MUST match printer voltage - 12V heater on 24V = fire hazard"
+    }
+  },
+  
   "bedHeaters": [
     {
-      "id": "BED_SILICONE_200W_24V",
-      "name": "Silicone Heater Pad 200W 24V",
+      "id": "BED_PCB_200W_24V_235",
+      "name": "PCB Heated Bed 200W 24V (235mm)",
+      "type": "PCB",
+      "category": "Stock",
+      "wattage": 200,
+      "voltage": 24,
+      "size": "235x235mm",
+      "maxTemp": 110,
+      "heatupTime": "4-6 min to 60°C",
+      "thermistor": "100K NTC",
+      "stockOnPrinters": [
+        "Creality Ender 3",
+        "Creality Ender 3 V2",
+        "Creality Ender 3 Pro"
+      ],
+      "notes": "Stock Creality bed. Adequate but slow. Silicone pad upgrade recommended."
+    },
+    {
+      "id": "BED_PCB_200W_24V_300",
+      "name": "PCB Heated Bed 200W 24V (300mm)",
+      "type": "PCB",
+      "category": "Stock",
+      "wattage": 200,
+      "voltage": 24,
+      "size": "300x300mm",
+      "maxTemp": 100,
+      "heatupTime": "6-8 min to 60°C",
+      "thermistor": "100K NTC",
+      "stockOnPrinters": [
+        "Creality Ender 3 Max"
+      ],
+      "notes": "Larger bed, same wattage = slower heating. Upgrade recommended."
+    },
+    {
+      "id": "BED_ALUMINUM_300W_24V_310",
+      "name": "Aluminum Heated Bed 300W 24V (310mm)",
+      "type": "Aluminum",
+      "category": "Stock",
+      "wattage": 300,
+      "voltage": 24,
+      "size": "310x310mm",
+      "maxTemp": 110,
+      "heatupTime": "5-7 min to 60°C",
+      "thermistor": "100K NTC",
+      "stockOnPrinters": [
+        "Creality CR-10",
+        "Creality CR-10S"
+      ],
+      "notes": "Heavy but typically very flat. PCB traces on aluminum substrate."
+    },
+    {
+      "id": "BED_SILICONE_200W_24V_235",
+      "name": "Silicone Heater Pad 200W 24V (235mm)",
       "type": "Silicone Pad",
+      "category": "Upgrade",
       "wattage": 200,
       "voltage": 24,
       "size": "235x235mm",
       "maxTemp": 120,
-      "heatupTime": "3-5 min to 60°C",
+      "heatupTime": "3-4 min to 60°C",
       "thermistor": "Embedded 100K",
-      "stockOnPrinters": [
-        "Creality Ender 3",
-        "Similar size printers"
-      ],
-      "notes": "Common upgrade from PCB heater."
+      "stockOnPrinters": [],
+      "notes": "Common upgrade from PCB. More even heating distribution."
     },
     {
-      "id": "BED_SILICONE_300W_24V",
-      "name": "Silicone Heater Pad 300W 24V",
+      "id": "BED_SILICONE_300W_24V_235",
+      "name": "Silicone Heater Pad 300W 24V (235mm)",
       "type": "Silicone Pad",
+      "category": "Upgrade",
+      "wattage": 300,
+      "voltage": 24,
+      "size": "235x235mm",
+      "maxTemp": 130,
+      "heatupTime": "2-3 min to 60°C",
+      "thermistor": "Embedded 100K",
+      "stockOnPrinters": [],
+      "notes": "Higher wattage for faster heating. May need external MOSFET."
+    },
+    {
+      "id": "BED_SILICONE_300W_24V_310",
+      "name": "Silicone Heater Pad 300W 24V (310mm)",
+      "type": "Silicone Pad",
+      "category": "Upgrade",
       "wattage": 300,
       "voltage": 24,
       "size": "310x310mm",
@@ -166,118 +460,190 @@
       "heatupTime": "3-5 min to 60°C",
       "thermistor": "Embedded 100K",
       "stockOnPrinters": [
-        "Creality CR-10",
-        "Artillery Sidewinder"
+        "Artillery Sidewinder X1"
       ],
-      "notes": "Medium-large bed heater."
+      "notes": "Medium-large bed upgrade. Good balance of speed and compatibility."
     },
     {
-      "id": "BED_SILICONE_750W_AC",
-      "name": "Silicone Heater Pad 750W AC",
+      "id": "BED_SILICONE_400W_24V_250",
+      "name": "Keenovo Silicone Heater 400W 24V (250mm)",
       "type": "Silicone Pad",
+      "category": "Premium Upgrade",
+      "wattage": 400,
+      "voltage": 24,
+      "size": "250x250mm",
+      "maxTemp": 130,
+      "heatupTime": "2-3 min to 100°C",
+      "thermistor": "100K 3950",
+      "stockOnPrinters": [],
+      "notes": "Popular Voron upgrade. High quality brand. Integrated thermal fuse available."
+    },
+    {
+      "id": "BED_SILICONE_500W_24V_300",
+      "name": "Silicone Heater Pad 500W 24V (300mm)",
+      "type": "Silicone Pad",
+      "category": "Premium Upgrade",
+      "wattage": 500,
+      "voltage": 24,
+      "size": "300x300mm",
+      "maxTemp": 130,
+      "heatupTime": "2-3 min to 100°C",
+      "thermistor": "100K 3950",
+      "stockOnPrinters": [],
+      "notes": "High-wattage DC option. Requires beefy PSU and wiring. External MOSFET recommended."
+    },
+    {
+      "id": "BED_SILICONE_500W_AC_250",
+      "name": "Silicone Heater Pad 500W AC (250mm)",
+      "type": "Silicone Pad",
+      "category": "AC Mains",
+      "wattage": 500,
+      "voltage": "110V/220V AC",
+      "size": "250x250mm",
+      "maxTemp": 150,
+      "heatupTime": "2-3 min to 100°C",
+      "thermistor": "100K 3950",
+      "safetyFeatures": ["SSR Required", "Thermal fuse included"],
+      "stockOnPrinters": [
+        "Voron 2.4 250mm"
+      ],
+      "notes": "AC powered. Requires SSR and proper mains wiring. DANGEROUS if wired incorrectly!"
+    },
+    {
+      "id": "BED_SILICONE_750W_AC_300",
+      "name": "Silicone Heater Pad 750W AC (300mm)",
+      "type": "Silicone Pad",
+      "category": "AC Mains",
       "wattage": 750,
       "voltage": "110V/220V AC",
       "size": "300x300mm",
       "maxTemp": 150,
       "heatupTime": "2-3 min to 100°C",
       "thermistor": "100K 3950",
-      "safteyFeatures": ["SSR Required", "Thermal fuse recommended"],
+      "safetyFeatures": ["SSR Required", "Thermal fuse recommended"],
       "stockOnPrinters": [
-        "Voron 2.4 300mm"
+        "Voron 2.4 300mm",
+        "Voron Trident 300mm"
       ],
-      "notes": "AC powered - requires SSR. Fast heat-up. DANGEROUS - proper wiring required!"
+      "notes": "AC powered. Fast heating. Requires SSR and proper wiring. NOT for beginners!"
     },
     {
-      "id": "BED_PCB_235",
-      "name": "PCB Heated Bed (235mm)",
-      "type": "PCB",
-      "wattage": 200,
-      "voltage": 24,
-      "size": "235x235mm",
-      "maxTemp": 110,
-      "heatupTime": "4-6 min to 60°C",
-      "thermistor": "100K NTC (wired)",
-      "stockOnPrinters": [
-        "Creality Ender 3 (stock)",
-        "Creality Ender 3 V2"
-      ],
-      "notes": "Stock Creality bed. Slower than silicone pad."
-    },
-    {
-      "id": "BED_ALUMINUM_310",
-      "name": "Aluminum Heated Bed (310mm)",
-      "type": "Aluminum",
-      "wattage": 300,
-      "voltage": 24,
-      "size": "310x310mm",
-      "maxTemp": 110,
-      "heatupTime": "5-7 min to 60°C",
-      "thermistor": "100K NTC (screw mount)",
-      "stockOnPrinters": [
-        "Creality CR-10"
-      ],
-      "notes": "Aluminum with PCB traces. Heavy but flat."
-    },
-    {
-      "id": "BED_KEENOVO_400W",
-      "name": "Keenovo 400W Silicone Heater",
+      "id": "BED_SILICONE_1000W_AC_350",
+      "name": "Silicone Heater Pad 1000W AC (350mm)",
       "type": "Silicone Pad",
-      "wattage": 400,
-      "voltage": 24,
-      "size": "250x250mm",
-      "maxTemp": 130,
-      "heatupTime": "2-4 min to 100°C",
+      "category": "AC Mains",
+      "wattage": 1000,
+      "voltage": "110V/220V AC",
+      "size": "350x350mm",
+      "maxTemp": 150,
+      "heatupTime": "2-3 min to 100°C",
       "thermistor": "100K 3950",
-      "stockOnPrinters": [],
-      "notes": "Popular Voron upgrade. High quality."
+      "safetyFeatures": ["SSR Required", "Thermal fuse required", "Earth ground required"],
+      "stockOnPrinters": [
+        "Voron 2.4 350mm"
+      ],
+      "notes": "High-power AC. Professional installation recommended. Multiple safety features required!"
     }
   ],
   
-  "pidTuning": {
-    "_comment": "PID tuning guidelines",
-    
-    "hotend": {
-      "command": "M303 E0 S200 C8",
-      "temperature": 200,
-      "cycles": 8,
-      "notes": "Run at your typical print temp. More cycles = more accurate."
+  "bedCategories": {
+    "Stock": {
+      "description": "Factory PCB or aluminum beds",
+      "wattageRange": [200, 300],
+      "recommendedFor": "Stock replacement, budget builds"
     },
-    "bed": {
-      "command": "M303 E-1 S60 C8",
-      "temperature": 60,
-      "cycles": 8,
-      "notes": "Bed PID takes longer. Be patient."
+    "Upgrade": {
+      "description": "24V silicone pad upgrades",
+      "wattageRange": [200, 300],
+      "recommendedFor": "Faster heating, better thermal distribution"
     },
-    "bangBangVsPID": {
-      "bangBang": {
-        "pros": ["Simple", "No tuning needed"],
-        "cons": ["Temperature swings", "Audible relay clicking"],
-        "useFor": "Beds with SSR, simple setups"
-      },
-      "pid": {
-        "pros": ["Stable temperature", "Quiet"],
-        "cons": ["Requires tuning"],
-        "useFor": "Hotends (always), beds (recommended)"
-      }
+    "Premium Upgrade": {
+      "description": "High-wattage 24V silicone pads",
+      "wattageRange": [400, 500],
+      "recommendedFor": "Fast heat-up, high-temp bed materials, larger beds"
+    },
+    "AC Mains": {
+      "description": "110V/220V AC powered heaters",
+      "wattageRange": [500, 750, 1000],
+      "recommendedFor": "Advanced builds only. Fastest heating. Requires SSR and electrical knowledge."
     }
   },
   
-  "thermalProtection": {
-    "_comment": "Thermal runaway protection settings",
+  "pidTuning": {
+    "_comment": "PID tuning guidelines by heater type",
     
     "hotend": {
-      "THERMAL_PROTECTION_PERIOD": 40,
-      "THERMAL_PROTECTION_HYSTERESIS": 4,
-      "WATCH_TEMP_PERIOD": 20,
-      "WATCH_TEMP_INCREASE": 2,
-      "notes": "If temp doesn't rise 2°C in 20 sec when heating, error triggered."
+      "stock": {
+        "command": "M303 E0 S{temp} C8 U1",
+        "defaultTemp": 200,
+        "cycles": 8,
+        "notes": "Stock heaters usually work well with default PID or quick tune."
+      },
+      "highPower": {
+        "command": "M303 E0 S{temp} C10 U1",
+        "defaultTemp": 220,
+        "cycles": 10,
+        "notes": "High-power heaters respond faster. May need more cycles for stable tune."
+      },
+      "ceramic": {
+        "command": "M303 E0 S{temp} C12 U1",
+        "defaultTemp": 220,
+        "cycles": 12,
+        "notes": "Ceramic heaters have different thermal characteristics. More cycles recommended for best results."
+      }
+    },
+    "bed": {
+      "command": "M303 E-1 S{temp} C8 U1",
+      "defaultTemp": 60,
+      "cycles": 8,
+      "notes": "Bed PID takes longer due to thermal mass. Be patient."
+    },
+    "tips": [
+      "Run PID tune at your most-used temperature",
+      "Let hotend/bed cool completely before starting",
+      "Run with part cooling fan OFF for hotend tune",
+      "Enable 'U1' flag to auto-save results (Marlin)",
+      "Verify results with M503 after tuning"
+    ]
+  },
+  
+  "thermalProtection": {
+    "_comment": "Thermal runaway protection - adjust based on heater type",
+    
+    "hotend": {
+      "stock": {
+        "THERMAL_PROTECTION_PERIOD": 40,
+        "THERMAL_PROTECTION_HYSTERESIS": 4,
+        "WATCH_TEMP_PERIOD": 40,
+        "WATCH_TEMP_INCREASE": 2
+      },
+      "highPower": {
+        "THERMAL_PROTECTION_PERIOD": 30,
+        "THERMAL_PROTECTION_HYSTERESIS": 4,
+        "WATCH_TEMP_PERIOD": 20,
+        "WATCH_TEMP_INCREASE": 2
+      },
+      "ceramic": {
+        "THERMAL_PROTECTION_PERIOD": 30,
+        "THERMAL_PROTECTION_HYSTERESIS": 3,
+        "WATCH_TEMP_PERIOD": 25,
+        "WATCH_TEMP_INCREASE": 2
+      }
     },
     "bed": {
       "THERMAL_PROTECTION_BED_PERIOD": 40,
       "THERMAL_PROTECTION_BED_HYSTERESIS": 4,
       "WATCH_BED_TEMP_PERIOD": 60,
-      "WATCH_BED_TEMP_INCREASE": 2,
-      "notes": "Bed heats slower, longer watch period."
-    }
+      "WATCH_BED_TEMP_INCREASE": 2
+    },
+    "notes": "Faster heaters can use shorter watch periods. Adjust if getting false thermal runaway errors."
+  },
+  
+  "safetyWarnings": {
+    "voltageMismatch": "NEVER use a 12V heater on 24V or vice versa. Fire hazard!",
+    "currentLimits": "Verify your mainboard MOSFET can handle the heater current",
+    "wiringGauge": "Heaters over 50W should use 18AWG or thicker wiring",
+    "acMains": "AC bed heaters require proper electrical knowledge. Improper wiring can cause fire or electrocution.",
+    "thermalRunaway": "Always verify thermal runaway protection is enabled after hardware changes"
   }
 }

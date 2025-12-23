@@ -52,7 +52,7 @@ const PrinterProfileManager = {
                 `}
                 
                 <div class="profile-actions">
-                    <button class="btn-primary" onclick="PrinterProfileManager.showAddModal()">
+                    <button class="btn-primary" onclick="PrinterProfileManager.showEnhancedEditor()">
                         ➕ Add New Printer
                     </button>
                     
@@ -179,7 +179,23 @@ const PrinterProfileManager = {
     },
     
     /**
-     * Show add printer modal
+     * Show Enhanced Printer Profiles editor (10-tab modal)
+     */
+    showEnhancedEditor() {
+        // Check if EnhancedPrinterProfiles is available
+        if (typeof EnhancedPrinterProfiles !== 'undefined') {
+            const profileEditor = new EnhancedPrinterProfiles();
+            profileEditor.show();
+            console.log('✅ Enhanced profiles modal opened!');
+        } else {
+            // Fallback to simple modal if enhanced profiles not loaded
+            console.warn('EnhancedPrinterProfiles not loaded, using simple modal');
+            this.showAddModal();
+        }
+    },
+    
+    /**
+     * Show add printer modal (simple version - fallback)
      */
     showAddModal() {
         document.getElementById('modalTitle').textContent = 'Add Printer Profile';
@@ -433,4 +449,10 @@ const PrinterProfileManager = {
 // Make available globally
 if (typeof window !== 'undefined') {
     window.PrinterProfileManager = PrinterProfileManager;
+    
+    // Listen for profile saved event from Enhanced Profiles
+    window.addEventListener('printerProfileSaved', () => {
+        console.log('✅ Profile saved event received - refreshing display');
+        PrinterProfileManager.refresh();
+    });
 }

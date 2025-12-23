@@ -1,5 +1,6 @@
 {
-  "_comment": "Hotend Database - References thermistors-V2.json for thermistor details",
+  "_comment": "Hotend Database - References thermistors-V2.json for thermistor details. For standalone extruder data, see Extruders.json",
+  "_lastUpdated": "2025-01-15",
   "hotends": [
     {
       "id": "HOTEND_CREALITY_MK8",
@@ -13,6 +14,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "PTFE-lined",
       "thermistor": "1",
+      "extruder": {
+        "type": "Bowden",
+        "gearType": "Single-Gear",
+        "gearRatio": "1:1",
+        "defaultESteps": 93,
+        "eStepsRange": [90, 96],
+        "driveGearDiameter": 7.3,
+        "notes": "Stock brass extruder gear. Upgrade to dual-gear recommended."
+      },
       "notes": "PTFE tube goes into heatbreak - max safe temp ~240°C for PTFE. All-metal upgrade available."
     },
     {
@@ -27,7 +37,39 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal Bi-Metal",
       "thermistor": "1",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Dual-Gear",
+        "gearRatio": "3.5:1",
+        "defaultESteps": 425,
+        "eStepsRange": [420, 430],
+        "driveGearDiameter": 7.3,
+        "notes": "Integrated dual-gear direct drive. High gear ratio for precision."
+      },
       "notes": "Integrated direct drive with all-metal heatbreak. Dual-gear extruder."
+    },
+    {
+      "id": "HOTEND_CREALITY_SPRITE_PRO",
+      "name": "Creality Sprite Pro Extruder Hotend",
+      "manufacturer": "Creality",
+      "type": "Stock/Upgrade",
+      "category": "All-Metal",
+      "maxTemp": 300,
+      "nozzleDiameter": [0.4],
+      "nozzleType": "MK8",
+      "filamentDiameter": 1.75,
+      "heatbreak": "All-Metal Bi-Metal",
+      "thermistor": "1",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Dual-Gear",
+        "gearRatio": "3.5:1",
+        "defaultESteps": 425,
+        "eStepsRange": [420, 430],
+        "driveGearDiameter": 7.3,
+        "notes": "Full metal construction. Better for flexibles than standard Sprite."
+      },
+      "notes": "All-metal version of Sprite. Better cooling and build quality than standard Sprite."
     },
     {
       "id": "HOTEND_CREALITY_SPIDER",
@@ -41,6 +83,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal",
       "thermistor": "1",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Dual-Gear",
+        "gearRatio": "3.5:1",
+        "defaultESteps": 425,
+        "eStepsRange": [420, 430],
+        "driveGearDiameter": 7.3,
+        "notes": "Usually paired with Sprite extruder. E-steps depend on extruder used."
+      },
       "notes": "High-flow design for faster printing. 80W heater for rapid heating."
     },
     {
@@ -55,7 +106,39 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal Titanium",
       "thermistor": "1",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Dual-Gear",
+        "gearRatio": "9.5:1",
+        "defaultESteps": 685,
+        "eStepsRange": [680, 695],
+        "driveGearDiameter": 7.5,
+        "notes": "High gear ratio for high-speed precision. Proprietary Creality design."
+      },
       "notes": "Ceramic heater, titanium heatbreak for high-speed printing."
+    },
+    {
+      "id": "HOTEND_CREALITY_K1_MAX",
+      "name": "Creality K1 Max Hotend",
+      "manufacturer": "Creality",
+      "type": "Stock",
+      "category": "High-Speed All-Metal",
+      "maxTemp": 300,
+      "nozzleDiameter": [0.4, 0.6, 0.8],
+      "nozzleType": "Proprietary",
+      "filamentDiameter": 1.75,
+      "heatbreak": "All-Metal Titanium",
+      "thermistor": "1",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Dual-Gear",
+        "gearRatio": "9.5:1",
+        "defaultESteps": 685,
+        "eStepsRange": [680, 695],
+        "driveGearDiameter": 7.5,
+        "notes": "Same extruder as K1. Higher flow capability."
+      },
+      "notes": "Larger K1 variant with higher flow hotend."
     },
     {
       "id": "HOTEND_PRUSA_E3D_V6",
@@ -69,6 +152,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal",
       "thermistor": "5",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Single-Gear (Bondtech)",
+        "gearRatio": "3:1",
+        "defaultESteps": 280,
+        "eStepsRange": [275, 285],
+        "driveGearDiameter": 8.0,
+        "notes": "Prusa MK3/MK3S uses Bondtech gears. MK2.5 uses different setup."
+      },
       "notes": "Industry standard. Genuine E3D V6 with Semitec thermistor. Well-documented and reliable."
     },
     {
@@ -83,6 +175,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal",
       "thermistor": "5",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Planetary Dual-Gear",
+        "gearRatio": "10:1",
+        "defaultESteps": 560,
+        "eStepsRange": [555, 565],
+        "driveGearDiameter": 8.0,
+        "notes": "Planetary gearbox for high torque. Quick-swap filament sensor."
+      },
       "notes": "New Prusa hotend design with quick-change nozzle system."
     },
     {
@@ -97,6 +198,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "PTFE-lined",
       "thermistor": "5",
+      "extruder": {
+        "type": "Bowden",
+        "gearType": "Single-Gear (Bondtech)",
+        "gearRatio": "3:1",
+        "defaultESteps": 325,
+        "eStepsRange": [320, 330],
+        "driveGearDiameter": 8.0,
+        "notes": "Bondtech-style gears. Bowden tube to hotend."
+      },
       "notes": "E3D V6 compatible with PTFE heatbreak. All-metal upgrade available."
     },
     {
@@ -111,6 +221,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal",
       "thermistor": "5",
+      "extruder": {
+        "type": "Varies",
+        "gearType": "Varies",
+        "gearRatio": null,
+        "defaultESteps": null,
+        "eStepsRange": null,
+        "driveGearDiameter": null,
+        "notes": "Hotend only - no included extruder. E-steps depend on extruder used."
+      },
       "notes": "Industry standard. Genuine uses Semitec thermistor. MANY clones use EPCOS (type 1)!"
     },
     {
@@ -125,6 +244,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal (varies)",
       "thermistor": "1",
+      "extruder": {
+        "type": "Varies",
+        "gearType": "Varies",
+        "gearRatio": null,
+        "defaultESteps": null,
+        "eStepsRange": null,
+        "driveGearDiameter": null,
+        "notes": "Hotend only - no included extruder. E-steps depend on extruder used."
+      },
       "notes": "VERIFY THERMISTOR TYPE! Most clones use EPCOS (type 1) not Semitec. Quality varies greatly."
     },
     {
@@ -139,6 +267,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal",
       "thermistor": "5",
+      "extruder": {
+        "type": "Varies",
+        "gearType": "Varies",
+        "gearRatio": null,
+        "defaultESteps": null,
+        "eStepsRange": null,
+        "driveGearDiameter": null,
+        "notes": "Hotend only - no included extruder. Recommend high-torque extruder for high-flow."
+      },
       "notes": "Extended melt zone for higher flow. 60W heater standard."
     },
     {
@@ -153,6 +290,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal",
       "thermistor": "1047",
+      "extruder": {
+        "type": "Varies",
+        "gearType": "Varies",
+        "gearRatio": null,
+        "defaultESteps": null,
+        "eStepsRange": null,
+        "driveGearDiameter": null,
+        "notes": "Hotend only - drop-in V6 replacement. E-steps depend on extruder used."
+      },
       "notes": "Quick-change nozzle system. Uses PT1000! Drop-in V6 replacement."
     },
     {
@@ -167,6 +313,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal",
       "thermistor": "1047",
+      "extruder": {
+        "type": "Varies",
+        "gearType": "Varies",
+        "gearRatio": null,
+        "defaultESteps": null,
+        "eStepsRange": null,
+        "driveGearDiameter": null,
+        "notes": "Designed for Voron toolheads. Usually paired with Clockwork or Galileo."
+      },
       "notes": "Designed for Voron toolheads. Uses PT1000!"
     },
     {
@@ -181,6 +336,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "Bi-Metal",
       "thermistor": "5",
+      "extruder": {
+        "type": "Varies",
+        "gearType": "Varies",
+        "gearRatio": null,
+        "defaultESteps": null,
+        "eStepsRange": null,
+        "driveGearDiameter": null,
+        "notes": "Hotend only. Popular with Clockwork2, Galileo, Orbiter extruders."
+      },
       "notes": "Premium hotend popular in Voron community. Standard flow version."
     },
     {
@@ -195,6 +359,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "Bi-Metal",
       "thermistor": "5",
+      "extruder": {
+        "type": "Varies",
+        "gearType": "Varies",
+        "gearRatio": null,
+        "defaultESteps": null,
+        "eStepsRange": null,
+        "driveGearDiameter": null,
+        "notes": "Hotend only. Recommend high-torque extruder (Galileo, LGX) for full flow potential."
+      },
       "notes": "High flow version with larger melt zone."
     },
     {
@@ -209,6 +382,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "Bi-Metal",
       "thermistor": "1047",
+      "extruder": {
+        "type": "Varies",
+        "gearType": "Varies",
+        "gearRatio": null,
+        "defaultESteps": null,
+        "eStepsRange": null,
+        "driveGearDiameter": null,
+        "notes": "Hotend only. Very high flow - needs high-torque extruder."
+      },
       "notes": "Ultra-fast heating with 115W ceramic heater! Uses PT1000."
     },
     {
@@ -223,6 +405,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "Hardened Steel/Titanium",
       "thermistor": "67",
+      "extruder": {
+        "type": "Varies",
+        "gearType": "Varies",
+        "gearRatio": null,
+        "defaultESteps": null,
+        "eStepsRange": null,
+        "driveGearDiameter": null,
+        "notes": "Hotend only. Compatible with many extruders via adapters."
+      },
       "notes": "Premium hotend for high-temp printing. Multiple heatbreak options. Uses special high-temp thermistor!"
     },
     {
@@ -237,6 +428,15 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal Hardened",
       "thermistor": "1",
+      "extruder": {
+        "type": "Bowden",
+        "gearType": "Single-Gear",
+        "gearRatio": "1:1",
+        "defaultESteps": 93,
+        "eStepsRange": [90, 96],
+        "driveGearDiameter": 7.3,
+        "notes": "Drop-in upgrade - uses stock Creality extruder. Recommend extruder upgrade for flexibles."
+      },
       "notes": "Drop-in all-metal upgrade for Creality printers. Uses stock thermistor. Very popular."
     },
     {
@@ -251,7 +451,177 @@
       "filamentDiameter": 1.75,
       "heatbreak": "All-Metal",
       "thermistor": "1",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Dual-Gear",
+        "gearRatio": "3:1",
+        "defaultESteps": 130,
+        "eStepsRange": [125, 135],
+        "driveGearDiameter": 7.5,
+        "notes": "Integrated direct drive. Moderate gear ratio for good balance of torque and speed."
+      },
       "notes": "Direct drive system with all-metal hotend. Uses stock thermistor."
+    },
+    {
+      "id": "HOTEND_BAMBU_X1",
+      "name": "Bambu Lab X1 Hotend",
+      "manufacturer": "Bambu Lab",
+      "type": "Stock",
+      "category": "High-Speed All-Metal",
+      "maxTemp": 300,
+      "nozzleDiameter": [0.2, 0.4, 0.6, 0.8],
+      "nozzleType": "Bambu",
+      "filamentDiameter": 1.75,
+      "heatbreak": "Bi-Metal",
+      "thermistor": "1",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Dual-Gear",
+        "gearRatio": "Unknown",
+        "defaultESteps": null,
+        "eStepsRange": null,
+        "driveGearDiameter": null,
+        "notes": "Closed system - e-steps not user configurable. Automatic calibration."
+      },
+      "notes": "Bambu proprietary hotend. Closed ecosystem with auto-calibration."
+    },
+    {
+      "id": "HOTEND_BAMBU_A1",
+      "name": "Bambu Lab A1 Hotend",
+      "manufacturer": "Bambu Lab",
+      "type": "Stock",
+      "category": "All-Metal",
+      "maxTemp": 300,
+      "nozzleDiameter": [0.2, 0.4, 0.6, 0.8],
+      "nozzleType": "Bambu",
+      "filamentDiameter": 1.75,
+      "heatbreak": "All-Metal",
+      "thermistor": "1",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Dual-Gear",
+        "gearRatio": "Unknown",
+        "defaultESteps": null,
+        "eStepsRange": null,
+        "driveGearDiameter": null,
+        "notes": "Closed system - e-steps not user configurable. Automatic calibration."
+      },
+      "notes": "Bambu A1 series hotend. Quick-swap nozzle system."
+    },
+    {
+      "id": "HOTEND_VORON_STEALTHBURNER",
+      "name": "Voron Stealthburner",
+      "manufacturer": "Voron Design",
+      "type": "Aftermarket/DIY",
+      "category": "All-Metal",
+      "maxTemp": 300,
+      "nozzleDiameter": [0.4, 0.6],
+      "nozzleType": "E3D V6",
+      "filamentDiameter": 1.75,
+      "heatbreak": "All-Metal",
+      "thermistor": "5",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Dual-Gear (Clockwork2)",
+        "gearRatio": "4:1",
+        "defaultESteps": 293,
+        "eStepsRange": [290, 296],
+        "driveGearDiameter": 8.0,
+        "notes": "Clockwork2 extruder standard. Compatible with multiple hotends."
+      },
+      "notes": "Voron toolhead design. Compatible with Dragon, Revo, Rapido hotends."
+    },
+    {
+      "id": "HOTEND_ANYCUBIC_KOBRA",
+      "name": "Anycubic Kobra Hotend",
+      "manufacturer": "Anycubic",
+      "type": "Stock",
+      "category": "PTFE-Lined",
+      "maxTemp": 260,
+      "nozzleDiameter": [0.4],
+      "nozzleType": "MK8",
+      "filamentDiameter": 1.75,
+      "heatbreak": "PTFE-lined",
+      "thermistor": "1",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Dual-Gear",
+        "gearRatio": "3.5:1",
+        "defaultESteps": 400,
+        "eStepsRange": [395, 410],
+        "driveGearDiameter": 7.3,
+        "notes": "Anycubic direct drive extruder. Similar to Sprite design."
+      },
+      "notes": "Anycubic direct drive hotend. PTFE-lined heatbreak."
+    },
+    {
+      "id": "HOTEND_ELEGOO_NEPTUNE",
+      "name": "Elegoo Neptune Hotend",
+      "manufacturer": "Elegoo",
+      "type": "Stock",
+      "category": "PTFE-Lined",
+      "maxTemp": 260,
+      "nozzleDiameter": [0.4],
+      "nozzleType": "MK8",
+      "filamentDiameter": 1.75,
+      "heatbreak": "PTFE-lined",
+      "thermistor": "1",
+      "extruder": {
+        "type": "Bowden",
+        "gearType": "Single-Gear",
+        "gearRatio": "1:1",
+        "defaultESteps": 93,
+        "eStepsRange": [90, 96],
+        "driveGearDiameter": 7.3,
+        "notes": "Stock bowden setup. Same e-steps as Ender 3."
+      },
+      "notes": "Ender 3 clone hotend. Compatible with MK8 parts."
+    },
+    {
+      "id": "HOTEND_ARTILLERY_SIDEWINDER",
+      "name": "Artillery Sidewinder Hotend",
+      "manufacturer": "Artillery",
+      "type": "Stock",
+      "category": "All-Metal",
+      "maxTemp": 280,
+      "nozzleDiameter": [0.4],
+      "nozzleType": "Volcano-style",
+      "filamentDiameter": 1.75,
+      "heatbreak": "All-Metal Bi-Metal",
+      "thermistor": "1",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Single-Gear (Titan Clone)",
+        "gearRatio": "3:1",
+        "defaultESteps": 430,
+        "eStepsRange": [425, 440],
+        "driveGearDiameter": 8.0,
+        "notes": "Titan clone extruder. All-metal hotend stock."
+      },
+      "notes": "Artillery direct drive with volcano-style hotend."
+    },
+    {
+      "id": "HOTEND_QIDI_X_PLUS",
+      "name": "QIDI X-Plus/X-Max Hotend",
+      "manufacturer": "QIDI",
+      "type": "Stock",
+      "category": "All-Metal",
+      "maxTemp": 300,
+      "nozzleDiameter": [0.4],
+      "nozzleType": "MK8",
+      "filamentDiameter": 1.75,
+      "heatbreak": "All-Metal",
+      "thermistor": "1",
+      "extruder": {
+        "type": "Direct Drive",
+        "gearType": "Dual-Gear",
+        "gearRatio": "3:1",
+        "defaultESteps": 420,
+        "eStepsRange": [415, 430],
+        "driveGearDiameter": 7.5,
+        "notes": "QIDI dual-gear direct drive extruder."
+      },
+      "notes": "QIDI enclosed printer hotend. All-metal for high-temp materials."
     }
   ]
 }

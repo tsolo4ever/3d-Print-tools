@@ -24,7 +24,21 @@ const TH3DConfigParser = {
             warnings: []
         };
         
+        // Store defined variables for substitution
+        this.variables = {};
+        
         const lines = content.split('\n');
+        
+        // First pass: collect simple variable definitions
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (line.startsWith('#define')) {
+                const match = line.match(/#define\s+(\w+)\s+([\d.]+)$/);
+                if (match) {
+                    this.variables[match[1]] = match[2];
+                }
+            }
+        }
         
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i].trim();
@@ -278,11 +292,20 @@ const TH3DConfigParser = {
     
     /**
      * Extract array values from { x, y, z, ... }
+     * Handles variable substitution (e.g., CUSTOM_ESTEPS_VALUE)
      */
     extractArray(value) {
         const match = value.match(/\{(.+?)\}/);
         if (!match) return [];
-        return match[1].split(',').map(v => v.trim());
+        return match[1].split(',').map(v => {
+            v = v.trim();
+            // Check if it's a variable reference
+            if (this.variables && this.variables[v]) {
+                console.log(`🔄 TH3D Parser: Substituting ${v} = ${this.variables[v]}`);
+                return this.variables[v];
+            }
+            return v;
+        });
     },
     
     /**
