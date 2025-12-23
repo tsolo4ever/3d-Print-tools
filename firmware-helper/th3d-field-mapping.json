@@ -1,0 +1,747 @@
+{
+  "$schema": "TH3D Configuration Field Mapping v1.0",
+  "description": "Complete mapping of TH3D Unified Firmware Configuration.h fields to JSON structure",
+  "lastUpdated": "2025-12-23",
+  "version": "1.0.0",
+  
+  "basic": {
+    "machineName": {
+      "mapsFrom": ["USER_PRINTER_NAME", "CUSTOM_MACHINE_NAME"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "alsoFoundIn": ["Configuration_backend.h"],
+      "examples": ["Maxy", "POS Unit", "My Printer"],
+      "th3dNotes": "TH3D uses USER_PRINTER_NAME (custom field). Configuration_backend.h may reference it as CUSTOM_MACHINE_NAME USER_PRINTER_NAME (variable, not string)",
+      "validation": {
+        "maxLength": 50
+      }
+    },
+    "firmwareVersion": {
+      "mapsFrom": ["UNIFIED_VERSION"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["TH3D UFW 2.97a", "TH3D UFW 2.96"],
+      "th3dNotes": "TH3D-specific version identifier",
+      "extractPattern": "TH3D UFW (.*)"
+    },
+    "distributionDate": {
+      "mapsFrom": ["STRING_DISTRIBUTION_DATE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["2025-08-26", "2024-12-15"],
+      "th3dNotes": "Build date of TH3D firmware"
+    },
+    "userPrinterNameValue": {
+      "mapsFrom": ["USER_PRINTER_NAME"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["Maxy", "Test Unit"],
+      "th3dNotes": "Internal storage for USER_PRINTER_NAME value to preserve across file merges. Used when Configuration_backend.h references it as a variable."
+    },
+    "uuid": {
+      "mapsFrom": ["MACHINE_UUID"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["cede2a2f-41a2-4748-9b12-c55c62f367ff"],
+      "validation": {
+        "format": "uuid"
+      }
+    },
+    "author": {
+      "mapsFrom": ["STRING_CONFIG_H_AUTHOR"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["TH3D Studio", "John Doe", "Custom"],
+      "th3dNotes": "Defaults to 'TH3D Studio' in TH3D firmware"
+    },
+    "motherboard": {
+      "mapsFrom": ["MOTHERBOARD"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["BOARD_CREALITY_V422", "BOARD_CREALITY_V427", "BOARD_BTT_SKR_MINI_E3_V3_0"],
+      "validation": {
+        "pattern": "BOARD_.*"
+      }
+    },
+    "serialPort": {
+      "mapsFrom": ["SERIAL_PORT"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [0, 1, 2, -1],
+      "th3dNotes": "-1 for USB, 0-2 for hardware serial ports",
+      "validation": {
+        "min": -1,
+        "max": 3
+      }
+    },
+    "baudRate": {
+      "mapsFrom": ["BAUDRATE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [115200, 250000],
+      "validation": {
+        "allowedValues": [9600, 19200, 38400, 57600, 115200, 250000]
+      }
+    },
+    "bedSizeX": {
+      "mapsFrom": ["X_BED_SIZE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [220, 235, 300, 350],
+      "validation": {
+        "min": 100,
+        "max": 500
+      }
+    },
+    "bedSizeY": {
+      "mapsFrom": ["Y_BED_SIZE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [220, 235, 300, 350],
+      "validation": {
+        "min": 100,
+        "max": 500
+      }
+    },
+    "xMaxPos": {
+      "mapsFrom": ["X_MAX_POS"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [220, 235, 300],
+      "th3dNotes": "Usually same as X_BED_SIZE"
+    },
+    "yMaxPos": {
+      "mapsFrom": ["Y_MAX_POS"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [220, 235, 300],
+      "th3dNotes": "Usually same as Y_BED_SIZE"
+    },
+    "zMaxPos": {
+      "mapsFrom": ["Z_MAX_POS"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [250, 300, 400],
+      "validation": {
+        "min": 100,
+        "max": 600
+      }
+    }
+  },
+  
+  "hardware": {
+    "driverX": {
+      "mapsFrom": ["X_DRIVER_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2208", "TMC2209"],
+      "validation": {
+        "mustBeValidDriver": true
+      }
+    },
+    "driverY": {
+      "mapsFrom": ["Y_DRIVER_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2208", "TMC2209"]
+    },
+    "driverZ": {
+      "mapsFrom": ["Z_DRIVER_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2208", "TMC2209"]
+    },
+    "driverE0": {
+      "mapsFrom": ["E0_DRIVER_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2208", "TMC2209"]
+    },
+    "driverE1": {
+      "mapsFrom": ["E1_DRIVER_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2208", "TMC2209"],
+      "th3dNotes": "Only for dual extruder setups"
+    },
+    "thermistorHotend": {
+      "mapsFrom": ["TEMP_SENSOR_0"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [1, 5, 11, 13],
+      "th3dNotes": "1=100k thermistor, 5=100k ATC Semitec, 11=100k beta 3950, 13=100k Hisens",
+      "validation": {
+        "min": -5,
+        "max": 1000
+      }
+    },
+    "thermistorBed": {
+      "mapsFrom": ["TEMP_SENSOR_BED"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [1, 3, 11],
+      "validation": {
+        "min": 0,
+        "max": 1000
+      }
+    },
+    "thermistorChamber": {
+      "mapsFrom": ["TEMP_SENSOR_CHAMBER"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [1, 3, 11],
+      "th3dNotes": "Rarely used, for heated chambers"
+    },
+    "endstopXMin": {
+      "mapsFrom": ["USE_XMIN_PLUG"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "th3dNotes": "Define present = true"
+    },
+    "endstopXMax": {
+      "mapsFrom": ["USE_XMAX_PLUG"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    "endstopYMin": {
+      "mapsFrom": ["USE_YMIN_PLUG"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    "endstopYMax": {
+      "mapsFrom": ["USE_YMAX_PLUG"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    "endstopZMin": {
+      "mapsFrom": ["USE_ZMIN_PLUG"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    "endstopZMax": {
+      "mapsFrom": ["USE_ZMAX_PLUG"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    "displayType": {
+      "mapsFrom": ["LCD_*", "DISPLAY_*", "DGUS_*", "TFT_*"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["LCD_BED_LEVELING", "DGUS_LCD_UI_CREALITY", "TFT_GENERIC"],
+      "th3dNotes": "Any define containing LCD, DISPLAY, DGUS, or TFT"
+    }
+  },
+  
+  "temperature": {
+    "hotendMinTemp": {
+      "mapsFrom": ["HEATER_0_MINTEMP"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [5, 10],
+      "validation": {
+        "min": -20,
+        "max": 50
+      }
+    },
+    "hotendMaxTemp": {
+      "mapsFrom": ["HEATER_0_MAXTEMP"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [275, 285, 300, 500],
+      "validation": {
+        "min": 200,
+        "max": 500
+      }
+    },
+    "bedMinTemp": {
+      "mapsFrom": ["BED_MINTEMP"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [5, 10],
+      "validation": {
+        "min": -20,
+        "max": 50
+      }
+    },
+    "bedMaxTemp": {
+      "mapsFrom": ["BED_MAXTEMP"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [110, 120, 150],
+      "validation": {
+        "min": 60,
+        "max": 150
+      }
+    },
+    "pidHotendEnabled": {
+      "mapsFrom": ["PIDTEMP"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "th3dNotes": "Define present = true"
+    },
+    "pidHotendP": {
+      "mapsFrom": ["DEFAULT_Kp"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [22.2, 15.5, 28.7],
+      "validation": {
+        "min": 0
+      }
+    },
+    "pidHotendI": {
+      "mapsFrom": ["DEFAULT_Ki"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [1.08, 2.15, 3.42],
+      "validation": {
+        "min": 0
+      }
+    },
+    "pidHotendD": {
+      "mapsFrom": ["DEFAULT_Kd"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [114.00, 89.25, 156.87],
+      "validation": {
+        "min": 0
+      }
+    },
+    "pidBedEnabled": {
+      "mapsFrom": ["PIDTEMPBED"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "th3dNotes": "Define present = true"
+    },
+    "pidBedP": {
+      "mapsFrom": ["DEFAULT_bedKp"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [10.00, 54.89, 127.45]
+    },
+    "pidBedI": {
+      "mapsFrom": ["DEFAULT_bedKi"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [0.02, 1.23, 4.56]
+    },
+    "pidBedD": {
+      "mapsFrom": ["DEFAULT_bedKd"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [305.40, 890.25, 1234.56]
+    }
+  },
+  
+  "motion": {
+    "stepsPerMM": {
+      "x": {
+        "mapsFrom": ["DEFAULT_AXIS_STEPS_PER_UNIT[0]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [80, 160, 200],
+        "th3dNotes": "First value in DEFAULT_AXIS_STEPS_PER_UNIT array",
+        "validation": {
+          "min": 1,
+          "max": 1000
+        }
+      },
+      "y": {
+        "mapsFrom": ["DEFAULT_AXIS_STEPS_PER_UNIT[1]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [80, 160, 200]
+      },
+      "z": {
+        "mapsFrom": ["DEFAULT_AXIS_STEPS_PER_UNIT[2]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [400, 800, 1600],
+        "th3dNotes": "Leadscrew dependent"
+      },
+      "e": {
+        "mapsFrom": ["DEFAULT_AXIS_STEPS_PER_UNIT[3]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [93, 415, 760],
+        "validation": {
+          "min": 50,
+          "max": 1000,
+          "warningIfOutside": true
+        }
+      }
+    },
+    "maxFeedrate": {
+      "x": {
+        "mapsFrom": ["DEFAULT_MAX_FEEDRATE[0]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [300, 500, 600],
+        "validation": {
+          "min": 1,
+          "max": 1000
+        }
+      },
+      "y": {
+        "mapsFrom": ["DEFAULT_MAX_FEEDRATE[1]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [300, 500, 600]
+      },
+      "z": {
+        "mapsFrom": ["DEFAULT_MAX_FEEDRATE[2]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [5, 10, 20],
+        "th3dNotes": "Usually much slower than X/Y"
+      },
+      "e": {
+        "mapsFrom": ["DEFAULT_MAX_FEEDRATE[3]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [25, 50, 100]
+      }
+    },
+    "maxAcceleration": {
+      "x": {
+        "mapsFrom": ["DEFAULT_MAX_ACCELERATION[0]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [500, 1000, 3000]
+      },
+      "y": {
+        "mapsFrom": ["DEFAULT_MAX_ACCELERATION[1]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [500, 1000, 3000]
+      },
+      "z": {
+        "mapsFrom": ["DEFAULT_MAX_ACCELERATION[2]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [100, 200, 500]
+      },
+      "e": {
+        "mapsFrom": ["DEFAULT_MAX_ACCELERATION[3]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [5000, 10000]
+      }
+    },
+    "defaultAcceleration": {
+      "mapsFrom": ["DEFAULT_ACCELERATION"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [500, 1000, 1500]
+    },
+    "retractAcceleration": {
+      "mapsFrom": ["DEFAULT_RETRACT_ACCELERATION"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [1000, 2000, 3000]
+    },
+    "travelAcceleration": {
+      "mapsFrom": ["DEFAULT_TRAVEL_ACCELERATION"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [1000, 1500, 3000]
+    },
+    "classicJerk": {
+      "mapsFrom": ["CLASSIC_JERK"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "th3dNotes": "Define present = using classic jerk, absent = junction deviation"
+    },
+    "jerkX": {
+      "mapsFrom": ["DEFAULT_XJERK"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [8, 10, 15]
+    },
+    "jerkY": {
+      "mapsFrom": ["DEFAULT_YJERK"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [8, 10, 15]
+    },
+    "jerkZ": {
+      "mapsFrom": ["DEFAULT_ZJERK"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [0.3, 0.4, 0.5]
+    },
+    "jerkE": {
+      "mapsFrom": ["DEFAULT_EJERK"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [5, 10, 15]
+    },
+    "junctionDeviation": {
+      "mapsFrom": ["JUNCTION_DEVIATION_MM"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [0.005, 0.010, 0.020],
+      "th3dNotes": "Only used if CLASSIC_JERK is not defined"
+    },
+    "sCurveAcceleration": {
+      "mapsFrom": ["S_CURVE_ACCELERATION"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "th3dNotes": "Define present = enabled"
+    }
+  },
+  
+  "probe": {
+    "type": {
+      "mapsFrom": ["BLTOUCH", "FIX_MOUNTED_PROBE", "NOZZLE_AS_PROBE", "EZABL_ENABLE", "EZABL_POINTS"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["BLTouch", "Fixed", "Nozzle", "EZABL"],
+      "th3dNotes": "EZABL_ENABLE or EZABL_POINTS = TH3D's EZABL probe"
+    },
+    "offset": {
+      "x": {
+        "mapsFrom": ["NOZZLE_TO_PROBE_OFFSET[0]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [-44, -40, 0, 40],
+        "th3dNotes": "Negative = left of nozzle, positive = right"
+      },
+      "y": {
+        "mapsFrom": ["NOZZLE_TO_PROBE_OFFSET[1]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [-6, 0, 10],
+        "th3dNotes": "Negative = in front of nozzle, positive = behind"
+      },
+      "z": {
+        "mapsFrom": ["NOZZLE_TO_PROBE_OFFSET[2]"],
+        "type": "float",
+        "required": false,
+        "fileLocation": "Configuration.h",
+        "examples": [-1.5, -2.0, -2.85],
+        "th3dNotes": "Use Z-Offset Calibration tool"
+      }
+    },
+    "usesZMinPin": {
+      "mapsFrom": ["Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "th3dNotes": "Define present = true"
+    }
+  },
+  
+  "bedLeveling": {
+    "type": {
+      "mapsFrom": ["AUTO_BED_LEVELING_3POINT", "AUTO_BED_LEVELING_LINEAR", "AUTO_BED_LEVELING_BILINEAR", "AUTO_BED_LEVELING_UBL", "MESH_BED_LEVELING"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["3POINT", "LINEAR", "BILINEAR", "UBL", "MESH"]
+    },
+    "gridPointsX": {
+      "mapsFrom": ["GRID_MAX_POINTS_X"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [3, 5, 7, 10],
+      "validation": {
+        "min": 3,
+        "max": 15
+      }
+    },
+    "gridPointsY": {
+      "mapsFrom": ["GRID_MAX_POINTS_Y"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [3, 5, 7, 10]
+    },
+    "fadeHeight": {
+      "mapsFrom": ["DEFAULT_LEVELING_FADE_HEIGHT"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [0, 10, 20],
+      "th3dNotes": "0 = disabled"
+    },
+    "restoreAfterG28": {
+      "mapsFrom": ["RESTORE_LEVELING_AFTER_G28"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "th3dNotes": "Define present = true"
+    }
+  },
+  
+  "advanced": {
+    "linearAdvance": {
+      "mapsFrom": ["LIN_ADVANCE"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "th3dNotes": "Define present = enabled"
+    },
+    "linearAdvanceK": {
+      "mapsFrom": ["LIN_ADVANCE_K"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0, 0.05, 0.10, 0.15],
+      "validation": {
+        "min": 0,
+        "max": 2
+      }
+    },
+    "arcSupport": {
+      "mapsFrom": ["ARC_SUPPORT"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "th3dNotes": "Define present = enabled"
+    },
+    "nozzlePark": {
+      "mapsFrom": ["NOZZLE_PARK_FEATURE"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    "powerLossRecovery": {
+      "mapsFrom": ["POWER_LOSS_RECOVERY"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "th3dNotes": "TH3D includes this in advanced config"
+    },
+    "babystepping": {
+      "mapsFrom": ["BABYSTEPPING"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h"
+    },
+    "th3dRGB": {
+      "mapsFrom": ["TH3D_RGB_ENABLE"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "th3dNotes": "TH3D-specific RGB lighting feature"
+    }
+  },
+  
+  "safety": {
+    "thermalProtectionHotend": {
+      "mapsFrom": ["THERMAL_PROTECTION_HOTENDS"],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "th3dNotes": "CRITICAL SAFETY FEATURE - should always be enabled!",
+      "validation": {
+        "mustBeTrue": true,
+        "errorLevel": "critical"
+      }
+    },
+    "thermalProtectionBed": {
+      "mapsFrom": ["THERMAL_PROTECTION_BED"],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "th3dNotes": "CRITICAL SAFETY FEATURE - should always be enabled!",
+      "validation": {
+        "mustBeTrue": true,
+        "errorLevel": "critical"
+      }
+    },
+    "thermalProtectionChamber": {
+      "mapsFrom": ["THERMAL_PROTECTION_CHAMBER"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "th3dNotes": "Only if chamber heater present"
+    },
+    "filamentSensor": {
+      "mapsFrom": ["FILAMENT_RUNOUT_SENSOR"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    }
+  },
+  
+  "warnings": {
+    "description": "Array of validation warnings and errors",
+    "structure": {
+      "level": {
+        "type": "string",
+        "allowedValues": ["error", "warning", "info"]
+      },
+      "message": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -24,8 +24,16 @@ class EnhancedPrinterProfiles {
      */
     async loadDatabases() {
         try {
-            // Use V2 databases for boards, drivers, and thermistors
-            const bases = ['marlin-boards-V2', 'stepper-drivers-V2', 'thermistors-V2', 'displays', 'Hotends', 'bed-probes'];
+            // Load all databases including printer profiles
+            const bases = [
+                'marlin-boards-V2', 
+                'stepper-drivers-V2', 
+                'thermistors-V2', 
+                'displays', 
+                'Hotends', 
+                'bed-probes',
+                'printer-profiles'  // Add printer profiles database
+            ];
             
             for (const db of bases) {
                 const response = await fetch(`assets/data/${db}.json`);
@@ -36,11 +44,13 @@ class EnhancedPrinterProfiles {
                 this.databases[normalizedName] = data;
             }
             
-            console.log('✅ Hardware databases loaded (V2):', Object.keys(this.databases));
+            console.log('✅ Hardware databases loaded:', Object.keys(this.databases));
             console.log('📊 Board count:', this.databases['marlin-boards']?.boards?.length);
             console.log('📊 Driver count:', this.databases['stepper-drivers']?.drivers?.length);
             console.log('📊 Thermistor count:', this.databases['thermistors']?.thermistors?.length);
             console.log('📊 Hotend count:', this.databases['Hotends']?.hotends?.length);
+            console.log('📊 Probe count:', this.databases['bed-probes']?.probes?.length);
+            console.log('📊 Printer profile count:', this.databases['printer-profiles']?.printers?.length);
         } catch (error) {
             console.error('❌ Error loading databases:', error);
         }
@@ -235,12 +245,12 @@ class EnhancedPrinterProfiles {
             this.exportForCommunity();
         });
         
-        // Click outside to close
-        this.modal.addEventListener('click', (e) => {
-            if (e.target === this.modal) {
-                this.close();
-            }
-        });
+        // Click outside to close - DISABLED per user request
+        // this.modal.addEventListener('click', (e) => {
+        //     if (e.target === this.modal) {
+        //         this.close();
+        //     }
+        // });
     }
     
     /**
@@ -300,8 +310,17 @@ class EnhancedPrinterProfiles {
                 
                 <div class="form-group">
                     <label>Printer Model</label>
-                    <input type="text" id="printerModel" value="${this.currentProfile.printerModel || ''}" 
-                           placeholder="e.g., Creality Ender 5 Plus">
+                    <div style="position: relative;">
+                        <input type="text" id="printerModelSearch" class="form-control" 
+                               value="${this.getCurrentPrinterDisplayName()}" 
+                               placeholder="Start typing printer name (e.g., Ender 3, Prusa MK3)..." 
+                               autocomplete="off">
+                        <div id="printerSearchResults" class="autocomplete-results" style="display: none;"></div>
+                    </div>
+                    <p class="field-help">💡 Type to search from 280+ printer models. Use ↑↓ arrows to navigate, Enter to select.</p>
+                    <div id="selectedPrinterInfo" style="display: none; margin-top: 10px; padding: 10px; background: #e3f2fd; border-left: 3px solid #2196f3; border-radius: 4px;">
+                        <!-- Printer details will appear here -->
+                    </div>
                 </div>
                 
                 <div class="form-row">
@@ -310,6 +329,7 @@ class EnhancedPrinterProfiles {
                         <select id="firmwareType">
                             <option value="">Select firmware...</option>
                             <option value="marlin" ${this.currentProfile.firmwareType === 'marlin' ? 'selected' : ''}>Marlin</option>
+                            <option value="th3d" ${this.currentProfile.firmwareType === 'th3d' ? 'selected' : ''}>TH3D (Marlin Fork)</option>
                             <option value="klipper" ${this.currentProfile.firmwareType === 'klipper' ? 'selected' : ''}>Klipper</option>
                             <option value="reprap" ${this.currentProfile.firmwareType === 'reprap' ? 'selected' : ''}>RepRap</option>
                             <option value="smoothie" ${this.currentProfile.firmwareType === 'smoothie' ? 'selected' : ''}>Smoothieware</option>
@@ -483,6 +503,242 @@ class EnhancedPrinterProfiles {
             const selected = selectedDisplay === display.id ? 'selected' : '';
             return `<option value="${display.id}" ${selected}>${display.name}</option>`;
         }).join('');
+    }
+    
+    /**
+     * Get current printer display name
+     */
+    getCurrentPrinterDisplayName() {
+        if (!this.currentProfile.printerModel) return '';
+        
+        // Check if it's a database printer
+        if (this.databases['printer-profiles'] && this.databases['printer-profiles'].printers) {
+            const printer = this.databases['printer-profiles'].printers.find(p => p.id === this.currentProfile.printerModel);
+            if (printer) return printer.name;
+        }
+        
+        // If not found, return the ID (might be custom)
+        return this.currentProfile.printerModel;
+    }
+    
+    /**
+     * Setup autocomplete for printer search
+     */
+    setupPrinterAutocomplete() {
+        const searchInput = document.getElementById('printerModelSearch');
+        const resultsDiv = document.getElementById('printerSearchResults');
+        const infoDiv = document.getElementById('selectedPrinterInfo');
+        
+        if (!searchInput || !resultsDiv) return;
+        
+        let currentIndex = -1;
+        let filteredPrinters = [];
+        
+        // Search and filter printers
+        const searchPrinters = (query) => {
+            if (!this.databases['printer-profiles']) return [];
+            
+            const lowerQuery = query.toLowerCase().trim();
+            if (!lowerQuery) return [];
+            
+            // Filter out section markers (they have _section property)
+            return this.databases['printer-profiles'].printers
+                .filter(p => !p._section && p.name) // Skip sections
+                .filter(p => {
+                    return p.name.toLowerCase().includes(lowerQuery) ||
+                           p.manufacturer?.toLowerCase().includes(lowerQuery) ||
+                           p.id?.toLowerCase().includes(lowerQuery);
+                })
+                .slice(0, 10); // Limit to 10 results
+        };
+        
+        // Render results
+        const renderResults = (printers) => {
+            if (printers.length === 0) {
+                resultsDiv.innerHTML = '<div class="autocomplete-item-no-results">No printers found</div>';
+                resultsDiv.style.display = 'block';
+                return;
+            }
+            
+            resultsDiv.innerHTML = printers.map((p, idx) => `
+                <div class="autocomplete-item ${idx === currentIndex ? 'active' : ''}" data-printer-id="${p.id}">
+                    <strong>${p.name}</strong>
+                    ${p.manufacturer ? `<br><small style="color: #666;">${p.manufacturer}</small>` : ''}
+                </div>
+            `).join('');
+            resultsDiv.style.display = 'block';
+        };
+        
+        // Select a printer
+        const selectPrinter = (printerId) => {
+            const printer = this.databases['printer-profiles'].printers.find(p => p.id === printerId);
+            if (!printer) return;
+            
+            // Update profile
+            this.currentProfile.printerModel = printer.id;
+            this.currentProfile.modified = new Date().toISOString();
+            
+            // Update search input
+            searchInput.value = printer.name;
+            
+            // Hide results
+            resultsDiv.style.display = 'none';
+            currentIndex = -1;
+            
+            // Show printer info
+            this.showPrinterInfo(printer);
+            
+            // Auto-fill hardware from printer database
+            this.autofillFromPrinterDatabase(printer);
+        };
+        
+        // Input event
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value;
+            
+            if (query.length < 2) {
+                resultsDiv.style.display = 'none';
+                infoDiv.style.display = 'none';
+                return;
+            }
+            
+            filteredPrinters = searchPrinters(query);
+            currentIndex = -1;
+            renderResults(filteredPrinters);
+        });
+        
+        // Keyboard navigation
+        searchInput.addEventListener('keydown', (e) => {
+            if (resultsDiv.style.display === 'none') return;
+            
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                currentIndex = Math.min(currentIndex + 1, filteredPrinters.length - 1);
+                renderResults(filteredPrinters);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                currentIndex = Math.max(currentIndex - 1, -1);
+                renderResults(filteredPrinters);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (currentIndex >= 0 && filteredPrinters[currentIndex]) {
+                    selectPrinter(filteredPrinters[currentIndex].id);
+                }
+            } else if (e.key === 'Escape') {
+                resultsDiv.style.display = 'none';
+                currentIndex = -1;
+            }
+        });
+        
+        // Click on result
+        resultsDiv.addEventListener('click', (e) => {
+            const item = e.target.closest('.autocomplete-item');
+            if (item && item.dataset.printerId) {
+                selectPrinter(item.dataset.printerId);
+            }
+        });
+        
+        // Click outside to close
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !resultsDiv.contains(e.target)) {
+                resultsDiv.style.display = 'none';
+            }
+        });
+    }
+    
+    /**
+     * Show printer info card
+     */
+    showPrinterInfo(printer) {
+        const infoDiv = document.getElementById('selectedPrinterInfo');
+        if (!infoDiv) return;
+        
+        let infoHTML = `
+            <strong style="font-size: 1.1em;">${printer.name}</strong><br>
+            <strong>Manufacturer:</strong> ${printer.manufacturer}<br>
+        `;
+        
+        if (printer.kinematics) {
+            infoHTML += `<strong>Kinematics:</strong> ${printer.kinematics}<br>`;
+        }
+        
+        if (printer.bedSize) {
+            infoHTML += `<strong>Build Volume:</strong> ${printer.bedSize.x}×${printer.bedSize.y}×${printer.bedSize.z}mm<br>`;
+        }
+        
+        if (printer.stockBoard) {
+            infoHTML += `<strong>Stock Board:</strong> ${printer.stockBoard}<br>`;
+        }
+        
+        if (printer.stockHotend) {
+            infoHTML += `<strong>Stock Hotend:</strong> ${printer.stockHotend}<br>`;
+        }
+        
+        if (printer.stockProbe) {
+            infoHTML += `<strong>Stock Probe:</strong> ${printer.stockProbe}<br>`;
+        }
+        
+        if (printer.notes) {
+            infoHTML += `<br><em style="color: #666;">${printer.notes}</em>`;
+        }
+        
+        infoDiv.innerHTML = infoHTML;
+        infoDiv.style.display = 'block';
+    }
+    
+    /**
+     * Auto-fill hardware from printer database
+     */
+    autofillFromPrinterDatabase(printer) {
+        console.log('✨ Auto-filling hardware from printer database:', printer.name);
+        
+        // Auto-fill board
+        if (printer.stockBoard && this.databases['marlin-boards']) {
+            const board = this.databases['marlin-boards'].boards.find(b => b.id === printer.stockBoard);
+            if (board) {
+                this.currentProfile.hardware.board = printer.stockBoard;
+                console.log('  ✅ Board:', printer.stockBoard);
+                
+                // Auto-fill drivers based on board
+                this.autofillDrivers(board);
+            }
+        }
+        
+        // Auto-fill display
+        if (printer.stockDisplay && this.databases['displays']) {
+            const display = this.databases['displays'].displays.find(d => d.id === printer.stockDisplay);
+            if (display) {
+                this.currentProfile.hardware.display = printer.stockDisplay;
+                console.log('  ✅ Display:', printer.stockDisplay);
+            }
+        }
+        
+        // Auto-fill bed size
+        if (printer.bedSize) {
+            if (!this.currentProfile.bedSize) this.currentProfile.bedSize = {};
+            this.currentProfile.bedSize.x = printer.bedSize.x;
+            this.currentProfile.bedSize.y = printer.bedSize.y;
+            this.currentProfile.bedSize.z = printer.bedSize.z;
+            console.log('  ✅ Bed size:', printer.bedSize);
+        }
+        
+        // Auto-fill probe type
+        if (printer.stockProbe && printer.stockProbe !== null) {
+            if (!this.currentProfile.probe) this.currentProfile.probe = { offsets: { x: 0, y: 0, z: 0 } };
+            this.currentProfile.probe.type = printer.stockProbe;
+            console.log('  ✅ Probe:', printer.stockProbe);
+        }
+        
+        // Auto-fill extruder type
+        if (printer.extruderType) {
+            this.currentProfile.extruderType = printer.extruderType;
+            console.log('  ✅ Extruder type:', printer.extruderType);
+        }
+        
+        // Re-render current tab to show changes
+        setTimeout(() => {
+            this.renderCurrentTab();
+        }, 100);
     }
     
     /**
@@ -1429,6 +1685,11 @@ class EnhancedPrinterProfiles {
      * Attach input listeners to form fields
      */
     attachInputListeners() {
+        // Setup autocomplete for printer search (Tab 1 only)
+        if (this.currentTab === 1) {
+            this.setupPrinterAutocomplete();
+        }
+        
         // Basic text inputs
         const inputs = ['profileName', 'printerModel', 'firmwareVersion'];
         inputs.forEach(id => {
@@ -1774,9 +2035,10 @@ class EnhancedPrinterProfiles {
         importArea.style.display = 'block';
         importArea.innerHTML = `
             <div class="config-upload-zone">
-                <input type="file" id="configFileInput" accept=".h" style="display: none;">
+                <input type="file" id="configFileInput" accept=".h" multiple style="display: none;">
                 <div class="file-drop-zone" id="configDropZone" style="cursor: pointer;">
-                    <p style="font-size: 1.2em;">📄 Drop Configuration.h here</p>
+                    <p style="font-size: 1.2em;">📄 Drop Configuration files here</p>
+                    <p style="font-size: 0.9em; color: #888;">Select multiple .h files (Configuration.h, Configuration_adv.h, backend files, etc.)</p>
                     <p style="font-size: 0.9em; color: #888;">or click to browse</p>
                 </div>
                 <div id="uploadResult" style="display: none;"></div>
@@ -1791,10 +2053,10 @@ class EnhancedPrinterProfiles {
             fileInput.click();
         });
         
-        // File input change handler
+        // File input change handler - now supports multiple files
         fileInput.addEventListener('change', (e) => {
             if (e.target.files.length > 0) {
-                this.handleConfigFile(e.target.files[0]);
+                this.handleConfigFiles(Array.from(e.target.files));
             }
         });
         
@@ -1817,13 +2079,389 @@ class EnhancedPrinterProfiles {
             dropZone.classList.remove('dragover');
             
             if (e.dataTransfer.files.length > 0) {
-                this.handleConfigFile(e.dataTransfer.files[0]);
+                this.handleConfigFiles(Array.from(e.dataTransfer.files));
             }
         });
     }
     
     /**
-     * Handle Configuration.h file upload
+     * Handle multiple Configuration.h files upload
+     */
+    async handleConfigFiles(files) {
+        const resultDiv = document.getElementById('uploadResult');
+        resultDiv.style.display = 'block';
+        
+        // Filter for .h files only
+        const hFiles = files.filter(f => f.name.endsWith('.h'));
+        
+        if (hFiles.length === 0) {
+            resultDiv.innerHTML = '<p style="color: red;">❌ Error: Please upload .h files</p>';
+            return;
+        }
+        
+        // Store files for later parsing
+        this.tempConfigFiles = hFiles;
+        
+        // Show file list with Parse button
+        const fileListHTML = hFiles.map(f => 
+            `<div style="padding: 5px; background: #e3f2fd; border-left: 3px solid #2196f3; margin: 5px 0; color: #1565c0;">
+                📄 <strong style="color: #0d47a1;">${f.name}</strong> <span style="color: #424242;">(${(f.size / 1024).toFixed(1)} KB)</span>
+            </div>`
+        ).join('');
+        
+        resultDiv.innerHTML = `
+            <div style="background: var(--card-bg, #f5f5f5); padding: 15px; border-radius: 5px; border: 1px solid var(--border, #ddd);">
+                <h4 style="margin: 0 0 10px 0; color: var(--text-primary, #212121);">📁 ${hFiles.length} file(s) ready</h4>
+                ${fileListHTML}
+                <button class="btn-primary" id="parseFilesBtn" style="margin-top: 10px; padding: 10px 20px;">
+                    🔍 Parse Files
+                </button>
+            </div>
+        `;
+        
+        // Add parse button handler
+        document.getElementById('parseFilesBtn').addEventListener('click', () => {
+            this.parseConfigFiles();
+        });
+    }
+    
+    /**
+     * Parse the stored configuration files
+     */
+    async parseConfigFiles() {
+        if (!this.tempConfigFiles || this.tempConfigFiles.length === 0) {
+            return;
+        }
+        
+        const resultDiv = document.getElementById('uploadResult');
+        resultDiv.innerHTML = '<p>⏳ Parsing files...</p>';
+        
+        // Parse each file
+        const parsedConfigs = [];
+        const fileStatuses = [];
+        
+        for (const file of this.tempConfigFiles) {
+            try {
+                const content = await this.readFileAsText(file);
+                
+                // Use TH3D parser if firmware type is TH3D, otherwise use standard Marlin parser
+                const isTH3D = this.currentProfile.firmwareType === 'th3d';
+                const parser = isTH3D && typeof TH3DConfigParser !== 'undefined' ? TH3DConfigParser : ConfigParser;
+                
+                console.log(`📄 Parsing ${file.name} with ${isTH3D ? 'TH3D' : 'Marlin'} parser`);
+                
+                const parsed = parser.parseConfigurationH(content);
+                
+                if (parsed && Object.keys(parsed).length > 0) {
+                    // Strip per-file warnings - we'll validate the merged config instead
+                    delete parsed.warnings;
+                    
+                    parsedConfigs.push(parsed);
+                    fileStatuses.push({
+                        name: file.name,
+                        success: true,
+                        settingsCount: this.countSettings(parsed),
+                        parser: isTH3D ? 'TH3D' : 'Marlin'
+                        // No warnings stored per-file anymore
+                    });
+                } else {
+                    fileStatuses.push({
+                        name: file.name,
+                        success: false,
+                        error: 'No settings found'
+                    });
+                }
+            } catch (error) {
+                fileStatuses.push({
+                    name: file.name,
+                    success: false,
+                    error: error.message
+                });
+            }
+        }
+        
+        // Merge all parsed configurations
+        if (parsedConfigs.length > 0) {
+            const mergedConfig = this.mergeConfigurations(parsedConfigs);
+            
+            // Display results
+            const successCount = fileStatuses.filter(f => f.success).length;
+            
+            // Get warnings from the MERGED config validation only
+            const mergedWarnings = mergedConfig.warnings || [];
+            
+            // Create file status HTML
+            const filesHTML = fileStatuses.map(f => {
+                if (f.success) {
+                    return `<div style="padding: 5px; background: #e8f5e9; border-left: 3px solid #4caf50; margin: 5px 0; color: #2e7d32;">
+                        ✅ <strong style="color: #1b5e20;">${f.name}</strong> - <span style="color: #33691e;">${f.settingsCount} settings</span> ${f.parser ? `<span style="color: #424242; font-size: 0.85em;">(${f.parser})</span>` : ''}
+                    </div>`;
+                } else {
+                    return `<div style="padding: 5px; background: #ffebee; border-left: 3px solid #f44336; margin: 5px 0; color: #c62828;">
+                        ❌ <strong style="color: #b71c1c;">${f.name}</strong> - <span style="color: #c62828;">${f.error}</span>
+                    </div>`;
+                }
+            }).join('');
+            
+            // Create warnings HTML from merged validation only
+            let warningsHTML = '';
+            if (mergedWarnings.length > 0) {
+                const warningsList = mergedWarnings.map(w => {
+                    const icon = w.level === 'error' ? '❌' : w.level === 'warning' ? '⚠️' : 'ℹ️';
+                    const color = w.level === 'error' ? '#f44336' : w.level === 'warning' ? '#ff9800' : '#2196f3';
+                    return `
+                        <div style="padding: 8px; margin: 5px 0; border-left: 3px solid ${color}; background: #fff; border-radius: 3px;">
+                            <strong style="color: ${color};">${icon} ${w.level.toUpperCase()}</strong>
+                            <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #333;">${w.message}</p>
+                        </div>
+                    `;
+                }).join('');
+                
+                warningsHTML = `
+                    <div style="margin: 10px 0;">
+                        <button id="toggleWarningsBtn" style="background: #ff9800; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 0.9em;">
+                            <span id="warningToggleIcon">+</span> ${mergedWarnings.length} Warning(s) - Click to View
+                        </button>
+                        <div id="warningsContent" style="display: none; margin-top: 10px; padding: 10px; background: #fff3e0; border-radius: 4px; border: 1px solid #ff9800;">
+                            ${warningsList}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            resultDiv.innerHTML = `
+                <div style="background: #e8f5e9; padding: 15px; border-radius: 5px; border-left: 4px solid #4caf50;">
+                    <h4 style="margin: 0 0 10px 0; color: #2e7d32;">✅ Parsed ${successCount} of ${this.tempConfigFiles.length} file(s)</h4>
+                    <div style="margin: 10px 0;">
+                        ${filesHTML}
+                    </div>
+                    ${warningsHTML}
+                    <button class="btn-primary" id="applyParsedConfigBtn" style="margin-top: 10px; padding: 10px 20px; font-size: 1em;">
+                        ✨ Apply Settings to Profile
+                    </button>
+                </div>
+            `;
+            
+            // Store merged config
+            this.tempParsedConfig = mergedConfig;
+            
+            // Add Apply button handler
+            document.getElementById('applyParsedConfigBtn').addEventListener('click', () => {
+                this.applyParsedConfig();
+            });
+            
+            // Add warnings toggle handler if present
+            const toggleBtn = document.getElementById('toggleWarningsBtn');
+            if (toggleBtn) {
+                    toggleBtn.addEventListener('click', () => {
+                    const content = document.getElementById('warningsContent');
+                    const icon = document.getElementById('warningToggleIcon');
+                    
+                    if (content.style.display === 'none') {
+                        content.style.display = 'block';
+                        icon.textContent = '−';
+                        toggleBtn.innerHTML = `<span id="warningToggleIcon">−</span> ${mergedWarnings.length} Warning(s) - Click to Hide`;
+                    } else {
+                        content.style.display = 'none';
+                        icon.textContent = '+';
+                        toggleBtn.innerHTML = `<span id="warningToggleIcon">+</span> ${mergedWarnings.length} Warning(s) - Click to View`;
+                    }
+                });
+            }
+        } else {
+            resultDiv.innerHTML = '<p style="color: red;">❌ Failed to parse any files</p>';
+        }
+    }
+    
+    /**
+     * Read file as text (Promise-based)
+     */
+    readFileAsText(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (e) => resolve(e.target.result);
+            reader.onerror = () => reject(new Error('Failed to read file'));
+            reader.readAsText(file);
+        });
+    }
+    
+    /**
+     * Count settings in parsed config
+     */
+    countSettings(parsed) {
+        let count = 0;
+        Object.keys(parsed).forEach(category => {
+            if (typeof parsed[category] === 'object' && !Array.isArray(parsed[category]) && category !== 'warnings') {
+                count += Object.keys(parsed[category]).length;
+            }
+        });
+        return count;
+    }
+    
+    /**
+     * Merge multiple parsed configurations (later files override earlier ones)
+     */
+    mergeConfigurations(configs) {
+        const merged = {
+            basic: {},
+            hardware: {},
+            temperature: {},
+            motion: {},
+            probe: {},
+            bedLeveling: {},
+            advanced: {},
+            safety: {},
+            warnings: []
+        };
+        
+        // Special handling for TH3D: preserve userPrinterNameValue across merges
+        let th3dUserPrinterName = null;
+        
+        // Merge each config in order (DON'T accumulate warnings yet)
+        for (const config of configs) {
+            // TH3D: Store USER_PRINTER_NAME value if found AND it's not a placeholder
+            if (config.basic && config.basic.userPrinterNameValue) {
+                const value = config.basic.userPrinterNameValue.trim();
+                // Only store if it's NOT a placeholder
+                if (value && 
+                    value !== 'SHORT_BUILD_VERSION' && 
+                    value !== 'USER_PRINTER_NAME' && 
+                    value !== 'Marlin' && 
+                    value !== 'MACHINE_NAME' &&
+                    !value.includes('BUILD_VERSION')) {
+                    th3dUserPrinterName = value;
+                    console.log('🎯 Found TH3D USER_PRINTER_NAME:', th3dUserPrinterName);
+                }
+            }
+            
+            // Merge each category with SMART OVERWRITE protection
+            Object.keys(config).forEach(category => {
+                if (category !== 'warnings') { // Skip warnings for now
+                    if (typeof config[category] === 'object' && !Array.isArray(config[category])) {
+                        // For basic.machineName, DON'T overwrite good values with placeholders
+                        if (category === 'basic' && config.basic.machineName) {
+                            const newValue = config.basic.machineName.trim();
+                            const isPlaceholder = (newValue === 'SHORT_BUILD_VERSION' || 
+                                                  newValue === 'USER_PRINTER_NAME' || 
+                                                  newValue === 'Marlin' || 
+                                                  newValue === 'MACHINE_NAME' ||
+                                                  newValue.includes('BUILD_VERSION'));
+                            
+                            // Only overwrite if we don't have a value yet OR if new value is NOT a placeholder
+                            if (!merged.basic.machineName || !isPlaceholder) {
+                                merged[category] = { ...merged[category], ...config[category] };
+                            } else {
+                                // Keep old machineName, merge everything else
+                                const oldMachineName = merged.basic.machineName;
+                                merged[category] = { ...merged[category], ...config[category] };
+                                merged.basic.machineName = oldMachineName;
+                                console.log('🛡️ Protected machineName "' + oldMachineName + '" from being overwritten by placeholder "' + newValue + '"');
+                            }
+                        } else {
+                            // Normal merge for other categories
+                            merged[category] = { ...merged[category], ...config[category] };
+                        }
+                    }
+                }
+            });
+        }
+        
+        // TH3D: After merge, check if machineName is a placeholder or variable reference
+        if (merged.basic.machineName) {
+            const name = merged.basic.machineName.trim();
+            // If it's a placeholder OR variable reference, use the stored value
+            if (name === 'SHORT_BUILD_VERSION' || 
+                name === 'USER_PRINTER_NAME' ||  // This is a variable reference from backend file!
+                name === 'Marlin' || 
+                name === 'MACHINE_NAME' ||
+                name.includes('BUILD_VERSION')) {
+                if (th3dUserPrinterName) {
+                    merged.basic.machineName = th3dUserPrinterName;
+                    console.log('✅ Replaced placeholder/variable "' + name + '" with stored value:', th3dUserPrinterName);
+                } else {
+                    console.log('⚠️ Found placeholder/variable "' + name + '" but no stored USER_PRINTER_NAME value!');
+                }
+            }
+        }
+        
+        // TH3D: Preserve the stored value for debugging
+        if (th3dUserPrinterName) {
+            merged.basic.userPrinterNameValue = th3dUserPrinterName;
+        }
+        
+        // Now validate the MERGED configuration once
+        this.validateMergedConfig(merged);
+        
+        return merged;
+    }
+    
+    /**
+     * Validate merged configuration and add warnings
+     */
+    validateMergedConfig(config) {
+        config.warnings = []; // Clear any existing warnings
+        
+        // Check for missing critical settings
+        if (!config.basic.motherboard) {
+            config.warnings.push({
+                level: 'error',
+                message: 'No motherboard defined (MOTHERBOARD)'
+            });
+        }
+        
+        if (!config.motion.stepsPerMM) {
+            config.warnings.push({
+                level: 'warning',
+                message: 'No steps per mm defined (DEFAULT_AXIS_STEPS_PER_UNIT)'
+            });
+        }
+        
+        // Check for suspicious values
+        if (config.motion.stepsPerMM) {
+            if (config.motion.stepsPerMM.e < 50 || config.motion.stepsPerMM.e > 1000) {
+                config.warnings.push({
+                    level: 'warning',
+                    message: `E-steps value (${config.motion.stepsPerMM.e}) seems unusual. Typical range: 50-1000`
+                });
+            }
+        }
+        
+        // Check PID values
+        if (config.temperature.pidHotendEnabled) {
+            if (!config.temperature.pidHotendP || !config.temperature.pidHotendI || !config.temperature.pidHotendD) {
+                config.warnings.push({
+                    level: 'warning',
+                    message: 'PID enabled but values not fully defined'
+                });
+            }
+        }
+        
+        // Check probe without bed leveling
+        if (config.probe.type && !config.bedLeveling.type) {
+            config.warnings.push({
+                level: 'info',
+                message: 'Probe detected but no bed leveling enabled'
+            });
+        }
+        
+        // Check thermal protection (CRITICAL)
+        if (!config.safety.thermalProtectionHotend) {
+            config.warnings.push({
+                level: 'error',
+                message: 'Thermal protection for hotend is DISABLED! This is dangerous!'
+            });
+        }
+        
+        if (!config.safety.thermalProtectionBed) {
+            config.warnings.push({
+                level: 'error',
+                message: 'Thermal protection for bed is DISABLED! This is dangerous!'
+            });
+        }
+    }
+    
+    /**
+     * Handle Configuration.h file upload (single file - legacy)
      */
     handleConfigFile(file) {
         const resultDiv = document.getElementById('uploadResult');
@@ -1847,16 +2485,75 @@ class EnhancedPrinterProfiles {
                     const parsed = ConfigParser.parseConfigurationH(content);
                     
                     if (parsed && Object.keys(parsed).length > 0) {
+                        // Count settings found
+                        let settingsCount = 0;
+                        Object.keys(parsed).forEach(category => {
+                            if (typeof parsed[category] === 'object' && !Array.isArray(parsed[category])) {
+                                settingsCount += Object.keys(parsed[category]).length;
+                            }
+                        });
+                        
+                        // Create warnings HTML if present
+                        let warningsHTML = '';
+                        if (parsed.warnings && parsed.warnings.length > 0) {
+                            const warningsList = parsed.warnings.map(w => {
+                                const icon = w.level === 'error' ? '❌' : w.level === 'warning' ? '⚠️' : 'ℹ️';
+                                const color = w.level === 'error' ? '#f44336' : w.level === 'warning' ? '#ff9800' : '#2196f3';
+                                return `
+                                    <div style="padding: 8px; margin: 5px 0; border-left: 3px solid ${color}; background: #fff; border-radius: 3px;">
+                                        <strong style="color: ${color};">${icon} ${w.level.toUpperCase()}</strong>
+                                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #333;">${w.message}</p>
+                                    </div>
+                                `;
+                            }).join('');
+                            
+                            warningsHTML = `
+                                <div style="margin: 10px 0;">
+                                    <button id="toggleWarningsBtn" style="background: #ff9800; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 0.9em;">
+                                        <span id="warningToggleIcon">+</span> ${parsed.warnings.length} Warning(s) - Click to View
+                                    </button>
+                                    <div id="warningsContent" style="display: none; margin-top: 10px; padding: 10px; background: #fff3e0; border-radius: 4px; border: 1px solid #ff9800;">
+                                        ${warningsList}
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        
                         resultDiv.innerHTML = `
                             <div style="background: #e8f5e9; padding: 15px; border-radius: 5px; border-left: 4px solid #4caf50;">
                                 <h4 style="margin: 0 0 10px 0; color: #4caf50;">✅ Configuration.h Parsed Successfully!</h4>
-                                <p>Found ${Object.keys(parsed).length} settings</p>
-                                <button class="btn-primary" onclick="applyParsedConfig()">Apply to Profile</button>
+                                <p>Found ${settingsCount} settings across ${Object.keys(parsed).length - 1} categories</p>
+                                ${warningsHTML}
+                                <button class="btn-primary" id="applyParsedConfigBtn" style="margin-top: 10px;">✨ Apply to Profile</button>
                             </div>
                         `;
                         
                         // Store parsed data temporarily
                         this.tempParsedConfig = parsed;
+                        
+                        // Add button handler for Apply button
+                        document.getElementById('applyParsedConfigBtn').addEventListener('click', () => {
+                            this.applyParsedConfig();
+                        });
+                        
+                        // Add toggle handler for warnings button if present
+                        const toggleBtn = document.getElementById('toggleWarningsBtn');
+                        if (toggleBtn) {
+                            toggleBtn.addEventListener('click', () => {
+                                const content = document.getElementById('warningsContent');
+                                const icon = document.getElementById('warningToggleIcon');
+                                
+                                if (content.style.display === 'none') {
+                                    content.style.display = 'block';
+                                    icon.textContent = '−';
+                                    toggleBtn.innerHTML = `<span id="warningToggleIcon">−</span> ${parsed.warnings.length} Warning(s) - Click to Hide`;
+                                } else {
+                                    content.style.display = 'none';
+                                    icon.textContent = '+';
+                                    toggleBtn.innerHTML = `<span id="warningToggleIcon">+</span> ${parsed.warnings.length} Warning(s) - Click to View`;
+                                }
+                            });
+                        }
                     } else {
                         resultDiv.innerHTML = '<p style="color: orange;">⚠️ No recognizable settings found in file</p>';
                     }
@@ -1875,6 +2572,289 @@ class EnhancedPrinterProfiles {
         };
         
         reader.readAsText(file);
+    }
+    
+    /**
+     * Apply parsed Configuration.h to current profile
+     */
+    applyParsedConfig() {
+        if (!this.tempParsedConfig) {
+            alert('No parsed configuration data available');
+            return;
+        }
+        
+        const parsed = this.tempParsedConfig;
+        console.log('📥 Applying parsed config:', parsed);
+        
+        // Basic Info
+        if (parsed.basic) {
+            console.log('📋 parsed.basic:', parsed.basic);
+            console.log('   machineName:', parsed.basic.machineName);
+            console.log('   author:', parsed.basic.author);
+            
+            // Try to extract a meaningful profile name with fallbacks
+            let profileName = '';
+            
+            // 1. Try CUSTOM_MACHINE_NAME (skip if it's a placeholder)
+            if (parsed.basic.machineName) {
+                const name = parsed.basic.machineName.trim();
+                if (name && 
+                    name !== 'SHORT_BUILD_VERSION' && 
+                    name !== 'Marlin' && 
+                    name !== 'MACHINE_NAME' &&
+                    !name.includes('BUILD_VERSION')) {
+                    profileName = name;
+                    console.log('   ✅ Using CUSTOM_MACHINE_NAME:', profileName);
+                }
+            }
+            
+            // 2. Fallback: Try to derive from author string
+            if (!profileName && parsed.basic.author) {
+                const author = parsed.basic.author.trim();
+                if (author && author !== 'default' && author !== 'unknown') {
+                    profileName = author;
+                    console.log('   ✅ Using author as name:', profileName);
+                }
+            }
+            
+            // 3. Apply the profile name if we found one
+            if (profileName) {
+                this.currentProfile.name = profileName;
+                console.log('✅ Profile name set to:', profileName);
+            } else {
+                console.log('⚠️ No suitable profile name found in config files');
+            }
+            
+            if (parsed.basic.motherboard) {
+                if (!this.currentProfile.hardware) this.currentProfile.hardware = {};
+                this.currentProfile.hardware.board = parsed.basic.motherboard;
+            }
+            if (parsed.basic.bedSizeX && parsed.basic.bedSizeY) {
+                if (!this.currentProfile.bedSize) this.currentProfile.bedSize = {};
+                this.currentProfile.bedSize.x = parsed.basic.bedSizeX;
+                this.currentProfile.bedSize.y = parsed.basic.bedSizeY;
+            }
+            if (parsed.basic.zMaxPos) {
+                if (!this.currentProfile.bedSize) this.currentProfile.bedSize = {};
+                this.currentProfile.bedSize.z = parsed.basic.zMaxPos;
+            }
+        }
+        
+        // Hardware
+        if (parsed.hardware) {
+            if (!this.currentProfile.hardware) this.currentProfile.hardware = {};
+            if (!this.currentProfile.hardware.drivers) this.currentProfile.hardware.drivers = {};
+            if (!this.currentProfile.hardware.thermistors) this.currentProfile.hardware.thermistors = {};
+            
+            // Drivers
+            if (parsed.hardware.driverX) this.currentProfile.hardware.drivers.x = parsed.hardware.driverX;
+            if (parsed.hardware.driverY) this.currentProfile.hardware.drivers.y = parsed.hardware.driverY;
+            if (parsed.hardware.driverZ) this.currentProfile.hardware.drivers.z = parsed.hardware.driverZ;
+            if (parsed.hardware.driverE0) this.currentProfile.hardware.drivers.e = parsed.hardware.driverE0;
+            
+            // Thermistors
+            if (parsed.hardware.thermistorHotend) {
+                this.currentProfile.hardware.thermistors.hotend = parsed.hardware.thermistorHotend.toString();
+            }
+            if (parsed.hardware.thermistorBed) {
+                this.currentProfile.hardware.thermistors.bed = parsed.hardware.thermistorBed.toString();
+            }
+            
+            // Display
+            if (parsed.hardware.displayType) {
+                this.currentProfile.hardware.display = parsed.hardware.displayType;
+            }
+        }
+        
+        // Temperature
+        if (parsed.temperature) {
+            if (!this.currentProfile.temperature) this.currentProfile.temperature = {};
+            
+            // Hotend
+            if (!this.currentProfile.temperature.hotend) this.currentProfile.temperature.hotend = {};
+            if (parsed.temperature.hotendMaxTemp) {
+                this.currentProfile.temperature.hotend.max = parsed.temperature.hotendMaxTemp;
+            }
+            if (parsed.temperature.pidHotendP !== undefined) {
+                if (!this.currentProfile.temperature.hotend.pid) this.currentProfile.temperature.hotend.pid = {};
+                this.currentProfile.temperature.hotend.pid.p = parsed.temperature.pidHotendP;
+                this.currentProfile.temperature.hotend.pid.i = parsed.temperature.pidHotendI || 0;
+                this.currentProfile.temperature.hotend.pid.d = parsed.temperature.pidHotendD || 0;
+            }
+            
+            // Bed
+            if (!this.currentProfile.temperature.bed) this.currentProfile.temperature.bed = {};
+            if (parsed.temperature.bedMaxTemp) {
+                this.currentProfile.temperature.bed.max = parsed.temperature.bedMaxTemp;
+            }
+            if (parsed.temperature.pidBedP !== undefined) {
+                if (!this.currentProfile.temperature.bed.pid) this.currentProfile.temperature.bed.pid = {};
+                this.currentProfile.temperature.bed.pid.p = parsed.temperature.pidBedP;
+                this.currentProfile.temperature.bed.pid.i = parsed.temperature.pidBedI || 0;
+                this.currentProfile.temperature.bed.pid.d = parsed.temperature.pidBedD || 0;
+            }
+        }
+        
+        // Motion
+        if (parsed.motion) {
+            if (!this.currentProfile.motion) this.currentProfile.motion = {};
+            
+            // Steps per mm
+            if (parsed.motion.stepsPerMM) {
+                this.currentProfile.motion.steps = {
+                    x: parsed.motion.stepsPerMM.x || 80,
+                    y: parsed.motion.stepsPerMM.y || 80,
+                    z: parsed.motion.stepsPerMM.z || 400,
+                    e: parsed.motion.stepsPerMM.e || 93
+                };
+            }
+            
+            // Max feedrates
+            if (parsed.motion.maxFeedrate) {
+                this.currentProfile.motion.maxFeedrates = {
+                    x: parsed.motion.maxFeedrate.x || 500,
+                    y: parsed.motion.maxFeedrate.y || 500,
+                    z: parsed.motion.maxFeedrate.z || 5,
+                    e: parsed.motion.maxFeedrate.e || 25
+                };
+            }
+            
+            // Max acceleration
+            if (parsed.motion.maxAcceleration) {
+                this.currentProfile.motion.maxAccel = {
+                    x: parsed.motion.maxAcceleration.x || 500,
+                    y: parsed.motion.maxAcceleration.y || 500,
+                    z: parsed.motion.maxAcceleration.z || 100,
+                    e: parsed.motion.maxAcceleration.e || 5000
+                };
+            }
+            
+            // Jerk
+            if (parsed.motion.jerkX !== undefined) {
+                this.currentProfile.motion.jerk = {
+                    x: parsed.motion.jerkX || 8,
+                    y: parsed.motion.jerkY || 8,
+                    z: parsed.motion.jerkZ || 0.4,
+                    e: parsed.motion.jerkE || 5
+                };
+            }
+            
+            // Other accelerations
+            if (parsed.motion.defaultAcceleration) {
+                this.currentProfile.motion.printAccel = parsed.motion.defaultAcceleration;
+            }
+            if (parsed.motion.retractAcceleration) {
+                this.currentProfile.motion.retractAccel = parsed.motion.retractAcceleration;
+            }
+            if (parsed.motion.travelAcceleration) {
+                this.currentProfile.motion.travelAccel = parsed.motion.travelAcceleration;
+            }
+        }
+        
+        // Probe
+        if (parsed.probe && parsed.probe.type) {
+            if (!this.currentProfile.probe) this.currentProfile.probe = {};
+            this.currentProfile.probe.type = parsed.probe.type.toLowerCase();
+            
+            if (parsed.probe.offset) {
+                this.currentProfile.probe.offsets = {
+                    x: parsed.probe.offset.x || 0,
+                    y: parsed.probe.offset.y || 0,
+                    z: parsed.probe.offset.z || 0
+                };
+            }
+        }
+        
+        // Bed Leveling
+        if (parsed.bedLeveling && parsed.bedLeveling.type) {
+            if (!this.currentProfile.bedLeveling) this.currentProfile.bedLeveling = {};
+            this.currentProfile.bedLeveling.type = parsed.bedLeveling.type.toLowerCase();
+            
+            if (parsed.bedLeveling.gridPointsX) {
+                this.currentProfile.bedLeveling.gridPoints = {
+                    x: parsed.bedLeveling.gridPointsX,
+                    y: parsed.bedLeveling.gridPointsY || parsed.bedLeveling.gridPointsX
+                };
+            }
+            if (parsed.bedLeveling.fadeHeight !== undefined) {
+                this.currentProfile.bedLeveling.fadeHeight = parsed.bedLeveling.fadeHeight;
+            }
+        }
+        
+        // Advanced Features
+        if (parsed.advanced) {
+            if (!this.currentProfile.advanced) this.currentProfile.advanced = {};
+            
+            if (parsed.advanced.linearAdvance !== undefined) {
+                this.currentProfile.advanced.linearAdvance = {
+                    enabled: parsed.advanced.linearAdvance === true,
+                    k: parsed.advanced.linearAdvanceK || 0,
+                    type: 'marlin'
+                };
+            }
+            if (parsed.advanced.arcSupport !== undefined) {
+                this.currentProfile.advanced.arcSupport = parsed.advanced.arcSupport;
+            }
+            if (parsed.advanced.nozzlePark !== undefined) {
+                this.currentProfile.advanced.nozzlePark = parsed.advanced.nozzlePark;
+            }
+            if (parsed.advanced.powerLossRecovery !== undefined) {
+                if (!this.currentProfile.safety) this.currentProfile.safety = {};
+                this.currentProfile.safety.powerLossRecovery = {
+                    enabled: parsed.advanced.powerLossRecovery,
+                    type: 'basic'
+                };
+            }
+        }
+        
+        // Safety
+        if (parsed.safety) {
+            if (!this.currentProfile.safety) this.currentProfile.safety = {};
+            if (!this.currentProfile.safety.thermalProtection) this.currentProfile.safety.thermalProtection = {};
+            
+            if (parsed.safety.thermalProtectionHotend !== undefined) {
+                this.currentProfile.safety.thermalProtection.hotend = parsed.safety.thermalProtectionHotend;
+            }
+            if (parsed.safety.thermalProtectionBed !== undefined) {
+                this.currentProfile.safety.thermalProtection.bed = parsed.safety.thermalProtectionBed;
+            }
+            if (parsed.safety.filamentSensor !== undefined) {
+                this.currentProfile.advanced.runoutSensor = {
+                    enabled: parsed.safety.filamentSensor,
+                    type: 'mechanical'
+                };
+            }
+        }
+        
+        // Update modified timestamp
+        this.currentProfile.modified = new Date().toISOString();
+        
+        // Show success message
+        const resultDiv = document.getElementById('uploadResult');
+        resultDiv.innerHTML = `
+            <div style="background: #4caf50; color: white; padding: 15px; border-radius: 5px;">
+                <h4 style="margin: 0 0 10px 0;">✅ Settings Applied Successfully!</h4>
+                <p style="margin: 0;">Profile updated with ${Object.keys(parsed).length - 1} categories of settings</p>
+                ${parsed.warnings && parsed.warnings.length > 0 ? 
+                    `<p style="margin: 10px 0 0 0; padding: 10px; background: rgba(255,255,255,0.2); border-radius: 4px;">
+                        ⚠️ ${parsed.warnings.length} warning(s) - Please review manually
+                    </p>` : ''}
+            </div>
+        `;
+        
+        // Switch to Tab 1 to show updated profile name
+        this.switchTab(1);
+        
+        // Force update the profile name field
+        setTimeout(() => {
+            const profileNameInput = document.getElementById('profileName');
+            if (profileNameInput && this.currentProfile.name) {
+                profileNameInput.value = this.currentProfile.name;
+                console.log('✅ Profile name field updated to:', this.currentProfile.name);
+            }
+        }, 100);
+        
+        console.log('✅ Configuration applied to profile:', this.currentProfile);
     }
     
     /**
@@ -2274,10 +3254,10 @@ class EnhancedPrinterProfiles {
         const firmwareType = document.getElementById('firmwareType');
         
         if (uploadBtn && firmwareType) {
-            const isMarlin = firmwareType.value === 'marlin';
-            uploadBtn.disabled = !isMarlin;
-            uploadBtn.style.opacity = isMarlin ? '1' : '0.5';
-            uploadBtn.title = isMarlin ? 'Upload Configuration.h file' : 'Only available for Marlin firmware';
+            const isMarlinBased = firmwareType.value === 'marlin' || firmwareType.value === 'th3d';
+            uploadBtn.disabled = !isMarlinBased;
+            uploadBtn.style.opacity = isMarlinBased ? '1' : '0.5';
+            uploadBtn.title = isMarlinBased ? 'Upload Configuration.h file' : 'Only available for Marlin-based firmware';
         }
     }
     
@@ -2285,13 +3265,19 @@ class EnhancedPrinterProfiles {
      * Update progress indicator
      */
     updateProgress() {
-        // TODO: Calculate completion percentage
-        const completed = 1; // Placeholder
-        const total = 10;
-        const percent = (completed / total) * 100;
+        // Progress elements not currently in modal - skip silently
+        const progressEl = document.getElementById('profileProgress');
+        const progressBarEl = document.getElementById('profileProgressBar');
         
-        document.getElementById('profileProgress').textContent = `${completed}/${total}`;
-        document.getElementById('profileProgressBar').style.width = `${percent}%`;
+        if (progressEl && progressBarEl) {
+            // TODO: Calculate completion percentage
+            const completed = 1; // Placeholder
+            const total = 10;
+            const percent = (completed / total) * 100;
+            
+            progressEl.textContent = `${completed}/${total}`;
+            progressBarEl.style.width = `${percent}%`;
+        }
     }
     
     /**

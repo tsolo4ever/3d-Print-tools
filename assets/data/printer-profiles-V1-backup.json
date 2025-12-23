@@ -1,0 +1,101 @@
+{
+  "_comment": "Known Printer Configuration Profiles - References other databases for details",
+  "printers": [
+    {
+      "id": "ENDER3",
+      "name": "Creality Ender 3",
+      "manufacturer": "Creality",
+      "variants": ["Ender 3", "Ender 3 Pro", "Ender 3 X"],
+      "kinematics": "CARTESIAN",
+      "bedSize": {
+        "x": 235,
+        "y": 235,
+        "z": 250
+      },
+      "stockBoard": "BOARD_MELZI_CREALITY",
+      "stockDisplay": "CR10_STOCKDISPLAY",
+      "stockHotend": "HOTEND_CREALITY_MK8",
+      "stockProbe": null,
+      "bedType": "aluminum",
+      "extruderType": "bowden",
+      "notes": "Most popular budget printer. Huge community support."
+    },
+    {
+      "id": "ENDER3_V2",
+      "name": "Creality Ender 3 V2",
+      "manufacturer": "Creality",
+      "variants": ["Ender 3 V2"],
+      "kinematics": "CARTESIAN",
+      "bedSize": {
+        "x": 235,
+        "y": 235,
+        "z": 250
+      },
+      "stockBoard": "BOARD_CREALITY_V422",
+      "stockDisplay": "DWIN_CREALITY_LCD",
+      "stockHotend": "HOTEND_CREALITY_MK8",
+      "stockProbe": null,
+      "bedType": "glass",
+      "extruderType": "bowden",
+      "notes": "Silent 32-bit upgrade. DWIN color screen."
+    },
+    {
+      "id": "ENDER3_S1",
+      "name": "Creality Ender 3 S1",
+      "manufacturer": "Creality",
+      "variants": ["Ender 3 S1", "Ender 3 S1 Pro", "Ender 3 S1 Plus"],
+      "kinematics": "CARTESIAN",
+      "bedSize": {
+        "x": 235,
+        "y": 235,
+        "z": 270
+      },
+      "stockBoard": "BOARD_CREALITY_V452",
+      "stockDisplay": "DWIN_CREALITY_LCD",
+      "stockHotend": "HOTEND_CREALITY_SPRITE",
+      "stockProbe": "crtouch",
+      "bedType": "pei",
+      "extruderType": "direct",
+      "notes": "Direct drive Sprite extruder. CR Touch included."
+    },
+    {
+      "id": "PRUSA_MK3S",
+      "name": "Prusa i3 MK3S+",
+      "manufacturer": "Prusa Research",
+      "variants": ["MK3", "MK3S", "MK3S+"],
+      "kinematics": "CARTESIAN",
+      "bedSize": {
+        "x": 250,
+        "y": 210,
+        "z": 210
+      },
+      "stockBoard": "BOARD_EINSY_RAMBO",
+      "stockDisplay": "REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER",
+      "stockHotend": "HOTEND_PRUSA_E3D_V6",
+      "stockProbe": "pinda",
+      "bedType": "spring-steel",
+      "extruderType": "direct",
+      "notes": "Industry standard. Excellent documentation."
+    },
+    {
+      "id": "VORON_2_4",
+      "name": "Voron 2.4",
+      "manufacturer": "Voron Design (Community)",
+      "variants": ["250mm", "300mm", "350mm"],
+      "kinematics": "COREXY",
+      "bedSize": {
+        "x": 250,
+        "y": 250,
+        "z": 250
+      },
+      "bedSizeNote": "Also available in 300x300x300 and 350x350x350",
+      "stockBoard": "BOARD_BTT_OCTOPUS_V1_1",
+      "stockDisplay": "FYSETC_MINI_12864_2_1",
+      "stockHotend": "HOTEND_PHAETUS_DRAGON_STANDARD",
+      "stockProbe": "klicky",
+      "bedType": "aluminum",
+      "extruderType": "direct",
+      "notes": "High-performance CoreXY. Usually runs Klipper, but Marlin supported."
+    }
+  ]
+}

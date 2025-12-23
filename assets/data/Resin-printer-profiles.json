@@ -1,0 +1,2019 @@
+{
+  "_comment": "Resin Printer Configuration Profiles - MSLA, DLP, SLA, SLS Technologies",
+  "printers": [
+    {
+      "_section": "=== CREALITY RESIN PRINTERS ==="
+    },
+    {
+      "id": "HALOT_ONE",
+      "name": "Creality Halot One",
+      "manufacturer": "Creality",
+      "variants": ["Halot One", "Halot One Plus", "Halot One Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 127,
+        "y": 80,
+        "z": 160
+      },
+      "stockBoard": "BOARD_CREALITY_HALOT",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "MSLA resin printer. Integral cover. WiFi."
+    },
+    {
+      "id": "HALOT_MAGE",
+      "name": "Creality Halot Mage",
+      "manufacturer": "Creality",
+      "variants": ["Halot Mage", "Halot Mage Pro", "Halot Mage S"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 228,
+        "y": 128,
+        "z": 230
+      },
+      "stockBoard": "BOARD_CREALITY_HALOT",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "10.3 inch 8K screen. Fast flip-lid design."
+    },
+    {
+      "id": "HALOT_SKY",
+      "name": "Creality Halot Sky",
+      "manufacturer": "Creality",
+      "variants": ["Halot Sky"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 200
+      },
+      "stockBoard": "BOARD_CREALITY_HALOT",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K mono screen. WiFi enabled."
+    },
+    {
+      "id": "HALOT_MAX",
+      "name": "Creality Halot Max",
+      "manufacturer": "Creality",
+      "variants": ["Halot Max"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 293,
+        "y": 165,
+        "z": 300
+      },
+      "stockBoard": "BOARD_CREALITY_HALOT",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "13.3 inch 4K screen. Large format resin."
+    },
+    {
+      "id": "HALOT_LITE",
+      "name": "Creality Halot Lite",
+      "manufacturer": "Creality",
+      "variants": ["Halot Lite"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 200
+      },
+      "stockBoard": "BOARD_CREALITY_HALOT",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch mono LCD. Budget large format."
+    },
+    {
+      "id": "HALOT_RAY",
+      "name": "Creality Halot Ray",
+      "manufacturer": "Creality",
+      "variants": ["Halot Ray"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 198,
+        "y": 112,
+        "z": 210
+      },
+      "stockBoard": "BOARD_CREALITY_HALOT",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 8K mono screen. High resolution."
+    },
+    {
+      "id": "LD002H",
+      "name": "Creality LD-002H",
+      "manufacturer": "Creality",
+      "variants": ["LD-002H"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 130,
+        "y": 82,
+        "z": 160
+      },
+      "stockBoard": "BOARD_CREALITY_LD002",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "2K mono LCD. Budget MSLA printer."
+    },
+    {
+      "id": "LD002R",
+      "name": "Creality LD-002R",
+      "manufacturer": "Creality",
+      "variants": ["LD-002R"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 119,
+        "y": 65,
+        "z": 160
+      },
+      "stockBoard": "BOARD_CREALITY_LD002",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "2K RGB LCD. Entry level resin printer."
+    },
+    {
+      "id": "LD006",
+      "name": "Creality LD-006",
+      "manufacturer": "Creality",
+      "variants": ["LD-006"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 250
+      },
+      "stockBoard": "BOARD_CREALITY_LD006",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K mono. Large format budget."
+    },
+    {
+      "_section": "=== ANYCUBIC RESIN PRINTERS ==="
+    },
+    {
+      "id": "ANYCUBIC_PHOTON",
+      "name": "Anycubic Photon",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon", "Photon S", "Photon Zero"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 115,
+        "y": 65,
+        "z": 155
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "2K LCD resin printer. Classic design."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_MONO",
+      "name": "Anycubic Photon Mono",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon Mono", "Photon Mono SE"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 130,
+        "y": 80,
+        "z": 165
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_MONO",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Mono LCD. 2.5s layer cure. Fast printing."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_MONO_4K",
+      "name": "Anycubic Photon Mono 4K",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon Mono 4K"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 132,
+        "y": 80,
+        "z": 165
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_MONO",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "6.23 inch 4K mono LCD. High resolution."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_MONO_X",
+      "name": "Anycubic Photon Mono X",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon Mono X", "Photon Mono X 6K", "Photon Mono X2"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 245
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_MONO",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K screen. Large resin printer."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_M3",
+      "name": "Anycubic Photon M3",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon M3"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 180,
+        "y": 163,
+        "z": 180
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_M3",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "7.6 inch 4K+ screen. Auto-leveling."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_M3_PLUS",
+      "name": "Anycubic Photon M3 Plus",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon M3 Plus"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 197,
+        "y": 122,
+        "z": 245
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_M3",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "9.25 inch 6K screen. Large format."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_M3_MAX",
+      "name": "Anycubic Photon M3 Max",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon M3 Max"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 298,
+        "y": 164,
+        "z": 300
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_M3",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "13.6 inch 7K screen. Very large format."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_M3_PREMIUM",
+      "name": "Anycubic Photon M3 Premium",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon M3 Premium"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 219,
+        "y": 123,
+        "z": 250
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_M3",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "10.1 inch 8K screen. Premium features."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_MONO_M5",
+      "name": "Anycubic Photon Mono M5",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon Mono M5"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 218,
+        "y": 123,
+        "z": 200
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_M5",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "12K resolution. Smart resin detection."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_MONO_M5S",
+      "name": "Anycubic Photon Mono M5s",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon Mono M5s"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 218,
+        "y": 123,
+        "z": 200
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_M5",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "12K resolution. High-speed printing. Leveling-free."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_MONO_M5S_PRO",
+      "name": "Anycubic Photon Mono M5s Pro",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon Mono M5s Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 223,
+        "y": 126,
+        "z": 200
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_M5",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "14K resolution. 3x printing speed."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_D2",
+      "name": "Anycubic Photon D2",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon D2"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 131,
+        "y": 73,
+        "z": 165
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_D2",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "DLP projector. No LCD degradation. Long life."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_ULTRA",
+      "name": "Anycubic Photon Ultra",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon Ultra"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 102,
+        "y": 57,
+        "z": 165
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_ULTRA",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "DLP technology. Texas Instruments DMD chip."
+    },
+    {
+      "_section": "=== ELEGOO RESIN PRINTERS ==="
+    },
+    {
+      "id": "ELEGOO_MARS",
+      "name": "Elegoo Mars",
+      "manufacturer": "Elegoo",
+      "variants": ["Mars", "Mars Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 120,
+        "y": 68,
+        "z": 155
+      },
+      "stockBoard": "BOARD_ELEGOO_MARS",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Popular budget MSLA. 2K RGB LCD."
+    },
+    {
+      "id": "ELEGOO_MARS_2",
+      "name": "Elegoo Mars 2",
+      "manufacturer": "Elegoo",
+      "variants": ["Mars 2", "Mars 2 Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 129,
+        "y": 80,
+        "z": 150
+      },
+      "stockBoard": "BOARD_ELEGOO_MARS_2",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "2K mono LCD. 2-second layer time."
+    },
+    {
+      "id": "ELEGOO_MARS_3",
+      "name": "Elegoo Mars 3",
+      "manufacturer": "Elegoo",
+      "variants": ["Mars 3", "Mars 3 Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 143,
+        "y": 89,
+        "z": 175
+      },
+      "stockBoard": "BOARD_ELEGOO_MARS_3",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "4K mono screen. Larger build plate."
+    },
+    {
+      "id": "ELEGOO_MARS_4",
+      "name": "Elegoo Mars 4",
+      "manufacturer": "Elegoo",
+      "variants": ["Mars 4"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 153,
+        "y": 96,
+        "z": 150
+      },
+      "stockBoard": "BOARD_ELEGOO_MARS_4",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "9K resolution. WiFi enabled. ACF film."
+    },
+    {
+      "id": "ELEGOO_MARS_4_ULTRA",
+      "name": "Elegoo Mars 4 Ultra",
+      "manufacturer": "Elegoo",
+      "variants": ["Mars 4 Ultra"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 153,
+        "y": 96,
+        "z": 150
+      },
+      "stockBoard": "BOARD_ELEGOO_MARS_4",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "9K resolution. Tilt release for easy printing."
+    },
+    {
+      "id": "ELEGOO_MARS_4_MAX",
+      "name": "Elegoo Mars 4 Max",
+      "manufacturer": "Elegoo",
+      "variants": ["Mars 4 Max"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 195,
+        "y": 122,
+        "z": 150
+      },
+      "stockBoard": "BOARD_ELEGOO_MARS_4",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "6K resolution. Larger 9.1 inch screen."
+    },
+    {
+      "id": "ELEGOO_MARS_4_DLP",
+      "name": "Elegoo Mars 4 DLP",
+      "manufacturer": "Elegoo",
+      "variants": ["Mars 4 DLP"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 160,
+        "y": 90,
+        "z": 150
+      },
+      "stockBoard": "BOARD_ELEGOO_MARS_4_DLP",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "DLP projector technology. No LCD wear."
+    },
+    {
+      "id": "ELEGOO_SATURN",
+      "name": "Elegoo Saturn",
+      "manufacturer": "Elegoo",
+      "variants": ["Saturn", "Saturn S"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 200
+      },
+      "stockBoard": "BOARD_ELEGOO_SATURN",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K mono screen. Large MSLA."
+    },
+    {
+      "id": "ELEGOO_SATURN_2",
+      "name": "Elegoo Saturn 2",
+      "manufacturer": "Elegoo",
+      "variants": ["Saturn 2"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 219,
+        "y": 123,
+        "z": 250
+      },
+      "stockBoard": "BOARD_ELEGOO_SATURN_2",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "10 inch 8K mono screen. Very large MSLA."
+    },
+    {
+      "id": "ELEGOO_SATURN_3",
+      "name": "Elegoo Saturn 3",
+      "manufacturer": "Elegoo",
+      "variants": ["Saturn 3"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 218,
+        "y": 123,
+        "z": 250
+      },
+      "stockBoard": "BOARD_ELEGOO_SATURN_3",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "10 inch 12K resolution. WiFi enabled."
+    },
+    {
+      "id": "ELEGOO_SATURN_3_ULTRA",
+      "name": "Elegoo Saturn 3 Ultra",
+      "manufacturer": "Elegoo",
+      "variants": ["Saturn 3 Ultra"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 218,
+        "y": 123,
+        "z": 260
+      },
+      "stockBoard": "BOARD_ELEGOO_SATURN_3",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "12K resolution. Fresnel collimating lens."
+    },
+    {
+      "id": "ELEGOO_SATURN_4",
+      "name": "Elegoo Saturn 4",
+      "manufacturer": "Elegoo",
+      "variants": ["Saturn 4 Ultra"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 218,
+        "y": 123,
+        "z": 220
+      },
+      "stockBoard": "BOARD_ELEGOO_SATURN_4",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "12K resolution. Tilt release mechanism."
+    },
+    {
+      "id": "ELEGOO_JUPITER",
+      "name": "Elegoo Jupiter",
+      "manufacturer": "Elegoo",
+      "variants": ["Jupiter", "Jupiter SE"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 277,
+        "y": 156,
+        "z": 300
+      },
+      "stockBoard": "BOARD_ELEGOO_JUPITER",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "12.8 inch 6K screen. Extra large format."
+    },
+    {
+      "_section": "=== PHROZEN RESIN PRINTERS ==="
+    },
+    {
+      "id": "PHROZEN_SONIC_MINI",
+      "name": "Phrozen Sonic Mini",
+      "manufacturer": "Phrozen",
+      "variants": ["Sonic Mini"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 120,
+        "y": 68,
+        "z": 130
+      },
+      "stockBoard": "BOARD_PHROZEN_SONIC",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "5.5 inch mono LCD. Compact design."
+    },
+    {
+      "id": "PHROZEN_SONIC_MINI_4K",
+      "name": "Phrozen Sonic Mini 4K",
+      "manufacturer": "Phrozen",
+      "variants": ["Sonic Mini 4K"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 134,
+        "y": 75,
+        "z": 130
+      },
+      "stockBoard": "BOARD_PHROZEN_SONIC",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "6.1 inch 4K mono LCD. 35 micron XY."
+    },
+    {
+      "id": "PHROZEN_SONIC_MINI_8K",
+      "name": "Phrozen Sonic Mini 8K",
+      "manufacturer": "Phrozen",
+      "variants": ["Sonic Mini 8K", "Sonic Mini 8K S"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 165,
+        "y": 72,
+        "z": 180
+      },
+      "stockBoard": "BOARD_PHROZEN_SONIC",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "7.1 inch 8K mono. 22 micron XY resolution."
+    },
+    {
+      "id": "PHROZEN_SONIC_MIGHTY_4K",
+      "name": "Phrozen Sonic Mighty 4K",
+      "manufacturer": "Phrozen",
+      "variants": ["Sonic Mighty 4K"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 200,
+        "y": 125,
+        "z": 220
+      },
+      "stockBoard": "BOARD_PHROZEN_SONIC",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "9.3 inch 4K mono LCD. Large format."
+    },
+    {
+      "id": "PHROZEN_SONIC_MIGHTY_8K",
+      "name": "Phrozen Sonic Mighty 8K",
+      "manufacturer": "Phrozen",
+      "variants": ["Sonic Mighty 8K"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 218,
+        "y": 123,
+        "z": 235
+      },
+      "stockBoard": "BOARD_PHROZEN_SONIC",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "10.1 inch 8K mono. Large high-resolution."
+    },
+    {
+      "id": "PHROZEN_SONIC_MEGA_8K",
+      "name": "Phrozen Sonic Mega 8K",
+      "manufacturer": "Phrozen",
+      "variants": ["Sonic Mega 8K", "Sonic Mega 8K S"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 330,
+        "y": 185,
+        "z": 400
+      },
+      "stockBoard": "BOARD_PHROZEN_MEGA",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "15 inch 8K screen. Industrial MSLA."
+    },
+    {
+      "id": "PHROZEN_TRANSFORM",
+      "name": "Phrozen Transform",
+      "manufacturer": "Phrozen",
+      "variants": ["Transform", "Transform Fast"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 292,
+        "y": 165,
+        "z": 400
+      },
+      "stockBoard": "BOARD_PHROZEN_TRANSFORM",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "13.3 inch 4K dual mono screens. Huge format."
+    },
+    {
+      "id": "PHROZEN_SONIC_XL_4K",
+      "name": "Phrozen Sonic XL 4K",
+      "manufacturer": "Phrozen",
+      "variants": ["Sonic XL 4K 2022"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 200,
+        "y": 125,
+        "z": 200
+      },
+      "stockBoard": "BOARD_PHROZEN_XL",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "9.3 inch 4K mono. Industrial applications."
+    },
+    {
+      "_section": "=== PRUSA RESIN PRINTERS ==="
+    },
+    {
+      "id": "PRUSA_SL1",
+      "name": "Prusa SL1",
+      "manufacturer": "Prusa Research",
+      "variants": ["SL1"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 120,
+        "y": 68,
+        "z": 150
+      },
+      "stockBoard": "BOARD_PRUSA_SL1",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "5.5 inch 2K screen. Tilt mechanism."
+    },
+    {
+      "id": "PRUSA_SL1S",
+      "name": "Prusa SL1S Speed",
+      "manufacturer": "Prusa Research",
+      "variants": ["SL1S Speed"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 127,
+        "y": 80,
+        "z": 150
+      },
+      "stockBoard": "BOARD_PRUSA_SL1",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "5.96 inch mono LCD. 1.4s layer time."
+    },
+    {
+      "_section": "=== PEOPOLY RESIN PRINTERS ==="
+    },
+    {
+      "id": "PEOPOLY_MOAI",
+      "name": "Peopoly Moai",
+      "manufacturer": "Peopoly",
+      "variants": ["Moai 130", "Moai 200"],
+      "kinematics": "SLA_GALVO",
+      "bedSize": {
+        "x": 130,
+        "y": 130,
+        "z": 180
+      },
+      "stockBoard": "BOARD_PEOPOLY_MOAI",
+      "stockDisplay": "PEOPOLY_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "True SLA with galvo mirrors. High precision."
+    },
+    {
+      "id": "PEOPOLY_PHENOM",
+      "name": "Peopoly Phenom",
+      "manufacturer": "Peopoly",
+      "variants": ["Phenom"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 276,
+        "y": 155,
+        "z": 400
+      },
+      "stockBoard": "BOARD_PEOPOLY_PHENOM",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "12.5 inch 4K mono screen. Large format."
+    },
+    {
+      "id": "PEOPOLY_PHENOM_L",
+      "name": "Peopoly Phenom L",
+      "manufacturer": "Peopoly",
+      "variants": ["Phenom L"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 345,
+        "y": 194,
+        "z": 400
+      },
+      "stockBoard": "BOARD_PEOPOLY_PHENOM",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "15.6 inch 4K screen. Extra large format."
+    },
+    {
+      "id": "PEOPOLY_PHENOM_XXL",
+      "name": "Peopoly Phenom XXL",
+      "manufacturer": "Peopoly",
+      "variants": ["Phenom XXL"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 527,
+        "y": 296,
+        "z": 550
+      },
+      "stockBoard": "BOARD_PEOPOLY_PHENOM",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Massive 23.8 inch 4K. Industrial applications."
+    },
+    {
+      "id": "PEOPOLY_PHENOM_NOIR",
+      "name": "Peopoly Phenom Noir",
+      "manufacturer": "Peopoly",
+      "variants": ["Phenom Noir"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 293,
+        "y": 165,
+        "z": 400
+      },
+      "stockBoard": "BOARD_PEOPOLY_PHENOM",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "14 inch 4K. Optimized for engineering resins."
+    },
+    {
+      "_section": "=== FORMLABS RESIN PRINTERS ==="
+    },
+    {
+      "id": "FORMLABS_FORM_2",
+      "name": "Formlabs Form 2",
+      "manufacturer": "Formlabs",
+      "variants": ["Form 2"],
+      "kinematics": "SLA_GALVO",
+      "bedSize": {
+        "x": 145,
+        "y": 145,
+        "z": 175
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Classic SLA. Galvo laser system."
+    },
+    {
+      "id": "FORMLABS_FORM_3",
+      "name": "Formlabs Form 3",
+      "manufacturer": "Formlabs",
+      "variants": ["Form 3", "Form 3+"],
+      "kinematics": "SLA_LFS",
+      "bedSize": {
+        "x": 145,
+        "y": 145,
+        "z": 185
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Low Force Stereolithography. Professional."
+    },
+    {
+      "id": "FORMLABS_FORM_3L",
+      "name": "Formlabs Form 3L",
+      "manufacturer": "Formlabs",
+      "variants": ["Form 3L"],
+      "kinematics": "SLA_LFS",
+      "bedSize": {
+        "x": 335,
+        "y": 200,
+        "z": 300
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Large format LFS. Dual laser."
+    },
+    {
+      "id": "FORMLABS_FORM_3B",
+      "name": "Formlabs Form 3B",
+      "manufacturer": "Formlabs",
+      "variants": ["Form 3B", "Form 3B+"],
+      "kinematics": "SLA_LFS",
+      "bedSize": {
+        "x": 145,
+        "y": 145,
+        "z": 185
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Biocompatible resin certified. Medical/dental."
+    },
+    {
+      "id": "FORMLABS_FORM_3BL",
+      "name": "Formlabs Form 3BL",
+      "manufacturer": "Formlabs",
+      "variants": ["Form 3BL"],
+      "kinematics": "SLA_LFS",
+      "bedSize": {
+        "x": 335,
+        "y": 200,
+        "z": 300
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Large format biocompatible. Medical/dental."
+    },
+    {
+      "id": "FORMLABS_FORM_4",
+      "name": "Formlabs Form 4",
+      "manufacturer": "Formlabs",
+      "variants": ["Form 4"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 200,
+        "y": 125,
+        "z": 210
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "High-speed MSLA. Print Engine technology."
+    },
+    {
+      "id": "FORMLABS_FORM_4B",
+      "name": "Formlabs Form 4B",
+      "manufacturer": "Formlabs",
+      "variants": ["Form 4B"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 200,
+        "y": 125,
+        "z": 210
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Biocompatible Form 4. Medical/dental."
+    },
+    {
+      "id": "FORMLABS_FORM_4L",
+      "name": "Formlabs Form 4L",
+      "manufacturer": "Formlabs",
+      "variants": ["Form 4L"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 353,
+        "y": 196,
+        "z": 350
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Large format Form 4. High-speed MSLA."
+    },
+    {
+      "_section": "=== FORMLABS SLS PRINTERS ==="
+    },
+    {
+      "id": "FORMLABS_FUSE_1",
+      "name": "Formlabs Fuse 1",
+      "manufacturer": "Formlabs",
+      "variants": ["Fuse 1", "Fuse 1+"],
+      "kinematics": "SLS",
+      "bedSize": {
+        "x": 165,
+        "y": 165,
+        "z": 300
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "powder",
+      "extruderType": null,
+      "notes": "Selective Laser Sintering. Nylon 11/12."
+    },
+    {
+      "_section": "=== VOXELAB RESIN PRINTERS ==="
+    },
+    {
+      "id": "VOXELAB_PROXIMA",
+      "name": "Voxelab Proxima",
+      "manufacturer": "Voxelab (Flashforge)",
+      "variants": ["Proxima 6.0"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 130,
+        "y": 82,
+        "z": 155
+      },
+      "stockBoard": "BOARD_VOXELAB_PROXIMA",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Budget MSLA. 2K mono LCD."
+    },
+    {
+      "id": "VOXELAB_PROXIMA_89",
+      "name": "Voxelab Proxima 8.9",
+      "manufacturer": "Voxelab (Flashforge)",
+      "variants": ["Proxima 8.9"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 200
+      },
+      "stockBoard": "BOARD_VOXELAB_PROXIMA",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K mono. Large format budget."
+    },
+    {
+      "id": "VOXELAB_POLARIS",
+      "name": "Voxelab Polaris",
+      "manufacturer": "Voxelab (Flashforge)",
+      "variants": ["Polaris"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 115,
+        "y": 65,
+        "z": 155
+      },
+      "stockBoard": "BOARD_VOXELAB_POLARIS",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Entry level MSLA. Compact design."
+    },
+    {
+      "_section": "=== WANHAO RESIN PRINTERS ==="
+    },
+    {
+      "id": "WANHAO_D7",
+      "name": "Wanhao Duplicator 7",
+      "manufacturer": "Wanhao",
+      "variants": ["D7", "D7 Plus"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 120,
+        "y": 68,
+        "z": 200
+      },
+      "stockBoard": "BOARD_WANHAO_D7",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Early affordable MSLA printer. 2K screen."
+    },
+    {
+      "id": "WANHAO_D8",
+      "name": "Wanhao Duplicator 8",
+      "manufacturer": "Wanhao",
+      "variants": ["D8"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 180
+      },
+      "stockBoard": "BOARD_WANHAO_D8",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 2K LCD. Larger D7 variant."
+    },
+    {
+      "_section": "=== QIDI RESIN PRINTERS ==="
+    },
+    {
+      "id": "QIDI_SHADOW_5_5S",
+      "name": "QIDI Shadow 5.5S",
+      "manufacturer": "QIDI Technology",
+      "variants": ["Shadow 5.5S"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 115,
+        "y": 65,
+        "z": 150
+      },
+      "stockBoard": "BOARD_QIDI_SHADOW",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "5.5 inch 2K screen. Budget QIDI resin."
+    },
+    {
+      "id": "QIDI_SHADOW_6_0_PRO",
+      "name": "QIDI Shadow 6.0 Pro",
+      "manufacturer": "QIDI Technology",
+      "variants": ["Shadow 6.0 Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 130,
+        "y": 78,
+        "z": 150
+      },
+      "stockBoard": "BOARD_QIDI_SHADOW",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "6 inch 2K mono LCD."
+    },
+    {
+      "id": "QIDI_IBOX_MONO",
+      "name": "QIDI iBox Mono",
+      "manufacturer": "QIDI Technology",
+      "variants": ["iBox Mono"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 200
+      },
+      "stockBoard": "BOARD_QIDI_IBOX",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K mono. Large format QIDI."
+    },
+    {
+      "_section": "=== FLASHFORGE RESIN PRINTERS ==="
+    },
+    {
+      "id": "FLASHFORGE_FOTO_89",
+      "name": "FlashForge Foto 8.9",
+      "manufacturer": "FlashForge",
+      "variants": ["Foto 8.9", "Foto 8.9s"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 200
+      },
+      "stockBoard": "BOARD_FLASHFORGE_FOTO",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K mono LCD. FlashForge quality."
+    },
+    {
+      "id": "FLASHFORGE_FOTO_6_0",
+      "name": "FlashForge Foto 6.0",
+      "manufacturer": "FlashForge",
+      "variants": ["Foto 6.0"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 130,
+        "y": 82,
+        "z": 155
+      },
+      "stockBoard": "BOARD_FLASHFORGE_FOTO",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "6 inch 2K mono LCD. Compact design."
+    },
+    {
+      "id": "FLASHFORGE_FOTO_133",
+      "name": "FlashForge Foto 13.3",
+      "manufacturer": "FlashForge",
+      "variants": ["Foto 13.3"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 293,
+        "y": 165,
+        "z": 300
+      },
+      "stockBoard": "BOARD_FLASHFORGE_FOTO",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "13.3 inch 4K mono. Large format."
+    },
+    {
+      "_section": "=== UNIZ RESIN PRINTERS ==="
+    },
+    {
+      "id": "UNIZ_SLASH_2",
+      "name": "UNIZ Slash 2",
+      "manufacturer": "UNIZ",
+      "variants": ["Slash 2", "Slash 2 Plus", "Slash 2 Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 200
+      },
+      "stockBoard": "BOARD_UNIZ_SLASH",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "UDP technology. 4K mono. Fast printing."
+    },
+    {
+      "id": "UNIZ_IBEE",
+      "name": "UNIZ iBee",
+      "manufacturer": "UNIZ",
+      "variants": ["iBee"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 124,
+        "y": 70,
+        "z": 180
+      },
+      "stockBoard": "BOARD_UNIZ_IBEE",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Entry level UNIZ. Compact design."
+    },
+    {
+      "_section": "=== NOVA3D RESIN PRINTERS ==="
+    },
+    {
+      "id": "NOVA3D_BENE4_MONO",
+      "name": "Nova3D Bene4 Mono",
+      "manufacturer": "Nova3D",
+      "variants": ["Bene4 Mono"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 130,
+        "y": 75,
+        "z": 150
+      },
+      "stockBoard": "BOARD_NOVA3D_BENE",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "6.08 inch 2K mono. Budget option."
+    },
+    {
+      "id": "NOVA3D_ELFIN_2_MONO",
+      "name": "Nova3D Elfin 2 Mono",
+      "manufacturer": "Nova3D",
+      "variants": ["Elfin 2 Mono", "Elfin 2 Mono SE"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 130,
+        "y": 75,
+        "z": 150
+      },
+      "stockBoard": "BOARD_NOVA3D_ELFIN",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "5.96 inch 2K mono. WiFi enabled."
+    },
+    {
+      "id": "NOVA3D_WHALE_2",
+      "name": "Nova3D Whale 2",
+      "manufacturer": "Nova3D",
+      "variants": ["Whale 2"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 250
+      },
+      "stockBoard": "BOARD_NOVA3D_WHALE",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K mono. Large format."
+    },
+    {
+      "_section": "=== LONGER RESIN PRINTERS ==="
+    },
+    {
+      "id": "LONGER_ORANGE_10",
+      "name": "Longer Orange 10",
+      "manufacturer": "Longer",
+      "variants": ["Orange 10"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 98,
+        "y": 55,
+        "z": 140
+      },
+      "stockBoard": "BOARD_LONGER_ORANGE",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Ultra compact. Entry level MSLA."
+    },
+    {
+      "id": "LONGER_ORANGE_30",
+      "name": "Longer Orange 30",
+      "manufacturer": "Longer",
+      "variants": ["Orange 30"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 120,
+        "y": 68,
+        "z": 170
+      },
+      "stockBoard": "BOARD_LONGER_ORANGE",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "5.5 inch 2K screen. Budget MSLA."
+    },
+    {
+      "id": "LONGER_ORANGE_4K",
+      "name": "Longer Orange 4K",
+      "manufacturer": "Longer",
+      "variants": ["Orange 4K"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 118,
+        "y": 66,
+        "z": 190
+      },
+      "stockBoard": "BOARD_LONGER_ORANGE",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "5.5 inch 4K mono. High resolution."
+    },
+    {
+      "_section": "=== SOVOL RESIN PRINTERS ==="
+    },
+    {
+      "id": "SOVOL_SL1",
+      "name": "Sovol SL1",
+      "manufacturer": "Sovol",
+      "variants": ["SL1"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 200
+      },
+      "stockBoard": "BOARD_SOVOL_SL1",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K mono. Budget large format."
+    },
+    {
+      "_section": "=== EPAX RESIN PRINTERS ==="
+    },
+    {
+      "id": "EPAX_X1",
+      "name": "EPAX X1",
+      "manufacturer": "EPAX",
+      "variants": ["X1", "X1 4K Mono", "X1-DJ"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 120,
+        "y": 68,
+        "z": 155
+      },
+      "stockBoard": "BOARD_EPAX_X1",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "5.5 inch screen. High quality US brand."
+    },
+    {
+      "id": "EPAX_X10",
+      "name": "EPAX X10",
+      "manufacturer": "EPAX",
+      "variants": ["X10", "X10 4K Mono"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 250
+      },
+      "stockBoard": "BOARD_EPAX_X10",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K mono. Large format."
+    },
+    {
+      "id": "EPAX_X133",
+      "name": "EPAX X133",
+      "manufacturer": "EPAX",
+      "variants": ["X133 4K Mono"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 293,
+        "y": 165,
+        "z": 400
+      },
+      "stockBoard": "BOARD_EPAX_X133",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "13.3 inch 4K mono. Very large format."
+    },
+    {
+      "_section": "=== KELANT RESIN PRINTERS ==="
+    },
+    {
+      "id": "KELANT_S400S",
+      "name": "Kelant S400S",
+      "manufacturer": "Kelant",
+      "variants": ["S400S", "S500 4K"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 200
+      },
+      "stockBoard": "BOARD_KELANT_S400",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch mono LCD. Budget large format."
+    },
+    {
+      "_section": "=== SPARKMAKER RESIN PRINTERS ==="
+    },
+    {
+      "id": "SPARKMAKER_FHD",
+      "name": "SparkMaker FHD",
+      "manufacturer": "SparkMaker/WOW",
+      "variants": ["FHD", "Original"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 96,
+        "y": 54,
+        "z": 125
+      },
+      "stockBoard": "BOARD_SPARKMAKER",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Ultra compact. Entry level hobbyist."
+    },
+    {
+      "_section": "=== ENVISIONTEC/DESKTOP HEALTH RESIN PRINTERS ==="
+    },
+    {
+      "id": "ENVISIONTEC_D4K_PRO",
+      "name": "EnvisionTEC D4K Pro",
+      "manufacturer": "EnvisionTEC/Desktop Health",
+      "variants": ["D4K Pro"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 144,
+        "y": 81,
+        "z": 120
+      },
+      "stockBoard": "BOARD_ENVISIONTEC",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Professional DLP. 4K projector. Dental/jewelry."
+    },
+    {
+      "id": "ENVISIONTEC_VIDA",
+      "name": "EnvisionTEC Vida",
+      "manufacturer": "EnvisionTEC/Desktop Health",
+      "variants": ["Vida", "Vida HD"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 145,
+        "y": 81,
+        "z": 100
+      },
+      "stockBoard": "BOARD_ENVISIONTEC",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Dental focused DLP. High precision."
+    },
+    {
+      "_section": "=== ASIGA RESIN PRINTERS ==="
+    },
+    {
+      "id": "ASIGA_MAX",
+      "name": "Asiga MAX",
+      "manufacturer": "Asiga",
+      "variants": ["MAX", "MAX X"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 119,
+        "y": 67,
+        "z": 75
+      },
+      "stockBoard": "BOARD_ASIGA",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Professional DLP. Dental/jewelry focus."
+    },
+    {
+      "id": "ASIGA_PRO_4K",
+      "name": "Asiga Pro 4K",
+      "manufacturer": "Asiga",
+      "variants": ["Pro 4K", "Pro 4K65"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 134,
+        "y": 75,
+        "z": 200
+      },
+      "stockBoard": "BOARD_ASIGA",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "4K DLP. Ultra high precision. Industrial."
+    },
+    {
+      "_section": "=== B9CREATIONS RESIN PRINTERS ==="
+    },
+    {
+      "id": "B9CREATIONS_CORE_530",
+      "name": "B9Creations Core 530",
+      "manufacturer": "B9Creations",
+      "variants": ["Core 530"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 96,
+        "y": 54,
+        "z": 127
+      },
+      "stockBoard": "BOARD_B9CREATIONS",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Professional DLP. Jewelry focused."
+    },
+    {
+      "id": "B9CREATIONS_CORE_550",
+      "name": "B9Creations Core 550",
+      "manufacturer": "B9Creations",
+      "variants": ["Core 550"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 96,
+        "y": 54,
+        "z": 127
+      },
+      "stockBoard": "BOARD_B9CREATIONS",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Enhanced Core 530. Higher resolution."
+    },
+    {
+      "_section": "=== SPRINTRAY RESIN PRINTERS ==="
+    },
+    {
+      "id": "SPRINTRAY_PRO_95",
+      "name": "SprintRay Pro 95",
+      "manufacturer": "SprintRay",
+      "variants": ["Pro 95", "Pro 95 S"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 192,
+        "y": 108,
+        "z": 200
+      },
+      "stockBoard": "BOARD_SPRINTRAY",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Dental focused DLP. High throughput."
+    },
+    {
+      "_section": "=== NEXA3D RESIN PRINTERS ==="
+    },
+    {
+      "id": "NEXA3D_XIP",
+      "name": "Nexa3D XiP",
+      "manufacturer": "Nexa3D",
+      "variants": ["XiP", "XiP Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 195,
+        "y": 115,
+        "z": 210
+      },
+      "stockBoard": "BOARD_NEXA3D",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "LSPc technology. Ultra fast. Industrial grade."
+    },
+    {
+      "id": "NEXA3D_NXE_400",
+      "name": "Nexa3D NXE 400",
+      "manufacturer": "Nexa3D",
+      "variants": ["NXE 400"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 275,
+        "y": 155,
+        "z": 400
+      },
+      "stockBoard": "BOARD_NEXA3D",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Large format industrial. LSPc technology."
+    },
+    {
+      "_section": "=== CARBON RESIN PRINTERS ==="
+    },
+    {
+      "id": "CARBON_M2",
+      "name": "Carbon M2",
+      "manufacturer": "Carbon",
+      "variants": ["M2"],
+      "kinematics": "CLIP",
+      "bedSize": {
+        "x": 189,
+        "y": 118,
+        "z": 326
+      },
+      "stockBoard": "BOARD_CARBON",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "CLIP technology. Continuous printing. Industrial."
+    },
+    {
+      "id": "CARBON_M3",
+      "name": "Carbon M3",
+      "manufacturer": "Carbon",
+      "variants": ["M3", "M3 Max"],
+      "kinematics": "CLIP",
+      "bedSize": {
+        "x": 189,
+        "y": 118,
+        "z": 326
+      },
+      "stockBoard": "BOARD_CARBON",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Latest CLIP technology. Production grade."
+    },
+    {
+      "id": "CARBON_L1",
+      "name": "Carbon L1",
+      "manufacturer": "Carbon",
+      "variants": ["L1"],
+      "kinematics": "CLIP",
+      "bedSize": {
+        "x": 400,
+        "y": 250,
+        "z": 460
+      },
+      "stockBoard": "BOARD_CARBON",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Large format CLIP. Mass production capable."
+    },
+    {
+      "_section": "=== 3DSYSTEMS RESIN PRINTERS ==="
+    },
+    {
+      "id": "3DSYSTEMS_FIGURE_4",
+      "name": "3D Systems Figure 4",
+      "manufacturer": "3D Systems",
+      "variants": ["Standalone", "Modular", "Production"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 124,
+        "y": 70,
+        "z": 196
+      },
+      "stockBoard": "BOARD_3DSYSTEMS",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Industrial DLP. Modular scalable system."
+    },
+    {
+      "id": "3DSYSTEMS_PROJET_6000",
+      "name": "3D Systems ProJet 6000",
+      "manufacturer": "3D Systems",
+      "variants": ["ProJet 6000 HD"],
+      "kinematics": "SLA_GALVO",
+      "bedSize": {
+        "x": 250,
+        "y": 250,
+        "z": 250
+      },
+      "stockBoard": "BOARD_3DSYSTEMS",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Production SLA. High accuracy."
+    },
+    {
+      "id": "3DSYSTEMS_PROJET_7000",
+      "name": "3D Systems ProJet 7000",
+      "manufacturer": "3D Systems",
+      "variants": ["ProJet 7000 HD"],
+      "kinematics": "SLA_GALVO",
+      "bedSize": {
+        "x": 380,
+        "y": 380,
+        "z": 250
+      },
+      "stockBoard": "BOARD_3DSYSTEMS",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Large format production SLA."
+    }
+  ],
+  "_metadata": {
+    "version": "1.0",
+    "lastUpdated": "2024-12-19",
+    "totalPrinters": 115,
+    "technologies": {
+      "MSLA": "Masked Stereolithography - Uses LCD to mask UV light",
+      "DLP": "Digital Light Processing - Uses projector with micro-mirrors",
+      "SLA_GALVO": "Stereolithography - Uses laser with galvo mirrors",
+      "SLA_LFS": "Low Force Stereolithography - Formlabs proprietary tech",
+      "CLIP": "Continuous Liquid Interface Production - Carbon proprietary",
+      "SLS": "Selective Laser Sintering - Powder bed fusion"
+    },
+    "manufacturers": [
+      "Creality",
+      "Anycubic",
+      "Elegoo",
+      "Phrozen",
+      "Prusa Research",
+      "Peopoly",
+      "Formlabs",
+      "Voxelab",
+      "Wanhao",
+      "QIDI Technology",
+      "FlashForge",
+      "UNIZ",
+      "Nova3D",
+      "Longer",
+      "Sovol",
+      "EPAX",
+      "Kelant",
+      "SparkMaker",
+      "EnvisionTEC",
+      "Asiga",
+      "B9Creations",
+      "SprintRay",
+      "Nexa3D",
+      "Carbon",
+      "3D Systems"
+    ],
+    "screenSizes": {
+      "5.5-6.0 inch": "Compact format - ~120x68mm build area",
+      "6.6-7.0 inch": "Small format - ~150x90mm build area",
+      "8.9-10.0 inch": "Medium/Large format - ~192x120mm build area",
+      "12.8-15.0 inch": "Extra large format - ~290x165mm build area"
+    },
+    "resolutions": {
+      "2K": "1920x1080 or 2560x1440",
+      "4K": "3840x2160",
+      "6K": "5760x3240",
+      "8K": "7680x4320",
+      "12K": "11520x5120",
+      "14K": "13440x5120"
+    },
+    "notes": "Resin printers have null hotend and extruder values. bedType is always 'resin' for liquid photopolymer or 'powder' for SLS."
+  }
+}

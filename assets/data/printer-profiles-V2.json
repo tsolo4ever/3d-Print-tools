@@ -8,11 +8,7 @@
       "id": "ENDER3",
       "name": "Creality Ender 3",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3",
-        "Ender 3 Pro",
-        "Ender 3 X"
-      ],
+      "variants": ["Ender 3", "Ender 3 Pro", "Ender 3 X"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 235,
@@ -31,9 +27,7 @@
       "id": "ENDER3_V2",
       "name": "Creality Ender 3 V2",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 V2"
-      ],
+      "variants": ["Ender 3 V2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 235,
@@ -52,9 +46,7 @@
       "id": "ENDER3_V2_NEO",
       "name": "Creality Ender 3 V2 Neo",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 V2 Neo"
-      ],
+      "variants": ["Ender 3 V2 Neo"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 235,
@@ -73,9 +65,7 @@
       "id": "ENDER3_V3",
       "name": "Creality Ender 3 V3",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 V3"
-      ],
+      "variants": ["Ender 3 V3"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 220,
@@ -94,9 +84,7 @@
       "id": "ENDER3_V3_SE",
       "name": "Creality Ender 3 V3 SE",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 V3 SE"
-      ],
+      "variants": ["Ender 3 V3 SE"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -115,9 +103,7 @@
       "id": "ENDER3_V3_KE",
       "name": "Creality Ender 3 V3 KE",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 V3 KE"
-      ],
+      "variants": ["Ender 3 V3 KE"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -136,9 +122,7 @@
       "id": "ENDER3_V3_PLUS",
       "name": "Creality Ender 3 V3 Plus",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 V3 Plus"
-      ],
+      "variants": ["Ender 3 V3 Plus"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 300,
@@ -157,9 +141,7 @@
       "id": "ENDER3_S1",
       "name": "Creality Ender 3 S1",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 S1"
-      ],
+      "variants": ["Ender 3 S1"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 235,
@@ -178,9 +160,7 @@
       "id": "ENDER3_S1_PRO",
       "name": "Creality Ender 3 S1 Pro",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 S1 Pro"
-      ],
+      "variants": ["Ender 3 S1 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 235,
@@ -193,15 +173,13 @@
       "stockProbe": "crtouch",
       "bedType": "pei",
       "extruderType": "direct",
-      "notes": "300\u00b0C all-metal Sprite Pro. LED light bar."
+      "notes": "300°C all-metal Sprite Pro. LED light bar."
     },
     {
       "id": "ENDER3_S1_PLUS",
       "name": "Creality Ender 3 S1 Plus",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 S1 Plus"
-      ],
+      "variants": ["Ender 3 S1 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -220,9 +198,7 @@
       "id": "ENDER3_MAX",
       "name": "Creality Ender 3 Max",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 Max"
-      ],
+      "variants": ["Ender 3 Max"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -241,9 +217,7 @@
       "id": "ENDER3_MAX_NEO",
       "name": "Creality Ender 3 Max Neo",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 Max Neo"
-      ],
+      "variants": ["Ender 3 Max Neo"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -262,9 +236,7 @@
       "id": "ENDER3_NEO",
       "name": "Creality Ender 3 Neo",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 3 Neo"
-      ],
+      "variants": ["Ender 3 Neo"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 235,
@@ -283,9 +255,7 @@
       "id": "ENDER2",
       "name": "Creality Ender 2",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 2"
-      ],
+      "variants": ["Ender 2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 150,
@@ -304,9 +274,7 @@
       "id": "ENDER2_PRO",
       "name": "Creality Ender 2 Pro",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 2 Pro"
-      ],
+      "variants": ["Ender 2 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 165,
@@ -325,9 +293,7 @@
       "id": "ENDER5",
       "name": "Creality Ender 5",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 5"
-      ],
+      "variants": ["Ender 5"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -346,9 +312,7 @@
       "id": "ENDER5_PRO",
       "name": "Creality Ender 5 Pro",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 5 Pro"
-      ],
+      "variants": ["Ender 5 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -367,9 +331,7 @@
       "id": "ENDER5_PLUS",
       "name": "Creality Ender 5 Plus",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 5 Plus"
-      ],
+      "variants": ["Ender 5 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 350,
@@ -388,9 +350,7 @@
       "id": "ENDER5_S1",
       "name": "Creality Ender 5 S1",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 5 S1"
-      ],
+      "variants": ["Ender 5 S1"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -403,15 +363,13 @@
       "stockProbe": "crtouch",
       "bedType": "pei",
       "extruderType": "direct",
-      "notes": "300\u00b0C Sprite Pro. Stable cube frame."
+      "notes": "300°C Sprite Pro. Stable cube frame."
     },
     {
       "id": "ENDER6",
       "name": "Creality Ender 6",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 6"
-      ],
+      "variants": ["Ender 6"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 250,
@@ -430,9 +388,7 @@
       "id": "ENDER7",
       "name": "Creality Ender 7",
       "manufacturer": "Creality",
-      "variants": [
-        "Ender 7"
-      ],
+      "variants": ["Ender 7"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 250,
@@ -451,9 +407,7 @@
       "id": "CR6_SE",
       "name": "Creality CR-6 SE",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-6 SE"
-      ],
+      "variants": ["CR-6 SE"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 235,
@@ -472,9 +426,7 @@
       "id": "CR6_MAX",
       "name": "Creality CR-6 Max",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-6 Max"
-      ],
+      "variants": ["CR-6 Max"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 400,
@@ -493,9 +445,7 @@
       "id": "CR10",
       "name": "Creality CR-10",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-10"
-      ],
+      "variants": ["CR-10"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -514,9 +464,7 @@
       "id": "CR10S",
       "name": "Creality CR-10S",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-10S"
-      ],
+      "variants": ["CR-10S"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -535,9 +483,7 @@
       "id": "CR10_V2",
       "name": "Creality CR-10 V2",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-10 V2"
-      ],
+      "variants": ["CR-10 V2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -556,9 +502,7 @@
       "id": "CR10_V3",
       "name": "Creality CR-10 V3",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-10 V3"
-      ],
+      "variants": ["CR-10 V3"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -577,9 +521,7 @@
       "id": "CR10_MINI",
       "name": "Creality CR-10 Mini",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-10 Mini"
-      ],
+      "variants": ["CR-10 Mini"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -598,10 +540,7 @@
       "id": "CR10S_PRO",
       "name": "Creality CR-10S Pro",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-10S Pro",
-        "CR-10S Pro V2"
-      ],
+      "variants": ["CR-10S Pro", "CR-10S Pro V2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -620,9 +559,7 @@
       "id": "CR10S4",
       "name": "Creality CR-10 S4",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-10 S4"
-      ],
+      "variants": ["CR-10 S4"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 400,
@@ -641,9 +578,7 @@
       "id": "CR10S5",
       "name": "Creality CR-10 S5",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-10 S5"
-      ],
+      "variants": ["CR-10 S5"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 500,
@@ -662,10 +597,7 @@
       "id": "CR10_SMART",
       "name": "Creality CR-10 Smart",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-10 Smart",
-        "CR-10 Smart Pro"
-      ],
+      "variants": ["CR-10 Smart", "CR-10 Smart Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -684,9 +616,7 @@
       "id": "CR10_SE",
       "name": "Creality CR-10 SE",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-10 SE"
-      ],
+      "variants": ["CR-10 SE"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -705,10 +635,7 @@
       "id": "CR20",
       "name": "Creality CR-20",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-20",
-        "CR-20 Pro"
-      ],
+      "variants": ["CR-20", "CR-20 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -727,9 +654,7 @@
       "id": "CR30_PRINTMILL",
       "name": "Creality CR-30 PrintMill",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-30"
-      ],
+      "variants": ["CR-30"],
       "kinematics": "CARTESIAN_BELT",
       "bedSize": {
         "x": 200,
@@ -748,9 +673,7 @@
       "id": "SERMOON_D1",
       "name": "Creality Sermoon D1",
       "manufacturer": "Creality",
-      "variants": [
-        "Sermoon D1"
-      ],
+      "variants": ["Sermoon D1"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 280,
@@ -769,10 +692,7 @@
       "id": "SERMOON_V1",
       "name": "Creality Sermoon V1",
       "manufacturer": "Creality",
-      "variants": [
-        "Sermoon V1",
-        "Sermoon V1 Pro"
-      ],
+      "variants": ["Sermoon V1", "Sermoon V1 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 175,
@@ -791,9 +711,7 @@
       "id": "K1",
       "name": "Creality K1",
       "manufacturer": "Creality",
-      "variants": [
-        "K1"
-      ],
+      "variants": ["K1"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 220,
@@ -812,9 +730,7 @@
       "id": "K1_MAX",
       "name": "Creality K1 Max",
       "manufacturer": "Creality",
-      "variants": [
-        "K1 Max"
-      ],
+      "variants": ["K1 Max"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 300,
@@ -833,9 +749,7 @@
       "id": "K1C",
       "name": "Creality K1C",
       "manufacturer": "Creality",
-      "variants": [
-        "K1C"
-      ],
+      "variants": ["K1C"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 220,
@@ -854,9 +768,7 @@
       "id": "K2_PLUS",
       "name": "Creality K2 Plus",
       "manufacturer": "Creality",
-      "variants": [
-        "K2 Plus"
-      ],
+      "variants": ["K2 Plus"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 350,
@@ -875,9 +787,7 @@
       "id": "CR_M4",
       "name": "Creality CR-M4",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-M4"
-      ],
+      "variants": ["CR-M4"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 450,
@@ -893,17 +803,70 @@
       "notes": "Industrial large format. Quad Z motors."
     },
     {
+      "id": "HALOT_ONE",
+      "name": "Creality Halot One",
+      "manufacturer": "Creality",
+      "variants": ["Halot One", "Halot One Plus", "Halot One Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 127,
+        "y": 80,
+        "z": 160
+      },
+      "stockBoard": "BOARD_CREALITY_HALOT",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "MSLA resin printer. Integral cover. WiFi."
+    },
+    {
+      "id": "HALOT_MAGE",
+      "name": "Creality Halot Mage",
+      "manufacturer": "Creality",
+      "variants": ["Halot Mage", "Halot Mage Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 228,
+        "y": 128,
+        "z": 230
+      },
+      "stockBoard": "BOARD_CREALITY_HALOT",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "10.3 inch 8K screen. Fast flip-lid design."
+    },
+    {
+      "id": "LD002H",
+      "name": "Creality LD-002H",
+      "manufacturer": "Creality",
+      "variants": ["LD-002H"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 130,
+        "y": 82,
+        "z": 160
+      },
+      "stockBoard": "BOARD_CREALITY_LD002",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "2K mono LCD. Budget MSLA printer."
+    },
+    {
       "_section": "=== PRUSA PRINTERS ==="
     },
     {
       "id": "PRUSA_MK3S",
       "name": "Prusa i3 MK3S+",
       "manufacturer": "Prusa Research",
-      "variants": [
-        "MK3",
-        "MK3S",
-        "MK3S+"
-      ],
+      "variants": ["MK3", "MK3S", "MK3S+"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 250,
@@ -922,10 +885,7 @@
       "id": "PRUSA_MK4",
       "name": "Prusa MK4",
       "manufacturer": "Prusa Research",
-      "variants": [
-        "MK4",
-        "MK4S"
-      ],
+      "variants": ["MK4", "MK4S"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 250,
@@ -944,10 +904,7 @@
       "id": "PRUSA_MK2S",
       "name": "Prusa i3 MK2S",
       "manufacturer": "Prusa Research",
-      "variants": [
-        "MK2",
-        "MK2S"
-      ],
+      "variants": ["MK2", "MK2S"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 250,
@@ -966,10 +923,7 @@
       "id": "PRUSA_MINI",
       "name": "Prusa MINI+",
       "manufacturer": "Prusa Research",
-      "variants": [
-        "MINI",
-        "MINI+"
-      ],
+      "variants": ["MINI", "MINI+"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 180,
@@ -988,11 +942,7 @@
       "id": "PRUSA_XL",
       "name": "Prusa XL",
       "manufacturer": "Prusa Research",
-      "variants": [
-        "XL Single",
-        "XL 2-Tool",
-        "XL 5-Tool"
-      ],
+      "variants": ["XL Single", "XL 2-Tool", "XL 5-Tool"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 360,
@@ -1011,9 +961,7 @@
       "id": "PRUSA_CORE_ONE",
       "name": "Prusa Core One",
       "manufacturer": "Prusa Research",
-      "variants": [
-        "Core One"
-      ],
+      "variants": ["Core One"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 250,
@@ -1029,12 +977,29 @@
       "notes": "Enclosed CoreXY. Active chamber heating."
     },
     {
+      "id": "PRUSA_SL1S",
+      "name": "Prusa SL1S Speed",
+      "manufacturer": "Prusa Research",
+      "variants": ["SL1", "SL1S Speed"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 127,
+        "y": 80,
+        "z": 150
+      },
+      "stockBoard": "BOARD_PRUSA_SL1",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "5.96 inch mono LCD. Tilt mechanism."
+    },
+    {
       "id": "PRUSA_MMU3",
       "name": "Prusa MMU3",
       "manufacturer": "Prusa Research",
-      "variants": [
-        "MMU3"
-      ],
+      "variants": ["MMU3"],
       "kinematics": "MULTI_MATERIAL",
       "bedSize": {
         "x": 250,
@@ -1056,9 +1021,7 @@
       "id": "ANYCUBIC_KOBRA",
       "name": "Anycubic Kobra",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Kobra"
-      ],
+      "variants": ["Kobra"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1077,9 +1040,7 @@
       "id": "ANYCUBIC_KOBRA_2",
       "name": "Anycubic Kobra 2",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Kobra 2"
-      ],
+      "variants": ["Kobra 2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1098,9 +1059,7 @@
       "id": "ANYCUBIC_KOBRA_2_PRO",
       "name": "Anycubic Kobra 2 Pro",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Kobra 2 Pro"
-      ],
+      "variants": ["Kobra 2 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1119,9 +1078,7 @@
       "id": "ANYCUBIC_KOBRA_2_MAX",
       "name": "Anycubic Kobra 2 Max",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Kobra 2 Max"
-      ],
+      "variants": ["Kobra 2 Max"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 420,
@@ -1140,9 +1097,7 @@
       "id": "ANYCUBIC_KOBRA_2_PLUS",
       "name": "Anycubic Kobra 2 Plus",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Kobra 2 Plus"
-      ],
+      "variants": ["Kobra 2 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 320,
@@ -1161,10 +1116,7 @@
       "id": "ANYCUBIC_KOBRA_3",
       "name": "Anycubic Kobra 3",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Kobra 3",
-        "Kobra 3 Combo"
-      ],
+      "variants": ["Kobra 3", "Kobra 3 Combo"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 250,
@@ -1183,10 +1135,7 @@
       "id": "ANYCUBIC_KOBRA_S1",
       "name": "Anycubic Kobra S1",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Kobra S1",
-        "Kobra S1 Combo"
-      ],
+      "variants": ["Kobra S1", "Kobra S1 Combo"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 350,
@@ -1205,9 +1154,7 @@
       "id": "ANYCUBIC_KOBRA_MAX",
       "name": "Anycubic Kobra Max",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Kobra Max"
-      ],
+      "variants": ["Kobra Max"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 400,
@@ -1226,9 +1173,7 @@
       "id": "ANYCUBIC_KOBRA_PLUS",
       "name": "Anycubic Kobra Plus",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Kobra Plus"
-      ],
+      "variants": ["Kobra Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -1247,9 +1192,7 @@
       "id": "ANYCUBIC_KOBRA_NEO",
       "name": "Anycubic Kobra Neo",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Kobra Neo"
-      ],
+      "variants": ["Kobra Neo"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1268,9 +1211,7 @@
       "id": "ANYCUBIC_KOBRA_GO",
       "name": "Anycubic Kobra Go",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Kobra Go"
-      ],
+      "variants": ["Kobra Go"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1289,10 +1230,7 @@
       "id": "ANYCUBIC_I3_MEGA",
       "name": "Anycubic i3 Mega",
       "manufacturer": "Anycubic",
-      "variants": [
-        "i3 Mega",
-        "i3 Mega S"
-      ],
+      "variants": ["i3 Mega", "i3 Mega S"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 210,
@@ -1311,9 +1249,7 @@
       "id": "ANYCUBIC_I3_MEGA_X",
       "name": "Anycubic i3 Mega X",
       "manufacturer": "Anycubic",
-      "variants": [
-        "i3 Mega X"
-      ],
+      "variants": ["i3 Mega X"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -1332,10 +1268,7 @@
       "id": "ANYCUBIC_I3_MEGA_ZERO",
       "name": "Anycubic i3 Mega Zero",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Mega Zero",
-        "Mega Zero 2.0"
-      ],
+      "variants": ["Mega Zero", "Mega Zero 2.0"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1354,9 +1287,7 @@
       "id": "ANYCUBIC_CHIRON",
       "name": "Anycubic Chiron",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Chiron"
-      ],
+      "variants": ["Chiron"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 400,
@@ -1375,11 +1306,7 @@
       "id": "ANYCUBIC_4MAX",
       "name": "Anycubic 4Max",
       "manufacturer": "Anycubic",
-      "variants": [
-        "4Max",
-        "4Max Pro",
-        "4Max Pro 2.0"
-      ],
+      "variants": ["4Max", "4Max Pro", "4Max Pro 2.0"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 270,
@@ -1398,9 +1325,7 @@
       "id": "ANYCUBIC_VYPER",
       "name": "Anycubic Vyper",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Vyper"
-      ],
+      "variants": ["Vyper"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 245,
@@ -1416,15 +1341,127 @@
       "notes": "Auto-level. Direct drive. Touch screen."
     },
     {
+      "id": "ANYCUBIC_PHOTON",
+      "name": "Anycubic Photon",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon", "Photon S", "Photon Zero"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 115,
+        "y": 65,
+        "z": 155
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "2K LCD resin printer. Classic design."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_MONO",
+      "name": "Anycubic Photon Mono",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon Mono", "Photon Mono SE"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 130,
+        "y": 80,
+        "z": 165
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_MONO",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Mono LCD. 2.5s layer cure. Fast printing."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_MONO_X",
+      "name": "Anycubic Photon Mono X",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon Mono X", "Photon Mono X 6K", "Photon Mono X2"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 245
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_MONO",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K screen. Large resin printer."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_M3",
+      "name": "Anycubic Photon M3",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon M3", "Photon M3 Plus", "Photon M3 Max", "Photon M3 Premium"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 180,
+        "y": 163,
+        "z": 180
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_M3",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "7.6 inch 4K+ screen. Auto-leveling."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_MONO_M5",
+      "name": "Anycubic Photon Mono M5",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon Mono M5", "Photon Mono M5s", "Photon Mono M5s Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 218,
+        "y": 123,
+        "z": 200
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_M5",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "12K resolution. Smart resin detection."
+    },
+    {
+      "id": "ANYCUBIC_PHOTON_D2",
+      "name": "Anycubic Photon D2",
+      "manufacturer": "Anycubic",
+      "variants": ["Photon D2"],
+      "kinematics": "DLP",
+      "bedSize": {
+        "x": 131,
+        "y": 73,
+        "z": 165
+      },
+      "stockBoard": "BOARD_ANYCUBIC_PHOTON_D2",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "DLP projector. No LCD degradation."
+    },
+    {
       "_section": "=== ELEGOO PRINTERS ==="
     },
     {
       "id": "ELEGOO_NEPTUNE_3",
       "name": "Elegoo Neptune 3",
       "manufacturer": "Elegoo",
-      "variants": [
-        "Neptune 3"
-      ],
+      "variants": ["Neptune 3"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1443,9 +1480,7 @@
       "id": "ELEGOO_NEPTUNE_3_PRO",
       "name": "Elegoo Neptune 3 Pro",
       "manufacturer": "Elegoo",
-      "variants": [
-        "Neptune 3 Pro"
-      ],
+      "variants": ["Neptune 3 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 225,
@@ -1464,9 +1499,7 @@
       "id": "ELEGOO_NEPTUNE_3_PLUS",
       "name": "Elegoo Neptune 3 Plus",
       "manufacturer": "Elegoo",
-      "variants": [
-        "Neptune 3 Plus"
-      ],
+      "variants": ["Neptune 3 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 320,
@@ -1485,9 +1518,7 @@
       "id": "ELEGOO_NEPTUNE_3_MAX",
       "name": "Elegoo Neptune 3 Max",
       "manufacturer": "Elegoo",
-      "variants": [
-        "Neptune 3 Max"
-      ],
+      "variants": ["Neptune 3 Max"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 420,
@@ -1506,9 +1537,7 @@
       "id": "ELEGOO_NEPTUNE_4",
       "name": "Elegoo Neptune 4",
       "manufacturer": "Elegoo",
-      "variants": [
-        "Neptune 4"
-      ],
+      "variants": ["Neptune 4"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 225,
@@ -1527,9 +1556,7 @@
       "id": "ELEGOO_NEPTUNE_4_PRO",
       "name": "Elegoo Neptune 4 Pro",
       "manufacturer": "Elegoo",
-      "variants": [
-        "Neptune 4 Pro"
-      ],
+      "variants": ["Neptune 4 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 225,
@@ -1548,9 +1575,7 @@
       "id": "ELEGOO_NEPTUNE_4_PLUS",
       "name": "Elegoo Neptune 4 Plus",
       "manufacturer": "Elegoo",
-      "variants": [
-        "Neptune 4 Plus"
-      ],
+      "variants": ["Neptune 4 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 320,
@@ -1569,9 +1594,7 @@
       "id": "ELEGOO_NEPTUNE_4_MAX",
       "name": "Elegoo Neptune 4 Max",
       "manufacturer": "Elegoo",
-      "variants": [
-        "Neptune 4 Max"
-      ],
+      "variants": ["Neptune 4 Max"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 420,
@@ -1590,11 +1613,7 @@
       "id": "ELEGOO_NEPTUNE_2",
       "name": "Elegoo Neptune 2",
       "manufacturer": "Elegoo",
-      "variants": [
-        "Neptune 2",
-        "Neptune 2S",
-        "Neptune 2D"
-      ],
+      "variants": ["Neptune 2", "Neptune 2S", "Neptune 2D"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1613,9 +1632,7 @@
       "id": "ELEGOO_NEPTUNE_X",
       "name": "Elegoo Neptune X",
       "manufacturer": "Elegoo",
-      "variants": [
-        "Neptune X"
-      ],
+      "variants": ["Neptune X"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1634,9 +1651,7 @@
       "id": "ELEGOO_ORANGESTORM_GIGA",
       "name": "Elegoo OrangeStorm Giga",
       "manufacturer": "Elegoo",
-      "variants": [
-        "OrangeStorm Giga"
-      ],
+      "variants": ["OrangeStorm Giga"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 800,
@@ -1655,9 +1670,7 @@
       "id": "ELEGOO_CENTAURI_CARBON",
       "name": "Elegoo Centauri Carbon",
       "manufacturer": "Elegoo",
-      "variants": [
-        "Centauri Carbon"
-      ],
+      "variants": ["Centauri Carbon"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 235,
@@ -1673,15 +1686,146 @@
       "notes": "CoreXY. Hardened nozzle. 700mm/s capable."
     },
     {
+      "id": "ELEGOO_MARS",
+      "name": "Elegoo Mars",
+      "manufacturer": "Elegoo",
+      "variants": ["Mars", "Mars Pro", "Mars 2", "Mars 2 Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 120,
+        "y": 68,
+        "z": 155
+      },
+      "stockBoard": "BOARD_ELEGOO_MARS",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Popular budget MSLA. 2K resolution."
+    },
+    {
+      "id": "ELEGOO_MARS_3",
+      "name": "Elegoo Mars 3",
+      "manufacturer": "Elegoo",
+      "variants": ["Mars 3", "Mars 3 Pro"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 143,
+        "y": 89,
+        "z": 175
+      },
+      "stockBoard": "BOARD_ELEGOO_MARS_3",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "4K mono screen. Larger build plate."
+    },
+    {
+      "id": "ELEGOO_MARS_4",
+      "name": "Elegoo Mars 4",
+      "manufacturer": "Elegoo",
+      "variants": ["Mars 4", "Mars 4 Ultra", "Mars 4 Max", "Mars 4 DLP"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 153,
+        "y": 96,
+        "z": 150
+      },
+      "stockBoard": "BOARD_ELEGOO_MARS_4",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "9K resolution. WiFi enabled."
+    },
+    {
+      "id": "ELEGOO_SATURN",
+      "name": "Elegoo Saturn",
+      "manufacturer": "Elegoo",
+      "variants": ["Saturn", "Saturn S"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 192,
+        "y": 120,
+        "z": 200
+      },
+      "stockBoard": "BOARD_ELEGOO_SATURN",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "8.9 inch 4K mono screen. Large MSLA."
+    },
+    {
+      "id": "ELEGOO_SATURN_2",
+      "name": "Elegoo Saturn 2",
+      "manufacturer": "Elegoo",
+      "variants": ["Saturn 2"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 219,
+        "y": 123,
+        "z": 250
+      },
+      "stockBoard": "BOARD_ELEGOO_SATURN_2",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "10 inch 8K mono screen. Very large MSLA."
+    },
+    {
+      "id": "ELEGOO_SATURN_3",
+      "name": "Elegoo Saturn 3",
+      "manufacturer": "Elegoo",
+      "variants": ["Saturn 3", "Saturn 3 Ultra"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 218,
+        "y": 123,
+        "z": 260
+      },
+      "stockBoard": "BOARD_ELEGOO_SATURN_3",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "12K resolution. Fresnel collimating lens."
+    },
+    {
+      "id": "ELEGOO_SATURN_4",
+      "name": "Elegoo Saturn 4",
+      "manufacturer": "Elegoo",
+      "variants": ["Saturn 4 Ultra"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 218,
+        "y": 123,
+        "z": 220
+      },
+      "stockBoard": "BOARD_ELEGOO_SATURN_4",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "12K resolution. Tilt release mechanism."
+    },
+    {
       "_section": "=== ARTILLERY/EVNOVO PRINTERS ==="
     },
     {
       "id": "ARTILLERY_SIDEWINDER_X1",
       "name": "Artillery Sidewinder X1",
       "manufacturer": "Artillery/Evnovo",
-      "variants": [
-        "Sidewinder X1"
-      ],
+      "variants": ["Sidewinder X1"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -1700,9 +1844,7 @@
       "id": "ARTILLERY_SIDEWINDER_X2",
       "name": "Artillery Sidewinder X2",
       "manufacturer": "Artillery/Evnovo",
-      "variants": [
-        "Sidewinder X2"
-      ],
+      "variants": ["Sidewinder X2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -1721,9 +1863,7 @@
       "id": "ARTILLERY_SIDEWINDER_X3_PLUS",
       "name": "Artillery Sidewinder X3 Plus",
       "manufacturer": "Artillery/Evnovo",
-      "variants": [
-        "Sidewinder X3 Plus"
-      ],
+      "variants": ["Sidewinder X3 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -1742,9 +1882,7 @@
       "id": "ARTILLERY_SIDEWINDER_X4_PLUS",
       "name": "Artillery Sidewinder X4 Plus",
       "manufacturer": "Artillery/Evnovo",
-      "variants": [
-        "Sidewinder X4 Plus"
-      ],
+      "variants": ["Sidewinder X4 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -1763,9 +1901,7 @@
       "id": "ARTILLERY_GENIUS",
       "name": "Artillery Genius",
       "manufacturer": "Artillery/Evnovo",
-      "variants": [
-        "Genius"
-      ],
+      "variants": ["Genius"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1784,9 +1920,7 @@
       "id": "ARTILLERY_GENIUS_PRO",
       "name": "Artillery Genius Pro",
       "manufacturer": "Artillery/Evnovo",
-      "variants": [
-        "Genius Pro"
-      ],
+      "variants": ["Genius Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1805,9 +1939,7 @@
       "id": "ARTILLERY_HORNET",
       "name": "Artillery Hornet",
       "manufacturer": "Artillery/Evnovo",
-      "variants": [
-        "Hornet"
-      ],
+      "variants": ["Hornet"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -1829,9 +1961,7 @@
       "id": "BAMBU_X1",
       "name": "Bambu Lab X1",
       "manufacturer": "Bambu Lab",
-      "variants": [
-        "X1"
-      ],
+      "variants": ["X1"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 256,
@@ -1850,10 +1980,7 @@
       "id": "BAMBU_X1_CARBON",
       "name": "Bambu Lab X1 Carbon",
       "manufacturer": "Bambu Lab",
-      "variants": [
-        "X1 Carbon",
-        "X1 Carbon Combo"
-      ],
+      "variants": ["X1 Carbon", "X1 Carbon Combo"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 256,
@@ -1872,9 +1999,7 @@
       "id": "BAMBU_X1E",
       "name": "Bambu Lab X1E",
       "manufacturer": "Bambu Lab",
-      "variants": [
-        "X1E"
-      ],
+      "variants": ["X1E"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 256,
@@ -1893,9 +2018,7 @@
       "id": "BAMBU_P1P",
       "name": "Bambu Lab P1P",
       "manufacturer": "Bambu Lab",
-      "variants": [
-        "P1P"
-      ],
+      "variants": ["P1P"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 256,
@@ -1914,10 +2037,7 @@
       "id": "BAMBU_P1S",
       "name": "Bambu Lab P1S",
       "manufacturer": "Bambu Lab",
-      "variants": [
-        "P1S",
-        "P1S Combo"
-      ],
+      "variants": ["P1S", "P1S Combo"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 256,
@@ -1936,10 +2056,7 @@
       "id": "BAMBU_A1",
       "name": "Bambu Lab A1",
       "manufacturer": "Bambu Lab",
-      "variants": [
-        "A1",
-        "A1 Combo"
-      ],
+      "variants": ["A1", "A1 Combo"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 256,
@@ -1958,10 +2075,7 @@
       "id": "BAMBU_A1_MINI",
       "name": "Bambu Lab A1 Mini",
       "manufacturer": "Bambu Lab",
-      "variants": [
-        "A1 Mini",
-        "A1 Mini Combo"
-      ],
+      "variants": ["A1 Mini", "A1 Mini Combo"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 180,
@@ -1983,10 +2097,7 @@
       "id": "FLASHFORGE_CREATOR_PRO",
       "name": "FlashForge Creator Pro",
       "manufacturer": "FlashForge",
-      "variants": [
-        "Creator Pro",
-        "Creator Pro 2"
-      ],
+      "variants": ["Creator Pro", "Creator Pro 2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 227,
@@ -2005,10 +2116,7 @@
       "id": "FLASHFORGE_DREAMER",
       "name": "FlashForge Dreamer",
       "manufacturer": "FlashForge",
-      "variants": [
-        "Dreamer",
-        "Dreamer NX"
-      ],
+      "variants": ["Dreamer", "Dreamer NX"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 230,
@@ -2027,10 +2135,7 @@
       "id": "FLASHFORGE_ADVENTURER_3",
       "name": "FlashForge Adventurer 3",
       "manufacturer": "FlashForge",
-      "variants": [
-        "Adventurer 3",
-        "Adventurer 3 Lite"
-      ],
+      "variants": ["Adventurer 3", "Adventurer 3 Lite"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 150,
@@ -2049,9 +2154,7 @@
       "id": "FLASHFORGE_ADVENTURER_4",
       "name": "FlashForge Adventurer 4",
       "manufacturer": "FlashForge",
-      "variants": [
-        "Adventurer 4"
-      ],
+      "variants": ["Adventurer 4"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -2064,16 +2167,13 @@
       "stockProbe": "strain_gauge",
       "bedType": "glass",
       "extruderType": "direct",
-      "notes": "Larger Adventurer. HEPA filtration. 240\u00b0C hotend."
+      "notes": "Larger Adventurer. HEPA filtration. 240°C hotend."
     },
     {
       "id": "FLASHFORGE_ADVENTURER_5M",
       "name": "FlashForge Adventurer 5M",
       "manufacturer": "FlashForge",
-      "variants": [
-        "Adventurer 5M",
-        "Adventurer 5M Pro"
-      ],
+      "variants": ["Adventurer 5M", "Adventurer 5M Pro"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 220,
@@ -2092,10 +2192,7 @@
       "id": "FLASHFORGE_GUIDER_2",
       "name": "FlashForge Guider 2",
       "manufacturer": "FlashForge",
-      "variants": [
-        "Guider II",
-        "Guider IIs"
-      ],
+      "variants": ["Guider II", "Guider IIs"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 280,
@@ -2114,10 +2211,7 @@
       "id": "FLASHFORGE_FINDER",
       "name": "FlashForge Finder",
       "manufacturer": "FlashForge",
-      "variants": [
-        "Finder",
-        "Finder 3"
-      ],
+      "variants": ["Finder", "Finder 3"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 140,
@@ -2139,10 +2233,7 @@
       "id": "QIDI_X_MAX",
       "name": "QIDI X-MAX",
       "manufacturer": "QIDI Technology",
-      "variants": [
-        "X-MAX",
-        "X-MAX 3"
-      ],
+      "variants": ["X-MAX", "X-MAX 3"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -2161,10 +2252,7 @@
       "id": "QIDI_X_PLUS",
       "name": "QIDI X-Plus",
       "manufacturer": "QIDI Technology",
-      "variants": [
-        "X-Plus",
-        "X-Plus 3"
-      ],
+      "variants": ["X-Plus", "X-Plus 3"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 270,
@@ -2183,9 +2271,7 @@
       "id": "QIDI_X_SMART_3",
       "name": "QIDI X-Smart 3",
       "manufacturer": "QIDI Technology",
-      "variants": [
-        "X-Smart 3"
-      ],
+      "variants": ["X-Smart 3"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 175,
@@ -2204,9 +2290,7 @@
       "id": "QIDI_X_MAKER",
       "name": "QIDI X-Maker",
       "manufacturer": "QIDI Technology",
-      "variants": [
-        "X-Maker"
-      ],
+      "variants": ["X-Maker"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 170,
@@ -2225,9 +2309,7 @@
       "id": "QIDI_IFAST",
       "name": "QIDI iFast",
       "manufacturer": "QIDI Technology",
-      "variants": [
-        "iFast"
-      ],
+      "variants": ["iFast"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 330,
@@ -2249,12 +2331,7 @@
       "id": "TRONXY_X5SA",
       "name": "Tronxy X5SA",
       "manufacturer": "Tronxy",
-      "variants": [
-        "X5SA",
-        "X5SA Pro",
-        "X5SA-400",
-        "X5SA-500"
-      ],
+      "variants": ["X5SA", "X5SA Pro", "X5SA-400", "X5SA-500"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 330,
@@ -2273,9 +2350,7 @@
       "id": "TRONXY_XY2_PRO",
       "name": "Tronxy XY-2 Pro",
       "manufacturer": "Tronxy",
-      "variants": [
-        "XY-2 Pro"
-      ],
+      "variants": ["XY-2 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 255,
@@ -2294,10 +2369,7 @@
       "id": "TRONXY_XY3_PRO",
       "name": "Tronxy XY-3 Pro",
       "manufacturer": "Tronxy",
-      "variants": [
-        "XY-3 Pro",
-        "XY-3 Pro V2"
-      ],
+      "variants": ["XY-3 Pro", "XY-3 Pro V2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -2316,10 +2388,7 @@
       "id": "TRONXY_VEHO_600",
       "name": "Tronxy VEHO 600",
       "manufacturer": "Tronxy",
-      "variants": [
-        "VEHO 600",
-        "VEHO 800"
-      ],
+      "variants": ["VEHO 600", "VEHO 800"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 600,
@@ -2341,10 +2410,7 @@
       "id": "BIQU_B1",
       "name": "BIQU B1",
       "manufacturer": "BigTreeTech/BIQU",
-      "variants": [
-        "B1",
-        "B1 SE Plus"
-      ],
+      "variants": ["B1", "B1 SE Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 235,
@@ -2363,9 +2429,7 @@
       "id": "BIQU_BX",
       "name": "BIQU BX",
       "manufacturer": "BigTreeTech/BIQU",
-      "variants": [
-        "BX"
-      ],
+      "variants": ["BX"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 250,
@@ -2384,9 +2448,7 @@
       "id": "BIQU_HURAKAN",
       "name": "BIQU Hurakan",
       "manufacturer": "BigTreeTech/BIQU",
-      "variants": [
-        "Hurakan"
-      ],
+      "variants": ["Hurakan"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -2408,11 +2470,7 @@
       "id": "VORON_2_4",
       "name": "Voron 2.4",
       "manufacturer": "Voron Design (Community)",
-      "variants": [
-        "250mm",
-        "300mm",
-        "350mm"
-      ],
+      "variants": ["250mm", "300mm", "350mm"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 250,
@@ -2432,11 +2490,7 @@
       "id": "VORON_TRIDENT",
       "name": "Voron Trident",
       "manufacturer": "Voron Design (Community)",
-      "variants": [
-        "250mm",
-        "300mm",
-        "350mm"
-      ],
+      "variants": ["250mm", "300mm", "350mm"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 250,
@@ -2455,11 +2509,7 @@
       "id": "VORON_0",
       "name": "Voron 0",
       "manufacturer": "Voron Design (Community)",
-      "variants": [
-        "V0",
-        "V0.1",
-        "V0.2"
-      ],
+      "variants": ["V0", "V0.1", "V0.2"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 120,
@@ -2478,9 +2528,7 @@
       "id": "VORON_SWITCHWIRE",
       "name": "Voron Switchwire",
       "manufacturer": "Voron Design (Community)",
-      "variants": [
-        "Switchwire"
-      ],
+      "variants": ["Switchwire"],
       "kinematics": "COREXZ",
       "bedSize": {
         "x": 250,
@@ -2499,9 +2547,7 @@
       "id": "VORON_LEGACY",
       "name": "Voron Legacy",
       "manufacturer": "Voron Design (Community)",
-      "variants": [
-        "Legacy"
-      ],
+      "variants": ["Legacy"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 230,
@@ -2523,12 +2569,7 @@
       "id": "RATRIG_VCORE3",
       "name": "RatRig V-Core 3",
       "manufacturer": "RatRig",
-      "variants": [
-        "200mm",
-        "300mm",
-        "400mm",
-        "500mm"
-      ],
+      "variants": ["200mm", "300mm", "400mm", "500mm"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 300,
@@ -2547,12 +2588,7 @@
       "id": "RATRIG_VCORE31",
       "name": "RatRig V-Core 3.1",
       "manufacturer": "RatRig",
-      "variants": [
-        "200mm",
-        "300mm",
-        "400mm",
-        "500mm"
-      ],
+      "variants": ["200mm", "300mm", "400mm", "500mm"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 300,
@@ -2571,9 +2607,7 @@
       "id": "RATRIG_VMINION",
       "name": "RatRig V-Minion",
       "manufacturer": "RatRig",
-      "variants": [
-        "V-Minion"
-      ],
+      "variants": ["V-Minion"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 180,
@@ -2595,10 +2629,7 @@
       "id": "SOVOL_SV01",
       "name": "Sovol SV01",
       "manufacturer": "Sovol",
-      "variants": [
-        "SV01",
-        "SV01 Pro"
-      ],
+      "variants": ["SV01", "SV01 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 280,
@@ -2617,9 +2648,7 @@
       "id": "SOVOL_SV02",
       "name": "Sovol SV02",
       "manufacturer": "Sovol",
-      "variants": [
-        "SV02"
-      ],
+      "variants": ["SV02"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 280,
@@ -2638,9 +2667,7 @@
       "id": "SOVOL_SV03",
       "name": "Sovol SV03",
       "manufacturer": "Sovol",
-      "variants": [
-        "SV03"
-      ],
+      "variants": ["SV03"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 350,
@@ -2659,9 +2686,7 @@
       "id": "SOVOL_SV04",
       "name": "Sovol SV04",
       "manufacturer": "Sovol",
-      "variants": [
-        "SV04"
-      ],
+      "variants": ["SV04"],
       "kinematics": "CARTESIAN_IDEX",
       "bedSize": {
         "x": 300,
@@ -2680,9 +2705,7 @@
       "id": "SOVOL_SV05",
       "name": "Sovol SV05",
       "manufacturer": "Sovol",
-      "variants": [
-        "SV05"
-      ],
+      "variants": ["SV05"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -2701,10 +2724,7 @@
       "id": "SOVOL_SV06",
       "name": "Sovol SV06",
       "manufacturer": "Sovol",
-      "variants": [
-        "SV06",
-        "SV06 Plus"
-      ],
+      "variants": ["SV06", "SV06 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -2723,10 +2743,7 @@
       "id": "SOVOL_SV07",
       "name": "Sovol SV07",
       "manufacturer": "Sovol",
-      "variants": [
-        "SV07",
-        "SV07 Plus"
-      ],
+      "variants": ["SV07", "SV07 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -2745,9 +2762,7 @@
       "id": "SOVOL_SV08",
       "name": "Sovol SV08",
       "manufacturer": "Sovol",
-      "variants": [
-        "SV08"
-      ],
+      "variants": ["SV08"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 350,
@@ -2769,11 +2784,7 @@
       "id": "LONGER_LK4",
       "name": "Longer LK4",
       "manufacturer": "Longer",
-      "variants": [
-        "LK4",
-        "LK4 Pro",
-        "LK4 X"
-      ],
+      "variants": ["LK4", "LK4 Pro", "LK4 X"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -2792,9 +2803,7 @@
       "id": "LONGER_LK5_PRO",
       "name": "Longer LK5 Pro",
       "manufacturer": "Longer",
-      "variants": [
-        "LK5 Pro"
-      ],
+      "variants": ["LK5 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -2813,9 +2822,7 @@
       "id": "LONGER_CUBE_2",
       "name": "Longer Cube 2",
       "manufacturer": "Longer",
-      "variants": [
-        "Cube 2"
-      ],
+      "variants": ["Cube 2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 120,
@@ -2837,10 +2844,7 @@
       "id": "SUNLU_S8",
       "name": "Sunlu S8",
       "manufacturer": "Sunlu",
-      "variants": [
-        "S8",
-        "S8 Plus"
-      ],
+      "variants": ["S8", "S8 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 310,
@@ -2859,9 +2863,7 @@
       "id": "SUNLU_T3",
       "name": "Sunlu T3",
       "manufacturer": "Sunlu",
-      "variants": [
-        "T3"
-      ],
+      "variants": ["T3"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 310,
@@ -2883,13 +2885,7 @@
       "id": "VOXELAB_AQUILA",
       "name": "Voxelab Aquila",
       "manufacturer": "Voxelab (Flashforge)",
-      "variants": [
-        "Aquila",
-        "Aquila X2",
-        "Aquila S2",
-        "Aquila C2",
-        "Aquila D1"
-      ],
+      "variants": ["Aquila", "Aquila X2", "Aquila S2", "Aquila C2", "Aquila D1"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -2908,9 +2904,7 @@
       "id": "VOXELAB_AQUILA_S3",
       "name": "Voxelab Aquila S3",
       "manufacturer": "Voxelab (Flashforge)",
-      "variants": [
-        "Aquila S3"
-      ],
+      "variants": ["Aquila S3"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 225,
@@ -2929,9 +2923,7 @@
       "id": "VOXELAB_ARIES",
       "name": "Voxelab Aries",
       "manufacturer": "Voxelab (Flashforge)",
-      "variants": [
-        "Aries"
-      ],
+      "variants": ["Aries"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 200,
@@ -2947,17 +2939,32 @@
       "notes": "Enclosed. HEPA filter. WiFi enabled."
     },
     {
+      "id": "VOXELAB_PROXIMA",
+      "name": "Voxelab Proxima",
+      "manufacturer": "Voxelab (Flashforge)",
+      "variants": ["Proxima 6.0", "Proxima 8.9"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 130,
+        "y": 82,
+        "z": 155
+      },
+      "stockBoard": "BOARD_VOXELAB_PROXIMA",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Budget MSLA. Mono LCD. 2K resolution."
+    },
+    {
       "_section": "=== KINGROON PRINTERS ==="
     },
     {
       "id": "KINGROON_KP3S",
       "name": "Kingroon KP3S",
       "manufacturer": "Kingroon",
-      "variants": [
-        "KP3S",
-        "KP3S Pro",
-        "KP3S Pro V2"
-      ],
+      "variants": ["KP3S", "KP3S Pro", "KP3S Pro V2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 180,
@@ -2976,9 +2983,7 @@
       "id": "KINGROON_KP5L",
       "name": "Kingroon KP5L",
       "manufacturer": "Kingroon",
-      "variants": [
-        "KP5L"
-      ],
+      "variants": ["KP5L"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -2997,9 +3002,7 @@
       "id": "KINGROON_KLP1",
       "name": "Kingroon KLP1",
       "manufacturer": "Kingroon",
-      "variants": [
-        "KLP1"
-      ],
+      "variants": ["KLP1"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 210,
@@ -3021,10 +3024,7 @@
       "id": "TWOTREES_SAPPHIRE_PRO",
       "name": "Two Trees Sapphire Pro",
       "manufacturer": "Two Trees",
-      "variants": [
-        "Sapphire Pro",
-        "Sapphire Plus"
-      ],
+      "variants": ["Sapphire Pro", "Sapphire Plus"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 235,
@@ -3043,10 +3043,7 @@
       "id": "TWOTREES_BLUER",
       "name": "Two Trees Bluer",
       "manufacturer": "Two Trees",
-      "variants": [
-        "Bluer",
-        "Bluer Plus"
-      ],
+      "variants": ["Bluer", "Bluer Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 235,
@@ -3065,9 +3062,7 @@
       "id": "TWOTREES_SK1",
       "name": "Two Trees SK1",
       "manufacturer": "Two Trees",
-      "variants": [
-        "SK1"
-      ],
+      "variants": ["SK1"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 256,
@@ -3089,10 +3084,7 @@
       "id": "FYSETC_VORON_01",
       "name": "FYSETC Voron 0.1 Kit",
       "manufacturer": "FYSETC",
-      "variants": [
-        "Voron 0.1",
-        "Voron 0.2"
-      ],
+      "variants": ["Voron 0.1", "Voron 0.2"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 120,
@@ -3114,9 +3106,7 @@
       "id": "LULZBOT_TAZ_6",
       "name": "LulzBot TAZ 6",
       "manufacturer": "LulzBot/Fargo Additive",
-      "variants": [
-        "TAZ 6"
-      ],
+      "variants": ["TAZ 6"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 280,
@@ -3135,10 +3125,7 @@
       "id": "LULZBOT_TAZ_PRO",
       "name": "LulzBot TAZ Pro",
       "manufacturer": "LulzBot/Fargo Additive",
-      "variants": [
-        "TAZ Pro",
-        "TAZ Pro XT"
-      ],
+      "variants": ["TAZ Pro", "TAZ Pro XT"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 280,
@@ -3151,16 +3138,13 @@
       "stockProbe": "nozzle_contact",
       "bedType": "pei",
       "extruderType": "direct",
-      "notes": "Dual extruder. 500\u00b0C capable. Industrial."
+      "notes": "Dual extruder. 500°C capable. Industrial."
     },
     {
       "id": "LULZBOT_TAZ_SIDEKICK",
       "name": "LulzBot TAZ SideKick",
       "manufacturer": "LulzBot/Fargo Additive",
-      "variants": [
-        "SideKick 289",
-        "SideKick 747"
-      ],
+      "variants": ["SideKick 289", "SideKick 747"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 289,
@@ -3179,9 +3163,7 @@
       "id": "LULZBOT_MINI_2",
       "name": "LulzBot Mini 2",
       "manufacturer": "LulzBot/Fargo Additive",
-      "variants": [
-        "Mini 2"
-      ],
+      "variants": ["Mini 2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 160,
@@ -3203,11 +3185,7 @@
       "id": "ULTIMAKER_2",
       "name": "Ultimaker 2+",
       "manufacturer": "Ultimaker",
-      "variants": [
-        "Ultimaker 2",
-        "Ultimaker 2+",
-        "Ultimaker 2+ Connect"
-      ],
+      "variants": ["Ultimaker 2", "Ultimaker 2+", "Ultimaker 2+ Connect"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 223,
@@ -3226,10 +3204,7 @@
       "id": "ULTIMAKER_3",
       "name": "Ultimaker 3",
       "manufacturer": "Ultimaker",
-      "variants": [
-        "Ultimaker 3",
-        "Ultimaker 3 Extended"
-      ],
+      "variants": ["Ultimaker 3", "Ultimaker 3 Extended"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 215,
@@ -3248,9 +3223,7 @@
       "id": "ULTIMAKER_S3",
       "name": "Ultimaker S3",
       "manufacturer": "Ultimaker",
-      "variants": [
-        "S3"
-      ],
+      "variants": ["S3"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 230,
@@ -3269,10 +3242,7 @@
       "id": "ULTIMAKER_S5",
       "name": "Ultimaker S5",
       "manufacturer": "Ultimaker",
-      "variants": [
-        "S5",
-        "S5 Pro Bundle"
-      ],
+      "variants": ["S5", "S5 Pro Bundle"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 330,
@@ -3291,9 +3261,7 @@
       "id": "ULTIMAKER_S7",
       "name": "Ultimaker S7",
       "manufacturer": "Ultimaker",
-      "variants": [
-        "S7"
-      ],
+      "variants": ["S7"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 330,
@@ -3315,10 +3283,7 @@
       "id": "RAISE3D_PRO2",
       "name": "Raise3D Pro2",
       "manufacturer": "Raise3D",
-      "variants": [
-        "Pro2",
-        "Pro2 Plus"
-      ],
+      "variants": ["Pro2", "Pro2 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 305,
@@ -3337,10 +3302,7 @@
       "id": "RAISE3D_E2",
       "name": "Raise3D E2",
       "manufacturer": "Raise3D",
-      "variants": [
-        "E2",
-        "E2CF"
-      ],
+      "variants": ["E2", "E2CF"],
       "kinematics": "CARTESIAN_IDEX",
       "bedSize": {
         "x": 330,
@@ -3359,10 +3321,7 @@
       "id": "RAISE3D_PRO3",
       "name": "Raise3D Pro3",
       "manufacturer": "Raise3D",
-      "variants": [
-        "Pro3",
-        "Pro3 Plus"
-      ],
+      "variants": ["Pro3", "Pro3 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -3381,9 +3340,7 @@
       "id": "RAISE3D_HYPER_SPEED",
       "name": "Raise3D Hyper Speed",
       "manufacturer": "Raise3D",
-      "variants": [
-        "Hyper Speed"
-      ],
+      "variants": ["Hyper Speed"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 255,
@@ -3405,11 +3362,7 @@
       "id": "MAKERBOT_REPLICATOR",
       "name": "MakerBot Replicator+",
       "manufacturer": "MakerBot/Stratasys",
-      "variants": [
-        "Replicator",
-        "Replicator+",
-        "Replicator 2"
-      ],
+      "variants": ["Replicator", "Replicator+", "Replicator 2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 295,
@@ -3428,11 +3381,7 @@
       "id": "MAKERBOT_METHOD",
       "name": "MakerBot METHOD",
       "manufacturer": "MakerBot/Stratasys",
-      "variants": [
-        "METHOD",
-        "METHOD X",
-        "METHOD XL"
-      ],
+      "variants": ["METHOD", "METHOD X", "METHOD XL"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 190,
@@ -3451,10 +3400,7 @@
       "id": "MAKERBOT_SKETCH",
       "name": "MakerBot Sketch",
       "manufacturer": "MakerBot/Stratasys",
-      "variants": [
-        "Sketch",
-        "Sketch Large"
-      ],
+      "variants": ["Sketch", "Sketch Large"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 150,
@@ -3476,11 +3422,7 @@
       "id": "MONOPRICE_SELECT_MINI",
       "name": "Monoprice Select Mini",
       "manufacturer": "Monoprice",
-      "variants": [
-        "V1",
-        "V2",
-        "Pro"
-      ],
+      "variants": ["V1", "V2", "Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 120,
@@ -3499,10 +3441,7 @@
       "id": "MONOPRICE_MAKER_SELECT",
       "name": "Monoprice Maker Select",
       "manufacturer": "Monoprice",
-      "variants": [
-        "V2",
-        "Plus"
-      ],
+      "variants": ["V2", "Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 200,
@@ -3521,9 +3460,7 @@
       "id": "MONOPRICE_VOXEL",
       "name": "Monoprice Voxel",
       "manufacturer": "Monoprice",
-      "variants": [
-        "Voxel"
-      ],
+      "variants": ["Voxel"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 150,
@@ -3545,11 +3482,7 @@
       "id": "WANHAO_I3",
       "name": "Wanhao Duplicator i3",
       "manufacturer": "Wanhao",
-      "variants": [
-        "i3",
-        "i3 Plus",
-        "i3 Plus Mark 2"
-      ],
+      "variants": ["i3", "i3 Plus", "i3 Plus Mark 2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 200,
@@ -3568,10 +3501,7 @@
       "id": "WANHAO_D6",
       "name": "Wanhao Duplicator 6",
       "manufacturer": "Wanhao",
-      "variants": [
-        "D6",
-        "D6 Plus"
-      ],
+      "variants": ["D6", "D6 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 200,
@@ -3587,14 +3517,29 @@
       "notes": "Enclosed. E3D compatible hotend."
     },
     {
+      "id": "WANHAO_D7",
+      "name": "Wanhao Duplicator 7",
+      "manufacturer": "Wanhao",
+      "variants": ["D7", "D7 Plus"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 120,
+        "y": 68,
+        "z": 200
+      },
+      "stockBoard": "BOARD_WANHAO_D7",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Early affordable MSLA printer."
+    },
+    {
       "id": "WANHAO_D9",
       "name": "Wanhao Duplicator 9",
       "manufacturer": "Wanhao",
-      "variants": [
-        "D9-300",
-        "D9-400",
-        "D9-500"
-      ],
+      "variants": ["D9-300", "D9-400", "D9-500"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -3613,11 +3558,7 @@
       "id": "WANHAO_D12",
       "name": "Wanhao Duplicator 12",
       "manufacturer": "Wanhao",
-      "variants": [
-        "D12-230",
-        "D12-300",
-        "D12-500"
-      ],
+      "variants": ["D12-230", "D12-300", "D12-500"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 230,
@@ -3639,12 +3580,7 @@
       "id": "GEEETECH_A10",
       "name": "Geeetech A10",
       "manufacturer": "Geeetech",
-      "variants": [
-        "A10",
-        "A10 Pro",
-        "A10M",
-        "A10T"
-      ],
+      "variants": ["A10", "A10 Pro", "A10M", "A10T"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -3663,11 +3599,7 @@
       "id": "GEEETECH_A20",
       "name": "Geeetech A20",
       "manufacturer": "Geeetech",
-      "variants": [
-        "A20",
-        "A20M",
-        "A20T"
-      ],
+      "variants": ["A20", "A20M", "A20T"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 255,
@@ -3686,12 +3618,7 @@
       "id": "GEEETECH_A30",
       "name": "Geeetech A30",
       "manufacturer": "Geeetech",
-      "variants": [
-        "A30",
-        "A30 Pro",
-        "A30M",
-        "A30T"
-      ],
+      "variants": ["A30", "A30 Pro", "A30M", "A30T"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 320,
@@ -3710,12 +3637,7 @@
       "id": "GEEETECH_MIZAR",
       "name": "Geeetech Mizar",
       "manufacturer": "Geeetech",
-      "variants": [
-        "Mizar",
-        "Mizar S",
-        "Mizar Pro",
-        "Mizar Max"
-      ],
+      "variants": ["Mizar", "Mizar S", "Mizar Pro", "Mizar Max"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -3734,9 +3656,7 @@
       "id": "GEEETECH_THUNDER",
       "name": "Geeetech Thunder",
       "manufacturer": "Geeetech",
-      "variants": [
-        "Thunder"
-      ],
+      "variants": ["Thunder"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 250,
@@ -3758,9 +3678,7 @@
       "id": "DREMEL_3D20",
       "name": "Dremel 3D20",
       "manufacturer": "Dremel/Bosch",
-      "variants": [
-        "3D20"
-      ],
+      "variants": ["3D20"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 230,
@@ -3779,10 +3697,7 @@
       "id": "DREMEL_3D40",
       "name": "Dremel 3D40",
       "manufacturer": "Dremel/Bosch",
-      "variants": [
-        "3D40",
-        "3D40 Flex"
-      ],
+      "variants": ["3D40", "3D40 Flex"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 254,
@@ -3801,9 +3716,7 @@
       "id": "DREMEL_3D45",
       "name": "Dremel 3D45",
       "manufacturer": "Dremel/Bosch",
-      "variants": [
-        "3D45"
-      ],
+      "variants": ["3D45"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 254,
@@ -3825,9 +3738,7 @@
       "id": "ANYCUBIC_PREDATOR",
       "name": "Anycubic Predator",
       "manufacturer": "Anycubic",
-      "variants": [
-        "Predator"
-      ],
+      "variants": ["Predator"],
       "kinematics": "DELTA",
       "bedSize": {
         "x": 370,
@@ -3846,9 +3757,7 @@
       "id": "FLSUN_V400",
       "name": "FLSun V400",
       "manufacturer": "FLSun",
-      "variants": [
-        "V400"
-      ],
+      "variants": ["V400"],
       "kinematics": "DELTA",
       "bedSize": {
         "x": 300,
@@ -3867,10 +3776,7 @@
       "id": "FLSUN_SR",
       "name": "FLSun Super Racer",
       "manufacturer": "FLSun",
-      "variants": [
-        "SR",
-        "Super Racer"
-      ],
+      "variants": ["SR", "Super Racer"],
       "kinematics": "DELTA",
       "bedSize": {
         "x": 260,
@@ -3889,10 +3795,7 @@
       "id": "FLSUN_QQ_S",
       "name": "FLSun QQ-S Pro",
       "manufacturer": "FLSun",
-      "variants": [
-        "QQ-S",
-        "QQ-S Pro"
-      ],
+      "variants": ["QQ-S", "QQ-S Pro"],
       "kinematics": "DELTA",
       "bedSize": {
         "x": 255,
@@ -3911,9 +3814,7 @@
       "id": "FLSUN_Q5",
       "name": "FLSun Q5",
       "manufacturer": "FLSun",
-      "variants": [
-        "Q5"
-      ],
+      "variants": ["Q5"],
       "kinematics": "DELTA",
       "bedSize": {
         "x": 200,
@@ -3932,11 +3833,7 @@
       "id": "SEEMECNC_ROSTOCK_MAX",
       "name": "SeeMeCNC Rostock MAX",
       "manufacturer": "SeeMeCNC",
-      "variants": [
-        "V2",
-        "V3",
-        "V4"
-      ],
+      "variants": ["V2", "V3", "V4"],
       "kinematics": "DELTA",
       "bedSize": {
         "x": 280,
@@ -3955,9 +3852,7 @@
       "id": "SEEMECNC_ARTEMIS",
       "name": "SeeMeCNC Artemis",
       "manufacturer": "SeeMeCNC",
-      "variants": [
-        "Artemis 300"
-      ],
+      "variants": ["Artemis 300"],
       "kinematics": "DELTA",
       "bedSize": {
         "x": 290,
@@ -3979,10 +3874,7 @@
       "id": "ZORTRAX_M200",
       "name": "Zortrax M200",
       "manufacturer": "Zortrax",
-      "variants": [
-        "M200",
-        "M200 Plus"
-      ],
+      "variants": ["M200", "M200 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 200,
@@ -4001,11 +3893,7 @@
       "id": "ZORTRAX_M300",
       "name": "Zortrax M300",
       "manufacturer": "Zortrax",
-      "variants": [
-        "M300",
-        "M300 Plus",
-        "M300 Dual"
-      ],
+      "variants": ["M300", "M300 Plus", "M300 Dual"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -4024,9 +3912,7 @@
       "id": "ZORTRAX_INVENTURE",
       "name": "Zortrax Inventure",
       "manufacturer": "Zortrax",
-      "variants": [
-        "Inventure"
-      ],
+      "variants": ["Inventure"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 135,
@@ -4048,9 +3934,7 @@
       "id": "MARKFORGED_MARK_TWO",
       "name": "Markforged Mark Two",
       "manufacturer": "Markforged",
-      "variants": [
-        "Mark Two"
-      ],
+      "variants": ["Mark Two"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 320,
@@ -4069,9 +3953,7 @@
       "id": "MARKFORGED_ONYX_ONE",
       "name": "Markforged Onyx One",
       "manufacturer": "Markforged",
-      "variants": [
-        "Onyx One"
-      ],
+      "variants": ["Onyx One"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 320,
@@ -4090,9 +3972,7 @@
       "id": "MARKFORGED_ONYX_PRO",
       "name": "Markforged Onyx Pro",
       "manufacturer": "Markforged",
-      "variants": [
-        "Onyx Pro"
-      ],
+      "variants": ["Onyx Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 320,
@@ -4111,9 +3991,7 @@
       "id": "MARKFORGED_FX10",
       "name": "Markforged FX10",
       "manufacturer": "Markforged",
-      "variants": [
-        "FX10"
-      ],
+      "variants": ["FX10"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 356,
@@ -4132,19 +4010,168 @@
       "_section": "=== PHROZEN PRINTERS ==="
     },
     {
+      "id": "PHROZEN_SONIC_MINI",
+      "name": "Phrozen Sonic Mini",
+      "manufacturer": "Phrozen",
+      "variants": ["Sonic Mini", "Sonic Mini 4K", "Sonic Mini 8K"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 120,
+        "y": 68,
+        "z": 130
+      },
+      "stockBoard": "BOARD_PHROZEN_SONIC",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Compact high-resolution MSLA."
+    },
+    {
+      "id": "PHROZEN_SONIC_MIGHTY",
+      "name": "Phrozen Sonic Mighty",
+      "manufacturer": "Phrozen",
+      "variants": ["Sonic Mighty 4K", "Sonic Mighty 8K"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 200,
+        "y": 125,
+        "z": 220
+      },
+      "stockBoard": "BOARD_PHROZEN_SONIC",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Large format 8K MSLA."
+    },
+    {
+      "id": "PHROZEN_MEGA",
+      "name": "Phrozen Mega 8K",
+      "manufacturer": "Phrozen",
+      "variants": ["Mega 8K"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 330,
+        "y": 185,
+        "z": 400
+      },
+      "stockBoard": "BOARD_PHROZEN_MEGA",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "15 inch 8K screen. Industrial MSLA."
+    },
+    {
       "_section": "=== PEOPOLY PRINTERS ==="
+    },
+    {
+      "id": "PEOPOLY_MOAI",
+      "name": "Peopoly Moai",
+      "manufacturer": "Peopoly",
+      "variants": ["Moai 130", "Moai 200"],
+      "kinematics": "SLA_GALVO",
+      "bedSize": {
+        "x": 130,
+        "y": 130,
+        "z": 180
+      },
+      "stockBoard": "BOARD_PEOPOLY_MOAI",
+      "stockDisplay": "PEOPOLY_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "True SLA with galvo mirrors. High precision."
+    },
+    {
+      "id": "PEOPOLY_PHENOM",
+      "name": "Peopoly Phenom",
+      "manufacturer": "Peopoly",
+      "variants": ["Phenom", "Phenom L", "Phenom XXL", "Phenom Noir"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 276,
+        "y": 155,
+        "z": 400
+      },
+      "stockBoard": "BOARD_PEOPOLY_PHENOM",
+      "stockDisplay": "INTEGRATED_LCD",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Large format MSLA. 4K mono screen."
     },
     {
       "_section": "=== FORMLABS PRINTERS ==="
     },
     {
+      "id": "FORMLABS_FORM_3",
+      "name": "Formlabs Form 3",
+      "manufacturer": "Formlabs",
+      "variants": ["Form 3", "Form 3+"],
+      "kinematics": "SLA_LFS",
+      "bedSize": {
+        "x": 145,
+        "y": 145,
+        "z": 185
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Low Force Stereolithography. Professional."
+    },
+    {
+      "id": "FORMLABS_FORM_3L",
+      "name": "Formlabs Form 3L",
+      "manufacturer": "Formlabs",
+      "variants": ["Form 3L"],
+      "kinematics": "SLA_LFS",
+      "bedSize": {
+        "x": 335,
+        "y": 200,
+        "z": 300
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "Large format LFS. Dual laser."
+    },
+    {
+      "id": "FORMLABS_FORM_4",
+      "name": "Formlabs Form 4",
+      "manufacturer": "Formlabs",
+      "variants": ["Form 4", "Form 4B", "Form 4L"],
+      "kinematics": "MSLA",
+      "bedSize": {
+        "x": 200,
+        "y": 125,
+        "z": 210
+      },
+      "stockBoard": "BOARD_FORMLABS",
+      "stockDisplay": "FORMLABS_TFT",
+      "stockHotend": null,
+      "stockProbe": null,
+      "bedType": "resin",
+      "extruderType": null,
+      "notes": "High-speed MSLA. Print Engine technology."
+    },
+    {
       "id": "FORMLABS_FUSE_1",
       "name": "Formlabs Fuse 1",
       "manufacturer": "Formlabs",
-      "variants": [
-        "Fuse 1",
-        "Fuse 1+"
-      ],
+      "variants": ["Fuse 1", "Fuse 1+"],
       "kinematics": "SLS",
       "bedSize": {
         "x": 165,
@@ -4166,9 +4193,7 @@
       "id": "SNAPMAKER_ORIGINAL",
       "name": "Snapmaker Original",
       "manufacturer": "Snapmaker",
-      "variants": [
-        "Original"
-      ],
+      "variants": ["Original"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 125,
@@ -4187,9 +4212,7 @@
       "id": "SNAPMAKER_2_A150",
       "name": "Snapmaker 2.0 A150",
       "manufacturer": "Snapmaker",
-      "variants": [
-        "A150"
-      ],
+      "variants": ["A150"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 160,
@@ -4208,9 +4231,7 @@
       "id": "SNAPMAKER_2_A250",
       "name": "Snapmaker 2.0 A250",
       "manufacturer": "Snapmaker",
-      "variants": [
-        "A250"
-      ],
+      "variants": ["A250"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 230,
@@ -4229,10 +4250,7 @@
       "id": "SNAPMAKER_2_A350",
       "name": "Snapmaker 2.0 A350",
       "manufacturer": "Snapmaker",
-      "variants": [
-        "A350",
-        "A350T"
-      ],
+      "variants": ["A350", "A350T"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 320,
@@ -4251,9 +4269,7 @@
       "id": "SNAPMAKER_ARTISAN",
       "name": "Snapmaker Artisan",
       "manufacturer": "Snapmaker",
-      "variants": [
-        "Artisan"
-      ],
+      "variants": ["Artisan"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 400,
@@ -4272,10 +4288,7 @@
       "id": "SNAPMAKER_J1",
       "name": "Snapmaker J1",
       "manufacturer": "Snapmaker",
-      "variants": [
-        "J1",
-        "J1s"
-      ],
+      "variants": ["J1", "J1s"],
       "kinematics": "CARTESIAN_IDEX",
       "bedSize": {
         "x": 324,
@@ -4297,10 +4310,7 @@
       "id": "ANET_A8",
       "name": "Anet A8",
       "manufacturer": "Anet",
-      "variants": [
-        "A8",
-        "A8 Plus"
-      ],
+      "variants": ["A8", "A8 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -4319,9 +4329,7 @@
       "id": "ANET_A6",
       "name": "Anet A6",
       "manufacturer": "Anet",
-      "variants": [
-        "A6"
-      ],
+      "variants": ["A6"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -4340,11 +4348,7 @@
       "id": "ANET_E10",
       "name": "Anet E10",
       "manufacturer": "Anet",
-      "variants": [
-        "E10",
-        "E12",
-        "E16"
-      ],
+      "variants": ["E10", "E12", "E16"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -4363,12 +4367,7 @@
       "id": "ANET_ET4",
       "name": "Anet ET4",
       "manufacturer": "Anet",
-      "variants": [
-        "ET4",
-        "ET4 Pro",
-        "ET4+",
-        "ET4X"
-      ],
+      "variants": ["ET4", "ET4 Pro", "ET4+", "ET4X"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -4387,11 +4386,7 @@
       "id": "ANET_ET5",
       "name": "Anet ET5",
       "manufacturer": "Anet",
-      "variants": [
-        "ET5",
-        "ET5 Pro",
-        "ET5X"
-      ],
+      "variants": ["ET5", "ET5 Pro", "ET5X"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -4413,10 +4408,7 @@
       "id": "JGAURORA_A5S",
       "name": "JG Aurora A5S",
       "manufacturer": "JG Aurora",
-      "variants": [
-        "A5S",
-        "A5X"
-      ],
+      "variants": ["A5S", "A5X"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 305,
@@ -4435,9 +4427,7 @@
       "id": "JGAURORA_A3S",
       "name": "JG Aurora A3S",
       "manufacturer": "JG Aurora",
-      "variants": [
-        "A3S"
-      ],
+      "variants": ["A3S"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 205,
@@ -4456,9 +4446,7 @@
       "id": "JGAURORA_MAGIC",
       "name": "JG Aurora Magic",
       "manufacturer": "JG Aurora",
-      "variants": [
-        "Magic"
-      ],
+      "variants": ["Magic"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -4480,10 +4468,7 @@
       "id": "MINGDA_MAGICIAN_X",
       "name": "Mingda Magician X",
       "manufacturer": "Mingda",
-      "variants": [
-        "Magician X",
-        "Magician Pro"
-      ],
+      "variants": ["Magician X", "Magician Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 230,
@@ -4502,9 +4487,7 @@
       "id": "MINGDA_MAGICIAN_MAX",
       "name": "Mingda Magician Max",
       "manufacturer": "Mingda",
-      "variants": [
-        "Magician Max"
-      ],
+      "variants": ["Magician Max"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 320,
@@ -4526,9 +4509,7 @@
       "id": "COMGROW_T500",
       "name": "Comgrow T500",
       "manufacturer": "Comgrow",
-      "variants": [
-        "T500"
-      ],
+      "variants": ["T500"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 500,
@@ -4550,10 +4531,7 @@
       "id": "LOTMAXX_SC10",
       "name": "Lotmaxx SC-10 Shark",
       "manufacturer": "Lotmaxx",
-      "variants": [
-        "SC-10",
-        "SC-10 Shark V2"
-      ],
+      "variants": ["SC-10", "SC-10 Shark V2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 235,
@@ -4575,10 +4553,7 @@
       "id": "WEEDO_TINA2",
       "name": "Weedo Tina2",
       "manufacturer": "Weedo",
-      "variants": [
-        "Tina2",
-        "Tina2S"
-      ],
+      "variants": ["Tina2", "Tina2S"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 100,
@@ -4597,9 +4572,7 @@
       "id": "WEEDO_X40",
       "name": "Weedo X40",
       "manufacturer": "Weedo",
-      "variants": [
-        "X40"
-      ],
+      "variants": ["X40"],
       "kinematics": "CARTESIAN_IDEX",
       "bedSize": {
         "x": 300,
@@ -4621,9 +4594,7 @@
       "id": "ERYONE_ER20",
       "name": "Eryone ER-20",
       "manufacturer": "Eryone",
-      "variants": [
-        "ER-20"
-      ],
+      "variants": ["ER-20"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 250,
@@ -4642,10 +4613,7 @@
       "id": "ERYONE_THINKER",
       "name": "Eryone Thinker",
       "manufacturer": "Eryone",
-      "variants": [
-        "Thinker",
-        "Thinker S"
-      ],
+      "variants": ["Thinker", "Thinker S"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -4667,9 +4635,7 @@
       "id": "COCOON_CREATE_TOUCH",
       "name": "Cocoon Create Touch",
       "manufacturer": "Cocoon Create (Wanhao)",
-      "variants": [
-        "Touch"
-      ],
+      "variants": ["Touch"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 200,
@@ -4691,10 +4657,7 @@
       "id": "HICTOP_3DP17",
       "name": "HIC-TAP 3DP-17",
       "manufacturer": "HICTOP",
-      "variants": [
-        "3DP-17",
-        "3DP-17 BK"
-      ],
+      "variants": ["3DP-17", "3DP-17 BK"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 200,
@@ -4716,11 +4679,7 @@
       "id": "PRINTRBOT_SIMPLE",
       "name": "Printrbot Simple",
       "manufacturer": "Printrbot",
-      "variants": [
-        "Simple",
-        "Simple Metal",
-        "Simple Pro"
-      ],
+      "variants": ["Simple", "Simple Metal", "Simple Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 150,
@@ -4739,9 +4698,7 @@
       "id": "PRINTRBOT_PLAY",
       "name": "Printrbot Play",
       "manufacturer": "Printrbot",
-      "variants": [
-        "Play"
-      ],
+      "variants": ["Play"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 100,
@@ -4763,9 +4720,7 @@
       "id": "SOLIDOODLE_4",
       "name": "Solidoodle 4",
       "manufacturer": "Solidoodle",
-      "variants": [
-        "Solidoodle 4"
-      ],
+      "variants": ["Solidoodle 4"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 200,
@@ -4787,10 +4742,7 @@
       "id": "ROBO3D_R1",
       "name": "Robo R1+",
       "manufacturer": "Robo 3D",
-      "variants": [
-        "R1",
-        "R1+"
-      ],
+      "variants": ["R1", "R1+"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 254,
@@ -4809,9 +4761,7 @@
       "id": "ROBO3D_R2",
       "name": "Robo R2",
       "manufacturer": "Robo 3D",
-      "variants": [
-        "R2"
-      ],
+      "variants": ["R2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 203,
@@ -4833,10 +4783,7 @@
       "id": "M3D_MICRO",
       "name": "M3D Micro",
       "manufacturer": "M3D",
-      "variants": [
-        "Micro",
-        "Micro+"
-      ],
+      "variants": ["Micro", "Micro+"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 109,
@@ -4855,9 +4802,7 @@
       "id": "M3D_PRO",
       "name": "M3D Pro",
       "manufacturer": "M3D",
-      "variants": [
-        "Pro"
-      ],
+      "variants": ["Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 178,
@@ -4879,9 +4824,7 @@
       "id": "CREMAKER_CM11",
       "name": "Cremaker CM11",
       "manufacturer": "Cremaker",
-      "variants": [
-        "CM11 Pro"
-      ],
+      "variants": ["CM11 Pro"],
       "kinematics": "COREXY",
       "bedSize": {
         "x": 220,
@@ -4903,9 +4846,7 @@
       "id": "FOKOOS_ODIN",
       "name": "Fokoos Odin-5 F3",
       "manufacturer": "Fokoos",
-      "variants": [
-        "Odin-5 F3"
-      ],
+      "variants": ["Odin-5 F3"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 235,
@@ -4927,9 +4868,7 @@
       "id": "TENLOG_TL_D3_PRO",
       "name": "Tenlog TL-D3 Pro",
       "manufacturer": "Tenlog",
-      "variants": [
-        "TL-D3 Pro"
-      ],
+      "variants": ["TL-D3 Pro"],
       "kinematics": "CARTESIAN_IDEX",
       "bedSize": {
         "x": 300,
@@ -4951,10 +4890,7 @@
       "id": "BIBO_2",
       "name": "BIBO 2",
       "manufacturer": "BIBO",
-      "variants": [
-        "BIBO 2",
-        "BIBO 2 Touch"
-      ],
+      "variants": ["BIBO 2", "BIBO 2 Touch"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 214,
@@ -4976,12 +4912,7 @@
       "id": "XYZPRINTING_DA_VINCI",
       "name": "XYZprinting da Vinci",
       "manufacturer": "XYZprinting",
-      "variants": [
-        "1.0",
-        "1.0 Pro",
-        "1.0A",
-        "2.0 Duo"
-      ],
+      "variants": ["1.0", "1.0 Pro", "1.0A", "2.0 Duo"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 200,
@@ -5000,11 +4931,7 @@
       "id": "XYZPRINTING_MINI",
       "name": "XYZprinting da Vinci Mini",
       "manufacturer": "XYZprinting",
-      "variants": [
-        "Mini",
-        "Mini w+",
-        "Jr"
-      ],
+      "variants": ["Mini", "Mini w+", "Jr"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 150,
@@ -5026,9 +4953,7 @@
       "id": "NEW_MATTER_MOD_T",
       "name": "New Matter MOD-t",
       "manufacturer": "New Matter",
-      "variants": [
-        "MOD-t"
-      ],
+      "variants": ["MOD-t"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 150,
@@ -5050,9 +4975,7 @@
       "id": "POLAROID_PLAYSMART",
       "name": "Polaroid PlaySmart",
       "manufacturer": "Polaroid",
-      "variants": [
-        "PlaySmart"
-      ],
+      "variants": ["PlaySmart"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 120,
@@ -5074,10 +4997,7 @@
       "id": "BEAR_UPGRADE",
       "name": "Bear Upgrade (Prusa MK3)",
       "manufacturer": "Community (Bear)",
-      "variants": [
-        "Bear 2.0",
-        "Bear 2.1"
-      ],
+      "variants": ["Bear 2.0", "Bear 2.1"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 250,
@@ -5099,9 +5019,7 @@
       "id": "ALUNAR_M508",
       "name": "Alunar M508",
       "manufacturer": "Alunar",
-      "variants": [
-        "M508"
-      ],
+      "variants": ["M508"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 210,
@@ -5120,10 +5038,7 @@
       "id": "FLSUN_I3",
       "name": "FLSun Prusa i3",
       "manufacturer": "FLSun",
-      "variants": [
-        "i3",
-        "i3 Plus"
-      ],
+      "variants": ["i3", "i3 Plus"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 200,
@@ -5142,11 +5057,7 @@
       "id": "ZONESTAR_P802",
       "name": "Zonestar P802",
       "manufacturer": "Zonestar",
-      "variants": [
-        "P802M",
-        "P802N",
-        "P802QR2"
-      ],
+      "variants": ["P802M", "P802N", "P802QR2"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 220,
@@ -5165,11 +5076,7 @@
       "id": "ZONESTAR_Z8",
       "name": "Zonestar Z8",
       "manufacturer": "Zonestar",
-      "variants": [
-        "Z8P",
-        "Z8T",
-        "Z8PM4"
-      ],
+      "variants": ["Z8P", "Z8T", "Z8PM4"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -5188,11 +5095,7 @@
       "id": "ZONESTAR_Z9",
       "name": "Zonestar Z9",
       "manufacturer": "Zonestar",
-      "variants": [
-        "Z9M3",
-        "Z9M4",
-        "Z9V5"
-      ],
+      "variants": ["Z9M3", "Z9M4", "Z9V5"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,
@@ -5214,10 +5117,7 @@
       "id": "CRAFTBOT_PLUS",
       "name": "CraftBot Plus",
       "manufacturer": "CraftUnique",
-      "variants": [
-        "Plus",
-        "Plus Pro"
-      ],
+      "variants": ["Plus", "Plus Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 250,
@@ -5236,10 +5136,7 @@
       "id": "CRAFTBOT_FLOW_IDEX",
       "name": "CraftBot Flow IDEX",
       "manufacturer": "CraftUnique",
-      "variants": [
-        "Flow IDEX",
-        "Flow IDEX XL"
-      ],
+      "variants": ["Flow IDEX", "Flow IDEX XL"],
       "kinematics": "CARTESIAN_IDEX",
       "bedSize": {
         "x": 300,
@@ -5258,11 +5155,7 @@
       "id": "SINDOH_3DWOX",
       "name": "Sindoh 3DWOX",
       "manufacturer": "Sindoh",
-      "variants": [
-        "1",
-        "2X",
-        "7X"
-      ],
+      "variants": ["1", "2X", "7X"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 210,
@@ -5281,10 +5174,7 @@
       "id": "CEL_ROBOX",
       "name": "CEL Robox",
       "manufacturer": "CEL",
-      "variants": [
-        "RBX01",
-        "RBX02"
-      ],
+      "variants": ["RBX01", "RBX02"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 210,
@@ -5306,9 +5196,7 @@
       "id": "FUSION3_F410",
       "name": "Fusion3 F410",
       "manufacturer": "Fusion3",
-      "variants": [
-        "F410"
-      ],
+      "variants": ["F410"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 355,
@@ -5327,11 +5215,7 @@
       "id": "MODIX_BIG60",
       "name": "Modix BIG-60 V3",
       "manufacturer": "Modix",
-      "variants": [
-        "BIG-60",
-        "BIG-120X",
-        "BIG-180X"
-      ],
+      "variants": ["BIG-60", "BIG-120X", "BIG-180X"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 600,
@@ -5350,10 +5234,7 @@
       "id": "TRACTUS3D_T850",
       "name": "Tractus3D T850",
       "manufacturer": "Tractus3D",
-      "variants": [
-        "T850",
-        "T1250"
-      ],
+      "variants": ["T850", "T1250"],
       "kinematics": "DELTA",
       "bedSize": {
         "x": 400,
@@ -5372,10 +5253,7 @@
       "id": "BUILDER_EXTREME",
       "name": "Builder Extreme 1500",
       "manufacturer": "Builder 3D",
-      "variants": [
-        "1500",
-        "2000"
-      ],
+      "variants": ["1500", "2000"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 700,
@@ -5394,9 +5272,7 @@
       "id": "3DGENCE_INDUSTRY_F420",
       "name": "3DGence Industry F420",
       "manufacturer": "3DGence",
-      "variants": [
-        "F420"
-      ],
+      "variants": ["F420"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 380,
@@ -5418,9 +5294,7 @@
       "id": "GIGABOT_X",
       "name": "re:3D Gigabot X",
       "manufacturer": "re:3D",
-      "variants": [
-        "Gigabot X"
-      ],
+      "variants": ["Gigabot X"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 610,
@@ -5439,10 +5313,7 @@
       "id": "CREALITY_CR3040",
       "name": "Creality CR-3040",
       "manufacturer": "Creality",
-      "variants": [
-        "CR-3040",
-        "CR-3040 Pro"
-      ],
+      "variants": ["CR-3040", "CR-3040 Pro"],
       "kinematics": "CARTESIAN",
       "bedSize": {
         "x": 300,

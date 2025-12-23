@@ -1,193 +1,363 @@
-# Firmware Helper
+# Firmware Helper - TH3D Configuration Parser
 
-## Overview
-This folder is a placeholder for future Marlin firmware configuration assistance. You can place your Marlin `.h` configuration files here for reference when setting up new printers.
+**Version:** 1.0.0  
+**Last Updated:** 2025-12-23
 
-## Purpose
-When configuring a new printer or updating firmware, having your configuration files handy helps ensure consistent settings across tools and profiles.
-
-## What Files to Store Here
-
-### From Marlin Firmware
-1. **Configuration.h** - Main configuration file
-   - Printer dimensions
-   - Hotend/thermistor settings
-   - Stepper motor configurations
-   - Feature enables/disables
-
-2. **Configuration_adv.h** - Advanced configuration
-   - Linear Advance settings
-   - Input shaping
-   - Advanced motion control
-   - TMC driver settings
-
-3. **pins.h** (optional) - Custom pin definitions
-
-### Custom Files
-- **printer-notes.txt** - Your personal notes about the printer
-- **eeprom-backup.txt** - M503 output backups
-- **build-notes.md** - Notes about firmware compilation settings
-
-## How to Use
-
-### 1. Export Your Current Configuration
-```bash
-# If using PlatformIO
-cp Marlin/Configuration.h ~/Documents/my-printer-config/
-
-# If using Arduino IDE
-# Copy from your Marlin folder to this location
-```
-
-### 2. Add to This Folder
-Simply drag and drop or copy your `.h` files here for safekeeping.
-
-### 3. Version Control (Optional)
-Consider naming files with version/date:
-- `Configuration_v2.0.9.3_2024-12-20.h`
-- `Configuration_adv_v2.0.9.3_2024-12-20.h`
-
-## Future Features (Planned)
-
-### Configuration Parser
-- Automatic extraction of settings from `.h` files
-- Pre-populate printer profiles from Configuration.h
-- Detect firmware version and features
-
-### Configuration Validator
-- Check for common mistakes
-- Validate pin assignments
-- Ensure feature compatibility
-
-### Profile Generator
-- Generate slicer profiles from firmware config
-- Suggest optimal settings based on hardware
-- Export start/end G-code templates
-
-## ⚠️ SAFETY WARNINGS
-
-### Critical: Bad Firmware Flash Hazards
-**REAL-WORLD INCIDENT**: A corrupted or incorrect firmware flash can cause catastrophic failures!
-
-**Known Danger - Runaway Heating:**
-- ❌ Bad flash can enable heaters WITHOUT safety limits
-- ❌ Bed/hotend may heat continuously without stopping
-- ❌ Can reach dangerous temperatures (>150°C bed, >300°C hotend)
-- ❌ Fire hazard - can literally burn the control board or worse
-
-### Firmware Flashing Safety Checklist
-**BEFORE Flashing:**
-- [ ] Backup your current working firmware (.bin file)
-- [ ] Backup EEPROM settings (M503 output)
-- [ ] Verify firmware file size matches your board's flash capacity
-- [ ] Double-check board type in configuration
-- [ ] Have fire extinguisher nearby (not joking)
-
-**DURING First Boot After Flash:**
-- [ ] **STAY WITH THE PRINTER** for first 10 minutes
-- [ ] Watch bed/hotend temperatures in menu
-- [ ] Verify thermal runaway protection is enabled
-- [ ] Test that heaters turn OFF when target reached
-- [ ] Manually trigger thermal runaway test if possible
-
-**If Something Goes Wrong:**
-- 🔥 **Heater won't stop?** → Pull power plug immediately
-- 🔥 **Smoke or burning smell?** → Pull plug, evacuate, call fire dept if needed
-- ⚠️ **Strange behavior?** → Flash known-good firmware immediately
-
-### Size Matters
-- Firmware **must fit** in your board's flash memory
-- Too large = partial flash = undefined behavior
-- Check your board specs:
-  - 4.2.7 board: ~512KB flash
-  - SKR boards: varies (check specs)
-  - Verify compiled .bin size BEFORE flashing
-
-### Lesson Learned (Real Experience)
-> "Set one board on fire from flashing firmware that was too big. The bad flash turned the bed heater on and just let it keep heating up more and more. You learn real quick what you did wrong when that happens!" - Real user experience
-
-**Don't make this mistake.** Always verify firmware size and watch the first boot!
-
-## Tips
-
-### Backup Strategy
-1. **After Every Firmware Update**: Save a copy of your working configuration
-2. **Before Major Changes**: Backup current EEPROM (M503) and configuration files
-3. **Document Changes**: Add notes about what you modified and why
-4. **Keep Known-Good Firmware**: Always have a backup .bin file that you KNOW works
-
-### Organization
-```
-firmware-helper/
-├── ender5-plus/
-│   ├── Configuration.h
-│   ├── Configuration_adv.h
-│   └── notes.txt
-├── ender3-v2/
-│   ├── Configuration.h
-│   ├── Configuration_adv.h
-│   └── notes.txt
-└── README.md (this file)
-```
-
-## Common Configuration Values
-
-### Thermistor Types
-- `1` - Generic 100kΩ (most common)
-- `5` - ATC Semitec 104GT-2/104NT-4-R025H42G
-- `11` - Generic 100kΩ beta 3950
-- `13` - Hisens up to 300°C
-
-### Extruder Steps/mm (Reference)
-- Stock Ender 3: **93 steps/mm**
-- BMG Clone: **415 steps/mm**
-- Micro Swiss NG DD: **~130-140 steps/mm**
-- Orbiter v2: **690 steps/mm**
-
-### Hotend Max Temps
-- Stock PTFE-lined: **260°C**
-- All-metal: **285-300°C**
-- High-temp (Mosquito): **450°C**
-
-## Need Help?
-
-### Resources
-- [Marlin Documentation](https://marlinfw.org/docs/configuration/configuration.html)
-- [Teaching Tech Calibration](https://teachingtechyt.github.io/calibration.html)
-- [Reddit r/3Dprinting](https://reddit.com/r/3Dprinting)
-
-### Configuration Generators
-- [Marlin Configuration Generator](https://config.marlinfw.org/)
-- [Prusa Slicer Profiles](https://github.com/prusa3d/PrusaSlicer-settings)
+This directory contains comprehensive mapping templates and documentation for parsing TH3D Unified Firmware configuration files. The templates serve as the **source of truth** for parser development.
 
 ---
 
-## Examples
+## 📁 Files Overview
 
-### Example: Finding Your E-Steps from Configuration.h
-```cpp
-// In Configuration.h, look for:
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
-//                                                    ^^
-//                                            This is your E-steps
+### **Documentation & Mapping**
+
+1. **`TH3D-PARSER-REFERENCE.md`** - Complete human-readable reference
+   - Field-by-field mapping documentation
+   - Examples and typical values
+   - Troubleshooting guide
+   - Update workflow instructions
+
+2. **`th3d-field-mapping.json`** - Machine-readable mapping metadata
+   - Complete field definitions with metadata
+   - Validation rules
+   - File location information
+   - TH3D-specific notes
+
+3. **`th3d-template-annotated.json`** - Quick reference template
+   - Inline comments for each field
+   - Configuration.h define mappings
+   - Typical value ranges
+   - Quick lookup during development
+
+4. **`templete for TH3D.json`** - Base template structure
+   - Empty structure showing all possible fields
+   - Used as baseline for exports
+
+### **Example Files**
+
+5. **`example-th3d-ender5plus-config.h`** - TH3D Configuration.h example
+6. **`example-th3d-ender5plus-config_adv.h`** - TH3D Configuration_adv.h example
+7. **`example-th3d-ender5plus-config_backend.h`** - Backend processing file
+8. **`example-th3d-ender5plus-config.h`** - Standard Marlin example (for comparison)
+
+---
+
+## 🎯 Template-First Development Workflow
+
+**Core Principle:** Templates are the source of truth. Update templates BEFORE changing parser code!
+
+```
+1. UPDATE TEMPLATE → 2. UPDATE PARSER → 3. TEST → 4. VALIDATE
+        ↓                    ↓               ↓          ↓
+  Source of Truth    Implement Mapping   Verify    Check Against
+   (this folder)      (parser code)      Output     Templates
 ```
 
-### Example: Finding Your Max Feedrate
-```cpp
-// In Configuration.h, look for:
-#define DEFAULT_MAX_FEEDRATE          { 500, 500, 5, 25 }
-//                                                     ^^
-//                                       E-axis max speed (mm/s)
+### **Step-by-Step Process:**
+
+#### 1. **Need to Add a New Field?**
+   - ✅ Update `TH3D-PARSER-REFERENCE.md` first
+   - ✅ Add field to `th3d-field-mapping.json` with complete metadata
+   - ✅ Add inline comment to `th3d-template-annotated.json`
+   - ✅ Update base template `templete for TH3D.json`
+
+#### 2. **Update Parser Code**
+   - Open `assets/js/th3d-config-parser.js`
+   - Reference the mapping template
+   - Add parsing logic for the new field
+   - Follow the documented structure
+
+#### 3. **Test Extraction**
+   - Use example config files in this directory
+   - Verify field extracts correctly
+   - Check value types and ranges
+
+#### 4. **Validate**
+   - Use templates as checklist
+   - Verify all documented fields are parsed
+   - Check warnings are appropriate
+
+---
+
+## 🔧 TH3D-Specific Features
+
+### **Key Differences from Standard Marlin:**
+
+| Feature | Standard Marlin | TH3D Unified Firmware |
+|---------|----------------|----------------------|
+| **Machine Name** | `CUSTOM_MACHINE_NAME` | `USER_PRINTER_NAME` |
+| **Version** | `SHORT_BUILD_VERSION` | `UNIFIED_VERSION` |
+| **Build Date** | - | `STRING_DISTRIBUTION_DATE` |
+| **Probe** | Various | `EZABL_ENABLE` / `EZABL_POINTS` |
+| **RGB Lighting** | - | `TH3D_RGB_ENABLE` |
+
+### **Multi-File Structure:**
+
+TH3D uses **4 configuration files**:
+1. **Configuration.h** - Main settings
+2. **Configuration_adv.h** - Advanced features
+3. **Configuration_backend.h** - Backend processing (contains variable references!)
+4. **Configuration_speed.h** - Speed/motion profiles
+
+### **Variable Reference Challenge:**
+
+**Problem:** Configuration_backend.h may contain:
+```c
+#define CUSTOM_MACHINE_NAME USER_PRINTER_NAME
+```
+This is a **variable reference**, not a string!
+
+**Solution:** Parser must:
+1. Store value from `USER_PRINTER_NAME` in Configuration.h
+2. Detect variable references (no quotes)
+3. Use stored value instead of variable name
+4. Preserve across file merges
+
+---
+
+## 📖 Using the Templates
+
+### **For Developers:**
+
+**Adding a new field:**
+```
+1. Open TH3D-PARSER-REFERENCE.md
+2. Find appropriate section (Basic, Hardware, Motion, etc.)
+3. Add new field to table with:
+   - Configuration.h define name
+   - Type (string, integer, float, boolean)
+   - Typical values
+   - Notes
+4. Update th3d-field-mapping.json with validation rules
+5. Add inline comment to th3d-template-annotated.json
+6. Update parser code to match
 ```
 
-### Example: Finding PID Values
-```cpp
-// In Configuration.h, look for:
-#define DEFAULT_Kp  22.20
-#define DEFAULT_Ki   1.08
-#define DEFAULT_Kd 114.00
+**Troubleshooting parsing issues:**
+```
+1. Check TH3D-PARSER-REFERENCE.md for expected behavior
+2. Verify field is in th3d-field-mapping.json
+3. Check if Configuration.h define name matches template
+4. Look for TH3D-specific notes in mapping
+```
+
+### **For Users:**
+
+**Understanding extracted data:**
+```
+1. Open th3d-template-annotated.json
+2. Find the field you're interested in
+3. Read the inline comment for:
+   - Which Configuration.h define it comes from
+   - What typical values look like
+   - Any special notes or warnings
 ```
 
 ---
 
-*This folder structure and helper system will be expanded in future updates to provide automated configuration assistance.*
+## 🗂️ Field Categories
+
+### **basic** (14 fields)
+Printer identification, communication settings, build volume
+
+### **hardware** (17 fields)
+Drivers, thermistors, endstops, display
+
+### **temperature** (12 fields)
+Temperature limits, PID tuning for hotend and bed
+
+### **motion** (19 fields)
+Steps/mm, feedrates, acceleration, jerk/junction deviation
+
+### **probe** (5 fields)
+Probe type, offsets, configuration
+
+### **bedLeveling** (5 fields)
+Leveling type, mesh configuration, fade height
+
+### **advanced** (7 fields)
+Linear advance, arc support, TH3D-specific features
+
+### **safety** (4 fields)
+Thermal protection, filament sensor
+
+### **warnings** (array)
+Validation warnings and errors
+
+**Total:** 83+ configurable fields
+
+---
+
+## ⚠️ Critical Safety Fields
+
+These fields should **ALWAYS** be enabled:
+
+```json
+{
+  "safety": {
+    "thermalProtectionHotend": true,  // REQUIRED!
+    "thermalProtectionBed": true      // REQUIRED!
+  }
+}
+```
+
+**Warning:** Disabling thermal protection is **EXTREMELY DANGEROUS** and can cause fires!
+
+---
+
+## 🔍 Validation Rules
+
+Templates include comprehensive validation:
+
+### **Type Checking**
+- String fields must be strings
+- Integer fields must be whole numbers
+- Float fields can have decimals
+- Boolean fields are true/false
+
+### **Range Validation**
+```json
+{
+  "bedSizeX": {
+    "validation": {
+      "min": 100,
+      "max": 500
+    }
+  }
+}
+```
+
+### **Pattern Matching**
+```json
+{
+  "motherboard": {
+    "validation": {
+      "pattern": "BOARD_.*"
+    }
+  }
+}
+```
+
+### **Allowed Values**
+```json
+{
+  "baudRate": {
+    "validation": {
+      "allowedValues": [9600, 19200, 38400, 57600, 115200, 250000]
+    }
+  }
+}
+```
+
+---
+
+## 📚 Additional Resources
+
+### **TH3D Resources**
+- TH3D Unified Firmware: https://www.th3dstudio.com/knowledgebase/th3d-unified-firmware-package/
+- TH3D Support: https://www.th3dstudio.com/contact/
+
+### **Marlin Resources**
+- Marlin Documentation: https://marlinfw.org/docs/configuration/configuration.html
+- Marlin GitHub: https://github.com/MarlinFirmware/Marlin
+
+### **Related Tools in Toolbox**
+- E-Steps Calculator - Calibrate extruder steps
+- Z-Offset Calibration - Calibrate probe offset
+- Pressure Advance Calibration - Tune Linear Advance K factor
+- PID Tuning - Auto-tune hotend/bed PID values
+
+---
+
+## 🐛 Troubleshooting
+
+### **Issue: Field Not Extracting**
+
+**Check:**
+1. Is field in `th3d-field-mapping.json`?
+2. Is Configuration.h define name correct?
+3. Is value in correct format (string, number, etc.)?
+4. Is define commented out in config file?
+
+**Solution:** Consult `TH3D-PARSER-REFERENCE.md` for correct define name and format
+
+### **Issue: Wrong Value Extracted**
+
+**Check:**
+1. Is parser using correct extraction method?
+   - `extractString()` for quoted values
+   - `extractArray()` for `{ x, y, z }` format
+   - Direct parse for numbers
+2. Is value being overwritten by later file?
+3. Is variable reference being handled correctly?
+
+**Solution:** Add debug logging to parser, verify against template
+
+### **Issue: Duplicate Warnings**
+
+**Cause:** Warnings generated per-file instead of once on merged config
+
+**Solution:** Only validate final merged configuration, not individual files
+
+---
+
+## 📊 Template Maintenance
+
+### **When to Update Templates:**
+
+✅ **Always update when:**
+- Adding support for new Configuration.h define
+- TH3D releases new firmware version with new features
+- Validation rules change
+- Field types or ranges change
+
+✅ **Version Bump When:**
+- Major field additions (new categories)
+- Breaking changes to structure
+- Significant documentation updates
+
+### **Versioning:**
+
+Templates use **Semantic Versioning**:
+- **Major** (1.x.x) - Breaking changes, restructuring
+- **Minor** (x.1.x) - New fields, non-breaking additions
+- **Patch** (x.x.1) - Documentation updates, fixes
+
+---
+
+## 🤝 Contributing
+
+When contributing parser updates:
+
+1. **Template First:** Update templates before code
+2. **Document Everything:** Add examples, notes, validation rules
+3. **Test Thoroughly:** Use example config files
+4. **Validate Output:** Check against templates
+5. **Update Version:** Bump version in templates and parser
+
+---
+
+## 📝 Version History
+
+### **v1.0.0** (2025-12-23)
+- ✅ Initial release
+- ✅ Complete TH3D field mapping
+- ✅ Comprehensive documentation
+- ✅ Template-first workflow established
+- ✅ 83+ fields documented
+- ✅ Multi-file parsing support
+- ✅ Variable reference handling
+
+---
+
+## 📧 Support
+
+For issues or questions:
+1. Check `TH3D-PARSER-REFERENCE.md` first
+2. Review example config files
+3. Consult inline comments in `th3d-template-annotated.json`
+4. Submit issue with parser logs and example config
+
+---
+
+**Remember:** These templates are the source of truth. Always consult them when working with the parser!

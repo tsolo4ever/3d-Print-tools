@@ -1,12 +1,13 @@
 /* ============================================
-   Configuration.h Parser
-   Parse Marlin Configuration.h files
+   TH3D Configuration.h Parser
+   Parse TH3D Unified Firmware Configuration files
+   Optimized for TH3D-specific naming conventions
    ============================================ */
 
-const ConfigParser = {
+const TH3DConfigParser = {
     
     /**
-     * Parse Configuration.h file content
+     * Parse TH3D Configuration.h file content
      * @param {string} content - File content as text
      * @returns {object} Parsed configuration object
      */
@@ -46,7 +47,7 @@ const ConfigParser = {
     },
     
     /**
-     * Parse a single #define line
+     * Parse a single #define line (TH3D specific)
      */
     parseDefineLine(line, config) {
         // Extract the define name and value
@@ -56,15 +57,48 @@ const ConfigParser = {
         const [, name, value] = match;
         const cleanValue = value ? value.split('//')[0].trim() : true;
         
-        // Categorize by config section
+        // === TH3D SPECIFIC FIELDS ===
+        
+        // TH3D Firmware Version
+        if (name === 'UNIFIED_VERSION') {
+            config.basic.firmwareVersion = this.extractString(cleanValue);
+        }
+        
+        // TH3D Distribution Date
+        else if (name === 'STRING_DISTRIBUTION_DATE') {
+            config.basic.distributionDate = this.extractString(cleanValue);
+        }
+        
+        // Machine Name (TH3D uses USER_PRINTER_NAME)
+        else if (name === 'USER_PRINTER_NAME') {
+            const extracted = this.extractString(cleanValue);
+            console.log('🔍 TH3D Parser found USER_PRINTER_NAME!');
+            console.log('   Raw value:', cleanValue);
+            console.log('   Extracted:', extracted);
+            config.basic.machineName = extracted;
+            // Store for variable resolution
+            config.basic.userPrinterNameValue = extracted;
+        }
+        
+        // Also support standard Marlin field as fallback
+        // BUT skip if it's a variable reference (e.g., "USER_PRINTER_NAME" without quotes)
+        else if (name === 'CUSTOM_MACHINE_NAME') {
+            const extracted = this.extractString(cleanValue);
+            // If it's a variable reference (no quotes found, returns the raw value)
+            if (extracted === cleanValue && cleanValue === 'USER_PRINTER_NAME') {
+                // It's a variable reference - use the stored value if available
+                if (config.basic.userPrinterNameValue) {
+                    config.basic.machineName = config.basic.userPrinterNameValue;
+                }
+                // Don't overwrite with the variable name
+            } else if (!config.basic.machineName) {
+                // It's a real string value, use it
+                config.basic.machineName = extracted;
+            }
+        }
         
         // === BASIC INFO ===
-        if (name === 'CUSTOM_MACHINE_NAME') {
-            config.basic.machineName = this.extractString(cleanValue);
-        } else if (name === 'USER_PRINTER_NAME') {
-            // TH3D firmware uses USER_PRINTER_NAME
-            config.basic.machineName = this.extractString(cleanValue);
-        } else if (name === 'MACHINE_UUID') {
+        else if (name === 'MACHINE_UUID') {
             config.basic.uuid = this.extractString(cleanValue);
         } else if (name === 'STRING_CONFIG_H_AUTHOR') {
             config.basic.author = this.extractString(cleanValue);
@@ -85,8 +119,6 @@ const ConfigParser = {
             config.hardware.driverZ = cleanValue;
         } else if (name === 'E0_DRIVER_TYPE') {
             config.hardware.driverE0 = cleanValue;
-        } else if (name === 'E1_DRIVER_TYPE') {
-            config.hardware.driverE1 = cleanValue;
         }
         
         // === THERMISTORS ===
@@ -94,32 +126,11 @@ const ConfigParser = {
             config.hardware.thermistorHotend = parseInt(cleanValue);
         } else if (name === 'TEMP_SENSOR_BED') {
             config.hardware.thermistorBed = parseInt(cleanValue);
-        } else if (name === 'TEMP_SENSOR_CHAMBER') {
-            config.hardware.thermistorChamber = parseInt(cleanValue);
-        }
-        
-        // === ENDSTOPS ===
-        else if (name === 'USE_XMIN_PLUG') {
-            config.hardware.endstopXMin = true;
-        } else if (name === 'USE_XMAX_PLUG') {
-            config.hardware.endstopXMax = true;
-        } else if (name === 'USE_YMIN_PLUG') {
-            config.hardware.endstopYMin = true;
-        } else if (name === 'USE_YMAX_PLUG') {
-            config.hardware.endstopYMax = true;
-        } else if (name === 'USE_ZMIN_PLUG') {
-            config.hardware.endstopZMin = true;
-        } else if (name === 'USE_ZMAX_PLUG') {
-            config.hardware.endstopZMax = true;
         }
         
         // === TEMPERATURE LIMITS ===
-        else if (name === 'HEATER_0_MINTEMP') {
-            config.temperature.hotendMinTemp = parseInt(cleanValue);
-        } else if (name === 'HEATER_0_MAXTEMP') {
+        else if (name === 'HEATER_0_MAXTEMP') {
             config.temperature.hotendMaxTemp = parseInt(cleanValue);
-        } else if (name === 'BED_MINTEMP') {
-            config.temperature.bedMinTemp = parseInt(cleanValue);
         } else if (name === 'BED_MAXTEMP') {
             config.temperature.bedMaxTemp = parseInt(cleanValue);
         }
@@ -182,7 +193,7 @@ const ConfigParser = {
             config.motion.travelAcceleration = parseFloat(cleanValue);
         }
         
-        // === JERK / JUNCTION DEVIATION ===
+        // === JERK ===
         else if (name === 'CLASSIC_JERK') {
             config.motion.classicJerk = true;
         } else if (name === 'DEFAULT_XJERK') {
@@ -193,22 +204,13 @@ const ConfigParser = {
             config.motion.jerkZ = parseFloat(cleanValue);
         } else if (name === 'DEFAULT_EJERK') {
             config.motion.jerkE = parseFloat(cleanValue);
-        } else if (name === 'JUNCTION_DEVIATION_MM') {
-            config.motion.junctionDeviation = parseFloat(cleanValue);
         }
         
-        // === S-CURVE ===
-        else if (name === 'S_CURVE_ACCELERATION') {
-            config.motion.sCurveAcceleration = true;
-        }
-        
-        // === PROBE ===
-        else if (name === 'BLTOUCH') {
+        // === PROBE (TH3D specific options) ===
+        else if (name === 'EZABL_ENABLE' || name === 'EZABL_POINTS') {
+            config.probe.type = 'EZABL'; // TH3D's own probe
+        } else if (name === 'BLTOUCH') {
             config.probe.type = 'BLTouch';
-        } else if (name === 'FIX_MOUNTED_PROBE') {
-            config.probe.type = 'Fixed';
-        } else if (name === 'NOZZLE_AS_PROBE') {
-            config.probe.type = 'Nozzle';
         } else if (name === 'NOZZLE_TO_PROBE_OFFSET') {
             const offsets = this.extractArray(cleanValue);
             if (offsets.length >= 3) {
@@ -218,29 +220,17 @@ const ConfigParser = {
                     z: parseFloat(offsets[2])
                 };
             }
-        } else if (name === 'Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN') {
-            config.probe.usesZMinPin = true;
         }
         
         // === BED LEVELING ===
-        else if (name === 'AUTO_BED_LEVELING_3POINT') {
-            config.bedLeveling.type = '3POINT';
-        } else if (name === 'AUTO_BED_LEVELING_LINEAR') {
-            config.bedLeveling.type = 'LINEAR';
-        } else if (name === 'AUTO_BED_LEVELING_BILINEAR') {
+        else if (name === 'AUTO_BED_LEVELING_BILINEAR') {
             config.bedLeveling.type = 'BILINEAR';
         } else if (name === 'AUTO_BED_LEVELING_UBL') {
             config.bedLeveling.type = 'UBL';
-        } else if (name === 'MESH_BED_LEVELING') {
-            config.bedLeveling.type = 'MESH';
         } else if (name === 'GRID_MAX_POINTS_X') {
             config.bedLeveling.gridPointsX = parseInt(cleanValue);
         } else if (name === 'GRID_MAX_POINTS_Y') {
             config.bedLeveling.gridPointsY = parseInt(cleanValue);
-        } else if (name === 'DEFAULT_LEVELING_FADE_HEIGHT') {
-            config.bedLeveling.fadeHeight = parseFloat(cleanValue);
-        } else if (name === 'RESTORE_LEVELING_AFTER_G28') {
-            config.bedLeveling.restoreAfterG28 = true;
         }
         
         // === BED SIZE ===
@@ -248,10 +238,6 @@ const ConfigParser = {
             config.basic.bedSizeX = parseInt(cleanValue);
         } else if (name === 'Y_BED_SIZE') {
             config.basic.bedSizeY = parseInt(cleanValue);
-        } else if (name === 'X_MAX_POS') {
-            config.basic.xMaxPos = parseInt(cleanValue);
-        } else if (name === 'Y_MAX_POS') {
-            config.basic.yMaxPos = parseInt(cleanValue);
         } else if (name === 'Z_MAX_POS') {
             config.basic.zMaxPos = parseInt(cleanValue);
         }
@@ -263,12 +249,6 @@ const ConfigParser = {
             config.advanced.linearAdvanceK = parseFloat(cleanValue);
         } else if (name === 'ARC_SUPPORT') {
             config.advanced.arcSupport = true;
-        } else if (name === 'NOZZLE_PARK_FEATURE') {
-            config.advanced.nozzlePark = true;
-        } else if (name === 'POWER_LOSS_RECOVERY') {
-            config.advanced.powerLossRecovery = true;
-        } else if (name === 'BABYSTEPPING') {
-            config.advanced.babystepping = true;
         }
         
         // === SAFETY ===
@@ -276,17 +256,15 @@ const ConfigParser = {
             config.safety.thermalProtectionHotend = true;
         } else if (name === 'THERMAL_PROTECTION_BED') {
             config.safety.thermalProtectionBed = true;
-        } else if (name === 'THERMAL_PROTECTION_CHAMBER') {
-            config.safety.thermalProtectionChamber = true;
         } else if (name === 'FILAMENT_RUNOUT_SENSOR') {
             config.safety.filamentSensor = true;
         }
         
-        // === DISPLAY ===
-        else if (name.includes('DISPLAY') || name.includes('LCD') || name.includes('DGUS') || name.includes('TFT')) {
-            if (cleanValue === true || cleanValue === '1') {
-                config.hardware.displayType = name;
-            }
+        // === TH3D SPECIFIC FEATURES ===
+        else if (name === 'TH3D_RGB_ENABLE') {
+            config.advanced.th3dRGB = true;
+        } else if (name === 'POWER_LOSS_RECOVERY') {
+            config.advanced.powerLossRecovery = true;
         }
     },
     
@@ -326,34 +304,6 @@ const ConfigParser = {
             });
         }
         
-        // Check for suspicious values
-        if (config.motion.stepsPerMM) {
-            if (config.motion.stepsPerMM.e < 50 || config.motion.stepsPerMM.e > 1000) {
-                config.warnings.push({
-                    level: 'warning',
-                    message: `E-steps value (${config.motion.stepsPerMM.e}) seems unusual. Typical range: 50-1000`
-                });
-            }
-        }
-        
-        // Check PID values
-        if (config.temperature.pidHotendEnabled) {
-            if (!config.temperature.pidHotendP || !config.temperature.pidHotendI || !config.temperature.pidHotendD) {
-                config.warnings.push({
-                    level: 'warning',
-                    message: 'PID enabled but values not fully defined'
-                });
-            }
-        }
-        
-        // Check probe without bed leveling
-        if (config.probe.type && !config.bedLeveling.type) {
-            config.warnings.push({
-                level: 'info',
-                message: 'Probe detected but no bed leveling enabled'
-            });
-        }
-        
         // Check thermal protection
         if (!config.safety.thermalProtectionHotend) {
             config.warnings.push({
@@ -364,33 +314,7 @@ const ConfigParser = {
     },
     
     /**
-     * Parse from file upload
-     * @param {File} file - JavaScript File object
-     * @returns {Promise<object>} Parsed configuration
-     */
-    async parseFile(file) {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            
-            reader.onload = (e) => {
-                try {
-                    const content = e.target.result;
-                    const config = this.parseConfigFile(content);
-                    resolve(config);
-                } catch (error) {
-                    reject(error);
-                }
-            };
-            
-            reader.onerror = () => reject(new Error('Failed to read file'));
-            reader.readAsText(file);
-        });
-    },
-    
-    /**
-     * Alias for parseConfigFile (for backwards compatibility)
-     * @param {string} content - File content as text
-     * @returns {object} Parsed configuration object
+     * Alias for parseConfigFile (for compatibility)
      */
     parseConfigurationH(content) {
         return this.parseConfigFile(content);
@@ -399,5 +323,5 @@ const ConfigParser = {
 
 // Make available globally
 if (typeof window !== 'undefined') {
-    window.ConfigParser = ConfigParser;
+    window.TH3DConfigParser = TH3DConfigParser;
 }
