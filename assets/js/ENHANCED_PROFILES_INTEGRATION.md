@@ -131,10 +131,11 @@ Import settings from:
 5. Review/customize settings across tabs
 6. Click "Save" - profile appears immediately in history
 
-### For Editing
-1. Click "Edit" button on existing profile card
-2. Modify settings across any tabs
-3. Click "Save" - changes sync automatically
+### For Editing Existing Profiles
+1. Click "✏️ Edit" button on existing profile card
+2. Enhanced Profiles editor opens with all existing data loaded
+3. Modify settings across any of the 10 tabs
+4. Click "💾 Save" - changes sync automatically to the profile list
 
 ### For Quick Setup
 1. Use printer database search (Tab 1) for instant hardware setup

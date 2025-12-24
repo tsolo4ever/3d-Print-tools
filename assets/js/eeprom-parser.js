@@ -40,6 +40,79 @@ const EEPROMParser = {
     },
     
     /**
+     * Parse structured JSON EEPROM backup (new format with "data" field)
+     * @param {object} jsonData - Structured EEPROM backup JSON
+     * @returns {object} Parsed EEPROM data
+     */
+    parseStructuredJSON(jsonData) {
+        if (!jsonData || !jsonData.data) {
+            throw new Error('Invalid structured JSON format. Expected "data" field.');
+        }
+        
+        const data = jsonData.data;
+        const result = {
+            raw: JSON.stringify(jsonData, null, 2),
+            parsed: true,
+            firmware: {
+                name: 'Marlin',
+                version: 'Unknown'
+            },
+            maxFeedrate: {
+                x: data.feedrate?.params?.X || null,
+                y: data.feedrate?.params?.Y || null,
+                z: data.feedrate?.params?.Z || null,
+                e: data.feedrate?.params?.E || null
+            },
+            maxAccel: {
+                x: data.max_acceleration?.params?.X || null,
+                y: data.max_acceleration?.params?.Y || null,
+                z: data.max_acceleration?.params?.Z || null,
+                e: data.max_acceleration?.params?.E || null
+            },
+            jerk: {
+                x: data.advanced?.params?.X || null,
+                y: data.advanced?.params?.Y || null,
+                z: data.advanced?.params?.Z || null,
+                e: data.advanced?.params?.E || null
+            },
+            esteps: data.steps?.params?.E || null,
+            pidHotend: data.hotend_pid?.params ? {
+                p: data.hotend_pid.params.P,
+                i: data.hotend_pid.params.I,
+                d: data.hotend_pid.params.D
+            } : null,
+            pidBed: data.bed_pid?.params ? {
+                p: data.bed_pid.params.P,
+                i: data.bed_pid.params.I,
+                d: data.bed_pid.params.D
+            } : null,
+            linearAdvance: data.linear?.params?.K || null,
+            zOffset: data.probe_offset?.params?.Z || null,
+            bedSize: {
+                x: null,
+                y: null,
+                z: null
+            },
+            bedLevelingType: data.autolevel?.params?.S ? 'Enabled' : 'Manual',
+            probeOffset: {
+                x: data.probe_offset?.params?.X || null,
+                y: data.probe_offset?.params?.Y || null,
+                z: data.probe_offset?.params?.Z || null
+            },
+            inputShaping: data.input_shaping?.params ? {
+                frequency: data.input_shaping.params.F,
+                damping: data.input_shaping.params.D
+            } : null,
+            warnings: []
+        };
+        
+        // Validate and add warnings
+        result.warnings = this.validateEEPROM(result);
+        
+        return result;
+    },
+    
+    /**
      * Parse OctoPrint EEPROM backup (.zip file)
      * @param {File} zipFile - OctoPrint backup zip file
      * @returns {Promise<object>} Parsed EEPROM data

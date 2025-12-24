@@ -4,3 +4,6 @@ config/secrets.json
 *.key
 node_modules/
 3d-Print-tools.code-workspace
+
+# Test files folder
+test files/

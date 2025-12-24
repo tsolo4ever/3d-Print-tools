@@ -1,17 +1,52 @@
 /* ============================================
-   TH3D Configuration.h Parser
+   TH3D Configuration.h Parser (Data-Driven)
    Parse TH3D Unified Firmware Configuration files
-   Optimized for TH3D-specific naming conventions
+   Uses th3d-field-mapping.json as source of truth
+   
+   ⚠️ KNOWN LIMITATIONS:
+   - Array fields (DEFAULT_AXIS_STEPS_PER_UNIT) need special handling
+   - Field mapping has stepsPerMM.x, stepsPerMM.y, etc. as separate fields
+   - But #define is a single array { 80, 80, 400, 93 }
+   - Currently extractArray() returns array, but storeValue() expects single value
+   
+   📋 TODO:
+   - Add array index extraction logic in storeValue()
+   - Handle nested array-to-object mapping (array[0] → obj.x)
+   - Test with all TH3D example files
+   - Add fallback for fields not in mapping
    ============================================ */
 
 const TH3DConfigParser = {
+    
+    // Field mapping loaded from JSON
+    fieldMapping: null,
+    
+    /**
+     * Load field mapping from JSON file
+     */
+    async loadFieldMapping() {
+        if (this.fieldMapping) return this.fieldMapping;
+        
+        try {
+            const response = await fetch('firmware-helper/th3d-field-mapping.json');
+            this.fieldMapping = await response.json();
+            console.log('✅ TH3D Field Mapping loaded:', this.fieldMapping.version);
+            return this.fieldMapping;
+        } catch (error) {
+            console.error('❌ Failed to load field mapping:', error);
+            throw new Error('Could not load TH3D field mapping file');
+        }
+    },
     
     /**
      * Parse TH3D Configuration.h file content
      * @param {string} content - File content as text
      * @returns {object} Parsed configuration object
      */
-    parseConfigFile(content) {
+    async parseConfigFile(content) {
+        // Ensure mapping is loaded
+        await this.loadFieldMapping();
+        
         const config = {
             basic: {},
             hardware: {},
@@ -24,10 +59,14 @@ const TH3DConfigParser = {
             warnings: []
         };
         
-        // Store defined variables for substitution
-        this.variables = {};
+        // Store defined variables for substitution (preserve across multiple file parses)
+        if (!this.variables) {
+            this.variables = {};
+        }
         
         const lines = content.split('\n');
+        
+        console.log('🔍 TH3D Parser (Data-Driven): Starting parse of', lines.length, 'lines');
         
         // First pass: collect simple variable definitions
         for (let i = 0; i < lines.length; i++) {
@@ -36,10 +75,14 @@ const TH3DConfigParser = {
                 const match = line.match(/#define\s+(\w+)\s+([\d.]+)$/);
                 if (match) {
                     this.variables[match[1]] = match[2];
+                    console.log('   📝 Stored variable:', match[1], '=', match[2]);
                 }
             }
         }
         
+        console.log('🔍 Variables collected:', Object.keys(this.variables).length);
+        
+        // Second pass: parse using field mapping
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i].trim();
             
@@ -54,6 +97,8 @@ const TH3DConfigParser = {
             }
         }
         
+        console.log('🔍 Final bedLeveling config:', config.bedLeveling);
+        
         // Validate and add warnings
         this.validateConfig(config);
         
@@ -61,224 +106,151 @@ const TH3DConfigParser = {
     },
     
     /**
-     * Parse a single #define line (TH3D specific)
+     * Parse a single #define line using field mapping
+     * 
+     * ⚠️ TODO: Add fallback for unmapped fields
+     * If a #define is not found in the mapping, we silently skip it.
+     * Consider adding a "unknown" or "unmapped" section to capture these
+     * so users can identify missing fields in the mapping.
      */
     parseDefineLine(line, config) {
         // Extract the define name and value
         const match = line.match(/#define\s+(\w+)(?:\s+(.+))?/);
         if (!match) return;
         
-        const [, name, value] = match;
+        const [, defineName, value] = match;
         const cleanValue = value ? value.split('//')[0].trim() : true;
         
-        // === TH3D SPECIFIC FIELDS ===
-        
-        // TH3D Firmware Version
-        if (name === 'UNIFIED_VERSION') {
-            config.basic.firmwareVersion = this.extractString(cleanValue);
-        }
-        
-        // TH3D Distribution Date
-        else if (name === 'STRING_DISTRIBUTION_DATE') {
-            config.basic.distributionDate = this.extractString(cleanValue);
-        }
-        
-        // Machine Name (TH3D uses USER_PRINTER_NAME)
-        else if (name === 'USER_PRINTER_NAME') {
-            const extracted = this.extractString(cleanValue);
-            console.log('🔍 TH3D Parser found USER_PRINTER_NAME!');
-            console.log('   Raw value:', cleanValue);
-            console.log('   Extracted:', extracted);
-            config.basic.machineName = extracted;
-            // Store for variable resolution
-            config.basic.userPrinterNameValue = extracted;
-        }
-        
-        // Also support standard Marlin field as fallback
-        // BUT skip if it's a variable reference (e.g., "USER_PRINTER_NAME" without quotes)
-        else if (name === 'CUSTOM_MACHINE_NAME') {
-            const extracted = this.extractString(cleanValue);
-            // If it's a variable reference (no quotes found, returns the raw value)
-            if (extracted === cleanValue && cleanValue === 'USER_PRINTER_NAME') {
-                // It's a variable reference - use the stored value if available
-                if (config.basic.userPrinterNameValue) {
-                    config.basic.machineName = config.basic.userPrinterNameValue;
+        // Search through field mapping for this define
+        for (const [category, fields] of Object.entries(this.fieldMapping)) {
+            // Skip metadata fields
+            if (category.startsWith('$') || category === 'description' || category === 'lastUpdated' || category === 'version' || category === 'warnings') {
+                continue;
+            }
+            
+            for (const [fieldName, fieldSpec] of Object.entries(fields)) {
+                // Skip non-field entries
+                if (typeof fieldSpec !== 'object' || !fieldSpec.mapsFrom) {
+                    continue;
                 }
-                // Don't overwrite with the variable name
-            } else if (!config.basic.machineName) {
-                // It's a real string value, use it
-                config.basic.machineName = extracted;
+                
+                // Check if this define matches any mapsFrom value
+                const mapsFrom = Array.isArray(fieldSpec.mapsFrom) ? fieldSpec.mapsFrom : [fieldSpec.mapsFrom];
+                
+                // Handle wildcard matches (e.g., "LCD_*", "DISPLAY_*")
+                let matched = false;
+                for (const mapPattern of mapsFrom) {
+                    if (mapPattern.includes('*')) {
+                        // Wildcard pattern - convert to regex
+                        const regex = new RegExp('^' + mapPattern.replace(/\*/g, '.*') + '$');
+                        if (regex.test(defineName)) {
+                            matched = true;
+                            break;
+                        }
+                    } else if (mapPattern === defineName) {
+                        // Exact match
+                        matched = true;
+                        break;
+                    }
+                }
+                
+                if (matched) {
+                    // Extract and store the value based on field type
+                    const extractedValue = this.extractValue(cleanValue, fieldSpec.type, fieldSpec);
+                    
+                    // Store in correct category and handle nested structures
+                    this.storeValue(config, category, fieldName, extractedValue, fieldSpec);
+                    
+                    console.log(`   ✅ Mapped ${defineName} → ${category}.${fieldName} =`, extractedValue);
+                    return; // Stop after first match
+                }
             }
         }
         
-        // === BASIC INFO ===
-        else if (name === 'MACHINE_UUID') {
-            config.basic.uuid = this.extractString(cleanValue);
-        } else if (name === 'STRING_CONFIG_H_AUTHOR') {
-            config.basic.author = this.extractString(cleanValue);
-        } else if (name === 'MOTHERBOARD') {
-            config.basic.motherboard = cleanValue;
-        } else if (name === 'SERIAL_PORT') {
-            config.basic.serialPort = parseInt(cleanValue);
-        } else if (name === 'BAUDRATE') {
-            config.basic.baudRate = parseInt(cleanValue);
+        // TODO: If we reach here, the define was not found in mapping
+        // Consider logging or storing unknown defines for debugging
+        // console.log(`   ⚠️ Unmapped define: ${defineName} = ${cleanValue}`);
+    },
+    
+    /**
+     * Extract value based on field type
+     */
+    extractValue(rawValue, type, fieldSpec) {
+        switch (type) {
+            case 'string':
+                return this.extractString(rawValue);
+            
+            case 'integer':
+                return parseInt(rawValue);
+            
+            case 'float':
+                return parseFloat(rawValue);
+            
+            case 'boolean':
+                // For defines, presence = true
+                return rawValue === true || rawValue === 'true' || rawValue === '1';
+            
+            case 'array':
+                return this.extractArray(rawValue);
+            
+            default:
+                // Unknown type, return as-is
+                return rawValue;
         }
+    },
+    
+    /**
+     * Store value in config object (handles nested structures)
+     * 
+     * ⚠️ TODO: This function needs enhancement for array fields
+     * Currently: Stores single values to nested paths (e.g., "stepsPerMM.x" → config.motion.stepsPerMM.x = 80)
+     * Problem: When extractValue() returns an array [80, 80, 400, 93], we need to map:
+     *   - array[0] → stepsPerMM.x
+     *   - array[1] → stepsPerMM.y
+     *   - array[2] → stepsPerMM.z
+     *   - array[3] → stepsPerMM.e
+     * 
+     * Solution needed: Detect when fieldSpec has "mapsFrom" containing array notation (e.g., "[0]")
+     * Then extract the array index and store only that element.
+     */
+    storeValue(config, category, fieldName, value, fieldSpec) {
+        // TODO: Add array index extraction here
+        // Check if fieldSpec.mapsFrom contains "[0]", "[1]", etc.
+        // If so, and value is an array, extract only the indexed element
+        // Example: if mapsFrom = "DEFAULT_AXIS_STEPS_PER_UNIT[0]" and value = [80, 80, 400, 93]
+        // Then extract index 0 → value = 80
         
-        // === STEPPER DRIVERS ===
-        else if (name === 'X_DRIVER_TYPE') {
-            config.hardware.driverX = cleanValue;
-        } else if (name === 'Y_DRIVER_TYPE') {
-            config.hardware.driverY = cleanValue;
-        } else if (name === 'Z_DRIVER_TYPE') {
-            config.hardware.driverZ = cleanValue;
-        } else if (name === 'E0_DRIVER_TYPE') {
-            config.hardware.driverE0 = cleanValue;
-        }
-        
-        // === THERMISTORS ===
-        else if (name === 'TEMP_SENSOR_0') {
-            config.hardware.thermistorHotend = parseInt(cleanValue);
-        } else if (name === 'TEMP_SENSOR_BED') {
-            config.hardware.thermistorBed = parseInt(cleanValue);
-        }
-        
-        // === TEMPERATURE LIMITS ===
-        else if (name === 'HEATER_0_MAXTEMP') {
-            config.temperature.hotendMaxTemp = parseInt(cleanValue);
-        } else if (name === 'BED_MAXTEMP') {
-            config.temperature.bedMaxTemp = parseInt(cleanValue);
-        }
-        
-        // === PID ===
-        else if (name === 'PIDTEMP') {
-            config.temperature.pidHotendEnabled = true;
-        } else if (name === 'DEFAULT_Kp') {
-            config.temperature.pidHotendP = parseFloat(cleanValue);
-        } else if (name === 'DEFAULT_Ki') {
-            config.temperature.pidHotendI = parseFloat(cleanValue);
-        } else if (name === 'DEFAULT_Kd') {
-            config.temperature.pidHotendD = parseFloat(cleanValue);
-        } else if (name === 'PIDTEMPBED') {
-            config.temperature.pidBedEnabled = true;
-        } else if (name === 'DEFAULT_bedKp') {
-            config.temperature.pidBedP = parseFloat(cleanValue);
-        } else if (name === 'DEFAULT_bedKi') {
-            config.temperature.pidBedI = parseFloat(cleanValue);
-        } else if (name === 'DEFAULT_bedKd') {
-            config.temperature.pidBedD = parseFloat(cleanValue);
-        }
-        
-        // === MOTION ===
-        else if (name === 'DEFAULT_AXIS_STEPS_PER_UNIT') {
-            const steps = this.extractArray(cleanValue);
-            if (steps.length >= 4) {
-                config.motion.stepsPerMM = {
-                    x: parseFloat(steps[0]),
-                    y: parseFloat(steps[1]),
-                    z: parseFloat(steps[2]),
-                    e: parseFloat(steps[3])
-                };
+        // Handle nested field names (e.g., "motion.stepsPerMM.x")
+        if (fieldName.includes('.')) {
+            const parts = fieldName.split('.');
+            let current = config[category];
+            
+            for (let i = 0; i < parts.length - 1; i++) {
+                if (!current[parts[i]]) {
+                    current[parts[i]] = {};
+                }
+                current = current[parts[i]];
             }
-        } else if (name === 'DEFAULT_MAX_FEEDRATE') {
-            const feedrates = this.extractArray(cleanValue);
-            if (feedrates.length >= 4) {
-                config.motion.maxFeedrate = {
-                    x: parseFloat(feedrates[0]),
-                    y: parseFloat(feedrates[1]),
-                    z: parseFloat(feedrates[2]),
-                    e: parseFloat(feedrates[3])
-                };
+            
+            current[parts[parts.length - 1]] = value;
+        } else {
+            // Simple field
+            if (!config[category]) {
+                config[category] = {};
             }
-        } else if (name === 'DEFAULT_MAX_ACCELERATION') {
-            const accels = this.extractArray(cleanValue);
-            if (accels.length >= 4) {
-                config.motion.maxAcceleration = {
-                    x: parseFloat(accels[0]),
-                    y: parseFloat(accels[1]),
-                    z: parseFloat(accels[2]),
-                    e: parseFloat(accels[3])
-                };
-            }
-        } else if (name === 'DEFAULT_ACCELERATION') {
-            config.motion.defaultAcceleration = parseFloat(cleanValue);
-        } else if (name === 'DEFAULT_RETRACT_ACCELERATION') {
-            config.motion.retractAcceleration = parseFloat(cleanValue);
-        } else if (name === 'DEFAULT_TRAVEL_ACCELERATION') {
-            config.motion.travelAcceleration = parseFloat(cleanValue);
+            config[category][fieldName] = value;
         }
         
-        // === JERK ===
-        else if (name === 'CLASSIC_JERK') {
-            config.motion.classicJerk = true;
-        } else if (name === 'DEFAULT_XJERK') {
-            config.motion.jerkX = parseFloat(cleanValue);
-        } else if (name === 'DEFAULT_YJERK') {
-            config.motion.jerkY = parseFloat(cleanValue);
-        } else if (name === 'DEFAULT_ZJERK') {
-            config.motion.jerkZ = parseFloat(cleanValue);
-        } else if (name === 'DEFAULT_EJERK') {
-            config.motion.jerkE = parseFloat(cleanValue);
+        // Special handling for specific fields
+        
+        // Store USER_PRINTER_NAME for variable resolution
+        if (fieldName === 'machineName' && category === 'basic') {
+            config.basic.userPrinterNameValue = value;
         }
         
-        // === PROBE (TH3D specific options) ===
-        else if (name === 'EZABL_ENABLE' || name === 'EZABL_POINTS') {
-            config.probe.type = 'EZABL'; // TH3D's own probe
-        } else if (name === 'BLTOUCH') {
-            config.probe.type = 'BLTouch';
-        } else if (name === 'NOZZLE_TO_PROBE_OFFSET') {
-            const offsets = this.extractArray(cleanValue);
-            if (offsets.length >= 3) {
-                config.probe.offset = {
-                    x: parseFloat(offsets[0]),
-                    y: parseFloat(offsets[1]),
-                    z: parseFloat(offsets[2])
-                };
-            }
-        }
-        
-        // === BED LEVELING ===
-        else if (name === 'AUTO_BED_LEVELING_BILINEAR') {
-            config.bedLeveling.type = 'BILINEAR';
-        } else if (name === 'AUTO_BED_LEVELING_UBL') {
-            config.bedLeveling.type = 'UBL';
-        } else if (name === 'GRID_MAX_POINTS_X') {
-            config.bedLeveling.gridPointsX = parseInt(cleanValue);
-        } else if (name === 'GRID_MAX_POINTS_Y') {
-            config.bedLeveling.gridPointsY = parseInt(cleanValue);
-        }
-        
-        // === BED SIZE ===
-        else if (name === 'X_BED_SIZE') {
-            config.basic.bedSizeX = parseInt(cleanValue);
-        } else if (name === 'Y_BED_SIZE') {
-            config.basic.bedSizeY = parseInt(cleanValue);
-        } else if (name === 'Z_MAX_POS') {
-            config.basic.zMaxPos = parseInt(cleanValue);
-        }
-        
-        // === ADVANCED FEATURES ===
-        else if (name === 'LIN_ADVANCE') {
-            config.advanced.linearAdvance = true;
-        } else if (name === 'LIN_ADVANCE_K') {
-            config.advanced.linearAdvanceK = parseFloat(cleanValue);
-        } else if (name === 'ARC_SUPPORT') {
-            config.advanced.arcSupport = true;
-        }
-        
-        // === SAFETY ===
-        else if (name === 'THERMAL_PROTECTION_HOTENDS') {
-            config.safety.thermalProtectionHotend = true;
-        } else if (name === 'THERMAL_PROTECTION_BED') {
-            config.safety.thermalProtectionBed = true;
-        } else if (name === 'FILAMENT_RUNOUT_SENSOR') {
-            config.safety.filamentSensor = true;
-        }
-        
-        // === TH3D SPECIFIC FEATURES ===
-        else if (name === 'TH3D_RGB_ENABLE') {
-            config.advanced.th3dRGB = true;
-        } else if (name === 'POWER_LOSS_RECOVERY') {
-            config.advanced.powerLossRecovery = true;
+        // Handle EZABL_POINTS variable storage
+        if (fieldName === 'gridPointsX' && value && !isNaN(value)) {
+            this.variables['EZABL_POINTS'] = value;
         }
     },
     
@@ -312,35 +284,70 @@ const TH3DConfigParser = {
      * Validate configuration and add warnings
      */
     validateConfig(config) {
-        // Check for missing critical settings
-        if (!config.basic.motherboard) {
-            config.warnings.push({
-                level: 'error',
-                message: 'No motherboard defined (MOTHERBOARD)'
-            });
-        }
-        
-        if (!config.motion.stepsPerMM) {
-            config.warnings.push({
-                level: 'warning',
-                message: 'No steps per mm defined (DEFAULT_AXIS_STEPS_PER_UNIT)'
-            });
-        }
-        
-        // Check thermal protection
-        if (!config.safety.thermalProtectionHotend) {
-            config.warnings.push({
-                level: 'error',
-                message: 'Thermal protection for hotend is DISABLED! This is dangerous!'
-            });
+        // Use validation rules from field mapping
+        for (const [category, fields] of Object.entries(this.fieldMapping)) {
+            // Skip metadata
+            if (category.startsWith('$') || category === 'description' || category === 'lastUpdated' || category === 'version' || category === 'warnings') {
+                continue;
+            }
+            
+            for (const [fieldName, fieldSpec] of Object.entries(fields)) {
+                if (!fieldSpec.validation) continue;
+                
+                const validation = fieldSpec.validation;
+                const value = config[category]?.[fieldName];
+                
+                // Required field check
+                if (fieldSpec.required && !value) {
+                    config.warnings.push({
+                        level: validation.errorLevel || 'error',
+                        message: `Missing required field: ${fieldName} (${fieldSpec.mapsFrom.join(', ')})`
+                    });
+                }
+                
+                // Must be true check
+                if (validation.mustBeTrue && !value) {
+                    config.warnings.push({
+                        level: validation.errorLevel || 'error',
+                        message: fieldSpec.th3dNotes || `${fieldName} should be enabled for safety`
+                    });
+                }
+                
+                // Range checks
+                if (value !== undefined && value !== null) {
+                    if (validation.min !== undefined && value < validation.min) {
+                        config.warnings.push({
+                            level: 'warning',
+                            message: `${fieldName} (${value}) is below minimum (${validation.min})`
+                        });
+                    }
+                    
+                    if (validation.max !== undefined && value > validation.max) {
+                        config.warnings.push({
+                            level: 'warning',
+                            message: `${fieldName} (${value}) is above maximum (${validation.max})`
+                        });
+                    }
+                    
+                    // Warning if outside range
+                    if (validation.warningIfOutside) {
+                        if ((validation.min && value < validation.min) || (validation.max && value > validation.max)) {
+                            config.warnings.push({
+                                level: 'warning',
+                                message: `${fieldName} (${value}) is outside typical range (${validation.min}-${validation.max})`
+                            });
+                        }
+                    }
+                }
+            }
         }
     },
     
     /**
      * Alias for parseConfigFile (for compatibility)
      */
-    parseConfigurationH(content) {
-        return this.parseConfigFile(content);
+    async parseConfigurationH(content) {
+        return await this.parseConfigFile(content);
     }
 };
 

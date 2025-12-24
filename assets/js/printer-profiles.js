@@ -205,19 +205,28 @@ const PrinterProfileManager = {
     },
     
     /**
-     * Show edit printer modal
+     * Show edit printer modal (Enhanced profiles editor)
      */
     editPrinter(id) {
         const printer = StorageManager.getPrinter(id);
         if (!printer) return;
         
-        document.getElementById('modalTitle').textContent = 'Edit Printer Profile';
-        document.getElementById('printerId').value = printer.id;
-        document.getElementById('printerName').value = printer.name || '';
-        document.getElementById('printerEsteps').value = printer.esteps || '';
-        document.getElementById('printerExtruder').value = printer.extruder || '';
-        document.getElementById('printerNotes').value = printer.notes || '';
-        document.getElementById('printerModal').style.display = 'flex';
+        // Check if EnhancedPrinterProfiles is available
+        if (typeof EnhancedPrinterProfiles !== 'undefined') {
+            const profileEditor = new EnhancedPrinterProfiles();
+            profileEditor.show(id); // Pass ID to load existing profile
+            console.log('✅ Enhanced profiles editor opened for:', printer.name);
+        } else {
+            // Fallback to simple modal if enhanced profiles not loaded
+            console.warn('EnhancedPrinterProfiles not loaded, using simple modal');
+            document.getElementById('modalTitle').textContent = 'Edit Printer Profile';
+            document.getElementById('printerId').value = printer.id;
+            document.getElementById('printerName').value = printer.name || '';
+            document.getElementById('printerEsteps').value = printer.esteps || '';
+            document.getElementById('printerExtruder').value = printer.extruder || '';
+            document.getElementById('printerNotes').value = printer.notes || '';
+            document.getElementById('printerModal').style.display = 'flex';
+        }
     },
     
     /**
