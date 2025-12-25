@@ -1,0 +1,205 @@
+{
+  "$schema": "TH3D Configuration_speed.h Field Mapping v2.0",
+  "description": "Configuration_speed.h: Motion Speed & Acceleration Profiles",
+  "lastUpdated": "2025-12-25",
+  "version": "2.0.0",
+  "sourceFile": "Configuration_speed.h",
+  "th3dNotes": "Motion settings calculated based on bed size. Larger beds = slower to prevent ringing.",
+  
+  "metadata": {
+    "configSpeedVersion": {
+      "mapsFrom": ["CONFIGURATION_SPEED_H_VERSION"],
+      "type": "string",
+      "required": true,
+      "examples": ["02010204"],
+      "th3dNotes": "Speed configuration version"
+    }
+  },
+
+  "feedrates": {
+    "description": "Maximum feedrates for each axis. Automatically calculated based on bed size and Z speed limits.",
+    "defaultMaxFeedrate": {
+      "mapsFrom": ["DEFAULT_MAX_FEEDRATE"],
+      "type": "array",
+      "arrayFormat": "{ X, Y, Z, E }",
+      "required": false,
+      "th3dNotes": "Max speeds (mm/min). XY=400, Z varies by LIMIT_Z_SPEED_*, E varies by SPACE_SAVER_2560 and E_SPEED_OVERRIDE_2560",
+      "examples": [
+        "{ 400, 400, 5, 200 }   // LIMIT_Z_SPEED_5, normal E",
+        "{ 400, 400, 5, 30 }    // LIMIT_Z_SPEED_5, SPACE_SAVER_2560",
+        "{ 400, 400, 10, 200 }  // LIMIT_Z_SPEED_10",
+        "{ 400, 400, 15, 200 }  // Default (no limit)"
+      ],
+      "calculation": {
+        "X": "Always 400",
+        "Y": "Always 400",
+        "Z": "5 if LIMIT_Z_SPEED_5, 10 if LIMIT_Z_SPEED_10, else 15",
+        "E": "30 if SPACE_SAVER_2560 && !E_SPEED_OVERRIDE_2560, else 200"
+      }
+    }
+  },
+
+  "acceleration": {
+    "description": "Maximum accelerations scaled by bed size to prevent ringing on large printers",
+    "defaultMaxAcceleration": {
+      "mapsFrom": ["DEFAULT_MAX_ACCELERATION"],
+      "type": "array",
+      "arrayFormat": "{ X, Y, Z, E }",
+      "required": false,
+      "th3dNotes": "Max acceleration (mm/s²). Scaled by largest axis (X or Y). Z=500, E=5000.",
+      "bedSizeScaling": {
+        "<151mm": "{ 4500, 4500, 500, 5000 }",
+        "151-200mm": "{ 4000, 4000, 500, 5000 }",
+        "201-250mm": "{ 3500, 3500, 500, 5000 }",
+        "251-300mm": "{ 3000, 3000, 500, 5000 }",
+        "301-350mm": "{ 2500, 2500, 500, 5000 }",
+        "351-400mm": "{ 2000, 2000, 500, 5000 }",
+        "401-450mm": "{ 1500, 1500, 500, 5000 }",
+        ">450mm": "{ 1000, 1000, 500, 5000 }"
+      },
+      "overrides": {
+        "maxXAccel": {
+          "mapsFrom": ["MAX_X_ACCEL"],
+          "type": "integer",
+          "required": false,
+          "th3dNotes": "Override calculated X acceleration"
+        },
+        "maxYAccel": {
+          "mapsFrom": ["MAX_Y_ACCEL"],
+          "type": "integer",
+          "required": false,
+          "th3dNotes": "Override calculated Y acceleration. If not set, uses MAX_X_ACCEL."
+        }
+      }
+    },
+    "defaultAcceleration": {
+      "mapsFrom": ["DEFAULT_ACCELERATION"],
+      "type": "integer",
+      "required": false,
+      "th3dNotes": "Printing acceleration. Half of max XY acceleration.",
+      "bedSizeScaling": {
+        "<151mm": "2250 (4500/2)",
+        "151-200mm": "2000 (4000/2)",
+        "201-250mm": "1750 (3500/2)",
+        "251-300mm": "1500 (3000/2)",
+        "301-350mm": "1250 (2500/2)",
+        "351-400mm": "750 (2000/2 reduced)",
+        ">400mm": "500 (1000/2)"
+      }
+    },
+    "defaultRetractAcceleration": {
+      "mapsFrom": ["DEFAULT_RETRACT_ACCELERATION"],
+      "type": "integer",
+      "required": false,
+      "default": 1000,
+      "th3dNotes": "Retraction acceleration (mm/s²)"
+    },
+    "defaultTravelAcceleration": {
+      "mapsFrom": ["DEFAULT_TRAVEL_ACCELERATION"],
+      "type": "integer",
+      "required": false,
+      "default": "DEFAULT_ACCELERATION",
+      "th3dNotes": "Travel move acceleration. Uses DEFAULT_ACCELERATION if not set."
+    }
+  },
+
+  "jerk": {
+    "description": "Jerk settings for classic jerk mode. Higher values = faster direction changes but more vibration.",
+    "classicJerk": {
+      "mapsFrom": ["CLASSIC_JERK"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Enable classic jerk mode (vs junction deviation)"
+    },
+    "defaultXJerk": {
+      "mapsFrom": ["DEFAULT_XJERK"],
+      "type": "float",
+      "required": false,
+      "th3dNotes": "X jerk (mm/s). Scaled by bed size.",
+      "bedSizeScaling": {
+        "<200mm": "10.0",
+        "200-299mm": "8.0",
+        "300-399mm": "6.0",
+        "≥400mm": "4.0"
+      }
+    },
+    "defaultYJerk": {
+      "mapsFrom": ["DEFAULT_YJERK"],
+      "type": "float",
+      "required": false,
+      "default": "DEFAULT_XJERK",
+      "th3dNotes": "Y jerk. Uses DEFAULT_XJERK if not set."
+    },
+    "defaultZJerk": {
+      "mapsFrom": ["DEFAULT_ZJERK"],
+      "type": "float",
+      "required": false,
+      "default": 0.3,
+      "th3dNotes": "Z jerk. Always 0.3 mm/s for precision."
+    },
+    "defaultEJerk": {
+      "mapsFrom": ["DEFAULT_EJERK"],
+      "type": "float",
+      "required": false,
+      "default": 5.0,
+      "th3dNotes": "Extruder jerk. Always 5.0 mm/s."
+    }
+  },
+
+  "calculationLogic": {
+    "description": "How Configuration_speed.h calculates values",
+    "bedSizeDetection": {
+      "logic": "Uses largest axis: max(X_BED_SIZE, Y_BED_SIZE)",
+      "th3dNotes": "If X=300mm and Y=220mm, uses 300mm for calculations"
+    },
+    "accelerationFormula": {
+      "maxAccelXY": "Based on bed size brackets",
+      "defaultAccel": "maxAccelXY / 2 (or lower for 351-400mm range)",
+      "retractAccel": "Fixed at 1000 mm/s²",
+      "travelAccel": "Same as defaultAccel unless overridden"
+    },
+    "jerkFormula": {
+      "xyJerk": "Based on bed size: 10 (<200mm), 8 (200-299mm), 6 (300-399mm), 4 (≥400mm)",
+      "zJerk": "Fixed at 0.3 mm/s",
+      "eJerk": "Fixed at 5.0 mm/s"
+    },
+    "feedrateFormula": {
+      "xy": "Fixed at 400 mm/min (6.67 mm/s)",
+      "z": "5, 10, or 15 mm/min based on LIMIT_Z_SPEED_*",
+      "e": "30 if SPACE_SAVER_2560 (unless E_SPEED_OVERRIDE_2560), else 200"
+    }
+  },
+
+  "usageNotes": {
+    "whenToModify": "Configuration_speed.h values are automatically calculated. Only modify if you know what you're doing.",
+    "largerPrinters": "Larger beds require lower acceleration/jerk to prevent frame vibration and ringing.",
+    "coreXY": "CoreXY printers can often use higher values than bed-slingers of the same size.",
+    "tuning": "After changing values, re-run acceleration/jerk calibration tests.",
+    "warnings": [
+      "Too high acceleration = ringing/ghosting",
+      "Too high jerk = vibration and layer shifting",
+      "Too low = slow prints and poor performance"
+    ]
+  },
+
+  "exampleProfiles": {
+    "ender3": {
+      "bedSize": "220x220",
+      "maxAccel": "{ 3500, 3500, 500, 5000 }",
+      "defaultAccel": 1750,
+      "jerk": "{ 8.0, 8.0, 0.3, 5.0 }"
+    },
+    "ender5Plus": {
+      "bedSize": "350x350",
+      "maxAccel": "{ 2500, 2500, 500, 5000 }",
+      "defaultAccel": 1250,
+      "jerk": "{ 6.0, 6.0, 0.3, 5.0 }"
+    },
+    "cr10S5": {
+      "bedSize": "500x500",
+      "maxAccel": "{ 1000, 1000, 500, 5000 }",
+      "defaultAccel": 500,
+      "jerk": "{ 4.0, 4.0, 0.3, 5.0 }"
+    }
+  }
+}

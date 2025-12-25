@@ -1,0 +1,417 @@
+{
+  "$schema": "TH3D Configuration_adv.h Field Mapping v2.0 - Part 4",
+  "description": "Configuration_adv.h: Advanced Features & LCD Options",
+  "lastUpdated": "2025-12-25",
+  "version": "2.0.0",
+  "sourceFile": "Configuration_adv.h",
+  "part": "4 of 4 - Advanced Features",
+  
+  "linearAdvance": {
+    "enabled": {
+      "mapsFrom": ["LIN_ADVANCE"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Linear Advance v1.5 for pressure control. Set by LINEAR_ADVANCE in Configuration.h"
+    },
+    "advanceK": {
+      "mapsFrom": ["ADVANCE_K"],
+      "type": "float",
+      "required": false,
+      "examples": [0.0, 0.05, 0.10, 0.22],
+      "th3dNotes": "K factor. Use M900 K to tune. Set by LINEAR_ADVANCE_K in Configuration.h",
+      "validation": {
+        "min": 0,
+        "max": 2
+      }
+    }
+  },
+
+  "arcSupport": {
+    "enabled": {
+      "mapsFrom": ["ARC_SUPPORT"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "G2/G3 arc support. Disabled by DISABLE_ARC_SUPPORT in Configuration.h"
+    },
+    "minArcSegmentMm": {
+      "mapsFrom": ["MIN_ARC_SEGMENT_MM"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["ARC_SUPPORT"],
+      "default": 0.1,
+      "th3dNotes": "Minimum length of each arc segment (mm)"
+    },
+    "maxArcSegmentMm": {
+      "mapsFrom": ["MAX_ARC_SEGMENT_MM"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["ARC_SUPPORT"],
+      "default": 1.0,
+      "th3dNotes": "Maximum length of each arc segment (mm)"
+    },
+    "minCircleSegments": {
+      "mapsFrom": ["MIN_CIRCLE_SEGMENTS"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ARC_SUPPORT"],
+      "default": 72,
+      "th3dNotes": "Minimum segments in a complete circle"
+    },
+    "nArcCorrection": {
+      "mapsFrom": ["N_ARC_CORRECTION"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ARC_SUPPORT"],
+      "default": 25,
+      "th3dNotes": "Number of interpolated segments between corrections"
+    }
+  },
+
+  "sdCard": {
+    "enabled": {
+      "mapsFrom": ["SDSUPPORT"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "SD card support. Disabled by NO_SDCARD in Configuration.h"
+    },
+    "sdSpiSpeed": {
+      "mapsFrom": ["SD_SPI_SPEED"],
+      "type": "enum",
+      "required": false,
+      "conditionalOn": ["SDSUPPORT"],
+      "examples": ["SPI_FULL_SPEED", "SPI_HALF_SPEED", "SPI_QUARTER_SPEED", "SPI_EIGHTH_SPEED"],
+      "th3dNotes": "SD card SPI speed. May fix 'volume init' errors"
+    },
+    "sdcardConnection": {
+      "mapsFrom": ["SDCARD_CONNECTION"],
+      "type": "enum",
+      "required": false,
+      "conditionalOn": ["SDSUPPORT"],
+      "default": "ONBOARD",
+      "examples": ["LCD", "ONBOARD", "CUSTOM_CABLE"],
+      "th3dNotes": "SD card location"
+    },
+    "sdcardSort": {
+      "mapsFrom": ["SDCARD_SORT_ALPHA"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["SDSUPPORT"],
+      "th3dNotes": "Sort SD files alphabetically"
+    },
+    "sdsortLimit": {
+      "mapsFrom": ["SDSORT_LIMIT"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["SDSUPPORT"],
+      "default": 40,
+      "examples": [10, 40, 256],
+      "th3dNotes": "Maximum sorted items. Costs 27 bytes each."
+    },
+    "scrollLongFilenames": {
+      "mapsFrom": ["SCROLL_LONG_FILENAMES"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["SDSUPPORT"],
+      "th3dNotes": "Scroll long filenames in SD menu. Disabled on space-saver builds."
+    },
+    "sdFinishedStepperRelease": {
+      "mapsFrom": ["SD_FINISHED_STEPPERRELEASE"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["SDSUPPORT"],
+      "default": true,
+      "th3dNotes": "Disable steppers when SD print finished"
+    },
+    "sdFinishedReleaseCommand": {
+      "mapsFrom": ["SD_FINISHED_RELEASECOMMAND"],
+      "type": "string",
+      "required": false,
+      "conditionalOn": ["SDSUPPORT"],
+      "default": "M84",
+      "examples": ["M84", "M84XYE"],
+      "th3dNotes": "G-code to run when print finishes"
+    }
+  },
+
+  "lcdOptions": {
+    "lcdLanguage": {
+      "mapsFrom": ["LCD_LANGUAGE"],
+      "type": "enum",
+      "required": false,
+      "default": "en",
+      "examples": ["en", "de", "fr", "es", "it"],
+      "th3dNotes": "LCD display language"
+    },
+    "showBootscreen": {
+      "mapsFrom": ["SHOW_BOOTSCREEN"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Show boot screen on startup"
+    },
+    "bootscreenTimeout": {
+      "mapsFrom": ["BOOTSCREEN_TIMEOUT"],
+      "type": "integer",
+      "required": false,
+      "default": 1000,
+      "examples": [1000, 2000, 3000],
+      "th3dNotes": "Boot screen display duration (ms)"
+    },
+    "statusMessageScrolling": {
+      "mapsFrom": ["STATUS_MESSAGE_SCROLLING"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Scroll long status messages"
+    },
+    "lcdTimeout": {
+      "mapsFrom": ["LCD_TIMEOUT_TO_STATUS"],
+      "type": "integer",
+      "required": false,
+      "default": 10000,
+      "examples": [5000, 10000, 15000],
+      "th3dNotes": "Timeout to return to status screen (ms)"
+    },
+    "individualAxisHomingMenu": {
+      "mapsFrom": ["INDIVIDUAL_AXIS_HOMING_MENU"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Separate menu items for homing each axis"
+    },
+    "lcdInfoMenu": {
+      "mapsFrom": ["LCD_INFO_MENU"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Show printer info page in main menu. Disabled on space-saver."
+    },
+    "turboBackMenuItem": {
+      "mapsFrom": ["TURBO_BACK_MENU_ITEM"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "BACK keeps highlight at top. Disabled on space-saver."
+    },
+    "soundMenulItem": {
+      "mapsFrom": ["SOUND_MENU_ITEM"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Add mute option to LCD menu"
+    },
+    "soundOnDefault": {
+      "mapsFrom": ["SOUND_ON_DEFAULT"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Buzzer/speaker enabled by default"
+    }
+  },
+
+  "lcdBedTramming": {
+    "enabled": {
+      "mapsFrom": ["LCD_BED_TRAMMING"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Bed leveling assistant menu"
+    },
+    "trammingInset": {
+      "mapsFrom": ["BED_TRAMMING_INSET_LFRB"],
+      "type": "array",
+      "arrayFormat": "{ left, front, right, back }",
+      "required": false,
+      "conditionalOn": ["LCD_BED_TRAMMING"],
+      "default": "{ 30, 30, 30, 30 }",
+      "th3dNotes": "Inset from bed edges (mm)"
+    },
+    "trammingHeight": {
+      "mapsFrom": ["BED_TRAMMING_HEIGHT"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["LCD_BED_TRAMMING"],
+      "default": 0.0,
+      "th3dNotes": "Z height at leveling points (mm)"
+    },
+    "trammingZHop": {
+      "mapsFrom": ["BED_TRAMMING_Z_HOP"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["LCD_BED_TRAMMING"],
+      "default": 5.0,
+      "th3dNotes": "Z hop between points (mm)"
+    }
+  },
+
+  "encoderSettings": {
+    "encoderRateMultiplier": {
+      "mapsFrom": ["ENCODER_RATE_MULTIPLIER"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Change values faster when encoder rotated faster"
+    },
+    "encoder10xStepsPerSec": {
+      "mapsFrom": ["ENCODER_10X_STEPS_PER_SEC"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ENCODER_RATE_MULTIPLIER"],
+      "default": 80,
+      "th3dNotes": "Encoder rate for 10x speed"
+    },
+    "encoder100xStepsPerSec": {
+      "mapsFrom": ["ENCODER_100X_STEPS_PER_SEC"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ENCODER_RATE_MULTIPLIER"],
+      "default": 160,
+      "th3dNotes": "Encoder rate for 100x speed"
+    },
+    "encoderNoiseFilter": {
+      "mapsFrom": ["ENCODER_NOISE_FILTER"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Filter encoder noise. Disabled by DISABLE_ENCODER_NOISE_FILTER"
+    },
+    "encoderSamples": {
+      "mapsFrom": ["ENCODER_SAMPLES"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ENCODER_NOISE_FILTER"],
+      "default": 10,
+      "th3dNotes": "Number of encoder samples for filtering"
+    }
+  },
+
+  "progressReporting": {
+    "setProgressManually": {
+      "mapsFrom": ["SET_PROGRESS_MANUALLY"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "M73 to set print progress. Disabled on DWIN Creality LCD."
+    },
+    "setProgressPercent": {
+      "mapsFrom": ["SET_PROGRESS_PERCENT"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["SET_PROGRESS_MANUALLY"],
+      "th3dNotes": "M73 P parameter to set percentage"
+    },
+    "setRemainingTime": {
+      "mapsFrom": ["SET_REMAINING_TIME"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["SET_PROGRESS_MANUALLY"],
+      "th3dNotes": "M73 R parameter to set remaining time"
+    },
+    "showProgressPercent": {
+      "mapsFrom": ["SHOW_PROGRESS_PERCENT"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Show print progress percentage"
+    },
+    "showElapsedTime": {
+      "mapsFrom": ["SHOW_ELAPSED_TIME"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Display elapsed printing time"
+    },
+    "showRemainingTime": {
+      "mapsFrom": ["SHOW_REMAINING_TIME"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Display estimated time to completion"
+    }
+  },
+
+  "motion": {
+    "minStepsPerSegment": {
+      "mapsFrom": ["MIN_STEPS_PER_SEGMENT"],
+      "type": "integer",
+      "required": false,
+      "default": 6,
+      "th3dNotes": "Moves with fewer steps are joined with next move"
+    },
+    "minimumStepperPulse": {
+      "mapsFrom": ["MINIMUM_STEPPER_PULSE"],
+      "type": "integer",
+      "required": false,
+      "examples": [0, 1, 2, 3, 30],
+      "th3dNotes": "Stepper pulse width (µs). 0=TMC compatible, 1=A4988, 2=DRV8825, 30=TB6560"
+    },
+    "maximumStepperRate": {
+      "mapsFrom": ["MAXIMUM_STEPPER_RATE"],
+      "type": "integer",
+      "required": false,
+      "examples": [150000, 250000, 500000, 1000000, 5000000],
+      "th3dNotes": "Max stepping rate (Hz). TMC=5MHz, LV8729=1MHz, A4988=500kHz, DRV8825=250kHz"
+    },
+    "slowdown": {
+      "mapsFrom": ["SLOWDOWN"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Slow down when lookahead buffer is half full"
+    },
+    "slowdownDivisor": {
+      "mapsFrom": ["SLOWDOWN_DIVISOR"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["SLOWDOWN"],
+      "default": 2,
+      "th3dNotes": "Slowdown divisor for larger buffers"
+    }
+  },
+
+  "stealthFeatures": {
+    "adaptiveStepSmoothing": {
+      "mapsFrom": ["ADAPTIVE_STEP_SMOOTHING"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Increase resolution of multi-axis moves at low frequencies"
+    },
+    "sCurveAcceleration": {
+      "mapsFrom": ["S_CURVE_ACCELERATION"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "S-curve acceleration for smoother motion. From Configuration.h"
+    }
+  },
+
+  "hostActions": {
+    "hostActionCommands": {
+      "mapsFrom": ["HOST_ACTION_COMMANDS"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Action commands for host (poweroff, pause, resume, cancel)"
+    },
+    "hostPromptSupport": {
+      "mapsFrom": ["HOST_PROMPT_SUPPORT"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["HOST_ACTION_COMMANDS"],
+      "th3dNotes": "Host prompts for user interaction. BTT Touch Screen."
+    }
+  },
+
+  "eeprom": {
+    "eepromSettings": {
+      "mapsFrom": ["EEPROM_SETTINGS"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Store settings in EEPROM. From Configuration_backend.h"
+    },
+    "eepromChitchat": {
+      "mapsFrom": ["EEPROM_CHITCHAT"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["EEPROM_SETTINGS"],
+      "th3dNotes": "Feedback when storing/loading EEPROM"
+    },
+    "eepromBootSilent": {
+      "mapsFrom": ["EEPROM_BOOT_SILENT"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["EEPROM_SETTINGS"],
+      "th3dNotes": "Don't report EEPROM load at boot"
+    },
+    "eepromAutoInit": {
+      "mapsFrom": ["EEPROM_AUTO_INIT"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["EEPROM_SETTINGS"],
+      "th3dNotes": "Auto-initialize EEPROM if invalid"
+    }
+  }
+}

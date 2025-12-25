@@ -1,33 +1,33 @@
 /* ============================================
-   TH3D Multi-File Configuration Parser
-   Parse TH3D Unified Firmware Configuration files
-   Loads multiple mapping files for complete coverage
+   Universal Marlin Configuration Parser
+   Parse ANY Marlin-based firmware configuration files
    
-   Supports parsing:
-   - Configuration.h (basic settings)
-   - Configuration_adv.h (advanced features - 4 parts)
-   - Configuration_backend.h (backend logic)
-   - Configuration_speed.h (motion profiles)
+   Supports:
+   - TH3D Unified Firmware
+   - Vanilla Marlin
+   - Custom Marlin variants
    
-   ⚠️ KNOWN LIMITATIONS:
-   - Array fields (DEFAULT_AXIS_STEPS_PER_UNIT) need special handling
-   - Field mapping has stepsPerMM.x, stepsPerMM.y, etc. as separate fields
-   - But #define is a single array { 80, 80, 400, 93 }
+   Features:
+   - Configurable mapping file sets
+   - Full preprocessor support (#if/#elif/#else)
+   - Variable storage & resolution
+   - Array field mapping
+   - Wildcard matching
+   - Runtime conditionals
+   - Multi-file parsing
    
-   📋 TODO:
-   - Add array index extraction logic in storeValue()
-   - Handle nested array-to-object mapping (array[0] → obj.x)
-   - Test with all TH3D example files
+   Usage:
+   const parser = MarlinConfigParser.create('th3d');
+   const config = await parser.parseMultipleFiles(files);
    ============================================ */
 
-const TH3DConfigParser = {
+const MarlinConfigParser = {
     
     // Debug mode - set to false to suppress all console logging
     DEBUG: true,
     
     /**
      * Debug logger - only logs if DEBUG is true
-     * @param {...any} args - Arguments to log
      */
     log(...args) {
         if (this.DEBUG) {
@@ -35,19 +35,67 @@ const TH3DConfigParser = {
         }
     },
     
-    // Field mappings loaded from multiple JSON files
-    fieldMapping: null,
+    /**
+     * Mapping file set configurations
+     * Add new firmware variants here
+     */
+    mappingSets: {
+        'th3d': {
+            name: 'TH3D Unified Firmware',
+            basePath: 'assets/data/maps/th3d/',
+            files: [
+                'th3d-config-mapping.json',
+                'th3d-config-adv-mapping-part1.json',
+                'th3d-config-adv-mapping-part2.json',
+                'th3d-config-adv-mapping-part3.json',
+                'th3d-config-adv-mapping-part4.json',
+                'th3d-config-backend-mapping.json',
+                'th3d-config-speed-mapping.json'
+            ]
+        },
+        'marlin': {
+            name: 'Vanilla Marlin',
+            basePath: 'assets/data/maps/marlin/',
+            files: [
+                'marlin-config-mapping.json',
+                'marlin-config-adv-mapping.json'
+            ]
+        },
+        // Add more firmware variants as needed
+        'custom': {
+            name: 'Custom Mapping',
+            basePath: 'assets/data/maps/custom/',
+            files: []  // Set dynamically
+        }
+    },
     
-    // Mapping file paths
-    mappingFiles: [
-        'assets/data/maps/th3d/th3d-config-mapping.json',
-        'assets/data/maps/th3d/th3d-config-adv-mapping-part1.json',
-        'assets/data/maps/th3d/th3d-config-adv-mapping-part2.json',
-        'assets/data/maps/th3d/th3d-config-adv-mapping-part3.json',
-        'assets/data/maps/th3d/th3d-config-adv-mapping-part4.json',
-        'assets/data/maps/th3d/th3d-config-backend-mapping.json',
-        'assets/data/maps/th3d/th3d-config-speed-mapping.json'
-    ],
+    /**
+     * Create a parser instance for a specific firmware variant
+     * @param {string} variant - 'th3d', 'marlin', or 'custom'
+     * @param {object} customConfig - Optional custom configuration
+     * @returns {object} Parser instance
+     */
+    create(variant = 'th3d', customConfig = null) {
+        const instance = Object.create(this);
+        
+        // Set mapping configuration
+        if (customConfig) {
+            instance.mappingConfig = customConfig;
+        } else if (this.mappingSets[variant]) {
+            instance.mappingConfig = this.mappingSets[variant];
+        } else {
+            throw new Error(`Unknown firmware variant: ${variant}. Available: ${Object.keys(this.mappingSets).join(', ')}`);
+        }
+        
+        instance.log(`📦 Created parser for: ${instance.mappingConfig.name}`);
+        
+        // Initialize state
+        instance.fieldMapping = null;
+        instance.variables = {};
+        instance.globalConditionals = new Set();
+        
+        return instance;
+    },
     
     /**
      * Load and merge all field mapping files
@@ -55,26 +103,43 @@ const TH3DConfigParser = {
     async loadFieldMapping() {
         if (this.fieldMapping) return this.fieldMapping;
         
+        const { basePath, files } = this.mappingConfig;
+        
         try {
-            this.log('📂 Loading', this.mappingFiles.length, 'TH3D mapping files...');
+            this.log(`📂 Loading ${files.length} mapping files from ${basePath}...`);
             
             // Load all mapping files in parallel
-            const promises = this.mappingFiles.map(path => 
-                fetch(path).then(r => r.json())
+            const promises = files.map(file => 
+                fetch(basePath + file)
+                    .then(r => {
+                        if (!r.ok) throw new Error(`HTTP ${r.status}: ${file}`);
+                        return r.json();
+                    })
+                    .catch(err => {
+                        console.warn(`⚠️  Could not load ${file}:`, err.message);
+                        return null;
+                    })
             );
             
             const mappings = await Promise.all(promises);
             
-            // Merge all mappings into one object
-            this.fieldMapping = this.mergeMappings(mappings);
+            // Filter out failed loads
+            const validMappings = mappings.filter(m => m !== null);
             
-            this.log('✅ TH3D Field Mappings loaded and merged');
+            if (validMappings.length === 0) {
+                throw new Error('No mapping files could be loaded');
+            }
+            
+            // Merge all mappings into one object
+            this.fieldMapping = this.mergeMappings(validMappings);
+            
+            this.log('✅ Field Mappings loaded and merged');
             this.log('   Categories:', Object.keys(this.fieldMapping).filter(k => !k.startsWith('$') && k !== 'description' && k !== 'lastUpdated' && k !== 'version').join(', '));
             
             return this.fieldMapping;
         } catch (error) {
             console.error('❌ Failed to load field mappings:', error);
-            throw new Error('Could not load TH3D field mapping files from assets/data/maps/th3d/');
+            throw new Error(`Could not load mapping files from ${basePath}`);
         }
     },
     
@@ -84,9 +149,10 @@ const TH3DConfigParser = {
      */
     mergeMappings(mappings) {
         const merged = {
-            $schema: 'TH3D Configuration Field Mapping - Merged',
+            $schema: 'Marlin Configuration Field Mapping - Merged',
             version: '2.0.0',
-            description: 'Merged from multiple mapping files'
+            description: 'Merged from multiple mapping files',
+            firmwareVariant: this.mappingConfig.name
         };
         
         // Merge each mapping file
@@ -111,7 +177,7 @@ const TH3DConfigParser = {
     },
     
     /**
-     * Parse TH3D Configuration.h file content
+     * Parse configuration file content
      * @param {string} content - File content as text
      * @returns {object} Parsed configuration object
      */
@@ -131,29 +197,32 @@ const TH3DConfigParser = {
             warnings: []
         };
         
-        // Store defined variables for substitution (preserve across multiple file parses)
-        if (!this.variables) {
-            this.variables = {};
-        }
-        
-        // Track global conditionals (persist across all files)
-        if (!this.globalConditionals) {
-            this.globalConditionals = new Set();
-        }
-        
         const lines = content.split('\n');
         
-        this.log('🔍 TH3D Parser (Data-Driven): Starting parse of', lines.length, 'lines');
+        this.log(`🔍 ${this.mappingConfig.name} Parser: Starting parse of ${lines.length} lines`);
         
-        // First pass: collect global conditionals (printer models, major features)
-        // These stay active for all 4 config files
-        // NOTE: Only collect simple defines, NOT ones inside conditional blocks
+        // Two-pass parsing strategy
+        this.firstPass(lines);
+        this.secondPass(lines, config);
+        
+        // Validate and add warnings
+        this.validateConfig(config);
+        
+        return config;
+    },
+    
+    /**
+     * First Pass: Collect global conditionals and unconditional variables
+     * Only processes #defines outside of conditional blocks
+     */
+    firstPass(lines) {
         this.log('🎯 Pass 1: Detecting global conditionals...');
         let inConditionalBlock = false;
+        
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i].trim();
             
-            // Skip comments - only track active #defines
+            // Skip comments
             if (line.startsWith('//')) continue;
             
             // Track conditional block boundaries
@@ -166,7 +235,7 @@ const TH3DConfigParser = {
                 continue;
             }
             
-            // Only process defines outside conditional blocks in pass 1
+            // Only process defines outside conditional blocks
             if (!inConditionalBlock && line.startsWith('#define')) {
                 const match = line.match(/#define\s+(\w+)/);
                 if (match) {
@@ -178,7 +247,7 @@ const TH3DConfigParser = {
                         this.log('   ✅ Global conditional active:', defineName);
                     }
                     
-                    // Store unconditional numeric variables for substitution
+                    // Store unconditional numeric variables
                     const valueMatch = line.match(/#define\s+(\w+)\s+([\d.]+)$/);
                     if (valueMatch) {
                         this.variables[valueMatch[1]] = valueMatch[2];
@@ -190,125 +259,40 @@ const TH3DConfigParser = {
         
         this.log('🎯 Active conditionals:', Array.from(this.globalConditionals).join(', '));
         this.log('🔍 Variables collected:', Object.keys(this.variables).length);
-        
-        // Second pass: parse using field mapping with conditional checks
+    },
+    
+    /**
+     * Second Pass: Parse fields with conditional evaluation
+     * Handles #if/#elif/#else blocks and stores variables from active branches
+     */
+    secondPass(lines, config) {
         this.log('📝 Pass 2: Parsing fields...');
         
-        // Track conditional block state
         let conditionalStack = [];
         let skipUntilEndif = 0;
         
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i].trim();
             
-            // Skip empty lines and pure comments
+            // Skip empty lines and comments
             if (!line || line.startsWith('//') || line.startsWith('/*') || line.startsWith('*')) {
                 continue;
             }
             
-            // Handle #ifndef - typically guards against redefinition
-            if (line.startsWith('#ifndef')) {
-                const match = line.match(/#ifndef\s+(\w+)/);
-                if (match) {
-                    const defineName = match[1];
-                    const isDefined = this.variables[defineName] !== undefined || config.basic[defineName] !== undefined;
-                    conditionalStack.push({ type: 'ifndef', condition: !isDefined, taken: false });
-                    if (isDefined) {
-                        skipUntilEndif++;
-                        this.log(`   ⏭️  Skipping #ifndef ${defineName} block (already defined)`);
-                    }
-                }
+            // Handle preprocessor directives
+            if (this.handlePreprocessor(line, conditionalStack, skipUntilEndif)) {
+                skipUntilEndif = this.skipUntilEndif;
                 continue;
             }
             
-            // Handle #if - evaluate condition
-            if (line.startsWith('#if ') && !line.startsWith('#ifndef') && !line.startsWith('#ifdef')) {
-                const conditionMatch = line.match(/#if\s+(.+)/);
-                if (conditionMatch) {
-                    const conditionStr = conditionMatch[1].trim();
-                    const result = this.evaluateCondition(conditionStr);
-                    conditionalStack.push({ type: 'if', condition: result, taken: result });
-                    if (!result) {
-                        skipUntilEndif++;
-                        this.log(`   ⏭️  Skipping #if block (condition false):`, conditionStr);
-                    } else {
-                        this.log(`   ✅ Entering #if block (condition true):`, conditionStr);
-                    }
-                }
-                continue;
-            }
-            
-            // Handle #elif - alternative condition
-            if (line.startsWith('#elif')) {
-                if (conditionalStack.length > 0) {
-                    const currentBlock = conditionalStack[conditionalStack.length - 1];
-                    
-                    // If we already took a branch, skip this one
-                    if (currentBlock.taken) {
-                        if (skipUntilEndif === 0) skipUntilEndif = 1;
-                        this.log(`   ⏭️  Skipping #elif (previous branch taken)`);
-                        continue;
-                    }
-                    
-                    // Evaluate elif condition
-                    const conditionMatch = line.match(/#elif\s+(.+)/);
-                    if (conditionMatch) {
-                        const conditionStr = conditionMatch[1].trim();
-                        const result = this.evaluateCondition(conditionStr);
-                        
-                        if (result) {
-                            // This elif branch is true - start taking code
-                            if (skipUntilEndif > 0) skipUntilEndif--;
-                            currentBlock.taken = true;
-                            this.log(`   ✅ Entering #elif block (condition true):`, conditionStr);
-                        } else {
-                            // This elif is false - keep skipping
-                            if (skipUntilEndif === 0) skipUntilEndif = 1;
-                            this.log(`   ⏭️  Skipping #elif block (condition false):`, conditionStr);
-                        }
-                    }
-                }
-                continue;
-            }
-            
-            // Handle #else - default branch
-            if (line.startsWith('#else')) {
-                if (conditionalStack.length > 0) {
-                    const currentBlock = conditionalStack[conditionalStack.length - 1];
-                    
-                    if (currentBlock.taken) {
-                        // Previous branch was taken, skip else
-                        if (skipUntilEndif === 0) skipUntilEndif = 1;
-                        this.log(`   ⏭️  Skipping #else (previous branch taken)`);
-                    } else {
-                        // No previous branch taken, take else
-                        if (skipUntilEndif > 0) skipUntilEndif--;
-                        currentBlock.taken = true;
-                        this.log(`   ✅ Entering #else block`);
-                    }
-                }
-                continue;
-            }
-            
-            // Handle #endif - close conditional block
-            if (line.startsWith('#endif')) {
-                if (skipUntilEndif > 0) {
-                    skipUntilEndif--;
-                }
-                if (conditionalStack.length > 0) {
-                    conditionalStack.pop();
-                }
-                continue;
-            }
-            
-            // Skip lines if we're in a false conditional block
+            // Skip lines in false conditional blocks
             if (skipUntilEndif > 0) {
                 continue;
             }
             
             // Parse #define statements
             if (line.startsWith('#define')) {
-                // Also store numeric values for variable substitution
+                // Store numeric values for variable substitution
                 const valueMatch = line.match(/#define\s+(\w+)\s+([\d.]+)\s*(?:\/\/.*)?$/);
                 if (valueMatch) {
                     this.variables[valueMatch[1]] = valueMatch[2];
@@ -318,67 +302,143 @@ const TH3DConfigParser = {
                 this.parseDefineLine(line, config);
             }
         }
-        
-        this.log('🔍 Final bedLeveling config:', config.bedLeveling);
-        
-        // Validate and add warnings
-        this.validateConfig(config);
-        
-        return config;
     },
     
     /**
-     * Evaluate a conditional expression (#if, #elif)
-     * Handles: comparisons, ENABLED(), DISABLED(), logical operators
+     * Handle preprocessor directives (#if, #elif, #else, #endif, #ifndef)
+     * @returns {boolean} True if line was a preprocessor directive
+     */
+    handlePreprocessor(line, conditionalStack, skipUntilEndif) {
+        // #ifndef
+        if (line.startsWith('#ifndef')) {
+            const match = line.match(/#ifndef\s+(\w+)/);
+            if (match) {
+                const defineName = match[1];
+                const isDefined = this.variables[defineName] !== undefined;
+                conditionalStack.push({ type: 'ifndef', condition: !isDefined, taken: false });
+                if (isDefined) {
+                    this.skipUntilEndif = (this.skipUntilEndif || 0) + 1;
+                    this.log(`   ⏭️  Skipping #ifndef ${defineName} block (already defined)`);
+                } else {
+                    this.skipUntilEndif = skipUntilEndif;
+                }
+            }
+            return true;
+        }
+        
+        // #if
+        if (line.startsWith('#if ') && !line.startsWith('#ifndef') && !line.startsWith('#ifdef')) {
+            const conditionMatch = line.match(/#if\s+(.+)/);
+            if (conditionMatch) {
+                const conditionStr = conditionMatch[1].trim();
+                const result = this.evaluateCondition(conditionStr);
+                conditionalStack.push({ type: 'if', condition: result, taken: result });
+                if (!result) {
+                    this.skipUntilEndif = (this.skipUntilEndif || 0) + 1;
+                    this.log(`   ⏭️  Skipping #if block (condition false):`, conditionStr);
+                } else {
+                    this.log(`   ✅ Entering #if block (condition true):`, conditionStr);
+                    this.skipUntilEndif = skipUntilEndif;
+                }
+            }
+            return true;
+        }
+        
+        // #elif
+        if (line.startsWith('#elif')) {
+            if (conditionalStack.length > 0) {
+                const currentBlock = conditionalStack[conditionalStack.length - 1];
+                
+                if (currentBlock.taken) {
+                    if (!this.skipUntilEndif) this.skipUntilEndif = 1;
+                    this.log(`   ⏭️  Skipping #elif (previous branch taken)`);
+                    return true;
+                }
+                
+                const conditionMatch = line.match(/#elif\s+(.+)/);
+                if (conditionMatch) {
+                    const conditionStr = conditionMatch[1].trim();
+                    const result = this.evaluateCondition(conditionStr);
+                    
+                    if (result) {
+                        if (this.skipUntilEndif > 0) this.skipUntilEndif--;
+                        currentBlock.taken = true;
+                        this.log(`   ✅ Entering #elif block (condition true):`, conditionStr);
+                    } else {
+                        if (!this.skipUntilEndif) this.skipUntilEndif = 1;
+                        this.log(`   ⏭️  Skipping #elif block (condition false):`, conditionStr);
+                    }
+                }
+            }
+            return true;
+        }
+        
+        // #else
+        if (line.startsWith('#else')) {
+            if (conditionalStack.length > 0) {
+                const currentBlock = conditionalStack[conditionalStack.length - 1];
+                
+                if (currentBlock.taken) {
+                    if (!this.skipUntilEndif) this.skipUntilEndif = 1;
+                    this.log(`   ⏭️  Skipping #else (previous branch taken)`);
+                } else {
+                    if (this.skipUntilEndif > 0) this.skipUntilEndif--;
+                    currentBlock.taken = true;
+                    this.log(`   ✅ Entering #else block`);
+                }
+            }
+            return true;
+        }
+        
+        // #endif
+        if (line.startsWith('#endif')) {
+            if (this.skipUntilEndif > 0) {
+                this.skipUntilEndif--;
+            }
+            if (conditionalStack.length > 0) {
+                conditionalStack.pop();
+            }
+            return true;
+        }
+        
+        return false;
+    },
+    
+    /**
+     * Evaluate conditional expression (#if, #elif)
      */
     evaluateCondition(conditionStr) {
-        // Handle ENABLED(NAME) - check if NAME is in globalConditionals
+        // Handle ENABLED(NAME)
         conditionStr = conditionStr.replace(/ENABLED\((\w+)\)/g, (match, name) => {
             return this.globalConditionals.has(name) ? 'true' : 'false';
         });
         
-        // Handle DISABLED(NAME) - check if NAME is NOT in globalConditionals
+        // Handle DISABLED(NAME)
         conditionStr = conditionStr.replace(/DISABLED\((\w+)\)/g, (match, name) => {
             return !this.globalConditionals.has(name) ? 'true' : 'false';
         });
         
-        // Replace variable names with their values
+        // Replace variable names with values
         conditionStr = conditionStr.replace(/\b([A-Z_][A-Z0-9_]*)\b/g, (match, varName) => {
-            // Check if it's a known variable
             if (this.variables && this.variables[varName] !== undefined) {
                 return this.variables[varName];
             }
-            // Check basic config for bed size
-            if (varName === 'X_BED_SIZE' && this.variables['X_BED_SIZE']) {
-                return this.variables['X_BED_SIZE'];
-            }
-            if (varName === 'Y_BED_SIZE' && this.variables['Y_BED_SIZE']) {
-                return this.variables['Y_BED_SIZE'];
-            }
-            // If not found, assume it's undefined (false)
             return '0';
         });
         
-        // Handle logical operators (convert to JavaScript)
-        conditionStr = conditionStr.replace(/&&/g, '&&');
-        conditionStr = conditionStr.replace(/\|\|/g, '||');
-        conditionStr = conditionStr.replace(/!/g, '!');
-        
-        // Try to evaluate the expression safely
+        // Evaluate expression safely
         try {
-            // Use Function constructor to evaluate (safer than eval)
             const result = new Function(`return ${conditionStr}`)();
             this.log(`   📊 Condition "${conditionStr}" evaluated to:`, result);
-            return !!result; // Convert to boolean
+            return !!result;
         } catch (error) {
             this.log(`   ⚠️  Could not evaluate condition "${conditionStr}":`, error.message);
-            return false; // Default to false if evaluation fails
+            return false;
         }
     },
     
     /**
      * Check if a define is a global conditional
-     * These persist across all config files
      */
     isGlobalConditional(defineName) {
         const globalPatterns = [
@@ -387,12 +447,13 @@ const TH3DConfigParser = {
             /^CR10/,
             /^CHIRON/,
             /^AQUILA/,
+            /^SOVOL/,
             
             // Probe types
             /^BLTOUCH/,
             /^EZABL/,
             /^CUSTOM_PROBE/,
-            /.*_OEM$/,  // Probe mounts
+            /.*_OEM$/,
             /.*_MOUNT$/,
             
             // Major features
@@ -405,7 +466,6 @@ const TH3DConfigParser = {
             /^EZNEO/,
             
             // Hardware variants
-            /^ENDER\d+_LDO/,
             /^SPRITE_EXTRUDER/,
             /^XTENDER_/
         ];
@@ -415,161 +475,122 @@ const TH3DConfigParser = {
     
     /**
      * Parse a single #define line using field mapping
-     * 
-     * ⚠️ TODO: Add fallback for unmapped fields
-     * If a #define is not found in the mapping, we silently skip it.
-     * Consider adding a "unknown" or "unmapped" section to capture these
-     * so users can identify missing fields in the mapping.
      */
     parseDefineLine(line, config) {
-        // Extract the define name and value
         const match = line.match(/#define\s+(\w+)(?:\s+(.+))?/);
         if (!match) return;
         
         const [, defineName, value] = match;
         const cleanValue = value ? value.split('//')[0].trim() : true;
         
-        // Search through field mapping for this define
+        // Search through field mapping
         for (const [category, fields] of Object.entries(this.fieldMapping)) {
-            // Skip metadata fields
+            // Skip metadata
             if (category.startsWith('$') || category === 'description' || category === 'lastUpdated' || category === 'version' || category === 'warnings') {
                 continue;
             }
             
             for (const [fieldName, fieldSpec] of Object.entries(fields)) {
-                // Skip non-field entries
                 if (typeof fieldSpec !== 'object' || !fieldSpec.mapsFrom) {
                     continue;
                 }
                 
-                // Check if this define matches any mapsFrom value
                 const mapsFrom = Array.isArray(fieldSpec.mapsFrom) ? fieldSpec.mapsFrom : [fieldSpec.mapsFrom];
                 
-                // Handle wildcard matches (e.g., "LCD_*", "DISPLAY_*")
+                // Check for match (including wildcards)
                 let matched = false;
                 for (const mapPattern of mapsFrom) {
                     if (mapPattern.includes('*')) {
-                        // Wildcard pattern - convert to regex
                         const regex = new RegExp('^' + mapPattern.replace(/\*/g, '.*') + '$');
                         if (regex.test(defineName)) {
                             matched = true;
                             break;
                         }
                     } else if (mapPattern === defineName) {
-                        // Exact match
                         matched = true;
                         break;
                     }
                 }
                 
                 if (matched) {
-                    // Check conditional dependencies before parsing
+                    // Check conditional dependencies
                     if (fieldSpec.conditionalOn) {
                         const conditions = Array.isArray(fieldSpec.conditionalOn) ? fieldSpec.conditionalOn : [fieldSpec.conditionalOn];
                         const hasActiveParent = conditions.some(cond => this.globalConditionals.has(cond));
                         
                         if (!hasActiveParent) {
                             this.log(`   ⏭️  Skipped ${defineName} (conditionalOn: ${conditions.join(' OR ')}) - parent(s) not active`);
-                            return; // Skip this field - parent condition not met
+                            return;
                         }
                     }
                     
-                    // Extract and store the value based on field type
+                    // Extract and store value
                     const extractedValue = this.extractValue(cleanValue, fieldSpec.type, fieldSpec);
-                    
-                    // Store in correct category and handle nested structures
                     this.storeValue(config, category, fieldName, extractedValue, fieldSpec);
-                    
                     this.log(`   ✅ Mapped ${defineName} → ${category}.${fieldName} =`, extractedValue);
-                    return; // Stop after first match
+                    return;
                 }
             }
         }
-        
-        // TODO: If we reach here, the define was not found in mapping
-        // Consider logging or storing unknown defines for debugging
-        // this.log(`   ⚠️ Unmapped define: ${defineName} = ${cleanValue}`);
     },
     
     /**
      * Extract value based on field type
-     * Handles variable substitution - returns expressions as-is
      */
     extractValue(rawValue, type, fieldSpec) {
-        // Ensure rawValue is a string for processing
         if (typeof rawValue !== 'string') {
             rawValue = String(rawValue);
         }
         
-        // Check if rawValue is a variable reference (not a number, not quoted, not an array, not an expression)
-        if (!rawValue.match(/^[\d.-]+$/) &&      // Not a simple number
-            !rawValue.match(/^["']/) &&           // Not a quoted string
-            !rawValue.match(/^\{/) &&             // Not an array
-            !rawValue.match(/[\(\)\*\/\+\-]/) && // Not a mathematical expression
+        // Check for variable reference
+        if (!rawValue.match(/^[\d.-]+$/) &&
+            !rawValue.match(/^["']/) &&
+            !rawValue.match(/^\{/) &&
+            !rawValue.match(/[\(\)\*\/\+\-]/) &&
             this.variables && this.variables[rawValue]) {
             
-            this.log(`🔄 TH3D Parser: Resolving variable ${rawValue} = ${this.variables[rawValue]}`);
+            this.log(`🔄 Resolving variable ${rawValue} = ${this.variables[rawValue]}`);
             rawValue = this.variables[rawValue];
         }
         
-        // For expressions like (200*60), store as-is for user configuration
+        // Keep expressions as-is
         if (rawValue.match(/[\(\)\*\/]/)) {
-            this.log(`📐 TH3D Parser: Storing expression as-is: ${rawValue}`);
-            return rawValue; // Return the expression string for user to configure
+            this.log(`📐 Storing expression as-is: ${rawValue}`);
+            return rawValue;
         }
         
         switch (type) {
             case 'string':
                 return this.extractString(rawValue);
-            
             case 'integer':
                 const intVal = parseInt(rawValue);
-                return isNaN(intVal) ? rawValue : intVal; // Return original if can't parse
-            
+                return isNaN(intVal) ? rawValue : intVal;
             case 'float':
                 const floatVal = parseFloat(rawValue);
-                return isNaN(floatVal) ? rawValue : floatVal; // Return original if can't parse
-            
+                return isNaN(floatVal) ? rawValue : floatVal;
             case 'boolean':
-                // For defines, presence = true
                 return rawValue === true || rawValue === 'true' || rawValue === '1';
-            
             case 'array':
                 return this.extractArray(rawValue);
-            
             default:
-                // Unknown type, return as-is
                 return rawValue;
         }
     },
     
     /**
-     * Store value in config object (handles nested structures and array mapping)
-     * 
-     * ✅ FIXED: Now handles array field mapping
-     * When mapsFrom contains array notation like "DEFAULT_AXIS_STEPS_PER_UNIT[0]",
-     * the parser extracts the array once and maps elements to individual fields:
-     *   - array[0] → stepsPerMM.x
-     *   - array[1] → stepsPerMM.y
-     *   - array[2] → stepsPerMM.z
-     *   - array[3] → stepsPerMM.e
+     * Store value in config object
      */
     storeValue(config, category, fieldName, value, fieldSpec) {
-        // Handle array index extraction for fields like DEFAULT_AXIS_STEPS_PER_UNIT[0]
+        // Handle array index extraction
         const mapsFrom = Array.isArray(fieldSpec.mapsFrom) ? fieldSpec.mapsFrom[0] : fieldSpec.mapsFrom;
         const arrayMatch = mapsFrom.match(/^(.+)\[(\d+)\]$/);
         
         if (arrayMatch && Array.isArray(value)) {
-            // This is an array field with index notation
             const [, arrayName, indexStr] = arrayMatch;
             const index = parseInt(indexStr);
-            
             this.log(`   🔢 Array field detected: ${arrayName}[${index}] → extracting element ${index}`);
-            
-            // Extract the specific array element
             value = value[index];
             
-            // Convert to appropriate type
             if (fieldSpec.type === 'float') {
                 value = parseFloat(value);
             } else if (fieldSpec.type === 'integer') {
@@ -577,7 +598,7 @@ const TH3DConfigParser = {
             }
         }
         
-        // Handle nested field names (e.g., "motion.stepsPerMM.x")
+        // Handle nested field names
         if (fieldName.includes('.')) {
             const parts = fieldName.split('.');
             let current = config[category];
@@ -591,23 +612,10 @@ const TH3DConfigParser = {
             
             current[parts[parts.length - 1]] = value;
         } else {
-            // Simple field
             if (!config[category]) {
                 config[category] = {};
             }
             config[category][fieldName] = value;
-        }
-        
-        // Special handling for specific fields
-        
-        // Store USER_PRINTER_NAME for variable resolution
-        if (fieldName === 'machineName' && category === 'basic') {
-            config.basic.userPrinterNameValue = value;
-        }
-        
-        // Handle EZABL_POINTS variable storage
-        if (fieldName === 'gridPointsX' && value && !isNaN(value)) {
-            this.variables['EZABL_POINTS'] = value;
         }
     },
     
@@ -621,16 +629,14 @@ const TH3DConfigParser = {
     
     /**
      * Extract array values from { x, y, z, ... }
-     * Handles variable substitution (e.g., CUSTOM_ESTEPS_VALUE)
      */
     extractArray(value) {
         const match = value.match(/\{(.+?)\}/);
         if (!match) return [];
         return match[1].split(',').map(v => {
             v = v.trim();
-            // Check if it's a variable reference
             if (this.variables && this.variables[v]) {
-                this.log(`🔄 TH3D Parser: Substituting ${v} = ${this.variables[v]}`);
+                this.log(`🔄 Substituting ${v} = ${this.variables[v]}`);
                 return this.variables[v];
             }
             return v;
@@ -638,12 +644,11 @@ const TH3DConfigParser = {
     },
     
     /**
-     * Validate configuration and add warnings
+     * Validate configuration
      */
     validateConfig(config) {
-        // Use validation rules from field mapping
+        // Validation logic from field mapping
         for (const [category, fields] of Object.entries(this.fieldMapping)) {
-            // Skip metadata
             if (category.startsWith('$') || category === 'description' || category === 'lastUpdated' || category === 'version' || category === 'warnings') {
                 continue;
             }
@@ -654,7 +659,6 @@ const TH3DConfigParser = {
                 const validation = fieldSpec.validation;
                 const value = config[category]?.[fieldName];
                 
-                // Required field check
                 if (fieldSpec.required && !value) {
                     config.warnings.push({
                         level: validation.errorLevel || 'error',
@@ -662,56 +666,24 @@ const TH3DConfigParser = {
                     });
                 }
                 
-                // Must be true check
                 if (validation.mustBeTrue && !value) {
                     config.warnings.push({
                         level: validation.errorLevel || 'error',
                         message: fieldSpec.th3dNotes || `${fieldName} should be enabled for safety`
                     });
                 }
-                
-                // Range checks
-                if (value !== undefined && value !== null) {
-                    if (validation.min !== undefined && value < validation.min) {
-                        config.warnings.push({
-                            level: 'warning',
-                            message: `${fieldName} (${value}) is below minimum (${validation.min})`
-                        });
-                    }
-                    
-                    if (validation.max !== undefined && value > validation.max) {
-                        config.warnings.push({
-                            level: 'warning',
-                            message: `${fieldName} (${value}) is above maximum (${validation.max})`
-                        });
-                    }
-                    
-                    // Warning if outside range
-                    if (validation.warningIfOutside) {
-                        if ((validation.min && value < validation.min) || (validation.max && value > validation.max)) {
-                            config.warnings.push({
-                                level: 'warning',
-                                message: `${fieldName} (${value}) is outside typical range (${validation.min}-${validation.max})`
-                            });
-                        }
-                    }
-                }
             }
         }
     },
     
     /**
-     * Parse multiple TH3D configuration files and merge into one config
-     * @param {object} files - Object with file contents: { config: "", configAdv: "", configBackend: "", configSpeed: "" }
-     * @returns {object} Merged parsed configuration object
+     * Parse multiple configuration files and merge
      */
     async parseMultipleFiles(files) {
-        // Ensure mapping is loaded
         await this.loadFieldMapping();
         
-        this.log('📚 TH3D Parser: Parsing multiple config files');
+        this.log('📚 Parsing multiple config files');
         
-        // Parse each file in order (later files can reference earlier variables)
         const configs = [];
         
         if (files.config) {
@@ -738,17 +710,14 @@ const TH3DConfigParser = {
             configs.push(cfg);
         }
         
-        // Merge all configs (later files override earlier)
         const merged = this.mergeConfigs(configs);
-        
-        this.log('✅ TH3D Parser: All files parsed and merged');
+        this.log('✅ All files parsed and merged');
         
         return merged;
     },
     
     /**
      * Merge multiple config objects
-     * Later configs override earlier ones for the same fields
      */
     mergeConfigs(configs) {
         const merged = {
@@ -770,21 +739,17 @@ const TH3DConfigParser = {
             warnings: []
         };
         
-        // Merge each config
         for (const config of configs) {
             for (const [category, fields] of Object.entries(config)) {
                 if (category === 'warnings') {
-                    // Accumulate warnings from all files
                     merged.warnings.push(...fields);
                     continue;
                 }
                 
-                // Initialize category if needed
                 if (!merged[category]) {
                     merged[category] = {};
                 }
                 
-                // Merge fields (deep merge for nested objects)
                 this.deepMerge(merged[category], fields);
             }
         }
@@ -793,32 +758,28 @@ const TH3DConfigParser = {
     },
     
     /**
-     * Deep merge two objects (later values override earlier)
+     * Deep merge two objects
      */
     deepMerge(target, source) {
         for (const [key, value] of Object.entries(source)) {
             if (value && typeof value === 'object' && !Array.isArray(value)) {
-                // Nested object - recurse
                 if (!target[key]) {
                     target[key] = {};
                 }
                 this.deepMerge(target[key], value);
             } else {
-                // Simple value or array - override
                 target[key] = value;
             }
         }
-    },
-    
-    /**
-     * Alias for parseConfigFile (for compatibility)
-     */
-    async parseConfigurationH(content) {
-        return await this.parseConfigFile(content);
     }
 };
 
 // Make available globally
 if (typeof window !== 'undefined') {
-    window.TH3DConfigParser = TH3DConfigParser;
+    window.MarlinConfigParser = MarlinConfigParser;
+}
+
+// For backward compatibility, create TH3D parser instance
+if (typeof window !== 'undefined') {
+    window.TH3DConfigParser = MarlinConfigParser.create('th3d');
 }

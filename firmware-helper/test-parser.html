@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH3D Parser Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+        h1 {
+            color: #4fc3f7;
+        }
+        .file-upload {
+            margin: 20px 0;
+            padding: 20px;
+            background: #252526;
+            border-radius: 8px;
+        }
+        .file-upload label {
+            display: block;
+            margin-bottom: 10px;
+            color: #4fc3f7;
+            font-weight: bold;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #3c3c3c;
+            color: #d4d4d4;
+            border: 1px solid #555;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button {
+            background: #4fc3f7;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:hover {
+            background: #29b6f6;
+        }
+        button:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+        #console {
+            background: #1e1e1e;
+            border: 1px solid #555;
+            padding: 15px;
+            border-radius: 4px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 12px;
+            margin: 20px 0;
+        }
+        #output {
+            background: #252526;
+            border: 1px solid #555;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .success { color: #4caf50; }
+        .error { color: #f44336; }
+        .info { color: #4fc3f7; }
+        .warning { color: #ff9800; }
+    </style>
+</head>
+<body>
+    <h1>🔧 TH3D Multi-File Configuration Parser Test</h1>
+    
+    <div class="file-upload">
+        <h2>Upload TH3D Configuration Files</h2>
+        <p>Upload all 4 TH3D configuration files to test the parser:</p>
+        
+        <label>Configuration.h</label>
+        <input type="file" id="config" accept=".h">
+        
+        <label>Configuration_adv.h</label>
+        <input type="file" id="configAdv" accept=".h">
+        
+        <label>Configuration_backend.h</label>
+        <input type="file" id="configBackend" accept=".h">
+        
+        <label>Configuration_speed.h</label>
+        <input type="file" id="configSpeed" accept=".h">
+        
+        <button id="parseBtn" onclick="parseFiles()">Parse Configuration Files</button>
+        <button onclick="clearConsole()">Clear Console</button>
+    </div>
+    
+    <h3>Console Output:</h3>
+    <div id="console"></div>
+    
+    <h3>Parsed Configuration (JSON):</h3>
+    <div id="output">No files parsed yet...</div>
+
+    <script>
+        // Fix paths for parser when running from firmware-helper directory
+        const TH3DConfigParserPaths = {
+            mappingFiles: [
+                '../assets/data/maps/th3d/th3d-config-mapping.json',
+                '../assets/data/maps/th3d/th3d-config-adv-mapping-part1.json',
+                '../assets/data/maps/th3d/th3d-config-adv-mapping-part2.json',
+                '../assets/data/maps/th3d/th3d-config-adv-mapping-part3.json',
+                '../assets/data/maps/th3d/th3d-config-adv-mapping-part4.json',
+                '../assets/data/maps/th3d/th3d-config-backend-mapping.json',
+                '../assets/data/maps/th3d/th3d-config-speed-mapping.json'
+            ]
+        };
+    </script>
+    <script src="../assets/js/th3d-config-parser.js"></script>
+    <script>
+        // Override parser paths for this test page
+        if (typeof TH3DConfigParser !== 'undefined') {
+            TH3DConfigParser.mappingFiles = TH3DConfigParserPaths.mappingFiles;
+        }
+        // Hijack console.log to display in page
+        const originalLog = console.log;
+        const originalError = console.error;
+        const consoleDiv = document.getElementById('console');
+        
+        function addToConsole(message, type = 'info') {
+            const line = document.createElement('div');
+            line.className = type;
+            line.textContent = message;
+            consoleDiv.appendChild(line);
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToConsole(args.join(' '), 'info');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToConsole('ERROR: ' + args.join(' '), 'error');
+        };
+        
+        function clearConsole() {
+            consoleDiv.innerHTML = '';
+        }
+        
+        async function parseFiles() {
+            const parseBtn = document.getElementById('parseBtn');
+            parseBtn.disabled = true;
+            
+            try {
+                clearConsole();
+                addToConsole('=== Starting TH3D Configuration Parser Test ===', 'success');
+                
+                // Read all files
+                const files = {};
+                
+                const configFile = document.getElementById('config').files[0];
+                if (configFile) {
+                    files.config = await configFile.text();
+                    addToConsole('✓ Loaded Configuration.h (' + configFile.size + ' bytes)', 'success');
+                }
+                
+                const configAdvFile = document.getElementById('configAdv').files[0];
+                if (configAdvFile) {
+                    files.configAdv = await configAdvFile.text();
+                    addToConsole('✓ Loaded Configuration_adv.h (' + configAdvFile.size + ' bytes)', 'success');
+                }
+                
+                const configBackendFile = document.getElementById('configBackend').files[0];
+                if (configBackendFile) {
+                    files.configBackend = await configBackendFile.text();
+                    addToConsole('✓ Loaded Configuration_backend.h (' + configBackendFile.size + ' bytes)', 'success');
+                }
+                
+                const configSpeedFile = document.getElementById('configSpeed').files[0];
+                if (configSpeedFile) {
+                    files.configSpeed = await configSpeedFile.text();
+                    addToConsole('✓ Loaded Configuration_speed.h (' + configSpeedFile.size + ' bytes)', 'success');
+                }
+                
+                if (Object.keys(files).length === 0) {
+                    addToConsole('⚠️ No files selected! Please upload at least one configuration file.', 'warning');
+                    parseBtn.disabled = false;
+                    return;
+                }
+                
+                addToConsole('', 'info');
+                addToConsole('🚀 Starting parser...', 'info');
+                
+                // Parse files
+                const result = await TH3DConfigParser.parseMultipleFiles(files);
+                
+                addToConsole('', 'info');
+                addToConsole('✅ Parsing complete!', 'success');
+                addToConsole('', 'info');
+                
+                // Display results
+                document.getElementById('output').textContent = JSON.stringify(result, null, 2);
+                
+                // Summary
+                const fieldCount = Object.keys(result).reduce((sum, cat) => {
+                    if (cat === 'warnings') return sum;
+                    return sum + Object.keys(result[cat] || {}).length;
+                }, 0);
+                
+                addToConsole('📊 Summary:', 'success');
+                addToConsole('   • Total Fields Parsed: ' + fieldCount, 'info');
+                addToConsole('   • Categories: ' + Object.keys(result).filter(k => k !== 'warnings').length, 'info');
+                addToConsole('   • Warnings: ' + result.warnings.length, 'warning');
+                
+                if (result.warnings.length > 0) {
+                    addToConsole('', 'info');
+                    addToConsole('⚠️ Validation Warnings:', 'warning');
+                    result.warnings.forEach(w => {
+                        addToConsole('   • [' + w.level.toUpperCase() + '] ' + w.message, w.level === 'error' ? 'error' : 'warning');
+                    });
+                }
+                
+            } catch (error) {
+                addToConsole('❌ Parse Error: ' + error.message, 'error');
+                console.error(error);
+                document.getElementById('output').textContent = 'Error: ' + error.message + '\n\n' + error.stack;
+            } finally {
+                parseBtn.disabled = false;
+            }
+        }
+        
+        // Initial message
+        addToConsole('TH3D Configuration Parser Test Page loaded', 'success');
+        addToConsole('Upload configuration files and click "Parse Configuration Files" to begin', 'info');
+    </script>
+</body>
+</html>

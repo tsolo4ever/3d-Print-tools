@@ -1,0 +1,263 @@
+{
+  "$schema": "TH3D Configuration_adv.h Field Mapping v2.0 - Part 1",
+  "description": "Configuration_adv.h: Serial Communication & Buffers",
+  "lastUpdated": "2025-12-25",
+  "version": "2.0.0",
+  "sourceFile": "Configuration_adv.h",
+  "part": "1 of 4 - Serial & Buffers",
+  
+  "serial": {
+    "baudRate": {
+      "mapsFrom": ["BAUDRATE"],
+      "type": "integer",
+      "required": false,
+      "default": 115200,
+      "examples": [9600, 19200, 38400, 57600, 115200, 250000],
+      "fileLocation": "Configuration.h (set by printer)",
+      "th3dNotes": "Serial communication speed. Set automatically by printer selection.",
+      "validation": {
+        "allowedValues": [9600, 19200, 38400, 57600, 115200, 250000]
+      }
+    },
+    "serialPort": {
+      "mapsFrom": ["SERIAL_PORT"],
+      "type": "integer",
+      "required": false,
+      "default": 1,
+      "examples": [0, 1, 2, -1],
+      "th3dNotes": "-1 for USB, 0-2 for hardware serial ports",
+      "validation": {
+        "min": -1,
+        "max": 3
+      }
+    },
+    "serialPort2": {
+      "mapsFrom": ["SERIAL_PORT_2"],
+      "type": "integer",
+      "required": false,
+      "examples": [-1, 0, 1, 2, 3],
+      "th3dNotes": "Secondary serial port (optional)"
+    }
+  },
+
+  "buffers": {
+    "blockBufferSize": {
+      "mapsFrom": ["BLOCK_BUFFER_SIZE"],
+      "type": "integer",
+      "required": false,
+      "default": 16,
+      "examples": [8, 16, 32],
+      "fileLocation": "Configuration_adv.h",
+      "th3dNotes": "Planner buffer size. Must be power of 2. Larger = smoother but more RAM. Space Saver 2560 uses 8-16.",
+      "validation": {
+        "mustBePowerOf2": true,
+        "allowedValues": [8, 16, 32]
+      }
+    },
+    "maxCmdSize": {
+      "mapsFrom": ["MAX_CMD_SIZE"],
+      "type": "integer",
+      "required": false,
+      "default": 96,
+      "examples": [96],
+      "th3dNotes": "ASCII buffer size for serial input commands"
+    },
+    "bufsize": {
+      "mapsFrom": ["BUFSIZE"],
+      "type": "integer",
+      "required": false,
+      "default": 32,
+      "examples": [16, 32],
+      "th3dNotes": "Command queue size. Space Saver 2560 uses 16, normal is 32"
+    },
+    "txBufferSize": {
+      "mapsFrom": ["TX_BUFFER_SIZE"],
+      "type": "integer",
+      "required": false,
+      "default": 0,
+      "examples": [0, 2, 4, 8, 16, 32, 64, 128, 256],
+      "th3dNotes": "Transmission buffer to host. 0 saves 386 bytes flash. 4 for 'ok', 32 for M105.",
+      "validation": {
+        "allowedValues": [0, 2, 4, 8, 16, 32, 64, 128, 256]
+      }
+    },
+    "rxBufferSize": {
+      "mapsFrom": ["RX_BUFFER_SIZE"],
+      "type": "integer",
+      "required": false,
+      "default": 128,
+      "examples": [0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048],
+      "th3dNotes": "Host receive buffer. 32 bytes minimum, 1024+ for flow control.",
+      "validation": {
+        "allowedValues": [0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]
+      }
+    },
+    "serialXonXoff": {
+      "mapsFrom": ["SERIAL_XON_XOFF"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "XON/XOFF flow control. Requires RX_BUFFER_SIZE >= 1024"
+    },
+    "serialStatsMaxRxQueued": {
+      "mapsFrom": ["SERIAL_STATS_MAX_RX_QUEUED"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Display max RX queue usage after SD transfer"
+    },
+    "serialStatsDroppedRx": {
+      "mapsFrom": ["SERIAL_STATS_DROPPED_RX"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Display dropped bytes after SD transfer"
+    },
+    "rxBufferMonitor": {
+      "mapsFrom": ["RX_BUFFER_MONITOR"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Monitor RX buffer usage and dump errors on overflow"
+    }
+  },
+
+  "emergencyParser": {
+    "enabled": {
+      "mapsFrom": ["EMERGENCY_PARSER"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Low-level parser for M108, M112, M410, M876. Enabled on BTT Touch Screen."
+    },
+    "realtimeReporting": {
+      "mapsFrom": ["REALTIME_REPORTING_COMMANDS"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "S000, P000, R000 commands for position/pause/resume reporting"
+    },
+    "fullReportToHost": {
+      "mapsFrom": ["FULL_REPORT_TO_HOST_FEATURE"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Auto-report machine status like Grbl CNC"
+    }
+  },
+
+  "serialAdvanced": {
+    "noTimeouts": {
+      "mapsFrom": ["NO_TIMEOUTS"],
+      "type": "integer",
+      "required": false,
+      "examples": [1000],
+      "th3dNotes": "Timeout in ms to prevent client aborts. Set to 1000ms typical."
+    },
+    "advancedOk": {
+      "mapsFrom": ["ADVANCED_OK"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Enhanced 'ok' responses for some clients"
+    },
+    "serialOverrunProtection": {
+      "mapsFrom": ["SERIAL_OVERRUN_PROTECTION"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Insert delays between serial output lines for Printrun compatibility"
+    },
+    "serialFloatPrecision": {
+      "mapsFrom": ["SERIAL_FLOAT_PRECISION"],
+      "type": "integer",
+      "required": false,
+      "default": 4,
+      "examples": [2, 4, 6],
+      "th3dNotes": "Decimal places in serial echo output. Enabled on BTT Touch."
+    },
+    "proportionalFontRatio": {
+      "mapsFrom": ["PROPORTIONAL_FONT_RATIO"],
+      "type": "float",
+      "required": false,
+      "default": 1.0,
+      "examples": [1.0, 1.2],
+      "th3dNotes": "Font spacing ratio for better G29 O output alignment"
+    }
+  },
+
+  "gcode": {
+    "fasterGcodeParser": {
+      "mapsFrom": ["FASTER_GCODE_PARSER"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Use 28 bytes SRAM to optimize G-code parser"
+    },
+    "gcodeQuotedStrings": {
+      "mapsFrom": ["GCODE_QUOTED_STRINGS"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Support quoted string parameters (requires FASTER_GCODE_PARSER)"
+    },
+    "meatpackOnSerialPort1": {
+      "mapsFrom": ["MEATPACK_ON_SERIAL_PORT_1"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "MeatPack G-code compression on serial port 1"
+    },
+    "meatpackOnSerialPort2": {
+      "mapsFrom": ["MEATPACK_ON_SERIAL_PORT_2"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "MeatPack G-code compression on serial port 2"
+    },
+    "gcodeCaseInsensitive": {
+      "mapsFrom": ["GCODE_CASE_INSENSITIVE"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Accept lowercase G-code commands"
+    }
+  },
+
+  "reporting": {
+    "autoReportTemperatures": {
+      "mapsFrom": ["AUTO_REPORT_TEMPERATURES"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Auto-report temps with M155 S<seconds>"
+    },
+    "autoReportPosition": {
+      "mapsFrom": ["AUTO_REPORT_POSITION"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Auto-report position with M154 S<seconds>. BTT Touch Screen."
+    },
+    "extendedCapabilitiesReport": {
+      "mapsFrom": ["EXTENDED_CAPABILITIES_REPORT"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Include capabilities in M115 output. BTT Touch Screen."
+    },
+    "m115GeometryReport": {
+      "mapsFrom": ["M115_GEOMETRY_REPORT"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Include geometry in M115. Requires EXTENDED_CAPABILITIES_REPORT."
+    },
+    "m114Detail": {
+      "mapsFrom": ["M114_DETAIL"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Detailed M114 output to check planner calculations. BTT Touch."
+    },
+    "m114Realtime": {
+      "mapsFrom": ["M114_REALTIME"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Real current position based on forward kinematics"
+    },
+    "m114Legacy": {
+      "mapsFrom": ["M114_LEGACY"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "M114 synchronizes on every call (legacy behavior)"
+    },
+    "reportFanChange": {
+      "mapsFrom": ["REPORT_FAN_CHANGE"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Report fan speed when changed by M106. BTT Touch."
+    }
+  }
+}

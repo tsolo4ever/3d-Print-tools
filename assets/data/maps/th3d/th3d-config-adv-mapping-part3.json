@@ -1,0 +1,382 @@
+{
+  "$schema": "TH3D Configuration_adv.h Field Mapping v2.0 - Part 3",
+  "description": "Configuration_adv.h: Thermal Protection & Safety Features",
+  "lastUpdated": "2025-12-25",
+  "version": "2.0.0",
+  "sourceFile": "Configuration_adv.h",
+  "part": "3 of 4 - Thermal & Safety",
+  
+  "thermalProtection": {
+    "hotends": {
+      "enabled": {
+        "mapsFrom": ["THERMAL_PROTECTION_HOTENDS"],
+        "type": "boolean",
+        "required": true,
+        "th3dNotes": "CRITICAL SAFETY! Always enabled. Halts if temp drops during heating."
+      },
+      "period": {
+        "mapsFrom": ["THERMAL_PROTECTION_PERIOD"],
+        "type": "integer",
+        "required": false,
+        "conditionalOn": ["THERMAL_PROTECTION_HOTENDS"],
+        "default": 60,
+        "examples": [40, 60, 120],
+        "th3dNotes": "Time (seconds) to monitor temp stability"
+      },
+      "hysteresis": {
+        "mapsFrom": ["THERMAL_PROTECTION_HYSTERESIS"],
+        "type": "integer",
+        "required": false,
+        "conditionalOn": ["THERMAL_PROTECTION_HOTENDS"],
+        "default": 4,
+        "examples": [2, 4, 10],
+        "th3dNotes": "Temperature variance (°C) allowed"
+      },
+      "watchPeriod": {
+        "mapsFrom": ["WATCH_TEMP_PERIOD"],
+        "type": "integer",
+        "required": false,
+        "conditionalOn": ["THERMAL_PROTECTION_HOTENDS"],
+        "default": 60,
+        "examples": [40, 60, 120],
+        "th3dNotes": "Time (sec) to reach target after M104/M109"
+      },
+      "watchIncrease": {
+        "mapsFrom": ["WATCH_TEMP_INCREASE"],
+        "type": "integer",
+        "required": false,
+        "conditionalOn": ["THERMAL_PROTECTION_HOTENDS"],
+        "default": 2,
+        "examples": [2, 3, 5],
+        "th3dNotes": "Minimum temp rise (°C) during watch period"
+      }
+    },
+    "bed": {
+      "enabled": {
+        "mapsFrom": ["THERMAL_PROTECTION_BED"],
+        "type": "boolean",
+        "required": true,
+        "th3dNotes": "CRITICAL SAFETY! Always enabled for heated beds."
+      },
+      "period": {
+        "mapsFrom": ["THERMAL_PROTECTION_BED_PERIOD"],
+        "type": "integer",
+        "required": false,
+        "conditionalOn": ["THERMAL_PROTECTION_BED"],
+        "default": 100,
+        "examples": [60, 100, 180]
+      },
+      "hysteresis": {
+        "mapsFrom": ["THERMAL_PROTECTION_BED_HYSTERESIS"],
+        "type": "integer",
+        "required": false,
+        "conditionalOn": ["THERMAL_PROTECTION_BED"],
+        "default": 2
+      },
+      "watchPeriod": {
+        "mapsFrom": ["WATCH_BED_TEMP_PERIOD"],
+        "type": "integer",
+        "required": false,
+        "conditionalOn": ["THERMAL_PROTECTION_BED"],
+        "default": 200
+      },
+      "watchIncrease": {
+        "mapsFrom": ["WATCH_BED_TEMP_INCREASE"],
+        "type": "integer",
+        "required": false,
+        "conditionalOn": ["THERMAL_PROTECTION_BED"],
+        "default": 2
+      }
+    },
+    "chamber": {
+      "enabled": {
+        "mapsFrom": ["THERMAL_PROTECTION_CHAMBER"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Only for heated chambers"
+      }
+    }
+  },
+
+  "watchdog": {
+    "enabled": {
+      "mapsFrom": ["USE_WATCHDOG"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Hardware timer resets if firmware hangs"
+    },
+    "resetManual": {
+      "mapsFrom": ["WATCHDOG_RESET_MANUAL"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["USE_WATCHDOG"],
+      "th3dNotes": "Use custom timer instead of WDTO (for boards that hang)"
+    }
+  },
+
+  "babystepping": {
+    "enabled": {
+      "mapsFrom": ["BABYSTEPPING"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Adjust Z in real-time without changing position values"
+    },
+    "integratedBabystepping": {
+      "mapsFrom": ["INTEGRATED_BABYSTEPPING"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "th3dNotes": "EXPERIMENTAL: Integrate babystepping into Stepper ISR"
+    },
+    "babystepWithoutHoming": {
+      "mapsFrom": ["BABYSTEP_WITHOUT_HOMING"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "th3dNotes": "Allow babystepping before homing"
+    },
+    "babystepAlwaysAvailable": {
+      "mapsFrom": ["BABYSTEP_ALWAYS_AVAILABLE"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "th3dNotes": "Allow babystepping at all times (not just during moves)"
+    },
+    "babystepXY": {
+      "mapsFrom": ["BABYSTEP_XY"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "th3dNotes": "Enable XY babystepping (not supported on DELTA)"
+    },
+    "babystepInvertZ": {
+      "mapsFrom": ["BABYSTEP_INVERT_Z"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "default": false,
+      "th3dNotes": "Reverse Z babystep direction if needed"
+    },
+    "babystepMillimeterUnits": {
+      "mapsFrom": ["BABYSTEP_MILLIMETER_UNITS"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "th3dNotes": "Use mm instead of microsteps for multiplicator"
+    },
+    "babystepMultiplicatorZ": {
+      "mapsFrom": ["BABYSTEP_MULTIPLICATOR_Z"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "default": 0.025,
+      "examples": [0.010, 0.025],
+      "th3dNotes": "Z babystep size. FINE_BABYSTEPPING=0.010, normal=0.025"
+    },
+    "doubleclickForZBabystepping": {
+      "mapsFrom": ["DOUBLECLICK_FOR_Z_BABYSTEPPING"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "th3dNotes": "Double-click status screen for Z babystepping"
+    },
+    "babystepZprobeOffset": {
+      "mapsFrom": ["BABYSTEP_ZPROBE_OFFSET"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING", "ABL_ENABLE"],
+      "th3dNotes": "Combine M851 Z and Babystepping. Requires ABL."
+    }
+  },
+
+  "advancedPause": {
+    "enabled": {
+      "mapsFrom": ["ADVANCED_PAUSE_FEATURE"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "M600 Filament Change. Required for default FILAMENT_RUNOUT_SCRIPT."
+    },
+    "pauseParkRetractFeedrate": {
+      "mapsFrom": ["PAUSE_PARK_RETRACT_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "default": 60,
+      "th3dNotes": "Initial retract feedrate (mm/s)"
+    },
+    "pauseParkRetractLength": {
+      "mapsFrom": ["PAUSE_PARK_RETRACT_LENGTH"],
+      "type": "integer",
+      "required": false,
+      "default": 2,
+      "th3dNotes": "Initial retract (mm) before parking"
+    },
+    "filamentChangeUnloadFeedrate": {
+      "mapsFrom": ["FILAMENT_CHANGE_UNLOAD_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "default": 20,
+      "th3dNotes": "Unload filament feedrate (mm/s)"
+    },
+    "filamentChangeUnloadAccel": {
+      "mapsFrom": ["FILAMENT_CHANGE_UNLOAD_ACCEL"],
+      "type": "integer",
+      "required": false,
+      "default": 25,
+      "th3dNotes": "Unload acceleration (mm/s²)"
+    },
+    "filamentChangeUnloadLength": {
+      "mapsFrom": ["FILAMENT_CHANGE_UNLOAD_LENGTH"],
+      "type": "integer",
+      "required": false,
+      "examples": [20, 100],
+      "th3dNotes": "Unload length (mm). Direct drive=20, Bowden=100. Set by DIRECT_DRIVE_PRINTER or MOUNTED_FILAMENT_SENSOR."
+    },
+    "filamentChangeSlowLoadFeedrate": {
+      "mapsFrom": ["FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "default": 8,
+      "th3dNotes": "Slow load speed (mm/s) when starting"
+    },
+    "filamentChangeSlowLoadLength": {
+      "mapsFrom": ["FILAMENT_CHANGE_SLOW_LOAD_LENGTH"],
+      "type": "integer",
+      "required": false,
+      "default": 15,
+      "th3dNotes": "Slow load length (mm) to allow filament insertion"
+    },
+    "filamentChangeFastLoadFeedrate": {
+      "mapsFrom": ["FILAMENT_CHANGE_FAST_LOAD_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "default": 20,
+      "th3dNotes": "Fast load speed (mm/s)"
+    },
+    "filamentChangeFastLoadAccel": {
+      "mapsFrom": ["FILAMENT_CHANGE_FAST_LOAD_ACCEL"],
+      "type": "integer",
+      "required": false,
+      "default": 25
+    },
+    "filamentChangeFastLoadLength": {
+      "mapsFrom": ["FILAMENT_CHANGE_FAST_LOAD_LENGTH"],
+      "type": "string",
+      "required": false,
+      "default": "FILAMENT_CHANGE_UNLOAD_LENGTH",
+      "th3dNotes": "Fast load length - usually same as unload length"
+    },
+    "advancedPausePurgeFeedrate": {
+      "mapsFrom": ["ADVANCED_PAUSE_PURGE_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "default": 5,
+      "th3dNotes": "Purge/extrude speed (mm/s) after loading"
+    },
+    "advancedPausePurgeLength": {
+      "mapsFrom": ["ADVANCED_PAUSE_PURGE_LENGTH"],
+      "type": "integer",
+      "required": false,
+      "default": 50,
+      "th3dNotes": "Extrude length (mm) after loading. 0=manual"
+    },
+    "parkHeadOnPause": {
+      "mapsFrom": ["PARK_HEAD_ON_PAUSE"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Park nozzle during pause and filament change"
+    }
+  },
+
+  "fanControl": {
+    "fanKickstartTime": {
+      "mapsFrom": ["FAN_KICKSTART_TIME"],
+      "type": "integer",
+      "required": false,
+      "examples": [100],
+      "th3dNotes": "Time (ms) to run fan at kickstart power"
+    },
+    "fanKickstartPower": {
+      "mapsFrom": ["FAN_KICKSTART_POWER"],
+      "type": "integer",
+      "required": false,
+      "examples": [180],
+      "th3dNotes": "Kickstart power (64-255) to get fan spinning"
+    },
+    "fanOffPwm": {
+      "mapsFrom": ["FAN_OFF_PWM"],
+      "type": "integer",
+      "required": false,
+      "examples": [1],
+      "th3dNotes": "Non-zero 'off' state for coolers that need it"
+    },
+    "fanMinPwm": {
+      "mapsFrom": ["FAN_MIN_PWM"],
+      "type": "integer",
+      "required": false,
+      "examples": [50],
+      "th3dNotes": "Minimum PWM to ensure fan spins"
+    },
+    "fanMaxPwm": {
+      "mapsFrom": ["FAN_MAX_PWM"],
+      "type": "integer",
+      "required": false,
+      "examples": [128],
+      "th3dNotes": "Maximum PWM for lower current fans"
+    },
+    "fastPwmFan": {
+      "mapsFrom": ["FAST_PWM_FAN"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Increase PWM frequency - removes noise but increases FET heating"
+    },
+    "fastPwmFanFrequency": {
+      "mapsFrom": ["FAST_PWM_FAN_FREQUENCY"],
+      "type": "integer",
+      "required": false,
+      "examples": [31400, 1000],
+      "th3dNotes": "Fan PWM frequency (Hz). AVR default=31.4kHz, others=1kHz"
+    }
+  },
+
+  "controllerFan": {
+    "enabled": {
+      "mapsFrom": ["USE_CONTROLLER_FAN"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Fan for cooling stepper drivers and MOSFETs"
+    },
+    "speedMin": {
+      "mapsFrom": ["CONTROLLERFAN_SPEED_MIN"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["USE_CONTROLLER_FAN"],
+      "default": 0,
+      "examples": [0, 64, 128],
+      "th3dNotes": "Minimum speed (0-255). Below this fan turns off."
+    },
+    "speedActive": {
+      "mapsFrom": ["CONTROLLERFAN_SPEED_ACTIVE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["USE_CONTROLLER_FAN"],
+      "default": 255,
+      "th3dNotes": "Speed when motors enabled (0-255)"
+    },
+    "speedIdle": {
+      "mapsFrom": ["CONTROLLERFAN_SPEED_IDLE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["USE_CONTROLLER_FAN"],
+      "default": 0,
+      "th3dNotes": "Speed when motors disabled (0-255)"
+    },
+    "idleTime": {
+      "mapsFrom": ["CONTROLLERFAN_IDLE_TIME"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["USE_CONTROLLER_FAN"],
+      "default": 60,
+      "th3dNotes": "Extra time (seconds) to run after motors disabled"
+    }
+  }
+}

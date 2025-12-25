@@ -1,0 +1,540 @@
+{
+  "$schema": "TH3D Configuration_backend.h Field Mapping v2.0",
+  "description": "Configuration_backend.h: Backend Configuration & Overrides",
+  "lastUpdated": "2025-12-25",
+  "version": "2.0.0",
+  "sourceFile": "Configuration_backend.h",
+  "th3dNotes": "DO NOT MODIFY - Backend file sets values based on Configuration.h selections",
+  
+  "metadata": {
+    "configBackendVersion": {
+      "mapsFrom": ["CONFIGURATION_BACKEND_H_VERSION"],
+      "type": "string",
+      "required": true,
+      "examples": ["02010204"],
+      "th3dNotes": "Backend configuration version"
+    },
+    "unifiedVersionBackend": {
+      "mapsFrom": ["UNIFIED_VERSION"],
+      "type": "string",
+      "required": false,
+      "th3dNotes": "Set if not already defined in Configuration.h"
+    }
+  },
+
+  "ablProbeBackend": {
+    "description": "Probe mount selection automatically sets offsets and enables ABL",
+    "ablEnable": {
+      "mapsFrom": ["ABL_ENABLE"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Automatically enabled by probe mount selection"
+    },
+    "nozzleToProbeOffset": {
+      "mapsFrom": ["NOZZLE_TO_PROBE_OFFSET"],
+      "type": "array",
+      "arrayFormat": "{ X, Y, Z }",
+      "required": false,
+      "th3dNotes": "Set automatically by probe mount. Z always 0 (stored in EEPROM).",
+      "examples": [
+        "{ -44, -10, 0 }  // ENDER3_OEM",
+        "{ -48, -15, 0 }  // ENDER3_V2_OEM",
+        "{ 57, -9, 0 }    // ENDER3_MAX_OEM",
+        "{ -40, -14, 0 }  // ENDER6_OEM",
+        "{ 30, -28, 0 }   // SV06_EZABL_OEM_MOUNT"
+      ]
+    },
+    "useProbeForZHoming": {
+      "mapsFrom": ["USE_PROBE_FOR_Z_HOMING"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Use probe instead of Z endstop. Disabled on Chiron."
+    },
+    "xAxisTwistCompensation": {
+      "mapsFrom": ["X_AXIS_TWIST_COMPENSATION"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Added in V2.90 - compensate for X-axis twist"
+    },
+    "zProbeOffsetRangeMin": {
+      "mapsFrom": ["Z_PROBE_OFFSET_RANGE_MIN"],
+      "type": "integer",
+      "required": false,
+      "default": -10,
+      "th3dNotes": "Minimum Z probe offset allowed"
+    },
+    "zProbeOffsetRangeMax": {
+      "mapsFrom": ["Z_PROBE_OFFSET_RANGE_MAX"],
+      "type": "integer",
+      "required": false,
+      "default": 1,
+      "th3dNotes": "Maximum Z probe offset allowed"
+    },
+    "zMinProbeRepeatabilityTest": {
+      "mapsFrom": ["Z_MIN_PROBE_REPEATABILITY_TEST"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "M48 probe repeatability test"
+    },
+    "zAfterHoming": {
+      "mapsFrom": ["Z_AFTER_HOMING"],
+      "type": "integer",
+      "required": false,
+      "default": 5,
+      "examples": [5, 10],
+      "th3dNotes": "Z height after homing (mm). Not set for BLTouch."
+    },
+    "zProbeLowPoint": {
+      "mapsFrom": ["Z_PROBE_LOW_POINT"],
+      "type": "integer",
+      "required": false,
+      "default": -10,
+      "th3dNotes": "Lowest Z probe point (mm)"
+    },
+    "fixMountedProbe": {
+      "mapsFrom": ["FIX_MOUNTED_PROBE"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Fixed probe (not BLTouch). Auto-set if not BLTouch."
+    },
+    "xyProbeFeedrate": {
+      "mapsFrom": ["XY_PROBE_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "examples": ["(133*60)", "(200*60)", "(266*60)"],
+      "th3dNotes": "XY travel speed between probe points. Varies by EZABL_SUPERFASTPROBE, SLOWER_PROBE_MOVES, PROBING_STEPPERS_OFF"
+    },
+    "probingHeatersOff": {
+      "mapsFrom": ["PROBING_HEATERS_OFF"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Turn off heaters during probing unless HEATERS_ON_DURING_PROBING enabled"
+    },
+    "multipleProbing": {
+      "mapsFrom": ["MULTIPLE_PROBING"],
+      "type": "integer",
+      "required": false,
+      "default": 2,
+      "th3dNotes": "Number of probe attempts per point"
+    }
+  },
+
+  "ablType": {
+    "bilinear": {
+      "enabled": {
+        "mapsFrom": ["AUTO_BED_LEVELING_BILINEAR"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Simple grid leveling. Enabled by ABL_BILINEAR."
+      },
+      "probingMargin": {
+        "mapsFrom": ["PROBING_MARGIN"],
+        "type": "string",
+        "required": false,
+        "default": "EZABL_PROBE_EDGE",
+        "th3dNotes": "Distance from bed edge to probe"
+      },
+      "enableLevelingFadeHeight": {
+        "mapsFrom": ["ENABLE_LEVELING_FADE_HEIGHT"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Gradually fade correction with height"
+      },
+      "extrapolateBeyondGrid": {
+        "mapsFrom": ["EXTRAPOLATE_BEYOND_GRID"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Estimate mesh beyond probed area"
+      },
+      "ablBilinearSubdivision": {
+        "mapsFrom": ["ABL_BILINEAR_SUBDIVISION"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Smooth mesh interpolation"
+      },
+      "bilinearSubdivisions": {
+        "mapsFrom": ["BILINEAR_SUBDIVISIONS"],
+        "type": "integer",
+        "required": false,
+        "default": 3,
+        "examples": [2, 3],
+        "th3dNotes": "Smoothness level (2-3 recommended)"
+      },
+      "restoreLevelingAfterG28": {
+        "mapsFrom": ["RESTORE_LEVELING_AFTER_G28"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Keep leveling active after homing"
+      }
+    },
+    "ubl": {
+      "enabled": {
+        "mapsFrom": ["AUTO_BED_LEVELING_UBL"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Unified Bed Leveling. Enabled by ABL_UBL."
+      },
+      "g26MeshValidation": {
+        "mapsFrom": ["G26_MESH_VALIDATION"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "G26 mesh validation pattern"
+      },
+      "ublSaveActiveOnM500": {
+        "mapsFrom": ["UBL_SAVE_ACTIVE_ON_M500"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Save active mesh with M500"
+      },
+      "ublMeshXPoints": {
+        "mapsFrom": ["UBL_MESH_X_POINTS"],
+        "type": "string",
+        "required": false,
+        "default": "EZABL_POINTS",
+        "th3dNotes": "Number of X probe points"
+      },
+      "ublMeshYPoints": {
+        "mapsFrom": ["UBL_MESH_Y_POINTS"],
+        "type": "string",
+        "required": false,
+        "default": "UBL_MESH_X_POINTS",
+        "th3dNotes": "Number of Y probe points (usually same as X)"
+      },
+      "meshInset": {
+        "mapsFrom": ["MESH_INSET"],
+        "type": "string",
+        "required": false,
+        "default": "EZABL_PROBE_EDGE",
+        "th3dNotes": "Mesh inset from bed edges"
+      },
+      "ublMeshEditMovesZ": {
+        "mapsFrom": ["UBL_MESH_EDIT_MOVES_Z"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Move Z during mesh editing"
+      },
+      "ublMeshWizard": {
+        "mapsFrom": ["UBL_MESH_WIZARD"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Guided mesh setup wizard"
+      },
+      "segmentLeveledMoves": {
+        "mapsFrom": ["SEGMENT_LEVELED_MOVES"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Split moves for accuracy"
+      },
+      "leveledSegmentLength": {
+        "mapsFrom": ["LEVELED_SEGMENT_LENGTH"],
+        "type": "float",
+        "required": false,
+        "default": 5.0,
+        "th3dNotes": "Segment length (mm)"
+      }
+    },
+    "gridPoints": {
+      "maxPointsX": {
+        "mapsFrom": ["GRID_MAX_POINTS_X"],
+        "type": "string",
+        "required": false,
+        "default": "EZABL_POINTS",
+        "th3dNotes": "Grid size X. Defined even if not using Bilinear."
+      },
+      "maxPointsY": {
+        "mapsFrom": ["GRID_MAX_POINTS_Y"],
+        "type": "string",
+        "required": false,
+        "default": "GRID_MAX_POINTS_X",
+        "th3dNotes": "Grid size Y"
+      }
+    },
+    "fadeHeight": {
+      "defaultLevelingFadeHeight": {
+        "mapsFrom": ["DEFAULT_LEVELING_FADE_HEIGHT"],
+        "type": "integer",
+        "required": false,
+        "default": 10,
+        "th3dNotes": "Fade height if ENABLE_LEVELING_FADE_HEIGHT enabled"
+      }
+    },
+    "zSafeHoming": {
+      "enabled": {
+        "mapsFrom": ["Z_SAFE_HOMING"],
+        "type": "boolean",
+        "required": false,
+        "th3dNotes": "Home Z at center of bed"
+      },
+      "zSafeHomingXPoint": {
+        "mapsFrom": ["Z_SAFE_HOMING_X_POINT"],
+        "type": "string",
+        "required": false,
+        "default": "X_CENTER",
+        "th3dNotes": "X point for Z homing"
+      },
+      "zSafeHomingYPoint": {
+        "mapsFrom": ["Z_SAFE_HOMING_Y_POINT"],
+        "type": "string",
+        "required": false,
+        "default": "Y_CENTER",
+        "th3dNotes": "Y point for Z homing"
+      }
+    }
+  },
+
+  "probeLogic": {
+    "zMinProbeEndstopInverting": {
+      "mapsFrom": ["Z_MIN_PROBE_ENDSTOP_INVERTING"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "BLTouch=false, EZABL=true, CR10S_PRO stock=false, Ender 3 S1=false (hardware inverted)"
+    },
+    "zMinEndstopInverting": {
+      "mapsFrom": ["Z_MIN_ENDSTOP_INVERTING"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Usually matches probe logic unless Chiron"
+    }
+  },
+
+  "configOverrides": {
+    "customXBedSize": {
+      "mapsFrom": ["CUSTOM_X_BED_SIZE"],
+      "type": "integer",
+      "required": false,
+      "th3dNotes": "Overrides X_BED_SIZE from Configuration.h"
+    },
+    "customYBedSize": {
+      "mapsFrom": ["CUSTOM_Y_BED_SIZE"],
+      "type": "integer",
+      "required": false,
+      "th3dNotes": "Overrides Y_BED_SIZE"
+    },
+    "customZHeight": {
+      "mapsFrom": ["CUSTOM_Z_HEIGHT"],
+      "type": "integer",
+      "required": false,
+      "th3dNotes": "Overrides Z_MAX_POS"
+    }
+  },
+
+  "sanityChecks": {
+    "ablWithSCurve": {
+      "check": "ABL_ENABLE && S_CURVE_ACCELERATION",
+      "error": "S_CURVE_ACCELERATION not compatible with ABL",
+      "th3dNotes": "Backend enforces this safety check"
+    },
+    "bltouchCustomProbe": {
+      "check": "BLTOUCH && !CUSTOM_PROBE",
+      "error": "Must uncomment CUSTOM_PROBE for BLTouch",
+      "th3dNotes": "Must enter custom offsets for BLTouch"
+    }
+  },
+
+  "tempSettings": {
+    "preventColdExtrusion": {
+      "mapsFrom": ["PREVENT_COLD_EXTRUSION"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Prevent extrusion below EXTRUDE_MINTEMP"
+    },
+    "extrudeMintemp": {
+      "mapsFrom": ["EXTRUDE_MINTEMP"],
+      "type": "integer",
+      "required": false,
+      "default": 170,
+      "examples": [170, 190],
+      "th3dNotes": "190 if LDO_FILAMENT_ENABLE, else 170"
+    },
+    "heater0Mintemp": {
+      "mapsFrom": ["HEATER_0_MINTEMP"],
+      "type": "integer",
+      "required": false,
+      "default": 0,
+      "th3dNotes": "21 if TEMP_SENSOR_0 == 66, else 0"
+    },
+    "heater0Maxtemp": {
+      "mapsFrom": ["HEATER_0_MAXTEMP"],
+      "type": "integer",
+      "required": false,
+      "default": 290,
+      "th3dNotes": "HIGH_TEMP_THERMISTOR_TEMP if HIGH_TEMP_THERMISTOR enabled"
+    },
+    "bedMaxtemp": {
+      "mapsFrom": ["BED_MAXTEMP"],
+      "type": "integer",
+      "required": false,
+      "default": 120,
+      "examples": [120, 150],
+      "th3dNotes": "150 if BED_HIGHTEMP enabled, else 120"
+    },
+    "hotendOvershoot": {
+      "mapsFrom": ["HOTEND_OVERSHOOT"],
+      "type": "integer",
+      "required": false,
+      "default": 5,
+      "th3dNotes": "Safety margin below MAXTEMP"
+    },
+    "bedOvershoot": {
+      "mapsFrom": ["BED_OVERSHOOT"],
+      "type": "integer",
+      "required": false,
+      "default": 5
+    }
+  },
+
+  "pidSettings": {
+    "pidtemp": {
+      "mapsFrom": ["PIDTEMP"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "PID temperature control for hotend"
+    },
+    "bangMax": {
+      "mapsFrom": ["BANG_MAX"],
+      "type": "integer",
+      "required": false,
+      "default": 255
+    },
+    "pidMax": {
+      "mapsFrom": ["PID_MAX"],
+      "type": "string",
+      "required": false,
+      "default": "BANG_MAX"
+    },
+    "pidK1": {
+      "mapsFrom": ["PID_K1"],
+      "type": "float",
+      "required": false,
+      "default": 0.95
+    },
+    "pidAutotuneMenu": {
+      "mapsFrom": ["PID_AUTOTUNE_MENU"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Not on DWIN LCD"
+    },
+    "pidEditMenu": {
+      "mapsFrom": ["PID_EDIT_MENU"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "Not on DWIN LCD"
+    },
+    "defaultKp": {
+      "mapsFrom": ["DEFAULT_Kp"],
+      "type": "float",
+      "required": false,
+      "default": 22.2,
+      "th3dNotes": "Marlin default if not machine-specific"
+    },
+    "defaultKi": {
+      "mapsFrom": ["DEFAULT_Ki"],
+      "type": "float",
+      "required": false,
+      "default": 1.08
+    },
+    "defaultKd": {
+      "mapsFrom": ["DEFAULT_Kd"],
+      "type": "float",
+      "required": false,
+      "default": 114
+    },
+    "pidtempbed": {
+      "mapsFrom": ["PIDTEMPBED"],
+      "type": "boolean",
+      "required": false,
+      "th3dNotes": "PID bed control. Enabled by ENABLE_PIDBED. Not recommended."
+    }
+  },
+
+  "firmwareSettings": {
+    "stringConfigHAuthor": {
+      "mapsFrom": ["STRING_CONFIG_H_AUTHOR"],
+      "type": "string",
+      "required": false,
+      "default": "TH3D Studio"
+    },
+    "customVersionFile": {
+      "mapsFrom": ["CUSTOM_VERSION_FILE"],
+      "type": "string",
+      "required": false,
+      "default": "Version.h"
+    },
+    "customMachineName": {
+      "mapsFrom": ["CUSTOM_MACHINE_NAME"],
+      "type": "string",
+      "required": false,
+      "th3dNotes": "Set based on printer selection and features (EZABL, BLTouch, etc.)"
+    },
+    "homingFeedrateMMM": {
+      "mapsFrom": ["HOMING_FEEDRATE_MM_M"],
+      "type": "array",
+      "arrayFormat": "{ X, Y, Z }",
+      "required": false,
+      "th3dNotes": "Set by SLOWER_HOMING or EZABL probe speed"
+    },
+    "zProbeFeedrateFast": {
+      "mapsFrom": ["Z_PROBE_FEEDRATE_FAST"],
+      "type": "string",
+      "required": false,
+      "th3dNotes": "Z probe speed. Varies by SLOWER_HOMING and probe type"
+    }
+  },
+
+  "preheatProfiles": {
+    "preheat1Label": {
+      "mapsFrom": ["PREHEAT_1_LABEL"],
+      "type": "string",
+      "required": false,
+      "default": "PLA"
+    },
+    "preheat1TempHotend": {
+      "mapsFrom": ["PREHEAT_1_TEMP_HOTEND"],
+      "type": "integer",
+      "required": false,
+      "default": 210
+    },
+    "preheat1TempBed": {
+      "mapsFrom": ["PREHEAT_1_TEMP_BED"],
+      "type": "integer",
+      "required": false,
+      "default": 60
+    },
+    "preheat2Label": {
+      "mapsFrom": ["PREHEAT_2_LABEL"],
+      "type": "string",
+      "required": false,
+      "default": "PETG"
+    },
+    "preheat2TempHotend": {
+      "mapsFrom": ["PREHEAT_2_TEMP_HOTEND"],
+      "type": "integer",
+      "required": false,
+      "default": 235
+    },
+    "preheat2TempBed": {
+      "mapsFrom": ["PREHEAT_2_TEMP_BED"],
+      "type": "integer",
+      "required": false,
+      "default": 80
+    },
+    "preheat3Label": {
+      "mapsFrom": ["PREHEAT_3_LABEL"],
+      "type": "string",
+      "required": false,
+      "default": "ABS/ASA"
+    },
+    "preheat3TempHotend": {
+      "mapsFrom": ["PREHEAT_3_TEMP_HOTEND"],
+      "type": "integer",
+      "required": false,
+      "default": 245
+    },
+    "preheat3TempBed": {
+      "mapsFrom": ["PREHEAT_3_TEMP_BED"],
+      "type": "integer",
+      "required": false,
+      "default": 100
+    }
+  }
+}
