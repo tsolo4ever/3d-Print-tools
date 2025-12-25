@@ -1,0 +1,438 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "1.0.0",
+  "description": "Vanilla Marlin Configuration_adv.h field mappings - Part 1: Thermal & Temperature",
+  "firmware": "Marlin",
+  "configFile": "Configuration_adv.h",
+  
+  "advanced": {
+    "configAdvVersion": {
+      "mapsFrom": ["CONFIGURATION_ADV_H_VERSION"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [2010300]
+    },
+    
+    "thermocoupleMaxErrors": {
+      "mapsFrom": ["THERMOCOUPLE_MAX_ERRORS"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [15],
+      "notes": "Number of errors before reporting thermocouple failure"
+    },
+    
+    "thermalProtectionPeriod": {
+      "mapsFrom": ["THERMAL_PROTECTION_PERIOD"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["HAS_HOTEND", "THERMAL_PROTECTION_HOTENDS"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [40],
+      "notes": "Seconds before thermal runaway triggers"
+    },
+    
+    "thermalProtectionHysteresis": {
+      "mapsFrom": ["THERMAL_PROTECTION_HYSTERESIS"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["HAS_HOTEND", "THERMAL_PROTECTION_HOTENDS"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [4],
+      "notes": "Degrees C hysteresis for thermal protection"
+    },
+    
+    "watchTempPeriod": {
+      "mapsFrom": ["WATCH_TEMP_PERIOD"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["HAS_HOTEND", "THERMAL_PROTECTION_HOTENDS"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [40],
+      "notes": "Seconds to wait for temp increase during heating"
+    },
+    
+    "watchTempIncrease": {
+      "mapsFrom": ["WATCH_TEMP_INCREASE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["HAS_HOTEND", "THERMAL_PROTECTION_HOTENDS"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [2]
+    },
+    
+    "thermalProtectionBedPeriod": {
+      "mapsFrom": ["THERMAL_PROTECTION_BED_PERIOD"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["TEMP_SENSOR_BED", "THERMAL_PROTECTION_BED"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [20]
+    },
+    
+    "thermalProtectionBedHysteresis": {
+      "mapsFrom": ["THERMAL_PROTECTION_BED_HYSTERESIS"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["TEMP_SENSOR_BED", "THERMAL_PROTECTION_BED"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [2]
+    },
+    
+    "watchBedTempPeriod": {
+      "mapsFrom": ["WATCH_BED_TEMP_PERIOD"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["TEMP_SENSOR_BED", "THERMAL_PROTECTION_BED"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [60]
+    },
+    
+    "watchBedTempIncrease": {
+      "mapsFrom": ["WATCH_BED_TEMP_INCREASE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["TEMP_SENSOR_BED", "THERMAL_PROTECTION_BED"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [2]
+    },
+    
+    "pidExtrustionScaling": {
+      "mapsFrom": ["PID_EXTRUSION_SCALING"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["PIDTEMP"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Add power proportional to extrusion speed"
+    },
+    
+    "pidFanScaling": {
+      "mapsFrom": ["PID_FAN_SCALING"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["PIDTEMP"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Add power proportional to fan speed"
+    },
+    
+    "autotemp": {
+      "mapsFrom": ["AUTOTEMP"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Dynamically adjust hotend target temp based on E moves"
+    },
+    
+    "autotempOldweight": {
+      "mapsFrom": ["AUTOTEMP_OLDWEIGHT"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["AUTOTEMP"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.98]
+    },
+    
+    "autotempMin": {
+      "mapsFrom": ["AUTOTEMP_MIN"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["AUTOTEMP"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [210]
+    },
+    
+    "autotempMax": {
+      "mapsFrom": ["AUTOTEMP_MAX"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["AUTOTEMP"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [250]
+    },
+    
+    "autotempFactor": {
+      "mapsFrom": ["AUTOTEMP_FACTOR"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["AUTOTEMP"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.1]
+    },
+    
+    "showTempAdcValues": {
+      "mapsFrom": ["SHOW_TEMP_ADC_VALUES"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Include ADC values in M105 output"
+    },
+    
+    "tempSensorAd595Offset": {
+      "mapsFrom": ["TEMP_SENSOR_AD595_OFFSET"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.0]
+    },
+    
+    "tempSensorAd595Gain": {
+      "mapsFrom": ["TEMP_SENSOR_AD595_GAIN"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [1.0]
+    },
+    
+    "tempSensorAd8495Offset": {
+      "mapsFrom": ["TEMP_SENSOR_AD8495_OFFSET"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.0]
+    },
+    
+    "tempSensorAd8495Gain": {
+      "mapsFrom": ["TEMP_SENSOR_AD8495_GAIN"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [1.0]
+    }
+  },
+  
+  "fans": {
+    "useControllerFan": {
+      "mapsFrom": ["USE_CONTROLLER_FAN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Fan to cool stepper drivers and MOSFETs"
+    },
+    
+    "controllerfanSpeedMin": {
+      "mapsFrom": ["CONTROLLERFAN_SPEED_MIN"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["USE_CONTROLLER_FAN"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0],
+      "validation": {
+        "min": 0,
+        "max": 255
+      }
+    },
+    
+    "controllerfanSpeedActive": {
+      "mapsFrom": ["CONTROLLERFAN_SPEED_ACTIVE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["USE_CONTROLLER_FAN"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [255]
+    },
+    
+    "controllerfanSpeedIdle": {
+      "mapsFrom": ["CONTROLLERFAN_SPEED_IDLE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["USE_CONTROLLER_FAN"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0]
+    },
+    
+    "controllerfanIdleTime": {
+      "mapsFrom": ["CONTROLLERFAN_IDLE_TIME"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["USE_CONTROLLER_FAN"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [60],
+      "notes": "Seconds to keep fan running after motors disabled"
+    },
+    
+    "fanKickstartTime": {
+      "mapsFrom": ["FAN_KICKSTART_TIME"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [100],
+      "notes": "Milliseconds to run fan at full speed on start"
+    },
+    
+    "fanKickstartPower": {
+      "mapsFrom": ["FAN_KICKSTART_POWER"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [180],
+      "validation": {
+        "min": 64,
+        "max": 255
+      }
+    },
+    
+    "fanMinPwm": {
+      "mapsFrom": ["FAN_MIN_PWM"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [50],
+      "validation": {
+        "min": 0,
+        "max": 255
+      }
+    },
+    
+    "fanMaxPwm": {
+      "mapsFrom": ["FAN_MAX_PWM"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [128],
+      "validation": {
+        "min": 0,
+        "max": 255
+      }
+    },
+    
+    "fastPwmFan": {
+      "mapsFrom": ["FAST_PWM_FAN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Increase fan PWM frequency to reduce noise"
+    },
+    
+    "fastPwmFanFrequency": {
+      "mapsFrom": ["FAST_PWM_FAN_FREQUENCY"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["FAST_PWM_FAN"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [31400]
+    },
+    
+    "e0AutoFanPin": {
+      "mapsFrom": ["E0_AUTO_FAN_PIN"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [-1, 7]
+    },
+    
+    "extruderAutoFanTemperature": {
+      "mapsFrom": ["EXTRUDER_AUTO_FAN_TEMPERATURE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [50]
+    },
+    
+    "extruderAutoFanSpeed": {
+      "mapsFrom": ["EXTRUDER_AUTO_FAN_SPEED"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [255],
+      "validation": {
+        "min": 0,
+        "max": 255
+      }
+    }
+  },
+  
+  "extruder": {
+    "extruderRunoutPrevent": {
+      "mapsFrom": ["EXTRUDER_RUNOUT_PREVENT"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Extrude some filament periodically when idle"
+    },
+    
+    "extruderRunoutMintemp": {
+      "mapsFrom": ["EXTRUDER_RUNOUT_MINTEMP"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["EXTRUDER_RUNOUT_PREVENT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [190]
+    },
+    
+    "extruderRunoutSeconds": {
+      "mapsFrom": ["EXTRUDER_RUNOUT_SECONDS"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["EXTRUDER_RUNOUT_PREVENT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [30]
+    },
+    
+    "extruderRunoutSpeed": {
+      "mapsFrom": ["EXTRUDER_RUNOUT_SPEED"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["EXTRUDER_RUNOUT_PREVENT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [1500],
+      "notes": "Speed in mm/min"
+    },
+    
+    "extruderRunoutExtrude": {
+      "mapsFrom": ["EXTRUDER_RUNOUT_EXTRUDE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["EXTRUDER_RUNOUT_PREVENT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [5],
+      "notes": "Extrusion length in mm"
+    },
+    
+    "hotendIdleTimeout": {
+      "mapsFrom": ["HOTEND_IDLE_TIMEOUT"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Cool down hotend when idle to prevent jamming"
+    },
+    
+    "hotendIdleTimeoutSec": {
+      "mapsFrom": ["HOTEND_IDLE_TIMEOUT_SEC"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["HOTEND_IDLE_TIMEOUT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [300],
+      "notes": "Seconds without extruder movement before timeout"
+    },
+    
+    "hotendIdleMinTrigger": {
+      "mapsFrom": ["HOTEND_IDLE_MIN_TRIGGER"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["HOTEND_IDLE_TIMEOUT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [180],
+      "notes": "Minimum temperature to enable timeout"
+    },
+    
+    "hotendIdleNozzleTarget": {
+      "mapsFrom": ["HOTEND_IDLE_NOZZLE_TARGET"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["HOTEND_IDLE_TIMEOUT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0]
+    },
+    
+    "hotendIdleBedTarget": {
+      "mapsFrom": ["HOTEND_IDLE_BED_TARGET"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["HOTEND_IDLE_TIMEOUT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0]
+    }
+  }
+}

@@ -679,8 +679,10 @@
     </div>
 
     <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/marlin-config-parser.js"></script>
+    <script src="assets/js/eeprom-parser.js"></script>
     <script src="assets/js/storage-manager.js"></script>
-    <script src="assets/js/printer-profiles.js"></script>
+    <script src="assets/js/enhanced-printer-profiles.js"></script>
 
     <script>
         // Force re-initialize theme settings modal
@@ -748,13 +750,10 @@
                 });
             }
             
-            // Initialize printer profiles UI
-            PrinterProfileManager.render('printerProfiles', {
-                showLoadButton: false,
-                onLoad: function(printer) {
-                    console.log('Printer loaded from home:', printer);
-                }
-            });
+            // Initialize enhanced printer profiles UI
+            if (typeof EnhancedPrinterProfiles !== 'undefined') {
+                EnhancedPrinterProfiles.renderCompactView('printerProfiles');
+            }
         });
     </script>
 </body>

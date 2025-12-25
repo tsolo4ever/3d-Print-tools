@@ -114,26 +114,8 @@
     <h3>Parsed Configuration (JSON):</h3>
     <div id="output">No files parsed yet...</div>
 
+    <script src="../assets/js/marlin-config-parser.js"></script>
     <script>
-        // Fix paths for parser when running from firmware-helper directory
-        const TH3DConfigParserPaths = {
-            mappingFiles: [
-                '../assets/data/maps/th3d/th3d-config-mapping.json',
-                '../assets/data/maps/th3d/th3d-config-adv-mapping-part1.json',
-                '../assets/data/maps/th3d/th3d-config-adv-mapping-part2.json',
-                '../assets/data/maps/th3d/th3d-config-adv-mapping-part3.json',
-                '../assets/data/maps/th3d/th3d-config-adv-mapping-part4.json',
-                '../assets/data/maps/th3d/th3d-config-backend-mapping.json',
-                '../assets/data/maps/th3d/th3d-config-speed-mapping.json'
-            ]
-        };
-    </script>
-    <script src="../assets/js/th3d-config-parser.js"></script>
-    <script>
-        // Override parser paths for this test page
-        if (typeof TH3DConfigParser !== 'undefined') {
-            TH3DConfigParser.mappingFiles = TH3DConfigParserPaths.mappingFiles;
-        }
         // Hijack console.log to display in page
         const originalLog = console.log;
         const originalError = console.error;
@@ -203,13 +185,45 @@
                 }
                 
                 addToConsole('', 'info');
-                addToConsole('🚀 Starting parser...', 'info');
+                addToConsole('🚀 Creating TH3D parser instance...', 'info');
                 
-                // Parse files
-                const result = await TH3DConfigParser.parseMultipleFiles(files);
+                // Create TH3D parser instance
+                const parser = MarlinConfigParser.create('th3d');
+                // Set basePath for running from firmware-helper/ subdirectory
+                parser.basePath = '../';
+                addToConsole('✓ Parser created', 'success');
+                
+                // Parse each file and merge results
+                let result = {
+                    basic: {},
+                    hardware: {},
+                    temperature: {},
+                    motion: {},
+                    probe: {},
+                    bedLeveling: {},
+                    advanced: {},
+                    safety: {},
+                    warnings: []
+                };
+                
+                for (const [key, content] of Object.entries(files)) {
+                    addToConsole('📄 Parsing ' + key + '...', 'info');
+                    const parsed = await parser.parseConfigFile(content);
+                    
+                    // Merge results
+                    Object.keys(parsed).forEach(category => {
+                        if (category === 'warnings') {
+                            result.warnings = result.warnings.concat(parsed.warnings || []);
+                        } else if (typeof parsed[category] === 'object' && !Array.isArray(parsed[category])) {
+                            result[category] = { ...result[category], ...parsed[category] };
+                        }
+                    });
+                    
+                    addToConsole('✓ Parsed ' + key, 'success');
+                }
                 
                 addToConsole('', 'info');
-                addToConsole('✅ Parsing complete!', 'success');
+                addToConsole('✅ All files parsed and merged!', 'success');
                 addToConsole('', 'info');
                 
                 // Display results

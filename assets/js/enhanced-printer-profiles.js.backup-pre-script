@@ -8,7 +8,7 @@
  * 
  * @version 2.0.0
  * @requires storage-manager.js
- * @requires marlin-config-parser.js
+ * @requires config-parser.js
  */
 
 class EnhancedPrinterProfiles {
@@ -2392,7 +2392,7 @@ class EnhancedPrinterProfiles {
         const board = this.databases['marlin-boards'].boards.find(b => b.id === boardId);
         if (!board) return;
         
-        this.log('✅ Board selected:', board);
+        console.log('✅ Board selected:', board);
         
         // Show board info notification
         const helpText = document.querySelector('#hardwareBoard + input + .field-help') || 
@@ -2775,21 +2775,21 @@ class EnhancedPrinterProfiles {
         // Smart file sorting: Configuration.h FIRST (base), then others fill in gaps
         const sortedFiles = this.sortConfigFilesByPriority(this.tempConfigFiles);
         
-        this.log('📁 File parse order:', sortedFiles.map(f => f.name).join(' → '));
-        this.log('🔢 sortedFiles.length:', sortedFiles.length);
-        this.log('🔢 sortedFiles array:', sortedFiles);
+        console.log('📁 File parse order:', sortedFiles.map(f => f.name).join(' → '));
+        console.log('🔢 sortedFiles.length:', sortedFiles.length);
+        console.log('🔢 sortedFiles array:', sortedFiles);
         
         // Parse each file in priority order
         const parsedConfigs = [];
         const fileStatuses = [];
         
-        this.log('🔄 Starting for loop...');
+        console.log('🔄 Starting for loop...');
         for (const file of sortedFiles) {
-            this.log('🔄 Loop iteration - file:', file.name);
+            console.log('🔄 Loop iteration - file:', file.name);
             try {
-                this.log('  📖 Reading file:', file.name);
+                console.log('  📖 Reading file:', file.name);
                 const content = await this.readFileAsText(file);
-                this.log('  ✅ File read, length:', content.length);
+                console.log('  ✅ File read, length:', content.length);
                 
                 // Auto-detect TH3D firmware by looking for signature defines
                 const isTH3D = this.currentProfile.firmwareType === 'th3d' || 
@@ -2798,20 +2798,20 @@ class EnhancedPrinterProfiles {
                                content.includes('EZABL_ENABLE') ||
                                content.includes('EZABL_POINTS');
                 
-                this.log('  🔍 Firmware detected:', isTH3D ? 'TH3D' : 'Marlin');
+                console.log('  🔍 Firmware detected:', isTH3D ? 'TH3D' : 'Marlin');
                 
                 // Create parser instance based on firmware type
                 const parser = isTH3D ? 
                     MarlinConfigParser.create('th3d') : 
                     MarlinConfigParser.create('marlin');
-                this.log('  🔧 Parser created:', parser.type);
+                console.log('  🔧 Parser created:', parser.type);
                 
-                this.log(`  📄 Starting parse of ${file.name}...`);
+                console.log(`  📄 Starting parse of ${file.name}...`);
                 
                 // Auto-set firmware type if TH3D detected
                 if (isTH3D && this.currentProfile.firmwareType !== 'th3d') {
                     this.currentProfile.firmwareType = 'th3d';
-                    this.log('✅ Auto-set firmware type to TH3D');
+                    console.log('✅ Auto-set firmware type to TH3D');
                     
                     // Update the dropdown on Tab 1 if we're on it
                     const firmwareTypeDropdown = document.getElementById('firmwareType');
@@ -2820,21 +2820,21 @@ class EnhancedPrinterProfiles {
                     }
                 }
                 
-                this.log('  ⏳ Calling parser.parseConfigFile()...');
+                console.log('  ⏳ Calling parser.parseConfigFile()...');
                 
                 // Try calling the parser with error handling
                 let parsed;
                 try {
                     parsed = await parser.parseConfigFile(content);
-                    this.log('  ✅ Parser returned!');
-                    this.log('  🔍 Parse result type:', typeof parsed);
-                    this.log('  🔍 Parse result:', parsed);
+                    console.log('  ✅ Parser returned!');
+                    console.log('  🔍 Parse result type:', typeof parsed);
+                    console.log('  🔍 Parse result:', parsed);
                     
                     if (parsed) {
-                        this.log('  🔍 Parsed keys:', Object.keys(parsed));
-                        this.log('  🔍 Settings count:', this.countSettings(parsed));
+                        console.log('  🔍 Parsed keys:', Object.keys(parsed));
+                        console.log('  🔍 Settings count:', this.countSettings(parsed));
                     } else {
-                        this.log('  ❌ Parse returned null/undefined!');
+                        console.log('  ❌ Parse returned null/undefined!');
                     }
                 } catch (parseError) {
                     console.error('  ❌ Parser threw error:', parseError);
@@ -3037,7 +3037,7 @@ class EnhancedPrinterProfiles {
                     value !== 'MACHINE_NAME' &&
                     !value.includes('BUILD_VERSION')) {
                     th3dUserPrinterName = value;
-                    this.log('🎯 Found TH3D USER_PRINTER_NAME:', th3dUserPrinterName);
+                    console.log('🎯 Found TH3D USER_PRINTER_NAME:', th3dUserPrinterName);
                 }
             }
             
@@ -3062,7 +3062,7 @@ class EnhancedPrinterProfiles {
                                 const oldMachineName = merged.basic.machineName;
                                 merged[category] = { ...merged[category], ...config[category] };
                                 merged.basic.machineName = oldMachineName;
-                                this.log('🛡️ Protected machineName "' + oldMachineName + '" from being overwritten by placeholder "' + newValue + '"');
+                                console.log('🛡️ Protected machineName "' + oldMachineName + '" from being overwritten by placeholder "' + newValue + '"');
                             }
                         } else {
                             // Normal merge for other categories
@@ -3084,9 +3084,9 @@ class EnhancedPrinterProfiles {
                 name.includes('BUILD_VERSION')) {
                 if (th3dUserPrinterName) {
                     merged.basic.machineName = th3dUserPrinterName;
-                    this.log('✅ Replaced placeholder/variable "' + name + '" with stored value:', th3dUserPrinterName);
+                    console.log('✅ Replaced placeholder/variable "' + name + '" with stored value:', th3dUserPrinterName);
                 } else {
-                    this.log('⚠️ Found placeholder/variable "' + name + '" but no stored USER_PRINTER_NAME value!');
+                    console.log('⚠️ Found placeholder/variable "' + name + '" but no stored USER_PRINTER_NAME value!');
                 }
             }
         }
@@ -3187,19 +3187,9 @@ class EnhancedPrinterProfiles {
             try {
                 const content = e.target.result;
                 
-                // Parse the configuration file using MarlinConfigParser
-                if (typeof MarlinConfigParser !== 'undefined') {
-                    // Auto-detect firmware type
-                    const isTH3D = this.currentProfile.firmwareType === 'th3d' || 
-                                   content.includes('UNIFIED_VERSION') || 
-                                   content.includes('TH3D Studio') ||
-                                   content.includes('EZABL_ENABLE');
-                    
-                    const parser = isTH3D ? 
-                        MarlinConfigParser.create('th3d') : 
-                        MarlinConfigParser.create('marlin');
-                    
-                    const parsed = await parser.parseConfigFile(content);
+                // Parse the configuration file
+                if (typeof ConfigParser !== 'undefined') {
+                    const parsed = await ConfigParser.parseConfigurationH(content);
                     
                     if (parsed && Object.keys(parsed).length > 0) {
                         // Count settings found
@@ -3301,8 +3291,8 @@ class EnhancedPrinterProfiles {
         }
         
         const parsed = this.tempParsedConfig;
-        this.log('📥 Applying parsed config:', parsed);
-        this.log('📥 Current profile before apply:', JSON.parse(JSON.stringify(this.currentProfile)));
+        console.log('📥 Applying parsed config:', parsed);
+        console.log('📥 Current profile before apply:', JSON.parse(JSON.stringify(this.currentProfile)));
         
         // Detect mismatches if profile already has data
         const mismatches = this.detectConfigMismatches(parsed);
@@ -3314,7 +3304,7 @@ class EnhancedPrinterProfiles {
         }
         
         // Basic Info - Map from NEW parser structure
-        this.log('📋 All parsed categories:', Object.keys(parsed));
+        console.log('📋 All parsed categories:', Object.keys(parsed));
         
         // Check both old (basic) and new (metadata, printerSelection, firmwareSettings) structures
         const basic = parsed.basic || {};
@@ -3323,10 +3313,10 @@ class EnhancedPrinterProfiles {
         const firmwareSettings = parsed.firmwareSettings || {};
         const misc = parsed.misc || {};
         
-        this.log('📋 metadata:', metadata);
-        this.log('📋 printerSelection:', printerSelection);
-        this.log('📋 firmwareSettings:', firmwareSettings);
-        this.log('📋 misc:', misc);
+        console.log('📋 metadata:', metadata);
+        console.log('📋 printerSelection:', printerSelection);
+        console.log('📋 firmwareSettings:', firmwareSettings);
+        console.log('📋 misc:', misc);
         
         // Try to extract a meaningful profile name with fallbacks
         if (parsed.basic) {
@@ -3341,7 +3331,7 @@ class EnhancedPrinterProfiles {
                     name !== 'MACHINE_NAME' &&
                     !name.includes('BUILD_VERSION')) {
                     profileName = name;
-                    this.log('   ✅ Using CUSTOM_MACHINE_NAME:', profileName);
+                    console.log('   ✅ Using CUSTOM_MACHINE_NAME:', profileName);
                 }
             }
             
@@ -3350,16 +3340,16 @@ class EnhancedPrinterProfiles {
                 const author = parsed.basic.author.trim();
                 if (author && author !== 'default' && author !== 'unknown') {
                     profileName = author;
-                    this.log('   ✅ Using author as name:', profileName);
+                    console.log('   ✅ Using author as name:', profileName);
                 }
             }
             
             // 3. Apply the profile name if we found one
             if (profileName) {
                 this.currentProfile.name = profileName;
-                this.log('✅ Profile name set to:', profileName);
+                console.log('✅ Profile name set to:', profileName);
             } else {
-                this.log('⚠️ No suitable profile name found in config files');
+                console.log('⚠️ No suitable profile name found in config files');
             }
             
             // 4. Apply firmware version if found (TH3D UNIFIED_VERSION)
@@ -3371,29 +3361,28 @@ class EnhancedPrinterProfiles {
                 } else {
                     this.currentProfile.firmwareVersion = 'TH3D UFW ' + version;
                 }
-                this.log('✅ Firmware version set to:', this.currentProfile.firmwareVersion);
+                console.log('✅ Firmware version set to:', this.currentProfile.firmwareVersion);
             }
             
-            // 5. Bed size
-            if (parsed.basic.bedSizeX && parsed.basic.bedSizeY) {
-                if (!this.currentProfile.bedSize) this.currentProfile.bedSize = {};
-                this.currentProfile.bedSize.x = parsed.basic.bedSizeX;
-                this.currentProfile.bedSize.y = parsed.basic.bedSizeY;
-                this.log('✅ Bed size X/Y set:', parsed.basic.bedSizeX, parsed.basic.bedSizeY);
-            }
-            if (parsed.basic.zMaxPos) {
-                if (!this.currentProfile.bedSize) this.currentProfile.bedSize = {};
-                this.currentProfile.bedSize.z = parsed.basic.zMaxPos;
-                this.log('✅ Bed size Z set:', parsed.basic.zMaxPos);
-            }
-        }
         
         // Motherboard - check both structures
         const motherboard = basic.motherboard || printerSelection.motherboard;
         if (motherboard) {
             if (!this.currentProfile.hardware) this.currentProfile.hardware = {};
             this.currentProfile.hardware.board = motherboard;
-            this.log('✅ Applied motherboard:', motherboard);
+            console.log('✅ Applied motherboard:', motherboard);
+        }
+        
+        // Bed size
+        if (parsed.basic && parsed.basic.bedSizeX && parsed.basic.bedSizeY) {
+                if (!this.currentProfile.bedSize) this.currentProfile.bedSize = {};
+                this.currentProfile.bedSize.x = parsed.basic.bedSizeX;
+                this.currentProfile.bedSize.y = parsed.basic.bedSizeY;
+            }
+            if (parsed.basic.zMaxPos) {
+                if (!this.currentProfile.bedSize) this.currentProfile.bedSize = {};
+                this.currentProfile.bedSize.z = parsed.basic.zMaxPos;
+            }
         }
         
         // Hardware - Map from NEW parser structure (tempSettings, thermistors categories)
@@ -3401,10 +3390,10 @@ class EnhancedPrinterProfiles {
         const tempSettings = parsed.tempSettings || {};
         const thermistors = parsed.thermistors || {};
         
-        this.log('🔍 Checking hardware structures:');
-        this.log('  hardware:', hardware);
-        this.log('  tempSettings:', tempSettings);
-        this.log('  thermistors:', thermistors);
+        console.log('🔍 Checking hardware structures:');
+        console.log('  hardware:', hardware);
+        console.log('  tempSettings:', tempSettings);
+        console.log('  thermistors:', thermistors);
         
         if (!this.currentProfile.hardware) this.currentProfile.hardware = {};
         if (!this.currentProfile.hardware.drivers) this.currentProfile.hardware.drivers = {};
@@ -3422,22 +3411,22 @@ class EnhancedPrinterProfiles {
                         hardware.thermistorBed ||
                         parsed.basic?.thermistorBed;
         
-        this.log('🔍 Extracted thermistors:');
-        this.log('  hotendTherm:', hotendTherm);
-        this.log('  bedTherm:', bedTherm);
+        console.log('🔍 Extracted thermistors:');
+        console.log('  hotendTherm:', hotendTherm);
+        console.log('  bedTherm:', bedTherm);
         
         if (hotendTherm) {
             this.currentProfile.hardware.thermistors.hotend = hotendTherm.toString();
-            this.log('✅ Applied hotend thermistor:', hotendTherm);
+            console.log('✅ Applied hotend thermistor:', hotendTherm);
         }
         if (bedTherm) {
             this.currentProfile.hardware.thermistors.bed = bedTherm.toString();
-            this.log('✅ Applied bed thermistor:', bedTherm);
+            console.log('✅ Applied bed thermistor:', bedTherm);
         }
         
         // Drivers - check ALL possible structures
         const drivers = parsed.drivers || hardware;
-        this.log('🔍 Checking drivers:', drivers);
+        console.log('🔍 Checking drivers:', drivers);
         
         // Try multiple field name patterns
         const driverX = drivers.driverX || drivers.x_driver || drivers.driver_x || parsed.stepper_drivers?.x;
@@ -3445,10 +3434,10 @@ class EnhancedPrinterProfiles {
         const driverZ = drivers.driverZ || drivers.z_driver || drivers.driver_z || parsed.stepper_drivers?.z;
         const driverE = drivers.driverE0 || drivers.driverE || drivers.e_driver || drivers.driver_e || parsed.stepper_drivers?.e;
         
-        if (driverX) { this.currentProfile.hardware.drivers.x = driverX; this.log('✅ Driver X:', driverX); }
-        if (driverY) { this.currentProfile.hardware.drivers.y = driverY; this.log('✅ Driver Y:', driverY); }
-        if (driverZ) { this.currentProfile.hardware.drivers.z = driverZ; this.log('✅ Driver Z:', driverZ); }
-        if (driverE) { this.currentProfile.hardware.drivers.e = driverE; this.log('✅ Driver E:', driverE); }
+        if (driverX) { this.currentProfile.hardware.drivers.x = driverX; console.log('✅ Driver X:', driverX); }
+        if (driverY) { this.currentProfile.hardware.drivers.y = driverY; console.log('✅ Driver Y:', driverY); }
+        if (driverZ) { this.currentProfile.hardware.drivers.z = driverZ; console.log('✅ Driver Z:', driverZ); }
+        if (driverE) { this.currentProfile.hardware.drivers.e = driverE; console.log('✅ Driver E:', driverE); }
         
         // Display - check ALL possible locations
         const display = parsed.display?.type || 
@@ -3458,11 +3447,11 @@ class EnhancedPrinterProfiles {
                        hardware.displayType ||
                        hardware.display;
         
-        this.log('🔍 Display value found:', display);
+        console.log('🔍 Display value found:', display);
         
         if (display) {
             this.currentProfile.hardware.display = display;
-            this.log('✅ Display set from import:', display);
+            console.log('✅ Display set from import:', display);
         }
         
         // Temperature
@@ -3496,7 +3485,7 @@ class EnhancedPrinterProfiles {
             // Bed Type (TH3D AC_BED detection)
             if (parsed.temperature.bedType) {
                 this.currentProfile.temperature.bedType = parsed.temperature.bedType;
-                this.log('✅ Bed type set to:', parsed.temperature.bedType);
+                console.log('✅ Bed type set to:', parsed.temperature.bedType);
             }
         }
         
@@ -3557,11 +3546,11 @@ class EnhancedPrinterProfiles {
         }
         
         // Probe
-        this.log('🔍 Parsed probe data:', parsed.probe);
+        console.log('🔍 Parsed probe data:', parsed.probe);
         if (parsed.probe && parsed.probe.type) {
             if (!this.currentProfile.probe) this.currentProfile.probe = {};
             this.currentProfile.probe.type = parsed.probe.type.toLowerCase();
-            this.log('✅ Set probe type to:', this.currentProfile.probe.type);
+            console.log('✅ Set probe type to:', this.currentProfile.probe.type);
             
             if (parsed.probe.offset) {
                 this.currentProfile.probe.offsets = {
@@ -3569,27 +3558,27 @@ class EnhancedPrinterProfiles {
                     y: parsed.probe.offset.y || 0,
                     z: parsed.probe.offset.z || 0
                 };
-                this.log('✅ Set probe offsets:', this.currentProfile.probe.offsets);
+                console.log('✅ Set probe offsets:', this.currentProfile.probe.offsets);
             }
         }
         
         // Bed Leveling
-        this.log('🔍 Parsed bedLeveling data:', parsed.bedLeveling);
+        console.log('🔍 Parsed bedLeveling data:', parsed.bedLeveling);
         if (parsed.bedLeveling && parsed.bedLeveling.type) {
             if (!this.currentProfile.bedLeveling) this.currentProfile.bedLeveling = {};
             this.currentProfile.bedLeveling.type = parsed.bedLeveling.type.toLowerCase();
-            this.log('✅ Set bed leveling type to:', this.currentProfile.bedLeveling.type);
+            console.log('✅ Set bed leveling type to:', this.currentProfile.bedLeveling.type);
             
             if (parsed.bedLeveling.gridPointsX) {
                 this.currentProfile.bedLeveling.gridPoints = {
                     x: parsed.bedLeveling.gridPointsX,
                     y: parsed.bedLeveling.gridPointsY || parsed.bedLeveling.gridPointsX
                 };
-                this.log('✅ Set grid points to:', this.currentProfile.bedLeveling.gridPoints);
+                console.log('✅ Set grid points to:', this.currentProfile.bedLeveling.gridPoints);
             }
             if (parsed.bedLeveling.fadeHeight !== undefined) {
                 this.currentProfile.bedLeveling.fadeHeight = parsed.bedLeveling.fadeHeight;
-                this.log('✅ Set fade height to:', this.currentProfile.bedLeveling.fadeHeight);
+                console.log('✅ Set fade height to:', this.currentProfile.bedLeveling.fadeHeight);
             }
         }
         
@@ -3641,10 +3630,10 @@ class EnhancedPrinterProfiles {
         // Update modified timestamp
         this.currentProfile.modified = new Date().toISOString();
         
-        this.log('✅ Configuration applied to profile:', this.currentProfile);
-        this.log('📥 Profile name after apply:', this.currentProfile.name);
-        this.log('📥 Hardware after apply:', this.currentProfile.hardware);
-        this.log('📥 Motion after apply:', this.currentProfile.motion);
+        console.log('✅ Configuration applied to profile:', this.currentProfile);
+        console.log('📥 Profile name after apply:', this.currentProfile.name);
+        console.log('📥 Hardware after apply:', this.currentProfile.hardware);
+        console.log('📥 Motion after apply:', this.currentProfile.motion);
         
         // Show success message
         const resultDiv = document.getElementById('uploadResult');
@@ -4020,7 +4009,7 @@ class EnhancedPrinterProfiles {
             if (parsed.firmware.name.toLowerCase().includes('th3d') || 
                 parsed.firmware.name.toLowerCase().includes('unified')) {
                 this.currentProfile.firmwareType = 'th3d';
-                this.log('🔍 EEPROM Parser detected TH3D firmware');
+                console.log('🔍 EEPROM Parser detected TH3D firmware');
             } else if (parsed.firmware.name.toLowerCase().includes('marlin')) {
                 this.currentProfile.firmwareType = 'marlin';
             } else if (parsed.firmware.name.toLowerCase().includes('klipper')) {
@@ -4034,7 +4023,7 @@ class EnhancedPrinterProfiles {
         // Re-render current tab to show updated values
         this.renderCurrentTab();
         
-        this.log(`✅ EEPROM data applied to profile (${settingsCount} settings):`, this.currentProfile);
+        console.log(`✅ EEPROM data applied to profile (${settingsCount} settings):`, this.currentProfile);
         
         return settingsCount;
     }

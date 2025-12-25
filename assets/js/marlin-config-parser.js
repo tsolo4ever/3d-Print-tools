@@ -103,7 +103,9 @@ const MarlinConfigParser = {
     async loadFieldMapping() {
         if (this.fieldMapping) return this.fieldMapping;
         
-        const { basePath, files } = this.mappingConfig;
+        const { files } = this.mappingConfig;
+        // Use override basePath if set, otherwise use config basePath
+        const basePath = (this.basePath || '') + this.mappingConfig.basePath;
         
         try {
             this.log(`📂 Loading ${files.length} mapping files from ${basePath}...`);
@@ -127,11 +129,12 @@ const MarlinConfigParser = {
             const validMappings = mappings.filter(m => m !== null);
             
             if (validMappings.length === 0) {
-                throw new Error('No mapping files could be loaded');
+                console.warn('⚠️ No mapping files loaded, using built-in fallback parser');
+                this.fieldMapping = this.getBuiltInMapping();
+            } else {
+                // Merge all mappings into one object
+                this.fieldMapping = this.mergeMappings(validMappings);
             }
-            
-            // Merge all mappings into one object
-            this.fieldMapping = this.mergeMappings(validMappings);
             
             this.log('✅ Field Mappings loaded and merged');
             this.log('   Categories:', Object.keys(this.fieldMapping).filter(k => !k.startsWith('$') && k !== 'description' && k !== 'lastUpdated' && k !== 'version').join(', '));
@@ -141,6 +144,93 @@ const MarlinConfigParser = {
             console.error('❌ Failed to load field mappings:', error);
             throw new Error(`Could not load mapping files from ${basePath}`);
         }
+    },
+    
+    /**
+     * Get built-in fallback mapping when external files can't be loaded
+     * Comprehensive set of common Marlin fields for full parsing capability
+     */
+    getBuiltInMapping() {
+        return {
+            $schema: 'Built-in Fallback Mapping',
+            version: '1.0.0',
+            description: 'Comprehensive built-in parser with most common Marlin fields',
+            
+            basic: {
+                machineName: { mapsFrom: ['CUSTOM_MACHINE_NAME', 'MACHINE_NAME'], type: 'string' },
+                firmwareVersion: { mapsFrom: ['UNIFIED_VERSION', 'SHORT_BUILD_VERSION'], type: 'string' },
+                motherboard: { mapsFrom: 'MOTHERBOARD', type: 'string' },
+                author: { mapsFrom: 'STRING_CONFIG_H_AUTHOR', type: 'string' },
+                bedSizeX: { mapsFrom: 'X_BED_SIZE', type: 'integer' },
+                bedSizeY: { mapsFrom: 'Y_BED_SIZE', type: 'integer' },
+                zMaxPos: { mapsFrom: 'Z_MAX_POS', type: 'integer' },
+                baudRate: { mapsFrom: 'BAUDRATE', type: 'integer' }
+            },
+            
+            hardware: {
+                thermistorHotend: { mapsFrom: 'TEMP_SENSOR_0', type: 'integer' },
+                thermistorBed: { mapsFrom: 'TEMP_SENSOR_BED', type: 'integer' },
+                displayType: { mapsFrom: ['REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER', 'CR10_STOCKDISPLAY', 'DWIN_CREALITY_LCD'], type: 'boolean' }
+            },
+            
+            motion: {
+                stepsPerMM: { mapsFrom: 'DEFAULT_AXIS_STEPS_PER_UNIT', type: 'array' },
+                maxFeedrate: { mapsFrom: 'DEFAULT_MAX_FEEDRATE', type: 'array' },
+                maxAcceleration: { mapsFrom: 'DEFAULT_MAX_ACCELERATION', type: 'array' },
+                defaultAcceleration: { mapsFrom: 'DEFAULT_ACCELERATION', type: 'integer' },
+                retractAcceleration: { mapsFrom: 'DEFAULT_RETRACT_ACCELERATION', type: 'integer' },
+                travelAcceleration: { mapsFrom: 'DEFAULT_TRAVEL_ACCELERATION', type: 'integer' },
+                jerkX: { mapsFrom: 'DEFAULT_XJERK', type: 'float' },
+                jerkY: { mapsFrom: 'DEFAULT_YJERK', type: 'float' },
+                jerkZ: { mapsFrom: 'DEFAULT_ZJERK', type: 'float' },
+                jerkE: { mapsFrom: 'DEFAULT_EJERK', type: 'float' }
+            },
+            
+            temperature: {
+                hotendMaxTemp: { mapsFrom: 'HEATER_0_MAXTEMP', type: 'integer' },
+                hotendMinTemp: { mapsFrom: 'HEATER_0_MINTEMP', type: 'integer' },
+                bedMaxTemp: { mapsFrom: 'BED_MAXTEMP', type: 'integer' },
+                bedMinTemp: { mapsFrom: 'BED_MINTEMP', type: 'integer' },
+                pidHotendEnabled: { mapsFrom: 'PIDTEMP', type: 'boolean' },
+                pidBedEnabled: { mapsFrom: 'PIDTEMPBED', type: 'boolean' },
+                pidHotendP: { mapsFrom: 'DEFAULT_Kp', type: 'float' },
+                pidHotendI: { mapsFrom: 'DEFAULT_Ki', type: 'float' },
+                pidHotendD: { mapsFrom: 'DEFAULT_Kd', type: 'float' },
+                pidBedP: { mapsFrom: 'DEFAULT_bedKp', type: 'float' },
+                pidBedI: { mapsFrom: 'DEFAULT_bedKi', type: 'float' },
+                pidBedD: { mapsFrom: 'DEFAULT_bedKd', type: 'float' }
+            },
+            
+            probe: {
+                type: { mapsFrom: ['BLTOUCH', 'EZABL_ENABLE', 'FIX_MOUNTED_PROBE', 'TOUCH_MI_PROBE'], type: 'boolean' },
+                offsetX: { mapsFrom: 'NOZZLE_TO_PROBE_OFFSET[0]', type: 'float' },
+                offsetY: { mapsFrom: 'NOZZLE_TO_PROBE_OFFSET[1]', type: 'float' },
+                offsetZ: { mapsFrom: 'NOZZLE_TO_PROBE_OFFSET[2]', type: 'float' }
+            },
+            
+            bedLeveling: {
+                type: { mapsFrom: ['AUTO_BED_LEVELING_BILINEAR', 'AUTO_BED_LEVELING_UBL', 'AUTO_BED_LEVELING_LINEAR', 'MESH_BED_LEVELING'], type: 'boolean' },
+                gridPointsX: { mapsFrom: 'GRID_MAX_POINTS_X', type: 'integer' },
+                gridPointsY: { mapsFrom: 'GRID_MAX_POINTS_Y', type: 'integer' },
+                fadeHeight: { mapsFrom: 'ENABLE_LEVELING_FADE_HEIGHT', type: 'float' }
+            },
+            
+            advanced: {
+                linearAdvance: { mapsFrom: 'LIN_ADVANCE', type: 'boolean' },
+                linearAdvanceK: { mapsFrom: 'LIN_ADVANCE_K', type: 'float' },
+                arcSupport: { mapsFrom: 'ARC_SUPPORT', type: 'boolean' },
+                nozzlePark: { mapsFrom: 'NOZZLE_PARK_FEATURE', type: 'boolean' },
+                powerLossRecovery: { mapsFrom: 'POWER_LOSS_RECOVERY', type: 'boolean' },
+                filamentSensor: { mapsFrom: 'FILAMENT_RUNOUT_SENSOR', type: 'boolean' }
+            },
+            
+            safety: {
+                thermalProtectionHotend: { mapsFrom: 'THERMAL_PROTECTION_HOTENDS', type: 'boolean' },
+                thermalProtectionBed: { mapsFrom: 'THERMAL_PROTECTION_BED', type: 'boolean' },
+                minExtrusionTemp: { mapsFrom: 'EXTRUDE_MINTEMP', type: 'integer' },
+                coldExtrusionPrevention: { mapsFrom: 'PREVENT_COLD_EXTRUSION', type: 'boolean' }
+            }
+        };
     },
     
     /**
@@ -185,16 +275,9 @@ const MarlinConfigParser = {
         // Ensure mapping is loaded
         await this.loadFieldMapping();
         
+        // ✅ FULLY DATA-DRIVEN: Let mapping files define all categories
         const config = {
-            basic: {},
-            hardware: {},
-            temperature: {},
-            motion: {},
-            probe: {},
-            bedLeveling: {},
-            advanced: {},
-            safety: {},
-            warnings: []
+            warnings: []  // Only initialize warnings array
         };
         
         const lines = content.split('\n');
@@ -720,23 +803,9 @@ const MarlinConfigParser = {
      * Merge multiple config objects
      */
     mergeConfigs(configs) {
+        // ✅ FULLY DATA-DRIVEN: Let mapping files define all categories
         const merged = {
-            basic: {},
-            hardware: {},
-            temperature: {},
-            motion: {},
-            probe: {},
-            bedLeveling: {},
-            advanced: {},
-            safety: {},
-            communication: {},
-            serial: {},
-            tmc: {},
-            thermal: {},
-            lcd: {},
-            speed: {},
-            backend: {},
-            warnings: []
+            warnings: []  // Only initialize warnings array
         };
         
         for (const config of configs) {

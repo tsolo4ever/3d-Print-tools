@@ -1,0 +1,502 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "1.0.0",
+  "description": "Vanilla Marlin Configuration_adv.h field mappings - Part 2: Motion, Homing & Steppers",
+  "firmware": "Marlin",
+  "configFile": "Configuration_adv.h",
+  
+  "homing": {
+    "homingBumpMm": {
+      "mapsFrom": ["HOMING_BUMP_MM"],
+      "type": "array",
+      "arrayFields": ["x", "y", "z"],
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [[5, 5, 2]],
+      "notes": "Distance to back off after hitting endstop"
+    },
+    
+    "homingBumpDivisor": {
+      "mapsFrom": ["HOMING_BUMP_DIVISOR"],
+      "type": "array",
+      "arrayFields": ["x", "y", "z"],
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [[2, 2, 4]],
+      "notes": "Speed divisor for second homing pass"
+    },
+    
+    "quickHomeXy": {
+      "mapsFrom": ["QUICK_HOME"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Home X and Y simultaneously"
+    },
+    
+    "homingBackoffPostMm": {
+      "mapsFrom": ["HOMING_BACKOFF_POST_MM"],
+      "type": "array",
+      "arrayFields": ["x", "y", "z"],
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [[2, 2, 2]],
+      "notes": "Distance to back off after homing"
+    },
+    
+    "xyStepper": {
+      "mapsFrom": ["XY_STEPPER"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "X and Y share a single motor driver"
+    },
+    
+    "zStepperAlign": {
+      "mapsFrom": ["Z_STEPPER_AUTO_ALIGN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Auto-align multiple Z steppers"
+    },
+    
+    "zStepperPositions": {
+      "mapsFrom": ["Z_STEPPER_ALIGN_XY"],
+      "type": "array",
+      "required": false,
+      "conditionalOn": ["Z_STEPPER_AUTO_ALIGN"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [[[10, 290], [150, 10], [290, 290]]],
+      "notes": "XY positions of Z stepper mounting points"
+    },
+    
+    "zStepperAlignIterations": {
+      "mapsFrom": ["Z_STEPPER_ALIGN_ITERATIONS"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["Z_STEPPER_AUTO_ALIGN"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [3]
+    },
+    
+    "zStepperAlignAcc": {
+      "mapsFrom": ["Z_STEPPER_ALIGN_ACC"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["Z_STEPPER_AUTO_ALIGN"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.02],
+      "notes": "Required accuracy in mm"
+    }
+  },
+  
+  "motion": {
+    "limitSwitchPulldown": {
+      "mapsFrom": ["ENDSTOP_PULLDOWN_X_MIN", "ENDSTOP_PULLDOWN_Y_MIN", "ENDSTOP_PULLDOWN_Z_MIN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable internal pulldown resistors"
+    },
+    
+    "limitSwitchPullup": {
+      "mapsFrom": ["ENDSTOP_PULLUP_X_MIN", "ENDSTOP_PULLUP_Y_MIN", "ENDSTOP_PULLUP_Z_MIN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable internal pullup resistors"
+    },
+    
+    "endstopInterruptsFeature": {
+      "mapsFrom": ["ENDSTOP_INTERRUPTS_FEATURE"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Use interrupt-based endstop detection"
+    },
+    
+    "endstopNoiseThreshold": {
+      "mapsFrom": ["ENDSTOP_NOISE_THRESHOLD"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [2],
+      "notes": "Endstop must be triggered this many consecutive times"
+    },
+    
+    "distinctEFactors": {
+      "mapsFrom": ["DISTINCT_E_FACTORS"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Independent steps/mm for multiple extruders"
+    },
+    
+    "disableReducedAccuracy": {
+      "mapsFrom": ["DISABLE_REDUCED_ACCURACY_WARNING"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Suppress warnings about motion accuracy"
+    },
+    
+    "adaptiveFanSpeedingDeadzone": {
+      "mapsFrom": ["ADAPTIVE_FAN_SLOWING_DEADZONE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [1],
+      "notes": "Dead zone around target speed"
+    },
+    
+    "microstepModes": {
+      "mapsFrom": ["MICROSTEP_MODES"],
+      "type": "array",
+      "arrayFields": ["x", "y", "z", "e0", "e1"],
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [[16, 16, 16, 16, 16]],
+      "notes": "Microstepping mode for each axis"
+    },
+    
+    "squareWaveStepPulses": {
+      "mapsFrom": ["SQUARE_WAVE_STEPPING"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Alternate step pulse edges for better motor response"
+    },
+    
+    "minimumStepperPulse": {
+      "mapsFrom": ["MINIMUM_STEPPER_PULSE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0],
+      "notes": "Minimum pulse width in microseconds"
+    },
+    
+    "maximumStepperRate": {
+      "mapsFrom": ["MAXIMUM_STEPPER_RATE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [250000],
+      "notes": "Maximum stepping rate in steps/sec"
+    },
+    
+    "doubleSteppingFor": {
+      "mapsFrom": ["DOUBLE_STEPPING_FOR"],
+      "type": "array",
+      "arrayFields": ["x", "y", "z", "e"],
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [[0, 0, 0, 0]],
+      "notes": "Microseconds between double step pulses"
+    }
+  },
+  
+  "stepper": {
+    "disableX": {
+      "mapsFrom": ["DISABLE_X"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Disable X stepper when not moving"
+    },
+    
+    "disableY": {
+      "mapsFrom": ["DISABLE_Y"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h"
+    },
+    
+    "disableZ": {
+      "mapsFrom": ["DISABLE_Z"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h"
+    },
+    
+    "disableE": {
+      "mapsFrom": ["DISABLE_E"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h"
+    },
+    
+    "disableInactiveExtruder": {
+      "mapsFrom": ["DISABLE_INACTIVE_EXTRUDER"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Disable inactive extruders in multi-extruder setup"
+    },
+    
+    "invertXStep": {
+      "mapsFrom": ["INVERT_X_STEP_PIN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h"
+    },
+    
+    "invertYStep": {
+      "mapsFrom": ["INVERT_Y_STEP_PIN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h"
+    },
+    
+    "invertZStep": {
+      "mapsFrom": ["INVERT_Z_STEP_PIN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h"
+    },
+    
+    "invertEStep": {
+      "mapsFrom": ["INVERT_E_STEP_PIN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h"
+    },
+    
+    "defaultStepperDelayCycle": {
+      "mapsFrom": ["DEFAULT_STEPPER_DEACTIVE_TIME"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [120],
+      "notes": "Seconds to keep steppers enabled after last move"
+    },
+    
+    "defaultStepperTimeoutSec": {
+      "mapsFrom": ["DEFAULT_STEPPER_TIMEOUT_SEC"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [120]
+    },
+    
+    "disableInactiveX": {
+      "mapsFrom": ["DISABLE_INACTIVE_X"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h"
+    },
+    
+    "disableInactiveY": {
+      "mapsFrom": ["DISABLE_INACTIVE_Y"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h"
+    },
+    
+    "disableInactiveZ": {
+      "mapsFrom": ["DISABLE_INACTIVE_Z"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h"
+    }
+  },
+  
+  "communication": {
+    "txBufferSize": {
+      "mapsFrom": ["TX_BUFFER_SIZE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0, 2, 4, 8, 16, 32],
+      "notes": "Serial transmit buffer size, 0 = disabled"
+    },
+    
+    "rxBufferSize": {
+      "mapsFrom": ["RX_BUFFER_SIZE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [128, 256, 512, 1024],
+      "notes": "Serial receive buffer size"
+    },
+    
+    "serialXon": {
+      "mapsFrom": ["SERIAL_XON_XOFF"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable software flow control"
+    },
+    
+    "serialStats": {
+      "mapsFrom": ["SERIAL_STATS_MAX_RX_QUEUED", "SERIAL_STATS_DROPPED_RX"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Track serial statistics"
+    },
+    
+    "emergencyParser": {
+      "mapsFrom": ["EMERGENCY_PARSER"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Intercept M108, M112, M410, M876 without waiting"
+    },
+    
+    "hostPromptSupport": {
+      "mapsFrom": ["HOST_PROMPT_SUPPORT"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Host dialog prompt support"
+    },
+    
+    "hostActionCommands": {
+      "mapsFrom": ["HOST_ACTION_COMMANDS"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable host action commands like pause, resume"
+    },
+    
+    "hostPauseM76": {
+      "mapsFrom": ["HOST_PAUSE_M76"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["HOST_ACTION_COMMANDS"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Issue host action for M76 pause command"
+    },
+    
+    "hostStartMenuName": {
+      "mapsFrom": ["HOST_START_MENU_ITEM"],
+      "type": "string",
+      "required": false,
+      "conditionalOn": ["HOST_ACTION_COMMANDS"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": ["Start Print"]
+    }
+  },
+  
+  "advanced": {
+    "bufferMonitor": {
+      "mapsFrom": ["BUFFER_MONITOR"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Monitor command and SD buffers"
+    },
+    
+    "blockBufferSize": {
+      "mapsFrom": ["BLOCK_BUFFER_SIZE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [16, 32],
+      "notes": "Motion planner buffer size"
+    },
+    
+    "maxCmdSize": {
+      "mapsFrom": ["MAX_CMD_SIZE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [96],
+      "notes": "Maximum G-code command length"
+    },
+    
+    "bufsize": {
+      "mapsFrom": ["BUFSIZE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [4, 8],
+      "notes": "G-code command buffer size"
+    },
+    
+    "arcSupport": {
+      "mapsFrom": ["ARC_SUPPORT"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable G2/G3 arc commands"
+    },
+    
+    "arcSegmentsPerSec": {
+      "mapsFrom": ["ARC_SEGMENTS_PER_SEC"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ARC_SUPPORT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [50],
+      "notes": "Arc interpolation segments per second"
+    },
+    
+    "minArcSegmentMm": {
+      "mapsFrom": ["MIN_ARC_SEGMENT_MM"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["ARC_SUPPORT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.1]
+    },
+    
+    "maxArcSegmentMm": {
+      "mapsFrom": ["MAX_ARC_SEGMENT_MM"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["ARC_SUPPORT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [1.0]
+    },
+    
+    "minCircleSegments": {
+      "mapsFrom": ["MIN_CIRCLE_SEGMENTS"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ARC_SUPPORT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [72]
+    },
+    
+    "nArcCorrection": {
+      "mapsFrom": ["N_ARC_CORRECTION"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ARC_SUPPORT"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [25],
+      "notes": "Apply position correction every N segments"
+    }
+  },
+  
+  "accelerationProfiles": {
+    "bezierJerkControl": {
+      "mapsFrom": ["BEZIER_JERK_CONTROL"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Bezier curve-based jerk control"
+    },
+    
+    "junctionDeviationMm": {
+      "mapsFrom": ["JUNCTION_DEVIATION_MM"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["!CLASSIC_JERK"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.013],
+      "notes": "Junction deviation for non-jerk planning"
+    },
+    
+    "junctionDeviationFactor": {
+      "mapsFrom": ["JUNCTION_DEVIATION_FACTOR"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["!CLASSIC_JERK"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.02]
+    }
+  }
+}

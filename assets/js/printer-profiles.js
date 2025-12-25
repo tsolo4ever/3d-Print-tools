@@ -26,19 +26,28 @@ const PrinterProfileManager = {
         const printers = StorageManager.getPrinters();
         const storageInfo = StorageManager.getStorageInfo();
         
+        // Determine default collapsed state: collapsed if profiles exist, open if none
+        const isCollapsed = printers.length > 0;
+        const collapseId = `profiles-collapse-${Date.now()}`;
+        
         container.innerHTML = `
             <div class="printer-profiles-section">
-                <div class="section-header">
-                    <h3>
-                        📊 Your Saved Printer Profiles
-                        <button class="info-tooltip" onclick="PrinterProfileManager.showInfoTooltip(event)">
-                            ℹ️
-                        </button>
-                    </h3>
-                    <p class="section-subtitle">
-                        💾 Saved locally • 📤 Export to backup • ${printers.length} printer${printers.length !== 1 ? 's' : ''} saved
-                    </p>
+                <div class="section-header section-header-collapsible" onclick="PrinterProfileManager.toggleSection('${collapseId}')">
+                    <div class="section-header-content">
+                        <h3>
+                            <span class="collapse-indicator" id="${collapseId}-indicator">${isCollapsed ? '▶' : '▼'}</span>
+                            📊 Your Saved Printer Profiles
+                            <button class="info-tooltip" onclick="PrinterProfileManager.showInfoTooltip(event)">
+                                ℹ️
+                            </button>
+                        </h3>
+                        <p class="section-subtitle">
+                            💾 Saved locally • 📤 Export to backup • ${printers.length} printer${printers.length !== 1 ? 's' : ''} saved
+                        </p>
+                    </div>
                 </div>
+                
+                <div class="section-collapsible-content" id="${collapseId}" style="display: ${isCollapsed ? 'none' : 'block'}">
                 
                 ${printers.length === 0 ? `
                     <div class="empty-state">
@@ -72,6 +81,7 @@ const PrinterProfileManager = {
                         </div>
                     ` : ''}
                 </div>
+                </div>
             </div>
             
             ${this.renderModal()}
@@ -84,13 +94,20 @@ const PrinterProfileManager = {
     },
     
     /**
-     * Render a single printer card
+     * Render a single printer card (row format with expandable details)
      */
     renderPrinterCard(printer, config) {
+        const detailsId = `printer-details-${printer.id}`;
         return `
-            <div class="printer-card" data-printer-id="${printer.id}">
-                <div class="printer-card-header">
-                    <h4>${this.escapeHtml(printer.name)}</h4>
+            <div class="printer-row" data-printer-id="${printer.id}">
+                <div class="printer-row-header">
+                    <button class="btn-expand" onclick="PrinterProfileManager.togglePrinterDetails('${detailsId}')" title="Show details">
+                        <span class="expand-icon" id="${detailsId}-icon">+</span>
+                    </button>
+                    <div class="printer-row-info">
+                        <h4 class="printer-row-name">${this.escapeHtml(printer.name)}</h4>
+                        <span class="printer-row-summary">E-Steps: ${printer.esteps || 'N/A'} steps/mm</span>
+                    </div>
                     <div class="printer-actions">
                         ${config.showLoadButton ? `
                             <button class="btn-icon" onclick="PrinterProfileManager.loadPrinter('${printer.id}')" title="Load into calculator">
@@ -105,22 +122,27 @@ const PrinterProfileManager = {
                         </button>
                     </div>
                 </div>
-                <div class="printer-card-body">
-                    <div class="printer-detail">
-                        <strong>E-Steps:</strong> ${printer.esteps || 'N/A'} steps/mm
-                    </div>
-                    ${printer.extruder ? `
+                <div class="printer-row-details" id="${detailsId}" style="display: none;">
+                    <div class="printer-details-grid">
                         <div class="printer-detail">
-                            <strong>Extruder:</strong> ${this.escapeHtml(printer.extruder)}
+                            <strong>E-Steps:</strong> ${printer.esteps || 'N/A'} steps/mm
                         </div>
-                    ` : ''}
-                    ${printer.notes ? `
-                        <div class="printer-notes">
-                            ${this.escapeHtml(printer.notes)}
+                        ${printer.extruder ? `
+                            <div class="printer-detail">
+                                <strong>Extruder:</strong> ${this.escapeHtml(printer.extruder)}
+                            </div>
+                        ` : ''}
+                        ${printer.notes ? `
+                            <div class="printer-detail full-width">
+                                <strong>Notes:</strong>
+                                <div class="printer-notes">
+                                    ${this.escapeHtml(printer.notes)}
+                                </div>
+                            </div>
+                        ` : ''}
+                        <div class="printer-detail full-width">
+                            <strong>Last Modified:</strong> ${this.formatDate(printer.modified)}
                         </div>
-                    ` : ''}
-                    <div class="printer-meta">
-                        Last modified: ${this.formatDate(printer.modified)}
                     </div>
                 </div>
             </div>
@@ -443,6 +465,48 @@ const PrinterProfileManager = {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    },
+    
+    /**
+     * Toggle collapsible section
+     */
+    toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        const indicator = document.getElementById(`${sectionId}-indicator`);
+        
+        if (!section || !indicator) return;
+        
+        const isCurrentlyHidden = section.style.display === 'none';
+        
+        if (isCurrentlyHidden) {
+            section.style.display = 'block';
+            indicator.textContent = '▼';
+        } else {
+            section.style.display = 'none';
+            indicator.textContent = '▶';
+        }
+    },
+    
+    /**
+     * Toggle printer details (expand/collapse row)
+     */
+    togglePrinterDetails(detailsId) {
+        const details = document.getElementById(detailsId);
+        const icon = document.getElementById(`${detailsId}-icon`);
+        
+        if (!details || !icon) return;
+        
+        const isCurrentlyHidden = details.style.display === 'none';
+        
+        if (isCurrentlyHidden) {
+            details.style.display = 'block';
+            icon.textContent = '−';
+            icon.parentElement.setAttribute('title', 'Hide details');
+        } else {
+            details.style.display = 'none';
+            icon.textContent = '+';
+            icon.parentElement.setAttribute('title', 'Show details');
+        }
     },
     
     /**

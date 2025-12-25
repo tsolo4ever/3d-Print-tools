@@ -1,0 +1,540 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "1.0.0",
+  "description": "Vanilla Marlin Configuration_adv.h field mappings - Part 4: LCD, Interface & SD",
+  "firmware": "Marlin",
+  "configFile": "Configuration_adv.h",
+  
+  "lcd": {
+    "lcdTimeout": {
+      "mapsFrom": ["LCD_TIMEOUT_TO_STATUS"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [15000, 30000],
+      "notes": "Milliseconds before returning to status screen"
+    },
+    
+    "lcdBacklightTimeout": {
+      "mapsFrom": ["LCD_BACKLIGHT_TIMEOUT"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [30],
+      "notes": "Seconds before dimming backlight"
+    },
+    
+    "statusMessageScrolling": {
+      "mapsFrom": ["STATUS_MESSAGE_SCROLLING"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Scroll long status messages"
+    },
+    
+    "lcdInfoMenu": {
+      "mapsFrom": ["LCD_INFO_MENU"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Add printer info menu"
+    },
+    
+    "lcdSetProgressManually": {
+      "mapsFrom": ["LCD_SET_PROGRESS_MANUALLY"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Allow M73 to set progress percentage"
+    },
+    
+    "showRemainingTime": {
+      "mapsFrom": ["SHOW_REMAINING_TIME"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Display estimated time remaining"
+    },
+    
+    "useMAvg": {
+      "mapsFrom": ["USE_M73_REMAINING_TIME"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["SHOW_REMAINING_TIME"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Use M73 for more accurate time"
+    },
+    
+    "rotateProgress": {
+      "mapsFrom": ["ROTATE_PROGRESS_DISPLAY"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Rotate between progress indicators"
+    },
+    
+    "printProgressShowDecimals": {
+      "mapsFrom": ["PRINT_PROGRESS_SHOW_DECIMALS"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Show print progress with decimal"
+    },
+    
+    "showElapsedTime": {
+      "mapsFrom": ["SHOW_ELAPSED_TIME"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Display elapsed print time"
+    },
+    
+    "printJobTimer": {
+      "mapsFrom": ["PRINTJOB_TIMER_AUTOSTART"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Auto-start print timer on M104/M109/M140/M190"
+    },
+    
+    "encoderRateMultiplier": {
+      "mapsFrom": ["ENCODER_RATE_MULTIPLIER"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Increase encoder rate with speed"
+    },
+    
+    "encoderRpmMin": {
+      "mapsFrom": ["ENCODER_10X_STEPS_PER_SEC"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ENCODER_RATE_MULTIPLIER"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [30],
+      "notes": "Steps/sec for 10x rate"
+    },
+    
+    "encoderRpmMax": {
+      "mapsFrom": ["ENCODER_100X_STEPS_PER_SEC"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ENCODER_RATE_MULTIPLIER"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [80],
+      "notes": "Steps/sec for 100x rate"
+    },
+    
+    "individualAxisHomingMenu": {
+      "mapsFrom": ["INDIVIDUAL_AXIS_HOMING_MENU"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Add individual axis homing to menu"
+    },
+    
+    "speakerEnablePin": {
+      "mapsFrom": ["SPEAKER"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable piezo speaker"
+    },
+    
+    "lcdFeedbackFrequency": {
+      "mapsFrom": ["LCD_FEEDBACK_FREQUENCY_DURATION_MS"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [2],
+      "notes": "Beep duration in ms"
+    },
+    
+    "lcdFeedbackFrequencyHz": {
+      "mapsFrom": ["LCD_FEEDBACK_FREQUENCY_HZ"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [5000],
+      "notes": "Beep frequency in Hz"
+    }
+  },
+  
+  "sdCard": {
+    "sdCheckAndRetry": {
+      "mapsFrom": ["SD_CHECK_AND_RETRY"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Retry SD operations on failure"
+    },
+    
+    "sdMenuConfirmStart": {
+      "mapsFrom": ["SD_MENU_CONFIRM_START"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Confirm before starting SD print"
+    },
+    
+    "menuAddAutostart": {
+      "mapsFrom": ["MENU_ADDAUTOSTART"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Add autostart menu option"
+    },
+    
+    "eventLedStrip": {
+      "mapsFrom": ["EVENT_GCODE_SD_ABORT"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": ["G28XY"],
+      "notes": "G-code to run on SD print abort"
+    },
+    
+    "sdFinishedStepperRelease": {
+      "mapsFrom": ["SD_FINISHED_STEPPERRELEASE"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Disable steppers on SD print finish"
+    },
+    
+    "sdFinishedReleaseCommand": {
+      "mapsFrom": ["SD_FINISHED_RELEASECOMMAND"],
+      "type": "string",
+      "required": false,
+      "conditionalOn": ["SD_FINISHED_STEPPERRELEASE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": ["M84"],
+      "notes": "Command to disable steppers"
+    },
+    
+    "sdAbortOnEndstopHit": {
+      "mapsFrom": ["SD_ABORT_ON_ENDSTOP_HIT"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Abort SD print on endstop hit"
+    },
+    
+    "sdReprint": {
+      "mapsFrom": ["SD_REPRINT_LAST_SELECTED_FILE"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Add reprint last file to menu"
+    },
+    
+    "sdSortAlpha": {
+      "mapsFrom": ["SDCARD_SORT_ALPHA"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Sort SD card files alphabetically"
+    },
+    
+    "sdSortReverse": {
+      "mapsFrom": ["SDSORT_REVERSE"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["SDCARD_SORT_ALPHA"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Reverse sort order"
+    },
+    
+    "sdSortLimit": {
+      "mapsFrom": ["SDSORT_LIMIT"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["SDCARD_SORT_ALPHA"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [40],
+      "notes": "Maximum files to sort (0 = all)"
+    },
+    
+    "sdSortFolders": {
+      "mapsFrom": ["SDSORT_FOLDERS"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["SDCARD_SORT_ALPHA"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [-1, 1],
+      "notes": "-1=before, 0=none, 1=after"
+    },
+    
+    "sdSortDynamic": {
+      "mapsFrom": ["SDSORT_DYNAMIC_RAM"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["SDCARD_SORT_ALPHA"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Use dynamic RAM for sorting"
+    },
+    
+    "sdSortCache": {
+      "mapsFrom": ["SDSORT_CACHE_NAMES"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["SDCARD_SORT_ALPHA"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Cache filenames in RAM"
+    },
+    
+    "longFilenameHostSupport": {
+      "mapsFrom": ["LONG_FILENAME_HOST_SUPPORT"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Send long filenames to host"
+    },
+    
+    "scrollLongFilenames": {
+      "mapsFrom": ["SCROLL_LONG_FILENAMES"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Scroll long filenames in SD menu"
+    },
+    
+    "sdCardReadBlockRetries": {
+      "mapsFrom": ["SD_PROCEDURE_DEPTH"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [1],
+      "notes": "Nested SD file support depth"
+    }
+  },
+  
+  "encoderSettings": {
+    "reverseEncoderDirection": {
+      "mapsFrom": ["REVERSE_ENCODER_DIRECTION"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Reverse encoder rotation direction"
+    },
+    
+    "reverseMenuDirection": {
+      "mapsFrom": ["REVERSE_MENU_DIRECTION"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Reverse menu scroll direction"
+    },
+    
+    "reverseSelectDirection": {
+      "mapsFrom": ["REVERSE_SELECT_DIRECTION"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Reverse item selection direction"
+    },
+    
+    "encoderPulsesPerStep": {
+      "mapsFrom": ["ENCODER_PULSES_PER_STEP"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [4, 2],
+      "notes": "Encoder pulses per detent"
+    },
+    
+    "encoderStepsPerMenuItem": {
+      "mapsFrom": ["ENCODER_STEPS_PER_MENU_ITEM"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [1],
+      "notes": "Steps to move one menu item"
+    },
+    
+    "encoderFastSkip": {
+      "mapsFrom": ["ENCODER_FAST_SKIP"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Fast skip through menu with encoder"
+    }
+  },
+  
+  "bootScreen": {
+    "showBootscreen": {
+      "mapsFrom": ["SHOW_BOOTSCREEN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Show boot screen on startup"
+    },
+    
+    "bootscreenTimeout": {
+      "mapsFrom": ["BOOTSCREEN_TIMEOUT"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["SHOW_BOOTSCREEN"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [4000],
+      "notes": "Boot screen duration in ms"
+    },
+    
+    "showCustomBootscreen": {
+      "mapsFrom": ["SHOW_CUSTOM_BOOTSCREEN"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["SHOW_BOOTSCREEN"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Show custom boot logo"
+    },
+    
+    "customStatusScreenImage": {
+      "mapsFrom": ["CUSTOM_STATUS_SCREEN_IMAGE"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Use custom status screen image"
+    }
+  },
+  
+  "safety": {
+    "watchdogTimer": {
+      "mapsFrom": ["USE_WATCHDOG"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable watchdog timer to reset on lockup"
+    },
+    
+    "watchdogReset": {
+      "mapsFrom": ["WATCHDOG_RESET_MANUAL"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["USE_WATCHDOG"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Manually reset watchdog in idle loop"
+    }
+  },
+  
+  "debug": {
+    "m43Pins": {
+      "mapsFrom": ["PINS_DEBUGGING"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable M43 pin debugging"
+    },
+    
+    "autoReportTemperatures": {
+      "mapsFrom": ["AUTO_REPORT_TEMPERATURES"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Auto-report temperatures with M155"
+    },
+    
+    "autoReportPosition": {
+      "mapsFrom": ["AUTO_REPORT_POSITION"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Auto-report position with M154"
+    },
+    
+    "extendedCapabilitiesReport": {
+      "mapsFrom": ["EXTENDED_CAPABILITIES_REPORT"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Add details to M115 capability report"
+    },
+    
+    "reportedVersionExtended": {
+      "mapsFrom": ["DETAILED_BUILD_VERSION"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Include build details in M115"
+    }
+  },
+  
+  "misc": {
+    "noVolumetrics": {
+      "mapsFrom": ["NO_VOLUMETRICS"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Disable volumetric extrusion"
+    },
+    
+    "noWorkspaceOffsets": {
+      "mapsFrom": ["NO_WORKSPACE_OFFSETS"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Disable M206/M428 workspace offsets"
+    },
+    
+    "preheatBeforeLeveling": {
+      "mapsFrom": ["PREHEAT_BEFORE_LEVELING"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Heat bed/nozzle before bed leveling"
+    },
+    
+    "preheatHotendTemp": {
+      "mapsFrom": ["LEVELING_NOZZLE_TEMP"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["PREHEAT_BEFORE_LEVELING"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [120]
+    },
+    
+    "preheatBedTemp": {
+      "mapsFrom": ["LEVELING_BED_TEMP"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["PREHEAT_BEFORE_LEVELING"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [50]
+    },
+    
+    "manualXHomePos": {
+      "mapsFrom": ["MANUAL_X_HOME_POS"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0],
+      "notes": "Override X home position"
+    },
+    
+    "manualYHomePos": {
+      "mapsFrom": ["MANUAL_Y_HOME_POS"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0]
+    },
+    
+    "manualZHomePos": {
+      "mapsFrom": ["MANUAL_Z_HOME_POS"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0]
+    },
+    
+    "bedLevelingBoundsMargin": {
+      "mapsFrom": ["BED_LEVELING_INSET_LFRB"],
+      "type": "array",
+      "arrayFields": ["left", "front", "right", "back"],
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [[30, 30, 30, 30]],
+      "notes": "Bed leveling insets from edges in mm"
+    }
+  }
+}

@@ -1,0 +1,620 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "1.0.0",
+  "description": "Vanilla Marlin Configuration_adv.h field mappings - Part 3: Advanced Features",
+  "firmware": "Marlin",
+  "configFile": "Configuration_adv.h",
+  
+  "linearAdvance": {
+    "linAdvance": {
+      "mapsFrom": ["LIN_ADVANCE"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Pressure advance / Linear Advance"
+    },
+    
+    "linAdvanceKDefault": {
+      "mapsFrom": ["LIN_ADVANCE_K"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["LIN_ADVANCE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.22, 0.0],
+      "notes": "Default K factor, 0 = disabled"
+    },
+    
+    "linAdvanceEPerPulse": {
+      "mapsFrom": ["LA_E_PER_PULSE"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["LIN_ADVANCE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.0],
+      "notes": "Experimental LAv2 feature"
+    }
+  },
+  
+  "inputShaping": {
+    "inputShapingX": {
+      "mapsFrom": ["INPUT_SHAPING_X"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Input shaping for X axis"
+    },
+    
+    "inputShapingY": {
+      "mapsFrom": ["INPUT_SHAPING_Y"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Input shaping for Y axis"
+    },
+    
+    "shapingFreqX": {
+      "mapsFrom": ["SHAPING_FREQ_X"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["INPUT_SHAPING_X"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [40.0],
+      "notes": "Resonance frequency in Hz"
+    },
+    
+    "shapingFreqY": {
+      "mapsFrom": ["SHAPING_FREQ_Y"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["INPUT_SHAPING_Y"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [40.0]
+    },
+    
+    "shapingZetaX": {
+      "mapsFrom": ["SHAPING_ZETA_X"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["INPUT_SHAPING_X"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.3],
+      "notes": "Damping ratio (0.0 = no damping, 1.0 = critical)"
+    },
+    
+    "shapingZetaY": {
+      "mapsFrom": ["SHAPING_ZETA_Y"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["INPUT_SHAPING_Y"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.3]
+    }
+  },
+  
+  "babystepping": {
+    "babystepping": {
+      "mapsFrom": ["BABYSTEPPING"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Live Z offset adjustment"
+    },
+    
+    "babystepTpcFan": {
+      "mapsFrom": ["BABYSTEP_TPC_FAN"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Adjust Z during temp wait using fan encoder"
+    },
+    
+    "babystepAlwaysAvailable": {
+      "mapsFrom": ["BABYSTEP_ALWAYS_AVAILABLE"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Allow babystepping at any time"
+    },
+    
+    "babystepXy": {
+      "mapsFrom": ["BABYSTEP_XY"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable X/Y babystepping"
+    },
+    
+    "babystepInvert": {
+      "mapsFrom": ["BABYSTEP_INVERT_Z"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Invert Z direction"
+    },
+    
+    "babystepMillimeters": {
+      "mapsFrom": ["BABYSTEP_MILLIMETERS"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0.025],
+      "notes": "Distance per babystep click"
+    },
+    
+    "babystepDisplay": {
+      "mapsFrom": ["BABYSTEP_DISPLAY_TOTAL"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Display cumulative babystep total"
+    },
+    
+    "babystepZoffsetSync": {
+      "mapsFrom": ["BABYSTEP_ZPROBE_OFFSET"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["BABYSTEPPING"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Sync babysteps to Z probe offset"
+    }
+  },
+  
+  "filamentSensor": {
+    "filamentRunoutSensor": {
+      "mapsFrom": ["FILAMENT_RUNOUT_SENSOR"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable filament runout sensor"
+    },
+    
+    "filamentRunoutDistanceMm": {
+      "mapsFrom": ["FILAMENT_RUNOUT_DISTANCE_MM"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["FILAMENT_RUNOUT_SENSOR"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [7],
+      "notes": "Distance required to trigger runout"
+    },
+    
+    "filamentMotionSensor": {
+      "mapsFrom": ["FILAMENT_MOTION_SENSOR"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["FILAMENT_RUNOUT_SENSOR"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Encoder-style motion sensor"
+    },
+    
+    "filamentSwitchState": {
+      "mapsFrom": ["FIL_RUNOUT_STATE"],
+      "type": "string",
+      "required": false,
+      "conditionalOn": ["FILAMENT_RUNOUT_SENSOR"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": ["LOW", "HIGH"],
+      "notes": "Sensor signal state when triggered"
+    },
+    
+    "filamentSwitchPullup": {
+      "mapsFrom": ["FIL_RUNOUT_PULLUP"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["FILAMENT_RUNOUT_SENSOR"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable internal pullup"
+    },
+    
+    "filamentSwitchPulldown": {
+      "mapsFrom": ["FIL_RUNOUT_PULLDOWN"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["FILAMENT_RUNOUT_SENSOR"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable internal pulldown"
+    },
+    
+    "watchAllClosedlySensor": {
+      "mapsFrom": ["WATCH_ALL_RUNOUT_SENSORS"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["FILAMENT_RUNOUT_SENSOR"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Monitor all sensors in multi-extruder setup"
+    },
+    
+    "filamentRunoutScript": {
+      "mapsFrom": ["FILAMENT_RUNOUT_SCRIPT"],
+      "type": "string",
+      "required": false,
+      "conditionalOn": ["FILAMENT_RUNOUT_SENSOR"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": ["M600"],
+      "notes": "G-code to execute on runout"
+    }
+  },
+  
+  "advancedPause": {
+    "advancedPauseFeature": {
+      "mapsFrom": ["ADVANCED_PAUSE_FEATURE"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "M600 filament change and park/unpark"
+    },
+    
+    "pauseParkRetractLength": {
+      "mapsFrom": ["PAUSE_PARK_RETRACT_LENGTH"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [2],
+      "notes": "Initial retract in mm"
+    },
+    
+    "pauseParkRetractFeedrate": {
+      "mapsFrom": ["PAUSE_PARK_RETRACT_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [60],
+      "notes": "Retract feedrate in mm/s"
+    },
+    
+    "pauseParkNoStepperTimeout": {
+      "mapsFrom": ["PAUSE_PARK_NO_STEPPER_TIMEOUT"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Keep steppers enabled during pause"
+    },
+    
+    "parkHeadOnPause": {
+      "mapsFrom": ["PARK_HEAD_ON_PAUSE"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Move head to park position on pause"
+    },
+    
+    "homeBeforeFilamentChange": {
+      "mapsFrom": ["HOME_BEFORE_FILAMENT_CHANGE"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Home if position unknown before filament change"
+    },
+    
+    "filamentChangeUnloadLength": {
+      "mapsFrom": ["FILAMENT_CHANGE_UNLOAD_LENGTH"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [100],
+      "notes": "Unload length in mm"
+    },
+    
+    "filamentChangeUnloadFeedrate": {
+      "mapsFrom": ["FILAMENT_CHANGE_UNLOAD_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [10],
+      "notes": "Unload feedrate in mm/s"
+    },
+    
+    "filamentChangeFastLoadLength": {
+      "mapsFrom": ["FILAMENT_CHANGE_FAST_LOAD_LENGTH"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0],
+      "notes": "Fast load length in mm"
+    },
+    
+    "filamentChangeFastLoadFeedrate": {
+      "mapsFrom": ["FILAMENT_CHANGE_FAST_LOAD_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [6],
+      "notes": "Fast load feedrate in mm/s"
+    },
+    
+    "filamentChangeSlowLoadLength": {
+      "mapsFrom": ["FILAMENT_CHANGE_SLOW_LOAD_LENGTH"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0],
+      "notes": "Slow/purge length in mm"
+    },
+    
+    "filamentChangeSlowLoadFeedrate": {
+      "mapsFrom": ["FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [6],
+      "notes": "Slow load feedrate in mm/s"
+    },
+    
+    "advancedPausePurgeLength": {
+      "mapsFrom": ["ADVANCED_PAUSE_PURGE_LENGTH"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [50],
+      "notes": "Purge length in mm"
+    },
+    
+    "advancedPausePurgeFeedrate": {
+      "mapsFrom": ["ADVANCED_PAUSE_PURGE_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [3],
+      "notes": "Purge feedrate in mm/s"
+    },
+    
+    "pauseResumeRecover": {
+      "mapsFrom": ["PAUSE_RESUME_RECOVER_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["ADVANCED_PAUSE_FEATURE"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [8],
+      "notes": "Resume feedrate in mm/s"
+    }
+  },
+  
+  "tmc": {
+    "tmcSoftwareUart": {
+      "mapsFrom": ["TMC_SOFTWARE_UART"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Software UART for TMC drivers"
+    },
+    
+    "monitorDriverStatus": {
+      "mapsFrom": ["MONITOR_DRIVER_STATUS"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Monitor TMC driver status"
+    },
+    
+    "currentStepDown": {
+      "mapsFrom": ["CURRENT_STEP_DOWN"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [50],
+      "notes": "Reduce current by this amount on overtemp"
+    },
+    
+    "stopOnError": {
+      "mapsFrom": ["STOP_ON_ERROR"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Stop print on TMC driver error"
+    },
+    
+    "tmcDebug": {
+      "mapsFrom": ["TMC_DEBUG"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable TMC debugging features"
+    },
+    
+    "xCurrent": {
+      "mapsFrom": ["X_CURRENT"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [800, 580],
+      "notes": "RMS current in mA"
+    },
+    
+    "yCurrent": {
+      "mapsFrom": ["Y_CURRENT"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [800, 580]
+    },
+    
+    "zCurrent": {
+      "mapsFrom": ["Z_CURRENT"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [800, 580]
+    },
+    
+    "e0Current": {
+      "mapsFrom": ["E0_CURRENT"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [800, 650]
+    },
+    
+    "xMicrosteps": {
+      "mapsFrom": ["X_MICROSTEPS"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [16, 256],
+      "validation": {
+        "enum": [1, 2, 4, 8, 16, 32, 64, 128, 256]
+      }
+    },
+    
+    "yMicrosteps": {
+      "mapsFrom": ["Y_MICROSTEPS"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [16, 256]
+    },
+    
+    "zMicrosteps": {
+      "mapsFrom": ["Z_MICROSTEPS"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [16, 256]
+    },
+    
+    "e0Microsteps": {
+      "mapsFrom": ["E0_MICROSTEPS"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [16, 256]
+    },
+    
+    "hybridThresholdX": {
+      "mapsFrom": ["X_HYBRID_THRESHOLD"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [100],
+      "notes": "SpreadCycle to StealthChop threshold in mm/s"
+    },
+    
+    "hybridThresholdY": {
+      "mapsFrom": ["Y_HYBRID_THRESHOLD"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [100]
+    },
+    
+    "hybridThresholdZ": {
+      "mapsFrom": ["Z_HYBRID_THRESHOLD"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [3]
+    },
+    
+    "hybridThresholdE0": {
+      "mapsFrom": ["E0_HYBRID_THRESHOLD"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [30]
+    },
+    
+    "stallguardSensitivityX": {
+      "mapsFrom": ["X_STALL_SENSITIVITY"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [8],
+      "validation": {
+        "min": -64,
+        "max": 63
+      },
+      "notes": "TMC2130/TMC2209/TMC5160 only"
+    },
+    
+    "stallguardSensitivityY": {
+      "mapsFrom": ["Y_STALL_SENSITIVITY"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [8]
+    },
+    
+    "stallguardSensitivityZ": {
+      "mapsFrom": ["Z_STALL_SENSITIVITY"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "examples": [8]
+    },
+    
+    "sensorlessHoming": {
+      "mapsFrom": ["SENSORLESS_HOMING"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Use stallguard for homing instead of endstops"
+    }
+  },
+  
+  "powerLoss": {
+    "powerLossRecovery": {
+      "mapsFrom": ["POWER_LOSS_RECOVERY"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Resume print after power loss"
+    },
+    
+    "plrEnabledDefault": {
+      "mapsFrom": ["PLR_ENABLED_DEFAULT"],
+      "type": "boolean",
+      "required": false,
+      "conditionalOn": ["POWER_LOSS_RECOVERY"],
+      "fileLocation": "Configuration_adv.h",
+      "notes": "Enable power loss recovery by default"
+    },
+    
+    "powerLossZraise": {
+      "mapsFrom": ["POWER_LOSS_ZRAISE"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["POWER_LOSS_RECOVERY"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [2],
+      "notes": "Z raise on power loss in mm"
+    },
+    
+    "powerLossPurge": {
+      "mapsFrom": ["POWER_LOSS_PURGE_LEN"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["POWER_LOSS_RECOVERY"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0],
+      "notes": "Purge length on resume in mm"
+    },
+    
+    "powerLossRetract": {
+      "mapsFrom": ["POWER_LOSS_RETRACT_LEN"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["POWER_LOSS_RECOVERY"],
+      "fileLocation": "Configuration_adv.h",
+      "examples": [0],
+      "notes": "Retract on power loss in mm"
+    }
+  }
+}

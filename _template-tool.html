@@ -1009,38 +1009,6 @@
             <p style="color: var(--text-secondary);">Answer to question 2...</p>
         </div>
 
-        <!-- DEMO: Safety Gate Test -->
-        <div class="calculator-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-            <h2 style="color: white; border-bottom-color: rgba(255,255,255,0.3);">🧪 New Feature Demos</h2>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                <div>
-                    <h3 style="color: white;">Safety Gate System</h3>
-                    <p>Test the firmware safety warning system that blocks access until acknowledged.</p>
-                    
-                    <button class="btn" onclick="testSafetyGate()" style="background: white; color: #667eea; width: 100%;">
-                        ⚠️ Test Safety Gate
-                    </button>
-                    
-                    <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.9;">
-                        Expires after 24 hours to ensure regular review of safety procedures.
-                    </p>
-                </div>
-                
-                <div>
-                    <h3 style="color: white;">Enhanced Profiles (Coming Soon)</h3>
-                    <p>10-tab printer profile editor with Configuration.h import and full hardware database.</p>
-                    
-                    <button class="btn" onclick="testEnhancedProfiles()" style="background: white; color: #667eea; width: 100%;">
-                        🖨️ Test Enhanced Profiles
-                    </button>
-                    
-                    <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.9;">
-                        Upload Configuration.h, select hardware from databases, export slicer profiles.
-                    </p>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Footer -->
@@ -1113,8 +1081,13 @@
     <script src="assets/js/navigation.js"></script>
     <script src="assets/js/safety-gate.js"></script>
     <script src="assets/js/eeprom-parser.js"></script>
-    <script src="assets/js/config-parser.js"></script>
-    <script src="assets/js/th3d-config-parser.js"></script>
+    
+    <!-- Configuration Parsers -->
+    <script src="assets/js/marlin-config-parser.js"></script>  <!-- Universal Marlin/TH3D parser -->
+    <!-- 📝 Mapping Files: assets/data/maps/marlin/*.json (vanilla Marlin field mappings) -->
+    <!-- 📝 Mapping Files: firmware-helper/th3d-field-mapping.json (TH3D field mappings) -->
+    <!-- 📝 Example Configs: assets/data/marlin-configs/config/examples/ (500+ real printer configs) -->
+    
     <script src="assets/js/enhanced-printer-profiles.js"></script>
 
     <!-- 📝 TODO: Add your custom JavaScript -->
@@ -1246,6 +1219,152 @@
             const profileEditor = new EnhancedPrinterProfiles();
             profileEditor.show();
             console.log('✅ Enhanced profiles modal opened!');
+        }
+
+        // ===== MARLIN CONFIGURATION PARSER EXAMPLES =====
+        
+        /**
+         * Example 1: Parse vanilla Marlin Configuration.h
+         * Uses field mappings from assets/data/maps/marlin/marlin-config-mapping.json
+         */
+        async function parseVanillaMarlinConfig(configContent) {
+            // Load vanilla Marlin field mapping
+            const mappingResponse = await fetch('assets/data/maps/marlin/marlin-config-mapping.json');
+            const fieldMapping = await mappingResponse.json();
+            
+            // Parse the config using the mapping
+            const parsed = MarlinConfigParser.parseWithMapping(configContent, fieldMapping);
+            
+            console.log('Parsed vanilla Marlin config:', parsed);
+            return parsed;
+        }
+        
+        /**
+         * Example 2: Load example config from Marlin Configurations submodule
+         * 500+ printer configs available in assets/data/marlin-configs/
+         */
+        async function loadExampleConfig(manufacturer, model) {
+            try {
+                // Example: Load Creality Ender-5 Plus config
+                const configPath = `assets/data/marlin-configs/config/examples/${manufacturer}/${model}/Configuration.h`;
+                const response = await fetch(configPath);
+                const configContent = await response.text();
+                
+                console.log(`Loaded ${manufacturer} ${model} config`);
+                return configContent;
+            } catch (error) {
+                console.error('Error loading example config:', error);
+                return null;
+            }
+        }
+        
+        /**
+         * Example 3: Validate config using real-world ranges
+         * Once validation-ranges.json is generated from 500+ configs
+         */
+        async function validateConfig(parsedConfig) {
+            // Load validation ranges (will be generated from analyzing 500+ configs)
+            // const rangesResponse = await fetch('assets/data/validation-ranges.json');
+            // const validationRanges = await rangesResponse.json();
+            
+            // Validate each field
+            const issues = [];
+            
+            // Example: Check if steps/mm is within typical range
+            if (parsedConfig.motion && parsedConfig.motion.stepsPerMM) {
+                const stepsX = parsedConfig.motion.stepsPerMM.x;
+                // Typical range for belt-driven: 78-100 steps/mm (from 500+ configs)
+                if (stepsX < 78 || stepsX > 100) {
+                    issues.push({
+                        field: 'motion.stepsPerMM.x',
+                        value: stepsX,
+                        severity: 'warning',
+                        message: `X steps/mm (${stepsX}) is outside typical range (78-100). Most belt-driven printers use 80.`,
+                        suggestion: 'Verify your pulley size and microstepping settings.'
+                    });
+                }
+            }
+            
+            return {
+                valid: issues.filter(i => i.severity === 'error').length === 0,
+                issues: issues
+            };
+        }
+        
+        /**
+         * Example 4: Compare user config to reference printer
+         */
+        async function compareToReference(userConfig, referencePrinter) {
+            // Load reference config (e.g., Ender-5 Plus)
+            const referenceContent = await loadExampleConfig('Creality', 'Ender-5 Plus');
+            const referenceConfig = await parseVanillaMarlinConfig(referenceContent);
+            
+            // Compare key fields
+            const differences = [];
+            
+            if (userConfig.motion.stepsPerMM.x !== referenceConfig.motion.stepsPerMM.x) {
+                differences.push({
+                    field: 'Steps/mm X',
+                    yours: userConfig.motion.stepsPerMM.x,
+                    reference: referenceConfig.motion.stepsPerMM.x
+                });
+            }
+            
+            console.log('Differences from reference:', differences);
+            return differences;
+        }
+        
+        /**
+         * Example 5: Auto-detect firmware type and use correct parser
+         */
+        async function smartParse(configContent) {
+            // Detect firmware type
+            if (configContent.includes('UNIFIED_VERSION')) {
+                console.log('Detected: TH3D Unified Firmware');
+                return await TH3DConfigParser.parse(configContent);
+            } else if (configContent.includes('SHORT_BUILD_VERSION')) {
+                console.log('Detected: Vanilla Marlin Firmware');
+                return await parseVanillaMarlinConfig(configContent);
+            } else {
+                console.warn('Unknown firmware type');
+                return null;
+            }
+        }
+        
+        // ===== USAGE EXAMPLE IN YOUR TOOL =====
+        
+        /**
+         * Example: Add Config Upload Feature to Your Tool
+         */
+        function setupConfigUpload() {
+            const uploadButton = document.createElement('input');
+            uploadButton.type = 'file';
+            uploadButton.accept = '.h';
+            uploadButton.addEventListener('change', async (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const content = await file.text();
+                    const parsed = await smartParse(content);
+                    
+                    if (parsed) {
+                        // Auto-fill your tool's form with parsed values
+                        if (parsed.motion && parsed.motion.stepsPerMM) {
+                            // Example: Fill steps/mm input
+                            // document.getElementById('stepsPerMmX').value = parsed.motion.stepsPerMM.x;
+                        }
+                        
+                        // Validate the config
+                        const validation = await validateConfig(parsed);
+                        if (!validation.valid) {
+                            console.warn('Config has issues:', validation.issues);
+                            // Show warnings to user
+                        }
+                    }
+                }
+            });
+            
+            // Add button to your UI
+            // document.querySelector('.calculator-section').appendChild(uploadButton);
         }
     </script>
 </body>
