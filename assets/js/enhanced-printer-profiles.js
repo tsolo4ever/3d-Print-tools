@@ -4,7 +4,7 @@
  * 
  * @version 2.0.0
  * @requires storage-manager.js
- * @requires config-parser.js
+ * @requires marlin-config-parser.js
  */
 
 class EnhancedPrinterProfiles {
