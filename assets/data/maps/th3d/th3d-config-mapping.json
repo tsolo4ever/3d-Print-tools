@@ -29,142 +29,133 @@
     }
   },
 
-  "printerSelection": {
-    "description": "Only ONE printer define should be active at a time",
-    "printerModel": {
-      "mapsFrom": [
-        "ENDER3", "ENDER3_PRO", "ENDER3_NEO", "ENDER3_MAX", "ENDER3_MAX_NEO",
-        "ENDER3_V2", "ENDER3_V2_NEO", "ENDER5", "ENDER5_PRO", "ENDER5_PLUS",
-        "ENDER2_PRO", "ENDER6"
-      ],
-      "type": "enum",
-      "required": true,
-      "th3dNotes": "Uncomment ONE printer model. Sets board, size, drivers automatically."
-    },
-    "v42xTmcDrivers": {
-      "mapsFrom": ["V42X_TMC220X_DRIVERS"],
-      "type": "boolean",
-      "required": false,
-      "th3dNotes": "Enable for 4.2.2 boards with TMC drivers (A or B code on SD slot)"
-    }
-  },
 
-  "filamentSensor": {
-    "ezoutEnable": {
-      "mapsFrom": ["EZOUT_ENABLE"],
-      "type": "boolean",
-      "required": false,
-      "th3dNotes": "TH3D EZOut filament sensor - LCD header connection"
-    },
-    "ezoutEnableJ1": {
-      "mapsFrom": ["EZOUT_ENABLE_J1"],
-      "type": "boolean",
-      "required": false,
-      "th3dNotes": "TH3D EZOut filament sensor - J1 plug connection"
-    },
-    "cr10sStockFilamentSensor": {
-      "mapsFrom": ["CR10S_STOCKFILAMENTSENSOR"],
-      "type": "boolean",
-      "required": false,
-      "th3dNotes": "Stock CR-10S series filament sensor on J1 port"
-    }
+"printerSelection": {
+  "description": "Only ONE printer define should be active at a time (TH3D selection block).",
+  "printerModelRaw": {
+    "mapsFrom": ["ENDER*", "CR10*", "SV*", "SOVOL*", "AQUILA*", "ANYCUBIC*", "ARTILLERY*", "CHIRON*", "KOBRA*"],
+    "type": "string",
+    "required": true,
+    "scope": "th3dPrinterBlock",
+    "target": "printerSelection.printerModelRaw",
+    "th3dNotes": "Raw macro name from TH3D printer list (e.g., ENDER5_PLUS)"
   },
+  "printerModel": {
+    "type": "string",
+    "transform": "normalizePrinterId",
+    "defaultFrom": "printerSelection.printerModelRaw",
+    "target": "basic.printerModel",
+    "th3dNotes": "Canonical id used by UI/database (e.g., ender5_plus)"
+  },
+  "oneOf": {
+    "families": ["ENDER*", "CR10*", "SV*", "SOVOL*", "AQUILA*", "ANYCUBIC*", "ARTILLERY*", "CHIRON*", "KOBRA*"],
+    "errorLevel": "error",
+    "message": "Only ONE printer define should be active in the TH3D selection block."
+  },
+  "v42xTmcDrivers": {
+    "mapsFrom": ["V42X_TMC220X_DRIVERS"],
+    "type": "boolean",
+    "required": false,
+    "th3dNotes": "Enable for 4.2.2 boards with TMC drivers (A or B code on SD slot)"
+  }
+},
 
-  "ablProbe": {
-    "probeMount": {
-      "mapsFrom": [
-        "CR10_OEM", "ENDER2_PRO_OEM", "ENDER2_PRO_OEM_MICRO", "ENDER3_OEM",
-        "ENDER3_V2_OEM", "ENDER3_MAX_OEM", "ENDER5_OEM", "ENDER5_PLUS_OEM",
-        "ENDER6_OEM", "ENDER6_PETSFANG", "SPRITE_EXTRUDER_18MM_MOUNT", "CUSTOM_PROBE"
-      ],
-      "type": "enum",
-      "required": false,
-      "th3dNotes": "EZABL/BLTouch probe mount selection - sets NOZZLE_TO_PROBE_OFFSET"
-    },
-    "ezablPoints": {
-      "mapsFrom": ["EZABL_POINTS"],
-      "type": "integer",
-      "required": false,
-      "default": 5,
-      "examples": [3, 5, 7, 9, 11],
-      "th3dNotes": "Grid points for probing (use odd numbers). Total points = N x N",
-      "validation": {
-        "min": 3,
-        "max": 15,
-        "mustBeOdd": true
-      }
-    },
-    "ezablProbeEdge": {
-      "mapsFrom": ["EZABL_PROBE_EDGE"],
-      "type": "integer",
-      "required": false,
-      "default": 15,
-      "examples": [10, 15, 30],
-      "th3dNotes": "Distance from bed edge to probe. Use 30 for binder clips."
-    },
-    "ablType": {
-      "mapsFrom": ["ABL_UBL", "ABL_BILINEAR"],
-      "type": "enum",
-      "required": false,
-      "default": "ABL_BILINEAR",
-      "examples": ["ABL_UBL", "ABL_BILINEAR"],
-      "th3dNotes": "Leveling type: UBL (advanced mesh) or Bilinear (simple grid)"
-    },
-    "ezablFastProbe": {
-      "mapsFrom": ["EZABL_FASTPROBE"],
-      "type": "boolean",
-      "required": false,
-      "th3dNotes": "Fast probing at 8mm/s - works with most machines"
-    },
-    "ezablSuperFastProbe": {
-      "mapsFrom": ["EZABL_SUPERFASTPROBE"],
-      "type": "boolean",
-      "required": false,
-      "th3dNotes": "Super fast probing - Pro/NG EZABL at 15mm/s, BLTouch/CRTouch at 10mm/s"
-    },
-    "heatersOnDuringProbing": {
-      "mapsFrom": ["HEATERS_ON_DURING_PROBING"],
-      "type": "boolean",
-      "required": false,
-      "th3dNotes": "Keep heaters on during probing - may reduce accuracy"
-    },
-    "probingSteppersOff": {
-      "mapsFrom": ["PROBING_STEPPERS_OFF"],
-      "type": "boolean",
-      "required": false,
-      "th3dNotes": "Cycle XYE steppers during probing to reduce interference"
-    },
-    "slowerProbeMoves": {
-      "mapsFrom": ["SLOWER_PROBE_MOVES"],
-      "type": "boolean",
-      "required": false,
-      "th3dNotes": "Slow down moves between probe points to reduce vibration"
-    }
+  
+"filamentSensor": {
+  "ezoutEnable": {
+    "mapsFrom": ["EZOUT_ENABLE"],
+    "type": "boolean",
+    "required": false,
+    "th3dNotes": "TH3D EZOut filament sensor - LCD header connection"
   },
+  "ezoutEnableJ1": {
+    "mapsFrom": ["EZOUT_ENABLE_J1"],
+    "type": "boolean",
+    "required": false,
+    "th3dNotes": "TH3D EZOut filament sensor - J1 plug connection"
+  },
+  "cr10sStockFilamentSensor": {
+    "mapsFrom": ["CR10S_STOCKFILAMENTSENSOR"],
+    "type": "boolean",
+    "required": false,
+    "th3dNotes": "Stock CR-10S series filament sensor on J1 port"
+  },
+  "bttSfsEnabled": {
+    "mapsFrom": ["BTT_SFS_FILAMENT_SENSOR"],
+    "type": "boolean",
+    "required": false,
+    "th3dNotes": "BTT SFS V1.0 - Smart Filament Sensor (as-is)"
+  },
+  "bttSfsDistanceMm": {
+    "mapsFrom": ["BTT_SFS_DISTANCE_MM"],
+    "type": "integer",
+    "required": false,
+    "default": 7,
+    "conditionalOn": ["BTT_SFS_FILAMENT_SENSOR"],
+    "th3dNotes": "Recommended 7mm; adjust if false triggers"
+  }
+},
 
-  "bltouch": {
-    "enabled": {
-      "mapsFrom": ["BLTOUCH"],
-      "type": "boolean",
-      "required": false,
-      "th3dNotes": "Enable BLTouch/CRTouch probe support"
-    },
-    "on5Pin": {
-      "mapsFrom": ["BLTOUCH_ON_5PIN"],
-      "type": "boolean",
-      "required": false,
-      "conditionalOn": ["BLTOUCH"],
-      "th3dNotes": "Use 5-pin header for all BLTouch connections"
-    },
-    "servo0Pin": {
-      "mapsFrom": ["SERVO0_PIN"],
-      "type": "string",
-      "required": false,
-      "conditionalOn": ["BLTOUCH"],
-      "examples": ["PB0"],
-      "th3dNotes": "Override servo control pin if needed"
+
+"ablProbe": {
+  "probeMount": {
+    "mapsFrom": ["*_OEM", "SPRITE_EXTRUDER_18MM_MOUNT", "CUSTOM_PROBE"],
+    "type": "string",
+    "transform": "normalizeMountId",
+    "required": false,
+    "th3dNotes": "EZABL/BLTouch probe mount selection"
+  },
+  "ezablPoints": {
+    "mapsFrom": ["EZABL_POINTS"],
+    "type": "integer",
+    "required": false,
+    "default": 5,
+    "examples": [3, 5, 7, 9, 11],
+    "th3dNotes": "Grid points (odd). Total points = N x N",
+    "validation": {
+      "min": 3,
+      "max": 15,
+      "mustBeOdd": true
     }
   },
+  "ezablProbeEdge": {
+    "mapsFrom": ["EZABL_PROBE_EDGE"],
+    "type": "integer",
+    "required": false,
+    "default": 15,
+    "examples": [10, 15, 30],
+    "th3dNotes": "Distance from bed edge to probe. Use 30 for binder clips."
+  },
+  "ablType": {
+    "mapsFrom": ["ABL_UBL", "ABL_BILINEAR"],
+    "type": "string",
+    "transform": "normalizeAblType",
+    "required": false,
+    "default": "bilinear",
+    "examples": ["ubl", "bilinear"],
+    "th3dNotes": "Leveling type: UBL (advanced mesh) or Bilinear (simple grid)"
+  },
+  "ezablFastProbe": {
+    "mapsFrom": ["EZABL_FASTPROBE"],
+    "type": "boolean",
+    "required": false,
+    "th3dNotes": "Fast probing at 8mm/s"
+  },
+  "onServoHeader": {
+    "mapsFrom": ["EZABL_ON_SERVO_HEADER"],
+    "type": "boolean",
+    "required": false,
+    "conditionalOn": ["EZABL"],
+    "th3dNotes": "Use servo header (PC14/GND) if Z-stop filter interferes"
+  },
+  "bltouchOn5Pin": {
+    "mapsFrom": ["BLTOUCH_ON_5PIN"],
+    "type": "boolean",
+    "required": false,
+    "conditionalOn": ["BLTOUCH"],
+    "th3dNotes": "Use 5-pin header for BLTouch connections"
+  }
+},
 
   "customProbe": {
     "offset": {
@@ -584,20 +575,25 @@
         "th3dNotes": "New Ender 5 leadscrew - 800 steps/mm Z instead of 400"
       },
       "plus": {
-        "ezabl": {
-          "mapsFrom": ["ENDER5_PLUS_EZABL"],
-          "type": "boolean",
-          "required": false,
-          "th3dNotes": "Override stock BLTouch with EZABL on Ender 5 Plus"
-        },
-        "noAbl": {
-          "mapsFrom": ["ENDER5_PLUS_NOABL"],
-          "type": "boolean",
-          "required": false,
-          "th3dNotes": "Disable ABL entirely on Ender 5 Plus"
+        "bedLevelingPolicy": {
+          "e5pEzabl": {
+            "mapsFrom": ["ENDER5_PLUS_EZABL"],
+            "type": "boolean",
+            "required": false
+          },
+          "e5pNoAbl": {
+            "mapsFrom": ["ENDER5_PLUS_NOABL"],
+            "type": "boolean",
+            "required": false
+          },
+          "conflictRule": {
+            "type": "string",
+            "value": "bedLevelingPolicy.ender5.plus.e5pEzabl xor bedLevelingPolicy.ender5.plus.e5pNoAbl",
+            "message": "Ender-5 Plus: choose exactly one of ENDER5_PLUS_EZABL or ENDER5_PLUS_NOABL."
+          }
         }
-      }
-    },
+      }    
+   },
     "ender3": {
       "12864LcdKit": {
         "mapsFrom": ["ENDER3_12864_LCD_KIT"],
