@@ -1,0 +1,1072 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.x",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "firmware-helper\\example-ender5plus-config.h",
+  "totalDefines": 949,
+  "endstops_1": {
+    "deltaHomeToSafeZone": {
+      "mapsFrom": [
+        "DELTA_HOME_TO_SAFE_ZONE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 906,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "notes": "After homing move down to a height where XY movement is unconstrained",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ]
+    },
+    "deltaEndstopAdj": {
+      "mapsFrom": [
+        "DELTA_ENDSTOP_ADJ"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 938,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "examples": [
+        "{ 0.0, 0.0, 0.0 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ],
+      "unit": "mm",
+      "notes": "Get these values from G33 auto calibrate. Get these values from G33 auto calibrate"
+    },
+    "xminPlug": {
+      "mapsFrom": [
+        "USE_XMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1044,
+      "notes": "=========================================================================== ============================== Endstop Settings =========================== =========================================================================== @section endstops Specify here all the endstop connectors that are connected to any endstop or probe. Almost all printers will be using one per axis. Probes will use one or more of the extra connectors. Leave undefined any used for non-endstop and non-probe purposes.",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "xmaxPlug": {
+      "mapsFrom": [
+        "USE_XMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1053,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "endstoppullups": {
+      "mapsFrom": [
+        "ENDSTOPPULLUPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1064,
+      "notes": "Enable pullup for all endstops to prevent a floating state",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "endstoppullupXmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_XMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1067,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "notes": "Disable ENDSTOPPULLUPS to set pullups individually",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupYmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_YMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1068,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupZmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_ZMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1069,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupImin": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_IMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1070,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupJmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_JMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1071,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupKmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_KMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1072,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupUmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_UMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1073,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupVmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_VMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1074,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupWmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_WMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1075,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupXmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_XMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1076,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupYmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_YMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1077,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupZmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_ZMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1078,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupImax": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_IMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1079,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupJmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_JMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1080,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupKmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_KMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1081,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupUmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_UMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1082,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupVmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_VMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1083,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupWmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_WMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1084,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppullupZminProbe": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_ZMIN_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1085,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLUPS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLUPS)"
+      ]
+    },
+    "endstoppulldowns": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1089,
+      "notes": "Enable pulldown for all endstops to prevent a floating state",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "endstoppulldownXmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_XMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1092,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "notes": "Disable ENDSTOPPULLDOWNS to set pulldowns individually",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownYmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_YMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1093,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownZmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_ZMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1094,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownImin": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_IMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1095,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownJmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_JMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1096,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    }
+  },
+  "endstops_2": {
+    "endstoppulldownKmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_KMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1097,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownUmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_UMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1098,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownVmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_VMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1099,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownWmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_WMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1100,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownXmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_XMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1101,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownYmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_YMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1102,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownZmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_ZMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1103,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownImax": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_IMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1104,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownJmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_JMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1105,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownKmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_KMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1106,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownUmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_UMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1107,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownVmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_VMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1108,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownWmax": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_WMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1109,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "endstoppulldownZminProbe": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWN_ZMIN_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1110,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(ENDSTOPPULLDOWNS)"
+      ]
+    },
+    "xMinEndstopInverting": {
+      "mapsFrom": [
+        "X_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1114,
+      "examples": [
+        "false"
+      ],
+      "notes": "Mechanical endstop with COM to ground and NC to Signal uses \"false\" here (most common setup).",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "yMinEndstopInverting": {
+      "mapsFrom": [
+        "Y_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1115,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zMinEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1116,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "iMinEndstopInverting": {
+      "mapsFrom": [
+        "I_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1117,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "jMinEndstopInverting": {
+      "mapsFrom": [
+        "J_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1118,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "kMinEndstopInverting": {
+      "mapsFrom": [
+        "K_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1119,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "uMinEndstopInverting": {
+      "mapsFrom": [
+        "U_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1120,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "vMinEndstopInverting": {
+      "mapsFrom": [
+        "V_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1121,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "wMinEndstopInverting": {
+      "mapsFrom": [
+        "W_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1122,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "xMaxEndstopInverting": {
+      "mapsFrom": [
+        "X_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1123,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "yMaxEndstopInverting": {
+      "mapsFrom": [
+        "Y_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1124,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zMaxEndstopInverting": {
+      "mapsFrom": [
+        "Z_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1125,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "iMaxEndstopInverting": {
+      "mapsFrom": [
+        "I_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1126,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "jMaxEndstopInverting": {
+      "mapsFrom": [
+        "J_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1127,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "kMaxEndstopInverting": {
+      "mapsFrom": [
+        "K_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1128,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "uMaxEndstopInverting": {
+      "mapsFrom": [
+        "U_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1129,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    }
+  }
+}

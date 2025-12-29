@@ -23,7 +23,13 @@
       "examples": ["3D Printer", "My Printer"],
       "validation": {
         "maxLength": 50
-      }
+      },
+      "uiId": "profileName",
+      "uiTab": 1,
+      "uiSection": "Basic Information",
+      "uiOrder": 1,
+      "uiWidget": "text",
+      "helpText": "Friendly name for this printer profile"
     },
     
     "machineUUID": {
@@ -40,7 +46,15 @@
       "required": true,
       "fileLocation": "Configuration.h",
       "examples": ["BOARD_RAMPS_14_EFB", "BOARD_BTT_SKR_V1_4"],
-      "notes": "Board type from boards.h"
+      "notes": "Board type from boards.h",
+      "uiId": "hardwareBoard",
+      "uiTab": 1,
+      "uiSection": "Hardware",
+      "uiOrder": 10,
+      "uiWidget": "database-select",
+      "uiDatabase": "marlin-boards-V2",
+      "uiDisplayFormat": "{name} ({mcu})",
+      "helpText": "Select your motherboard or choose Custom"
     },
     
     "serialPort": {
@@ -63,7 +77,13 @@
       "examples": [250000, 115200],
       "validation": {
         "enum": [2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
-      }
+      },
+      "uiId": "baudRate",
+      "uiTab": 1,
+      "uiSection": "Communication",
+      "uiOrder": 20,
+      "uiWidget": "select",
+      "helpText": "Serial communication speed (115200 or 250000 typical)"
     },
     
     "serialPort2": {
@@ -91,7 +111,13 @@
       "validation": {
         "min": 0,
         "max": 8
-      }
+      },
+      "uiId": "extruderCount",
+      "uiTab": 1,
+      "uiSection": "Hardware",
+      "uiOrder": 11,
+      "uiWidget": "number",
+      "helpText": "Number of extruders (1-8, typically 1 or 2)"
     },
     
     "defaultFilamentDia": {
@@ -105,12 +131,70 @@
   },
   
   "hardware": {
+    "board": {
+      "mapsFrom": ["MOTHERBOARD"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["BOARD_RAMPS_14_EFB", "BOARD_BTT_SKR_V1_4"],
+      "notes": "Motherboard/controller board",
+      "uiId": "hardwareBoard2",
+      "uiTab": 2,
+      "uiSection": "Hardware Configuration",
+      "uiOrder": 1,
+      "uiWidget": "database-select",
+      "uiDatabase": "marlin-boards-V2",
+      "uiDisplayFormat": "{name} ({mcu})",
+      "helpText": "Motherboard/controller board (allows custom entry)"
+    },
+    
+    "display": {
+      "mapsFrom": ["DISPLAY_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["REPRAP_DISCOUNT_SMART_CONTROLLER", "CR10_STOCKDISPLAY"],
+      "notes": "LCD/Display type",
+      "uiId": "displayType",
+      "uiTab": 2,
+      "uiSection": "Display",
+      "uiOrder": 10,
+      "uiWidget": "database-select",
+      "uiDatabase": "displays",
+      "uiDisplayFormat": "{name}",
+      "helpText": "LCD display type (allows custom entry)"
+    },
+    
     "driverX": {
       "mapsFrom": ["X_DRIVER_TYPE"],
       "type": "string",
       "required": true,
       "fileLocation": "Configuration.h",
-      "examples": ["A4988", "TMC2209", "TMC2130"]
+      "examples": ["A4988", "TMC2209", "TMC2130"],
+      "uiId": "driverX",
+      "uiTab": 1,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 30,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "X-axis stepper driver type"
+    },
+    
+    "driverX2": {
+      "mapsFrom": ["X_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209", "TMC2130"],
+      "uiId": "driverX2",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 20,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "X-axis stepper driver (allows custom entry)"
     },
     
     "driverY": {
@@ -118,7 +202,31 @@
       "type": "string",
       "required": true,
       "fileLocation": "Configuration.h",
-      "examples": ["A4988", "TMC2209"]
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverY",
+      "uiTab": 1,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 31,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Y-axis stepper driver type"
+    },
+    
+    "driverY2": {
+      "mapsFrom": ["Y_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverY2",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 21,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Y-axis stepper driver (allows custom entry)"
     },
     
     "driverZ": {
@@ -126,7 +234,31 @@
       "type": "string",
       "required": true,
       "fileLocation": "Configuration.h",
-      "examples": ["A4988", "TMC2209"]
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverZ",
+      "uiTab": 1,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 32,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Z-axis stepper driver type"
+    },
+    
+    "driverZ2": {
+      "mapsFrom": ["Z_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverZ2",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 22,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Z-axis stepper driver (allows custom entry)"
     },
     
     "driverE0": {
@@ -134,7 +266,31 @@
       "type": "string",
       "required": true,
       "fileLocation": "Configuration.h",
-      "examples": ["A4988", "TMC2209"]
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverE0",
+      "uiTab": 1,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 33,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Extruder stepper driver type"
+    },
+    
+    "driverE02": {
+      "mapsFrom": ["E0_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverE2",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 23,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Extruder stepper driver (allows custom entry)"
     },
     
     "thermistorHotend": {
@@ -143,7 +299,15 @@
       "required": true,
       "fileLocation": "Configuration.h",
       "examples": [1, 5, 11],
-      "notes": "Hotend thermistor type"
+      "notes": "Hotend thermistor type",
+      "uiId": "thermistorHotend",
+      "uiTab": 1,
+      "uiSection": "Temperature Sensors",
+      "uiOrder": 40,
+      "uiWidget": "database-select",
+      "uiDatabase": "thermistors-V2",
+      "uiDisplayFormat": "{id}: {name}",
+      "helpText": "Hotend thermistor/thermocouple type"
     },
     
     "thermistorBed": {
@@ -152,11 +316,36 @@
       "required": true,
       "fileLocation": "Configuration.h",
       "examples": [0, 1, 3],
-      "notes": "Bed thermistor type, 0 = disabled"
+      "notes": "Bed thermistor type, 0 = disabled",
+      "uiId": "thermistorBed",
+      "uiTab": 1,
+      "uiSection": "Temperature Sensors",
+      "uiOrder": 41,
+      "uiWidget": "database-select",
+      "uiDatabase": "thermistors-V2",
+      "uiDisplayFormat": "{id}: {name}",
+      "helpText": "Bed thermistor type (0 = disabled)"
     }
   },
   
   "temperature": {
+    "hotendType": {
+      "mapsFrom": ["HOTEND_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["E3D V6", "Micro Swiss", "Dragon"],
+      "notes": "Hotend model/type",
+      "uiId": "hotendType",
+      "uiTab": 3,
+      "uiSection": "Hotend Configuration",
+      "uiOrder": 1,
+      "uiWidget": "database-select",
+      "uiDatabase": "Hotends",
+      "uiDisplayFormat": "{name}",
+      "helpText": "Select hotend type (allows custom entry)"
+    },
+    
     "hotendMinTemp": {
       "mapsFrom": ["HEATER_0_MINTEMP"],
       "type": "integer",
@@ -178,7 +367,76 @@
       "validation": {
         "min": 200,
         "max": 500
-      }
+      },
+      "uiId": "hotendMaxTemp",
+      "uiTab": 3,
+      "uiSection": "Hotend Configuration",
+      "uiOrder": 2,
+      "uiWidget": "number",
+      "helpText": "Maximum hotend temperature in °C (200-500)"
+    },
+    
+    "hotendHeater": {
+      "mapsFrom": ["HOTEND_HEATER_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["24V 40W", "12V 40W"],
+      "notes": "Heater cartridge type",
+      "uiId": "hotendHeater",
+      "uiTab": 3,
+      "uiSection": "Hotend Configuration",
+      "uiOrder": 3,
+      "uiWidget": "database-select",
+      "uiDatabase": "heaters",
+      "uiDisplayFormat": "{name}",
+      "helpText": "Heater cartridge type/voltage"
+    },
+    
+    "highFlowHotend": {
+      "mapsFrom": ["HIGH_FLOW_HOTEND"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "notes": "High flow hotend flag",
+      "uiId": "highFlowHotend",
+      "uiTab": 3,
+      "uiSection": "Hotend Configuration",
+      "uiOrder": 4,
+      "uiWidget": "checkbox",
+      "helpText": "Enable for high-flow hotends (CHT, Dragon HF, etc.)"
+    },
+    
+    "thermistorHotend3": {
+      "mapsFrom": ["TEMP_SENSOR_0"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [1, 5, 11],
+      "notes": "Hotend thermistor type (Tab 3)",
+      "uiId": "thermistorHotend3",
+      "uiTab": 3,
+      "uiSection": "Temperature Sensing",
+      "uiOrder": 10,
+      "uiWidget": "database-select",
+      "uiDatabase": "thermistors-V2",
+      "uiDisplayFormat": "{id}: {name}",
+      "helpText": "Hotend thermistor/thermocouple type (allows custom)"
+    },
+    
+    "bedType": {
+      "mapsFrom": ["BED_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["standard", "magnetic", "pei", "glass"],
+      "notes": "Bed surface type",
+      "uiId": "bedType",
+      "uiTab": 4,
+      "uiSection": "Bed Configuration",
+      "uiOrder": 1,
+      "uiWidget": "select",
+      "helpText": "Bed surface type (standard/magnetic/PEI/glass)"
     },
     
     "bedMinTemp": {
@@ -194,7 +452,30 @@
       "type": "integer",
       "required": true,
       "fileLocation": "Configuration.h",
-      "examples": [150, 130]
+      "examples": [150, 130],
+      "uiId": "bedMaxTemp",
+      "uiTab": 4,
+      "uiSection": "Bed Configuration",
+      "uiOrder": 2,
+      "uiWidget": "number",
+      "helpText": "Maximum bed temperature in °C"
+    },
+    
+    "thermistorBed4": {
+      "mapsFrom": ["TEMP_SENSOR_BED"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [0, 1, 3],
+      "notes": "Bed thermistor type (Tab 4)",
+      "uiId": "thermistorBed4",
+      "uiTab": 4,
+      "uiSection": "Temperature Sensing",
+      "uiOrder": 10,
+      "uiWidget": "database-select",
+      "uiDatabase": "thermistors-V2",
+      "uiDisplayFormat": "{id}: {name}",
+      "helpText": "Bed thermistor type (0 = disabled, allows custom)"
     },
     
     "pidTemp": {
@@ -211,7 +492,13 @@
       "required": false,
       "conditionalOn": ["PIDTEMP"],
       "fileLocation": "Configuration.h",
-      "examples": [22.20]
+      "examples": [22.20],
+      "uiId": "pidKp",
+      "uiTab": 3,
+      "uiSection": "PID Tuning",
+      "uiOrder": 20,
+      "uiWidget": "number",
+      "helpText": "PID Proportional value (P)"
     },
     
     "pidKi": {
@@ -220,7 +507,13 @@
       "required": false,
       "conditionalOn": ["PIDTEMP"],
       "fileLocation": "Configuration.h",
-      "examples": [1.08]
+      "examples": [1.08],
+      "uiId": "pidKi",
+      "uiTab": 3,
+      "uiSection": "PID Tuning",
+      "uiOrder": 21,
+      "uiWidget": "number",
+      "helpText": "PID Integral value (I)"
     },
     
     "pidKd": {
@@ -229,7 +522,13 @@
       "required": false,
       "conditionalOn": ["PIDTEMP"],
       "fileLocation": "Configuration.h",
-      "examples": [114.00]
+      "examples": [114.00],
+      "uiId": "pidKd",
+      "uiTab": 3,
+      "uiSection": "PID Tuning",
+      "uiOrder": 22,
+      "uiWidget": "number",
+      "helpText": "PID Derivative value (D)"
     },
     
     "pidTempBed": {
@@ -246,7 +545,13 @@
       "required": false,
       "conditionalOn": ["PIDTEMPBED"],
       "fileLocation": "Configuration.h",
-      "examples": [10.00]
+      "examples": [10.00],
+      "uiId": "pidBedKp",
+      "uiTab": 4,
+      "uiSection": "Bed PID Tuning",
+      "uiOrder": 20,
+      "uiWidget": "number",
+      "helpText": "Bed PID Proportional value (P)"
     },
     
     "pidBedKi": {
@@ -255,7 +560,13 @@
       "required": false,
       "conditionalOn": ["PIDTEMPBED"],
       "fileLocation": "Configuration.h",
-      "examples": [0.023]
+      "examples": [0.023],
+      "uiId": "pidBedKi",
+      "uiTab": 4,
+      "uiSection": "Bed PID Tuning",
+      "uiOrder": 21,
+      "uiWidget": "number",
+      "helpText": "Bed PID Integral value (I)"
     },
     
     "pidBedKd": {
@@ -264,7 +575,13 @@
       "required": false,
       "conditionalOn": ["PIDTEMPBED"],
       "fileLocation": "Configuration.h",
-      "examples": [305.4]
+      "examples": [305.4],
+      "uiId": "pidBedKd",
+      "uiTab": 4,
+      "uiSection": "Bed PID Tuning",
+      "uiOrder": 22,
+      "uiWidget": "number",
+      "helpText": "Bed PID Derivative value (D)"
     },
     
     "extrudeMinTemp": {
@@ -335,7 +652,13 @@
       "validation": {
         "min": 50,
         "max": 1000
-      }
+      },
+      "uiId": "bedSizeX",
+      "uiTab": 4,
+      "uiSection": "Bed Dimensions",
+      "uiOrder": 30,
+      "uiWidget": "number",
+      "helpText": "Bed width (X axis) in mm"
     },
     
     "bedSizeY": {
@@ -343,7 +666,28 @@
       "type": "integer",
       "required": true,
       "fileLocation": "Configuration.h",
-      "examples": [200, 220, 235]
+      "examples": [200, 220, 235],
+      "uiId": "bedSizeY",
+      "uiTab": 4,
+      "uiSection": "Bed Dimensions",
+      "uiOrder": 31,
+      "uiWidget": "number",
+      "helpText": "Bed depth (Y axis) in mm"
+    },
+    
+    "bedSizeZ": {
+      "mapsFrom": ["Z_MAX_POS"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [200, 250, 300],
+      "notes": "Build height (Z axis)",
+      "uiId": "bedSizeZ",
+      "uiTab": 4,
+      "uiSection": "Bed Dimensions",
+      "uiOrder": 32,
+      "uiWidget": "number",
+      "helpText": "Build height (Z axis) in mm"
     },
     
     "xMinPos": {
@@ -397,6 +741,21 @@
   },
   
   "motion": {
+    "extruderType": {
+      "mapsFrom": ["EXTRUDER_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["direct", "bowden"],
+      "notes": "Extruder mounting type",
+      "uiId": "extruderType",
+      "uiTab": 3,
+      "uiSection": "Extruder Configuration",
+      "uiOrder": 30,
+      "uiWidget": "select",
+      "helpText": "Select Direct Drive or Bowden"
+    },
+    
     "stepsPerMM": {
       "mapsFrom": ["DEFAULT_AXIS_STEPS_PER_UNIT"],
       "type": "array",
@@ -405,6 +764,21 @@
       "fileLocation": "Configuration.h",
       "examples": [[80, 80, 400, 500], [80, 80, 400, 93]],
       "notes": "Steps per mm for X, Y, Z, E axes"
+    },
+    
+    "stepsPerMME": {
+      "mapsFrom": ["DEFAULT_AXIS_STEPS_PER_UNIT"],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [93, 415, 500],
+      "notes": "E-axis steps/mm (Tab 3)",
+      "uiId": "stepsPerMME",
+      "uiTab": 3,
+      "uiSection": "Extruder Motion",
+      "uiOrder": 40,
+      "uiWidget": "number",
+      "helpText": "E-axis steps per mm (E-steps)"
     },
     
     "maxFeedrate": {
@@ -417,6 +791,21 @@
       "notes": "Maximum feedrate in mm/s"
     },
     
+    "maxFeedrateE": {
+      "mapsFrom": ["DEFAULT_MAX_FEEDRATE"],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [25, 50],
+      "notes": "E-axis max feedrate (Tab 3)",
+      "uiId": "maxFeedrateE",
+      "uiTab": 3,
+      "uiSection": "Extruder Motion",
+      "uiOrder": 41,
+      "uiWidget": "number",
+      "helpText": "E-axis maximum feedrate in mm/s"
+    },
+    
     "maxAcceleration": {
       "mapsFrom": ["DEFAULT_MAX_ACCELERATION"],
       "type": "array",
@@ -425,6 +814,21 @@
       "fileLocation": "Configuration.h",
       "examples": [[3000, 3000, 100, 10000]],
       "notes": "Maximum acceleration in mm/s²"
+    },
+    
+    "maxAccelerationE": {
+      "mapsFrom": ["DEFAULT_MAX_ACCELERATION"],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [10000, 5000],
+      "notes": "E-axis max acceleration (Tab 3)",
+      "uiId": "maxAccelerationE",
+      "uiTab": 3,
+      "uiSection": "Extruder Motion",
+      "uiOrder": 42,
+      "uiWidget": "number",
+      "helpText": "E-axis maximum acceleration in mm/s²"
     },
     
     "acceleration": {
@@ -579,6 +983,23 @@
   },
   
   "probe": {
+    "probeType": {
+      "mapsFrom": ["PROBE_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["none", "bltouch", "inductive", "capacitive"],
+      "notes": "Bed probe type",
+      "uiId": "probeType",
+      "uiTab": 5,
+      "uiSection": "Probe Configuration",
+      "uiOrder": 1,
+      "uiWidget": "database-select",
+      "uiDatabase": "bed-probes",
+      "uiDisplayFormat": "{name}",
+      "helpText": "Bed leveling probe type (allows custom entry)"
+    },
+    
     "zMinProbeUsesZMinPin": {
       "mapsFrom": ["Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN"],
       "type": "boolean",
@@ -616,6 +1037,51 @@
       "fileLocation": "Configuration.h",
       "examples": [[10, 10, 0], [-44, -10, 0]],
       "notes": "Probe offset from nozzle in mm"
+    },
+    
+    "probeOffsetX": {
+      "mapsFrom": ["NOZZLE_TO_PROBE_OFFSET"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [10, -44, 0],
+      "notes": "Probe X offset (Tab 5)",
+      "uiId": "probeOffsetX",
+      "uiTab": 5,
+      "uiSection": "Probe Offsets",
+      "uiOrder": 10,
+      "uiWidget": "number",
+      "helpText": "Probe X offset from nozzle in mm"
+    },
+    
+    "probeOffsetY": {
+      "mapsFrom": ["NOZZLE_TO_PROBE_OFFSET"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [10, -10, 0],
+      "notes": "Probe Y offset (Tab 5)",
+      "uiId": "probeOffsetY",
+      "uiTab": 5,
+      "uiSection": "Probe Offsets",
+      "uiOrder": 11,
+      "uiWidget": "number",
+      "helpText": "Probe Y offset from nozzle in mm"
+    },
+    
+    "probeOffsetZ": {
+      "mapsFrom": ["NOZZLE_TO_PROBE_OFFSET"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [0, -2.5],
+      "notes": "Probe Z offset (Tab 5)",
+      "uiId": "probeOffsetZ",
+      "uiTab": 5,
+      "uiSection": "Probe Offsets",
+      "uiOrder": 12,
+      "uiWidget": "number",
+      "helpText": "Probe Z offset from nozzle in mm"
     },
     
     "xyProbeFeedrate": {

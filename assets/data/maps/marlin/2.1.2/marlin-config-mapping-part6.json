@@ -1,0 +1,772 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "example-ender5plus-config.h",
+  "totalDefines": 447,
+  "motion": {
+    "switchingToolheadPrimeFeedrate": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_PRIME_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 348,
+      "examples": [
+        "300"
+      ]
+    },
+    "switchingToolheadRetractFeedrate": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_RETRACT_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 349,
+      "examples": [
+        "2400"
+      ]
+    },
+    "scaraFeedrateScaling": {
+      "mapsFrom": [
+        "SCARA_FEEDRATE_SCALING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1016,
+      "examples": [
+        "// Convert XY feedrate from mm/s to degrees/s on the fly"
+      ],
+      "notes": "#define DEBUG_SCARA_KINEMATICS"
+    },
+    "axisStepsPerUnit": {
+      "mapsFrom": [
+        "DEFAULT_AXIS_STEPS_PER_UNIT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1182,
+      "examples": [
+        "{ 80, 80, 800, 93.00 }"
+      ],
+      "notes": "E steps example: steps per revolution s=200, microstepping m=16, effective gear diameter d=10.95: sm/(\u03c0d) = 93.02"
+    },
+    "maxFeedrate": {
+      "mapsFrom": [
+        "DEFAULT_MAX_FEEDRATE"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1189,
+      "examples": [
+        "{ 500, 500, 5, 25 }"
+      ]
+    },
+    "maxFeedrateEditValues": {
+      "mapsFrom": [
+        "MAX_FEEDRATE_EDIT_VALUES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1193,
+      "examples": [
+        "{ 600, 600, 10, 50 }"
+      ]
+    },
+    "maxAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_MAX_ACCELERATION"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1202,
+      "examples": [
+        "{ 500, 500, 100, 1000 }"
+      ]
+    },
+    "acceleration": {
+      "mapsFrom": [
+        "DEFAULT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1217,
+      "examples": [
+        "500"
+      ]
+    },
+    "retractAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_RETRACT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1218,
+      "examples": [
+        "500"
+      ]
+    },
+    "travelAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_TRAVEL_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1219,
+      "examples": [
+        "1000"
+      ]
+    },
+    "xjerk": {
+      "mapsFrom": [
+        "DEFAULT_XJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1231,
+      "examples": [
+        "10.0"
+      ]
+    },
+    "yjerk": {
+      "mapsFrom": [
+        "DEFAULT_YJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1232,
+      "examples": [
+        "10.0"
+      ]
+    },
+    "zjerk": {
+      "mapsFrom": [
+        "DEFAULT_ZJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1233,
+      "examples": [
+        "0.3"
+      ]
+    },
+    "maxJerkEditValues": {
+      "mapsFrom": [
+        "MAX_JERK_EDIT_VALUES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1245,
+      "examples": [
+        "{ 20, 20, 0.6, 10 }"
+      ]
+    },
+    "ejerk": {
+      "mapsFrom": [
+        "DEFAULT_EJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1249,
+      "examples": [
+        "5.0"
+      ]
+    },
+    "junctionDeviationMm": {
+      "mapsFrom": [
+        "JUNCTION_DEVIATION_MM"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1259,
+      "examples": [
+        "0.15"
+      ]
+    },
+    "probeDeployFeedrate": {
+      "mapsFrom": [
+        "PROBE_DEPLOY_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1395,
+      "examples": [
+        "(133*60)"
+      ]
+    },
+    "probeStowFeedrate": {
+      "mapsFrom": [
+        "PROBE_STOW_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1396,
+      "examples": [
+        "(133*60)"
+      ]
+    },
+    "zProbeAllenKeyDeploy1Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_1_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1435,
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ]
+    },
+    "zProbeAllenKeyDeploy2Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_2_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1438,
+      "examples": [
+        "(XY_PROBE_FEEDRATE)/10"
+      ]
+    },
+    "zProbeAllenKeyDeploy3Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_3_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1441,
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ]
+    },
+    "zProbeAllenKeyStow1Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_1_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1444,
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ]
+    },
+    "zProbeAllenKeyStow2Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_2_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1447,
+      "examples": [
+        "(XY_PROBE_FEEDRATE)/10"
+      ]
+    },
+    "zProbeAllenKeyStow3Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_3_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1450,
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ]
+    },
+    "zProbeAllenKeyStow4Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_4_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1453,
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ]
+    },
+    "xyProbeFeedrate": {
+      "mapsFrom": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1505,
+      "examples": [
+        "(133*60)"
+      ],
+      "notes": "X and Y axis travel speed (mm/min) between probes"
+    },
+    "zProbeFeedrateFast": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_FAST"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1508,
+      "examples": [
+        "(4*60)"
+      ],
+      "notes": "Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)"
+    },
+    "zProbeFeedrateSlow": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_SLOW"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1511,
+      "examples": [
+        "(Z_PROBE_FEEDRATE_FAST / 2)"
+      ],
+      "notes": "Feedrate (mm/min) for the \"accurate\" probe of each point"
+    },
+    "g26XyFeedrate": {
+      "mapsFrom": [
+        "G26_XY_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1958,
+      "examples": [
+        "20"
+      ]
+    },
+    "g26XyFeedrateTravel": {
+      "mapsFrom": [
+        "G26_XY_FEEDRATE_TRAVEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1959,
+      "examples": [
+        "100"
+      ]
+    },
+    "homingFeedrateMmM": {
+      "mapsFrom": [
+        "HOMING_FEEDRATE_MM_M"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2113,
+      "examples": [
+        "{ (50*60), (50*60), (4*60) }"
+      ],
+      "notes": "Homing speeds (linear=mm/min, rotational=\u00b0/min)"
+    },
+    "nozzleParkXyFeedrate": {
+      "mapsFrom": [
+        "NOZZLE_PARK_XY_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2261,
+      "examples": [
+        "100"
+      ]
+    },
+    "nozzleParkZFeedrate": {
+      "mapsFrom": [
+        "NOZZLE_PARK_Z_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2262,
+      "examples": [
+        "5"
+      ]
+    }
+  },
+  "temperature_1": {
+    "tempResidencyTime": {
+      "mapsFrom": [
+        "TEMP_RESIDENCY_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 578,
+      "examples": [
+        "10"
+      ]
+    },
+    "tempWindow": {
+      "mapsFrom": [
+        "TEMP_WINDOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 579,
+      "examples": [
+        "1"
+      ]
+    },
+    "tempHysteresis": {
+      "mapsFrom": [
+        "TEMP_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 580,
+      "examples": [
+        "3"
+      ]
+    },
+    "tempBedResidencyTime": {
+      "mapsFrom": [
+        "TEMP_BED_RESIDENCY_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 584,
+      "examples": [
+        "10"
+      ]
+    },
+    "tempBedWindow": {
+      "mapsFrom": [
+        "TEMP_BED_WINDOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 585,
+      "examples": [
+        "1"
+      ]
+    },
+    "tempBedHysteresis": {
+      "mapsFrom": [
+        "TEMP_BED_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 586,
+      "examples": [
+        "3"
+      ]
+    },
+    "tempChamberResidencyTime": {
+      "mapsFrom": [
+        "TEMP_CHAMBER_RESIDENCY_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 590,
+      "examples": [
+        "10"
+      ]
+    },
+    "tempChamberWindow": {
+      "mapsFrom": [
+        "TEMP_CHAMBER_WINDOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 591,
+      "examples": [
+        "1"
+      ]
+    },
+    "tempChamberHysteresis": {
+      "mapsFrom": [
+        "TEMP_CHAMBER_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 592,
+      "examples": [
+        "3"
+      ]
+    },
+    "bedMintemp": {
+      "mapsFrom": [
+        "BED_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 621,
+      "examples": [
+        "5"
+      ]
+    },
+    "chamberMintemp": {
+      "mapsFrom": [
+        "CHAMBER_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 622,
+      "examples": [
+        "5"
+      ]
+    },
+    "bedMaxtemp": {
+      "mapsFrom": [
+        "BED_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 635,
+      "examples": [
+        "125"
+      ]
+    },
+    "chamberMaxtemp": {
+      "mapsFrom": [
+        "CHAMBER_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 636,
+      "examples": [
+        "60"
+      ]
+    },
+    "bedOvershoot": {
+      "mapsFrom": [
+        "BED_OVERSHOOT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 645,
+      "examples": [
+        "10"
+      ]
+    },
+    "pidtemp": {
+      "mapsFrom": [
+        "PIDTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 656,
+      "examples": [
+        "// See the PID Tuning Guide at https:"
+      ],
+      "notes": "=========================================================================== ============================= PID Settings ================================ =========================================================================== @section hotend temp Enable PIDTEMP for PID control or MPCTEMP for Predictive Model. temperature control. Disable both for bang-bang heating."
+    },
+    "pidMax": {
+      "mapsFrom": [
+        "PID_MAX"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 660,
+      "examples": [
+        "BANG_MAX"
+      ]
+    },
+    "pidK1": {
+      "mapsFrom": [
+        "PID_K1"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 661,
+      "examples": [
+        "0.95"
+      ]
+    },
+    "pidtempbed": {
+      "mapsFrom": [
+        "PIDTEMPBED"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 743
+    },
+    "maxBedPower": {
+      "mapsFrom": [
+        "MAX_BED_POWER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 753,
+      "examples": [
+        "255"
+      ]
+    },
+    "pidFunctionalRange": {
+      "mapsFrom": [
+        "PID_FUNCTIONAL_RANGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 819,
+      "examples": [
+        "10"
+      ],
+      "notes": "#define PID_OPENLOOP          // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX #define SLOW_PWM_HEATERS      // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay"
+    },
+    "extrudeMintemp": {
+      "mapsFrom": [
+        "EXTRUDE_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 836,
+      "examples": [
+        "170"
+      ]
+    },
+    "thermalProtectionHotends": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_HOTENDS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 862,
+      "examples": [
+        "// Enable thermal protection for all extruders"
+      ]
+    },
+    "thermalProtectionBed": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_BED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 863,
+      "examples": [
+        "// Enable thermal protection for the heated bed"
+      ]
+    },
+    "thermalProtectionChamber": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_CHAMBER"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 864,
+      "examples": [
+        "// Enable thermal protection for the heated chamber"
+      ]
+    },
+    "thermalProtectionCooler": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_COOLER"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 865,
+      "examples": [
+        "// Enable thermal protection for the laser cooling"
+      ]
+    },
+    "probingNozzleTemp": {
+      "mapsFrom": [
+        "PROBING_NOZZLE_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1615,
+      "examples": [
+        "120"
+      ]
+    },
+    "probingBedTemp": {
+      "mapsFrom": [
+        "PROBING_BED_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1616,
+      "examples": [
+        "50"
+      ]
+    },
+    "xBedSize": {
+      "mapsFrom": [
+        "X_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1709,
+      "examples": [
+        "360"
+      ],
+      "notes": "#define I_HOME_DIR -1 #define J_HOME_DIR -1 #define K_HOME_DIR -1 #define U_HOME_DIR -1 #define V_HOME_DIR -1 #define W_HOME_DIR -1 @section geometry The size of the printable area"
+    },
+    "yBedSize": {
+      "mapsFrom": [
+        "Y_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1710,
+      "examples": [
+        "360"
+      ]
+    },
+    "autoBedLevelingBilinear": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1888,
+      "notes": "#define AUTO_BED_LEVELING_3POINT #define AUTO_BED_LEVELING_LINEAR"
+    }
+  }
+}

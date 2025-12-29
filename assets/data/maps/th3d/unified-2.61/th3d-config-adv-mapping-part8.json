@@ -1,0 +1,697 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "unified-2.61",
+  "firmware": "th3d",
+  "configFile": "Configuration.h",
+  "generatedFrom": "example-th3d-ender5plus-config_adv.h",
+  "totalDefines": 792,
+  "other_15": {
+    "ySlaveAddress": {
+      "mapsFrom": [
+        "Y_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3364,
+      "examples": [
+        "0"
+      ]
+    },
+    "zSlaveAddress": {
+      "mapsFrom": [
+        "Z_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3365,
+      "examples": [
+        "0"
+      ]
+    },
+    "x2SlaveAddress": {
+      "mapsFrom": [
+        "X2_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3366,
+      "examples": [
+        "0"
+      ]
+    },
+    "y2SlaveAddress": {
+      "mapsFrom": [
+        "Y2_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3367,
+      "examples": [
+        "0"
+      ]
+    },
+    "z2SlaveAddress": {
+      "mapsFrom": [
+        "Z2_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3368,
+      "examples": [
+        "0"
+      ]
+    },
+    "z3SlaveAddress": {
+      "mapsFrom": [
+        "Z3_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3369,
+      "examples": [
+        "0"
+      ]
+    },
+    "z4SlaveAddress": {
+      "mapsFrom": [
+        "Z4_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3370,
+      "examples": [
+        "0"
+      ]
+    },
+    "iSlaveAddress": {
+      "mapsFrom": [
+        "I_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3371,
+      "examples": [
+        "0"
+      ]
+    },
+    "jSlaveAddress": {
+      "mapsFrom": [
+        "J_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3372,
+      "examples": [
+        "0"
+      ]
+    },
+    "kSlaveAddress": {
+      "mapsFrom": [
+        "K_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3373,
+      "examples": [
+        "0"
+      ]
+    },
+    "uSlaveAddress": {
+      "mapsFrom": [
+        "U_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3374,
+      "examples": [
+        "0"
+      ]
+    },
+    "vSlaveAddress": {
+      "mapsFrom": [
+        "V_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3375,
+      "examples": [
+        "0"
+      ]
+    },
+    "wSlaveAddress": {
+      "mapsFrom": [
+        "W_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3376,
+      "examples": [
+        "0"
+      ]
+    },
+    "e0SlaveAddress": {
+      "mapsFrom": [
+        "E0_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3377,
+      "examples": [
+        "0"
+      ]
+    },
+    "e1SlaveAddress": {
+      "mapsFrom": [
+        "E1_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3378,
+      "examples": [
+        "0"
+      ]
+    },
+    "e2SlaveAddress": {
+      "mapsFrom": [
+        "E2_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3379,
+      "examples": [
+        "0"
+      ]
+    },
+    "e3SlaveAddress": {
+      "mapsFrom": [
+        "E3_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3380,
+      "examples": [
+        "0"
+      ]
+    },
+    "e4SlaveAddress": {
+      "mapsFrom": [
+        "E4_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3381,
+      "examples": [
+        "0"
+      ]
+    },
+    "e5SlaveAddress": {
+      "mapsFrom": [
+        "E5_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3382,
+      "examples": [
+        "0"
+      ]
+    },
+    "e6SlaveAddress": {
+      "mapsFrom": [
+        "E6_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3383,
+      "examples": [
+        "0"
+      ]
+    },
+    "e7SlaveAddress": {
+      "mapsFrom": [
+        "E7_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3384,
+      "examples": [
+        "0"
+      ]
+    },
+    "stealthchopXy": {
+      "mapsFrom": [
+        "STEALTHCHOP_XY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3406
+    },
+    "stealthchopZ": {
+      "mapsFrom": [
+        "STEALTHCHOP_Z"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3410
+    },
+    "stealthchopI": {
+      "mapsFrom": [
+        "STEALTHCHOP_I"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3413
+    },
+    "stealthchopJ": {
+      "mapsFrom": [
+        "STEALTHCHOP_J"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3414
+    },
+    "stealthchopK": {
+      "mapsFrom": [
+        "STEALTHCHOP_K"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3415
+    },
+    "stealthchopU": {
+      "mapsFrom": [
+        "STEALTHCHOP_U"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3416
+    },
+    "stealthchopV": {
+      "mapsFrom": [
+        "STEALTHCHOP_V"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3417
+    },
+    "stealthchopW": {
+      "mapsFrom": [
+        "STEALTHCHOP_W"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3418
+    },
+    "stealthchopE": {
+      "mapsFrom": [
+        "STEALTHCHOP_E"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3421
+    }
+  },
+  "other_16": {
+    "chopperTiming": {
+      "mapsFrom": [
+        "CHOPPER_TIMING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3443,
+      "examples": [
+        "CHOPPER_DEFAULT_24V"
+      ]
+    },
+    "monitorDriverStatus": {
+      "mapsFrom": [
+        "MONITOR_DRIVER_STATUS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3481
+    },
+    "currentStepDown": {
+      "mapsFrom": [
+        "CURRENT_STEP_DOWN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3484,
+      "examples": [
+        "50"
+      ]
+    },
+    "reportCurrentChange": {
+      "mapsFrom": [
+        "REPORT_CURRENT_CHANGE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3485
+    },
+    "stopOnError": {
+      "mapsFrom": [
+        "STOP_ON_ERROR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3486
+    },
+    "xHybridThreshold": {
+      "mapsFrom": [
+        "X_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3500,
+      "examples": [
+        "100"
+      ],
+      "notes": "#define HYBRID_THRESHOLD"
+    },
+    "x2HybridThreshold": {
+      "mapsFrom": [
+        "X2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3501,
+      "examples": [
+        "100"
+      ]
+    },
+    "yHybridThreshold": {
+      "mapsFrom": [
+        "Y_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3502,
+      "examples": [
+        "100"
+      ]
+    },
+    "y2HybridThreshold": {
+      "mapsFrom": [
+        "Y2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3503,
+      "examples": [
+        "100"
+      ]
+    },
+    "zHybridThreshold": {
+      "mapsFrom": [
+        "Z_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3504,
+      "examples": [
+        "3"
+      ]
+    },
+    "z2HybridThreshold": {
+      "mapsFrom": [
+        "Z2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3505,
+      "examples": [
+        "3"
+      ]
+    },
+    "z3HybridThreshold": {
+      "mapsFrom": [
+        "Z3_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3506,
+      "examples": [
+        "3"
+      ]
+    },
+    "z4HybridThreshold": {
+      "mapsFrom": [
+        "Z4_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3507,
+      "examples": [
+        "3"
+      ]
+    },
+    "iHybridThreshold": {
+      "mapsFrom": [
+        "I_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3508,
+      "examples": [
+        "3"
+      ]
+    },
+    "jHybridThreshold": {
+      "mapsFrom": [
+        "J_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3509,
+      "examples": [
+        "3"
+      ]
+    },
+    "kHybridThreshold": {
+      "mapsFrom": [
+        "K_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3510,
+      "examples": [
+        "3"
+      ]
+    },
+    "uHybridThreshold": {
+      "mapsFrom": [
+        "U_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3511,
+      "examples": [
+        "3"
+      ]
+    },
+    "vHybridThreshold": {
+      "mapsFrom": [
+        "V_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3512,
+      "examples": [
+        "3"
+      ]
+    },
+    "wHybridThreshold": {
+      "mapsFrom": [
+        "W_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3513,
+      "examples": [
+        "3"
+      ]
+    },
+    "e0HybridThreshold": {
+      "mapsFrom": [
+        "E0_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3514,
+      "examples": [
+        "30"
+      ]
+    },
+    "e1HybridThreshold": {
+      "mapsFrom": [
+        "E1_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3515,
+      "examples": [
+        "30"
+      ]
+    },
+    "e2HybridThreshold": {
+      "mapsFrom": [
+        "E2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3516,
+      "examples": [
+        "30"
+      ]
+    },
+    "e3HybridThreshold": {
+      "mapsFrom": [
+        "E3_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3517,
+      "examples": [
+        "30"
+      ]
+    },
+    "e4HybridThreshold": {
+      "mapsFrom": [
+        "E4_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3518,
+      "examples": [
+        "30"
+      ]
+    },
+    "e5HybridThreshold": {
+      "mapsFrom": [
+        "E5_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3519,
+      "examples": [
+        "30"
+      ]
+    },
+    "e6HybridThreshold": {
+      "mapsFrom": [
+        "E6_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3520,
+      "examples": [
+        "30"
+      ]
+    },
+    "e7HybridThreshold": {
+      "mapsFrom": [
+        "E7_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3521,
+      "examples": [
+        "30"
+      ]
+    },
+    "sensorlessHoming": {
+      "mapsFrom": [
+        "SENSORLESS_HOMING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3550,
+      "examples": [
+        "// StallGuard capable drivers only"
+      ]
+    },
+    "xStallSensitivity": {
+      "mapsFrom": [
+        "X_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3556,
+      "examples": [
+        "X_SH_CALIBRATION"
+      ]
+    },
+    "x2StallSensitivity": {
+      "mapsFrom": [
+        "X2_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3557,
+      "examples": [
+        "X_STALL_SENSITIVITY"
+      ]
+    }
+  }
+}

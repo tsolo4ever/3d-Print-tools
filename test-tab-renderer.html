@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Renderer Test - Tab 1</title>
+    
+    <!-- Shared Framework Styles -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/enhanced-profiles.css">
+    
+    <style>
+        body {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--background);
+            color: var(--text-primary);
+        }
+
+        .test-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 30px;
+            border-left: 4px solid var(--success);
+        }
+
+        .test-header h1 {
+            margin: 0 0 10px 0;
+            color: var(--success);
+        }
+
+        .test-section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .test-section h2 {
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .status-loading {
+            background: var(--warning-light);
+            color: var(--warning);
+        }
+
+        .status-success {
+            background: var(--success-light);
+            color: var(--success);
+        }
+
+        .status-error {
+            background: var(--error-light);
+            color: var(--error);
+        }
+
+        .info-box {
+            background: var(--info-light);
+            border-left: 4px solid var(--info);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: var(--radius-sm);
+        }
+
+        .test-controls {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .test-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--radius-sm);
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .test-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .test-btn-secondary {
+            background: var(--text-secondary);
+        }
+
+        #renderedOutput {
+            border: 2px dashed var(--border);
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            min-height: 200px;
+        }
+
+        .debug-output {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: var(--radius-sm);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .debug-output pre {
+            margin: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-secondary);
+        }
+
+        .field-help {
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-header">
+        <h1>🧪 Tab Renderer Test - Tab 1</h1>
+        <p>Testing JSON-driven field rendering with marlin-config-mapping.json</p>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Status <span class="status-indicator status-loading" id="testStatus">⏳ Loading...</span></h2>
+        
+        <div class="info-box">
+            <strong>ℹ️ What's being tested:</strong>
+            <ul style="margin: 10px 0 0 20px;">
+                <li>Loading marlin-config-mapping.json with UI metadata</li>
+                <li>Rendering 10 Tab 1 fields from JSON definitions</li>
+                <li>Database-driven dropdowns (boards, drivers, thermistors)</li>
+                <li>Section grouping and ordering</li>
+                <li>Field validation and help text</li>
+            </ul>
+        </div>
+
+        <div class="test-controls">
+            <button class="test-btn" onclick="runTest()">▶️ Render Tab 1</button>
+            <button class="test-btn test-btn-secondary" onclick="clearOutput()">🗑️ Clear Output</button>
+            <button class="test-btn test-btn-secondary" onclick="toggleDebug()">🐛 Toggle Debug</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>📋 Rendered Tab 1 Output</h2>
+        <div id="renderedOutput">
+            <p style="color: var(--text-secondary); text-align: center; padding: 40px;">
+                Click "Render Tab 1" to see the output...
+            </p>
+        </div>
+    </div>
+
+    <div class="test-section" id="debugSection" style="display: none;">
+        <h2>🐛 Debug Output</h2>
+        <div class="debug-output" id="debugOutput">
+            <pre>Debug output will appear here...</pre>
+        </div>
+    </div>
+
+    <!-- Load Renderers -->
+    <script src="assets/js/profile-renderer/field-renderer.js"></script>
+    <script src="assets/js/profile-renderer/tab-renderer.js"></script>
+
+    <script>
+        // Test configuration
+        const TEST_MAPPING_URL = 'assets/data/maps/marlin/marlin-config-mapping.json';
+        
+        // Sample profile data for testing
+        const TEST_PROFILE_DATA = {
+            basic: {
+                machineName: "Test Ender 5 Plus",
+                motherboard: "BOARD_CREALITY_V427",
+                baudRate: 250000,
+                extruders: 1
+            },
+            hardware: {
+                driverX: "TMC2209",
+                driverY: "TMC2209",
+                driverZ: "TMC2209",
+                driverE0: "TMC2209",
+                thermistorHotend: 1,
+                thermistorBed: 1
+            }
+        };
+
+        // Debug logging
+        function debug(...args) {
+            console.log('[TEST]', ...args);
+            const debugEl = document.getElementById('debugOutput');
+            if (debugEl) {
+                const pre = debugEl.querySelector('pre');
+                const timestamp = new Date().toLocaleTimeString();
+                pre.textContent += `\n[${timestamp}] ${args.join(' ')}`;
+                debugEl.scrollTop = debugEl.scrollHeight;
+            }
+        }
+
+        // Toggle debug panel
+        function toggleDebug() {
+            const debugSection = document.getElementById('debugSection');
+            debugSection.style.display = debugSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Clear output
+        function clearOutput() {
+            document.getElementById('renderedOutput').innerHTML = `
+                <p style="color: var(--text-secondary); text-align: center; padding: 40px;">
+                    Click "Render Tab 1" to see the output...
+                </p>
+            `;
+            document.getElementById('debugOutput').querySelector('pre').textContent = 'Debug output cleared...';
+            debug('Output cleared');
+        }
+
+        // Update status indicator
+        function updateStatus(status, message) {
+            const statusEl = document.getElementById('testStatus');
+            statusEl.className = 'status-indicator status-' + status;
+            statusEl.textContent = message;
+        }
+
+        // Main test function
+        async function runTest() {
+            debug('=== Starting Tab 1 Render Test ===');
+            updateStatus('loading', '⏳ Loading...');
+            
+            try {
+                // Step 1: Load mapping file
+                debug('Step 1: Loading mapping file...');
+                updateStatus('loading', '⏳ Loading mapping...');
+                
+                const response = await fetch(TEST_MAPPING_URL);
+                if (!response.ok) {
+                    throw new Error(`Failed to load mapping: ${response.status}`);
+                }
+                const mappingData = await response.json();
+                debug(`✅ Mapping loaded: ${Object.keys(mappingData).length} categories`);
+                
+                // Step 2: Initialize FieldRenderer
+                debug('Step 2: Initializing FieldRenderer...');
+                updateStatus('loading', '⏳ Initializing renderer...');
+                
+                await FieldRenderer.init();
+                debug('✅ FieldRenderer initialized');
+                
+                // Step 3: Load mapping into FieldRenderer
+                debug('Step 3: Loading mapping into FieldRenderer...');
+                FieldRenderer.loadMapping(mappingData);
+                debug('✅ Mapping loaded into renderer');
+                
+                // Step 4: Initialize TabRenderer
+                debug('Step 4: Initializing TabRenderer...');
+                TabRenderer.init();
+                debug('✅ TabRenderer initialized');
+                
+                // Step 5: Render Tab 1
+                debug('Step 5: Rendering Tab 1...');
+                updateStatus('loading', '⏳ Rendering Tab 1...');
+                
+                const tab1Html = await TabRenderer.render(1, mappingData, TEST_PROFILE_DATA);
+                debug(`✅ Tab 1 rendered: ${tab1Html.length} characters`);
+                
+                // Step 6: Display output
+                debug('Step 6: Displaying output...');
+                const outputEl = document.getElementById('renderedOutput');
+                outputEl.innerHTML = tab1Html;
+                
+                // Step 7: Populate database selects
+                debug('Step 7: Populating database dropdowns...');
+                await TabRenderer.populateDatabaseSelects(outputEl);
+                debug('✅ Database dropdowns populated');
+                
+                // Count rendered fields
+                const formGroups = outputEl.querySelectorAll('.form-group');
+                debug(`✅ Total fields rendered: ${formGroups.length}`);
+                
+                updateStatus('success', '✅ Success!');
+                debug('=== Test Complete ===');
+                
+            } catch (error) {
+                console.error('Test failed:', error);
+                debug(`❌ ERROR: ${error.message}`);
+                debug(`Stack: ${error.stack}`);
+                updateStatus('error', '❌ Test Failed');
+                
+                document.getElementById('renderedOutput').innerHTML = `
+                    <div style="background: var(--error-light); padding: 20px; border-radius: var(--radius-sm); border-left: 4px solid var(--error);">
+                        <h3 style="color: var(--error); margin-top: 0;">❌ Test Failed</h3>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p style="font-family: monospace; font-size: 0.9em; color: var(--text-secondary);">${error.stack}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Auto-run test on page load (optional)
+        window.addEventListener('DOMContentLoaded', () => {
+            debug('Page loaded, ready to test');
+            updateStatus('loading', '⏳ Ready');
+            
+            // Uncomment to auto-run test:
+            // setTimeout(runTest, 500);
+        });
+    </script>
+</body>
+</html>

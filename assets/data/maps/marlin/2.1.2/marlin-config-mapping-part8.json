@@ -1,0 +1,761 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "example-ender5plus-config.h",
+  "totalDefines": 447,
+  "endstops": {
+    "deltaEndstopAdj": {
+      "mapsFrom": [
+        "DELTA_ENDSTOP_ADJ"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 938,
+      "examples": [
+        "{ 0.0, 0.0, 0.0 }"
+      ]
+    },
+    "xmaxPlug": {
+      "mapsFrom": [
+        "USE_XMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1053,
+      "notes": "#define USE_IMIN_PLUG #define USE_JMIN_PLUG #define USE_KMIN_PLUG #define USE_UMIN_PLUG #define USE_VMIN_PLUG #define USE_WMIN_PLUG"
+    },
+    "endstoppullups": {
+      "mapsFrom": [
+        "ENDSTOPPULLUPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1064,
+      "notes": "#define USE_ZMAX_PLUG #define USE_IMAX_PLUG #define USE_JMAX_PLUG #define USE_KMAX_PLUG #define USE_UMAX_PLUG #define USE_VMAX_PLUG #define USE_WMAX_PLUG Enable pullup for all endstops to prevent a floating state"
+    },
+    "xMinEndstopInverting": {
+      "mapsFrom": [
+        "X_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1114,
+      "examples": [
+        "false"
+      ],
+      "notes": "Mechanical endstop with COM to ground and NC to Signal uses \"false\" here (most common setup)."
+    },
+    "yMinEndstopInverting": {
+      "mapsFrom": [
+        "Y_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1115,
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1116,
+      "examples": [
+        "false"
+      ]
+    },
+    "iMinEndstopInverting": {
+      "mapsFrom": [
+        "I_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1117,
+      "examples": [
+        "false"
+      ]
+    },
+    "jMinEndstopInverting": {
+      "mapsFrom": [
+        "J_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1118,
+      "examples": [
+        "false"
+      ]
+    },
+    "kMinEndstopInverting": {
+      "mapsFrom": [
+        "K_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1119,
+      "examples": [
+        "false"
+      ]
+    },
+    "uMinEndstopInverting": {
+      "mapsFrom": [
+        "U_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1120,
+      "examples": [
+        "false"
+      ]
+    },
+    "vMinEndstopInverting": {
+      "mapsFrom": [
+        "V_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1121,
+      "examples": [
+        "false"
+      ]
+    },
+    "wMinEndstopInverting": {
+      "mapsFrom": [
+        "W_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1122,
+      "examples": [
+        "false"
+      ]
+    },
+    "xMaxEndstopInverting": {
+      "mapsFrom": [
+        "X_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1123,
+      "examples": [
+        "false"
+      ]
+    },
+    "yMaxEndstopInverting": {
+      "mapsFrom": [
+        "Y_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1124,
+      "examples": [
+        "false"
+      ]
+    },
+    "zMaxEndstopInverting": {
+      "mapsFrom": [
+        "Z_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1125,
+      "examples": [
+        "false"
+      ]
+    },
+    "iMaxEndstopInverting": {
+      "mapsFrom": [
+        "I_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1126,
+      "examples": [
+        "false"
+      ]
+    },
+    "jMaxEndstopInverting": {
+      "mapsFrom": [
+        "J_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1127,
+      "examples": [
+        "false"
+      ]
+    },
+    "kMaxEndstopInverting": {
+      "mapsFrom": [
+        "K_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1128,
+      "examples": [
+        "false"
+      ]
+    },
+    "uMaxEndstopInverting": {
+      "mapsFrom": [
+        "U_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1129,
+      "examples": [
+        "false"
+      ]
+    },
+    "vMaxEndstopInverting": {
+      "mapsFrom": [
+        "V_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1130,
+      "examples": [
+        "false"
+      ]
+    },
+    "wMaxEndstopInverting": {
+      "mapsFrom": [
+        "W_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1131,
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinProbeEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1132,
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinProbeUsesZMinEndstopPin": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1288
+    },
+    "xHomeDir": {
+      "mapsFrom": [
+        "X_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1696,
+      "examples": [
+        "1"
+      ],
+      "notes": "Direction of endstops when homing; 1=MAX, -1=MIN :[-1,1]"
+    },
+    "yHomeDir": {
+      "mapsFrom": [
+        "Y_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1697,
+      "examples": [
+        "1"
+      ]
+    },
+    "zHomeDir": {
+      "mapsFrom": [
+        "Z_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1698,
+      "examples": [
+        "-1"
+      ]
+    },
+    "minSoftwareEndstops": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1742,
+      "notes": "Min software endstops constrain movement within minimum coordinate bounds"
+    },
+    "minSoftwareEndstopX": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_X"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1744
+    },
+    "minSoftwareEndstopY": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_Y"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1745
+    },
+    "minSoftwareEndstopZ": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_Z"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1746
+    },
+    "minSoftwareEndstopI": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_I"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1747
+    },
+    "minSoftwareEndstopJ": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_J"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1748
+    },
+    "minSoftwareEndstopK": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_K"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1749
+    },
+    "minSoftwareEndstopU": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_U"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1750
+    },
+    "minSoftwareEndstopV": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_V"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1751
+    },
+    "minSoftwareEndstopW": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_W"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1752
+    },
+    "maxSoftwareEndstops": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1756,
+      "notes": "Max software endstops constrain movement within maximum coordinate bounds"
+    },
+    "maxSoftwareEndstopX": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_X"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1758
+    },
+    "maxSoftwareEndstopY": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_Y"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1759
+    },
+    "maxSoftwareEndstopZ": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_Z"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1760
+    },
+    "maxSoftwareEndstopI": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_I"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1761
+    },
+    "maxSoftwareEndstopJ": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_J"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1762
+    },
+    "maxSoftwareEndstopK": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_K"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1763
+    },
+    "maxSoftwareEndstopU": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_U"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1764
+    },
+    "maxSoftwareEndstopV": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_V"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1765
+    },
+    "maxSoftwareEndstopW": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_W"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1766
+    },
+    "validateHomingEndstops": {
+      "mapsFrom": [
+        "VALIDATE_HOMING_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2116,
+      "notes": "Validate that endstops are triggered on homing moves"
+    }
+  },
+  "geometry": {
+    "xMinPos": {
+      "mapsFrom": [
+        "X_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1713,
+      "examples": [
+        "0"
+      ],
+      "notes": "Travel limits (linear=mm, rotational=\u00b0) after homing, corresponding to endstop positions."
+    },
+    "yMinPos": {
+      "mapsFrom": [
+        "Y_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1714,
+      "examples": [
+        "0"
+      ]
+    },
+    "zMinPos": {
+      "mapsFrom": [
+        "Z_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1715,
+      "examples": [
+        "0"
+      ]
+    },
+    "xMaxPos": {
+      "mapsFrom": [
+        "X_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1716,
+      "examples": [
+        "X_BED_SIZE + X_MIN_POS"
+      ]
+    },
+    "yMaxPos": {
+      "mapsFrom": [
+        "Y_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1717,
+      "examples": [
+        "Y_BED_SIZE + Y_MIN_POS"
+      ]
+    },
+    "zMaxPos": {
+      "mapsFrom": [
+        "Z_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1718,
+      "examples": [
+        "410        + Z_MIN_POS"
+      ]
+    },
+    "manualProbeStartZ": {
+      "mapsFrom": [
+        "MANUAL_PROBE_START_Z"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1927,
+      "examples": [
+        "0.2"
+      ],
+      "notes": "Set a height for the start of manual adjustment"
+    }
+  },
+  "advanced": {
+    "filamentRunoutSensor": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1786
+    },
+    "filamentRunoutScript": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SCRIPT"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1833,
+      "examples": [
+        "\"M600\""
+      ],
+      "notes": "#define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins. #define WATCH_ALL_RUNOUT_SENSORS      // Execute runout script on any triggering sensor, not only for the active extruder. This is automatically enabled for MIXING_EXTRUDERs. Override individually if the runout sensors vary #define FIL_RUNOUT1_STATE LOW #define FIL_RUNOUT1_PULLUP #define FIL_RUNOUT1_PULLDOWN #define FIL_RUNOUT2_STATE LOW #define FIL_RUNOUT2_PULLUP #define FIL_RUNOUT2_PULLDOWN #define FIL_RUNOUT3_STATE LOW #define FIL_RUNOUT3_PULLUP #define FIL_RUNOUT3_PULLDOWN #define FIL_RUNOUT4_STATE LOW #define FIL_RUNOUT4_PULLUP #define FIL_RUNOUT4_PULLDOWN #define FIL_RUNOUT5_STATE LOW #define FIL_RUNOUT5_PULLUP #define FIL_RUNOUT5_PULLDOWN #define FIL_RUNOUT6_STATE LOW #define FIL_RUNOUT6_PULLUP #define FIL_RUNOUT6_PULLDOWN #define FIL_RUNOUT7_STATE LOW #define FIL_RUNOUT7_PULLUP #define FIL_RUNOUT7_PULLDOWN #define FIL_RUNOUT8_STATE LOW #define FIL_RUNOUT8_PULLUP #define FIL_RUNOUT8_PULLDOWN Commands to execute on filament runout. With multiple runout sensors use the %c placeholder for the current tool in commands (e.g., \"M600 T%c\") NOTE: After 'M412 H1' the host handles filament runout and this script does not apply."
+    }
+  },
+  "bedLeveling": {
+    "restoreLevelingAfterG28": {
+      "mapsFrom": [
+        "RESTORE_LEVELING_AFTER_G28"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1897
+    },
+    "levelingFadeHeight": {
+      "mapsFrom": [
+        "ENABLE_LEVELING_FADE_HEIGHT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1936
+    },
+    "meshTestNozzleSize": {
+      "mapsFrom": [
+        "MESH_TEST_NOZZLE_SIZE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1954,
+      "examples": [
+        "0.4"
+      ]
+    },
+    "meshTestLayerHeight": {
+      "mapsFrom": [
+        "MESH_TEST_LAYER_HEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1955,
+      "examples": [
+        "0.2"
+      ]
+    },
+    "gridMaxPointsX": {
+      "mapsFrom": [
+        "GRID_MAX_POINTS_X"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2021,
+      "examples": [
+        "3"
+      ],
+      "notes": "Set the number of grid points per dimension."
+    },
+    "gridMaxPointsY": {
+      "mapsFrom": [
+        "GRID_MAX_POINTS_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2022,
+      "examples": [
+        "GRID_MAX_POINTS_X"
+      ]
+    },
+    "meshInset": {
+      "mapsFrom": [
+        "MESH_INSET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2020,
+      "examples": [
+        "10"
+      ],
+      "notes": "=========================================================================== =================================== Mesh ================================== ==========================================================================="
+    },
+    "ublMeshEditMovesZ": {
+      "mapsFrom": [
+        "UBL_MESH_EDIT_MOVES_Z"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2006,
+      "examples": [
+        "// Sophisticated users prefer no movement of nozzle"
+      ],
+      "notes": "#define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points"
+    },
+    "meshEditZStep": {
+      "mapsFrom": [
+        "MESH_EDIT_Z_STEP"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2035,
+      "examples": [
+        "0.025"
+      ]
+    },
+    "zSafeHoming": {
+      "mapsFrom": [
+        "Z_SAFE_HOMING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2105
+    },
+    "zSafeHomingXPoint": {
+      "mapsFrom": [
+        "Z_SAFE_HOMING_X_POINT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2108,
+      "examples": [
+        "X_CENTER"
+      ]
+    },
+    "zSafeHomingYPoint": {
+      "mapsFrom": [
+        "Z_SAFE_HOMING_Y_POINT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2109,
+      "examples": [
+        "Y_CENTER"
+      ]
+    }
+  }
+}

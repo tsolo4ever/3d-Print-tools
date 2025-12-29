@@ -30,8 +30,34 @@ class EnhancedPrinterProfiles {
     this.validationState = {};
     this.tempConfigFiles = [];
     this.tempParsedConfig = null;
+    this.mappingData = null;  // Marlin mapping for JSON-driven rendering
+    
+    // Initialize renderers
+    this.initRenderers();
+    
     // Load hardware databases
     this.loadDatabases();
+  }
+  
+  /** Initialize field and tab renderers */
+  async initRenderers() {
+    try {
+      // Initialize renderers
+      await FieldRenderer.init();
+      TabRenderer.init();
+      
+      // Load Marlin mapping file
+      const response = await fetch('assets/data/maps/marlin/marlin-config-mapping.json');
+      if (response.ok) {
+        this.mappingData = await response.json();
+        FieldRenderer.loadMapping(this.mappingData);
+        EnhancedPrinterProfiles.log('✅ Renderers initialized with mapping data');
+      } else {
+        console.error('❌ Failed to load mapping file');
+      }
+    } catch (error) {
+      console.error('❌ Error initializing renderers:', error);
+    }
   }
 
   /** Load hardware databases */
@@ -262,20 +288,23 @@ class EnhancedPrinterProfiles {
     this.attachInputListeners();
   }
 
-  /** Tab 1: Printer Info */
+  /** Tab 1: Printer Info - JSON-driven rendering */
   renderTab1_PrinterInfo() {
-    return `
-      <div class="tab-content">
-        <h3>📋 Printer Information</h3>
-
+    // Use JSON-driven renderer instead of hardcoded HTML
+    if (!this.mappingData) {
+      return '<div class="tab-content"><p>⏳ Loading mapping data...</p></div>';
+    }
+    
+    // Render fields from mapping
+    const fieldsHTML = TabRenderer.render(1, this.mappingData, this.currentProfile);
+    
+    // Add special features that aren't in mapping (autocomplete, import)
+    const specialFeaturesHTML = `
+      <div class="special-features-section" style="margin-top: 30px; padding-top: 20px; border-top: 2px solid var(--border, #ddd);">
+        <h4>🔍 Quick Setup (Optional)</h4>
+        
         <div class="form-group">
-          <label>Profile Name *</label>
-          <input type="text" id="profileName" value="${this.currentProfile.name}"
-            placeholder="e.g., My Ender 5 Plus" required>
-        </div>
-
-        <div class="form-group">
-          <label>Printer Model</label>
+          <label>Search Printer Database</label>
           <div style="position: relative;">
             <input type="text" id="printerModelSearch" class="form-control"
               value="${this.getCurrentPrinterDisplayName()}"
@@ -283,33 +312,13 @@ class EnhancedPrinterProfiles {
               autocomplete="off">
             <div id="printerSearchResults" class="autocomplete-results" style="display: none;"></div>
           </div>
-          <p class="field-help">💡 Type to search from 280+ printer models. Use ↑↓ arrows to navigate, Enter to select.</p>
+          <p class="field-help">💡 Type to search from 280+ printer models. Auto-fills hardware settings.</p>
           <div id="selectedPrinterInfo" style="display: none; margin-top: 10px; padding: 10px; background: #e3f2fd; border-left: 3px solid #2196f3; border-radius: 4px;"></div>
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label>Firmware Type *</label>
-            <select id="firmwareType">
-              <option value="">Select firmware...</option>
-              <option value="marlin" ${this.currentProfile.firmwareType === 'marlin' ? 'selected' : ''}>Marlin</option>
-              <option value="th3d"   ${this.currentProfile.firmwareType === 'th3d' ? 'selected' : ''}>TH3D (Marlin Fork)</option>
-              <option value="klipper"${this.currentProfile.firmwareType === 'klipper' ? 'selected' : ''}>Klipper</option>
-              <option value="reprap" ${this.currentProfile.firmwareType === 'reprap' ? 'selected' : ''}>RepRap</option>
-              <option value="smoothie"${this.currentProfile.firmwareType === 'smoothie' ? 'selected' : ''}>Smoothieware</option>
-              <option value="other"  ${this.currentProfile.firmwareType === 'other' ? 'selected' : ''}>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Firmware Version</label>
-            <input type="text" id="firmwareVersion" value="${this.currentProfile.firmwareVersion || ''}" placeholder="e.g., 2.0.9.3">
-          </div>
-        </div>
-
-        <!-- Quick Import -->
-        <div class="import-section">
-          <h4>📥 Quick Import (Optional)</h4>
-          <p>Import your Configuration.h or EEPROM backup to auto-fill hardware settings:</p>
+        <div class="import-section" style="margin-top: 20px;">
+          <h4>📥 Import Settings</h4>
+          <p>Import your Configuration.h or EEPROM backup to auto-fill settings:</p>
           <div class="import-methods">
             <button class="btn-secondary" id="showConfigUpload">📄 Upload Configuration.h</button>
             <button class="btn-secondary" id="showM503Paste">📋 Paste M503 Output</button>
@@ -319,6 +328,8 @@ class EnhancedPrinterProfiles {
         </div>
       </div>
     `;
+    
+    return fieldsHTML + specialFeaturesHTML;
   }
 
   /** Tab 2: Hardware Configuration */

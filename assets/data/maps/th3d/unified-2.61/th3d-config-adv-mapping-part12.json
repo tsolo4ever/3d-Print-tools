@@ -1,0 +1,774 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "unified-2.61",
+  "firmware": "th3d",
+  "configFile": "Configuration.h",
+  "generatedFrom": "example-th3d-ender5plus-config_adv.h",
+  "totalDefines": 792,
+  "temperature_2": {
+    "pidFanScalingMinSpeed": {
+      "mapsFrom": [
+        "PID_FAN_SCALING_MIN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 437,
+      "examples": [
+        "10"
+      ]
+    },
+    "pidFanScalingLinFactor": {
+      "mapsFrom": [
+        "PID_FAN_SCALING_LIN_FACTOR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 435,
+      "examples": [
+        "(0)"
+      ]
+    },
+    "autotempOldweight": {
+      "mapsFrom": [
+        "AUTOTEMP_OLDWEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 457,
+      "examples": [
+        "0.98"
+      ]
+    },
+    "autotempMinP": {
+      "mapsFrom": [
+        "AUTOTEMP_MIN_P"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 461,
+      "examples": [
+        "0"
+      ]
+    },
+    "autotempMaxP": {
+      "mapsFrom": [
+        "AUTOTEMP_MAX_P"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 462,
+      "examples": [
+        "5"
+      ]
+    },
+    "autotempFactorP": {
+      "mapsFrom": [
+        "AUTOTEMP_FACTOR_P"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 463,
+      "examples": [
+        "1"
+      ]
+    },
+    "extruderRunoutMintemp": {
+      "mapsFrom": [
+        "EXTRUDER_RUNOUT_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 509,
+      "examples": [
+        "190"
+      ]
+    },
+    "hotendIdleBedTarget": {
+      "mapsFrom": [
+        "HOTEND_IDLE_BED_TARGET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 524,
+      "examples": [
+        "0"
+      ]
+    },
+    "extruderAutoFanTemperature": {
+      "mapsFrom": [
+        "EXTRUDER_AUTO_FAN_TEMPERATURE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 750,
+      "examples": [
+        "50"
+      ]
+    },
+    "chamberAutoFanTemperature": {
+      "mapsFrom": [
+        "CHAMBER_AUTO_FAN_TEMPERATURE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 752,
+      "examples": [
+        "30"
+      ]
+    },
+    "coolerAutoFanTemperature": {
+      "mapsFrom": [
+        "COOLER_AUTO_FAN_TEMPERATURE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 754,
+      "examples": [
+        "18"
+      ]
+    },
+    "statusBedAnim": {
+      "mapsFrom": [
+        "STATUS_BED_ANIM"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1977,
+      "examples": [
+        "// Use a second bitmap to indicate bed heating"
+      ]
+    },
+    "statusAltBedBitmap": {
+      "mapsFrom": [
+        "STATUS_ALT_BED_BITMAP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1983,
+      "examples": [
+        "// Use the alternative bed bitmap"
+      ],
+      "notes": "#define STATUS_CUTTER_ANIM        // Use a second bitmap to indicate spindle / laser active #define STATUS_COOLER_ANIM        // Use a second bitmap to indicate laser cooling #define STATUS_FLOWMETER_ANIM     // Use multiple bitmaps to indicate coolant flow"
+    },
+    "dgusPreheatUi": {
+      "mapsFrom": [
+        "DGUS_PREHEAT_UI"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2020,
+      "examples": [
+        "// Display a preheat screen during heatup"
+      ]
+    },
+    "ptcBedStart": {
+      "mapsFrom": [
+        "PTC_BED_START"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2407,
+      "examples": [
+        "60"
+      ],
+      "notes": "Bed temperature calibration builds a similar table."
+    },
+    "ptcBedRes": {
+      "mapsFrom": [
+        "PTC_BED_RES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2408,
+      "examples": [
+        "5"
+      ]
+    },
+    "ptcBedCount": {
+      "mapsFrom": [
+        "PTC_BED_COUNT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2409,
+      "examples": [
+        "10"
+      ]
+    },
+    "ptcBedZoffs": {
+      "mapsFrom": [
+        "PTC_BED_ZOFFS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2410,
+      "examples": [
+        "{ 0 }"
+      ]
+    },
+    "ptcProbeTemp": {
+      "mapsFrom": [
+        "PTC_PROBE_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2432,
+      "examples": [
+        "30"
+      ],
+      "notes": "The temperature the probe should be at while taking measurements during bed temperature calibration."
+    },
+    "autoReportTemperatures": {
+      "mapsFrom": [
+        "AUTO_REPORT_TEMPERATURES"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3997
+    },
+    "mmuLoadingAttemptsNr": {
+      "mapsFrom": [
+        "MMU_LOADING_ATTEMPTS_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4600,
+      "examples": [
+        "5"
+      ]
+    }
+  },
+  "probe": {
+    "probePullupResistorOhms": {
+      "mapsFrom": [
+        "PROBE_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 161,
+      "examples": [
+        "4700"
+      ]
+    },
+    "probeResistance25cOhms": {
+      "mapsFrom": [
+        "PROBE_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 162,
+      "examples": [
+        "100000"
+      ]
+    },
+    "probeBeta": {
+      "mapsFrom": [
+        "PROBE_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 163,
+      "examples": [
+        "3950"
+      ]
+    },
+    "probeShCCoeff": {
+      "mapsFrom": [
+        "PROBE_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 164,
+      "examples": [
+        "0"
+      ]
+    },
+    "bltouchDelay": {
+      "mapsFrom": [
+        "BLTOUCH_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1014,
+      "examples": [
+        "250"
+      ],
+      "notes": "Safety: The probe needs time to recognize the command. Minimum command delay (ms). Enable and increase if needed."
+    },
+    "bltouchHsMode": {
+      "mapsFrom": [
+        "BLTOUCH_HS_MODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1062,
+      "examples": [
+        "true"
+      ]
+    },
+    "probeOffsetWizardStartZ": {
+      "mapsFrom": [
+        "PROBE_OFFSET_WIZARD_START_Z"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1497,
+      "examples": [
+        "-4.0"
+      ]
+    },
+    "probeDeployStowMenu": {
+      "mapsFrom": [
+        "PROBE_DEPLOY_STOW_MENU"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1522,
+      "notes": "Show Deploy / Stow Probe options in the Motion menu."
+    },
+    "babystepZprobeOffset": {
+      "mapsFrom": [
+        "BABYSTEP_ZPROBE_OFFSET"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2243,
+      "examples": [
+        "// Combine M851 Z and Babystepping"
+      ]
+    },
+    "babystepZprobeGfxOverlay": {
+      "mapsFrom": [
+        "BABYSTEP_ZPROBE_GFX_OVERLAY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2247,
+      "examples": [
+        "// Enable graphical overlay on Z-offset editor"
+      ],
+      "notes": "#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets"
+    },
+    "ptcProbeStart": {
+      "mapsFrom": [
+        "PTC_PROBE_START"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2399,
+      "examples": [
+        "30"
+      ],
+      "notes": "Probe temperature calibration generates a table of values starting at PTC_PROBE_START (e.g., 30), in steps of PTC_PROBE_RES (e.g., 5) with PTC_PROBE_COUNT (e.g., 10) samples."
+    },
+    "ptcProbeRes": {
+      "mapsFrom": [
+        "PTC_PROBE_RES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2400,
+      "examples": [
+        "5"
+      ]
+    },
+    "ptcProbeCount": {
+      "mapsFrom": [
+        "PTC_PROBE_COUNT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2401,
+      "examples": [
+        "10"
+      ]
+    },
+    "ptcProbeZoffs": {
+      "mapsFrom": [
+        "PTC_PROBE_ZOFFS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2402,
+      "examples": [
+        "{ 0 }"
+      ]
+    },
+    "ptcProbePos": {
+      "mapsFrom": [
+        "PTC_PROBE_POS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2428,
+      "examples": [
+        "{ 90, 100 }"
+      ],
+      "notes": "Probe position to probe and wait for probe to reach target temperature #define PTC_PROBE_POS  { 12.0f, 7.3f } // Example: MK52 magnetic heatbed"
+    },
+    "ptcProbeHeatingOffset": {
+      "mapsFrom": [
+        "PTC_PROBE_HEATING_OFFSET"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2436,
+      "examples": [
+        "0.5"
+      ],
+      "notes": "Height above Z=0.0 to raise the nozzle. Lowering this can help the probe to heat faster. Note: The Z=0.0 offset is determined by the probe Z offset (e.g., as set with M851 Z)."
+    }
+  },
+  "hardware": {
+    "boardPullupResistorOhms": {
+      "mapsFrom": [
+        "BOARD_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 168,
+      "examples": [
+        "4700"
+      ]
+    },
+    "boardResistance25cOhms": {
+      "mapsFrom": [
+        "BOARD_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 169,
+      "examples": [
+        "100000"
+      ]
+    },
+    "boardBeta": {
+      "mapsFrom": [
+        "BOARD_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 170,
+      "examples": [
+        "3950"
+      ]
+    },
+    "boardShCCoeff": {
+      "mapsFrom": [
+        "BOARD_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 171,
+      "examples": [
+        "0"
+      ]
+    },
+    "heaterBedInverting": {
+      "mapsFrom": [
+        "HEATER_BED_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 206,
+      "examples": [
+        "true"
+      ]
+    },
+    "boardMintemp": {
+      "mapsFrom": [
+        "BOARD_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 286,
+      "examples": [
+        "8"
+      ]
+    },
+    "boardMaxtemp": {
+      "mapsFrom": [
+        "BOARD_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 287,
+      "examples": [
+        "70"
+      ]
+    },
+    "tempSensorAd595Offset": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD595_OFFSET"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 531,
+      "examples": [
+        "0.0"
+      ],
+      "notes": "@section temperature Calibration for AD595 / AD8495 sensor to adjust temperature measurements. The final temperature is calculated as (measuredTemp * GAIN) + OFFSET."
+    },
+    "tempSensorAd595Gain": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD595_GAIN"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 532,
+      "examples": [
+        "1.0"
+      ]
+    },
+    "tempSensorAd8495Offset": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD8495_OFFSET"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 533,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "tempSensorAd8495Gain": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD8495_GAIN"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 534,
+      "examples": [
+        "1.0"
+      ]
+    },
+    "controllerfanSpeedMin": {
+      "mapsFrom": [
+        "CONTROLLERFAN_SPEED_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 625,
+      "examples": [
+        "0"
+      ],
+      "notes": "#define CONTROLLER_FAN_PIN -1           // Set a custom pin for the controller fan #define CONTROLLER_FAN2_PIN -1          // Set a custom pin for second controller fan #define CONTROLLER_FAN_USE_Z_ONLY       // With this option only the Z axis is considered #define CONTROLLER_FAN_IGNORE_Z         // Ignore Z stepper. Useful when stepper timeout is disabled."
+    },
+    "controllerfanSpeedActive": {
+      "mapsFrom": [
+        "CONTROLLERFAN_SPEED_ACTIVE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 626,
+      "examples": [
+        "255"
+      ]
+    },
+    "controllerfanSpeedIdle": {
+      "mapsFrom": [
+        "CONTROLLERFAN_SPEED_IDLE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 553,
+      "examples": [
+        "0"
+      ]
+    },
+    "controllerfanIdleTime": {
+      "mapsFrom": [
+        "CONTROLLERFAN_IDLE_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 624,
+      "examples": [
+        "60"
+      ]
+    },
+    "controllerFanMenu": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_MENU"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 629
+    },
+    "controllerFan": {
+      "mapsFrom": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 622
+    },
+    "controllerFanPin": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 623,
+      "examples": [
+        "PA1"
+      ]
+    },
+    "controllerFanEditable": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_EDITABLE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 627
+    },
+    "lcdInfoMenu": {
+      "mapsFrom": [
+        "LCD_INFO_MENU"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1527
+    },
+    "lcdTimeoutToStatus": {
+      "mapsFrom": [
+        "LCD_TIMEOUT_TO_STATUS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1550,
+      "examples": [
+        "10000"
+      ],
+      "notes": "The timeout to return to the status screen from sub-menus"
+    },
+    "lcdDecimalSmallXy": {
+      "mapsFrom": [
+        "LCD_DECIMAL_SMALL_XY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1569
+    },
+    "clcdModReset": {
+      "mapsFrom": [
+        "CLCD_MOD_RESET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2109,
+      "examples": [
+        "9"
+      ],
+      "notes": "Pins for CS and MOD_RESET (PD) must be chosen"
+    },
+    "clcdSpiCs": {
+      "mapsFrom": [
+        "CLCD_SPI_CS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2110,
+      "examples": [
+        "10"
+      ]
+    },
+    "clcdSoftSpiMosi": {
+      "mapsFrom": [
+        "CLCD_SOFT_SPI_MOSI"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2115,
+      "examples": [
+        "11"
+      ]
+    },
+    "clcdSoftSpiMiso": {
+      "mapsFrom": [
+        "CLCD_SOFT_SPI_MISO"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2116,
+      "examples": [
+        "12"
+      ]
+    },
+    "clcdSoftSpiSclk": {
+      "mapsFrom": [
+        "CLCD_SOFT_SPI_SCLK"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2117,
+      "examples": [
+        "13"
+      ]
+    }
+  }
+}

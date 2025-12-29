@@ -1,0 +1,734 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "unified-2.61",
+  "firmware": "th3d",
+  "configFile": "Configuration.h",
+  "generatedFrom": "example-th3d-ender5plus-config_adv.h",
+  "totalDefines": 792,
+  "other_11": {
+    "toolchangeParkXy": {
+      "mapsFrom": [
+        "TOOLCHANGE_PARK_XY"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2800,
+      "examples": [
+        "{ X_MIN_POS + 10, Y_MIN_POS + 10 }"
+      ]
+    },
+    "pauseParkRetractLength": {
+      "mapsFrom": [
+        "PAUSE_PARK_RETRACT_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2823,
+      "examples": [
+        "2"
+      ]
+    },
+    "filamentChangeUnloadAccel": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_UNLOAD_ACCEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2826,
+      "examples": [
+        "25"
+      ]
+    },
+    "filamentChangeUnloadLength": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_UNLOAD_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2834,
+      "examples": [
+        "100"
+      ]
+    },
+    "filamentChangeSlowLoadLength": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_SLOW_LOAD_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2839,
+      "examples": [
+        "15"
+      ]
+    },
+    "filamentChangeFastLoadAccel": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_FAST_LOAD_ACCEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2842,
+      "examples": [
+        "25"
+      ]
+    },
+    "filamentChangeFastLoadLength": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_FAST_LOAD_LENGTH"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2843,
+      "examples": [
+        "FILAMENT_CHANGE_UNLOAD_LENGTH"
+      ]
+    },
+    "filamentUnloadPurgeRetract": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_PURGE_RETRACT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2856,
+      "examples": [
+        "13"
+      ],
+      "notes": "#define ADVANCED_PAUSE_FANS_PAUSE             // Turn off print-cooling fans while the machine is paused. Filament Unload does a Retract, Delay, and Purge first:"
+    },
+    "filamentUnloadPurgeDelay": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_PURGE_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2857,
+      "examples": [
+        "2000"
+      ]
+    },
+    "filamentUnloadPurgeLength": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_PURGE_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2858,
+      "examples": [
+        "8"
+      ]
+    },
+    "pauseParkNozzleTimeout": {
+      "mapsFrom": [
+        "PAUSE_PARK_NOZZLE_TIMEOUT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2861,
+      "examples": [
+        "120"
+      ]
+    },
+    "filamentChangeAlertBeeps": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_ALERT_BEEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2862,
+      "examples": [
+        "10"
+      ]
+    },
+    "pauseParkNoStepperTimeout": {
+      "mapsFrom": [
+        "PAUSE_PARK_NO_STEPPER_TIMEOUT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2863,
+      "examples": [
+        "// Enable for XYZ steppers to stay powered on during filament change."
+      ]
+    },
+    "parkHeadOnPause": {
+      "mapsFrom": [
+        "PARK_HEAD_ON_PAUSE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2867,
+      "examples": [
+        "// Park the nozzle during pause and filament change."
+      ],
+      "notes": "#define FILAMENT_CHANGE_RESUME_ON_INSERT      // Automatically continue / load filament when runout sensor is triggered again. #define PAUSE_REHEAT_FAST_RESUME              // Reduce number of waits by not prompting again post-timeout before continuing."
+    },
+    "filamentLoadUnloadGcodes": {
+      "mapsFrom": [
+        "FILAMENT_LOAD_UNLOAD_GCODES"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2871,
+      "examples": [
+        "// Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu."
+      ]
+    },
+    "holdMultiplier": {
+      "mapsFrom": [
+        "HOLD_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2904,
+      "examples": [
+        "0.5"
+      ]
+    },
+    "interpolate": {
+      "mapsFrom": [
+        "INTERPOLATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2910,
+      "examples": [
+        "true"
+      ]
+    },
+    "xCurrent": {
+      "mapsFrom": [
+        "X_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2932,
+      "examples": [
+        "800"
+      ]
+    },
+    "xCurrentHome": {
+      "mapsFrom": [
+        "X_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2933,
+      "examples": [
+        "X_CURRENT"
+      ]
+    },
+    "xMicrosteps": {
+      "mapsFrom": [
+        "X_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2934,
+      "examples": [
+        "16"
+      ]
+    },
+    "xRsense": {
+      "mapsFrom": [
+        "X_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2935,
+      "examples": [
+        "0.11"
+      ]
+    },
+    "xChainPos": {
+      "mapsFrom": [
+        "X_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2936,
+      "examples": [
+        "-1"
+      ]
+    },
+    "x2Current": {
+      "mapsFrom": [
+        "X2_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2944,
+      "examples": [
+        "800"
+      ]
+    },
+    "x2CurrentHome": {
+      "mapsFrom": [
+        "X2_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2945,
+      "examples": [
+        "X2_CURRENT"
+      ]
+    },
+    "x2Microsteps": {
+      "mapsFrom": [
+        "X2_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2946,
+      "examples": [
+        "X_MICROSTEPS"
+      ]
+    },
+    "x2Rsense": {
+      "mapsFrom": [
+        "X2_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2947,
+      "examples": [
+        "0.11"
+      ]
+    },
+    "x2ChainPos": {
+      "mapsFrom": [
+        "X2_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2948,
+      "examples": [
+        "-1"
+      ]
+    },
+    "yCurrent": {
+      "mapsFrom": [
+        "Y_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2978,
+      "examples": [
+        "800"
+      ]
+    },
+    "yCurrentHome": {
+      "mapsFrom": [
+        "Y_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2979,
+      "examples": [
+        "Y_CURRENT"
+      ]
+    },
+    "yMicrosteps": {
+      "mapsFrom": [
+        "Y_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2980,
+      "examples": [
+        "16"
+      ]
+    }
+  },
+  "other_12": {
+    "yRsense": {
+      "mapsFrom": [
+        "Y_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2981,
+      "examples": [
+        "0.11"
+      ]
+    },
+    "yChainPos": {
+      "mapsFrom": [
+        "Y_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2982,
+      "examples": [
+        "-1"
+      ]
+    },
+    "y2Current": {
+      "mapsFrom": [
+        "Y2_CURRENT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2989,
+      "examples": [
+        "Y_CURRENT"
+      ]
+    },
+    "y2CurrentHome": {
+      "mapsFrom": [
+        "Y2_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2990,
+      "examples": [
+        "Y_CURRENT_HOME"
+      ]
+    },
+    "y2Microsteps": {
+      "mapsFrom": [
+        "Y2_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2991,
+      "examples": [
+        "Y_MICROSTEPS"
+      ]
+    },
+    "y2Rsense": {
+      "mapsFrom": [
+        "Y2_RSENSE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2992,
+      "examples": [
+        "Y_RSENSE"
+      ]
+    },
+    "y2ChainPos": {
+      "mapsFrom": [
+        "Y2_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2993,
+      "examples": [
+        "-1"
+      ]
+    },
+    "zCurrent": {
+      "mapsFrom": [
+        "Z_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3023,
+      "examples": [
+        "800"
+      ]
+    },
+    "zCurrentHome": {
+      "mapsFrom": [
+        "Z_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3024,
+      "examples": [
+        "Z_CURRENT"
+      ]
+    },
+    "zMicrosteps": {
+      "mapsFrom": [
+        "Z_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3025,
+      "examples": [
+        "16"
+      ]
+    },
+    "zRsense": {
+      "mapsFrom": [
+        "Z_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3026,
+      "examples": [
+        "0.11"
+      ]
+    },
+    "zChainPos": {
+      "mapsFrom": [
+        "Z_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3027,
+      "examples": [
+        "-1"
+      ]
+    },
+    "z2Current": {
+      "mapsFrom": [
+        "Z2_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3054,
+      "examples": [
+        "800"
+      ]
+    },
+    "z2CurrentHome": {
+      "mapsFrom": [
+        "Z2_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3055,
+      "examples": [
+        "Z2_CURRENT"
+      ]
+    },
+    "z2Microsteps": {
+      "mapsFrom": [
+        "Z2_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3056,
+      "examples": [
+        "Z_MICROSTEPS"
+      ]
+    },
+    "z2Rsense": {
+      "mapsFrom": [
+        "Z2_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3057,
+      "examples": [
+        "0.11"
+      ]
+    },
+    "z2ChainPos": {
+      "mapsFrom": [
+        "Z2_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3058,
+      "examples": [
+        "-1"
+      ]
+    },
+    "z3Current": {
+      "mapsFrom": [
+        "Z3_CURRENT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3065,
+      "examples": [
+        "Z_CURRENT"
+      ]
+    },
+    "z3CurrentHome": {
+      "mapsFrom": [
+        "Z3_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3066,
+      "examples": [
+        "Z_CURRENT_HOME"
+      ]
+    },
+    "z3Microsteps": {
+      "mapsFrom": [
+        "Z3_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3067,
+      "examples": [
+        "Z_MICROSTEPS"
+      ]
+    },
+    "z3Rsense": {
+      "mapsFrom": [
+        "Z3_RSENSE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3068,
+      "examples": [
+        "Z_RSENSE"
+      ]
+    },
+    "z3ChainPos": {
+      "mapsFrom": [
+        "Z3_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3069,
+      "examples": [
+        "-1"
+      ]
+    },
+    "z4Current": {
+      "mapsFrom": [
+        "Z4_CURRENT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3075,
+      "examples": [
+        "Z_CURRENT"
+      ]
+    },
+    "z4CurrentHome": {
+      "mapsFrom": [
+        "Z4_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3076,
+      "examples": [
+        "Z_CURRENT_HOME"
+      ]
+    },
+    "z4Microsteps": {
+      "mapsFrom": [
+        "Z4_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3077,
+      "examples": [
+        "Z_MICROSTEPS"
+      ]
+    },
+    "z4Rsense": {
+      "mapsFrom": [
+        "Z4_RSENSE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3078,
+      "examples": [
+        "Z_RSENSE"
+      ]
+    },
+    "z4ChainPos": {
+      "mapsFrom": [
+        "Z4_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3079,
+      "examples": [
+        "-1"
+      ]
+    },
+    "iCurrent": {
+      "mapsFrom": [
+        "I_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3085,
+      "examples": [
+        "800"
+      ]
+    },
+    "iCurrentHome": {
+      "mapsFrom": [
+        "I_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3086,
+      "examples": [
+        "I_CURRENT"
+      ]
+    },
+    "iMicrosteps": {
+      "mapsFrom": [
+        "I_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3087,
+      "examples": [
+        "16"
+      ]
+    }
+  }
+}

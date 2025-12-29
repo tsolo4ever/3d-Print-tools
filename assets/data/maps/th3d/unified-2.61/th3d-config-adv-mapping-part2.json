@@ -1,0 +1,744 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "unified-2.61",
+  "firmware": "th3d",
+  "configFile": "Configuration.h",
+  "generatedFrom": "example-th3d-ender5plus-config_adv.h",
+  "totalDefines": 792,
+  "other_3": {
+    "coolerFanIndex": {
+      "mapsFrom": [
+        "COOLER_FAN_INDEX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 274,
+      "examples": [
+        "0"
+      ]
+    },
+    "coolerFanBase": {
+      "mapsFrom": [
+        "COOLER_FAN_BASE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 276,
+      "examples": [
+        "100"
+      ]
+    },
+    "coolerFanFactor": {
+      "mapsFrom": [
+        "COOLER_FAN_FACTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 277,
+      "examples": [
+        "25"
+      ]
+    },
+    "kc": {
+      "mapsFrom": [
+        "DEFAULT_Kc"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 387,
+      "examples": [
+        "(100)"
+      ]
+    },
+    "lpqMaxLen": {
+      "mapsFrom": [
+        "LPQ_MAX_LEN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 388,
+      "examples": [
+        "50"
+      ]
+    },
+    "kf": {
+      "mapsFrom": [
+        "DEFAULT_Kf"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 436,
+      "examples": [
+        "10"
+      ]
+    },
+    "extruderRunoutSeconds": {
+      "mapsFrom": [
+        "EXTRUDER_RUNOUT_SECONDS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 510,
+      "examples": [
+        "30"
+      ]
+    },
+    "extruderRunoutSpeed": {
+      "mapsFrom": [
+        "EXTRUDER_RUNOUT_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 511,
+      "examples": [
+        "1500"
+      ]
+    },
+    "extruderRunoutExtrude": {
+      "mapsFrom": [
+        "EXTRUDER_RUNOUT_EXTRUDE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 512,
+      "examples": [
+        "5"
+      ]
+    },
+    "hotendIdleTimeoutSec": {
+      "mapsFrom": [
+        "HOTEND_IDLE_TIMEOUT_SEC"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 521,
+      "examples": [
+        "(5*60)"
+      ]
+    },
+    "hotendIdleMinTrigger": {
+      "mapsFrom": [
+        "HOTEND_IDLE_MIN_TRIGGER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 522,
+      "examples": [
+        "180"
+      ]
+    },
+    "hotendIdleNozzleTarget": {
+      "mapsFrom": [
+        "HOTEND_IDLE_NOZZLE_TARGET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 523,
+      "examples": [
+        "0"
+      ]
+    },
+    "fastPwmFanFrequency": {
+      "mapsFrom": [
+        "FAST_PWM_FAN_FREQUENCY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 693,
+      "examples": [
+        "1000U"
+      ]
+    },
+    "e0AutoFanPin": {
+      "mapsFrom": [
+        "E0_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 735,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e1AutoFanPin": {
+      "mapsFrom": [
+        "E1_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 739,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e2AutoFanPin": {
+      "mapsFrom": [
+        "E2_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 741,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e3AutoFanPin": {
+      "mapsFrom": [
+        "E3_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 742,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e4AutoFanPin": {
+      "mapsFrom": [
+        "E4_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 743,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e5AutoFanPin": {
+      "mapsFrom": [
+        "E5_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 744,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e6AutoFanPin": {
+      "mapsFrom": [
+        "E6_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 745,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e7AutoFanPin": {
+      "mapsFrom": [
+        "E7_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 746,
+      "examples": [
+        "-1"
+      ]
+    },
+    "chamberAutoFanPin": {
+      "mapsFrom": [
+        "CHAMBER_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 747,
+      "examples": [
+        "-1"
+      ]
+    },
+    "coolerAutoFanPin": {
+      "mapsFrom": [
+        "COOLER_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 748,
+      "examples": [
+        "-1"
+      ]
+    },
+    "extruderAutoFanSpeed": {
+      "mapsFrom": [
+        "EXTRUDER_AUTO_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 751,
+      "examples": [
+        "255"
+      ]
+    },
+    "chamberAutoFanSpeed": {
+      "mapsFrom": [
+        "CHAMBER_AUTO_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 753,
+      "examples": [
+        "255"
+      ]
+    },
+    "coolerAutoFanSpeed": {
+      "mapsFrom": [
+        "COOLER_AUTO_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 755,
+      "examples": [
+        "255"
+      ]
+    },
+    "fanmux0Pin": {
+      "mapsFrom": [
+        "FANMUX0_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 798,
+      "examples": [
+        "-1"
+      ]
+    },
+    "fanmux1Pin": {
+      "mapsFrom": [
+        "FANMUX1_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 799,
+      "examples": [
+        "-1"
+      ]
+    },
+    "fanmux2Pin": {
+      "mapsFrom": [
+        "FANMUX2_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 800,
+      "examples": [
+        "-1"
+      ]
+    },
+    "invertCaseLight": {
+      "mapsFrom": [
+        "INVERT_CASE_LIGHT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 809,
+      "examples": [
+        "false"
+      ],
+      "notes": "#define CASE_LIGHT_PIN 4                  // Override the default pin if needed"
+    }
+  },
+  "other_4": {
+    "caseLightDefaultOn": {
+      "mapsFrom": [
+        "CASE_LIGHT_DEFAULT_ON"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 810,
+      "examples": [
+        "true"
+      ]
+    },
+    "caseLightDefaultBrightness": {
+      "mapsFrom": [
+        "CASE_LIGHT_DEFAULT_BRIGHTNESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 811,
+      "examples": [
+        "105"
+      ]
+    },
+    "caseLightDefaultColor": {
+      "mapsFrom": [
+        "CASE_LIGHT_DEFAULT_COLOR"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 822,
+      "examples": [
+        "{ 255, 255, 255, 255 }"
+      ]
+    },
+    "dualXCarriageMode": {
+      "mapsFrom": [
+        "DEFAULT_DUAL_X_CARRIAGE_MODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 885,
+      "examples": [
+        "DXC_AUTO_PARK_MODE"
+      ],
+      "notes": "NOTE: For Dual X Carriage use M218 T1 Xn to override the X2_HOME_POS. This allows recalibration of endstops distance without a rebuild. Remember to set the second extruder's X-offset to 0 in your slicer. This is the default power-up mode which can be changed later using M605 S<mode>."
+    },
+    "duplicationXOffset": {
+      "mapsFrom": [
+        "DEFAULT_DUPLICATION_X_OFFSET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 888,
+      "examples": [
+        "100"
+      ],
+      "notes": "Default x offset in duplication mode (typically set to half print bed width)"
+    },
+    "homingBumpMm": {
+      "mapsFrom": [
+        "HOMING_BUMP_MM"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 983,
+      "examples": [
+        "{ 5, 5, 2 }"
+      ],
+      "notes": "#define SENSORLESS_BACKOFF_MM  { 2, 2, 0 }  // (linear=mm, rotational=\u00b0) Backoff from endstops before sensorless homing"
+    },
+    "homingBumpDivisor": {
+      "mapsFrom": [
+        "HOMING_BUMP_DIVISOR"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 984,
+      "examples": [
+        "{ 2, 2, 4 }"
+      ]
+    },
+    "quickHome": {
+      "mapsFrom": [
+        "QUICK_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 989,
+      "examples": [
+        "// If G28 contains XY do a diagonal move first"
+      ],
+      "notes": "#define HOMING_BACKOFF_POST_MM { 2, 2, 2 }  // (linear=mm, rotational=\u00b0) Backoff from endstops after homing #define XY_COUNTERPART_BACKOFF_MM 0         // (mm) Backoff X after homing Y, and vice-versa"
+    },
+    "zStepperAlignAmp": {
+      "mapsFrom": [
+        "Z_STEPPER_ALIGN_AMP"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1124,
+      "examples": [
+        "1.0"
+      ],
+      "notes": "Amplification factor. Used to scale the correction step up or down in case the stepper (spindle) position is farther out than the test point."
+    },
+    "g34MaxGrade": {
+      "mapsFrom": [
+        "G34_MAX_GRADE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1128,
+      "examples": [
+        "5"
+      ],
+      "notes": "On a 300mm bed a 5% grade would give a misalignment of ~1.5cm"
+    },
+    "zStepperAlignIterations": {
+      "mapsFrom": [
+        "Z_STEPPER_ALIGN_ITERATIONS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1129,
+      "examples": [
+        "5"
+      ]
+    },
+    "zStepperAlignAcc": {
+      "mapsFrom": [
+        "Z_STEPPER_ALIGN_ACC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1130,
+      "examples": [
+        "0.02"
+      ]
+    },
+    "trammingPointXy": {
+      "mapsFrom": [
+        "TRAMMING_POINT_XY"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1144,
+      "examples": [
+        "{ {  20, 20 }, { 180,  20 }, { 180, 180 }, { 20, 180 } }"
+      ],
+      "notes": "Define from 3 to 9 points to probe."
+    },
+    "trammingPointName1": {
+      "mapsFrom": [
+        "TRAMMING_POINT_NAME_1"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1147,
+      "examples": [
+        "\"Front-Left\""
+      ],
+      "notes": "Define position names for probe points."
+    },
+    "trammingPointName2": {
+      "mapsFrom": [
+        "TRAMMING_POINT_NAME_2"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1148,
+      "examples": [
+        "\"Front-Right\""
+      ]
+    },
+    "trammingPointName3": {
+      "mapsFrom": [
+        "TRAMMING_POINT_NAME_3"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1149,
+      "examples": [
+        "\"Back-Right\""
+      ]
+    },
+    "trammingPointName4": {
+      "mapsFrom": [
+        "TRAMMING_POINT_NAME_4"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1150,
+      "examples": [
+        "\"Back-Left\""
+      ]
+    },
+    "trammingScrewThread": {
+      "mapsFrom": [
+        "TRAMMING_SCREW_THREAD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1165,
+      "examples": [
+        "30"
+      ]
+    },
+    "shapingFreqX": {
+      "mapsFrom": [
+        "SHAPING_FREQ_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1198,
+      "examples": [
+        "INPUT_SHAPING_FREQ_X"
+      ]
+    },
+    "shapingZetaX": {
+      "mapsFrom": [
+        "SHAPING_ZETA_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1199,
+      "examples": [
+        "INPUT_SHAPING_DAMPING_X"
+      ]
+    },
+    "shapingFreqY": {
+      "mapsFrom": [
+        "SHAPING_FREQ_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1202,
+      "examples": [
+        "INPUT_SHAPING_FREQ_Y"
+      ]
+    },
+    "shapingZetaY": {
+      "mapsFrom": [
+        "SHAPING_ZETA_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1203,
+      "examples": [
+        "INPUT_SHAPING_DAMPING_X"
+      ]
+    },
+    "shapingMenu": {
+      "mapsFrom": [
+        "SHAPING_MENU"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1207,
+      "examples": [
+        "// Add a menu to the LCD to set shaping parameters."
+      ],
+      "notes": "#define SHAPING_MIN_FREQ  20        // By default the minimum of the shaping frequencies. Override to affect SRAM usage. #define SHAPING_MAX_STEPRATE 10000  // By default the maximum total step rate of the shaped axes. Override to affect SRAM usage."
+    },
+    "axisRelativeModes": {
+      "mapsFrom": [
+        "AXIS_RELATIVE_MODES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1212,
+      "examples": [
+        "{ false, false, false, false }"
+      ],
+      "notes": "@section motion"
+    },
+    "invertXStepPin": {
+      "mapsFrom": [
+        "INVERT_X_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1218,
+      "examples": [
+        "false"
+      ],
+      "notes": "Add a Duplicate option for well-separated conjoined nozzles #define MULTI_NOZZLE_DUPLICATION By default pololu step drivers require an active high signal. However, some high power drivers require an active low signal as step."
+    },
+    "invertYStepPin": {
+      "mapsFrom": [
+        "INVERT_Y_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1219,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertZStepPin": {
+      "mapsFrom": [
+        "INVERT_Z_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1220,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertIStepPin": {
+      "mapsFrom": [
+        "INVERT_I_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1221,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertJStepPin": {
+      "mapsFrom": [
+        "INVERT_J_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1222,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertKStepPin": {
+      "mapsFrom": [
+        "INVERT_K_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1223,
+      "examples": [
+        "false"
+      ]
+    }
+  }
+}

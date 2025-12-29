@@ -1,0 +1,1054 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.x",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "firmware-helper\\example-ender5plus-config.h",
+  "totalDefines": 949,
+  "other_12": {
+    "nozzleCleanFeature": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2302,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "nozzleCleanStrokes": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_STROKES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2306,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "12"
+      ],
+      "notes": "Default number of pattern repetitions. Default number of pattern repetitions. Default number of pattern repetitions",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ]
+    },
+    "nozzleCleanTriangles": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_TRIANGLES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2309,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "3"
+      ],
+      "notes": "Default number of triangles. Default number of triangles. Default number of triangles",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ]
+    },
+    "nozzleCleanStartPoint": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_START_POINT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2313,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "{ {  30, 30, (Z_MIN_POS + 1) } }"
+      ],
+      "notes": "Specify positions for each tool as { { X, Y, Z }, { X, Y, Z } } Dual hotend system may use { {  -20, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) },  {  420, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) }}",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ]
+    },
+    "nozzleCleanEndPoint": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_END_POINT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2314,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "{ { 100, 60, (Z_MIN_POS + 1) } }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ]
+    },
+    "nozzleCleanCircleRadius": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_CIRCLE_RADIUS"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2317,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "6.5"
+      ],
+      "notes": "Circular pattern radius. Circular pattern radius. Circular pattern radius",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ],
+      "unit": "mm"
+    },
+    "nozzleCleanCircleFn": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_CIRCLE_FN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2319,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "10"
+      ],
+      "notes": "Circular pattern circle number of segments. Circular pattern circle number of segments. Circular pattern circle fragments number",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ]
+    },
+    "nozzleCleanCircleMiddle": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_CIRCLE_MIDDLE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2321,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "NOZZLE_CLEAN_START_POINT"
+      ],
+      "notes": "Middle point of circle. Middle point of circle. Middle point of circle",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ]
+    },
+    "nozzleCleanGoback": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_GOBACK"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2324,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "notes": "Move the nozzle to the initial position after cleaning",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ]
+    },
+    "nozzleCleanNoZ": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_NO_Z"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2327,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "notes": "For a purge/clean station that's always at the gantry height (thus no Z move)",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ]
+    },
+    "nozzleCleanNoY": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_NO_Y"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2330,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "notes": "For a purge/clean station mounted on the X axis",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ]
+    },
+    "nozzleCleanHeatup": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_HEATUP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2334,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "// Heat up the nozzle instead of skipping wipe"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ],
+      "notes": "Heat up the nozzle instead of skipping wipe. Heat up the nozzle instead of skipping wipe"
+    },
+    "wipeSequenceCommands": {
+      "mapsFrom": [
+        "WIPE_SEQUENCE_COMMANDS"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2337,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "\"G1 X-17 Y25 Z10 F4000\\nG1 Z1\\nM114\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 Z15\\nM400\\nG0 X-10.0 Y-9.0\""
+      ],
+      "notes": "Explicit wipe G-code script applies to a G12 with no arguments.",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_CLEAN_FEATURE)"
+      ]
+    },
+    "printjobTimerAutostart": {
+      "mapsFrom": [
+        "PRINTJOB_TIMER_AUTOSTART"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2367,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "passwordFeature": {
+      "mapsFrom": [
+        "PASSWORD_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2409,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "passwordLength": {
+      "mapsFrom": [
+        "PASSWORD_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2411,
+      "isConditional": true,
+      "conditionalOn": [
+        "PASSWORD_FEATURE"
+      ],
+      "examples": [
+        "4"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PASSWORD_FEATURE)"
+      ],
+      "min": 1,
+      "max": 9,
+      "notes": "Number of digits . 3 or 4 is recommended. Number of digits . 3 or 4 is recommended"
+    },
+    "passwordOnStartup": {
+      "mapsFrom": [
+        "PASSWORD_ON_STARTUP"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2412,
+      "isConditional": true,
+      "conditionalOn": [
+        "PASSWORD_FEATURE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PASSWORD_FEATURE)"
+      ]
+    },
+    "passwordUnlockGcode": {
+      "mapsFrom": [
+        "PASSWORD_UNLOCK_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2413,
+      "isConditional": true,
+      "conditionalOn": [
+        "PASSWORD_FEATURE"
+      ],
+      "examples": [
+        "// Unlock with the M511 P<password> command. Disable to prevent brute-force attack."
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PASSWORD_FEATURE)"
+      ],
+      "notes": "Unlock with the M511 P<password> command. Disable to prevent brute-force attack.. Unlock with the M511 P<password> command. Disable to prevent brute-force attack."
+    },
+    "passwordChangeGcode": {
+      "mapsFrom": [
+        "PASSWORD_CHANGE_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2414,
+      "isConditional": true,
+      "conditionalOn": [
+        "PASSWORD_FEATURE"
+      ],
+      "examples": [
+        "// Change the password with M512 P<old> S<new>."
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PASSWORD_FEATURE)"
+      ],
+      "notes": "Change the password with M512 P<old> S<new>.. Change the password with M512 P<old> S<new>."
+    },
+    "encoderPulsesPerStep": {
+      "mapsFrom": [
+        "ENCODER_PULSES_PER_STEP"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2500,
+      "examples": [
+        "4"
+      ],
+      "notes": " ENCODER SETTINGS  This option overrides the default number of encoder pulses needed to produce one step. Should be increased for high-resolution encoders. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "encoderStepsPerMenuItem": {
+      "mapsFrom": [
+        "ENCODER_STEPS_PER_MENU_ITEM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2506,
+      "examples": [
+        "1"
+      ],
+      "notes": " Use this option to override the number of step signals required to move between next/prev menu items. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "reverseEncoderDirection": {
+      "mapsFrom": [
+        "REVERSE_ENCODER_DIRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2523,
+      "notes": " This option reverses the encoder direction everywhere.  Set this option if CLOCKWISE causes values to DECREASE ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "reverseMenuDirection": {
+      "mapsFrom": [
+        "REVERSE_MENU_DIRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2531,
+      "notes": " This option reverses the encoder direction for navigating LCD menus.  If CLOCKWISE normally moves DOWN this makes it go UP. If CLOCKWISE normally moves UP this makes it go DOWN. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "reverseSelectDirection": {
+      "mapsFrom": [
+        "REVERSE_SELECT_DIRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2539,
+      "notes": " This option reverses the encoder direction for Select Screen.  If CLOCKWISE normally moves LEFT this makes it go RIGHT. If CLOCKWISE normally moves RIGHT this makes it go LEFT. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "encoderNoiseFilter": {
+      "mapsFrom": [
+        "ENCODER_NOISE_FILTER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2546,
+      "notes": " Encoder EMI Noise Filter  This option increases encoder samples to filter out phantom encoder clicks caused by EMI noise. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "encoderSamples": {
+      "mapsFrom": [
+        "ENCODER_SAMPLES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2548,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENCODER_NOISE_FILTER"
+      ],
+      "examples": [
+        "10"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(ENCODER_NOISE_FILTER)"
+      ]
+    },
+    "individualAxisHomingMenu": {
+      "mapsFrom": [
+        "INDIVIDUAL_AXIS_HOMING_MENU"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2556,
+      "notes": " Individual Axis Homing  Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "individualAxisHomingSubmenu": {
+      "mapsFrom": [
+        "INDIVIDUAL_AXIS_HOMING_SUBMENU"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2557,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "speaker": {
+      "mapsFrom": [
+        "SPEAKER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2565,
+      "notes": " SPEAKER/BUZZER  If you have a speaker that can produce tones, enable it here. By default Marlin assumes you have a buzzer with a fixed frequency. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "yhcb2004": {
+      "mapsFrom": [
+        "YHCB2004"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2597,
+      "notes": " GT2560 (YHCB2004) LCD Display  Requires Testato, Koepel softwarewire library and Andriy Golovnya's LiquidCrystal_AIP31068 library. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    }
+  },
+  "other_13": {
+    "ultipanel": {
+      "mapsFrom": [
+        "ULTIPANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2613,
+      "notes": " ULTIPANEL as seen on Thingiverse. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "panelOne": {
+      "mapsFrom": [
+        "PANEL_ONE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2619,
+      "notes": " PanelOne from T3P3 (via RAMPS 1.4 AUX2/AUX3) https://reprap.org/wiki/PanelOne ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "g3dPanel": {
+      "mapsFrom": [
+        "G3D_PANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2627,
+      "notes": " GADGETS3D G3D LCD/SD Controller https://reprap.org/wiki/RAMPS_1.3/1.4_GADGETS3D_Shield_with_Panel  Note: Usually sold with a blue PCB. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "rigidbotPanel": {
+      "mapsFrom": [
+        "RIGIDBOT_PANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2633,
+      "notes": " RigidBot Panel V1.0 http://www.inventapart.com/ ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "raControlPanel": {
+      "mapsFrom": [
+        "RA_CONTROL_PANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2670,
+      "notes": "============================================================================= ======================== LCD / Controller Selection ========================= =====================   (I2C and Shift-Register LCDs)   ===================== =============================================================================  CONTROLLER TYPE: I2C  Note: These controllers require the installation of Arduino's LiquidCrystal_I2C library. For more info: https://github.com/kiyoshigawa/LiquidCrystal_I2C   Elefu RA Board Control Panel https://web.archive.org/web/20140823033947/http://www.elefu.com/index.php?route=product/product&product_id=53 ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "lcm1602": {
+      "mapsFrom": [
+        "LCM1602"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2684,
+      "notes": " Generic LCM1602 LCD adapter ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "ffInterfaceboard": {
+      "mapsFrom": [
+        "FF_INTERFACEBOARD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2719,
+      "notes": " 3-wire SR LCD with strobe using 74HC4094 https://github.com/mikeshub/SailfishLCD Uses the code directly from Sailfish ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "viki2": {
+      "mapsFrom": [
+        "VIKI2"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2765,
+      "notes": " Activate one of these if you have a Panucatt Devices Viki 2.0 or mini Viki with Graphic LCD https://www.panucatt.com ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "miniviki": {
+      "mapsFrom": [
+        "miniVIKI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2766,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "wyhL12864": {
+      "mapsFrom": [
+        "WYH_L12864"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2771,
+      "notes": " Alfawise Ex8 printer LCD marked as WYH L12864 COG ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "minipanel": {
+      "mapsFrom": [
+        "MINIPANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2777,
+      "notes": " MakerLab Mini Panel with graphic controller and SD support - https://reprap.org/wiki/Mini_panel ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "makrpanel": {
+      "mapsFrom": [
+        "MAKRPANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2783,
+      "notes": " MaKr3d Makr-Panel with graphic controller and SD support. https://reprap.org/wiki/MaKr3d_MaKrPanel ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "cartesioUi": {
+      "mapsFrom": [
+        "CARTESIO_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2801,
+      "notes": " Cartesio UI http://mauk.cc/webshop/cartesio-shop/electronics/user-interface ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "mksMini12864": {
+      "mapsFrom": [
+        "MKS_MINI_12864"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2818,
+      "notes": " MKS MINI12864 with graphic controller and SD support https://reprap.org/wiki/MKS_MINI_12864 ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "mksMini12864V3": {
+      "mapsFrom": [
+        "MKS_MINI_12864_V3"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2823,
+      "notes": " MKS MINI12864 V3 is an alias for FYSETC_MINI_12864_2_1. Type A/B. NeoPixel RGB Backlight. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "fysetcMini12864XX": {
+      "mapsFrom": [
+        "FYSETC_MINI_12864_X_X"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2836,
+      "examples": [
+        "// Type C/D/E/F. No tunable RGB Backlight by default"
+      ],
+      "notes": "Type C/D/E/F. No tunable RGB Backlight by default. Type C/D/E/F. No tunable RGB Backlight by default.  FYSETC variant of the MINI12864 graphic controller with SD support https://wiki.fysetc.com/Mini12864_Panel/ ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "fysetcMini1286412": {
+      "mapsFrom": [
+        "FYSETC_MINI_12864_1_2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2837,
+      "examples": [
+        "// Type C/D/E/F. Simple RGB Backlight (always on)"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Type C/D/E/F. Simple RGB Backlight. Type C/D/E/F. Simple RGB Backlight"
+    },
+    "fysetcMini1286420": {
+      "mapsFrom": [
+        "FYSETC_MINI_12864_2_0"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2838,
+      "examples": [
+        "// Type A/B. Discreet RGB Backlight"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Type A/B. Discreet RGB Backlight. Type A/B. Discreet RGB Backlight"
+    },
+    "fysetcMini1286421": {
+      "mapsFrom": [
+        "FYSETC_MINI_12864_2_1"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2839,
+      "examples": [
+        "// Type A/B. NeoPixel RGB Backlight"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Type A/B. NeoPixel RGB Backlight. Type A/B. NeoPixel RGB Backlight"
+    },
+    "fysetcGeneric1286411": {
+      "mapsFrom": [
+        "FYSETC_GENERIC_12864_1_1"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2840,
+      "examples": [
+        "// Larger display with basic ON/OFF backlight."
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Larger display with basic ON/OFF backlight.. Larger display with basic ON/OFF backlight."
+    },
+    "bttMini12864V1": {
+      "mapsFrom": [
+        "BTT_MINI_12864_V1"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2845,
+      "notes": " BigTreeTech Mini 12864 V1.0 is an alias for FYSETC_MINI_12864_2_1. Type A/B. NeoPixel RGB Backlight. ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "azsmz12864": {
+      "mapsFrom": [
+        "AZSMZ_12864"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2875,
+      "notes": " AZSMZ 12864 LCD with SD https://www.aliexpress.com/item/32837222770.html ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "u8glibSsd1306": {
+      "mapsFrom": [
+        "U8GLIB_SSD1306"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2903,
+      "isConditional": true,
+      "conditionalOn": [
+        "SAV_3DGLCD"
+      ],
+      "notes": "============================================================================= ==============================  OLED Displays  ============================== =============================================================================  SSD1306 OLED full graphics generic display ",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(SAV_3DGLCD)"
+      ]
+    },
+    "u8glibSh1106": {
+      "mapsFrom": [
+        "U8GLIB_SH1106"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2904,
+      "isConditional": true,
+      "conditionalOn": [
+        "SAV_3DGLCD"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(SAV_3DGLCD)"
+      ]
+    },
+    "oledPanelTinyboy2": {
+      "mapsFrom": [
+        "OLED_PANEL_TINYBOY2"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2910,
+      "notes": " TinyBoy2 128x64 OLED / Encoder Panel ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "mks12864oled": {
+      "mapsFrom": [
+        "MKS_12864OLED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2918,
+      "examples": [
+        "// Uses the SH1106 controller (default)"
+      ],
+      "notes": "Uses the SH1106 controller. Uses the SH1106 controller.  MKS OLED 1.3\" 128\u00d764 Full Graphics Controller https://reprap.org/wiki/MKS_12864OLED  Tiny, but very sharp OLED display ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "mks12864oledSsd1306": {
+      "mapsFrom": [
+        "MKS_12864OLED_SSD1306"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2919,
+      "examples": [
+        "// Uses the SSD1306 controller"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Uses the SSD1306 controller. Uses the SSD1306 controller"
+    },
+    "zonestar12864oled": {
+      "mapsFrom": [
+        "ZONESTAR_12864OLED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2925,
+      "examples": [
+        "// 1.3\" OLED with SH1106 controller (default)"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "1.3\" OLED with SH1106 controller. 1.3\" OLED with SH1106 controller"
+    },
+    "zonestar12864oledSsd1306": {
+      "mapsFrom": [
+        "ZONESTAR_12864OLED_SSD1306"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2926,
+      "examples": [
+        "// 0.96\" OLED with SSD1306 controller"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "0.96\" OLED with SSD1306 controller. 0.96\" OLED with SSD1306 controller"
+    },
+    "u8glibSh1106Einstart": {
+      "mapsFrom": [
+        "U8GLIB_SH1106_EINSTART"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2931,
+      "notes": " Einstart S OLED SSD1306 ",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    }
+  }
+}

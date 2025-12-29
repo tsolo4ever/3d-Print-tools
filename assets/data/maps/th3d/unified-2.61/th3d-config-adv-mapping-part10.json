@@ -1,0 +1,736 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "unified-2.61",
+  "firmware": "th3d",
+  "configFile": "Configuration.h",
+  "generatedFrom": "example-th3d-ender5plus-config_adv.h",
+  "totalDefines": 792,
+  "other_19": {
+    "mainMenuItem1Desc": {
+      "mapsFrom": [
+        "MAIN_MENU_ITEM_1_DESC"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4153,
+      "examples": [
+        "\"Home & UBL Info\""
+      ]
+    },
+    "mainMenuItem1Gcode": {
+      "mapsFrom": [
+        "MAIN_MENU_ITEM_1_GCODE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4154,
+      "examples": [
+        "\"G28\\nG29 W\""
+      ]
+    },
+    "mainMenuItem2Desc": {
+      "mapsFrom": [
+        "MAIN_MENU_ITEM_2_DESC"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4157,
+      "examples": [
+        "\"Preheat for \" PREHEAT_1_LABEL"
+      ],
+      "notes": "#define MAIN_MENU_ITEM_1_CONFIRM          // Show a confirmation dialog before this action"
+    },
+    "mainMenuItem2Gcode": {
+      "mapsFrom": [
+        "MAIN_MENU_ITEM_2_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4158,
+      "examples": [
+        "\"M140 S\" STRINGIFY(PREHEAT_1_TEMP_BED) \"\\nM104 S\" STRINGIFY(PREHEAT_1_TEMP_HOTEND)"
+      ]
+    },
+    "customMenuConfigScriptDone": {
+      "mapsFrom": [
+        "CUSTOM_MENU_CONFIG_SCRIPT_DONE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4180,
+      "examples": [
+        "\"M117 Wireless Script Done\""
+      ],
+      "notes": "#define CUSTOM_MENU_CONFIG_TITLE \"Custom Commands\""
+    },
+    "customMenuConfigScriptAudibleFeedback": {
+      "mapsFrom": [
+        "CUSTOM_MENU_CONFIG_SCRIPT_AUDIBLE_FEEDBACK"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4181
+    },
+    "customMenuConfigOnlyIdle": {
+      "mapsFrom": [
+        "CUSTOM_MENU_CONFIG_ONLY_IDLE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4183,
+      "examples": [
+        "// Only show custom menu when the machine is idle"
+      ],
+      "notes": "#define CUSTOM_MENU_CONFIG_SCRIPT_RETURN  // Return to status screen after a script"
+    },
+    "configMenuItem1Desc": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_1_DESC"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4185,
+      "examples": [
+        "\"Wifi ON\""
+      ]
+    },
+    "configMenuItem1Gcode": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_1_GCODE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4186,
+      "examples": [
+        "\"M118 [ESP110] WIFI-STA pwd=12345678\""
+      ]
+    },
+    "configMenuItem2Desc": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_2_DESC"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4189,
+      "examples": [
+        "\"Bluetooth ON\""
+      ],
+      "notes": "#define CONFIG_MENU_ITEM_1_CONFIRM        // Show a confirmation dialog before this action"
+    },
+    "configMenuItem2Gcode": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_2_GCODE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4190,
+      "examples": [
+        "\"M118 [ESP110] BT pwd=12345678\""
+      ]
+    },
+    "customUserButtons": {
+      "mapsFrom": [
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4213
+    },
+    "button1Pin": {
+      "mapsFrom": [
+        "BUTTON1_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4216,
+      "examples": [
+        "LDO_FILAMENT_UNLOAD_PIN"
+      ]
+    },
+    "button1HitState": {
+      "mapsFrom": [
+        "BUTTON1_HIT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4218,
+      "examples": [
+        "HIGH"
+      ]
+    },
+    "button1WhenPrinting": {
+      "mapsFrom": [
+        "BUTTON1_WHEN_PRINTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4219,
+      "examples": [
+        "true"
+      ]
+    },
+    "button1Gcode": {
+      "mapsFrom": [
+        "BUTTON1_GCODE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4220,
+      "examples": [
+        "\"M702 U100\""
+      ]
+    },
+    "button1Desc": {
+      "mapsFrom": [
+        "BUTTON1_DESC"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4221,
+      "examples": [
+        "\"Unloading Filament\""
+      ]
+    },
+    "button2HitState": {
+      "mapsFrom": [
+        "BUTTON2_HIT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4226,
+      "examples": [
+        "LOW"
+      ]
+    },
+    "button2WhenPrinting": {
+      "mapsFrom": [
+        "BUTTON2_WHEN_PRINTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4227,
+      "examples": [
+        "false"
+      ]
+    },
+    "button2Gcode": {
+      "mapsFrom": [
+        "BUTTON2_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4228,
+      "examples": [
+        "\"M140 S\" STRINGIFY(PREHEAT_1_TEMP_BED) \"\\nM104 S\" STRINGIFY(PREHEAT_1_TEMP_HOTEND)"
+      ]
+    },
+    "button2Desc": {
+      "mapsFrom": [
+        "BUTTON2_DESC"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4229,
+      "examples": [
+        "\"Preheat for \" PREHEAT_1_LABEL"
+      ]
+    },
+    "button3HitState": {
+      "mapsFrom": [
+        "BUTTON3_HIT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4234,
+      "examples": [
+        "LOW"
+      ]
+    },
+    "button3WhenPrinting": {
+      "mapsFrom": [
+        "BUTTON3_WHEN_PRINTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4235,
+      "examples": [
+        "false"
+      ]
+    },
+    "button3Gcode": {
+      "mapsFrom": [
+        "BUTTON3_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4236,
+      "examples": [
+        "\"M140 S\" STRINGIFY(PREHEAT_2_TEMP_BED) \"\\nM104 S\" STRINGIFY(PREHEAT_2_TEMP_HOTEND)"
+      ]
+    },
+    "button3Desc": {
+      "mapsFrom": [
+        "BUTTON3_DESC"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4237,
+      "examples": [
+        "\"Preheat for \" PREHEAT_2_LABEL"
+      ]
+    },
+    "hostPromptSupport": {
+      "mapsFrom": [
+        "HOST_PROMPT_SUPPORT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4263,
+      "examples": [
+        "// Initiate host prompts to get user feedback"
+      ]
+    },
+    "hostStatusNotifications": {
+      "mapsFrom": [
+        "HOST_STATUS_NOTIFICATIONS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4266,
+      "examples": [
+        "// Send some status messages to the host as notifications"
+      ]
+    },
+    "cancelObjectsReporting": {
+      "mapsFrom": [
+        "CANCEL_OBJECTS_REPORTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4281,
+      "examples": [
+        "// Emit the current object as a status message"
+      ]
+    },
+    "i2cpeEncoderCnt": {
+      "mapsFrom": [
+        "I2CPE_ENCODER_CNT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4301,
+      "examples": [
+        "1"
+      ]
+    },
+    "i2cpeEnc1Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4304,
+      "examples": [
+        "I2CPE_PRESET_ADDR_X"
+      ],
+      "notes": "encoders supported currently."
+    }
+  },
+  "other_20": {
+    "i2cpeEnc1Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4305,
+      "examples": [
+        "X_AXIS"
+      ]
+    },
+    "i2cpeEnc1Type": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4306,
+      "examples": [
+        "I2CPE_ENC_TYPE_LINEAR"
+      ]
+    },
+    "i2cpeEnc1TicksUnit": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_TICKS_UNIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4308,
+      "examples": [
+        "2048"
+      ],
+      "notes": "I2CPE_ENC_TYPE_ROTARY."
+    },
+    "i2cpeEnc1EcMethod": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_EC_METHOD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4314,
+      "examples": [
+        "I2CPE_ECM_MICROSTEP"
+      ],
+      "notes": "1mm poles. For linear encoders this is ticks / mm, for rotary encoders this is ticks / revolution. #define I2CPE_ENC_1_TICKS_REV     (16 * 200)            // Only needed for rotary encoders; number of stepper steps per full revolution (motor steps/rev * microstepping) #define I2CPE_ENC_1_INVERT                              // Invert the direction of axis travel."
+    },
+    "i2cpeEnc1EcThresh": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_EC_THRESH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4315,
+      "examples": [
+        "0.10"
+      ]
+    },
+    "i2cpeEnc2Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4320,
+      "examples": [
+        "I2CPE_PRESET_ADDR_Y"
+      ],
+      "notes": "printer will attempt to correct the error; errors smaller than this are ignored to minimize effects of measurement noise / latency (filter)."
+    },
+    "i2cpeEnc2Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4321,
+      "examples": [
+        "Y_AXIS"
+      ]
+    },
+    "i2cpeEnc2Type": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4322,
+      "examples": [
+        "I2CPE_ENC_TYPE_LINEAR"
+      ]
+    },
+    "i2cpeEnc2TicksUnit": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_TICKS_UNIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4323,
+      "examples": [
+        "2048"
+      ]
+    },
+    "i2cpeEnc2EcMethod": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_EC_METHOD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4326,
+      "examples": [
+        "I2CPE_ECM_MICROSTEP"
+      ],
+      "notes": "#define I2CPE_ENC_2_TICKS_REV   (16 * 200) #define I2CPE_ENC_2_INVERT"
+    },
+    "i2cpeEnc2EcThresh": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_EC_THRESH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4327,
+      "examples": [
+        "0.10"
+      ]
+    },
+    "i2cpeEnc3Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_3_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4329,
+      "examples": [
+        "I2CPE_PRESET_ADDR_Z"
+      ]
+    },
+    "i2cpeEnc3Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_3_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4330,
+      "examples": [
+        "Z_AXIS"
+      ]
+    },
+    "i2cpeEnc4Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_4_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4332,
+      "examples": [
+        "I2CPE_PRESET_ADDR_E"
+      ]
+    },
+    "i2cpeEnc4Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_4_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4333,
+      "examples": [
+        "E_AXIS"
+      ]
+    },
+    "i2cpeEnc5Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_5_ADDR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4335,
+      "examples": [
+        "34"
+      ]
+    },
+    "i2cpeEnc5Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_5_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4336,
+      "examples": [
+        "E_AXIS"
+      ]
+    },
+    "i2cpeDefType": {
+      "mapsFrom": [
+        "I2CPE_DEF_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4339,
+      "examples": [
+        "I2CPE_ENC_TYPE_LINEAR"
+      ],
+      "notes": "Default settings for encoders which are enabled, but without settings configured above."
+    },
+    "i2cpeDefEncTicksUnit": {
+      "mapsFrom": [
+        "I2CPE_DEF_ENC_TICKS_UNIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4340,
+      "examples": [
+        "2048"
+      ]
+    },
+    "i2cpeDefTicksRev": {
+      "mapsFrom": [
+        "I2CPE_DEF_TICKS_REV"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4341,
+      "examples": [
+        "(16 * 200)"
+      ]
+    },
+    "i2cpeDefEcMethod": {
+      "mapsFrom": [
+        "I2CPE_DEF_EC_METHOD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4342,
+      "examples": [
+        "I2CPE_ECM_NONE"
+      ]
+    },
+    "i2cpeDefEcThresh": {
+      "mapsFrom": [
+        "I2CPE_DEF_EC_THRESH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4343,
+      "examples": [
+        "0.1"
+      ]
+    },
+    "i2cpeTimeTrusted": {
+      "mapsFrom": [
+        "I2CPE_TIME_TRUSTED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4349,
+      "examples": [
+        "10000"
+      ],
+      "notes": "#define I2CPE_ERR_THRESH_ABORT  100.0                   // Threshold size for error (in mm) error on any given axis after which the printer will abort. Comment out to disable abort behavior."
+    },
+    "i2cpeMinUpdTimeMs": {
+      "mapsFrom": [
+        "I2CPE_MIN_UPD_TIME_MS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4358,
+      "examples": [
+        "4"
+      ]
+    },
+    "i2cpeErrRollingAverage": {
+      "mapsFrom": [
+        "I2CPE_ERR_ROLLING_AVERAGE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4361,
+      "notes": "Use a rolling average to identify persistent errors that indicate skips, as opposed to vibration and noise."
+    },
+    "joyXPin": {
+      "mapsFrom": [
+        "JOY_X_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4371,
+      "examples": [
+        "5"
+      ]
+    },
+    "joyYPin": {
+      "mapsFrom": [
+        "JOY_Y_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4372,
+      "examples": [
+        "10"
+      ]
+    },
+    "joyZPin": {
+      "mapsFrom": [
+        "JOY_Z_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4373,
+      "examples": [
+        "12"
+      ]
+    },
+    "joyEnPin": {
+      "mapsFrom": [
+        "JOY_EN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4374,
+      "examples": [
+        "44"
+      ]
+    },
+    "joyXLimits": {
+      "mapsFrom": [
+        "JOY_X_LIMITS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4381,
+      "examples": [
+        "{ 5600, 8190-100, 8190+100, 10800 }"
+      ],
+      "notes": "#define INVERT_JOY_X  // Enable if X direction is reversed #define INVERT_JOY_Y  // Enable if Y direction is reversed #define INVERT_JOY_Z  // Enable if Z direction is reversed Use M119 with JOYSTICK_DEBUG to find reasonable values after connecting:"
+    }
+  }
+}

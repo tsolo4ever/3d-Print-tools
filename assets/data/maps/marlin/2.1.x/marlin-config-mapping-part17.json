@@ -1,0 +1,952 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.x",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "firmware-helper\\example-ender5plus-config.h",
+  "totalDefines": 949,
+  "motion": {
+    "switchingToolheadPrimeFeedrate": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_PRIME_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 348,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "PRIME_BEFORE_REMOVE",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ANY(SWITCHING_TOOLHEAD, MAGNETIC_SWITCHING_TOOLHEAD, ELECTROMAGNETIC_SWITCHING_TOOLHEAD)",
+        "ENABLED(PRIME_BEFORE_REMOVE)"
+      ],
+      "examples": [
+        "300"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "notes": "Extruder prime feedrate. Extruder prime feedrate",
+      "unit": "mm/min"
+    },
+    "switchingToolheadRetractFeedrate": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_RETRACT_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 349,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "PRIME_BEFORE_REMOVE",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ANY(SWITCHING_TOOLHEAD, MAGNETIC_SWITCHING_TOOLHEAD, ELECTROMAGNETIC_SWITCHING_TOOLHEAD)",
+        "ENABLED(PRIME_BEFORE_REMOVE)"
+      ],
+      "examples": [
+        "2400"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "notes": "Extruder retract feedrate. Extruder retract feedrate",
+      "unit": "mm/min"
+    },
+    "scaraFeedrateScaling": {
+      "mapsFrom": [
+        "SCARA_FEEDRATE_SCALING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1016,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "examples": [
+        "// Convert XY feedrate from mm/s to degrees/s on the fly"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(AXEL_TPARA)"
+      ]
+    },
+    "axisStepsPerUnit": {
+      "mapsFrom": [
+        "DEFAULT_AXIS_STEPS_PER_UNIT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1182,
+      "examples": [
+        "{ 80, 80, 800, 93.00 }"
+      ],
+      "notes": "E steps example: steps per revolution s=200, microstepping m=16, effective gear diameter d=10.95: sm/(\u03c0d) = 93.02",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "maxFeedrate": {
+      "mapsFrom": [
+        "DEFAULT_MAX_FEEDRATE"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1189,
+      "examples": [
+        "{ 500, 500, 5, 25 }"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "maxFeedrateEditValues": {
+      "mapsFrom": [
+        "MAX_FEEDRATE_EDIT_VALUES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1193,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIMITED_MAX_FR_EDITING"
+      ],
+      "examples": [
+        "{ 600, 600, 10, 50 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(LIMITED_MAX_FR_EDITING)"
+      ],
+      "notes": "...or, set your own edit limits. ...or, set your own edit limits"
+    },
+    "maxAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_MAX_ACCELERATION"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1202,
+      "examples": [
+        "{ 500, 500, 100, 1000 }"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "acceleration": {
+      "mapsFrom": [
+        "DEFAULT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1217,
+      "examples": [
+        "500"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "X, Y, Z and E acceleration for printing moves. X, Y, Z and E acceleration for printing moves"
+    },
+    "retractAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_RETRACT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1218,
+      "examples": [
+        "500"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "E acceleration for retracts. E acceleration for retracts"
+    },
+    "travelAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_TRAVEL_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1219,
+      "examples": [
+        "1000"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "X, Y, Z acceleration for travel moves. X, Y, Z acceleration for travel  moves"
+    },
+    "classicJerk": {
+      "mapsFrom": [
+        "CLASSIC_JERK"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1229,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "xjerk": {
+      "mapsFrom": [
+        "DEFAULT_XJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1231,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "10.0"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)"
+      ]
+    },
+    "yjerk": {
+      "mapsFrom": [
+        "DEFAULT_YJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1232,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "10.0"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)"
+      ]
+    },
+    "zjerk": {
+      "mapsFrom": [
+        "DEFAULT_ZJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1233,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)"
+      ]
+    },
+    "ijerk": {
+      "mapsFrom": [
+        "DEFAULT_IJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1234,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)"
+      ]
+    },
+    "jjerk": {
+      "mapsFrom": [
+        "DEFAULT_JJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1235,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)"
+      ]
+    },
+    "kjerk": {
+      "mapsFrom": [
+        "DEFAULT_KJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1236,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)"
+      ]
+    },
+    "ujerk": {
+      "mapsFrom": [
+        "DEFAULT_UJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1237,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)"
+      ]
+    },
+    "vjerk": {
+      "mapsFrom": [
+        "DEFAULT_VJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1238,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)"
+      ]
+    },
+    "wjerk": {
+      "mapsFrom": [
+        "DEFAULT_WJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1239,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)"
+      ]
+    },
+    "travelExtraXyjerk": {
+      "mapsFrom": [
+        "TRAVEL_EXTRA_XYJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1241,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.0"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)"
+      ],
+      "notes": "Additional jerk allowance for all travel moves. Additional jerk allowance for all travel moves"
+    },
+    "limitedJerkEditing": {
+      "mapsFrom": [
+        "LIMITED_JERK_EDITING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1243,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "// Limit edit via M205 or LCD to DEFAULT_aJERK * 2"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)"
+      ],
+      "notes": "Limit edit via M205 or LCD to DEFAULT_aJERK * 2. Limit edit via M205 or LCD to DEFAULT_aJERK * 2"
+    },
+    "maxJerkEditValues": {
+      "mapsFrom": [
+        "MAX_JERK_EDIT_VALUES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1245,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK",
+        "LIMITED_JERK_EDITING"
+      ],
+      "examples": [
+        "{ 20, 20, 0.6, 10 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(CLASSIC_JERK)",
+        "ENABLED(LIMITED_JERK_EDITING)"
+      ],
+      "notes": "...or, set your own edit limits. ...or, set your own edit limits"
+    },
+    "ejerk": {
+      "mapsFrom": [
+        "DEFAULT_EJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1249,
+      "examples": [
+        "5.0"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "junctionDeviationMm": {
+      "mapsFrom": [
+        "JUNCTION_DEVIATION_MM"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1259,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.15"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(CLASSIC_JERK)"
+      ],
+      "unit": "mm",
+      "notes": "Distance from real junction edge. Distance from real junction edge"
+    },
+    "sCurveAcceleration": {
+      "mapsFrom": [
+        "S_CURVE_ACCELERATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1272,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "probeDeployFeedrate": {
+      "mapsFrom": [
+        "PROBE_DEPLOY_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1395,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "(133*60)"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Probe deploy speed. Probe deploy speed",
+      "unit": "mm/min"
+    },
+    "probeStowFeedrate": {
+      "mapsFrom": [
+        "PROBE_STOW_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1396,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "(133*60)"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Probe stow speed. Probe stow speed",
+      "unit": "mm/min"
+    },
+    "zProbeAllenKeyDeploy1Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_1_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1435,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ]
+    },
+    "zProbeAllenKeyDeploy2Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_2_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1438,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "(XY_PROBE_FEEDRATE)/10"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ]
+    },
+    "zProbeAllenKeyDeploy3Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_3_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1441,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ]
+    },
+    "zProbeAllenKeyStow1Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_1_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1444,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ]
+    },
+    "zProbeAllenKeyStow2Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_2_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1447,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "(XY_PROBE_FEEDRATE)/10"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ]
+    },
+    "zProbeAllenKeyStow3Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_3_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1450,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ]
+    },
+    "zProbeAllenKeyStow4Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_4_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1453,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ]
+    },
+    "xyProbeFeedrate": {
+      "mapsFrom": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1505,
+      "examples": [
+        "(133*60)"
+      ],
+      "notes": "X and Y axis travel speed (mm/min) between probes",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "unit": "mm/min"
+    },
+    "zProbeFeedrateFast": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_FAST"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1508,
+      "examples": [
+        "(4*60)"
+      ],
+      "notes": "Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "unit": "mm/min"
+    },
+    "zProbeFeedrateSlow": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_SLOW"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1511,
+      "examples": [
+        "(Z_PROBE_FEEDRATE_FAST / 2)"
+      ],
+      "notes": "Feedrate (mm/min) for the \"accurate\" probe of each point",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "g26XyFeedrate": {
+      "mapsFrom": [
+        "G26_XY_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1958,
+      "isConditional": true,
+      "conditionalOn": [
+        "G26_MESH_VALIDATION",
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_UBL",
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "examples": [
+        "20"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_BILINEAR, AUTO_BED_LEVELING_UBL)",
+        "ENABLED(G26_MESH_VALIDATION)"
+      ],
+      "unit": "mm/s",
+      "notes": "Feedrate for G26 XY moves.. Feedrate for G26 XY moves."
+    },
+    "g26XyFeedrateTravel": {
+      "mapsFrom": [
+        "G26_XY_FEEDRATE_TRAVEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1959,
+      "isConditional": true,
+      "conditionalOn": [
+        "G26_MESH_VALIDATION",
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_UBL",
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "examples": [
+        "100"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_BILINEAR, AUTO_BED_LEVELING_UBL)",
+        "ENABLED(G26_MESH_VALIDATION)"
+      ],
+      "unit": "mm/s",
+      "notes": "Feedrate for G26 XY travel moves.. Feedrate for G26 XY travel moves."
+    },
+    "homingFeedrateMmM": {
+      "mapsFrom": [
+        "HOMING_FEEDRATE_MM_M"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2113,
+      "examples": [
+        "{ (50*60), (50*60), (4*60) }"
+      ],
+      "notes": "Homing speeds (linear=mm/min, rotational=\u00b0/min)",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "nozzleParkXyFeedrate": {
+      "mapsFrom": [
+        "NOZZLE_PARK_XY_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2261,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "100"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_PARK_FEATURE)"
+      ],
+      "unit": "mm/s",
+      "notes": "X and Y axes feedrate. X and Y axes feedrate"
+    },
+    "nozzleParkZFeedrate": {
+      "mapsFrom": [
+        "NOZZLE_PARK_Z_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2262,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "5"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(NOZZLE_PARK_FEATURE)"
+      ],
+      "unit": "mm/s",
+      "notes": "Z axis feedrate. Z axis feedrate"
+    }
+  },
+  "safety": {
+    "preventColdExtrusion": {
+      "mapsFrom": [
+        "PREVENT_COLD_EXTRUSION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 835,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "preventLengthyExtrude": {
+      "mapsFrom": [
+        "PREVENT_LENGTHY_EXTRUDE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 842,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "extrudeMaxlength": {
+      "mapsFrom": [
+        "EXTRUDE_MAXLENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 843,
+      "examples": [
+        "1500"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    }
+  }
+}

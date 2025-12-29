@@ -1,0 +1,722 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "unified-2.61",
+  "firmware": "th3d",
+  "configFile": "Configuration.h",
+  "generatedFrom": "example-th3d-ender5plus-config_adv.h",
+  "totalDefines": 792,
+  "other_9": {
+    "watchdog": {
+      "mapsFrom": [
+        "USE_WATCHDOG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2198
+    },
+    "babystepping": {
+      "mapsFrom": [
+        "BABYSTEPPING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2212
+    },
+    "integratedBabystepping": {
+      "mapsFrom": [
+        "INTEGRATED_BABYSTEPPING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2214,
+      "examples": [
+        "// EXPERIMENTAL integration of babystepping into the Stepper ISR"
+      ]
+    },
+    "babystepWithoutHoming": {
+      "mapsFrom": [
+        "BABYSTEP_WITHOUT_HOMING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2215
+    },
+    "babystepAlwaysAvailable": {
+      "mapsFrom": [
+        "BABYSTEP_ALWAYS_AVAILABLE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2216,
+      "examples": [
+        "// Allow babystepping at all times (not just during movement)"
+      ]
+    },
+    "babystepInvertZ": {
+      "mapsFrom": [
+        "BABYSTEP_INVERT_Z"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2218,
+      "examples": [
+        "false"
+      ],
+      "notes": "#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!"
+    },
+    "babystepMillimeterUnits": {
+      "mapsFrom": [
+        "BABYSTEP_MILLIMETER_UNITS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2219,
+      "examples": [
+        "// Specify BABYSTEP_MULTIPLICATOR_(XY|Z) in mm instead of micro-steps"
+      ]
+    },
+    "babystepMultiplicatorZ": {
+      "mapsFrom": [
+        "BABYSTEP_MULTIPLICATOR_Z"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2224,
+      "examples": [
+        "0.025"
+      ]
+    },
+    "babystepMultiplicatorXy": {
+      "mapsFrom": [
+        "BABYSTEP_MULTIPLICATOR_XY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2226,
+      "examples": [
+        "1"
+      ]
+    },
+    "doubleclickForZBabystepping": {
+      "mapsFrom": [
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2229,
+      "examples": [
+        "// Double-click on the Status Screen for Z Babystepping."
+      ]
+    },
+    "doubleclickMaxInterval": {
+      "mapsFrom": [
+        "DOUBLECLICK_MAX_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2232,
+      "examples": [
+        "2000"
+      ]
+    },
+    "moveZIdleMultiplicator": {
+      "mapsFrom": [
+        "MOVE_Z_IDLE_MULTIPLICATOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2236,
+      "examples": [
+        "1"
+      ]
+    },
+    "advanceK": {
+      "mapsFrom": [
+        "ADVANCE_K"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2278,
+      "examples": [
+        "LINEAR_ADVANCE_K"
+      ]
+    },
+    "g29MaxRetries": {
+      "mapsFrom": [
+        "G29_MAX_RETRIES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2360,
+      "examples": [
+        "3"
+      ]
+    },
+    "g29HaltOnFailure": {
+      "mapsFrom": [
+        "G29_HALT_ON_FAILURE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2361
+    },
+    "g29SuccessCommands": {
+      "mapsFrom": [
+        "G29_SUCCESS_COMMANDS"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2366,
+      "examples": [
+        "\"M117 Bed leveling done.\""
+      ]
+    },
+    "g29RecoverCommands": {
+      "mapsFrom": [
+        "G29_RECOVER_COMMANDS"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2367,
+      "examples": [
+        "\"M117 Probe failed. Rewiping.\\nG28\\nG12 P0 S12 T0\""
+      ]
+    },
+    "g29FailureCommands": {
+      "mapsFrom": [
+        "G29_FAILURE_COMMANDS"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2368,
+      "examples": [
+        "\"M117 Bed leveling failed.\\nG0 Z10\\nM300 P25 S880\\nM300 P50 S0\\nM300 P25 S880\\nM300 P50 S0\\nM300 P25 S880\\nM300 P50 S0\\nG4 S1\""
+      ]
+    },
+    "ptcHotendStart": {
+      "mapsFrom": [
+        "PTC_HOTEND_START"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2415,
+      "examples": [
+        "180"
+      ],
+      "notes": "Note: There is no automatic calibration for the hotend. Use M871."
+    },
+    "ptcHotendRes": {
+      "mapsFrom": [
+        "PTC_HOTEND_RES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2416,
+      "examples": [
+        "5"
+      ]
+    },
+    "ptcHotendCount": {
+      "mapsFrom": [
+        "PTC_HOTEND_COUNT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2417,
+      "examples": [
+        "20"
+      ]
+    },
+    "ptcHotendZoffs": {
+      "mapsFrom": [
+        "PTC_HOTEND_ZOFFS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2418,
+      "examples": [
+        "{ 0 }"
+      ]
+    },
+    "ptcParkPos": {
+      "mapsFrom": [
+        "PTC_PARK_POS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2424,
+      "examples": [
+        "{ 0, 0, 100 }"
+      ],
+      "notes": "Park position to wait for probe cooldown"
+    },
+    "minArcSegmentMm": {
+      "mapsFrom": [
+        "MIN_ARC_SEGMENT_MM"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2454,
+      "examples": [
+        "0.1"
+      ]
+    },
+    "maxArcSegmentMm": {
+      "mapsFrom": [
+        "MAX_ARC_SEGMENT_MM"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2455,
+      "examples": [
+        "1.0"
+      ]
+    },
+    "minCircleSegments": {
+      "mapsFrom": [
+        "MIN_CIRCLE_SEGMENTS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2456,
+      "examples": [
+        "72"
+      ]
+    },
+    "nArcCorrection": {
+      "mapsFrom": [
+        "N_ARC_CORRECTION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2458,
+      "examples": [
+        "25"
+      ],
+      "notes": "#define ARC_SEGMENTS_PER_SEC 50   // Use the feedrate to choose the segment length"
+    },
+    "g38MinimumMove": {
+      "mapsFrom": [
+        "G38_MINIMUM_MOVE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2490,
+      "examples": [
+        "0.0275"
+      ],
+      "notes": "#define G38_PROBE_AWAY        // Include G38.4 and G38.5 to probe away from target"
+    },
+    "minStepsPerSegment": {
+      "mapsFrom": [
+        "MIN_STEPS_PER_SEGMENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2496,
+      "examples": [
+        "6"
+      ],
+      "notes": "@section motion Moves (or segments) with fewer steps than this will be joined with the next move"
+    },
+    "blockBufferSize": {
+      "mapsFrom": [
+        "BLOCK_BUFFER_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2559,
+      "examples": [
+        "64"
+      ]
+    }
+  },
+  "other_10": {
+    "maxCmdSize": {
+      "mapsFrom": [
+        "MAX_CMD_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2565,
+      "examples": [
+        "96"
+      ],
+      "notes": "@section serial The ASCII buffer for serial input"
+    },
+    "bufsize": {
+      "mapsFrom": [
+        "BUFSIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2570,
+      "examples": [
+        "64"
+      ]
+    },
+    "txBufferSize": {
+      "mapsFrom": [
+        "TX_BUFFER_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2580,
+      "examples": [
+        "256"
+      ],
+      "notes": "Transmission to Host Buffer Size To save 386 bytes of flash (and TX_BUFFER_SIZE+3 bytes of RAM) set to 0. To buffer a simple \"ok\" you need 4 bytes. For ADVANCED_OK (M105) you need 32 bytes. For debug-echo: 128 bytes for the optimal speed. Other output doesn't need to be that speedy. :[0, 2, 4, 8, 16, 32, 64, 128, 256]"
+    },
+    "rxBufferSize": {
+      "mapsFrom": [
+        "RX_BUFFER_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2586,
+      "examples": [
+        "1024"
+      ],
+      "notes": "Host Receive Buffer Size Without XON/XOFF flow control (see SERIAL_XON_XOFF below) 32 bytes should be enough. To use flow control, set this buffer size to at least 1024 bytes. :[0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]"
+    },
+    "serialXonXoff": {
+      "mapsFrom": [
+        "SERIAL_XON_XOFF"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2591,
+      "notes": "Enable to have the controller send XON/XOFF control characters to the host to signal the RX buffer is becoming full."
+    },
+    "rxBufferMonitor": {
+      "mapsFrom": [
+        "RX_BUFFER_MONITOR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2608,
+      "notes": "Monitor RX buffer usage Dump an error to the serial port if the serial receive buffer overflows. If you see these errors, increase the RX_BUFFER_SIZE value. Not supported on all platforms."
+    },
+    "advancedOk": {
+      "mapsFrom": [
+        "ADVANCED_OK"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2651,
+      "notes": "#define NO_TIMEOUTS 1000 // (ms) Some clients will have this feature soon. This could make the NO_TIMEOUTS unnecessary."
+    },
+    "serialOverrunProtection": {
+      "mapsFrom": [
+        "SERIAL_OVERRUN_PROTECTION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2655,
+      "notes": "Printrun may have trouble receiving long strings all at once. This option inserts short delays between lines of serial output."
+    },
+    "serialFloatPrecision": {
+      "mapsFrom": [
+        "SERIAL_FLOAT_PRECISION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2659,
+      "examples": [
+        "4"
+      ]
+    },
+    "proportionalFontRatio": {
+      "mapsFrom": [
+        "PROPORTIONAL_FONT_RATIO"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2668,
+      "examples": [
+        "1.0"
+      ]
+    },
+    "fwretractAutoretract": {
+      "mapsFrom": [
+        "FWRETRACT_AUTORETRACT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2699,
+      "examples": [
+        "// Override slicer retractions"
+      ]
+    },
+    "minAutoretract": {
+      "mapsFrom": [
+        "MIN_AUTORETRACT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2701,
+      "examples": [
+        "0.1"
+      ]
+    },
+    "maxAutoretract": {
+      "mapsFrom": [
+        "MAX_AUTORETRACT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2702,
+      "examples": [
+        "10.0"
+      ]
+    },
+    "retractLength": {
+      "mapsFrom": [
+        "RETRACT_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2704,
+      "examples": [
+        "3"
+      ]
+    },
+    "retractLengthSwap": {
+      "mapsFrom": [
+        "RETRACT_LENGTH_SWAP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2705,
+      "examples": [
+        "13"
+      ]
+    },
+    "retractZraise": {
+      "mapsFrom": [
+        "RETRACT_ZRAISE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2707,
+      "examples": [
+        "0"
+      ]
+    },
+    "retractRecoverLength": {
+      "mapsFrom": [
+        "RETRACT_RECOVER_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2708,
+      "examples": [
+        "0"
+      ]
+    },
+    "retractRecoverLengthSwap": {
+      "mapsFrom": [
+        "RETRACT_RECOVER_LENGTH_SWAP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2709,
+      "examples": [
+        "0"
+      ]
+    },
+    "toolchangeZraise": {
+      "mapsFrom": [
+        "TOOLCHANGE_ZRAISE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2725,
+      "examples": [
+        "2"
+      ],
+      "notes": "Z raise distance for tool-change, as needed for some extruders"
+    },
+    "toolchangeFsLength": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2753,
+      "examples": [
+        "12"
+      ],
+      "notes": "Load / Unload"
+    },
+    "toolchangeFsExtraResumeLength": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_EXTRA_RESUME_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2754,
+      "examples": [
+        "0"
+      ]
+    },
+    "toolchangeFsRetractSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_RETRACT_SPEED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2755,
+      "examples": [
+        "(50*60)"
+      ]
+    },
+    "toolchangeFsUnretractSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_UNRETRACT_SPEED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2756,
+      "examples": [
+        "(25*60)"
+      ]
+    },
+    "toolchangeFsExtraPrime": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_EXTRA_PRIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2759,
+      "examples": [
+        "0"
+      ],
+      "notes": "Longer prime to clean out a SINGLENOZZLE"
+    },
+    "toolchangeFsPrimeSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_PRIME_SPEED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2760,
+      "examples": [
+        "(4.6*60)"
+      ]
+    },
+    "toolchangeFsWipeRetract": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_WIPE_RETRACT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2761,
+      "examples": [
+        "0"
+      ]
+    },
+    "toolchangeFsFan": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_FAN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2764,
+      "examples": [
+        "-1"
+      ],
+      "notes": "Cool after prime to reduce stringing"
+    },
+    "toolchangeFsFanSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2765,
+      "examples": [
+        "255"
+      ]
+    },
+    "toolchangeFsFanTime": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_FAN_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2766,
+      "examples": [
+        "10"
+      ]
+    },
+    "toolchangeMigrationFeature": {
+      "mapsFrom": [
+        "TOOLCHANGE_MIGRATION_FEATURE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2790
+    }
+  }
+}

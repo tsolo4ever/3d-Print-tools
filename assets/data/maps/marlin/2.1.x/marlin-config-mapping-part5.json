@@ -1,0 +1,1163 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.x",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "firmware-helper\\example-ender5plus-config.h",
+  "totalDefines": 949,
+  "other_5": {
+    "bedkp": {
+      "mapsFrom": [
+        "DEFAULT_bedKp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 764,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "481.83"
+      ],
+      "notes": "Creality Ender-5 Plus, auto tune result of: M303 E-1 S60 C10 TODO rubienr auto tune: Command has an issue with \"PID Autotune failed! Bad extruder number\" -> auto tune postponed. 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+) from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PIDTEMPBED)"
+      ]
+    },
+    "bedki": {
+      "mapsFrom": [
+        "DEFAULT_bedKi"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 765,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "69.20"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PIDTEMPBED)"
+      ]
+    },
+    "bedkd": {
+      "mapsFrom": [
+        "DEFAULT_bedKd"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 766,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "838.75"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PIDTEMPBED)"
+      ]
+    },
+    "chamberLimitSwitching": {
+      "mapsFrom": [
+        "CHAMBER_LIMIT_SWITCHING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 791,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "maxChamberPower": {
+      "mapsFrom": [
+        "MAX_CHAMBER_POWER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 799,
+      "examples": [
+        "255"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "limits duty cycle to chamber heater; 255=full current. limits duty cycle to chamber heater; 255=full current"
+    },
+    "minChamberPower": {
+      "mapsFrom": [
+        "MIN_CHAMBER_POWER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 802,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "0"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PIDTEMPCHAMBER)"
+      ],
+      "notes": "Min power to improve PID stability.. Min power to improve PID stability."
+    },
+    "chamberkp": {
+      "mapsFrom": [
+        "DEFAULT_chamberKp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 808,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "37.04"
+      ],
+      "notes": "Lasko \"MyHeat Personal Heater\" (200w) modified with a Fotek SSR-10DA to control only the heating element and placed inside the small Creality printer enclosure tent. ",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PIDTEMPCHAMBER)"
+      ]
+    },
+    "chamberki": {
+      "mapsFrom": [
+        "DEFAULT_chamberKi"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 809,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "1.40"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PIDTEMPCHAMBER)"
+      ]
+    },
+    "chamberkd": {
+      "mapsFrom": [
+        "DEFAULT_chamberKd"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 810,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "655.17"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PIDTEMPCHAMBER)"
+      ]
+    },
+    "corexy": {
+      "mapsFrom": [
+        "COREXY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 875,
+      "notes": "=========================================================================== ============================= Mechanical Settings ========================= =========================================================================== @section machine Enable one of the options below for CoreXY, CoreXZ, or CoreYZ kinematics, either in the usual order or reversed",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "corexz": {
+      "mapsFrom": [
+        "COREXZ"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 876,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "coreyz": {
+      "mapsFrom": [
+        "COREYZ"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 877,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "coreyx": {
+      "mapsFrom": [
+        "COREYX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 878,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "corezx": {
+      "mapsFrom": [
+        "COREZX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 879,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "corezy": {
+      "mapsFrom": [
+        "COREZY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 880,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "markforgedXy": {
+      "mapsFrom": [
+        "MARKFORGED_XY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 881,
+      "examples": [
+        "// MarkForged. See https:"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "markforgedYx": {
+      "mapsFrom": [
+        "MARKFORGED_YX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 882,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "beltprinter": {
+      "mapsFrom": [
+        "BELTPRINTER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 885,
+      "notes": "Enable for a belt style printer with endless \"Z\" motion",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "polargraph": {
+      "mapsFrom": [
+        "POLARGRAPH"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 888,
+      "notes": "Enable for Polargraph Kinematics",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "polargraphMaxBeltLen": {
+      "mapsFrom": [
+        "POLARGRAPH_MAX_BELT_LEN"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 890,
+      "isConditional": true,
+      "conditionalOn": [
+        "POLARGRAPH"
+      ],
+      "examples": [
+        "1035.0"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(POLARGRAPH)"
+      ],
+      "unit": "mm",
+      "notes": "Belt length at full extension. Override with M665 H.. Belt length at full extension. Override with M665 H."
+    },
+    "segmentsPerSecond": {
+      "mapsFrom": [
+        "DEFAULT_SEGMENTS_PER_SECOND"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1004,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "examples": [
+        "200"
+      ],
+      "notes": "If movement is choppy try lowering this value. If movement is choppy try lowering this value. If movement is choppy try lowering this value",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(AXEL_TPARA)"
+      ]
+    },
+    "delta": {
+      "mapsFrom": [
+        "DELTA"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 897,
+      "notes": "@section delta Enable for DELTA kinematics and configure below",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "deltaCalibrationMenu": {
+      "mapsFrom": [
+        "DELTA_CALIBRATION_MENU"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 911,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "notes": "Delta calibration menu Add three-point calibration to the MarlinUI menu. See http://minow.blogspot.com/index.html#4918805519571907051",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ]
+    },
+    "deltaAutoCalibration": {
+      "mapsFrom": [
+        "DELTA_AUTO_CALIBRATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 914,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "notes": "G33 Delta Auto-Calibration. Enable EEPROM_SETTINGS to store results.",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ]
+    },
+    "deltaCalibrationDefaultPoints": {
+      "mapsFrom": [
+        "DELTA_CALIBRATION_DEFAULT_POINTS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 918,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA_AUTO_CALIBRATION",
+        "DELTA"
+      ],
+      "examples": [
+        "4"
+      ],
+      "notes": "Default number of probe points : n*n (1 -> 7)",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)",
+        "ENABLED(DELTA_AUTO_CALIBRATION)"
+      ]
+    },
+    "deltaPrintableRadius": {
+      "mapsFrom": [
+        "DELTA_PRINTABLE_RADIUS"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 927,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "examples": [
+        "140.0"
+      ],
+      "notes": "Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ]
+    },
+    "deltaMaxRadius": {
+      "mapsFrom": [
+        "DELTA_MAX_RADIUS"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 930,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "examples": [
+        "140.0"
+      ],
+      "notes": "Maximum reachable area",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ]
+    },
+    "deltaDiagonalRod": {
+      "mapsFrom": [
+        "DELTA_DIAGONAL_ROD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 933,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "examples": [
+        "250.0"
+      ],
+      "notes": "Center-to-center distance of the holes in the diagonal push rods.",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ],
+      "unit": "mm"
+    },
+    "deltaHeight": {
+      "mapsFrom": [
+        "DELTA_HEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 936,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "examples": [
+        "250.00"
+      ],
+      "notes": "Get this value from G33 auto calibrate. Get this value from G33 auto calibrate. Distance between bed and nozzle Z home position",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ],
+      "unit": "mm"
+    },
+    "deltaRadius": {
+      "mapsFrom": [
+        "DELTA_RADIUS"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 941,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "examples": [
+        "124.0"
+      ],
+      "notes": "Get this value from G33 auto calibrate. Get this value from G33 auto calibrate. Horizontal distance bridged by diagonal push rods when effector is centered.",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ],
+      "unit": "mm"
+    }
+  },
+  "other_6": {
+    "deltaTowerAngleTrim": {
+      "mapsFrom": [
+        "DELTA_TOWER_ANGLE_TRIM"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 946,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "examples": [
+        "{ 0.0, 0.0, 0.0 }"
+      ],
+      "notes": "Get these values from G33 auto calibrate. Get these values from G33 auto calibrate. Trim adjustments for individual towers tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0 measured in degrees anticlockwise looking from above the printer",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ],
+      "unit": "mm"
+    },
+    "deltaRadiusTrimTower": {
+      "mapsFrom": [
+        "DELTA_RADIUS_TRIM_TOWER"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 949,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "examples": [
+        "{ 0.0, 0.0, 0.0 }"
+      ],
+      "notes": "Delta radius and diagonal rod adjustments (mm)",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ],
+      "unit": "mm"
+    },
+    "deltaDiagonalRodTrimTower": {
+      "mapsFrom": [
+        "DELTA_DIAGONAL_ROD_TRIM_TOWER"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 950,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA"
+      ],
+      "examples": [
+        "{ 0.0, 0.0, 0.0 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)"
+      ],
+      "unit": "mm"
+    },
+    "morganScara": {
+      "mapsFrom": [
+        "MORGAN_SCARA"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 963,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "mpScara": {
+      "mapsFrom": [
+        "MP_SCARA"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 964,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "scaraLinkage1": {
+      "mapsFrom": [
+        "SCARA_LINKAGE_1"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 970,
+      "isConditional": true,
+      "conditionalOn": [
+        "MORGAN_SCARA",
+        "MP_SCARA",
+        "EITHER"
+      ],
+      "examples": [
+        "150"
+      ],
+      "notes": "Length of inner and outer support arms. Measure arm lengths precisely.",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "EITHER(MORGAN_SCARA, MP_SCARA)"
+      ],
+      "unit": "mm"
+    },
+    "scaraLinkage2": {
+      "mapsFrom": [
+        "SCARA_LINKAGE_2"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 971,
+      "isConditional": true,
+      "conditionalOn": [
+        "MORGAN_SCARA",
+        "MP_SCARA",
+        "EITHER"
+      ],
+      "examples": [
+        "150"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "EITHER(MORGAN_SCARA, MP_SCARA)"
+      ],
+      "unit": "mm"
+    },
+    "scaraOffsetX": {
+      "mapsFrom": [
+        "SCARA_OFFSET_X"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 975,
+      "isConditional": true,
+      "conditionalOn": [
+        "MORGAN_SCARA",
+        "MP_SCARA",
+        "EITHER"
+      ],
+      "examples": [
+        "100"
+      ],
+      "notes": "SCARA tower offset (position of Tower relative to bed zero position) This needs to be reasonably accurate as it defines the printbed position in the SCARA space.",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "EITHER(MORGAN_SCARA, MP_SCARA)"
+      ],
+      "unit": "mm"
+    },
+    "scaraOffsetY": {
+      "mapsFrom": [
+        "SCARA_OFFSET_Y"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 976,
+      "isConditional": true,
+      "conditionalOn": [
+        "MORGAN_SCARA",
+        "MP_SCARA",
+        "EITHER"
+      ],
+      "examples": [
+        "-56"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "EITHER(MORGAN_SCARA, MP_SCARA)"
+      ],
+      "unit": "mm"
+    },
+    "debugScaraKinematics": {
+      "mapsFrom": [
+        "DEBUG_SCARA_KINEMATICS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 980,
+      "isConditional": true,
+      "conditionalOn": [
+        "MORGAN_SCARA",
+        "MP_SCARA",
+        "EITHER"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "EITHER(MORGAN_SCARA, MP_SCARA)",
+        "ENABLED(MORGAN_SCARA)"
+      ]
+    },
+    "middleDeadZoneR": {
+      "mapsFrom": [
+        "MIDDLE_DEAD_ZONE_R"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1019,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "examples": [
+        "0"
+      ],
+      "notes": "Radius around the center where the arm cannot reach",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(AXEL_TPARA)"
+      ],
+      "unit": "mm"
+    },
+    "thetaHomingOffset": {
+      "mapsFrom": [
+        "THETA_HOMING_OFFSET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1022,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "examples": [
+        "0"
+      ],
+      "notes": "Calculated from Calibration Guide and M360 / M114. See http://reprap.harleystudio.co.za/?page_id=1073",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(AXEL_TPARA)"
+      ]
+    },
+    "psiHomingOffset": {
+      "mapsFrom": [
+        "PSI_HOMING_OFFSET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1023,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "examples": [
+        "0"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(AXEL_TPARA)"
+      ]
+    },
+    "scaraOffsetTheta1": {
+      "mapsFrom": [
+        "SCARA_OFFSET_THETA1"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 991,
+      "isConditional": true,
+      "conditionalOn": [
+        "MORGAN_SCARA",
+        "MP_SCARA",
+        "EITHER"
+      ],
+      "conditionalExpression": [
+        "EITHER(MORGAN_SCARA, MP_SCARA)"
+      ],
+      "examples": [
+        "12"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "notes": "degrees. degrees"
+    },
+    "scaraOffsetTheta2": {
+      "mapsFrom": [
+        "SCARA_OFFSET_THETA2"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 992,
+      "isConditional": true,
+      "conditionalOn": [
+        "MORGAN_SCARA",
+        "MP_SCARA",
+        "EITHER"
+      ],
+      "conditionalExpression": [
+        "EITHER(MORGAN_SCARA, MP_SCARA)"
+      ],
+      "examples": [
+        "131"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "notes": "degrees. degrees"
+    },
+    "axelTpara": {
+      "mapsFrom": [
+        "AXEL_TPARA"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1001,
+      "notes": "@section tpara Enable for TPARA kinematics and configure below",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "debugTparaKinematics": {
+      "mapsFrom": [
+        "DEBUG_TPARA_KINEMATICS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1003,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(AXEL_TPARA)"
+      ]
+    },
+    "tparaLinkage1": {
+      "mapsFrom": [
+        "TPARA_LINKAGE_1"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1007,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "examples": [
+        "120"
+      ],
+      "notes": "Length of inner and outer support arms. Measure arm lengths precisely.",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(AXEL_TPARA)"
+      ],
+      "unit": "mm"
+    },
+    "tparaLinkage2": {
+      "mapsFrom": [
+        "TPARA_LINKAGE_2"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1008,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "examples": [
+        "120"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(AXEL_TPARA)"
+      ],
+      "unit": "mm"
+    },
+    "tparaOffsetX": {
+      "mapsFrom": [
+        "TPARA_OFFSET_X"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1012,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "examples": [
+        "0"
+      ],
+      "notes": "to coincide with minimum radius MIDDLE_DEAD_ZONE_R, and W is reachable. to coincide with minimum radius MIDDLE_DEAD_ZONE_R, and W is reachable. SCARA tower offset (position of Tower relative to bed zero position) This needs to be reasonably accurate as it defines the printbed position in the SCARA space.",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(AXEL_TPARA)"
+      ],
+      "unit": "mm"
+    },
+    "tparaOffsetY": {
+      "mapsFrom": [
+        "TPARA_OFFSET_Y"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1013,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "examples": [
+        "0"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(AXEL_TPARA)"
+      ],
+      "unit": "mm"
+    },
+    "tparaOffsetZ": {
+      "mapsFrom": [
+        "TPARA_OFFSET_Z"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1014,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "examples": [
+        "0"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(AXEL_TPARA)"
+      ],
+      "unit": "mm"
+    },
+    "articulatedRobotArm": {
+      "mapsFrom": [
+        "ARTICULATED_ROBOT_ARM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1029,
+      "notes": "@section machine Articulated robot (arm). Joints are directly mapped to axes with no kinematics.",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "foamcutterXyuv": {
+      "mapsFrom": [
+        "FOAMCUTTER_XYUV"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1033,
+      "notes": "For a hot wire cutter with parallel horizontal axes (X, I) where the heights of the two wire ends are controlled by parallel axes (Y, J). Joints are directly mapped to axes (no kinematics).",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "yminPlug": {
+      "mapsFrom": [
+        "USE_YMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1045,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zminPlug": {
+      "mapsFrom": [
+        "USE_ZMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1046,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "iminPlug": {
+      "mapsFrom": [
+        "USE_IMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1047,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "jminPlug": {
+      "mapsFrom": [
+        "USE_JMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1048,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "kminPlug": {
+      "mapsFrom": [
+        "USE_KMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1049,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "uminPlug": {
+      "mapsFrom": [
+        "USE_UMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1050,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    }
+  }
+}

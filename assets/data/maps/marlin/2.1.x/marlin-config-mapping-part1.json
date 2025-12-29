@@ -1,0 +1,610 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.x",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "firmware-helper\\example-ender5plus-config.h",
+  "totalDefines": 949,
+  "other_1": {
+    "configExamplesDir": {
+      "mapsFrom": [
+        "CONFIG_EXAMPLES_DIR"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 24,
+      "examples": [
+        "\"config/examples/Creality/Ender-5 Plus/CrealityV1\""
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "customVersionFile": {
+      "mapsFrom": [
+        "CUSTOM_VERSION_FILE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 66,
+      "examples": [
+        "Version.h"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Path from the root directory. Path from the root directory"
+    },
+    "customStatusScreenImage": {
+      "mapsFrom": [
+        "CUSTOM_STATUS_SCREEN_IMAGE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 86,
+      "notes": "Show the bitmap in Marlin/_Statusscreen.h on the status screen.",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "xMaxPin": {
+      "mapsFrom": [
+        "X_MAX_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 95,
+      "examples": [
+        "3"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "yMaxPin": {
+      "mapsFrom": [
+        "Y_MAX_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 96,
+      "examples": [
+        "14"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "baudRateGcode": {
+      "mapsFrom": [
+        "BAUD_RATE_GCODE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 121,
+      "examples": [
+        "// Enable G-code M575 to set the baud rate"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Enable G-code M575 to set the baud rate. Enable G-code M575 to set the baud rate"
+    },
+    "bluetooth": {
+      "mapsFrom": [
+        "BLUETOOTH"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 140,
+      "notes": "Enable the Bluetooth serial interface on AT90USB devices",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "axis4Name": {
+      "mapsFrom": [
+        "AXIS4_NAME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 207,
+      "isConditional": true,
+      "conditionalOn": [
+        "I_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'A'"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "I_DRIVER_TYPE"
+      ],
+      "allowedValues": [
+        "A",
+        "B",
+        "C",
+        "U",
+        "V",
+        "W"
+      ]
+    },
+    "axis4Rotates": {
+      "mapsFrom": [
+        "AXIS4_ROTATES"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 208,
+      "isConditional": true,
+      "conditionalOn": [
+        "I_DRIVER_TYPE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "I_DRIVER_TYPE"
+      ]
+    },
+    "axis5Name": {
+      "mapsFrom": [
+        "AXIS5_NAME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 211,
+      "isConditional": true,
+      "conditionalOn": [
+        "J_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'B'"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "J_DRIVER_TYPE"
+      ],
+      "allowedValues": [
+        "B",
+        "C",
+        "U",
+        "V",
+        "W"
+      ]
+    },
+    "axis5Rotates": {
+      "mapsFrom": [
+        "AXIS5_ROTATES"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 212,
+      "isConditional": true,
+      "conditionalOn": [
+        "J_DRIVER_TYPE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "J_DRIVER_TYPE"
+      ]
+    },
+    "axis6Name": {
+      "mapsFrom": [
+        "AXIS6_NAME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 215,
+      "isConditional": true,
+      "conditionalOn": [
+        "K_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'C'"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "K_DRIVER_TYPE"
+      ],
+      "allowedValues": [
+        "C",
+        "U",
+        "V",
+        "W"
+      ]
+    },
+    "axis6Rotates": {
+      "mapsFrom": [
+        "AXIS6_ROTATES"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 216,
+      "isConditional": true,
+      "conditionalOn": [
+        "K_DRIVER_TYPE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "K_DRIVER_TYPE"
+      ]
+    },
+    "axis7Name": {
+      "mapsFrom": [
+        "AXIS7_NAME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 219,
+      "isConditional": true,
+      "conditionalOn": [
+        "U_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'U'"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "U_DRIVER_TYPE"
+      ],
+      "allowedValues": [
+        "U",
+        "V",
+        "W"
+      ]
+    },
+    "axis7Rotates": {
+      "mapsFrom": [
+        "AXIS7_ROTATES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 220,
+      "isConditional": true,
+      "conditionalOn": [
+        "U_DRIVER_TYPE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "U_DRIVER_TYPE"
+      ]
+    },
+    "axis8Name": {
+      "mapsFrom": [
+        "AXIS8_NAME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 223,
+      "isConditional": true,
+      "conditionalOn": [
+        "V_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'V'"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "V_DRIVER_TYPE"
+      ],
+      "allowedValues": [
+        "V",
+        "W"
+      ]
+    },
+    "axis8Rotates": {
+      "mapsFrom": [
+        "AXIS8_ROTATES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 224,
+      "isConditional": true,
+      "conditionalOn": [
+        "V_DRIVER_TYPE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "V_DRIVER_TYPE"
+      ]
+    },
+    "axis9Name": {
+      "mapsFrom": [
+        "AXIS9_NAME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 227,
+      "isConditional": true,
+      "conditionalOn": [
+        "W_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'W'"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "W_DRIVER_TYPE"
+      ],
+      "allowedValues": [
+        "W"
+      ]
+    },
+    "axis9Rotates": {
+      "mapsFrom": [
+        "AXIS9_ROTATES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 228,
+      "isConditional": true,
+      "conditionalOn": [
+        "W_DRIVER_TYPE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "W_DRIVER_TYPE"
+      ]
+    },
+    "singlenozzle": {
+      "mapsFrom": [
+        "SINGLENOZZLE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 241,
+      "notes": "For Cyclops or any \"multi-extruder\" that shares a single nozzle.",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "singlenozzleStandbyFan": {
+      "mapsFrom": [
+        "SINGLENOZZLE_STANDBY_FAN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 247,
+      "isConditional": true,
+      "conditionalOn": [
+        "SINGLENOZZLE"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(SINGLENOZZLE)"
+      ]
+    },
+    "switchingExtruder": {
+      "mapsFrom": [
+        "SWITCHING_EXTRUDER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 251,
+      "notes": "A dual extruder that uses a single stepper motor",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "switchingExtruderServoNr": {
+      "mapsFrom": [
+        "SWITCHING_EXTRUDER_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 253,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_EXTRUDER"
+      ],
+      "examples": [
+        "0"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(SWITCHING_EXTRUDER)"
+      ]
+    },
+    "switchingExtruderServoAngles": {
+      "mapsFrom": [
+        "SWITCHING_EXTRUDER_SERVO_ANGLES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 254,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_EXTRUDER"
+      ],
+      "examples": [
+        "{ 0, 90 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(SWITCHING_EXTRUDER)"
+      ],
+      "notes": "Angles for E0, E1[, E2, E3]. Angles for E0, E1[, E2, E3]"
+    },
+    "switchingExtruderE23ServoNr": {
+      "mapsFrom": [
+        "SWITCHING_EXTRUDER_E23_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 256,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_EXTRUDER",
+        "EXTRUDERS"
+      ],
+      "examples": [
+        "1"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(SWITCHING_EXTRUDER)",
+        "EXTRUDERS > 3"
+      ]
+    },
+    "switchingNozzle": {
+      "mapsFrom": [
+        "SWITCHING_NOZZLE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 261,
+      "notes": "A dual-nozzle that uses a servomotor to raise/lower one (or both) of the nozzles",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "switchingNozzleServoNr": {
+      "mapsFrom": [
+        "SWITCHING_NOZZLE_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 263,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_NOZZLE"
+      ],
+      "examples": [
+        "0"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(SWITCHING_NOZZLE)"
+      ]
+    },
+    "switchingNozzleE1ServoNr": {
+      "mapsFrom": [
+        "SWITCHING_NOZZLE_E1_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 264,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_NOZZLE"
+      ],
+      "examples": [
+        "1"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(SWITCHING_NOZZLE)"
+      ],
+      "notes": "If two servos are used, the index of the second. If two servos are used, the index of the second"
+    },
+    "switchingNozzleServoAngles": {
+      "mapsFrom": [
+        "SWITCHING_NOZZLE_SERVO_ANGLES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 265,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_NOZZLE"
+      ],
+      "examples": [
+        "{ 0, 90 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(SWITCHING_NOZZLE)"
+      ],
+      "notes": "A pair of angles for { E0, E1 }.. A pair of angles for { E0, E1 }."
+    },
+    "switchingNozzleServoDwell": {
+      "mapsFrom": [
+        "SWITCHING_NOZZLE_SERVO_DWELL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 266,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_NOZZLE"
+      ],
+      "examples": [
+        "2500"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(SWITCHING_NOZZLE)"
+      ],
+      "notes": "Dwell time to wait for servo to make physical move. Dwell time to wait for servo to make physical move"
+    }
+  }
+}

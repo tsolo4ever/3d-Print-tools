@@ -1,0 +1,926 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.x",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "firmware-helper\\example-ender5plus-config.h",
+  "totalDefines": 949,
+  "probe": {
+    "probeManuallyStep": {
+      "mapsFrom": [
+        "PROBE_MANUALLY_STEP"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 923,
+      "isConditional": true,
+      "conditionalOn": [
+        "DELTA_CALIBRATION_MENU",
+        "DELTA_AUTO_CALIBRATION",
+        "EITHER",
+        "DELTA"
+      ],
+      "examples": [
+        "0.05"
+      ],
+      "notes": "Step size for paper-test probing",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DELTA)",
+        "EITHER(DELTA_AUTO_CALIBRATION, DELTA_CALIBRATION_MENU)"
+      ],
+      "unit": "mm"
+    },
+    "probeForZHoming": {
+      "mapsFrom": [
+        "USE_PROBE_FOR_Z_HOMING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1291,
+      "notes": "Force the use of the probe for Z-axis homing",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zMinProbePin": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1308,
+      "examples": [
+        "32"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "probeManually": {
+      "mapsFrom": [
+        "PROBE_MANUALLY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1322,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "fixMountedProbe": {
+      "mapsFrom": [
+        "FIX_MOUNTED_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1328,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "nozzleAsProbe": {
+      "mapsFrom": [
+        "NOZZLE_AS_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1334,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zProbeServoNr": {
+      "mapsFrom": [
+        "Z_PROBE_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1339,
+      "examples": [
+        "0"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "bltouch": {
+      "mapsFrom": [
+        "BLTOUCH"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1345,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "touchMiProbe": {
+      "mapsFrom": [
+        "TOUCH_MI_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1368,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "solenoidProbe": {
+      "mapsFrom": [
+        "SOLENOID_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1376,
+      "notes": "A probe that is deployed and stowed with a solenoid pin (SOL1_PIN)",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zProbeSled": {
+      "mapsFrom": [
+        "Z_PROBE_SLED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1379,
+      "notes": "A sled-mounted probe like those designed by Charles Bell.",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "rackAndPinionProbe": {
+      "mapsFrom": [
+        "RACK_AND_PINION_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1383,
+      "notes": "A probe deployed by moving the x-axis, such as the Wilson II's rack-and-pinion probe designed by Marty Rice.",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zProbeDeployX": {
+      "mapsFrom": [
+        "Z_PROBE_DEPLOY_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1385,
+      "isConditional": true,
+      "conditionalOn": [
+        "RACK_AND_PINION_PROBE"
+      ],
+      "examples": [
+        "X_MIN_POS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(RACK_AND_PINION_PROBE)"
+      ]
+    },
+    "zProbeRetractX": {
+      "mapsFrom": [
+        "Z_PROBE_RETRACT_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1386,
+      "isConditional": true,
+      "conditionalOn": [
+        "RACK_AND_PINION_PROBE"
+      ],
+      "examples": [
+        "X_MAX_POS"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(RACK_AND_PINION_PROBE)"
+      ]
+    },
+    "magMountedProbe": {
+      "mapsFrom": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1393,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zProbeAllenKey": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1429,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zProbeAllenKeyDeploy1": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_1"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1434,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "{ 30.0, DELTA_PRINTABLE_RADIUS, 100.0 }"
+      ],
+      "notes": "2 or 3 sets of coordinates for deploying and retracting the spring loaded touch probe on G29, if servo actuated touch probe is not defined. Uncomment as appropriate for your printer/probe.",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ]
+    },
+    "zProbeAllenKeyDeploy2": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_2"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1437,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "{ 0.0, DELTA_PRINTABLE_RADIUS, 100.0 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ]
+    },
+    "zProbeAllenKeyDeploy3": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_3"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1440,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "{ 0.0, (DELTA_PRINTABLE_RADIUS) * 0.75, 100.0 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ]
+    },
+    "zProbeAllenKeyStow1": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_1"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1443,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "{ -64.0, 56.0, 23.0 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ],
+      "notes": "Move the probe into position. Move the probe into position"
+    },
+    "zProbeAllenKeyStow2": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_2"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1446,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "{ -64.0, 56.0, 3.0 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ],
+      "notes": "Push it down. Push it down"
+    },
+    "zProbeAllenKeyStow3": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_3"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1449,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "{ -64.0, 56.0, 50.0 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ],
+      "notes": "Move it up to clear. Move it up to clear"
+    },
+    "zProbeAllenKeyStow4": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_4"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1452,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "{ 0.0, 0.0, 50.0 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(Z_PROBE_ALLEN_KEY)"
+      ]
+    },
+    "nozzleToProbeOffset": {
+      "mapsFrom": [
+        "NOZZLE_TO_PROBE_OFFSET"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1498,
+      "examples": [
+        "{ -44, -9, 0 }"
+      ],
+      "notes": "X, Y, Z distance from Nozzle tip to Probe trigger-point. X, Y, Z distance from Nozzle tip to Probe trigger-point. Note on Creality Ender-5 Plus: Z offset must be adjusted (M851) every time once the probe has been loosen/unmounted.",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "unit": "mm"
+    },
+    "probeActivationSwitch": {
+      "mapsFrom": [
+        "PROBE_ACTIVATION_SWITCH"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1518,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "probeActivationSwitchState": {
+      "mapsFrom": [
+        "PROBE_ACTIVATION_SWITCH_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1520,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_ACTIVATION_SWITCH"
+      ],
+      "examples": [
+        "LOW"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PROBE_ACTIVATION_SWITCH)"
+      ],
+      "notes": "State indicating probe is active. State indicating probe is active"
+    },
+    "probeActivationSwitchPin": {
+      "mapsFrom": [
+        "PROBE_ACTIVATION_SWITCH_PIN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1521,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_ACTIVATION_SWITCH"
+      ],
+      "examples": [
+        "PC6"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PROBE_ACTIVATION_SWITCH)"
+      ],
+      "notes": "Override default pin. Override default pin"
+    },
+    "probeTare": {
+      "mapsFrom": [
+        "PROBE_TARE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1529,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "probeTareTime": {
+      "mapsFrom": [
+        "PROBE_TARE_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1531,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TARE"
+      ],
+      "examples": [
+        "200"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PROBE_TARE)"
+      ],
+      "unit": "ms",
+      "notes": "Time to hold tare pin. Time to hold tare pin"
+    },
+    "probeTareDelay": {
+      "mapsFrom": [
+        "PROBE_TARE_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1532,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TARE"
+      ],
+      "examples": [
+        "200"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PROBE_TARE)"
+      ],
+      "unit": "ms",
+      "notes": "Delay after tare before. Delay after tare before"
+    },
+    "probeTareState": {
+      "mapsFrom": [
+        "PROBE_TARE_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1533,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TARE"
+      ],
+      "examples": [
+        "HIGH"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PROBE_TARE)"
+      ],
+      "notes": "State to write pin for tare. State to write pin for tare"
+    },
+    "probeTarePin": {
+      "mapsFrom": [
+        "PROBE_TARE_PIN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1534,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TARE"
+      ],
+      "examples": [
+        "PA5"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PROBE_TARE)"
+      ],
+      "notes": "Override default pin. Override default pin"
+    },
+    "probeTareOnlyWhileInactive": {
+      "mapsFrom": [
+        "PROBE_TARE_ONLY_WHILE_INACTIVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1536,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_ACTIVATION_SWITCH",
+        "PROBE_TARE"
+      ],
+      "examples": [
+        "// Fail to tare/probe if PROBE_ACTIVATION_SWITCH is active"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PROBE_TARE)",
+        "ENABLED(PROBE_ACTIVATION_SWITCH)"
+      ],
+      "notes": "Fail to tare/probe if PROBE_ACTIVATION_SWITCH is active. Fail to tare/probe if PROBE_ACTIVATION_SWITCH is active"
+    },
+    "probeEnableDisable": {
+      "mapsFrom": [
+        "PROBE_ENABLE_DISABLE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1544,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "probeEnablePin": {
+      "mapsFrom": [
+        "PROBE_ENABLE_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1546,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_ENABLE_DISABLE"
+      ],
+      "examples": [
+        "-1"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PROBE_ENABLE_DISABLE)"
+      ],
+      "notes": "Override the default pin here. Override the default pin here"
+    },
+    "multipleProbing": {
+      "mapsFrom": [
+        "MULTIPLE_PROBING"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1558,
+      "examples": [
+        "2"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zClearanceDeployProbe": {
+      "mapsFrom": [
+        "Z_CLEARANCE_DEPLOY_PROBE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1575,
+      "examples": [
+        "10"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "unit": "mm",
+      "notes": "Z Clearance for Deploy/Stow. Z Clearance for Deploy/Stow"
+    },
+    "zClearanceBetweenProbes": {
+      "mapsFrom": [
+        "Z_CLEARANCE_BETWEEN_PROBES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1576,
+      "examples": [
+        "5"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "unit": "mm",
+      "notes": "Z Clearance between probe points. Z Clearance between probe points"
+    },
+    "zClearanceMultiProbe": {
+      "mapsFrom": [
+        "Z_CLEARANCE_MULTI_PROBE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1577,
+      "examples": [
+        "5"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "unit": "mm",
+      "notes": "Z Clearance between multiple probes. Z Clearance between multiple probes"
+    },
+    "zProbeLowPoint": {
+      "mapsFrom": [
+        "Z_PROBE_LOW_POINT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1580,
+      "examples": [
+        "-2"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "unit": "mm",
+      "notes": "Farthest distance below the trigger-point to go before stopping. Farthest distance below the trigger-point to go before stopping"
+    },
+    "zProbeOffsetRangeMin": {
+      "mapsFrom": [
+        "Z_PROBE_OFFSET_RANGE_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1583,
+      "examples": [
+        "-20"
+      ],
+      "notes": "For M851 give a range for adjusting the Z probe offset",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zProbeOffsetRangeMax": {
+      "mapsFrom": [
+        "Z_PROBE_OFFSET_RANGE_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1584,
+      "examples": [
+        "20"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zMinProbeRepeatabilityTest": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_REPEATABILITY_TEST"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1587,
+      "notes": "Enable the M48 repeatability test to test probe accuracy",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "pauseProbeDeployWhenTriggered": {
+      "mapsFrom": [
+        "PAUSE_PROBE_DEPLOY_WHEN_TRIGGERED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1592,
+      "isConditional": true,
+      "conditionalOn": [
+        "PAUSE_BEFORE_DEPLOY_STOW"
+      ],
+      "examples": [
+        "// For Manual Deploy Allenkey Probe"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PAUSE_BEFORE_DEPLOY_STOW)"
+      ],
+      "notes": "For Manual Deploy Allenkey Probe. For Manual Deploy Allenkey Probe"
+    },
+    "probeYFirst": {
+      "mapsFrom": [
+        "PROBE_Y_FIRST"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1972,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_LINEAR",
+        "EITHER",
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "notes": "Probe along the Y axis, advancing X after each column",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)"
+      ]
+    },
+    "zProbeEndScript": {
+      "mapsFrom": [
+        "Z_PROBE_END_SCRIPT"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2079,
+      "examples": [
+        "\"G1 Z10 F12000\\nG1 X15 Y330\\nG1 Z0.5\\nG1 Z10\""
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    }
+  },
+  "advanced": {
+    "filamentRunoutSensor": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1786,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "filamentRunoutScript": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SCRIPT"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1833,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "\"M600\""
+      ],
+      "notes": "Commands to execute on filament runout. With multiple runout sensors use the %c placeholder for the current tool in commands (e.g., \"M600 T%c\") NOTE: After 'M412 H1' the host handles filament runout and this script does not apply.",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(FILAMENT_RUNOUT_SENSOR)"
+      ]
+    },
+    "filamentRunoutDistanceMm": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_DISTANCE_MM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1838,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "25"
+      ],
+      "notes": "After a runout is detected, continue printing this length of filament before executing the runout script. Useful for a sensor at the end of a feed tube. Requires 4 bytes SRAM per sensor, plus 4 bytes overhead.",
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(FILAMENT_RUNOUT_SENSOR)"
+      ]
+    }
+  }
+}

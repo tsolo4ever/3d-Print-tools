@@ -1,70 +1,538 @@
-# Field Mapping Schema Documentation
-## Complete Reference for Parser & UI Field Definitions
+# Field Mapping Schema - Complete Specification
 
-**Version:** 2.0.0  
-**Last Updated:** 2025-12-28  
-**Applies To:** Marlin & TH3D configuration mapping files
+This document defines the **complete field mapping structure** for firmware configuration fields. Every field can have as many or as few of these properties as needed.
 
----
-
-## 📋 Purpose
-
-This document defines ALL available fields that can be used in configuration mapping JSONs. Use this as a reference when adding new fields to ensure consistency.
-
----
-
-## 🏗️ Field Structure
-
-Every field in a mapping JSON can have these properties:
+## 📋 Complete Field Structure
 
 ```json
 {
   "categoryName": {
     "fieldName": {
       // === REQUIRED FIELDS ===
-      "mapsFrom": ["DEFINE_NAME"],
-      "type": "string",
+      "mapsFrom": ["DEFINE_NAME"],              // Array of #define names that map to this field
+      "type": "string",                         // Data type: string, integer, float, boolean, array, define
       
       // === PARSING OPTIONS ===
-      "required": false,
-      "default": null,
-      "elementType": "float",
-      "arrayFormat": "{ X, Y, Z }",
+      "required": false,                        // Whether field must be present
+      "default": null,                          // Default value if not present
+      "elementType": "float",                   // Type of array elements (for array types)
+      "arrayFormat": "{ X, Y, Z }",            // Expected format of array in .h file
+      "fileLocation": "Configuration.h",        // Which config file contains this
+      "lineNumber": 123,                        // Line number in source file
       
       // === UI RENDERING OPTIONS ===
+      "uiWidget": "database-select",            // Widget type: text, number, select, database-select, checkbox, textarea, autocomplete, radio-group
+      "uiDatabase": "marlin-boards",            // Database file for database-select widgets
+      "uiDisplayFormat": "{name} ({mcu})",      // How to display database items
+      "uiOrder": 1,                             // Display order within section
+      "uiSection": "Basic Hardware",            // Section grouping
+      "uiTab": 2,                               // Tab number
+      "uiId": "fieldId",                        // HTML form field ID
+      "helpText": "User-facing help text",      // Tooltip/help text for UI
+      
+      // === CONDITIONAL LOGIC ===
+      "conditionalOn": ["FEATURE_NAME"],        // Field only applies if ANY of these features enabled
+      "conditionalOnAll": ["FEAT_A", "FEAT_B"], // Field only applies if ALL of these features enabled
+      "conditionalOnNot": ["DISABLED_FEAT"],    // Field only applies if NONE of these features enabled
+      "dependsOn": ["other.field"],             // Field depends on value of other fields
+      
+      // === VALIDATION ===
+      "validation": {
+        "min": 0,                               // Minimum value (numbers)
+        "max": 500,                             // Maximum value (numbers)
+        "minLength": 1,                         // Minimum string length
+        "maxLength": 50,                        // Maximum string length
+        "enum": [1, 2, 3],                      // Must be one of these values
+        "mustBeOdd": true,                      // Must be odd number
+        "mustBeEven": false,                    // Must be even number
+        "mustBeTrue": false,                    // For booleans - validation expectation
+        "errorLevel": "error",                  // error | warning | info
+        "pattern": "^[A-Z_]+$",                 // Regex pattern validation
+        "customValidator": "validateBoardType"  // Custom validation function name
+      },
+      
+      // === DOCUMENTATION ===
+      "examples": ["value1", "value2"],         // Example values
+      "th3dNotes": "TH3D-specific behavior",    // TH3D firmware notes
+      "marlinNotes": "Vanilla Marlin notes",    // Marlin firmware notes
+      "notes": "General notes",                 // General notes (auto-extracted from comments)
+      "description": "Internal description",    // Internal description for developers
+      "warnings": ["Warning text"],             // Important warnings
+      "relatedFields": ["field1", "field2"],    // Related configuration fields
+      
+      // === TRANSFORMATION ===
+      "transform": "normalizePrinterId",        // Transform function to apply
+      "defaultFrom": "otherField.path",         // Get default from another field
+      "target": "output.path.in.config",        // Where this value goes in output
+      "profilePath": "basic.motherboard",       // Path in profile data structure
+      "parserPath": "basic.motherboard",        // Path in parsed data structure
+      
+      // === VERSION TRACKING ===
+      "since": "2.0.0",                         // First firmware version with this field
+      "deprecated": "2.1.0",                    // Version where field was deprecated
+      "replacedBy": "newField",                 // Field that replaces this one
+      "removedIn": "3.0.0",                     // Version where field was removed
+      
+      // === ADVANCED OPTIONS ===
+      "readOnly": false,                        // UI should not allow editing
+      "hidden": false,                          // Hide from UI
+      "advanced": true,                         // Show only in advanced mode
+      "experimental": false,                    // Experimental feature flag
+      "units": "mm",                            // Display units (mm, °C, mm/s, etc.)
+      "step": 0.1,                              // Step increment for number inputs
+      "placeholder": "Enter value...",          // Placeholder text
+      "autoComplete": ["option1", "option2"]    // Autocomplete suggestions
+    }
+  }
+}
+```
+
+---
+
+## 📚 Field Property Reference
+
+### REQUIRED FIELDS
+
+#### `mapsFrom` (array, required)
+**Array of #define names** that map to this profile field.
+```json
+"mapsFrom": ["MOTHERBOARD"]
+"mapsFrom": ["TEMP_SENSOR_0", "TEMP_SENSOR"]  // Multiple possible names
+```
+
+#### `type` (string, required)
+**Data type** of the field value.
+
+| Type | Description | Example |
+|------|-------------|---------|
+| `string` | Text value | `"Marlin"` |
+| `integer` | Whole number | `250000` |
+| `float` | Decimal number | `22.5` |
+| `boolean` | True/false | `true` |
+| `array` | Multiple values | `[80, 80, 400]` |
+| `define` | Reference to another define | `BOARD_RAMPS_14` |
+
+---
+
+### PARSING OPTIONS
+
+#### `required` (boolean, default: true)
+Whether the field **must be present** in the configuration.
+```json
+"required": true   // Must be defined
+"required": false  // Optional
+```
+
+#### `default` (any)
+**Default value** if field is not present or undefined.
+```json
+"default": null
+"default": 250000
+"default": "Custom Board"
+"default": [80, 80, 400, 500]
+```
+
+#### `elementType` (string)
+For **array types**, specifies the type of elements.
+```json
+"type": "array",
+"elementType": "float",
+"arrayFormat": "{ X, Y, Z, E }"
+```
+
+#### `arrayFormat` (string)
+Expected **format of array** in Configuration.h file.
+```json
+"arrayFormat": "{ X, Y, Z }"
+"arrayFormat": "[a, b, c]"
+```
+
+#### `fileLocation` (string)
+Which **configuration file** contains this define.
+```json
+"fileLocation": "Configuration.h"
+"fileLocation": "Configuration_adv.h"
+"fileLocation": "Configuration_backend.h"
+```
+
+#### `lineNumber` (integer)
+**Line number** where define appears in source file (auto-generated).
+```json
+"lineNumber": 145
+```
+
+---
+
+### UI RENDERING OPTIONS
+
+#### `uiWidget` (string)
+**Widget type** for rendering in UI forms.
+
+| Widget | Use Case | Example |
+|--------|----------|---------|
+| `text` | Single-line text input | Profile name |
+| `number` | Numeric input | Steps/mm, temperature |
+| `select` | Dropdown list | Baud rate options |
+| `database-select` | Dropdown from database JSON | Motherboards, drivers |
+| `checkbox` | Boolean toggle | Enable feature |
+| `textarea` | Multi-line text | Notes, description |
+| `autocomplete` | Search + select | Printer model |
+| `radio-group` | Single choice from options | Bed type |
+| `array` | Multiple value inputs | XYZ coordinates |
+
+```json
+"uiWidget": "database-select"
+```
+
+#### `uiDatabase` (string)
+**Database file name** for `database-select` widgets (without `.json`).
+```json
+"uiDatabase": "marlin-boards-V2"
+"uiDatabase": "stepper-drivers-V2"
+"uiDatabase": "thermistors-V2"
+```
+
+#### `uiDisplayFormat` (string)
+**Template string** for displaying database items. Use `{fieldName}` placeholders.
+```json
+"uiDisplayFormat": "{name} ({mcu})"
+"uiDisplayFormat": "{id}: {name}"
+"uiDisplayFormat": "{name}"
+```
+
+#### `uiOrder` (integer)
+**Display order** within the section (lower numbers first).
+```json
+"uiOrder": 1   // First
+"uiOrder": 10  // Later
+```
+
+#### `uiSection` (string)
+**Section grouping** within the tab.
+```json
+"uiSection": "Basic Hardware"
+"uiSection": "Temperature Sensors"
+"uiSection": "Stepper Drivers"
+```
+
+#### `uiTab` (integer)
+**Tab number** where field appears.
+```json
+"uiTab": 1   // Tab 1: Basic Info
+"uiTab": 2   // Tab 2: Hardware
+"uiTab": 3   // Tab 3: Hotend & Extruder
+```
+
+#### `uiId` (string)
+**HTML form field ID** for the input element.
+```json
+"uiId": "motherboardSelect"
+"uiId": "stepsPerMMX"
+```
+
+#### `helpText` (string)
+**User-facing help text** displayed as tooltip or help icon.
+```json
+"helpText": "Select your motherboard or choose Custom"
+"helpText": "Temperature limit for hotend (200-500°C typical)"
+```
+
+---
+
+### CONDITIONAL LOGIC
+
+#### `conditionalOn` (array)
+Field **only applies if ANY** of these features are enabled.
+```json
+"conditionalOn": ["PIDTEMP"]                    // If PID enabled
+"conditionalOn": ["BLTOUCH", "FIX_MOUNTED_PROBE"] // If either probe type
+```
+
+#### `conditionalOnAll` (array)
+Field **only applies if ALL** of these features are enabled.
+```json
+"conditionalOnAll": ["AUTO_BED_LEVELING_BILINEAR", "PROBE_MANUALLY"]
+```
+
+#### `conditionalOnNot` (array)
+Field **only applies if NONE** of these features are enabled.
+```json
+"conditionalOnNot": ["CLASSIC_JERK"]  // Only if junction deviation mode
+```
+
+#### `dependsOn` (array)
+Field **depends on values** of other fields.
+```json
+"dependsOn": ["basic.extruders"]  // Only relevant if extruders > 1
+```
+
+---
+
+### VALIDATION
+
+#### `validation` (object)
+Validation rules for the field value.
+
+```json
+"validation": {
+  "min": 0,
+  "max": 500,
+  "minLength": 1,
+  "maxLength": 50,
+  "enum": [115200, 250000, 500000],
+  "mustBeOdd": false,
+  "mustBeEven": false,
+  "mustBeTrue": true,
+  "errorLevel": "error",
+  "pattern": "^BOARD_[A-Z_]+$",
+  "customValidator": "validateMotherboard"
+}
+```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `min` | number | Minimum numeric value |
+| `max` | number | Maximum numeric value |
+| `minLength` | number | Minimum string length |
+| `maxLength` | number | Maximum string length |
+| `enum` | array | Must be one of these values |
+| `mustBeOdd` | boolean | Must be odd number |
+| `mustBeEven` | boolean | Must be even number |
+| `mustBeTrue` | boolean | For booleans - validation expectation |
+| `errorLevel` | string | `error`, `warning`, or `info` |
+| `pattern` | string | Regex pattern to match |
+| `customValidator` | string | Name of custom validation function |
+
+---
+
+### DOCUMENTATION
+
+#### `examples` (array)
+**Example values** for this field.
+```json
+"examples": ["BOARD_RAMPS_14_EFB", "BOARD_BTT_SKR_V1_4"]
+"examples": [250000, 115200]
+"examples": [[80, 80, 400, 500]]
+```
+
+#### `th3dNotes` (string)
+**TH3D-specific** behavior or notes.
+```json
+"th3dNotes": "TH3D uses EZBOARD_V1 define instead of standard board names"
+```
+
+#### `marlinNotes` (string)
+**Vanilla Marlin** behavior or notes.
+```json
+"marlinNotes": "Marlin 2.1.x changed this from BOARD_RAMPS to BOARD_RAMPS_14"
+```
+
+#### `notes` (string)
+**General notes** (often auto-extracted from inline comments).
+```json
+"notes": "Board type from boards.h - see documentation for full list"
+```
+
+#### `description` (string)
+**Internal description** for developers.
+```json
+"description": "Motherboard/controller board identifier from boards.h"
+```
+
+#### `warnings` (array)
+**Important warnings** about this field.
+```json
+"warnings": [
+  "Changing this requires recompiling firmware",
+  "Incorrect value may prevent board from booting"
+]
+```
+
+#### `relatedFields` (array)
+**Related configuration fields** that should be reviewed together.
+```json
+"relatedFields": ["hardware.driverX", "hardware.driverY", "hardware.thermistorHotend"]
+```
+
+---
+
+### TRANSFORMATION
+
+#### `transform` (string)
+**Transform function** to apply to value.
+```json
+"transform": "normalizePrinterId"
+"transform": "convertTemperature"
+"transform": "parseArray"
+```
+
+#### `defaultFrom` (string)
+**Get default value** from another field path.
+```json
+"defaultFrom": "basic.motherboard"
+"defaultFrom": "hardware.thermistorHotend"
+```
+
+#### `target` (string)
+**Output path** where this value should be written.
+```json
+"target": "hardware.board.type"
+"target": "motion.steps.x"
+```
+
+#### `profilePath` (string)
+**Path in profile data structure** (JSON profile format).
+```json
+"profilePath": "basic.motherboard"
+"profilePath": "hardware.drivers.x"
+```
+
+#### `parserPath` (string)
+**Path in parsed data structure** (parser output format).
+```json
+"parserPath": "basic.motherboard"
+"parserPath": "hardware.driverX"
+```
+
+---
+
+### VERSION TRACKING
+
+#### `since` (string)
+**First firmware version** that introduced this field.
+```json
+"since": "2.0.0"
+"since": "unified-2.60"
+```
+
+#### `deprecated` (string)
+**Version where field was deprecated** (but still works).
+```json
+"deprecated": "2.1.0"
+```
+
+#### `replacedBy` (string)
+**Field that replaces** this deprecated field.
+```json
+"replacedBy": "newFieldName"
+"replacedBy": "hardware.newDriverFormat"
+```
+
+#### `removedIn` (string)
+**Version where field was removed** completely.
+```json
+"removedIn": "3.0.0"
+```
+
+---
+
+### ADVANCED OPTIONS
+
+#### `readOnly` (boolean, default: false)
+**UI should not allow editing** this field.
+```json
+"readOnly": true   // Display only, no editing
+"readOnly": false  // Normal editable field
+```
+
+#### `hidden` (boolean, default: false)
+**Hide from UI** completely.
+```json
+"hidden": true   // Don't show in UI
+"hidden": false  // Normal visibility
+```
+
+#### `advanced` (boolean, default: false)
+**Show only in advanced mode**.
+```json
+"advanced": true   // Only in advanced UI mode
+"advanced": false  // Always visible
+```
+
+#### `experimental` (boolean, default: false)
+**Experimental feature flag**.
+```json
+"experimental": true  // Warn user this is experimental
+```
+
+#### `units` (string)
+**Display units** for numeric values.
+```json
+"units": "mm"
+"units": "°C"
+"units": "mm/s"
+"units": "mm/s²"
+```
+
+#### `step` (number)
+**Step increment** for number inputs.
+```json
+"step": 0.1     // Increment by 0.1
+"step": 1       // Increment by 1
+"step": 10      // Increment by 10
+```
+
+#### `placeholder` (string)
+**Placeholder text** for input fields.
+```json
+"placeholder": "Enter value..."
+"placeholder": "Select motherboard..."
+```
+
+#### `autoComplete` (array)
+**Autocomplete suggestions** for text inputs.
+```json
+"autoComplete": ["BOARD_RAMPS_14", "BOARD_BTT_SKR_V1_4", "BOARD_MKS_GEN_L"]
+```
+
+---
+
+## 🎯 Complete Example
+
+Here's a complete field with many properties:
+
+```json
+{
+  "hardware": {
+    "motherboard": {
+      // Required
+      "mapsFrom": ["MOTHERBOARD"],
+      "type": "string",
+      
+      // Parsing
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 145,
+      
+      // UI Rendering
       "uiWidget": "database-select",
-      "uiDatabase": "marlin-boards",
+      "uiDatabase": "marlin-boards-V2",
       "uiDisplayFormat": "{name} ({mcu})",
       "uiOrder": 1,
       "uiSection": "Basic Hardware",
       "uiTab": 2,
+      "uiId": "motherboardSelect",
+      "helpText": "Select your motherboard or choose Custom",
       
-      // === CONDITIONAL LOGIC ===
-      "conditionalOn": ["FEATURE_NAME"],
-      "conditionalOnAll": ["FEATURE_A", "FEATURE_B"],
-      "conditionalOnNot": ["DISABLED_FEATURE"],
-      
-      // === VALIDATION ===
+      // Validation
       "validation": {
-        "min": 0,
-        "max": 500,
-        "mustBeOdd": true,
-        "mustBeTrue": false,
-        "errorLevel": "error",
-        "pattern": "^[A-Z_]+$"
+        "pattern": "^BOARD_[A-Z_0-9]+$",
+        "errorLevel": "error"
       },
       
-      // === DOCUMENTATION ===
-      "examples": ["value1", "value2"],
-      "th3dNotes": "TH3D-specific behavior notes",
-      "marlinNotes": "Vanilla Marlin notes",
-      "helpText": "User-facing help text for UI",
-      "description": "Internal description",
+      // Documentation
+      "examples": ["BOARD_RAMPS_14_EFB", "BOARD_BTT_SKR_V1_4"],
+      "marlinNotes": "Board type from boards.h",
+      "th3dNotes": "TH3D uses EZBOARD defines",
+      "warnings": ["Changing requires firmware recompile"],
+      "relatedFields": ["hardware.driverX", "hardware.driverY"],
       
-      // === TRANSFORMATION ===
-      "transform": "normalizePrinterId",
-      "defaultFrom": "otherField.path",
-      "target": "output.path.in.config"
+      // Transformation
+      "profilePath": "hardware.board",
+      "parserPath": "basic.motherboard",
+      
+      // Version
+      "since": "1.0.0"
     }
   }
 }
@@ -72,528 +540,49 @@ Every field in a mapping JSON can have these properties:
 
 ---
 
-## 📚 Field Properties Reference
+## 📝 Usage Notes
 
-### **1. Core Identification**
-
-#### `mapsFrom` (REQUIRED)
-**Type:** `string` or `string[]`  
-**Purpose:** Configuration.h `#define` name(s) this field maps from  
-**Examples:**
-```json
-"mapsFrom": "TEMP_SENSOR_0"
-"mapsFrom": ["TEMP_SENSOR_0", "HOTEND_THERMISTOR"]
-"mapsFrom": ["ENDER*", "CR10*"]  // Wildcards supported
-"mapsFrom": ["DEFAULT_AXIS_STEPS_PER_UNIT[0]"]  // Array indexing
-```
-
-#### `type` (REQUIRED)
-**Type:** `string`  
-**Purpose:** Data type for parsing and validation  
-**Options:**
-- `"string"` - Text value
-- `"integer"` - Whole number
-- `"float"` - Decimal number
-- `"boolean"` - true/false
-- `"array"` - Multiple values `{ x, y, z }`
-- `"enum"` - One of predefined values
-
-**Examples:**
-```json
-"type": "integer"
-"type": "array"
-"type": "boolean"
-```
-
----
-
-### **2. Parsing Options**
-
-#### `required`
-**Type:** `boolean`  
-**Default:** `false`  
-**Purpose:** Is this field mandatory?  
-**Examples:**
-```json
-"required": true   // Must be present
-"required": false  // Optional field
-```
-
-#### `default`
-**Type:** Any (matches field type)  
-**Purpose:** Default value if not defined in Configuration.h  
-**Examples:**
-```json
-"default": 5
-"default": "marlin"
-"default": true
-"default": null  // No default
-```
-
-#### `elementType`
-**Type:** `string`  
-**Purpose:** Type coercion for array elements  
-**Used With:** `"type": "array"`  
-**Options:** `"integer"`, `"float"`, `"boolean"`, `"string"`  
-**Examples:**
+### Minimal Field
+At minimum, a field needs:
 ```json
 {
-  "type": "array",
-  "elementType": "float",
-  "mapsFrom": ["DEFAULT_AXIS_STEPS_PER_UNIT"]
-}
-// Parses: { 80.0, 80.0, 400.0, 93.0 } → [80.0, 80.0, 400.0, 93.0]
-```
-
-#### `arrayFormat`
-**Type:** `string`  
-**Purpose:** Expected array syntax documentation  
-**Used With:** `"type": "array"`  
-**Examples:**
-```json
-"arrayFormat": "{ X, Y, Z }"
-"arrayFormat": "{ x, y, z, e }"
-```
-
----
-
-### **3. UI Rendering Options**
-
-#### `uiWidget`
-**Type:** `string`  
-**Purpose:** Override default widget for this field type  
-**Options:**
-- `"text"` - Single-line text input
-- `"number"` - Numeric input with +/- buttons
-- `"select"` - Dropdown list
-- `"database-select"` - Dropdown from JSON database
-- `"checkbox"` - Boolean toggle
-- `"textarea"` - Multi-line text
-- `"array"` - Multiple coordinated inputs
-- `"autocomplete"` - Search + dropdown
-- `"radio-group"` - Radio button group
-
-**Examples:**
-```json
-"uiWidget": "database-select"  // Use database dropdown instead of text
-"uiWidget": "checkbox"         // Render as checkbox
-```
-
-#### `uiDatabase`
-**Type:** `string`  
-**Purpose:** Which JSON database to load for dropdown options  
-**Used With:** `"uiWidget": "database-select"`  
-**Options:**
-- `"marlin-boards"` - Motherboards
-- `"stepper-drivers"` - Driver types
-- `"thermistors"` - Thermistor types
-- `"displays"` - LCD/display types
-- `"Hotends"` - Hotend models
-- `"bed-probes"` - Probe types
-- `"printer-profiles"` - Printer models
-
-**Examples:**
-```json
-{
-  "uiWidget": "database-select",
-  "uiDatabase": "marlin-boards"
+  "mapsFrom": ["DEFINE_NAME"],
+  "type": "integer"
 }
 ```
 
-#### `uiDisplayFormat`
-**Type:** `string`  
-**Purpose:** Template for displaying database items  
-**Used With:** `"uiWidget": "database-select"`  
-**Syntax:** `{fieldName}` placeholders  
-**Examples:**
-```json
-"uiDisplayFormat": "{name} ({mcu})"
-// Renders: "BOARD_CREALITY_V427 (STM32F103)"
-
-"uiDisplayFormat": "{name} - {wattage}W {voltage}V"
-// Renders: "Standard Heater - 40W 24V"
-```
-
-#### `uiOrder`
-**Type:** `integer`  
-**Purpose:** Display order within section (lower = first)  
-**Examples:**
-```json
-"uiOrder": 1   // First field
-"uiOrder": 10  // Later field
-```
-
-#### `uiSection`
-**Type:** `string`  
-**Purpose:** Group fields into UI sections  
-**Examples:**
-```json
-"uiSection": "Basic Hardware"
-"uiSection": "Temperature Settings"
-"uiSection": "Motion Control"
-```
-
-#### `uiTab`
-**Type:** `integer`  
-**Purpose:** Which tab (1-10) this field belongs to  
-**Range:** 1-10  
-**Examples:**
-```json
-"uiTab": 1  // Tab 1: Printer Info
-"uiTab": 2  // Tab 2: Hardware
-"uiTab": 3  // Tab 3: Hotend
-```
-
----
-
-### **4. Conditional Logic**
-
-#### `conditionalOn`
-**Type:** `string` or `string[]`  
-**Purpose:** Field only active if ANY of these features are enabled (OR logic)  
-**Examples:**
-```json
-"conditionalOn": "EZABL_ENABLE"
-"conditionalOn": ["BLTOUCH", "EZABL_ENABLE"]  // Either one
-```
-
-#### `conditionalOnAll`
-**Type:** `string` or `string[]`  
-**Purpose:** Field only active if ALL of these features are enabled (AND logic)  
-**Examples:**
-```json
-"conditionalOnAll": ["EZABL_ENABLE", "ABL_UBL"]  // Both required
-```
-
-#### `conditionalOnNot`
-**Type:** `string` or `string[]`  
-**Purpose:** Field only active if NONE of these features are enabled (NOT logic)  
-**Examples:**
-```json
-"conditionalOnNot": "JUNCTION_DEVIATION"  // Only if NOT using JD
-"conditionalOnNot": ["MANUAL_MESH_LEVELING", "NO_ABL"]  // Neither
-```
-
-**Combined Example:**
+### Recommended for UI Fields
+For fields that appear in UI:
 ```json
 {
-  "ezablProbeEdge": {
-    "mapsFrom": ["EZABL_PROBE_EDGE"],
-    "type": "integer",
-    "conditionalOn": ["EZABL_ENABLE", "BLTOUCH"],  // EZABL OR BLTouch
-    "conditionalOnNot": "MANUAL_MESH_LEVELING",    // NOT manual leveling
-    "th3dNotes": "Only shown if probe enabled"
-  }
+  "mapsFrom": ["DEFINE_NAME"],
+  "type": "integer",
+  "uiWidget": "number",
+  "uiTab": 1,
+  "uiSection": "Section Name",
+  "uiOrder": 10,
+  "helpText": "User help text"
+}
+```
+
+### Complex Conditional Field
+For fields that depend on other settings:
+```json
+{
+  "mapsFrom": ["DEFAULT_KP"],
+  "type": "float",
+  "conditionalOn": ["PIDTEMP"],
+  "validation": {
+    "min": 0,
+    "max": 1000
+  },
+  "uiWidget": "number",
+  "helpText": "PID P value (only if PID enabled)"
 }
 ```
 
 ---
 
-### **5. Validation**
-
-#### `validation` (Object)
-**Type:** `object`  
-**Purpose:** Rules for validating field values  
-
-**Available Rules:**
-
-##### `min` / `max`
-**Type:** `number`  
-**Purpose:** Numeric range validation  
-```json
-"validation": {
-  "min": 0,
-  "max": 500
-}
-```
-
-##### `mustBeOdd` / `mustBeEven`
-**Type:** `boolean`  
-**Purpose:** Integer parity check  
-```json
-"validation": {
-  "mustBeOdd": true  // Grid points must be odd (3, 5, 7...)
-}
-```
-
-##### `mustBeTrue`
-**Type:** `boolean`  
-**Purpose:** Safety check - field must be enabled  
-```json
-"validation": {
-  "mustBeTrue": true  // Safety feature must be enabled
-}
-```
-
-##### `errorLevel`
-**Type:** `string`  
-**Options:** `"error"`, `"warning"`, `"info"`  
-**Purpose:** Severity of validation failure  
-```json
-"validation": {
-  "mustBeTrue": true,
-  "errorLevel": "error"  // Critical safety feature
-}
-```
-
-##### `pattern`
-**Type:** `string` (regex)  
-**Purpose:** String format validation  
-```json
-"validation": {
-  "pattern": "^[A-Z_][A-Z0-9_]*$"  // Valid C identifier
-}
-```
-
-##### `maxLength` / `minLength`
-**Type:** `integer`  
-**Purpose:** String length validation  
-```json
-"validation": {
-  "maxLength": 50  // Max 50 characters
-}
-```
-
-**Complete Example:**
-```json
-{
-  "ezablPoints": {
-    "mapsFrom": ["EZABL_POINTS"],
-    "type": "integer",
-    "validation": {
-      "min": 3,
-      "max": 15,
-      "mustBeOdd": true,
-      "errorLevel": "warning"
-    },
-    "th3dNotes": "Must be odd number between 3-15"
-  }
-}
-```
-
----
-
-### **6. Documentation**
-
-#### `examples`
-**Type:** `array`  
-**Purpose:** Sample values for documentation/testing  
-```json
-"examples": [93, 95, 130, 400, 415, 425, 690]
-"examples": ["TH3D UFW 2.97a", "TH3D UFW 2.96"]
-"examples": [{ "x": 80, "y": 80, "z": 400 }]
-```
-
-#### `th3dNotes`
-**Type:** `string`  
-**Purpose:** TH3D Unified Firmware specific notes  
-```json
-"th3dNotes": "TH3D EZOut filament sensor - LCD header connection"
-```
-
-#### `marlinNotes`
-**Type:** `string`  
-**Purpose:** Vanilla Marlin firmware specific notes  
-```json
-"marlinNotes": "Standard Marlin feature, enabled by default"
-```
-
-#### `helpText`
-**Type:** `string`  
-**Purpose:** User-facing help text shown in UI  
-```json
-"helpText": "Distance from bed edge to probe. Use 30 for binder clips."
-```
-
-#### `description`
-**Type:** `string`  
-**Purpose:** Internal developer description  
-```json
-"description": "Controls bed temperature PID tuning behavior"
-```
-
----
-
-### **7. Transformation & Derived Values**
-
-#### `transform`
-**Type:** `string`  
-**Purpose:** Function name for value transformation  
-**Available Transforms:**
-- `"normalizePrinterId"` - Convert printer macro to canonical ID
-- `"normalizeMountId"` - Convert mount macro to canonical ID
-- `"normalizeAblType"` - Convert ABL type to standard format
-
-```json
-{
-  "printerModel": {
-    "mapsFrom": ["ENDER5_PLUS"],
-    "type": "string",
-    "transform": "normalizePrinterId",
-    "target": "basic.printerModel"
-  }
-}
-// ENDER5_PLUS → "ender5_plus"
-```
-
-#### `defaultFrom`
-**Type:** `string` (path)  
-**Purpose:** Get default value from another field  
-```json
-{
-  "travelAcceleration": {
-    "type": "integer",
-    "defaultFrom": "acceleration.defaultAcceleration"
-  }
-}
-```
-
-#### `target`
-**Type:** `string` (path)  
-**Purpose:** Output path in parsed config object  
-```json
-{
-  "unifiedVersion": {
-    "mapsFrom": ["UNIFIED_VERSION"],
-    "type": "string",
-    "target": "basic.firmwareVersion"
-  }
-}
-```
-
----
-
-## 📖 Complete Field Example
-
-Here's a field using many properties:
-
-```json
-{
-  "ablProbe": {
-    "ezablPoints": {
-      // === CORE ===
-      "mapsFrom": ["EZABL_POINTS"],
-      "type": "integer",
-      "required": false,
-      "default": 5,
-      
-      // === UI ===
-      "uiWidget": "number",
-      "uiOrder": 1,
-      "uiSection": "Mesh Settings",
-      "uiTab": 5,
-      
-      // === CONDITIONAL ===
-      "conditionalOn": ["EZABL_ENABLE", "BLTOUCH"],
-      "conditionalOnNot": "MANUAL_MESH_LEVELING",
-      
-      // === VALIDATION ===
-      "validation": {
-        "min": 3,
-        "max": 15,
-        "mustBeOdd": true,
-        "errorLevel": "warning"
-      },
-      
-      // === DOCUMENTATION ===
-      "examples": [3, 5, 7, 9, 11],
-      "th3dNotes": "Grid points (odd). Total points = N x N",
-      "helpText": "3-5 typical, 7+ for UBL. More points = finer mesh but slower probing.",
-      "description": "Number of probe points along each axis for bed leveling mesh"
-    }
-  }
-}
-```
-
----
-
-## 🎯 Field Type Quick Reference
-
-| Type | UI Widget | Examples | Notes |
-|------|-----------|----------|-------|
-| `string` | text | `"Marlin"`, `"BOARD_NAME"` | Text values |
-| `integer` | number | `5`, `400`, `93` | Whole numbers |
-| `float` | number | `0.15`, `80.0`, `2.5` | Decimals |
-| `boolean` | checkbox | `true`, `false` | On/off toggles |
-| `array` | array-input | `[80, 80, 400, 93]` | Multiple values |
-| `enum` | select | `"marlin"`, `"th3d"` | Predefined options |
-
----
-
-## 🚨 Common Patterns
-
-### **Safety Feature (Must Be Enabled)**
-```json
-{
-  "thermalProtectionHotend": {
-    "mapsFrom": ["THERMAL_PROTECTION_HOTENDS"],
-    "type": "boolean",
-    "required": true,
-    "validation": {
-      "mustBeTrue": true,
-      "errorLevel": "error"
-    },
-    "th3dNotes": "CRITICAL: Prevents fire if heater fails"
-  }
-}
-```
-
-### **Conditional Feature**
-```json
-{
-  "linearAdvanceK": {
-    "mapsFrom": ["LINEAR_ADVANCE_K"],
-    "type": "float",
-    "conditionalOn": "LINEAR_ADVANCE",
-    "default": 0.0,
-    "validation": {
-      "min": 0,
-      "max": 2
-    }
-  }
-}
-```
-
-### **Database Dropdown**
-```json
-{
-  "motherboard": {
-    "mapsFrom": ["MOTHERBOARD"],
-    "type": "string",
-    "required": true,
-    "uiWidget": "database-select",
-    "uiDatabase": "marlin-boards",
-    "uiDisplayFormat": "{name} ({mcu})"
-  }
-}
-```
-
-### **Array Field**
-```json
-{
-  "stepsPerMM": {
-    "mapsFrom": ["DEFAULT_AXIS_STEPS_PER_UNIT"],
-    "type": "array",
-    "elementType": "float",
-    "arrayFormat": "{ X, Y, Z, E }",
-    "examples": [[80.0, 80.0, 400.0, 93.0]]
-  }
-}
-```
-
----
-
-## 📝 Best Practices
-
-1. **Always provide `examples`** - Helps users understand expected values
-2. **Use `helpText` for user-facing info** - Shown in UI
-3. **Use `th3dNotes` or `marlinNotes` for developer info** - Not shown to users
-4. **Set appropriate `validation`** - Catch errors early
-5. **Use `conditionalOn` for dependent features** - Keep UI clean
-6. **Provide `default` values** - Make profiles easier to create
-7. **Use `uiWidget` to improve UX** - Better than raw text inputs
-8. **Group with `uiSection`** - Organize related fields
-
----
-
-**Reference this document when adding new fields to maintain consistency!**
+**Version:** 2.0.0  
+**Last Updated:** 2025-12-29  
+**Schema Status:** Complete specification with all optional fields

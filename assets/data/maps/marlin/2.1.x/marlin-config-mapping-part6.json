@@ -1,0 +1,1094 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.x",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "firmware-helper\\example-ender5plus-config.h",
+  "totalDefines": 949,
+  "other_7": {
+    "vminPlug": {
+      "mapsFrom": [
+        "USE_VMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1051,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "wminPlug": {
+      "mapsFrom": [
+        "USE_WMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1052,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "ymaxPlug": {
+      "mapsFrom": [
+        "USE_YMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1054,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zmaxPlug": {
+      "mapsFrom": [
+        "USE_ZMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1055,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "imaxPlug": {
+      "mapsFrom": [
+        "USE_IMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1056,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "jmaxPlug": {
+      "mapsFrom": [
+        "USE_JMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1057,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "kmaxPlug": {
+      "mapsFrom": [
+        "USE_KMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1058,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "umaxPlug": {
+      "mapsFrom": [
+        "USE_UMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1059,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "vmaxPlug": {
+      "mapsFrom": [
+        "USE_VMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1060,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "wmaxPlug": {
+      "mapsFrom": [
+        "USE_WMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1061,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "distinctEFactors": {
+      "mapsFrom": [
+        "DISTINCT_E_FACTORS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1174,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "limitedMaxFrEditing": {
+      "mapsFrom": [
+        "LIMITED_MAX_FR_EDITING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1191,
+      "examples": [
+        "// Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2. Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2"
+    },
+    "limitedMaxAccelEditing": {
+      "mapsFrom": [
+        "LIMITED_MAX_ACCEL_EDITING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1204,
+      "examples": [
+        "// Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2. Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2"
+    },
+    "maxAccelEditValues": {
+      "mapsFrom": [
+        "MAX_ACCEL_EDIT_VALUES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1206,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIMITED_MAX_ACCEL_EDITING"
+      ],
+      "examples": [
+        "{ 6000, 6000, 200, 20000 }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(LIMITED_MAX_ACCEL_EDITING)"
+      ],
+      "notes": "...or, set your own edit limits. ...or, set your own edit limits"
+    },
+    "jdHandleSmallSegments": {
+      "mapsFrom": [
+        "JD_HANDLE_SMALL_SEGMENTS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1260,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "// Use curvature estimation instead of just the junction angle"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "DISABLED(CLASSIC_JERK)"
+      ],
+      "notes": "Use curvature estimation instead of just the junction angle. Use curvature estimation instead of just the junction angle"
+    },
+    "zServoAngles": {
+      "mapsFrom": [
+        "Z_SERVO_ANGLES"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1340,
+      "examples": [
+        "{ 70, 0 }"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Z Servo Deploy and Stow angles. Z Servo Deploy and Stow angles"
+    },
+    "maglev4": {
+      "mapsFrom": [
+        "MAGLEV4"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1352,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "maglevTriggerPin": {
+      "mapsFrom": [
+        "MAGLEV_TRIGGER_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1354,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGLEV4"
+      ],
+      "examples": [
+        "11"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAGLEV4)"
+      ],
+      "notes": "Set to the connected digital output. Set to the connected digital output"
+    },
+    "maglevTriggerDelay": {
+      "mapsFrom": [
+        "MAGLEV_TRIGGER_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1355,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGLEV4"
+      ],
+      "examples": [
+        "15"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAGLEV4)"
+      ],
+      "notes": "Changing this risks overheating the coil. Changing this risks overheating the coil"
+    },
+    "touchMiRetractZ": {
+      "mapsFrom": [
+        "TOUCH_MI_RETRACT_Z"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1370,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_MI_PROBE"
+      ],
+      "examples": [
+        "0.5"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(TOUCH_MI_PROBE)"
+      ],
+      "notes": "Height at which the probe retracts. Height at which the probe retracts"
+    },
+    "touchMiDeployXpos": {
+      "mapsFrom": [
+        "TOUCH_MI_DEPLOY_XPOS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1371,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_MI_PROBE"
+      ],
+      "examples": [
+        "(X_MAX_BED + 2)"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(TOUCH_MI_PROBE)"
+      ],
+      "notes": "For a magnet on the right side of the bed. For a magnet on the right side of the bed"
+    },
+    "sledDockingOffset": {
+      "mapsFrom": [
+        "SLED_DOCKING_OFFSET"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1380,
+      "examples": [
+        "5"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "The extra distance the X axis must travel to pickup the sled. 0 should be fine but you can push it further if you'd like.. The extra distance the X axis must travel to pickup the sled. 0 should be fine but you can push it further if you'd like."
+    },
+    "magMountedDeploy1": {
+      "mapsFrom": [
+        "MAG_MOUNTED_DEPLOY_1"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1398,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_DEPLOY_FEEDRATE, { 245, 114, 30 } }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Move to side Dock & Attach probe. Move to side Dock & Attach probe"
+    },
+    "magMountedDeploy2": {
+      "mapsFrom": [
+        "MAG_MOUNTED_DEPLOY_2"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1399,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_DEPLOY_FEEDRATE, { 210, 114, 30 } }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Move probe off dock. Move probe off dock"
+    },
+    "magMountedDeploy3": {
+      "mapsFrom": [
+        "MAG_MOUNTED_DEPLOY_3"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1400,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_DEPLOY_FEEDRATE, {   0,   0,  0 } }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Extra move if needed. Extra move if needed"
+    },
+    "magMountedDeploy4": {
+      "mapsFrom": [
+        "MAG_MOUNTED_DEPLOY_4"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1401,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_DEPLOY_FEEDRATE, {   0,   0,  0 } }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Extra move if needed. Extra move if needed"
+    },
+    "magMountedDeploy5": {
+      "mapsFrom": [
+        "MAG_MOUNTED_DEPLOY_5"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1402,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_DEPLOY_FEEDRATE, {   0,   0,  0 } }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Extra move if needed. Extra move if needed"
+    },
+    "magMountedStow1": {
+      "mapsFrom": [
+        "MAG_MOUNTED_STOW_1"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1403,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_STOW_FEEDRATE,   { 245, 114, 20 } }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Move to dock. Move to dock"
+    },
+    "magMountedStow2": {
+      "mapsFrom": [
+        "MAG_MOUNTED_STOW_2"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1404,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_STOW_FEEDRATE,   { 245, 114,  0 } }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Place probe beside remover. Place probe beside remover"
+    },
+    "magMountedStow3": {
+      "mapsFrom": [
+        "MAG_MOUNTED_STOW_3"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1405,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_STOW_FEEDRATE,   { 230, 114,  0 } }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Side move to remove probe. Side move to remove probe"
+    }
+  },
+  "other_8": {
+    "magMountedStow4": {
+      "mapsFrom": [
+        "MAG_MOUNTED_STOW_4"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1406,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_STOW_FEEDRATE,   { 210, 114, 20 } }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Side move to remove probe. Side move to remove probe"
+    },
+    "magMountedStow5": {
+      "mapsFrom": [
+        "MAG_MOUNTED_STOW_5"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1407,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_STOW_FEEDRATE,   {   0,   0,  0 } }"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(MAG_MOUNTED_PROBE)"
+      ],
+      "notes": "Extra move if needed. Extra move if needed"
+    },
+    "duetSmartEffector": {
+      "mapsFrom": [
+        "DUET_SMART_EFFECTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1412,
+      "notes": "Duet Smart Effector (for delta printers) - https://bit.ly/2ul5U7J When the pin is defined you can use M672 to set/reset the probe sensitivity.",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "smartEffectorModPin": {
+      "mapsFrom": [
+        "SMART_EFFECTOR_MOD_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1414,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUET_SMART_EFFECTOR"
+      ],
+      "examples": [
+        "-1"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(DUET_SMART_EFFECTOR)"
+      ],
+      "notes": "Connect a GPIO pin to the Smart Effector MOD pin. Connect a GPIO pin to the Smart Effector MOD pin"
+    },
+    "sensorlessProbing": {
+      "mapsFrom": [
+        "SENSORLESS_PROBING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1423,
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "probingMargin": {
+      "mapsFrom": [
+        "PROBING_MARGIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1502,
+      "examples": [
+        "10"
+      ],
+      "notes": "Most probes should stay away from the edges of the bed, but with NOZZLE_AS_PROBE this can be negative for a wider probing area.",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "extraProbing": {
+      "mapsFrom": [
+        "EXTRA_PROBING"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1559,
+      "examples": [
+        "1"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zAfterProbing": {
+      "mapsFrom": [
+        "Z_AFTER_PROBING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1578,
+      "examples": [
+        "Z_AFTER_HOMING"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "unit": "mm",
+      "notes": "Z position after probing is done. Z position after probing is done"
+    },
+    "pauseBeforeDeployStow": {
+      "mapsFrom": [
+        "PAUSE_BEFORE_DEPLOY_STOW"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1590,
+      "notes": "Before deploy/stow pause for user confirmation",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "waitForHotend": {
+      "mapsFrom": [
+        "WAIT_FOR_HOTEND"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1605,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBING_HEATERS_OFF"
+      ],
+      "examples": [
+        "// Wait for hotend to heat back up between probes (to improve accuracy & prevent cold extrude)"
+      ],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [
+        "ENABLED(PROBING_HEATERS_OFF)"
+      ],
+      "notes": "Wait for hotend to heat back up between probes. Wait for hotend to heat back up between probes"
+    },
+    "probingFansOff": {
+      "mapsFrom": [
+        "PROBING_FANS_OFF"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1607,
+      "examples": [
+        "// Turn fans off when probing"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Turn fans off when probing. Turn fans off when probing"
+    },
+    "probingEsteppersOff": {
+      "mapsFrom": [
+        "PROBING_ESTEPPERS_OFF"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1608,
+      "examples": [
+        "// Turn all extruder steppers off when probing"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Turn all extruder steppers off when probing. Turn all extruder steppers off when probing"
+    },
+    "probingSteppersOff": {
+      "mapsFrom": [
+        "PROBING_STEPPERS_OFF"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1609,
+      "examples": [
+        "// Turn all steppers off (unless needed to hold position) when probing (including extruders)"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "Turn all steppers off when probing. Turn all steppers off  when probing"
+    },
+    "delayBeforeProbing": {
+      "mapsFrom": [
+        "DELAY_BEFORE_PROBING"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1610,
+      "examples": [
+        "200"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "unit": "ms",
+      "notes": "To prevent vibrations from triggering piezo sensors. To prevent vibrations from triggering piezo sensors"
+    },
+    "xEnableOn": {
+      "mapsFrom": [
+        "X_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1621,
+      "examples": [
+        "0"
+      ],
+      "notes": "For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1 :{ 0:'Low', 1:'High' }",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "yEnableOn": {
+      "mapsFrom": [
+        "Y_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1622,
+      "examples": [
+        "0"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "zEnableOn": {
+      "mapsFrom": [
+        "Z_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1623,
+      "examples": [
+        "0"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "eEnableOn": {
+      "mapsFrom": [
+        "E_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1624,
+      "examples": [
+        "0"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": [],
+      "notes": "For all extruders. For all extruders"
+    },
+    "iEnableOn": {
+      "mapsFrom": [
+        "I_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1625,
+      "examples": [
+        "0"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "jEnableOn": {
+      "mapsFrom": [
+        "J_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1626,
+      "examples": [
+        "0"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "kEnableOn": {
+      "mapsFrom": [
+        "K_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1627,
+      "examples": [
+        "0"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "uEnableOn": {
+      "mapsFrom": [
+        "U_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1628,
+      "examples": [
+        "0"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "vEnableOn": {
+      "mapsFrom": [
+        "V_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1629,
+      "examples": [
+        "0"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "wEnableOn": {
+      "mapsFrom": [
+        "W_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1630,
+      "examples": [
+        "0"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "disableX": {
+      "mapsFrom": [
+        "DISABLE_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1634,
+      "examples": [
+        "false"
+      ],
+      "notes": "Disable axis steppers immediately when they're not being stepped. WARNING: When motors turn off there is a chance of losing position accuracy!",
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "disableY": {
+      "mapsFrom": [
+        "DISABLE_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1635,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "disableZ": {
+      "mapsFrom": [
+        "DISABLE_Z"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1636,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "disableI": {
+      "mapsFrom": [
+        "DISABLE_I"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1637,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "disableJ": {
+      "mapsFrom": [
+        "DISABLE_J"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1638,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    },
+    "disableK": {
+      "mapsFrom": [
+        "DISABLE_K"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1639,
+      "examples": [
+        "false"
+      ],
+      "isConditional": false,
+      "conditionalOn": [],
+      "conditionalOnNot": [],
+      "conditionalOnAll": [],
+      "conditionalExpression": []
+    }
+  }
+}

@@ -1,0 +1,738 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "example-ender5plus-config.h",
+  "totalDefines": 447,
+  "other_5": {
+    "magMountedStow5": {
+      "mapsFrom": [
+        "MAG_MOUNTED_STOW_5"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1407,
+      "examples": [
+        "{ PROBE_STOW_FEEDRATE,   {   0,   0,  0 } }"
+      ]
+    },
+    "smartEffectorModPin": {
+      "mapsFrom": [
+        "SMART_EFFECTOR_MOD_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1414,
+      "examples": [
+        "-1"
+      ]
+    },
+    "probingMargin": {
+      "mapsFrom": [
+        "PROBING_MARGIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1502,
+      "examples": [
+        "10"
+      ],
+      "notes": "Most probes should stay away from the edges of the bed, but with NOZZLE_AS_PROBE this can be negative for a wider probing area."
+    },
+    "zAfterProbing": {
+      "mapsFrom": [
+        "Z_AFTER_PROBING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1578,
+      "examples": [
+        "Z_AFTER_HOMING"
+      ]
+    },
+    "xEnableOn": {
+      "mapsFrom": [
+        "X_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1621,
+      "examples": [
+        "0"
+      ],
+      "notes": "For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1 :{ 0:'Low', 1:'High' }"
+    },
+    "yEnableOn": {
+      "mapsFrom": [
+        "Y_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1622,
+      "examples": [
+        "0"
+      ]
+    },
+    "zEnableOn": {
+      "mapsFrom": [
+        "Z_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1623,
+      "examples": [
+        "0"
+      ]
+    },
+    "eEnableOn": {
+      "mapsFrom": [
+        "E_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1624,
+      "examples": [
+        "0"
+      ]
+    },
+    "disableX": {
+      "mapsFrom": [
+        "DISABLE_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1634,
+      "examples": [
+        "false"
+      ],
+      "notes": "#define I_ENABLE_ON 0 #define J_ENABLE_ON 0 #define K_ENABLE_ON 0 #define U_ENABLE_ON 0 #define V_ENABLE_ON 0 #define W_ENABLE_ON 0 Disable axis steppers immediately when they're not being stepped. WARNING: When motors turn off there is a chance of losing position accuracy!"
+    },
+    "disableY": {
+      "mapsFrom": [
+        "DISABLE_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1635,
+      "examples": [
+        "false"
+      ]
+    },
+    "disableZ": {
+      "mapsFrom": [
+        "DISABLE_Z"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1636,
+      "examples": [
+        "false"
+      ]
+    },
+    "disableE": {
+      "mapsFrom": [
+        "DISABLE_E"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1649,
+      "examples": [
+        "false"
+      ],
+      "notes": "#define DISABLE_I false #define DISABLE_J false #define DISABLE_K false #define DISABLE_U false #define DISABLE_V false #define DISABLE_W false Turn off the display blinking that warns about possible accuracy reduction #define DISABLE_REDUCED_ACCURACY_WARNING @section extruder"
+    },
+    "disableInactiveExtruder": {
+      "mapsFrom": [
+        "DISABLE_INACTIVE_EXTRUDER"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1650,
+      "examples": [
+        "// Keep only the active extruder enabled"
+      ]
+    },
+    "invertXDir": {
+      "mapsFrom": [
+        "INVERT_X_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1655,
+      "examples": [
+        "false"
+      ],
+      "notes": "@section motion Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way."
+    },
+    "invertYDir": {
+      "mapsFrom": [
+        "INVERT_Y_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1656,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertZDir": {
+      "mapsFrom": [
+        "INVERT_Z_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1657,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE0Dir": {
+      "mapsFrom": [
+        "INVERT_E0_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1668,
+      "examples": [
+        "false"
+      ],
+      "notes": "#define INVERT_I_DIR false #define INVERT_J_DIR false #define INVERT_K_DIR false #define INVERT_U_DIR false #define INVERT_V_DIR false #define INVERT_W_DIR false @section extruder For direct drive extruder v9 set to true, for geared extruder set to false."
+    },
+    "invertE1Dir": {
+      "mapsFrom": [
+        "INVERT_E1_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1669,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE2Dir": {
+      "mapsFrom": [
+        "INVERT_E2_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1670,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE3Dir": {
+      "mapsFrom": [
+        "INVERT_E3_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1671,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE4Dir": {
+      "mapsFrom": [
+        "INVERT_E4_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1672,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE5Dir": {
+      "mapsFrom": [
+        "INVERT_E5_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1673,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE6Dir": {
+      "mapsFrom": [
+        "INVERT_E6_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1674,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE7Dir": {
+      "mapsFrom": [
+        "INVERT_E7_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1675,
+      "examples": [
+        "false"
+      ]
+    },
+    "zHomingHeight": {
+      "mapsFrom": [
+        "Z_HOMING_HEIGHT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1689,
+      "examples": [
+        "10"
+      ],
+      "notes": "#define Z_IDLE_HEIGHT Z_HOME_POS"
+    },
+    "zAfterHoming": {
+      "mapsFrom": [
+        "Z_AFTER_HOMING"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1692,
+      "examples": [
+        "10"
+      ],
+      "notes": "Be sure to have this much clearance over your Z_MAX_POS to prevent grinding."
+    },
+    "filRunoutEnabledDefault": {
+      "mapsFrom": [
+        "FIL_RUNOUT_ENABLED_DEFAULT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1788,
+      "examples": [
+        "true"
+      ]
+    },
+    "numRunoutSensors": {
+      "mapsFrom": [
+        "NUM_RUNOUT_SENSORS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1789,
+      "examples": [
+        "1"
+      ]
+    },
+    "filRunoutState": {
+      "mapsFrom": [
+        "FIL_RUNOUT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1791,
+      "examples": [
+        "LOW"
+      ]
+    },
+    "filRunoutPullup": {
+      "mapsFrom": [
+        "FIL_RUNOUT_PULLUP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1792,
+      "examples": [
+        "// Use internal pullup for filament runout pins."
+      ]
+    }
+  },
+  "other_6": {
+    "levelingFadeHeight": {
+      "mapsFrom": [
+        "DEFAULT_LEVELING_FADE_HEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1938,
+      "examples": [
+        "10.0"
+      ]
+    },
+    "segmentLeveledMoves": {
+      "mapsFrom": [
+        "SEGMENT_LEVELED_MOVES"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1946
+    },
+    "leveledSegmentLength": {
+      "mapsFrom": [
+        "LEVELED_SEGMENT_LENGTH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1947,
+      "examples": [
+        "5.0"
+      ]
+    },
+    "g26RetractMultiplier": {
+      "mapsFrom": [
+        "G26_RETRACT_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1960,
+      "examples": [
+        "1.0"
+      ]
+    },
+    "bilinearSubdivisions": {
+      "mapsFrom": [
+        "BILINEAR_SUBDIVISIONS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1987,
+      "examples": [
+        "3"
+      ],
+      "notes": "Number of subdivisions between probe points"
+    },
+    "ublSaveActiveOnM500": {
+      "mapsFrom": [
+        "UBL_SAVE_ACTIVE_ON_M500"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2007,
+      "examples": [
+        "// Save the currently active mesh in the current slot on M500"
+      ]
+    },
+    "xyDiagAc": {
+      "mapsFrom": [
+        "XY_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2152,
+      "examples": [
+        "282.8427124746"
+      ],
+      "notes": "Input all length measurements here:"
+    },
+    "xyDiagBd": {
+      "mapsFrom": [
+        "XY_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2153,
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "xySideAd": {
+      "mapsFrom": [
+        "XY_SIDE_AD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2154,
+      "examples": [
+        "200"
+      ]
+    },
+    "xzDiagAc": {
+      "mapsFrom": [
+        "XZ_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2161,
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "xzDiagBd": {
+      "mapsFrom": [
+        "XZ_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2162,
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzDiagAc": {
+      "mapsFrom": [
+        "YZ_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2163,
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzDiagBd": {
+      "mapsFrom": [
+        "YZ_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2164,
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzSideAd": {
+      "mapsFrom": [
+        "YZ_SIDE_AD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2165,
+      "examples": [
+        "200"
+      ]
+    },
+    "hostKeepaliveFeature": {
+      "mapsFrom": [
+        "HOST_KEEPALIVE_FEATURE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2208,
+      "examples": [
+        "// Disable this if your host doesn't like keepalive messages"
+      ],
+      "notes": "@section host  Host Keepalive  When enabled Marlin will send a busy status message to the host every couple of seconds when it can't accept commands. "
+    },
+    "keepaliveInterval": {
+      "mapsFrom": [
+        "DEFAULT_KEEPALIVE_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2209,
+      "examples": [
+        "2"
+      ]
+    },
+    "busyWhileHeating": {
+      "mapsFrom": [
+        "BUSY_WHILE_HEATING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2210,
+      "examples": [
+        "// Some hosts require \"busy\" messages even during heating"
+      ]
+    },
+    "nozzleCleanStrokes": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_STROKES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2306,
+      "examples": [
+        "12"
+      ],
+      "notes": "Default number of pattern repetitions"
+    },
+    "nozzleCleanTriangles": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_TRIANGLES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2309,
+      "examples": [
+        "3"
+      ],
+      "notes": "Default number of triangles"
+    },
+    "nozzleCleanStartPoint": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_START_POINT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2313,
+      "examples": [
+        "{ {  30, 30, (Z_MIN_POS + 1) } }"
+      ],
+      "notes": "Specify positions for each tool as { { X, Y, Z }, { X, Y, Z } } Dual hotend system may use { {  -20, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) },  {  420, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) }}"
+    },
+    "nozzleCleanEndPoint": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_END_POINT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2314,
+      "examples": [
+        "{ { 100, 60, (Z_MIN_POS + 1) } }"
+      ]
+    },
+    "nozzleCleanCircleRadius": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_CIRCLE_RADIUS"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2317,
+      "examples": [
+        "6.5"
+      ],
+      "notes": "Circular pattern radius"
+    },
+    "nozzleCleanCircleFn": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_CIRCLE_FN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2319,
+      "examples": [
+        "10"
+      ],
+      "notes": "Circular pattern circle fragments number"
+    },
+    "nozzleCleanCircleMiddle": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_CIRCLE_MIDDLE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2321,
+      "examples": [
+        "NOZZLE_CLEAN_START_POINT"
+      ],
+      "notes": "Middle point of circle"
+    },
+    "nozzleCleanGoback": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_GOBACK"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2324,
+      "notes": "Move the nozzle to the initial position after cleaning"
+    },
+    "printjobTimerAutostart": {
+      "mapsFrom": [
+        "PRINTJOB_TIMER_AUTOSTART"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2367
+    },
+    "passwordLength": {
+      "mapsFrom": [
+        "PASSWORD_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2411,
+      "examples": [
+        "4"
+      ]
+    },
+    "passwordOnStartup": {
+      "mapsFrom": [
+        "PASSWORD_ON_STARTUP"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2412
+    },
+    "passwordUnlockGcode": {
+      "mapsFrom": [
+        "PASSWORD_UNLOCK_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2413,
+      "examples": [
+        "// Unlock with the M511 P<password> command. Disable to prevent brute-force attack."
+      ]
+    },
+    "passwordChangeGcode": {
+      "mapsFrom": [
+        "PASSWORD_CHANGE_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2414,
+      "examples": [
+        "// Change the password with M512 P<old> S<new>."
+      ]
+    }
+  }
+}
