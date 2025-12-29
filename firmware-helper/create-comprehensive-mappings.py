@@ -220,8 +220,9 @@ class ConfigParser:
         if value is None:
             return 'boolean'
         
-        # Check for string (quoted)
-        if value.startswith('"') and value.endswith('"'):
+        # Check for string (double or single quoted)
+        if (value.startswith('"') and value.endswith('"')) or \
+           (value.startswith("'") and value.endswith("'")):
             return 'string'
         
         # Check for array
