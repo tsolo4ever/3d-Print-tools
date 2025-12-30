@@ -62,7 +62,7 @@ class EnhancedPrinterProfiles {
       container.innerHTML = `
         <div style="text-align: center; padding: 40px; color: var(--text-secondary);">
           <p style="font-size: 1.2em; margin-bottom: 20px;">📦 No printer profiles saved yet</p>
-          <button class="btn-primary" onclick="const ep = new EnhancedPrinterProfiles(); ep.show();">
+          <button class="btn-primary" onclick="createPrinterProfile();">
             ➕ Create Your First Printer Profile
           </button>
         </div>
@@ -83,10 +83,10 @@ class EnhancedPrinterProfiles {
             </p>
           </div>
           <div style="display: flex; gap: 10px;">
-            <button class="btn-secondary" onclick="const ep = new EnhancedPrinterProfiles(); ep.show('${printer.id}');">
+            <button class="btn-secondary" onclick="createPrinterProfile('${printer.id}');">
               ✏️ Edit
             </button>
-            <button class="btn-secondary" onclick="if(confirm('Delete ${printer.name}?')) { StorageManager.deletePrinter('${printer.id}'); EnhancedPrinterProfiles.renderCompactView('${containerId}'); }">
+            <button class="btn-secondary" onclick="deletePrinterProfile('${printer.id}', '${containerId}');">
               🗑️ Delete
             </button>
           </div>
@@ -97,7 +97,7 @@ class EnhancedPrinterProfiles {
     container.innerHTML = `
       ${printersHTML}
       <div style="text-align: center; margin-top: 20px;">
-        <button class="btn-primary" onclick="const ep = new EnhancedPrinterProfiles(); ep.show();">
+        <button class="btn-primary" onclick="createPrinterProfile();">
           ➕ Add New Printer Profile
         </button>
       </div>
@@ -143,31 +143,44 @@ class EnhancedPrinterProfiles {
 
   /** Show the enhanced profile editor */
   async show(profileId = null) {
+    console.log('🔵 show() method started');
     // Show loading indicator
     const loadingDiv = document.createElement('div');
     loadingDiv.id = 'profileLoading';
     loadingDiv.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:30px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:10000;text-align:center;';
     loadingDiv.innerHTML = '<h3>⏳ Loading Hardware Databases...</h3><p>Please wait...</p>';
     document.body.appendChild(loadingDiv);
+    console.log('🔵 Loading indicator shown');
 
     // Wait for databases to load
     if (Object.keys(this.databases).length === 0) {
+      console.log('🔵 Databases empty, loading...');
       await this.loadDatabases();
+    } else {
+      console.log('🔵 Databases already loaded');
     }
 
     // Remove loading indicator
     loadingDiv.remove();
+    console.log('🔵 Loading indicator removed');
 
     // Load profile if editing existing
     if (profileId) {
       this.currentProfile = StorageManager.getPrinter(profileId);
+      console.log('🔵 Loaded existing profile:', profileId);
     } else {
       this.currentProfile = this.createDefaultProfile();
+      console.log('🔵 Created new default profile');
     }
 
     // Create and show modal
+    console.log('🔵 About to call createModal()');
     this.createModal();
+    console.log('🔵 createModal() completed');
+    
+    console.log('🔵 About to call renderCurrentTab()');
     this.renderCurrentTab();
+    console.log('🔵 renderCurrentTab() completed');
   }
 
   /** Create default profile structure */
@@ -481,6 +494,32 @@ export default EnhancedPrinterProfiles;
 // Also attach to window for backward compatibility
 if (typeof window !== 'undefined') {
   window.EnhancedPrinterProfiles = EnhancedPrinterProfiles;
+  
+  // Create global helper functions for onclick handlers
+  window.createPrinterProfile = function(profileId = null) {
+    console.log('🔵 createPrinterProfile() called with profileId:', profileId);
+    try {
+      const ep = new EnhancedPrinterProfiles();
+      console.log('🔵 EnhancedPrinterProfiles instance created');
+      ep.show(profileId);
+      console.log('🔵 ep.show() called');
+    } catch (error) {
+      console.error('❌ Error in createPrinterProfile:', error);
+      alert('Error opening profile editor: ' + error.message);
+    }
+  };
+  
+  window.deletePrinterProfile = function(profileId, containerId) {
+    if (confirm('Delete this printer profile?')) {
+      StorageManager.deletePrinter(profileId);
+      EnhancedPrinterProfiles.renderCompactView(containerId);
+    }
+  };
+  
+  console.log('✅ Global helper functions registered:', {
+    createPrinterProfile: typeof window.createPrinterProfile,
+    deletePrinterProfile: typeof window.deletePrinterProfile
+  });
   
   // Auto-initialize compact view when DOM is ready
   if (document.readyState === 'loading') {
