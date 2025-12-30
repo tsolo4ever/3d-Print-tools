@@ -1,0 +1,487 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "temperature_1": {
+    "bedPullupResistorOhms": {
+      "mapsFrom": [
+        "BED_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 140,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BED"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "bedResistance25cOhms": {
+      "mapsFrom": [
+        "BED_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 141,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BED"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "bedBeta": {
+      "mapsFrom": [
+        "BED_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 142,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BED"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "bedShCCoeff": {
+      "mapsFrom": [
+        "BED_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 143,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BED"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "hephestos2HeatedBedKit": {
+      "mapsFrom": [
+        "HEPHESTOS2_HEATED_BED_KIT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 204
+    },
+    "bedCheckInterval": {
+      "mapsFrom": [
+        "BED_CHECK_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 213,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "bedHysteresis": {
+      "mapsFrom": [
+        "BED_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 215,
+      "isConditional": true,
+      "conditionalOn": [
+        "BED_LIMIT_SWITCHING",
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "coolerMintemp": {
+      "mapsFrom": [
+        "COOLER_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 266,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "coolerMaxtemp": {
+      "mapsFrom": [
+        "COOLER_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 267,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "26"
+      ]
+    },
+    "coolerDefaultTemp": {
+      "mapsFrom": [
+        "COOLER_DEFAULT_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 268,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "16"
+      ]
+    },
+    "tempCoolerHysteresis": {
+      "mapsFrom": [
+        "TEMP_COOLER_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 269,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "tempCoolerPin": {
+      "mapsFrom": [
+        "TEMP_COOLER_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 272,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "15"
+      ]
+    },
+    "thermalProtectionBoard": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_BOARD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 285,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BOARD"
+      ],
+      "examples": [
+        "// Halt the printer if the board sensor leaves the temp range below."
+      ]
+    },
+    "thermalProtectionPeriod": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_PERIOD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 308,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_HOTENDS"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "thermalProtectionHysteresis": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 309,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_HOTENDS"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "noFanSlowingInPidTuning": {
+      "mapsFrom": [
+        "NO_FAN_SLOWING_IN_PID_TUNING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 313,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADAPTIVE_FAN_SLOWING",
+        "PIDTEMP",
+        "THERMAL_PROTECTION_HOTENDS",
+        "BOTH"
+      ],
+      "examples": [
+        "// Don't slow fan speed during M303"
+      ]
+    },
+    "watchTempPeriod": {
+      "mapsFrom": [
+        "WATCH_TEMP_PERIOD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 328,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_HOTENDS"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "watchTempIncrease": {
+      "mapsFrom": [
+        "WATCH_TEMP_INCREASE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 329,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_HOTENDS"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "thermalProtectionBedPeriod": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_BED_PERIOD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 336,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_BED"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "thermalProtectionBedHysteresis": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_BED_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 337,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_BED"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "watchBedTempPeriod": {
+      "mapsFrom": [
+        "WATCH_BED_TEMP_PERIOD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 342,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_BED"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "watchBedTempIncrease": {
+      "mapsFrom": [
+        "WATCH_BED_TEMP_INCREASE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 343,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_BED"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "thermalProtectionChamberPeriod": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_CHAMBER_PERIOD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 350,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_CHAMBER"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "thermalProtectionChamberHysteresis": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_CHAMBER_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 351,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_CHAMBER"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "watchChamberTempPeriod": {
+      "mapsFrom": [
+        "WATCH_CHAMBER_TEMP_PERIOD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 356,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_CHAMBER"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "watchChamberTempIncrease": {
+      "mapsFrom": [
+        "WATCH_CHAMBER_TEMP_INCREASE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 357,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_CHAMBER"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "thermalProtectionCoolerPeriod": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_COOLER_PERIOD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 364,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_COOLER"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "thermalProtectionCoolerHysteresis": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_COOLER_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 365,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_COOLER"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "watchCoolerTempPeriod": {
+      "mapsFrom": [
+        "WATCH_COOLER_TEMP_PERIOD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 370,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_COOLER"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "watchCoolerTempIncrease": {
+      "mapsFrom": [
+        "WATCH_COOLER_TEMP_INCREASE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 371,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_COOLER"
+      ],
+      "examples": [
+        "3"
+      ]
+    }
+  }
+}

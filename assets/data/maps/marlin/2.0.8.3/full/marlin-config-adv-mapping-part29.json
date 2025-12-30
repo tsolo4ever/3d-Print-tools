@@ -1,0 +1,479 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_31": {
+    "cancelObjects": {
+      "mapsFrom": [
+        "CANCEL_OBJECTS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3663
+    },
+    "cancelObjectsReporting": {
+      "mapsFrom": [
+        "CANCEL_OBJECTS_REPORTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3665,
+      "isConditional": true,
+      "conditionalOn": [
+        "CANCEL_OBJECTS"
+      ],
+      "examples": [
+        "// Emit the current object as a status message"
+      ]
+    },
+    "i2cPositionEncoders": {
+      "mapsFrom": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3681
+    },
+    "i2cpeEncoderCnt": {
+      "mapsFrom": [
+        "I2CPE_ENCODER_CNT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3684,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "i2cpeEnc1Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3687,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_PRESET_ADDR_X"
+      ],
+      "notes": "encoders supported currently."
+    },
+    "i2cpeEnc1Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3688,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "X_AXIS"
+      ]
+    },
+    "i2cpeEnc1Type": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3689,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ENC_TYPE_LINEAR"
+      ]
+    },
+    "i2cpeEnc1TicksUnit": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_TICKS_UNIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3691,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "2048"
+      ],
+      "notes": "I2CPE_ENC_TYPE_ROTARY."
+    },
+    "i2cpeEnc1TicksRev": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_TICKS_REV"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3694,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "(16 * 200)"
+      ],
+      "notes": "1mm poles. For linear encoders this is ticks / mm, for rotary encoders this is ticks / revolution."
+    },
+    "i2cpeEnc1Invert": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_INVERT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3696,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "// Invert the direction of axis travel."
+      ],
+      "notes": "steps per full revolution (motor steps/rev * microstepping)"
+    },
+    "i2cpeEnc1EcMethod": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_EC_METHOD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3697,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ECM_MICROSTEP"
+      ]
+    },
+    "i2cpeEnc1EcThresh": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_EC_THRESH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3698,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "0.10"
+      ]
+    },
+    "i2cpeEnc2Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3703,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_PRESET_ADDR_Y"
+      ],
+      "notes": "printer will attempt to correct the error; errors smaller than this are ignored to minimize effects of measurement noise / latency (filter)."
+    },
+    "i2cpeEnc2Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3704,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "Y_AXIS"
+      ]
+    },
+    "i2cpeEnc2Type": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3705,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ENC_TYPE_LINEAR"
+      ]
+    },
+    "i2cpeEnc2TicksUnit": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_TICKS_UNIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3706,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "2048"
+      ]
+    },
+    "i2cpeEnc2TicksRev": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_TICKS_REV"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3707,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "(16 * 200)"
+      ]
+    },
+    "i2cpeEnc2Invert": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_INVERT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3708,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ]
+    },
+    "i2cpeEnc2EcMethod": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_EC_METHOD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3709,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ECM_MICROSTEP"
+      ]
+    },
+    "i2cpeEnc2EcThresh": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_EC_THRESH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3710,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "0.10"
+      ]
+    },
+    "i2cpeEnc3Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_3_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3712,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_PRESET_ADDR_Z"
+      ]
+    },
+    "i2cpeEnc3Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_3_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3713,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "Z_AXIS"
+      ]
+    },
+    "i2cpeEnc4Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_4_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3715,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_PRESET_ADDR_E"
+      ]
+    },
+    "i2cpeEnc4Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_4_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3716,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "E_AXIS"
+      ]
+    },
+    "i2cpeEnc5Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_5_ADDR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3718,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "34"
+      ]
+    },
+    "i2cpeEnc5Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_5_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3719,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "E_AXIS"
+      ]
+    },
+    "i2cpeDefType": {
+      "mapsFrom": [
+        "I2CPE_DEF_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3722,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ENC_TYPE_LINEAR"
+      ],
+      "notes": "Default settings for encoders which are enabled, but without settings configured above."
+    },
+    "i2cpeDefEncTicksUnit": {
+      "mapsFrom": [
+        "I2CPE_DEF_ENC_TICKS_UNIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3723,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "2048"
+      ]
+    },
+    "i2cpeDefTicksRev": {
+      "mapsFrom": [
+        "I2CPE_DEF_TICKS_REV"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3724,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "(16 * 200)"
+      ]
+    },
+    "i2cpeDefEcMethod": {
+      "mapsFrom": [
+        "I2CPE_DEF_EC_METHOD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3725,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ECM_NONE"
+      ]
+    }
+  }
+}

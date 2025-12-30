@@ -1,0 +1,754 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "hardware_1": {
+    "xDriverType": {
+      "mapsFrom": [
+        "X_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 164,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "yDriverType": {
+      "mapsFrom": [
+        "Y_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 165,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "zDriverType": {
+      "mapsFrom": [
+        "Z_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 166,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "x2DriverType": {
+      "mapsFrom": [
+        "X2_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 167,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "y2DriverType": {
+      "mapsFrom": [
+        "Y2_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 168,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "z2DriverType": {
+      "mapsFrom": [
+        "Z2_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 169,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "z3DriverType": {
+      "mapsFrom": [
+        "Z3_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 170,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "z4DriverType": {
+      "mapsFrom": [
+        "Z4_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 171,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "iDriverType": {
+      "mapsFrom": [
+        "I_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 172,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "jDriverType": {
+      "mapsFrom": [
+        "J_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 173,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "kDriverType": {
+      "mapsFrom": [
+        "K_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 174,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "uDriverType": {
+      "mapsFrom": [
+        "U_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 175,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "vDriverType": {
+      "mapsFrom": [
+        "V_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 176,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "wDriverType": {
+      "mapsFrom": [
+        "W_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 177,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e0DriverType": {
+      "mapsFrom": [
+        "E0_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 178,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e1DriverType": {
+      "mapsFrom": [
+        "E1_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 179,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e2DriverType": {
+      "mapsFrom": [
+        "E2_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 180,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e3DriverType": {
+      "mapsFrom": [
+        "E3_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 181,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e4DriverType": {
+      "mapsFrom": [
+        "E4_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 182,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e5DriverType": {
+      "mapsFrom": [
+        "E5_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 183,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e6DriverType": {
+      "mapsFrom": [
+        "E6_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 184,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e7DriverType": {
+      "mapsFrom": [
+        "E7_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 185,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "autoPowerControllerfan": {
+      "mapsFrom": [
+        "AUTO_POWER_CONTROLLERFAN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 431,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "AUTO_POWER_CONTROL"
+      ],
+      "examples": [
+        "// Turn on PSU for Controller Fan"
+      ]
+    },
+    "tempSensor0": {
+      "mapsFrom": [
+        "TEMP_SENSOR_0"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 554,
+      "examples": [
+        "1"
+      ]
+    },
+    "tempSensor1": {
+      "mapsFrom": [
+        "TEMP_SENSOR_1"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 555,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor2": {
+      "mapsFrom": [
+        "TEMP_SENSOR_2"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 556,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor3": {
+      "mapsFrom": [
+        "TEMP_SENSOR_3"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 557,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor4": {
+      "mapsFrom": [
+        "TEMP_SENSOR_4"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 558,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor5": {
+      "mapsFrom": [
+        "TEMP_SENSOR_5"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 559,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor6": {
+      "mapsFrom": [
+        "TEMP_SENSOR_6"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 560,
+      "examples": [
+        "0"
+      ]
+    }
+  },
+  "hardware_2": {
+    "tempSensor7": {
+      "mapsFrom": [
+        "TEMP_SENSOR_7"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 561,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorBed": {
+      "mapsFrom": [
+        "TEMP_SENSOR_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 562,
+      "examples": [
+        "1"
+      ]
+    },
+    "tempSensorProbe": {
+      "mapsFrom": [
+        "TEMP_SENSOR_PROBE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 563,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorChamber": {
+      "mapsFrom": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 564,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorCooler": {
+      "mapsFrom": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 565,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorBoard": {
+      "mapsFrom": [
+        "TEMP_SENSOR_BOARD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 566,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorRedundant": {
+      "mapsFrom": [
+        "TEMP_SENSOR_REDUNDANT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 567,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorRedundantSource": {
+      "mapsFrom": [
+        "TEMP_SENSOR_REDUNDANT_SOURCE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 616,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_REDUNDANT"
+      ],
+      "examples": [
+        "E1"
+      ]
+    },
+    "tempSensorRedundantTarget": {
+      "mapsFrom": [
+        "TEMP_SENSOR_REDUNDANT_TARGET"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 617,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_REDUNDANT"
+      ],
+      "examples": [
+        "E0"
+      ]
+    },
+    "tempSensorRedundantMaxDiff": {
+      "mapsFrom": [
+        "TEMP_SENSOR_REDUNDANT_MAX_DIFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 618,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_REDUNDANT"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "heater0Mintemp": {
+      "mapsFrom": [
+        "HEATER_0_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 623,
+      "examples": [
+        "5"
+      ],
+      "notes": "Below this temperature the heater will be switched off because it probably indicates a broken thermistor wire."
+    },
+    "heater1Mintemp": {
+      "mapsFrom": [
+        "HEATER_1_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 624,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater2Mintemp": {
+      "mapsFrom": [
+        "HEATER_2_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 625,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater3Mintemp": {
+      "mapsFrom": [
+        "HEATER_3_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 626,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater4Mintemp": {
+      "mapsFrom": [
+        "HEATER_4_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 627,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater5Mintemp": {
+      "mapsFrom": [
+        "HEATER_5_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 628,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater6Mintemp": {
+      "mapsFrom": [
+        "HEATER_6_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 629,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater7Mintemp": {
+      "mapsFrom": [
+        "HEATER_7_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 630,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater0Maxtemp": {
+      "mapsFrom": [
+        "HEATER_0_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 637,
+      "examples": [
+        "275"
+      ],
+      "notes": "Above this temperature the heater will be switched off. This can protect components from overheating, but NOT from shorts and failures. (Use MINTEMP for thermistor short/failure protection.)"
+    },
+    "heater1Maxtemp": {
+      "mapsFrom": [
+        "HEATER_1_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 638,
+      "examples": [
+        "275"
+      ]
+    },
+    "heater2Maxtemp": {
+      "mapsFrom": [
+        "HEATER_2_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 639,
+      "examples": [
+        "275"
+      ]
+    },
+    "heater3Maxtemp": {
+      "mapsFrom": [
+        "HEATER_3_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 640,
+      "examples": [
+        "275"
+      ]
+    },
+    "heater4Maxtemp": {
+      "mapsFrom": [
+        "HEATER_4_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 641,
+      "examples": [
+        "275"
+      ]
+    },
+    "heater5Maxtemp": {
+      "mapsFrom": [
+        "HEATER_5_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 642,
+      "examples": [
+        "275"
+      ]
+    },
+    "heater6Maxtemp": {
+      "mapsFrom": [
+        "HEATER_6_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 643,
+      "examples": [
+        "275"
+      ]
+    },
+    "heater7Maxtemp": {
+      "mapsFrom": [
+        "HEATER_7_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 644,
+      "examples": [
+        "275"
+      ]
+    },
+    "mpcHeaterPower": {
+      "mapsFrom": [
+        "MPC_HEATER_POWER"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 710,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "{ 40.0f }"
+      ]
+    },
+    "lcdBedLeveling": {
+      "mapsFrom": [
+        "LCD_BED_LEVELING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2058
+    },
+    "lcdProbeZRange": {
+      "mapsFrom": [
+        "LCD_PROBE_Z_RANGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2062,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_LEVELING"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "lcdBedTramming": {
+      "mapsFrom": [
+        "LCD_BED_TRAMMING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2067,
+      "notes": "Add a menu item to move between bed corners for manual bed adjustment"
+    }
+  }
+}

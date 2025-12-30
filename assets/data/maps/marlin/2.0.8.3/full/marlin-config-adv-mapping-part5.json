@@ -1,0 +1,442 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_6": {
+    "disableInactiveX": {
+      "mapsFrom": [
+        "DISABLE_INACTIVE_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 929,
+      "examples": [
+        "true"
+      ]
+    },
+    "disableInactiveY": {
+      "mapsFrom": [
+        "DISABLE_INACTIVE_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 930,
+      "examples": [
+        "true"
+      ]
+    },
+    "disableInactiveZ": {
+      "mapsFrom": [
+        "DISABLE_INACTIVE_Z"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 931,
+      "examples": [
+        "true"
+      ]
+    },
+    "disableInactiveE": {
+      "mapsFrom": [
+        "DISABLE_INACTIVE_E"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 932,
+      "examples": [
+        "true"
+      ]
+    },
+    "minsegmenttime": {
+      "mapsFrom": [
+        "DEFAULT_MINSEGMENTTIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 939,
+      "examples": [
+        "20000"
+      ],
+      "notes": "Minimum time that a segment needs to take as the buffer gets emptied"
+    },
+    "slowdown": {
+      "mapsFrom": [
+        "SLOWDOWN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 943,
+      "notes": "Slow down the machine if the lookahead buffer is (by default) half full. Increase the slowdown divisor for larger buffer sizes."
+    },
+    "slowdownDivisor": {
+      "mapsFrom": [
+        "SLOWDOWN_DIVISOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 945,
+      "isConditional": true,
+      "conditionalOn": [
+        "SLOWDOWN"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "xyFrequencyLimit": {
+      "mapsFrom": [
+        "XY_FREQUENCY_LIMIT"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 954,
+      "examples": [
+        "10"
+      ]
+    },
+    "xyFrequencyMinPercent": {
+      "mapsFrom": [
+        "XY_FREQUENCY_MIN_PERCENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 956,
+      "isConditional": true,
+      "conditionalOn": [
+        "XY_FREQUENCY_LIMIT"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "minimumPlannerSpeed": {
+      "mapsFrom": [
+        "MINIMUM_PLANNER_SPEED"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 962,
+      "examples": [
+        "0.05"
+      ],
+      "notes": "Minimum planner junction speed. Sets the default minimum speed the planner plans for at the end of the buffer and all stops. This should not be much greater than zero and should only be changed if unwanted behavior is observed on a user's machine when running at very slow speeds."
+    },
+    "backlashCompensation": {
+      "mapsFrom": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 968,
+      "notes": " Backlash Compensation Adds extra movement to axes on direction-changes to account for backlash. "
+    },
+    "backlashDistanceMm": {
+      "mapsFrom": [
+        "BACKLASH_DISTANCE_MM"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 972,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "examples": [
+        "{ 0, 0, 0 }"
+      ],
+      "notes": "Define values for backlash distance and correction. If BACKLASH_GCODE is enabled these values are the defaults."
+    },
+    "backlashCorrection": {
+      "mapsFrom": [
+        "BACKLASH_CORRECTION"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 973,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "coreBacklash": {
+      "mapsFrom": [
+        "CORE_BACKLASH"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 976,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "notes": "Add steps for motor direction changes on CORE kinematics"
+    },
+    "backlashSmoothingMm": {
+      "mapsFrom": [
+        "BACKLASH_SMOOTHING_MM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 980,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "examples": [
+        "3"
+      ],
+      "notes": "Set BACKLASH_SMOOTHING_MM to spread backlash correction over multiple segments to reduce print artifacts. (Enabling this is costly in memory and computation!)"
+    },
+    "backlashGcode": {
+      "mapsFrom": [
+        "BACKLASH_GCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 983,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "notes": "Add runtime configuration and tuning of backlash values (M425)"
+    },
+    "measureBacklashWhenProbing": {
+      "mapsFrom": [
+        "MEASURE_BACKLASH_WHEN_PROBING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 987,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION",
+        "BACKLASH_GCODE"
+      ],
+      "notes": "Measure the Z backlash when probing (G29) and set with \"M425 Z\""
+    },
+    "backlashMeasurementLimit": {
+      "mapsFrom": [
+        "BACKLASH_MEASUREMENT_LIMIT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 993,
+      "isConditional": true,
+      "conditionalOn": [
+        "MEASURE_BACKLASH_WHEN_PROBING",
+        "BACKLASH_COMPENSATION",
+        "BACKLASH_GCODE"
+      ],
+      "examples": [
+        "0.5"
+      ],
+      "notes": "When measuring, the probe will move up to BACKLASH_MEASUREMENT_LIMIT mm away from point of contact in BACKLASH_MEASUREMENT_RESOLUTION increments while checking for the contact to be broken."
+    },
+    "backlashMeasurementResolution": {
+      "mapsFrom": [
+        "BACKLASH_MEASUREMENT_RESOLUTION"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 994,
+      "isConditional": true,
+      "conditionalOn": [
+        "MEASURE_BACKLASH_WHEN_PROBING",
+        "BACKLASH_COMPENSATION",
+        "BACKLASH_GCODE"
+      ],
+      "examples": [
+        "0.005"
+      ]
+    },
+    "calibrationGcode": {
+      "mapsFrom": [
+        "CALIBRATION_GCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1013
+    },
+    "calibrationScriptPre": {
+      "mapsFrom": [
+        "CALIBRATION_SCRIPT_PRE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1016,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "\"M117 Starting Auto-Calibration\\nT0\\nG28\\nG12\\nM117 Calibrating...\""
+      ]
+    },
+    "calibrationScriptPost": {
+      "mapsFrom": [
+        "CALIBRATION_SCRIPT_POST"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1017,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "\"M500\\nM117 Calibration data saved\""
+      ]
+    },
+    "calibrationMeasurementResolution": {
+      "mapsFrom": [
+        "CALIBRATION_MEASUREMENT_RESOLUTION"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1019,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "0.01"
+      ]
+    },
+    "calibrationNozzleTipHeight": {
+      "mapsFrom": [
+        "CALIBRATION_NOZZLE_TIP_HEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1026,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "1.0"
+      ],
+      "notes": "The following parameters refer to the conical section of the nozzle tip."
+    },
+    "calibrationNozzleOuterDiameter": {
+      "mapsFrom": [
+        "CALIBRATION_NOZZLE_OUTER_DIAMETER"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1027,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "2.0"
+      ]
+    },
+    "calibrationReporting": {
+      "mapsFrom": [
+        "CALIBRATION_REPORTING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1030,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "notes": "Uncomment to enable reporting (required for \"G425 V\", but consumes PROGMEM)."
+    },
+    "calibrationObjectCenter": {
+      "mapsFrom": [
+        "CALIBRATION_OBJECT_CENTER"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1033,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "{ 264.0, -22.0,  -2.0 }"
+      ],
+      "notes": "The true location and dimension the cube/bolt/washer on the bed."
+    },
+    "calibrationObjectDimensions": {
+      "mapsFrom": [
+        "CALIBRATION_OBJECT_DIMENSIONS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1034,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "{  10.0,  10.0,  10.0 }"
+      ]
+    },
+    "calibrationMeasureRight": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_RIGHT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1038,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "notes": "Comment out any sides which are unreachable by the probe. For best auto-calibration results, all sides must be reachable."
+    },
+    "calibrationMeasureFront": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_FRONT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1039,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    }
+  }
+}

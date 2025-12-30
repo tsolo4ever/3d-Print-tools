@@ -1,0 +1,695 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "motion": {
+    "switchingToolheadPrimeFeedrate": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_PRIME_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 347,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "300"
+      ]
+    },
+    "switchingToolheadRetractFeedrate": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_RETRACT_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 348,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "2400"
+      ]
+    },
+    "scaraFeedrateScaling": {
+      "mapsFrom": [
+        "SCARA_FEEDRATE_SCALING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1039,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXEL_TPARA"
+      ],
+      "examples": [
+        "// Convert XY feedrate from mm/s to degrees/s on the fly"
+      ]
+    },
+    "axisStepsPerUnit": {
+      "mapsFrom": [
+        "DEFAULT_AXIS_STEPS_PER_UNIT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1199,
+      "examples": [
+        "{ 80, 80, 400, 500 }"
+      ]
+    },
+    "maxFeedrate": {
+      "mapsFrom": [
+        "DEFAULT_MAX_FEEDRATE"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1206,
+      "examples": [
+        "{ 300, 300, 5, 25 }"
+      ]
+    },
+    "maxFeedrateEditValues": {
+      "mapsFrom": [
+        "MAX_FEEDRATE_EDIT_VALUES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1210,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIMITED_MAX_FR_EDITING"
+      ],
+      "examples": [
+        "{ 600, 600, 10, 50 }"
+      ]
+    },
+    "maxAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_MAX_ACCELERATION"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1219,
+      "examples": [
+        "{ 3000, 3000, 100, 10000 }"
+      ]
+    },
+    "acceleration": {
+      "mapsFrom": [
+        "DEFAULT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1234,
+      "examples": [
+        "3000"
+      ]
+    },
+    "retractAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_RETRACT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1235,
+      "examples": [
+        "3000"
+      ]
+    },
+    "travelAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_TRAVEL_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1236,
+      "examples": [
+        "3000"
+      ]
+    },
+    "classicJerk": {
+      "mapsFrom": [
+        "CLASSIC_JERK"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1246
+    },
+    "xjerk": {
+      "mapsFrom": [
+        "DEFAULT_XJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1248,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "10.0"
+      ]
+    },
+    "yjerk": {
+      "mapsFrom": [
+        "DEFAULT_YJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1249,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "10.0"
+      ]
+    },
+    "zjerk": {
+      "mapsFrom": [
+        "DEFAULT_ZJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1250,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ]
+    },
+    "ijerk": {
+      "mapsFrom": [
+        "DEFAULT_IJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1251,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ]
+    },
+    "jjerk": {
+      "mapsFrom": [
+        "DEFAULT_JJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1252,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ]
+    },
+    "kjerk": {
+      "mapsFrom": [
+        "DEFAULT_KJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1253,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ]
+    },
+    "ujerk": {
+      "mapsFrom": [
+        "DEFAULT_UJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1254,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ]
+    },
+    "vjerk": {
+      "mapsFrom": [
+        "DEFAULT_VJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1255,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ]
+    },
+    "wjerk": {
+      "mapsFrom": [
+        "DEFAULT_WJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1256,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ]
+    },
+    "travelExtraXyjerk": {
+      "mapsFrom": [
+        "TRAVEL_EXTRA_XYJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1258,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "limitedJerkEditing": {
+      "mapsFrom": [
+        "LIMITED_JERK_EDITING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1260,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "// Limit edit via M205 or LCD to DEFAULT_aJERK * 2"
+      ]
+    },
+    "maxJerkEditValues": {
+      "mapsFrom": [
+        "MAX_JERK_EDIT_VALUES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1262,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIMITED_JERK_EDITING",
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "{ 20, 20, 0.6, 10 }"
+      ]
+    },
+    "ejerk": {
+      "mapsFrom": [
+        "DEFAULT_EJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1266,
+      "examples": [
+        "5.0"
+      ]
+    },
+    "junctionDeviationMm": {
+      "mapsFrom": [
+        "JUNCTION_DEVIATION_MM"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1276,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.013"
+      ]
+    },
+    "sCurveAcceleration": {
+      "mapsFrom": [
+        "S_CURVE_ACCELERATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1289
+    },
+    "probeDeployFeedrate": {
+      "mapsFrom": [
+        "PROBE_DEPLOY_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1412,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "(133*60)"
+      ]
+    },
+    "probeStowFeedrate": {
+      "mapsFrom": [
+        "PROBE_STOW_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1413,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "(133*60)"
+      ]
+    },
+    "zProbeAllenKeyDeploy1Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_1_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1452,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ]
+    },
+    "zProbeAllenKeyDeploy2Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_2_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1455,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "(XY_PROBE_FEEDRATE)/10"
+      ]
+    },
+    "zProbeAllenKeyDeploy3Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_DEPLOY_3_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1458,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ]
+    },
+    "zProbeAllenKeyStow1Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_1_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1461,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ]
+    },
+    "zProbeAllenKeyStow2Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_2_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1464,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "(XY_PROBE_FEEDRATE)/10"
+      ]
+    },
+    "zProbeAllenKeyStow3Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_3_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1467,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ]
+    },
+    "zProbeAllenKeyStow4Feedrate": {
+      "mapsFrom": [
+        "Z_PROBE_ALLEN_KEY_STOW_4_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1470,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_ALLEN_KEY"
+      ],
+      "examples": [
+        "XY_PROBE_FEEDRATE"
+      ]
+    },
+    "xyProbeFeedrate": {
+      "mapsFrom": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1521,
+      "examples": [
+        "(133*60)"
+      ],
+      "notes": "X and Y axis travel speed (mm/min) between probes"
+    },
+    "zProbeFeedrateFast": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_FAST"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1524,
+      "examples": [
+        "(4*60)"
+      ],
+      "notes": "Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)"
+    },
+    "zProbeFeedrateSlow": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_SLOW"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1527,
+      "examples": [
+        "(Z_PROBE_FEEDRATE_FAST / 2)"
+      ],
+      "notes": "Feedrate (mm/min) for the \"accurate\" probe of each point"
+    },
+    "g26XyFeedrate": {
+      "mapsFrom": [
+        "G26_XY_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1984,
+      "isConditional": true,
+      "conditionalOn": [
+        "MESH_BED_LEVELING",
+        "G26_MESH_VALIDATION",
+        "AUTO_BED_LEVELING_UBL",
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "g26XyFeedrateTravel": {
+      "mapsFrom": [
+        "G26_XY_FEEDRATE_TRAVEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1985,
+      "isConditional": true,
+      "conditionalOn": [
+        "MESH_BED_LEVELING",
+        "G26_MESH_VALIDATION",
+        "AUTO_BED_LEVELING_UBL",
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "homingFeedrateMmM": {
+      "mapsFrom": [
+        "HOMING_FEEDRATE_MM_M"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2133,
+      "examples": [
+        "{ (50*60), (50*60), (4*60) }"
+      ],
+      "notes": "Homing speeds (linear=mm/min, rotational=\u00b0/min)"
+    },
+    "nozzleParkXyFeedrate": {
+      "mapsFrom": [
+        "NOZZLE_PARK_XY_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2281,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "nozzleParkZFeedrate": {
+      "mapsFrom": [
+        "NOZZLE_PARK_Z_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2282,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "5"
+      ]
+    }
+  },
+  "safety": {
+    "preventColdExtrusion": {
+      "mapsFrom": [
+        "PREVENT_COLD_EXTRUSION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 853
+    },
+    "preventLengthyExtrude": {
+      "mapsFrom": [
+        "PREVENT_LENGTHY_EXTRUDE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 860
+    },
+    "extrudeMaxlength": {
+      "mapsFrom": [
+        "EXTRUDE_MAXLENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 861,
+      "examples": [
+        "200"
+      ]
+    }
+  }
+}

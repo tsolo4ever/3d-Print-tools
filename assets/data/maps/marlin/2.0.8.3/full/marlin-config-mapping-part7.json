@@ -1,0 +1,755 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration.h",
+  "totalDefines": 690,
+  "other_10": {
+    "touchUiFtdiEve": {
+      "mapsFrom": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2413,
+      "notes": " Touch UI for FTDI EVE (FT800/FT810) displays See Configuration_adv.h for all configuration options. "
+    },
+    "nextionTft": {
+      "mapsFrom": [
+        "NEXTION_TFT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2428,
+      "notes": " 320x240 Nextion 2.8\" serial TFT Resistive Touch Screen NX3224T028 "
+    },
+    "extensibleUi": {
+      "mapsFrom": [
+        "EXTENSIBLE_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2437,
+      "notes": " Third-party or vendor-customized controller interfaces. Sources should be installed in 'src/lcd/extui'. "
+    },
+    "extuiLocalBeeper": {
+      "mapsFrom": [
+        "EXTUI_LOCAL_BEEPER"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2440,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "// Enables use of local Beeper pin with external display"
+      ]
+    },
+    "mksTs35V20": {
+      "mapsFrom": [
+        "MKS_TS35_V2_0"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2456,
+      "notes": " 480x320, 3.5\", SPI Display From MKS Normally used in MKS Robin Nano V2 "
+    },
+    "mksRobinTft24": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT24"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2462,
+      "notes": " 320x240, 2.4\", FSMC Display From MKS Normally used in MKS Robin Nano V1.2 "
+    },
+    "mksRobinTft28": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT28"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2468,
+      "notes": " 320x240, 2.8\", FSMC Display From MKS Normally used in MKS Robin Nano V1.2 "
+    },
+    "mksRobinTft32": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT32"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2474,
+      "notes": " 320x240, 3.2\", FSMC Display From MKS Normally used in MKS Robin Nano V1.2 "
+    },
+    "mksRobinTft35": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT35"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2480,
+      "notes": " 480x320, 3.5\", FSMC Display From MKS Normally used in MKS Robin Nano V1.2 "
+    },
+    "mksRobinTft43": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT43"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2485,
+      "notes": " 480x272, 4.3\", FSMC Display From MKS "
+    },
+    "mksRobinTftV11r": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT_V1_1R"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2491,
+      "notes": " 320x240, 3.2\", FSMC Display From MKS Normally used in MKS Robin "
+    },
+    "tftTronxyX5sa": {
+      "mapsFrom": [
+        "TFT_TRONXY_X5SA"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2496,
+      "notes": " 480x320, 3.5\", FSMC Stock Display from TronxXY "
+    },
+    "anycubicTft35": {
+      "mapsFrom": [
+        "ANYCUBIC_TFT35"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2501,
+      "notes": " 480x320, 3.5\", FSMC Stock Display from AnyCubic "
+    },
+    "longerLkTft28": {
+      "mapsFrom": [
+        "LONGER_LK_TFT28"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2506,
+      "notes": " 320x240, 2.8\", FSMC Stock Display from Longer/Alfawise "
+    },
+    "anetEt4Tft28": {
+      "mapsFrom": [
+        "ANET_ET4_TFT28"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2511,
+      "notes": " 320x240, 2.8\", FSMC Stock Display from ET4 "
+    },
+    "anetEt5Tft35": {
+      "mapsFrom": [
+        "ANET_ET5_TFT35"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2516,
+      "notes": " 480x320, 3.5\", FSMC Stock Display from ET5 "
+    },
+    "biquBxTft70": {
+      "mapsFrom": [
+        "BIQU_BX_TFT70"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2521,
+      "notes": " 1024x600, 7\", RGB Stock Display from BIQU-BX "
+    },
+    "tftGeneric": {
+      "mapsFrom": [
+        "TFT_GENERIC"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2526,
+      "notes": " Generic TFT with detailed options "
+    },
+    "tftDriver": {
+      "mapsFrom": [
+        "TFT_DRIVER"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2529,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ],
+      "examples": [
+        "AUTO"
+      ],
+      "notes": ":[ 'AUTO', 'ST7735', 'ST7789', 'ST7796', 'R61505', 'ILI9328', 'ILI9341', 'ILI9488' ]"
+    },
+    "tftInterfaceFsmc": {
+      "mapsFrom": [
+        "TFT_INTERFACE_FSMC"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2532,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ],
+      "notes": "Interface. Enable one of the following options:"
+    },
+    "tftInterfaceSpi": {
+      "mapsFrom": [
+        "TFT_INTERFACE_SPI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2533,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ]
+    },
+    "tftRes320x240": {
+      "mapsFrom": [
+        "TFT_RES_320x240"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2536,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ],
+      "notes": "TFT Resolution. Enable one of the following options:"
+    },
+    "tftRes480x272": {
+      "mapsFrom": [
+        "TFT_RES_480x272"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2537,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ]
+    },
+    "tftRes480x320": {
+      "mapsFrom": [
+        "TFT_RES_480x320"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2538,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ]
+    },
+    "tftClassicUi": {
+      "mapsFrom": [
+        "TFT_CLASSIC_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2551
+    },
+    "tftColorUi": {
+      "mapsFrom": [
+        "TFT_COLOR_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2552
+    },
+    "tftLvglUi": {
+      "mapsFrom": [
+        "TFT_LVGL_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2553
+    },
+    "mksWifiModule": {
+      "mapsFrom": [
+        "MKS_WIFI_MODULE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2556,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_LVGL_UI"
+      ],
+      "examples": [
+        "// MKS WiFi module"
+      ]
+    },
+    "tftRotation": {
+      "mapsFrom": [
+        "TFT_ROTATION"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2567,
+      "examples": [
+        "TFT_NO_ROTATION"
+      ]
+    },
+    "touchScreen": {
+      "mapsFrom": [
+        "TOUCH_SCREEN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2581,
+      "notes": " Touch Screen Settings "
+    }
+  },
+  "other_11": {
+    "buttonDelayEdit": {
+      "mapsFrom": [
+        "BUTTON_DELAY_EDIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2583,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "buttonDelayMenu": {
+      "mapsFrom": [
+        "BUTTON_DELAY_MENU"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2584,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "250"
+      ]
+    },
+    "touchScreenCalibration": {
+      "mapsFrom": [
+        "TOUCH_SCREEN_CALIBRATION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2586,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ]
+    },
+    "touchCalibrationX": {
+      "mapsFrom": [
+        "TOUCH_CALIBRATION_X"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2588,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "12316"
+      ]
+    },
+    "touchCalibrationY": {
+      "mapsFrom": [
+        "TOUCH_CALIBRATION_Y"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2589,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "-8981"
+      ]
+    },
+    "touchOffsetX": {
+      "mapsFrom": [
+        "TOUCH_OFFSET_X"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2590,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "-43"
+      ]
+    },
+    "touchOffsetY": {
+      "mapsFrom": [
+        "TOUCH_OFFSET_Y"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2591,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "257"
+      ]
+    },
+    "touchOrientation": {
+      "mapsFrom": [
+        "TOUCH_ORIENTATION"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2592,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "TOUCH_LANDSCAPE"
+      ]
+    },
+    "touchCalibrationAutoSave": {
+      "mapsFrom": [
+        "TOUCH_CALIBRATION_AUTO_SAVE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2595,
+      "isConditional": true,
+      "conditionalOn": [
+        "BOTH",
+        "TOUCH_SCREEN",
+        "EEPROM_SETTINGS",
+        "TOUCH_SCREEN_CALIBRATION"
+      ],
+      "examples": [
+        "// Auto save successful calibration values to EEPROM"
+      ]
+    },
+    "singleTouchNavigation": {
+      "mapsFrom": [
+        "SINGLE_TOUCH_NAVIGATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2599,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN",
+        "TFT_COLOR_UI"
+      ]
+    },
+    "reprapworldKeypad": {
+      "mapsFrom": [
+        "REPRAPWORLD_KEYPAD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2607,
+      "notes": " RepRapWorld REPRAPWORLD_KEYPAD v1.1 https://reprapworld.com/products/electronics/ramps/keypad_v1_0_fully_assembled/ "
+    },
+    "reprapworldKeypadMoveStep": {
+      "mapsFrom": [
+        "REPRAPWORLD_KEYPAD_MOVE_STEP"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2608,
+      "examples": [
+        "10.0"
+      ]
+    },
+    "numM106Fans": {
+      "mapsFrom": [
+        "NUM_M106_FANS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2618,
+      "examples": [
+        "1"
+      ],
+      "notes": "============================================================================= =============================== Extra Features ============================== ============================================================================= @section extras Set number of user-controlled fans. Disable to use all board-defined fans. :[1,2,3,4,5,6,7,8]"
+    },
+    "fastPwmFan": {
+      "mapsFrom": [
+        "FAST_PWM_FAN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2621,
+      "notes": "Increase the FAN PWM frequency. Removes the PWM noise but increases heating in the FET/Arduino"
+    },
+    "fanSoftPwm": {
+      "mapsFrom": [
+        "FAN_SOFT_PWM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2626,
+      "notes": "Use software PWM to drive the fan, as for the heaters. This uses a very low frequency which is not as annoying as with the hardware PWM. On the other hand, if this frequency is too low, you should also increment SOFT_PWM_SCALE."
+    },
+    "softPwmScale": {
+      "mapsFrom": [
+        "SOFT_PWM_SCALE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2633,
+      "examples": [
+        "0"
+      ],
+      "notes": "Incrementing this by 1 will double the software PWM frequency, affecting heaters, and the fan if FAN_SOFT_PWM is enabled. However, control resolution will be halved for each increment; at zero value, there are 128 effective control positions. :[0,1,2,3,4,5,6,7]"
+    },
+    "softPwmDither": {
+      "mapsFrom": [
+        "SOFT_PWM_DITHER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2639,
+      "notes": "If SOFT_PWM_SCALE is set to a value higher than 0, dithering can be used to mitigate the associated resolution loss. If enabled, some of the PWM cycles are stretched so on average the desired duty cycle is attained."
+    },
+    "baricuda": {
+      "mapsFrom": [
+        "BARICUDA"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2647,
+      "notes": "Support for the BariCUDA Paste Extruder"
+    },
+    "blinkm": {
+      "mapsFrom": [
+        "BLINKM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2650,
+      "notes": "Support for BlinkM/CyzRgb"
+    },
+    "pca9632": {
+      "mapsFrom": [
+        "PCA9632"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2653,
+      "notes": "Support for PCA9632 PWM LED driver"
+    },
+    "pca9533": {
+      "mapsFrom": [
+        "PCA9533"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2656,
+      "notes": "Support for PCA9533 PWM LED driver"
+    },
+    "rgbLed": {
+      "mapsFrom": [
+        "RGB_LED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2679
+    },
+    "rgbwLed": {
+      "mapsFrom": [
+        "RGBW_LED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2680
+    },
+    "rgbLedRPin": {
+      "mapsFrom": [
+        "RGB_LED_R_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2683,
+      "isConditional": true,
+      "conditionalOn": [
+        "RGBW_LED",
+        "RGB_LED",
+        "EITHER"
+      ],
+      "examples": [
+        "34"
+      ]
+    },
+    "rgbLedGPin": {
+      "mapsFrom": [
+        "RGB_LED_G_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2684,
+      "isConditional": true,
+      "conditionalOn": [
+        "RGBW_LED",
+        "RGB_LED",
+        "EITHER"
+      ],
+      "examples": [
+        "43"
+      ]
+    },
+    "rgbLedBPin": {
+      "mapsFrom": [
+        "RGB_LED_B_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2685,
+      "isConditional": true,
+      "conditionalOn": [
+        "RGBW_LED",
+        "RGB_LED",
+        "EITHER"
+      ],
+      "examples": [
+        "35"
+      ]
+    },
+    "rgbLedWPin": {
+      "mapsFrom": [
+        "RGB_LED_W_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2686,
+      "isConditional": true,
+      "conditionalOn": [
+        "RGBW_LED",
+        "RGB_LED",
+        "EITHER"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "neopixelLed": {
+      "mapsFrom": [
+        "NEOPIXEL_LED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2690,
+      "notes": "Support for Adafruit NeoPixel LED driver"
+    },
+    "neopixelType": {
+      "mapsFrom": [
+        "NEOPIXEL_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2692,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "NEO_GRBW"
+      ]
+    },
+    "neopixelPin": {
+      "mapsFrom": [
+        "NEOPIXEL_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2693,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "4"
+      ]
+    }
+  }
+}

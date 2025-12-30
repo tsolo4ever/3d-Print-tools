@@ -7,3 +7,12 @@ node_modules/
 
 # Test files folder
 test files/
+
+# Configuration files in new configs directory
+# Keep directory structure but ignore actual .h config files
+new configs/**/*.h
+
+# Temporary/generated files
+*.pyc
+__pycache__/
+.pytest_cache/

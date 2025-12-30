@@ -1,0 +1,759 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "other_7": {
+    "kmaxPlug": {
+      "mapsFrom": [
+        "USE_KMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1077
+    },
+    "umaxPlug": {
+      "mapsFrom": [
+        "USE_UMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1078
+    },
+    "vmaxPlug": {
+      "mapsFrom": [
+        "USE_VMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1079
+    },
+    "wmaxPlug": {
+      "mapsFrom": [
+        "USE_WMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1080
+    },
+    "distinctEFactors": {
+      "mapsFrom": [
+        "DISTINCT_E_FACTORS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1192
+    },
+    "limitedMaxFrEditing": {
+      "mapsFrom": [
+        "LIMITED_MAX_FR_EDITING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1208,
+      "examples": [
+        "// Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2"
+      ]
+    },
+    "limitedMaxAccelEditing": {
+      "mapsFrom": [
+        "LIMITED_MAX_ACCEL_EDITING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1221,
+      "examples": [
+        "// Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2"
+      ]
+    },
+    "maxAccelEditValues": {
+      "mapsFrom": [
+        "MAX_ACCEL_EDIT_VALUES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1223,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIMITED_MAX_ACCEL_EDITING"
+      ],
+      "examples": [
+        "{ 6000, 6000, 200, 20000 }"
+      ]
+    },
+    "jdHandleSmallSegments": {
+      "mapsFrom": [
+        "JD_HANDLE_SMALL_SEGMENTS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1277,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "// Use curvature estimation instead of just the junction angle"
+      ]
+    },
+    "zServoAngles": {
+      "mapsFrom": [
+        "Z_SERVO_ANGLES"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1356,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_SERVO_NR"
+      ],
+      "examples": [
+        "{ 70, 0 }"
+      ]
+    },
+    "maglev4": {
+      "mapsFrom": [
+        "MAGLEV4"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1369
+    },
+    "maglevTriggerPin": {
+      "mapsFrom": [
+        "MAGLEV_TRIGGER_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1371,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGLEV4"
+      ],
+      "examples": [
+        "11"
+      ]
+    },
+    "maglevTriggerDelay": {
+      "mapsFrom": [
+        "MAGLEV_TRIGGER_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1372,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGLEV4"
+      ],
+      "examples": [
+        "15"
+      ]
+    },
+    "touchMiRetractZ": {
+      "mapsFrom": [
+        "TOUCH_MI_RETRACT_Z"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1387,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_MI_PROBE"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "touchMiDeployXpos": {
+      "mapsFrom": [
+        "TOUCH_MI_DEPLOY_XPOS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1388,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_MI_PROBE"
+      ],
+      "examples": [
+        "(X_MAX_BED + 2)"
+      ]
+    },
+    "sledDockingOffset": {
+      "mapsFrom": [
+        "SLED_DOCKING_OFFSET"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1397,
+      "examples": [
+        "5"
+      ]
+    },
+    "magMountedDeploy1": {
+      "mapsFrom": [
+        "MAG_MOUNTED_DEPLOY_1"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1415,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_DEPLOY_FEEDRATE, { 245, 114, 30 } }"
+      ]
+    },
+    "magMountedDeploy2": {
+      "mapsFrom": [
+        "MAG_MOUNTED_DEPLOY_2"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1416,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_DEPLOY_FEEDRATE, { 210, 114, 30 } }"
+      ]
+    },
+    "magMountedDeploy3": {
+      "mapsFrom": [
+        "MAG_MOUNTED_DEPLOY_3"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1417,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_DEPLOY_FEEDRATE, {   0,   0,  0 } }"
+      ]
+    },
+    "magMountedDeploy4": {
+      "mapsFrom": [
+        "MAG_MOUNTED_DEPLOY_4"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1418,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_DEPLOY_FEEDRATE, {   0,   0,  0 } }"
+      ]
+    },
+    "magMountedDeploy5": {
+      "mapsFrom": [
+        "MAG_MOUNTED_DEPLOY_5"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1419,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_DEPLOY_FEEDRATE, {   0,   0,  0 } }"
+      ]
+    },
+    "magMountedStow1": {
+      "mapsFrom": [
+        "MAG_MOUNTED_STOW_1"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1420,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_STOW_FEEDRATE,   { 245, 114, 20 } }"
+      ]
+    },
+    "magMountedStow2": {
+      "mapsFrom": [
+        "MAG_MOUNTED_STOW_2"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1421,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_STOW_FEEDRATE,   { 245, 114,  0 } }"
+      ]
+    },
+    "magMountedStow3": {
+      "mapsFrom": [
+        "MAG_MOUNTED_STOW_3"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1422,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_STOW_FEEDRATE,   { 230, 114,  0 } }"
+      ]
+    },
+    "magMountedStow4": {
+      "mapsFrom": [
+        "MAG_MOUNTED_STOW_4"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1423,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_STOW_FEEDRATE,   { 210, 114, 20 } }"
+      ]
+    },
+    "magMountedStow5": {
+      "mapsFrom": [
+        "MAG_MOUNTED_STOW_5"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1424,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAG_MOUNTED_PROBE"
+      ],
+      "examples": [
+        "{ PROBE_STOW_FEEDRATE,   {   0,   0,  0 } }"
+      ]
+    },
+    "duetSmartEffector": {
+      "mapsFrom": [
+        "DUET_SMART_EFFECTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1429,
+      "notes": "Duet Smart Effector (for delta printers) - https://docs.duet3d.com/en/Duet3D_hardware/Accessories/Smart_Effector When the pin is defined you can use M672 to set/reset the probe sensitivity."
+    },
+    "smartEffectorModPin": {
+      "mapsFrom": [
+        "SMART_EFFECTOR_MOD_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1431,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUET_SMART_EFFECTOR"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "sensorlessProbing": {
+      "mapsFrom": [
+        "SENSORLESS_PROBING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1440
+    },
+    "probingMargin": {
+      "mapsFrom": [
+        "PROBING_MARGIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1518,
+      "examples": [
+        "10"
+      ],
+      "notes": "Most probes should stay away from the edges of the bed, but with NOZZLE_AS_PROBE this can be negative for a wider probing area."
+    }
+  },
+  "other_8": {
+    "extraProbing": {
+      "mapsFrom": [
+        "EXTRA_PROBING"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1575,
+      "examples": [
+        "1"
+      ]
+    },
+    "zAfterProbing": {
+      "mapsFrom": [
+        "Z_AFTER_PROBING"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1594,
+      "examples": [
+        "5"
+      ]
+    },
+    "pauseBeforeDeployStow": {
+      "mapsFrom": [
+        "PAUSE_BEFORE_DEPLOY_STOW"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1606,
+      "notes": "Before deploy/stow pause for user confirmation"
+    },
+    "waitForHotend": {
+      "mapsFrom": [
+        "WAIT_FOR_HOTEND"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1621,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBING_HEATERS_OFF"
+      ],
+      "examples": [
+        "// Wait for hotend to heat back up between probes (to improve accuracy & prevent cold extrude)"
+      ]
+    },
+    "probingFansOff": {
+      "mapsFrom": [
+        "PROBING_FANS_OFF"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1623,
+      "examples": [
+        "// Turn fans off when probing"
+      ]
+    },
+    "probingEsteppersOff": {
+      "mapsFrom": [
+        "PROBING_ESTEPPERS_OFF"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1624,
+      "examples": [
+        "// Turn all extruder steppers off when probing"
+      ]
+    },
+    "probingSteppersOff": {
+      "mapsFrom": [
+        "PROBING_STEPPERS_OFF"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1625,
+      "examples": [
+        "// Turn all steppers off (unless needed to hold position) when probing (including extruders)"
+      ]
+    },
+    "delayBeforeProbing": {
+      "mapsFrom": [
+        "DELAY_BEFORE_PROBING"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1626,
+      "examples": [
+        "200"
+      ]
+    },
+    "xEnableOn": {
+      "mapsFrom": [
+        "X_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1639,
+      "examples": [
+        "0"
+      ],
+      "notes": "@section stepper drivers For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1 :{ 0:'Low', 1:'High' }"
+    },
+    "yEnableOn": {
+      "mapsFrom": [
+        "Y_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1640,
+      "examples": [
+        "0"
+      ]
+    },
+    "zEnableOn": {
+      "mapsFrom": [
+        "Z_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1641,
+      "examples": [
+        "0"
+      ]
+    },
+    "eEnableOn": {
+      "mapsFrom": [
+        "E_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1642,
+      "examples": [
+        "0"
+      ]
+    },
+    "iEnableOn": {
+      "mapsFrom": [
+        "I_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1643,
+      "examples": [
+        "0"
+      ]
+    },
+    "jEnableOn": {
+      "mapsFrom": [
+        "J_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1644,
+      "examples": [
+        "0"
+      ]
+    },
+    "kEnableOn": {
+      "mapsFrom": [
+        "K_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1645,
+      "examples": [
+        "0"
+      ]
+    },
+    "uEnableOn": {
+      "mapsFrom": [
+        "U_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1646,
+      "examples": [
+        "0"
+      ]
+    },
+    "vEnableOn": {
+      "mapsFrom": [
+        "V_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1647,
+      "examples": [
+        "0"
+      ]
+    },
+    "wEnableOn": {
+      "mapsFrom": [
+        "W_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1648,
+      "examples": [
+        "0"
+      ]
+    },
+    "disableX": {
+      "mapsFrom": [
+        "DISABLE_X"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1652,
+      "notes": "Disable axis steppers immediately when they're not being stepped. WARNING: When motors turn off there is a chance of losing position accuracy!"
+    },
+    "disableY": {
+      "mapsFrom": [
+        "DISABLE_Y"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1653
+    },
+    "disableZ": {
+      "mapsFrom": [
+        "DISABLE_Z"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1654
+    },
+    "disableI": {
+      "mapsFrom": [
+        "DISABLE_I"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1655
+    },
+    "disableJ": {
+      "mapsFrom": [
+        "DISABLE_J"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1656
+    },
+    "disableK": {
+      "mapsFrom": [
+        "DISABLE_K"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1657
+    },
+    "disableU": {
+      "mapsFrom": [
+        "DISABLE_U"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1658
+    },
+    "disableV": {
+      "mapsFrom": [
+        "DISABLE_V"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1659
+    },
+    "disableW": {
+      "mapsFrom": [
+        "DISABLE_W"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1660
+    },
+    "disableReducedAccuracyWarning": {
+      "mapsFrom": [
+        "DISABLE_REDUCED_ACCURACY_WARNING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1663,
+      "notes": "Turn off the display blinking that warns about possible accuracy reduction"
+    },
+    "disableE": {
+      "mapsFrom": [
+        "DISABLE_E"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1667,
+      "examples": [
+        "// Disable the extruder when not stepping"
+      ],
+      "notes": "@section extruder"
+    },
+    "invertXDir": {
+      "mapsFrom": [
+        "INVERT_X_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1673,
+      "examples": [
+        "false"
+      ],
+      "notes": "@section motion Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way."
+    }
+  }
+}

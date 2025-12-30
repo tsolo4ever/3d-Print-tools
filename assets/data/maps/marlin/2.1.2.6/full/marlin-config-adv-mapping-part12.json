@@ -1,0 +1,503 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_14": {
+    "bootMarlinLogoAnimated": {
+      "mapsFrom": [
+        "BOOT_MARLIN_LOGO_ANIMATED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1846,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Animated Marlin logo. Costs ~3260 (or ~940) bytes of flash."
+      ]
+    },
+    "marlinBrickout": {
+      "mapsFrom": [
+        "MARLIN_BRICKOUT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1849,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "notes": "Frivolous Game Options"
+    },
+    "marlinInvaders": {
+      "mapsFrom": [
+        "MARLIN_INVADERS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1850,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ]
+    },
+    "marlinSnake": {
+      "mapsFrom": [
+        "MARLIN_SNAKE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1851,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ]
+    },
+    "gamesEasterEgg": {
+      "mapsFrom": [
+        "GAMES_EASTER_EGG"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1852,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Add extra blank lines above the \"Games\" sub-menu"
+      ]
+    },
+    "menuHollowFrame": {
+      "mapsFrom": [
+        "MENU_HOLLOW_FRAME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1857,
+      "isConditional": true,
+      "conditionalOn": [
+        "IS_DWIN_MARLINUI",
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Enable to save many cycles by drawing a hollow frame on Menu Screens"
+      ]
+    },
+    "overlayGfxReverse": {
+      "mapsFrom": [
+        "OVERLAY_GFX_REVERSE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1858,
+      "isConditional": true,
+      "conditionalOn": [
+        "IS_DWIN_MARLINUI",
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Swap the CW/CCW indicators in the graphics overlay"
+      ]
+    },
+    "dgusRxBufferSize": {
+      "mapsFrom": [
+        "DGUS_RX_BUFFER_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1867,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "128"
+      ]
+    },
+    "dgusTxBufferSize": {
+      "mapsFrom": [
+        "DGUS_TX_BUFFER_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1868,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "48"
+      ]
+    },
+    "serialStatsRxBufferOverruns": {
+      "mapsFrom": [
+        "SERIAL_STATS_RX_BUFFER_OVERRUNS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1869,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "// Fix Rx overrun situation (Currently only for AVR)"
+      ]
+    },
+    "dgusUpdateIntervalMs": {
+      "mapsFrom": [
+        "DGUS_UPDATE_INTERVAL_MS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1871,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "500"
+      ]
+    },
+    "dgusPrintFilename": {
+      "mapsFrom": [
+        "DGUS_PRINT_FILENAME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1874,
+      "isConditional": true,
+      "conditionalOn": [
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "// Display the filename during printing"
+      ]
+    },
+    "dgusUiMoveDisOption": {
+      "mapsFrom": [
+        "DGUS_UI_MOVE_DIS_OPTION"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1880,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "DGUS_LCD_UI_HIPRECY"
+      ],
+      "conditionalOnNot": [
+        "DGUS_LCD_UI_FYSETC",
+        "DGUS_LCD_UI_MKS",
+        "EITHER"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Enabled by default for UI_HIPRECY"
+      ]
+    },
+    "dgusFilamentLoadunload": {
+      "mapsFrom": [
+        "DGUS_FILAMENT_LOADUNLOAD"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1883,
+      "isConditional": true,
+      "conditionalOn": [
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD"
+      ]
+    },
+    "dgusFilamentPurgeLength": {
+      "mapsFrom": [
+        "DGUS_FILAMENT_PURGE_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1885,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_FILAMENT_LOADUNLOAD",
+        "DGUS_LCD_UI_FYSETC",
+        "DGUS_LCD_UI_HIPRECY"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "dgusFilamentLoadLengthPerTime": {
+      "mapsFrom": [
+        "DGUS_FILAMENT_LOAD_LENGTH_PER_TIME"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1886,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_FILAMENT_LOADUNLOAD",
+        "DGUS_LCD_UI_FYSETC",
+        "DGUS_LCD_UI_HIPRECY"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "dgusUiWaiting": {
+      "mapsFrom": [
+        "DGUS_UI_WAITING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1889,
+      "isConditional": true,
+      "conditionalOn": [
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "// Show a \"waiting\" screen between some screens"
+      ]
+    },
+    "dgusUiWaitingStatus": {
+      "mapsFrom": [
+        "DGUS_UI_WAITING_STATUS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1891,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_UI_WAITING"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "dgusUiWaitingStatusPeriod": {
+      "mapsFrom": [
+        "DGUS_UI_WAITING_STATUS_PERIOD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1892,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_UI_WAITING"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "chironTftStandard": {
+      "mapsFrom": [
+        "CHIRON_TFT_STANDARD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1903,
+      "isConditional": true,
+      "conditionalOn": [
+        "ANYCUBIC_LCD_CHIRON"
+      ],
+      "notes": "By default the type of panel is automatically detected. Enable one of these options if you know the panel type."
+    },
+    "chironTftNew": {
+      "mapsFrom": [
+        "CHIRON_TFT_NEW"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1904,
+      "isConditional": true,
+      "conditionalOn": [
+        "ANYCUBIC_LCD_CHIRON"
+      ]
+    },
+    "acDefaultStartupTune": {
+      "mapsFrom": [
+        "AC_DEFAULT_STARTUP_TUNE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1907,
+      "isConditional": true,
+      "conditionalOn": [
+        "ANYCUBIC_LCD_CHIRON"
+      ],
+      "notes": "Enable the longer Anycubic powerup startup tune"
+    },
+    "touchUi320x240": {
+      "mapsFrom": [
+        "TOUCH_UI_320x240"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1950,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "Correct the resolution if not using the stock TFT panel."
+    },
+    "touchUi480x272": {
+      "mapsFrom": [
+        "TOUCH_UI_480x272"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1951,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ]
+    },
+    "touchUi800x480": {
+      "mapsFrom": [
+        "TOUCH_UI_800x480"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1952,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ]
+    },
+    "aoExp1Pinmap": {
+      "mapsFrom": [
+        "AO_EXP1_PINMAP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1955,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// LulzBot CLCD UI EXP1 mapping"
+      ],
+      "notes": "Mappings for boards with a standard RepRapDiscount Display connector"
+    },
+    "aoExp2Pinmap": {
+      "mapsFrom": [
+        "AO_EXP2_PINMAP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1956,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// LulzBot CLCD UI EXP2 mapping"
+      ]
+    },
+    "cr10TftPinmap": {
+      "mapsFrom": [
+        "CR10_TFT_PINMAP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1957,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Rudolph Riedel's CR10 pin mapping"
+      ]
+    },
+    "s6TftPinmap": {
+      "mapsFrom": [
+        "S6_TFT_PINMAP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1958,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// FYSETC S6 pin mapping"
+      ]
+    },
+    "f6TftPinmap": {
+      "mapsFrom": [
+        "F6_TFT_PINMAP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1959,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// FYSETC F6 pin mapping"
+      ]
+    }
+  }
+}

@@ -1,0 +1,580 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_22": {
+    "iCurrentHome": {
+      "mapsFrom": [
+        "I_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3084,
+      "isConditional": true,
+      "conditionalOn": [
+        "I",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "I_CURRENT"
+      ]
+    },
+    "iMicrosteps": {
+      "mapsFrom": [
+        "I_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3085,
+      "isConditional": true,
+      "conditionalOn": [
+        "I",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "16"
+      ]
+    },
+    "iRsense": {
+      "mapsFrom": [
+        "I_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3086,
+      "isConditional": true,
+      "conditionalOn": [
+        "I",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "iChainPos": {
+      "mapsFrom": [
+        "I_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3087,
+      "isConditional": true,
+      "conditionalOn": [
+        "I",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "iInterpolate": {
+      "mapsFrom": [
+        "I_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3088,
+      "isConditional": true,
+      "conditionalOn": [
+        "I",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "iHoldMultiplier": {
+      "mapsFrom": [
+        "I_HOLD_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3089,
+      "isConditional": true,
+      "conditionalOn": [
+        "I",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "jCurrent": {
+      "mapsFrom": [
+        "J_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3093,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "J",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "800"
+      ]
+    },
+    "jCurrentHome": {
+      "mapsFrom": [
+        "J_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3094,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "J",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "J_CURRENT"
+      ]
+    },
+    "jMicrosteps": {
+      "mapsFrom": [
+        "J_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3095,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "J",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "16"
+      ]
+    },
+    "jRsense": {
+      "mapsFrom": [
+        "J_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3096,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "J",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "jChainPos": {
+      "mapsFrom": [
+        "J_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3097,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "J",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "jInterpolate": {
+      "mapsFrom": [
+        "J_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3098,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "J",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "jHoldMultiplier": {
+      "mapsFrom": [
+        "J_HOLD_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3099,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "J",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "kCurrent": {
+      "mapsFrom": [
+        "K_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3103,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "K",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "800"
+      ]
+    },
+    "kCurrentHome": {
+      "mapsFrom": [
+        "K_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3104,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "K",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "K_CURRENT"
+      ]
+    },
+    "kMicrosteps": {
+      "mapsFrom": [
+        "K_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3105,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "K",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "16"
+      ]
+    },
+    "kRsense": {
+      "mapsFrom": [
+        "K_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3106,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "K",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "kChainPos": {
+      "mapsFrom": [
+        "K_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3107,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "K",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "kInterpolate": {
+      "mapsFrom": [
+        "K_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3108,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "K",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "kHoldMultiplier": {
+      "mapsFrom": [
+        "K_HOLD_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3109,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "K",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "uCurrent": {
+      "mapsFrom": [
+        "U_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3113,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "U",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "800"
+      ]
+    },
+    "uCurrentHome": {
+      "mapsFrom": [
+        "U_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3114,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "U",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "U_CURRENT"
+      ]
+    },
+    "uMicrosteps": {
+      "mapsFrom": [
+        "U_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3115,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "U",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "uRsense": {
+      "mapsFrom": [
+        "U_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3116,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "U",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "uChainPos": {
+      "mapsFrom": [
+        "U_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3117,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "U",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "uInterpolate": {
+      "mapsFrom": [
+        "U_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3118,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "U",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "uHoldMultiplier": {
+      "mapsFrom": [
+        "U_HOLD_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3119,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "U",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "vCurrent": {
+      "mapsFrom": [
+        "V_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3123,
+      "isConditional": true,
+      "conditionalOn": [
+        "V",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "800"
+      ]
+    },
+    "vCurrentHome": {
+      "mapsFrom": [
+        "V_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3124,
+      "isConditional": true,
+      "conditionalOn": [
+        "V",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "V_CURRENT"
+      ]
+    },
+    "vMicrosteps": {
+      "mapsFrom": [
+        "V_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3125,
+      "isConditional": true,
+      "conditionalOn": [
+        "V",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "8"
+      ]
+    }
+  }
+}

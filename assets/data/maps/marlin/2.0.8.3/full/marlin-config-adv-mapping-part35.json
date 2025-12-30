@@ -1,0 +1,813 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "hardware": {
+    "tempSensorBed": {
+      "mapsFrom": [
+        "TEMP_SENSOR_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 135,
+      "isConditional": true,
+      "conditionalOn": [
+        "HEPHESTOS2_HEATED_BED_KIT"
+      ],
+      "examples": [
+        "70"
+      ]
+    },
+    "heaterBedInverting": {
+      "mapsFrom": [
+        "HEATER_BED_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 136,
+      "isConditional": true,
+      "conditionalOn": [
+        "HEPHESTOS2_HEATED_BED_KIT"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "heaterChamberPin": {
+      "mapsFrom": [
+        "HEATER_CHAMBER_PIN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 160,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "P2_04"
+      ]
+    },
+    "heaterChamberInverting": {
+      "mapsFrom": [
+        "HEATER_CHAMBER_INVERTING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 161,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "tempSensorAd595Offset": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD595_OFFSET"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 452,
+      "examples": [
+        "0.0"
+      ],
+      "notes": "@section temperature Calibration for AD595 / AD8495 sensor to adjust temperature measurements. The final temperature is calculated as (measuredTemp * GAIN) + OFFSET."
+    },
+    "tempSensorAd595Gain": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD595_GAIN"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 453,
+      "examples": [
+        "1.0"
+      ]
+    },
+    "tempSensorAd8495Offset": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD8495_OFFSET"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 454,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "tempSensorAd8495Gain": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD8495_GAIN"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 455,
+      "examples": [
+        "1.0"
+      ]
+    },
+    "controllerFan": {
+      "mapsFrom": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 464
+    },
+    "controllerFanPin": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 466,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "controllerFanUseZOnly": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_USE_Z_ONLY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 467,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "// With this option only the Z axis is considered"
+      ]
+    },
+    "controllerFanIgnoreZ": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_IGNORE_Z"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 468,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "// Ignore Z stepper. Useful when stepper timeout is disabled."
+      ]
+    },
+    "controllerfanSpeedMin": {
+      "mapsFrom": [
+        "CONTROLLERFAN_SPEED_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 469,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "controllerfanSpeedActive": {
+      "mapsFrom": [
+        "CONTROLLERFAN_SPEED_ACTIVE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 470,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "controllerfanSpeedIdle": {
+      "mapsFrom": [
+        "CONTROLLERFAN_SPEED_IDLE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 471,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "controllerfanIdleTime": {
+      "mapsFrom": [
+        "CONTROLLERFAN_IDLE_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 472,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "controllerFanEditable": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_EDITABLE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 473,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "// Enable M710 configurable settings"
+      ]
+    },
+    "controllerFanMenu": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_MENU"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 475,
+      "isConditional": true,
+      "conditionalOn": [
+        "CONTROLLER_FAN_EDITABLE",
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "// Enable the Controller Fan submenu"
+      ]
+    },
+    "externalClosedLoopController": {
+      "mapsFrom": [
+        "EXTERNAL_CLOSED_LOOP_CONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 607,
+      "notes": "Employ an external closed loop controller. Override pins here if needed."
+    },
+    "bltouchLcdVoltageMenu": {
+      "mapsFrom": [
+        "BLTOUCH_LCD_VOLTAGE_MENU"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 814,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ],
+      "notes": "Safety: Enable voltage mode settings in the LCD menu."
+    },
+    "lcdInfoMenu": {
+      "mapsFrom": [
+        "LCD_INFO_MENU"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1178,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU"
+      ],
+      "notes": "Include a page of printer information in the LCD Main Menu"
+    },
+    "lcdPrinterInfoIsBootscreen": {
+      "mapsFrom": [
+        "LCD_PRINTER_INFO_IS_BOOTSCREEN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1180,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "LCD_INFO_MENU"
+      ],
+      "examples": [
+        "// Show bootscreen(s) instead of Printer Info pages"
+      ]
+    },
+    "lcdTimeoutToStatus": {
+      "mapsFrom": [
+        "LCD_TIMEOUT_TO_STATUS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1222,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY"
+      ],
+      "examples": [
+        "15000"
+      ],
+      "notes": "The timeout (in ms) to return to the status screen from sub-menus"
+    },
+    "lcdDecimalSmallXy": {
+      "mapsFrom": [
+        "LCD_DECIMAL_SMALL_XY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1235,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY"
+      ],
+      "notes": "On the Info Screen, display XY with one decimal place when possible"
+    },
+    "lcdSetProgressManually": {
+      "mapsFrom": [
+        "LCD_SET_PROGRESS_MANUALLY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1238,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY"
+      ],
+      "notes": "Add an 'M73' G-code to set the current percentage"
+    },
+    "lcdShowETotal": {
+      "mapsFrom": [
+        "LCD_SHOW_E_TOTAL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1241,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY"
+      ],
+      "notes": "Show the E position (filament used) during printing"
+    },
+    "rotateProgressDisplay": {
+      "mapsFrom": [
+        "ROTATE_PROGRESS_DISPLAY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1248,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "SDSUPPORT",
+        "IS_TFTGLCD_PANEL",
+        "SHOW_REMAINING_TIME",
+        "LCD_SET_PROGRESS_MANUALLY",
+        "EITHER",
+        "HAS_MARLINUI_HD44780",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "// Display (P)rogress, (E)lapsed, and (R)emaining time"
+      ]
+    },
+    "lcdProgressBar": {
+      "mapsFrom": [
+        "LCD_PROGRESS_BAR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1256,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "SDSUPPORT",
+        "IS_TFTGLCD_PANEL",
+        "LCD_SET_PROGRESS_MANUALLY",
+        "EITHER",
+        "HAS_MARLINUI_HD44780",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "// Show a progress bar on HD44780 LCDs for SD printing"
+      ]
+    },
+    "lcdProgressBarTest": {
+      "mapsFrom": [
+        "LCD_PROGRESS_BAR_TEST"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1262,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "SDSUPPORT",
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "LCD_SET_PROGRESS_MANUALLY",
+        "EITHER",
+        "HAS_MARLINUI_HD44780",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "// Add a menu item to test the progress bar"
+      ]
+    },
+    "lcdLanguage2": {
+      "mapsFrom": [
+        "LCD_LANGUAGE_2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1654,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "DOGLCD",
+        "TFT_COLOR_UI"
+      ],
+      "examples": [
+        "fr"
+      ]
+    },
+    "lcdLanguage3": {
+      "mapsFrom": [
+        "LCD_LANGUAGE_3"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1655,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "DOGLCD",
+        "TFT_COLOR_UI"
+      ],
+      "examples": [
+        "de"
+      ]
+    },
+    "lcdLanguage4": {
+      "mapsFrom": [
+        "LCD_LANGUAGE_4"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1656,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "DOGLCD",
+        "TFT_COLOR_UI"
+      ],
+      "examples": [
+        "es"
+      ]
+    },
+    "lcdLanguage5": {
+      "mapsFrom": [
+        "LCD_LANGUAGE_5"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1657,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "DOGLCD",
+        "TFT_COLOR_UI"
+      ],
+      "examples": [
+        "it"
+      ]
+    },
+    "lcdLanguageAutoSave": {
+      "mapsFrom": [
+        "LCD_LANGUAGE_AUTO_SAVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1659,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "DOGLCD",
+        "LCD_LANGUAGE_2",
+        "TFT_COLOR_UI"
+      ],
+      "examples": [
+        "// Automatically save language to EEPROM on change"
+      ]
+    },
+    "lcdFtdiVm800b35a": {
+      "mapsFrom": [
+        "LCD_FTDI_VM800B35A"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1668,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// FTDI 3.5\" with FT800 (320x240)"
+      ],
+      "notes": "Display board used"
+    },
+    "lcd4dsystems4dlcdFt843": {
+      "mapsFrom": [
+        "LCD_4DSYSTEMS_4DLCD_FT843"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1669,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// 4D Systems 4.3\" (480x272)"
+      ]
+    },
+    "lcdHaoyuFt800cb": {
+      "mapsFrom": [
+        "LCD_HAOYU_FT800CB"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1670,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Haoyu with 4.3\" or 5\" (480x272)"
+      ]
+    },
+    "lcdHaoyuFt810cb": {
+      "mapsFrom": [
+        "LCD_HAOYU_FT810CB"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1671,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Haoyu with 5\" (800x480)"
+      ]
+    },
+    "lcdAlephobjectsClcdUi": {
+      "mapsFrom": [
+        "LCD_ALEPHOBJECTS_CLCD_UI"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1672,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Aleph Objects Color LCD UI"
+      ]
+    },
+    "lcdFysetcTft81050": {
+      "mapsFrom": [
+        "LCD_FYSETC_TFT81050"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1673,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// FYSETC with 5\" (800x480)"
+      ]
+    },
+    "lcdEve350g": {
+      "mapsFrom": [
+        "LCD_EVE3_50G"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1674,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Matrix Orbital 5.0\", 800x480, BT815"
+      ]
+    },
+    "lcdEve250g": {
+      "mapsFrom": [
+        "LCD_EVE2_50G"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1675,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Matrix Orbital 5.0\", 800x480, FT813"
+      ]
+    },
+    "clcdModReset": {
+      "mapsFrom": [
+        "CLCD_MOD_RESET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1692,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT"
+      ],
+      "examples": [
+        "9"
+      ],
+      "notes": "Pins for CS and MOD_RESET (PD) must be chosen"
+    },
+    "clcdSpiCs": {
+      "mapsFrom": [
+        "CLCD_SPI_CS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1693,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "clcdUseSoftSpi": {
+      "mapsFrom": [
+        "CLCD_USE_SOFT_SPI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1696,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT"
+      ],
+      "notes": "If using software SPI, specify pins for SCLK, MOSI, MISO"
+    },
+    "clcdSoftSpiMosi": {
+      "mapsFrom": [
+        "CLCD_SOFT_SPI_MOSI"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1698,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLCD_USE_SOFT_SPI",
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT"
+      ],
+      "examples": [
+        "11"
+      ]
+    },
+    "clcdSoftSpiMiso": {
+      "mapsFrom": [
+        "CLCD_SOFT_SPI_MISO"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1699,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLCD_USE_SOFT_SPI",
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT"
+      ],
+      "examples": [
+        "12"
+      ]
+    },
+    "clcdSoftSpiSclk": {
+      "mapsFrom": [
+        "CLCD_SOFT_SPI_SCLK"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1700,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLCD_USE_SOFT_SPI",
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT"
+      ],
+      "examples": [
+        "13"
+      ]
+    },
+    "babystepDisplayTotal": {
+      "mapsFrom": [
+        "BABYSTEP_DISPLAY_TOTAL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1816,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "// Display total babysteps since last G28"
+      ]
+    },
+    "filamentLcdDisplay": {
+      "mapsFrom": [
+        "FILAMENT_LCD_DISPLAY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3370,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_WIDTH_SENSOR"
+      ],
+      "notes": "Display filament width on the LCD status line. Status messages will expire after 5 seconds."
+    }
+  }
+}

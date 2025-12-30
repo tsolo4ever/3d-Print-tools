@@ -1,0 +1,687 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "hardware_2": {
+    "lcdInfoMenu": {
+      "mapsFrom": [
+        "LCD_INFO_MENU"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1525,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_MENU",
+        "SPACE_SAVER_2560"
+      ]
+    },
+    "lcdPrinterInfoIsBootscreen": {
+      "mapsFrom": [
+        "LCD_PRINTER_INFO_IS_BOOTSCREEN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1528,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_MENU",
+        "LCD_INFO_MENU"
+      ],
+      "examples": [
+        "// Show bootscreen(s) instead of Printer Info pages"
+      ]
+    },
+    "lcdTimeoutToStatus": {
+      "mapsFrom": [
+        "LCD_TIMEOUT_TO_STATUS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1548,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "EITHER"
+      ],
+      "examples": [
+        "10000"
+      ],
+      "notes": "The timeout to return to the status screen from sub-menus"
+    },
+    "lcdDecimalSmallXy": {
+      "mapsFrom": [
+        "LCD_DECIMAL_SMALL_XY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1567,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "SPACE_SAVER_2560",
+        "EITHER"
+      ]
+    },
+    "lcdShowETotal": {
+      "mapsFrom": [
+        "LCD_SHOW_E_TOTAL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1571,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "EITHER"
+      ],
+      "notes": "Show the E position (filament used) during printing"
+    },
+    "lcdProgressBar": {
+      "mapsFrom": [
+        "LCD_PROGRESS_BAR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1629,
+      "isConditional": true,
+      "conditionalOn": [
+        "IS_TFTGLCD_PANEL",
+        "EITHER",
+        "HAS_DISPLAY",
+        "SET_PROGRESS_MANUALLY",
+        "SDSUPPORT",
+        "HAS_MARLINUI_HD44780"
+      ],
+      "examples": [
+        "// Show a progress bar on HD44780 LCDs for SD printing"
+      ]
+    },
+    "lcdProgressBarTest": {
+      "mapsFrom": [
+        "LCD_PROGRESS_BAR_TEST"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1635,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_PROGRESS_BAR",
+        "IS_TFTGLCD_PANEL",
+        "EITHER",
+        "HAS_DISPLAY",
+        "SET_PROGRESS_MANUALLY",
+        "SDSUPPORT",
+        "HAS_MARLINUI_HD44780"
+      ],
+      "examples": [
+        "// Add a menu item to test the progress bar"
+      ]
+    },
+    "displaySleepMinutes": {
+      "mapsFrom": [
+        "DISPLAY_SLEEP_MINUTES"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1940,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "lcdLanguage2": {
+      "mapsFrom": [
+        "LCD_LANGUAGE_2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2069,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "IS_DWIN_MARLINUI",
+        "DOGLCD",
+        "TFT_COLOR_UI"
+      ],
+      "examples": [
+        "fr"
+      ]
+    },
+    "lcdLanguage3": {
+      "mapsFrom": [
+        "LCD_LANGUAGE_3"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2070,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "IS_DWIN_MARLINUI",
+        "DOGLCD",
+        "TFT_COLOR_UI"
+      ],
+      "examples": [
+        "de"
+      ]
+    },
+    "lcdLanguage4": {
+      "mapsFrom": [
+        "LCD_LANGUAGE_4"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2071,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "IS_DWIN_MARLINUI",
+        "DOGLCD",
+        "TFT_COLOR_UI"
+      ],
+      "examples": [
+        "es"
+      ]
+    },
+    "lcdLanguage5": {
+      "mapsFrom": [
+        "LCD_LANGUAGE_5"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2072,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "IS_DWIN_MARLINUI",
+        "DOGLCD",
+        "TFT_COLOR_UI"
+      ],
+      "examples": [
+        "it"
+      ]
+    },
+    "lcdLanguageAutoSave": {
+      "mapsFrom": [
+        "LCD_LANGUAGE_AUTO_SAVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2074,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "DOGLCD",
+        "TFT_COLOR_UI",
+        "LCD_LANGUAGE_2",
+        "IS_DWIN_MARLINUI"
+      ],
+      "examples": [
+        "// Automatically save language to EEPROM on change"
+      ]
+    },
+    "lcdFtdiVm800b35a": {
+      "mapsFrom": [
+        "LCD_FTDI_VM800B35A"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2083,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// FTDI 3.5\" with FT800 (320x240)"
+      ],
+      "notes": "Display board used"
+    },
+    "lcd4dsystems4dlcdFt843": {
+      "mapsFrom": [
+        "LCD_4DSYSTEMS_4DLCD_FT843"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2084,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// 4D Systems 4.3\" (480x272)"
+      ]
+    },
+    "lcdHaoyuFt800cb": {
+      "mapsFrom": [
+        "LCD_HAOYU_FT800CB"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2085,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Haoyu with 4.3\" or 5\" (480x272)"
+      ]
+    },
+    "lcdHaoyuFt810cb": {
+      "mapsFrom": [
+        "LCD_HAOYU_FT810CB"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2086,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Haoyu with 5\" (800x480)"
+      ]
+    },
+    "lcdLulzbotClcdUi": {
+      "mapsFrom": [
+        "LCD_LULZBOT_CLCD_UI"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2087,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// LulzBot Color LCD UI"
+      ]
+    },
+    "lcdFysetcTft81050": {
+      "mapsFrom": [
+        "LCD_FYSETC_TFT81050"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2088,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// FYSETC with 5\" (800x480)"
+      ]
+    },
+    "lcdEve350g": {
+      "mapsFrom": [
+        "LCD_EVE3_50G"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2089,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Matrix Orbital 5.0\", 800x480, BT815"
+      ]
+    },
+    "lcdEve250g": {
+      "mapsFrom": [
+        "LCD_EVE2_50G"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2090,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Matrix Orbital 5.0\", 800x480, FT813"
+      ]
+    },
+    "clcdModReset": {
+      "mapsFrom": [
+        "CLCD_MOD_RESET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2107,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT"
+      ],
+      "examples": [
+        "9"
+      ],
+      "notes": "Pins for CS and MOD_RESET (PD) must be chosen"
+    },
+    "clcdSpiCs": {
+      "mapsFrom": [
+        "CLCD_SPI_CS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2108,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "clcdUseSoftSpi": {
+      "mapsFrom": [
+        "CLCD_USE_SOFT_SPI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2111,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT"
+      ],
+      "notes": "If using software SPI, specify pins for SCLK, MOSI, MISO"
+    },
+    "clcdSoftSpiMosi": {
+      "mapsFrom": [
+        "CLCD_SOFT_SPI_MOSI"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2113,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT",
+        "CLCD_USE_SOFT_SPI"
+      ],
+      "examples": [
+        "11"
+      ]
+    },
+    "clcdSoftSpiMiso": {
+      "mapsFrom": [
+        "CLCD_SOFT_SPI_MISO"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2114,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT",
+        "CLCD_USE_SOFT_SPI"
+      ],
+      "examples": [
+        "12"
+      ]
+    },
+    "clcdSoftSpiSclk": {
+      "mapsFrom": [
+        "CLCD_SOFT_SPI_SCLK"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2115,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "OTHER_PIN_LAYOUT",
+        "CLCD_USE_SOFT_SPI"
+      ],
+      "examples": [
+        "13"
+      ]
+    },
+    "babystepDisplayTotal": {
+      "mapsFrom": [
+        "BABYSTEP_DISPLAY_TOTAL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2238,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "// Display total babysteps since last G28"
+      ]
+    },
+    "filamentLcdDisplay": {
+      "mapsFrom": [
+        "FILAMENT_LCD_DISPLAY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3935,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_WIDTH_SENSOR"
+      ],
+      "notes": "Display filament width on the LCD status line. Status messages will expire after 5 seconds."
+    }
+  },
+  "advanced": {
+    "adaptiveFanSlowing": {
+      "mapsFrom": [
+        "ADAPTIVE_FAN_SLOWING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 311,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_HOTENDS"
+      ],
+      "examples": [
+        "// Slow part cooling fan if temperature drops"
+      ]
+    },
+    "inputShapingX": {
+      "mapsFrom": [
+        "INPUT_SHAPING_X"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1191,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING"
+      ]
+    },
+    "inputShapingY": {
+      "mapsFrom": [
+        "INPUT_SHAPING_Y"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1192,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING"
+      ]
+    },
+    "adaptiveStepSmoothing": {
+      "mapsFrom": [
+        "ADAPTIVE_STEP_SMOOTHING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1385
+    },
+    "arcSupport": {
+      "mapsFrom": [
+        "ARC_SUPPORT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2449,
+      "isConditional": true,
+      "conditionalOn": [
+        "DISABLE_ARC_SUPPORT"
+      ],
+      "examples": [
+        "// Requires ~3226 bytes"
+      ]
+    },
+    "bezierCurveSupport": {
+      "mapsFrom": [
+        "BEZIER_CURVE_SUPPORT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2462,
+      "examples": [
+        "// Requires ~2666 bytes"
+      ],
+      "notes": "G5 B\u00e9zier Curve Support with XYZE destination and IJPQ offsets"
+    },
+    "advancedPauseFeature": {
+      "mapsFrom": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2818
+    },
+    "advancedPauseContinuousPurge": {
+      "mapsFrom": [
+        "ADVANCED_PAUSE_CONTINUOUS_PURGE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2844,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Purge continuously up to the purge length until interrupted."
+      ],
+      "notes": "For Bowden, the full length of the tube and nozzle. For direct drive, the full length of the nozzle."
+    },
+    "advancedPausePurgeLength": {
+      "mapsFrom": [
+        "ADVANCED_PAUSE_PURGE_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2846,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "advancedPauseResumePrime": {
+      "mapsFrom": [
+        "ADVANCED_PAUSE_RESUME_PRIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2850,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "0"
+      ],
+      "notes": "Set to 0 for manual extrusion. Filament can be extruded repeatedly from the Filament Change menu until extrusion is consistent, and to purge old filament."
+    },
+    "advancedPauseFansPause": {
+      "mapsFrom": [
+        "ADVANCED_PAUSE_FANS_PAUSE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2851,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Turn off print-cooling fans while the machine is paused."
+      ]
+    },
+    "mmu2FilamentRunoutScript": {
+      "mapsFrom": [
+        "MMU2_FILAMENT_RUNOUT_SCRIPT"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4534,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "\"M600\""
+      ],
+      "notes": "G-code to execute when MMU2 F.I.N.D.A. probe detects filament runout"
+    }
+  }
+}

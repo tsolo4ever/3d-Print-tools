@@ -1,0 +1,500 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_34": {
+    "button1Desc": {
+      "mapsFrom": [
+        "BUTTON1_DESC"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3827,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIN_EXISTS",
+        "BUTTON1",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"Homing\""
+      ]
+    },
+    "button2Pin": {
+      "mapsFrom": [
+        "BUTTON2_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3830,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "button2HitState": {
+      "mapsFrom": [
+        "BUTTON2_HIT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3832,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIN_EXISTS",
+        "BUTTON2",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "button2WhenPrinting": {
+      "mapsFrom": [
+        "BUTTON2_WHEN_PRINTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3833,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIN_EXISTS",
+        "BUTTON2",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "button2Gcode": {
+      "mapsFrom": [
+        "BUTTON2_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3834,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIN_EXISTS",
+        "BUTTON2",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"M140 S\" STRINGIFY(PREHEAT_1_TEMP_BED) \"\\nM104 S\" STRINGIFY(PREHEAT_1_TEMP_HOTEND)"
+      ]
+    },
+    "button2Desc": {
+      "mapsFrom": [
+        "BUTTON2_DESC"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3835,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIN_EXISTS",
+        "BUTTON2",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"Preheat for \" PREHEAT_1_LABEL"
+      ]
+    },
+    "button3Pin": {
+      "mapsFrom": [
+        "BUTTON3_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3838,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "button3HitState": {
+      "mapsFrom": [
+        "BUTTON3_HIT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3840,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIN_EXISTS",
+        "BUTTON3",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "button3WhenPrinting": {
+      "mapsFrom": [
+        "BUTTON3_WHEN_PRINTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3841,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIN_EXISTS",
+        "BUTTON3",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "button3Gcode": {
+      "mapsFrom": [
+        "BUTTON3_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3842,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIN_EXISTS",
+        "BUTTON3",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"M140 S\" STRINGIFY(PREHEAT_2_TEMP_BED) \"\\nM104 S\" STRINGIFY(PREHEAT_2_TEMP_HOTEND)"
+      ]
+    },
+    "button3Desc": {
+      "mapsFrom": [
+        "BUTTON3_DESC"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3843,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIN_EXISTS",
+        "BUTTON3",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"Preheat for \" PREHEAT_2_LABEL"
+      ]
+    },
+    "hostPauseM76": {
+      "mapsFrom": [
+        "HOST_PAUSE_M76"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3865,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOST_ACTION_COMMANDS"
+      ],
+      "examples": [
+        "// Tell the host to pause in response to M76"
+      ]
+    },
+    "hostPromptSupport": {
+      "mapsFrom": [
+        "HOST_PROMPT_SUPPORT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3866,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOST_ACTION_COMMANDS"
+      ],
+      "examples": [
+        "// Initiate host prompts to get user feedback"
+      ]
+    },
+    "hostStatusNotifications": {
+      "mapsFrom": [
+        "HOST_STATUS_NOTIFICATIONS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3868,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOST_ACTION_COMMANDS",
+        "HOST_PROMPT_SUPPORT"
+      ],
+      "examples": [
+        "// Send some status messages to the host as notifications"
+      ]
+    },
+    "hostStartMenuItem": {
+      "mapsFrom": [
+        "HOST_START_MENU_ITEM"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3870,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOST_ACTION_COMMANDS"
+      ],
+      "examples": [
+        "// Add a menu item that tells the host to start"
+      ]
+    },
+    "hostShutdownMenuItem": {
+      "mapsFrom": [
+        "HOST_SHUTDOWN_MENU_ITEM"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3871,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOST_ACTION_COMMANDS"
+      ],
+      "examples": [
+        "// Add a menu item that tells the host to shut down"
+      ]
+    },
+    "cancelObjects": {
+      "mapsFrom": [
+        "CANCEL_OBJECTS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3881
+    },
+    "cancelObjectsReporting": {
+      "mapsFrom": [
+        "CANCEL_OBJECTS_REPORTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3883,
+      "isConditional": true,
+      "conditionalOn": [
+        "CANCEL_OBJECTS"
+      ],
+      "examples": [
+        "// Emit the current object as a status message"
+      ]
+    },
+    "i2cPositionEncoders": {
+      "mapsFrom": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3900
+    },
+    "i2cpeEncoderCnt": {
+      "mapsFrom": [
+        "I2CPE_ENCODER_CNT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3903,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "i2cpeEnc1Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3906,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_PRESET_ADDR_X"
+      ],
+      "notes": "encoders supported currently."
+    },
+    "i2cpeEnc1Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3907,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "X_AXIS"
+      ]
+    },
+    "i2cpeEnc1Type": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3908,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ENC_TYPE_LINEAR"
+      ]
+    },
+    "i2cpeEnc1TicksUnit": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_TICKS_UNIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3910,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "2048"
+      ],
+      "notes": "I2CPE_ENC_TYPE_ROTARY."
+    },
+    "i2cpeEnc1TicksRev": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_TICKS_REV"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3913,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "(16 * 200)"
+      ],
+      "notes": "1mm poles. For linear encoders this is ticks / mm, for rotary encoders this is ticks / revolution."
+    },
+    "i2cpeEnc1Invert": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_INVERT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3915,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "// Invert the direction of axis travel."
+      ],
+      "notes": "steps per full revolution (motor steps/rev * microstepping)"
+    },
+    "i2cpeEnc1EcMethod": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_EC_METHOD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3916,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ECM_MICROSTEP"
+      ]
+    },
+    "i2cpeEnc1EcThresh": {
+      "mapsFrom": [
+        "I2CPE_ENC_1_EC_THRESH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3917,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "0.10"
+      ]
+    },
+    "i2cpeEnc2Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3922,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_PRESET_ADDR_Y"
+      ],
+      "notes": "printer will attempt to correct the error; errors smaller than this are ignored to minimize effects of measurement noise / latency (filter)."
+    },
+    "i2cpeEnc2Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3923,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "Y_AXIS"
+      ]
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "basic": {
+    "lcdBaudrate": {
+      "mapsFrom": [
+        "LCD_BAUDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1865,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "115200"
+      ]
+    },
+    "filamentUnloadAllExtruders": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_ALL_EXTRUDERS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2695,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Allow M702 to unload all extruders above a minimum target temp (as set by M302)"
+      ]
+    },
+    "meatpackOnSerialPort1": {
+      "mapsFrom": [
+        "MEATPACK_ON_SERIAL_PORT_1"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3695
+    },
+    "meatpackOnSerialPort2": {
+      "mapsFrom": [
+        "MEATPACK_ON_SERIAL_PORT_2"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3696
+    },
+    "mmu2SerialPort": {
+      "mapsFrom": [
+        "MMU2_SERIAL_PORT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4128,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "2"
+      ],
+      "notes": "Serial port used for communication with MMU2."
+    }
+  }
+}

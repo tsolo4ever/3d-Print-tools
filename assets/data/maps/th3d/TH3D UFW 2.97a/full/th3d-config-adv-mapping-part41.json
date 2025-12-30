@@ -1,0 +1,809 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "motion": {
+    "minimumfeedrate": {
+      "mapsFrom": [
+        "DEFAULT_MINIMUMFEEDRATE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1245,
+      "examples": [
+        "0.0"
+      ],
+      "notes": "Default Minimum Feedrates for printing and travel moves"
+    },
+    "mintravelfeedrate": {
+      "mapsFrom": [
+        "DEFAULT_MINTRAVELFEEDRATE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1246,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "backlashMeasurementFeedrate": {
+      "mapsFrom": [
+        "BACKLASH_MEASUREMENT_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1305,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION",
+        "MEASURE_BACKLASH_WHEN_PROBING",
+        "BACKLASH_GCODE"
+      ],
+      "examples": [
+        "Z_PROBE_FEEDRATE_SLOW"
+      ]
+    },
+    "calibrationFeedrateSlow": {
+      "mapsFrom": [
+        "CALIBRATION_FEEDRATE_SLOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1331,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "calibrationFeedrateFast": {
+      "mapsFrom": [
+        "CALIBRATION_FEEDRATE_FAST"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1332,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "1200"
+      ]
+    },
+    "calibrationFeedrateTravel": {
+      "mapsFrom": [
+        "CALIBRATION_FEEDRATE_TRAVEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1333,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "3000"
+      ]
+    },
+    "beepOnFeedrateChange": {
+      "mapsFrom": [
+        "BEEP_ON_FEEDRATE_CHANGE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1476,
+      "notes": "Play a beep when the feedrate is changed from the Status Screen"
+    },
+    "feedrateChangeBeepDuration": {
+      "mapsFrom": [
+        "FEEDRATE_CHANGE_BEEP_DURATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1478,
+      "isConditional": true,
+      "conditionalOn": [
+        "BEEP_ON_FEEDRATE_CHANGE"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "feedrateChangeBeepFrequency": {
+      "mapsFrom": [
+        "FEEDRATE_CHANGE_BEEP_FREQUENCY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1479,
+      "isConditional": true,
+      "conditionalOn": [
+        "BEEP_ON_FEEDRATE_CHANGE"
+      ],
+      "examples": [
+        "5000"
+      ]
+    },
+    "linAdvance": {
+      "mapsFrom": [
+        "LIN_ADVANCE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2269,
+      "isConditional": true,
+      "conditionalOn": [
+        "LINEAR_ADVANCE"
+      ]
+    },
+    "allowLowEjerk": {
+      "mapsFrom": [
+        "ALLOW_LOW_EJERK"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2280,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIN_ADVANCE"
+      ],
+      "examples": [
+        "// Allow a DEFAULT_EJERK value of <10. Recommended for direct drive hotends."
+      ]
+    },
+    "retractFeedrate": {
+      "mapsFrom": [
+        "RETRACT_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2704,
+      "isConditional": true,
+      "conditionalOn": [
+        "FWRETRACT"
+      ],
+      "examples": [
+        "45"
+      ]
+    },
+    "retractRecoverFeedrate": {
+      "mapsFrom": [
+        "RETRACT_RECOVER_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2708,
+      "isConditional": true,
+      "conditionalOn": [
+        "FWRETRACT"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "retractRecoverFeedrateSwap": {
+      "mapsFrom": [
+        "RETRACT_RECOVER_FEEDRATE_SWAP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2709,
+      "isConditional": true,
+      "conditionalOn": [
+        "FWRETRACT"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "toolchangeParkXyFeedrate": {
+      "mapsFrom": [
+        "TOOLCHANGE_PARK_XY_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2799,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_PARK"
+      ],
+      "examples": [
+        "6000"
+      ]
+    },
+    "pauseParkRetractFeedrate": {
+      "mapsFrom": [
+        "PAUSE_PARK_RETRACT_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2820,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "filamentChangeUnloadFeedrate": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_UNLOAD_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2823,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "20"
+      ],
+      "notes": "This short retract is done immediately, before parking the nozzle."
+    },
+    "filamentChangeSlowLoadFeedrate": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2836,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "filamentChangeFastLoadFeedrate": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_FAST_LOAD_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2839,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "20"
+      ],
+      "notes": "0 to disable start loading and skip to fast load only"
+    },
+    "advancedPausePurgeFeedrate": {
+      "mapsFrom": [
+        "ADVANCED_PAUSE_PURGE_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2845,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "filamentUnloadPurgeFeedrate": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_PURGE_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2857,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "25"
+      ]
+    },
+    "g0Feedrate": {
+      "mapsFrom": [
+        "G0_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4111,
+      "examples": [
+        "3000"
+      ],
+      "notes": "Enable and set a (default) feedrate for all G0 moves"
+    },
+    "variableG0Feedrate": {
+      "mapsFrom": [
+        "VARIABLE_G0_FEEDRATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4113,
+      "isConditional": true,
+      "conditionalOn": [
+        "G0_FEEDRATE"
+      ],
+      "examples": [
+        "// The G0 feedrate is set by F in G0 motion mode"
+      ]
+    },
+    "gantryCalibrationFeedrate": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4398,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "240"
+      ]
+    },
+    "gantryCalibrationXyParkFeedrate": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_XY_PARK_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4402,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "3000"
+      ]
+    },
+    "mmu2CanLoadFeedrate": {
+      "mapsFrom": [
+        "MMU2_CAN_LOAD_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4570,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "800"
+      ]
+    }
+  },
+  "features": {
+    "m73ReportSdOnly": {
+      "mapsFrom": [
+        "M73_REPORT_SD_ONLY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1614,
+      "isConditional": true,
+      "conditionalOn": [
+        "M73_REPORT",
+        "SET_PROGRESS_MANUALLY",
+        "SDSUPPORT",
+        "BOTH"
+      ],
+      "examples": [
+        "// Report only when printing from SD"
+      ]
+    },
+    "sdSpiSpeed": {
+      "mapsFrom": [
+        "SD_SPI_SPEED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1650,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "SPI_HALF_SPEED"
+      ]
+    },
+    "sdDetectState": {
+      "mapsFrom": [
+        "SD_DETECT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1655,
+      "isConditional": true,
+      "conditionalOn": [
+        "KINGROON_KP3",
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "sdIgnoreAtStartup": {
+      "mapsFrom": [
+        "SD_IGNORE_AT_STARTUP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1658,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// Don't mount the SD card when starting up"
+      ]
+    },
+    "sdProcedureDepth": {
+      "mapsFrom": [
+        "SD_PROCEDURE_DEPTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1665,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "sdFinishedStepperrelease": {
+      "mapsFrom": [
+        "SD_FINISHED_STEPPERRELEASE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1667,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "sdFinishedReleasecommand": {
+      "mapsFrom": [
+        "SD_FINISHED_RELEASECOMMAND"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1668,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "\"M84\""
+      ]
+    },
+    "sdMenuConfirmStart": {
+      "mapsFrom": [
+        "SD_MENU_CONFIRM_START"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1675,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPACE_SAVER_2560",
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// Confirm the selected SD file before printing"
+      ]
+    },
+    "noSdAutostart": {
+      "mapsFrom": [
+        "NO_SD_AUTOSTART"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1679,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPACE_SAVER_2560",
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// Remove auto#.g file support completely to save some Flash, SRAM"
+      ]
+    },
+    "eventGcodeSdAbort": {
+      "mapsFrom": [
+        "EVENT_GCODE_SD_ABORT"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1687,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "\"G28XY\""
+      ]
+    },
+    "sdAbortNoCooldown": {
+      "mapsFrom": [
+        "SD_ABORT_NO_COOLDOWN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1776,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// Leave the heaters on after Stop Print (not recommended!)"
+      ]
+    },
+    "sdReprintLastSelectedFile": {
+      "mapsFrom": [
+        "SD_REPRINT_LAST_SELECTED_FILE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1788,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// On print completion open the LCD Menu and select the same file"
+      ]
+    },
+    "autoReportSdStatus": {
+      "mapsFrom": [
+        "AUTO_REPORT_SD_STATUS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1791,
+      "isConditional": true,
+      "conditionalOn": [
+        "BTT_TOUCH_SCREEN",
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// Auto-report media status with 'M27 S<seconds>'"
+      ]
+    },
+    "disableDueSdMmc": {
+      "mapsFrom": [
+        "DISABLE_DUE_SD_MMC"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1823,
+      "isConditional": true,
+      "conditionalOn": [
+        "USB_FLASH_DRIVE_SUPPORT",
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// Disable USB Host access to USB Drive to prevent hangs on block access for DUE platform"
+      ]
+    },
+    "sdFirmwareUpdate": {
+      "mapsFrom": [
+        "SD_FIRMWARE_UPDATE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1845,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ]
+    },
+    "sdFirmwareUpdateEepromAddr": {
+      "mapsFrom": [
+        "SD_FIRMWARE_UPDATE_EEPROM_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1847,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "SD_FIRMWARE_UPDATE"
+      ],
+      "examples": [
+        "0x1FF"
+      ]
+    },
+    "sdFirmwareUpdateActiveValue": {
+      "mapsFrom": [
+        "SD_FIRMWARE_UPDATE_ACTIVE_VALUE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1848,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "SD_FIRMWARE_UPDATE"
+      ],
+      "examples": [
+        "0xF0"
+      ]
+    },
+    "sdFirmwareUpdateInactiveValue": {
+      "mapsFrom": [
+        "SD_FIRMWARE_UPDATE_INACTIVE_VALUE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1849,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "SD_FIRMWARE_UPDATE"
+      ],
+      "examples": [
+        "0xFF"
+      ]
+    },
+    "noSdDetect": {
+      "mapsFrom": [
+        "NO_SD_DETECT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1884,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "notes": "Enable if SD detect is rendered useless (e.g., by using an SD extender)"
+    },
+    "volumeSdOnboard": {
+      "mapsFrom": [
+        "VOLUME_SD_ONBOARD"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1892,
+      "isConditional": true,
+      "conditionalOn": [
+        "MULTI_VOLUME",
+        "SDSUPPORT"
+      ]
+    },
+    "noSdHostDrive": {
+      "mapsFrom": [
+        "NO_SD_HOST_DRIVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1904,
+      "examples": [
+        "// Disable SD Card access over USB (for security)."
+      ]
+    },
+    "acSdFolderView": {
+      "mapsFrom": [
+        "AC_SD_FOLDER_VIEW"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2062,
+      "isConditional": true,
+      "conditionalOn": [
+        "ANYCUBIC_LCD_CHIRON"
+      ]
+    },
+    "emergencyParser": {
+      "mapsFrom": [
+        "EMERGENCY_PARSER"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2617,
+      "isConditional": true,
+      "conditionalOn": [
+        "BTT_TOUCH_SCREEN"
+      ]
+    },
+    "hostActionCommands": {
+      "mapsFrom": [
+        "HOST_ACTION_COMMANDS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4256,
+      "isConditional": true,
+      "conditionalOn": [
+        "BTT_TOUCH_SCREEN",
+        "DISABLE_ACTION_COMMANDS_SUPPORT"
+      ]
+    }
+  },
+  "safety": {
+    "powerLossRecovery": {
+      "mapsFrom": [
+        "POWER_LOSS_RECOVERY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1701,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ]
+    }
+  }
+}

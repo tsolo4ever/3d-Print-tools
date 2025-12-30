@@ -1,0 +1,741 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_4": {
+    "fanKickstartPower": {
+      "mapsFrom": [
+        "FAN_KICKSTART_POWER"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 563,
+      "examples": [
+        "180"
+      ]
+    },
+    "fanOffPwm": {
+      "mapsFrom": [
+        "FAN_OFF_PWM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 566,
+      "examples": [
+        "1"
+      ],
+      "notes": "Some coolers may require a non-zero \"off\" state."
+    },
+    "fanMinPwm": {
+      "mapsFrom": [
+        "FAN_MIN_PWM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 580,
+      "examples": [
+        "50"
+      ]
+    },
+    "fanMaxPwm": {
+      "mapsFrom": [
+        "FAN_MAX_PWM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 581,
+      "examples": [
+        "128"
+      ]
+    },
+    "fastPwmFan": {
+      "mapsFrom": [
+        "FAST_PWM_FAN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 608,
+      "examples": [
+        "// Increase the fan PWM frequency. Removes the PWM noise but increases heating in the FET/Arduino"
+      ]
+    },
+    "fastPwmFanFrequency": {
+      "mapsFrom": [
+        "FAST_PWM_FAN_FREQUENCY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 616,
+      "isConditional": true,
+      "conditionalOn": [
+        "FAST_PWM_FAN"
+      ],
+      "conditionalOnNot": [
+        "__AVR__",
+        "FAST_PWM_FAN_FREQUENCY"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "1000U"
+      ]
+    },
+    "ocr2aAsTop": {
+      "mapsFrom": [
+        "USE_OCR2A_AS_TOP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 611,
+      "isConditional": true,
+      "conditionalOn": [
+        "FAST_PWM_FAN"
+      ]
+    },
+    "redundantPartCoolingFan": {
+      "mapsFrom": [
+        "REDUNDANT_PART_COOLING_FAN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 624,
+      "examples": [
+        "1"
+      ]
+    },
+    "e0AutoFanPin": {
+      "mapsFrom": [
+        "E0_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 638,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e1AutoFanPin": {
+      "mapsFrom": [
+        "E1_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 639,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e2AutoFanPin": {
+      "mapsFrom": [
+        "E2_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 640,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e3AutoFanPin": {
+      "mapsFrom": [
+        "E3_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 641,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e4AutoFanPin": {
+      "mapsFrom": [
+        "E4_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 642,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e5AutoFanPin": {
+      "mapsFrom": [
+        "E5_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 643,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e6AutoFanPin": {
+      "mapsFrom": [
+        "E6_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 644,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e7AutoFanPin": {
+      "mapsFrom": [
+        "E7_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 645,
+      "examples": [
+        "-1"
+      ]
+    },
+    "chamberAutoFanPin": {
+      "mapsFrom": [
+        "CHAMBER_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 646,
+      "examples": [
+        "-1"
+      ]
+    },
+    "coolerAutoFanPin": {
+      "mapsFrom": [
+        "COOLER_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 647,
+      "examples": [
+        "-1"
+      ]
+    },
+    "extruderAutoFanSpeed": {
+      "mapsFrom": [
+        "EXTRUDER_AUTO_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 650,
+      "examples": [
+        "255"
+      ]
+    },
+    "chamberAutoFanSpeed": {
+      "mapsFrom": [
+        "CHAMBER_AUTO_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 652,
+      "examples": [
+        "255"
+      ]
+    },
+    "coolerAutoFanSpeed": {
+      "mapsFrom": [
+        "COOLER_AUTO_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 654,
+      "examples": [
+        "255"
+      ]
+    },
+    "fourwiresFans": {
+      "mapsFrom": [
+        "FOURWIRES_FANS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 664,
+      "examples": [
+        "// Needed with AUTO_FAN when 4-wire PWM fans are installed"
+      ]
+    },
+    "e0FanTachoPin": {
+      "mapsFrom": [
+        "E0_FAN_TACHO_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 665,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e0FanTachoPullup": {
+      "mapsFrom": [
+        "E0_FAN_TACHO_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 666
+    },
+    "e0FanTachoPulldown": {
+      "mapsFrom": [
+        "E0_FAN_TACHO_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 667
+    },
+    "e1FanTachoPin": {
+      "mapsFrom": [
+        "E1_FAN_TACHO_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 668,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e1FanTachoPullup": {
+      "mapsFrom": [
+        "E1_FAN_TACHO_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 669
+    },
+    "e1FanTachoPulldown": {
+      "mapsFrom": [
+        "E1_FAN_TACHO_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 670
+    },
+    "e2FanTachoPin": {
+      "mapsFrom": [
+        "E2_FAN_TACHO_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 671,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e2FanTachoPullup": {
+      "mapsFrom": [
+        "E2_FAN_TACHO_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 672
+    }
+  },
+  "other_5": {
+    "e2FanTachoPulldown": {
+      "mapsFrom": [
+        "E2_FAN_TACHO_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 673
+    },
+    "e3FanTachoPin": {
+      "mapsFrom": [
+        "E3_FAN_TACHO_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 674,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e3FanTachoPullup": {
+      "mapsFrom": [
+        "E3_FAN_TACHO_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 675
+    },
+    "e3FanTachoPulldown": {
+      "mapsFrom": [
+        "E3_FAN_TACHO_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 676
+    },
+    "e4FanTachoPin": {
+      "mapsFrom": [
+        "E4_FAN_TACHO_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 677,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e4FanTachoPullup": {
+      "mapsFrom": [
+        "E4_FAN_TACHO_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 678
+    },
+    "e4FanTachoPulldown": {
+      "mapsFrom": [
+        "E4_FAN_TACHO_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 679
+    },
+    "e5FanTachoPin": {
+      "mapsFrom": [
+        "E5_FAN_TACHO_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 680,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e5FanTachoPullup": {
+      "mapsFrom": [
+        "E5_FAN_TACHO_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 681
+    },
+    "e5FanTachoPulldown": {
+      "mapsFrom": [
+        "E5_FAN_TACHO_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 682
+    },
+    "e6FanTachoPin": {
+      "mapsFrom": [
+        "E6_FAN_TACHO_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 683,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e6FanTachoPullup": {
+      "mapsFrom": [
+        "E6_FAN_TACHO_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 684
+    },
+    "e6FanTachoPulldown": {
+      "mapsFrom": [
+        "E6_FAN_TACHO_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 685
+    },
+    "e7FanTachoPin": {
+      "mapsFrom": [
+        "E7_FAN_TACHO_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 686,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e7FanTachoPullup": {
+      "mapsFrom": [
+        "E7_FAN_TACHO_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 687
+    },
+    "e7FanTachoPulldown": {
+      "mapsFrom": [
+        "E7_FAN_TACHO_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 688
+    },
+    "fanmux0Pin": {
+      "mapsFrom": [
+        "FANMUX0_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 697,
+      "examples": [
+        "-1"
+      ]
+    },
+    "fanmux1Pin": {
+      "mapsFrom": [
+        "FANMUX1_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 698,
+      "examples": [
+        "-1"
+      ]
+    },
+    "fanmux2Pin": {
+      "mapsFrom": [
+        "FANMUX2_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 699,
+      "examples": [
+        "-1"
+      ]
+    },
+    "caseLightEnable": {
+      "mapsFrom": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 705
+    },
+    "caseLightPin": {
+      "mapsFrom": [
+        "CASE_LIGHT_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 707,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "invertCaseLight": {
+      "mapsFrom": [
+        "INVERT_CASE_LIGHT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 708,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "caseLightDefaultOn": {
+      "mapsFrom": [
+        "CASE_LIGHT_DEFAULT_ON"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 709,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "caseLightDefaultBrightness": {
+      "mapsFrom": [
+        "CASE_LIGHT_DEFAULT_BRIGHTNESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 710,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "105"
+      ]
+    },
+    "caseLightNoBrightness": {
+      "mapsFrom": [
+        "CASE_LIGHT_NO_BRIGHTNESS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 711,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "// Disable brightness control. Enable for non-PWM lighting."
+      ]
+    },
+    "caseLightMaxPwm": {
+      "mapsFrom": [
+        "CASE_LIGHT_MAX_PWM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 712,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "128"
+      ]
+    },
+    "caseLightMenu": {
+      "mapsFrom": [
+        "CASE_LIGHT_MENU"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 713,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "// Add Case Light options to the LCD menu"
+      ]
+    },
+    "caseLightUseNeopixel": {
+      "mapsFrom": [
+        "CASE_LIGHT_USE_NEOPIXEL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 715,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE",
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "// Use NeoPixel LED as case light"
+      ]
+    },
+    "caseLightUseRgbLed": {
+      "mapsFrom": [
+        "CASE_LIGHT_USE_RGB_LED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 718,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE",
+        "EITHER",
+        "RGBW_LED",
+        "RGB_LED"
+      ],
+      "examples": [
+        "// Use RGB / RGBW LED as case light"
+      ]
+    },
+    "caseLightDefaultColor": {
+      "mapsFrom": [
+        "CASE_LIGHT_DEFAULT_COLOR"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 721,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE",
+        "CASE_LIGHT_USE_RGB_LED",
+        "EITHER",
+        "CASE_LIGHT_USE_NEOPIXEL"
+      ],
+      "examples": [
+        "{ 255, 255, 255, 255 }"
+      ]
+    }
+  }
+}

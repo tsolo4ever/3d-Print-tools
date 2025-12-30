@@ -1,0 +1,466 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_36": {
+    "joyYLimits": {
+      "mapsFrom": [
+        "JOY_Y_LIMITS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4380,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "{ 5600, 8250-100, 8250+100, 11000 }"
+      ]
+    },
+    "joyZLimits": {
+      "mapsFrom": [
+        "JOY_Z_LIMITS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4381,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "{ 4800, 8080-100, 8080+100, 11550 }"
+      ]
+    },
+    "joystickDebug": {
+      "mapsFrom": [
+        "JOYSTICK_DEBUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4382,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ]
+    },
+    "mechanicalGantryCalibration": {
+      "mapsFrom": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4393,
+      "isConditional": true,
+      "conditionalOn": [
+        "SOVOL_SV06_PLUS",
+        "SOVOL_SV06"
+      ]
+    },
+    "gantryCalibrationCurrent": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4396,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "1100"
+      ]
+    },
+    "gantryCalibrationExtraHeight": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_EXTRA_HEIGHT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4397,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "15"
+      ]
+    },
+    "gantryCalibrationToMin": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_TO_MIN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4399,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "// Enable to calibrate Z in the MIN direction"
+      ]
+    },
+    "gantryCalibrationSafePosition": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_SAFE_POSITION"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4401,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "XY_CENTER"
+      ]
+    },
+    "gantryCalibrationCommandsPre": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_COMMANDS_PRE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4403,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "\"\""
+      ]
+    },
+    "gantryCalibrationCommandsPost": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_COMMANDS_POST"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4404,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "\"G28\""
+      ]
+    },
+    "freezeFeature": {
+      "mapsFrom": [
+        "FREEZE_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4412
+    },
+    "freezePin": {
+      "mapsFrom": [
+        "FREEZE_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4414,
+      "isConditional": true,
+      "conditionalOn": [
+        "FREEZE_FEATURE"
+      ],
+      "examples": [
+        "41"
+      ]
+    },
+    "freezeState": {
+      "mapsFrom": [
+        "FREEZE_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4415,
+      "isConditional": true,
+      "conditionalOn": [
+        "FREEZE_FEATURE"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "max7219Debug": {
+      "mapsFrom": [
+        "MAX7219_DEBUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4425
+    },
+    "max7219ClkPin": {
+      "mapsFrom": [
+        "MAX7219_CLK_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4427,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "64"
+      ]
+    },
+    "max7219DinPin": {
+      "mapsFrom": [
+        "MAX7219_DIN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4428,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "57"
+      ]
+    },
+    "max7219LoadPin": {
+      "mapsFrom": [
+        "MAX7219_LOAD_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4429,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "44"
+      ]
+    },
+    "max7219Gcode": {
+      "mapsFrom": [
+        "MAX7219_GCODE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4431,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "// Add the M7219 G-code to control the LED matrix"
+      ]
+    },
+    "max7219InitTest": {
+      "mapsFrom": [
+        "MAX7219_INIT_TEST"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4432,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "max7219NumberUnits": {
+      "mapsFrom": [
+        "MAX7219_NUMBER_UNITS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4433,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "max7219Rotate": {
+      "mapsFrom": [
+        "MAX7219_ROTATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4434,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "max7219ReverseOrder": {
+      "mapsFrom": [
+        "MAX7219_REVERSE_ORDER"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4436,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "// The order of the LED matrix units may be reversed"
+      ],
+      "notes": "connector at:  right=0   bottom=-90  top=90  left=180"
+    },
+    "max7219ReverseEach": {
+      "mapsFrom": [
+        "MAX7219_REVERSE_EACH"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4437,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "// The LEDs in each matrix unit row may be reversed"
+      ]
+    },
+    "max7219SideBySide": {
+      "mapsFrom": [
+        "MAX7219_SIDE_BY_SIDE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4438,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "// Big chip+matrix boards can be chained side-by-side"
+      ]
+    },
+    "max7219DebugPrinterAlive": {
+      "mapsFrom": [
+        "MAX7219_DEBUG_PRINTER_ALIVE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4444,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "// Blink corner LED of 8x8 matrix to show that the firmware is functioning"
+      ]
+    },
+    "max7219DebugPlannerHead": {
+      "mapsFrom": [
+        "MAX7219_DEBUG_PLANNER_HEAD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4445,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "max7219DebugPlannerTail": {
+      "mapsFrom": [
+        "MAX7219_DEBUG_PLANNER_TAIL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4446,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "max7219DebugPlannerQueue": {
+      "mapsFrom": [
+        "MAX7219_DEBUG_PLANNER_QUEUE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4448,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "max7219DebugProfile": {
+      "mapsFrom": [
+        "MAX7219_DEBUG_PROFILE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4451,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "6"
+      ],
+      "notes": "If you experience stuttering, reboots, etc. this option can reveal how tweaks made to the configuration are affecting the printer in real-time."
+    },
+    "nanodlpZSync": {
+      "mapsFrom": [
+        "NANODLP_Z_SYNC"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4464
+    }
+  }
+}

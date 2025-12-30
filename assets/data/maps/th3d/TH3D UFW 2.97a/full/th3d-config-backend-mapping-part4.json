@@ -1,0 +1,650 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_backend.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_backend.h",
+  "totalDefines": 205,
+  "bedLeveling": {
+    "levelingFadeHeight": {
+      "mapsFrom": [
+        "ENABLE_LEVELING_FADE_HEIGHT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 225,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ]
+    },
+    "restoreLevelingAfterG28": {
+      "mapsFrom": [
+        "RESTORE_LEVELING_AFTER_G28"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 688,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ]
+    },
+    "g26MeshValidation": {
+      "mapsFrom": [
+        "G26_MESH_VALIDATION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 314,
+      "isConditional": true,
+      "conditionalOn": [
+        "BOTH",
+        "ABL_ENABLE",
+        "BTT_TOUCH_SCREEN"
+      ]
+    },
+    "ublMeshXPoints": {
+      "mapsFrom": [
+        "UBL_MESH_X_POINTS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 226,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ],
+      "examples": [
+        "EZABL_POINTS"
+      ]
+    },
+    "ublMeshYPoints": {
+      "mapsFrom": [
+        "UBL_MESH_Y_POINTS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 227,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ],
+      "examples": [
+        "UBL_MESH_X_POINTS"
+      ]
+    },
+    "meshInset": {
+      "mapsFrom": [
+        "MESH_INSET"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 691,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "EZABL_PROBE_EDGE"
+      ]
+    },
+    "ublMeshEditMovesZ": {
+      "mapsFrom": [
+        "UBL_MESH_EDIT_MOVES_Z"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 230,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ],
+      "examples": [
+        "// Move Z during mesh editing"
+      ]
+    },
+    "ublMeshWizard": {
+      "mapsFrom": [
+        "UBL_MESH_WIZARD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 231,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ],
+      "examples": [
+        "// Guided mesh setup"
+      ]
+    },
+    "meshMinX": {
+      "mapsFrom": [
+        "MESH_MIN_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 234,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ],
+      "examples": [
+        "(EZABL_PROBE_EDGE)"
+      ]
+    },
+    "meshMaxX": {
+      "mapsFrom": [
+        "MESH_MAX_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 235,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ],
+      "examples": [
+        "(X_BED_SIZE - EZABL_PROBE_EDGE)"
+      ]
+    },
+    "meshMinY": {
+      "mapsFrom": [
+        "MESH_MIN_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 236,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ],
+      "examples": [
+        "(EZABL_PROBE_EDGE)"
+      ]
+    },
+    "meshMaxY": {
+      "mapsFrom": [
+        "MESH_MAX_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 237,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ],
+      "examples": [
+        "(Y_BED_SIZE - EZABL_PROBE_EDGE)"
+      ]
+    },
+    "gridMaxPointsX": {
+      "mapsFrom": [
+        "GRID_MAX_POINTS_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 700,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "EZABL_POINTS"
+      ],
+      "notes": "Define these even if not using Bilinear to satisfy SanityCheck.h"
+    },
+    "gridMaxPointsY": {
+      "mapsFrom": [
+        "GRID_MAX_POINTS_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 701,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "GRID_MAX_POINTS_X"
+      ]
+    },
+    "zSafeHoming": {
+      "mapsFrom": [
+        "Z_SAFE_HOMING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 248,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE"
+      ]
+    },
+    "zSafeHomingXPoint": {
+      "mapsFrom": [
+        "Z_SAFE_HOMING_X_POINT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 251,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_SAFE_HOMING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "X_CENTER"
+      ]
+    },
+    "zSafeHomingYPoint": {
+      "mapsFrom": [
+        "Z_SAFE_HOMING_Y_POINT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 252,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_SAFE_HOMING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "Y_CENTER"
+      ]
+    },
+    "meshTestNozzleSize": {
+      "mapsFrom": [
+        "MESH_TEST_NOZZLE_SIZE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 322,
+      "isConditional": true,
+      "conditionalOn": [
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "0.4"
+      ]
+    },
+    "meshTestLayerHeight": {
+      "mapsFrom": [
+        "MESH_TEST_LAYER_HEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 323,
+      "isConditional": true,
+      "conditionalOn": [
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "0.2"
+      ]
+    },
+    "meshEditZStep": {
+      "mapsFrom": [
+        "MESH_EDIT_Z_STEP"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 689,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "0.025"
+      ]
+    },
+    "meshEditMenu": {
+      "mapsFrom": [
+        "MESH_EDIT_MENU"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 703,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ]
+    }
+  },
+  "endstops": {
+    "zMinProbeEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 269,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE"
+      ],
+      "conditionalOnNot": [
+        "INVERT_EZABL_LOGIC",
+        "SV06_EZABL_INSTALLED",
+        "ENDER5_S1",
+        "ENDER3_S1_PRO",
+        "ENDER3_S1",
+        "CR10S_PRO_STOCK_ABL",
+        "CR10S_PRO",
+        "ENDER3_S1_PLUS",
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "zMinEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 272,
+      "isConditional": true,
+      "conditionalOn": [
+        "CHIRON",
+        "ABL_ENABLE"
+      ],
+      "conditionalOnNot": [
+        "INVERT_EZABL_LOGIC",
+        "SV06_EZABL_INSTALLED",
+        "ENDER5_S1",
+        "ENDER3_S1_PRO",
+        "ENDER3_S1",
+        "CR10S_PRO_STOCK_ABL",
+        "CR10S_PRO",
+        "ENDER3_S1_PLUS",
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "validateHomingEndstops": {
+      "mapsFrom": [
+        "VALIDATE_HOMING_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 508
+    },
+    "endstoppullupZmin": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_ZMIN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 532,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ]
+    },
+    "endstoppullupZminProbe": {
+      "mapsFrom": [
+        "ENDSTOPPULLUP_ZMIN_PROBE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 533,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ]
+    },
+    "minSoftwareEndstops": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 562
+    },
+    "minSoftwareEndstopX": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_X"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 564,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "minSoftwareEndstopY": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_Y"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 565,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "minSoftwareEndstopZ": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_Z"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 567,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS",
+        "ABL_ENABLE"
+      ]
+    },
+    "maxSoftwareEndstops": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 571
+    },
+    "maxSoftwareEndstopX": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_X"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 573,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "maxSoftwareEndstopY": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_Y"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 574,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "maxSoftwareEndstopZ": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_Z"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 575,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "endstopNoiseThreshold": {
+      "mapsFrom": [
+        "ENDSTOP_NOISE_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 607,
+      "isConditional": true,
+      "conditionalOn": [
+        "DISABLE_ENDSTOP_NOISE_FILTERING"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "detectBrokenEndstop": {
+      "mapsFrom": [
+        "DETECT_BROKEN_ENDSTOP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 614,
+      "examples": [
+        "//Added in V2.90"
+      ]
+    }
+  },
+  "geometry": {
+    "zMaxPos": {
+      "mapsFrom": [
+        "Z_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 294,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_Z_HEIGHT"
+      ],
+      "examples": [
+        "CUSTOM_Z_HEIGHT"
+      ]
+    },
+    "zMinPos": {
+      "mapsFrom": [
+        "Z_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 505,
+      "examples": [
+        "0"
+      ]
+    },
+    "xMaxPos": {
+      "mapsFrom": [
+        "X_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 506,
+      "examples": [
+        "X_BED_SIZE"
+      ]
+    },
+    "yMaxPos": {
+      "mapsFrom": [
+        "Y_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 507,
+      "examples": [
+        "Y_BED_SIZE"
+      ]
+    }
+  },
+  "safety": {
+    "preventColdExtrusion": {
+      "mapsFrom": [
+        "PREVENT_COLD_EXTRUSION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 338
+    }
+  }
+}

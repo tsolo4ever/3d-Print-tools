@@ -1,0 +1,533 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_23": {
+    "e2HybridThreshold": {
+      "mapsFrom": [
+        "E2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2777,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e3HybridThreshold": {
+      "mapsFrom": [
+        "E3_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2778,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e4HybridThreshold": {
+      "mapsFrom": [
+        "E4_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2779,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e5HybridThreshold": {
+      "mapsFrom": [
+        "E5_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2780,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e6HybridThreshold": {
+      "mapsFrom": [
+        "E6_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2781,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e7HybridThreshold": {
+      "mapsFrom": [
+        "E7_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2782,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "sensorlessHoming": {
+      "mapsFrom": [
+        "SENSORLESS_HOMING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2809,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "// StallGuard capable drivers only"
+      ]
+    },
+    "xStallSensitivity": {
+      "mapsFrom": [
+        "X_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2813,
+      "isConditional": true,
+      "conditionalOn": [
+        "SENSORLESS_PROBING",
+        "SENSORLESS_HOMING",
+        "EITHER",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "8"
+      ],
+      "notes": "TMC2209: 0...255. TMC2130: -64...63"
+    },
+    "x2StallSensitivity": {
+      "mapsFrom": [
+        "X2_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2814,
+      "isConditional": true,
+      "conditionalOn": [
+        "SENSORLESS_PROBING",
+        "SENSORLESS_HOMING",
+        "EITHER",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "X_STALL_SENSITIVITY"
+      ]
+    },
+    "yStallSensitivity": {
+      "mapsFrom": [
+        "Y_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2815,
+      "isConditional": true,
+      "conditionalOn": [
+        "SENSORLESS_PROBING",
+        "SENSORLESS_HOMING",
+        "EITHER",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "y2StallSensitivity": {
+      "mapsFrom": [
+        "Y2_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2816,
+      "isConditional": true,
+      "conditionalOn": [
+        "SENSORLESS_PROBING",
+        "SENSORLESS_HOMING",
+        "EITHER",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "Y_STALL_SENSITIVITY"
+      ]
+    },
+    "zStallSensitivity": {
+      "mapsFrom": [
+        "Z_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2817,
+      "isConditional": true,
+      "conditionalOn": [
+        "SENSORLESS_PROBING",
+        "SENSORLESS_HOMING",
+        "EITHER",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "z2StallSensitivity": {
+      "mapsFrom": [
+        "Z2_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2818,
+      "isConditional": true,
+      "conditionalOn": [
+        "SENSORLESS_PROBING",
+        "SENSORLESS_HOMING",
+        "EITHER",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "Z_STALL_SENSITIVITY"
+      ]
+    },
+    "z3StallSensitivity": {
+      "mapsFrom": [
+        "Z3_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2819,
+      "isConditional": true,
+      "conditionalOn": [
+        "SENSORLESS_PROBING",
+        "SENSORLESS_HOMING",
+        "EITHER",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "Z_STALL_SENSITIVITY"
+      ]
+    },
+    "z4StallSensitivity": {
+      "mapsFrom": [
+        "Z4_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2820,
+      "isConditional": true,
+      "conditionalOn": [
+        "SENSORLESS_PROBING",
+        "SENSORLESS_HOMING",
+        "EITHER",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "Z_STALL_SENSITIVITY"
+      ]
+    },
+    "improveHomingReliability": {
+      "mapsFrom": [
+        "IMPROVE_HOMING_RELIABILITY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2822,
+      "isConditional": true,
+      "conditionalOn": [
+        "SENSORLESS_PROBING",
+        "SENSORLESS_HOMING",
+        "EITHER",
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "squareWaveStepping": {
+      "mapsFrom": [
+        "SQUARE_WAVE_STEPPING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2841,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "tmcDebug": {
+      "mapsFrom": [
+        "TMC_DEBUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2847,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "l6470Chitchat": {
+      "mapsFrom": [
+        "L6470_CHITCHAT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2882,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "// Display additional status info"
+      ]
+    },
+    "xOvercurrent": {
+      "mapsFrom": [
+        "X_OVERCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2886,
+      "isConditional": true,
+      "conditionalOn": [
+        "X",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "2000"
+      ]
+    },
+    "xStallcurrent": {
+      "mapsFrom": [
+        "X_STALLCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2889,
+      "isConditional": true,
+      "conditionalOn": [
+        "X",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1500"
+      ],
+      "notes": "L6470 & L6474 - VALID: 375 x (1 - 16) - 6A max - rounds down POWERSTEP01: VALID: 1000 x (1 - 32) - 32A max - rounds down"
+    },
+    "xMaxVoltage": {
+      "mapsFrom": [
+        "X_MAX_VOLTAGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2893,
+      "isConditional": true,
+      "conditionalOn": [
+        "X",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "127"
+      ],
+      "notes": "L6470 & L6474 - VALID: 31.25 * (1-128) -  4A max - rounds down POWERSTEP01: VALID: 200 x (1 - 32) - 6.4A max - rounds down L6474 - STALLCURRENT setting is used to set the nominal (TVAL) current"
+    },
+    "xSlewRate": {
+      "mapsFrom": [
+        "X_SLEW_RATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2895,
+      "isConditional": true,
+      "conditionalOn": [
+        "X",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "x2Overcurrent": {
+      "mapsFrom": [
+        "X2_OVERCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2900,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_L64XX",
+        "X2",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "2000"
+      ]
+    },
+    "x2Stallcurrent": {
+      "mapsFrom": [
+        "X2_STALLCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2901,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_L64XX",
+        "X2",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1500"
+      ]
+    },
+    "x2MaxVoltage": {
+      "mapsFrom": [
+        "X2_MAX_VOLTAGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2902,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_L64XX",
+        "X2",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "127"
+      ]
+    },
+    "x2SlewRate": {
+      "mapsFrom": [
+        "X2_SLEW_RATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2904,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_L64XX",
+        "X2",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "yOvercurrent": {
+      "mapsFrom": [
+        "Y_OVERCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2909,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "2000"
+      ]
+    },
+    "yStallcurrent": {
+      "mapsFrom": [
+        "Y_STALLCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2910,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1500"
+      ]
+    },
+    "yMaxVoltage": {
+      "mapsFrom": [
+        "Y_MAX_VOLTAGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2911,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "127"
+      ]
+    }
+  }
+}

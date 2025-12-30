@@ -1,0 +1,557 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_28": {
+    "z2HybridThreshold": {
+      "mapsFrom": [
+        "Z2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3127,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "z3HybridThreshold": {
+      "mapsFrom": [
+        "Z3_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3128,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "z4HybridThreshold": {
+      "mapsFrom": [
+        "Z4_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3129,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "iHybridThreshold": {
+      "mapsFrom": [
+        "I_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3130,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "jHybridThreshold": {
+      "mapsFrom": [
+        "J_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3131,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "kHybridThreshold": {
+      "mapsFrom": [
+        "K_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3132,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "uHybridThreshold": {
+      "mapsFrom": [
+        "U_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3133,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "vHybridThreshold": {
+      "mapsFrom": [
+        "V_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3134,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "wHybridThreshold": {
+      "mapsFrom": [
+        "W_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3135,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "e0HybridThreshold": {
+      "mapsFrom": [
+        "E0_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3136,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e1HybridThreshold": {
+      "mapsFrom": [
+        "E1_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3137,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e2HybridThreshold": {
+      "mapsFrom": [
+        "E2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3138,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e3HybridThreshold": {
+      "mapsFrom": [
+        "E3_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3139,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e4HybridThreshold": {
+      "mapsFrom": [
+        "E4_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3140,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e5HybridThreshold": {
+      "mapsFrom": [
+        "E5_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3141,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e6HybridThreshold": {
+      "mapsFrom": [
+        "E6_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3142,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e7HybridThreshold": {
+      "mapsFrom": [
+        "E7_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3143,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "sensorlessHoming": {
+      "mapsFrom": [
+        "SENSORLESS_HOMING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3171,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "// StallGuard capable drivers only"
+      ]
+    },
+    "xStallSensitivity": {
+      "mapsFrom": [
+        "X_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3175,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "8"
+      ],
+      "notes": "TMC2209: 0...255. TMC2130: -64...63"
+    },
+    "x2StallSensitivity": {
+      "mapsFrom": [
+        "X2_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3176,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "X_STALL_SENSITIVITY"
+      ]
+    },
+    "yStallSensitivity": {
+      "mapsFrom": [
+        "Y_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3177,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "y2StallSensitivity": {
+      "mapsFrom": [
+        "Y2_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3178,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "Y_STALL_SENSITIVITY"
+      ]
+    },
+    "zStallSensitivity": {
+      "mapsFrom": [
+        "Z_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3179,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "z2StallSensitivity": {
+      "mapsFrom": [
+        "Z2_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3180,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "Z_STALL_SENSITIVITY"
+      ]
+    },
+    "z3StallSensitivity": {
+      "mapsFrom": [
+        "Z3_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3181,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "Z_STALL_SENSITIVITY"
+      ]
+    },
+    "z4StallSensitivity": {
+      "mapsFrom": [
+        "Z4_STALL_SENSITIVITY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3182,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "Z_STALL_SENSITIVITY"
+      ]
+    },
+    "iStallSensitivity": {
+      "mapsFrom": [
+        "I_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3183,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "jStallSensitivity": {
+      "mapsFrom": [
+        "J_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3184,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "kStallSensitivity": {
+      "mapsFrom": [
+        "K_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3185,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "uStallSensitivity": {
+      "mapsFrom": [
+        "U_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3186,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "8"
+      ]
+    }
+  }
+}

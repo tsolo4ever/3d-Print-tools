@@ -1,0 +1,496 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_29": {
+    "vStallSensitivity": {
+      "mapsFrom": [
+        "V_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3187,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "wStallSensitivity": {
+      "mapsFrom": [
+        "W_STALL_SENSITIVITY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3188,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "improveHomingReliability": {
+      "mapsFrom": [
+        "IMPROVE_HOMING_RELIABILITY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3190,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "SENSORLESS_PROBING",
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING",
+        "EITHER"
+      ]
+    },
+    "squareWaveStepping": {
+      "mapsFrom": [
+        "SQUARE_WAVE_STEPPING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3210,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "tmcDebug": {
+      "mapsFrom": [
+        "TMC_DEBUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3216,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "i2cMasterId": {
+      "mapsFrom": [
+        "I2C_MASTER_ID"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3239,
+      "examples": [
+        "1"
+      ],
+      "notes": "@section i2cbus  I2C Master ID for LPC176x LCD and Digital Current control Does not apply to other peripherals based on the Wire library. "
+    },
+    "experimentalI2cbus": {
+      "mapsFrom": [
+        "EXPERIMENTAL_I2CBUS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3268
+    },
+    "i2cSlaveAddress": {
+      "mapsFrom": [
+        "I2C_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3270,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXPERIMENTAL_I2CBUS"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "photoGcode": {
+      "mapsFrom": [
+        "PHOTO_GCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3280
+    },
+    "photoPosition": {
+      "mapsFrom": [
+        "PHOTO_POSITION"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3283,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "{ X_MAX_POS - 5, Y_MAX_POS, 0 }"
+      ],
+      "notes": "A position to move to (and raise Z) before taking the photo"
+    },
+    "photoDelayMs": {
+      "mapsFrom": [
+        "PHOTO_DELAY_MS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3284,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "photoRetractMm": {
+      "mapsFrom": [
+        "PHOTO_RETRACT_MM"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3285,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "6.5"
+      ]
+    },
+    "photographPin": {
+      "mapsFrom": [
+        "PHOTOGRAPH_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3289,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "23"
+      ],
+      "notes": "Canon RC-1 or homebrew digital camera trigger Data from: https://www.doc-diy.net/photo/rc-1_hacked/"
+    },
+    "chdkPin": {
+      "mapsFrom": [
+        "CHDK_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3293,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "4"
+      ],
+      "notes": "Canon Hack Development Kit https://web.archive.org/web/20200920094805/captain-slow.dk/2014/03/09/3d-printing-timelapses/"
+    },
+    "photoSwitchPosition": {
+      "mapsFrom": [
+        "PHOTO_SWITCH_POSITION"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3296,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "{ X_MAX_POS, Y_MAX_POS }"
+      ],
+      "notes": "Optional second move with delay to trigger the camera shutter"
+    },
+    "photoSwitchMs": {
+      "mapsFrom": [
+        "PHOTO_SWITCH_MS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3299,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "50"
+      ],
+      "notes": "Duration to hold the switch or keep CHDK_PIN high"
+    },
+    "photoPulsesUs": {
+      "mapsFrom": [
+        "PHOTO_PULSES_US"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3310,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "{ 2000, 27850, 400, 1580, 400, 3580, 400 }"
+      ]
+    },
+    "photoPulseDelayUs": {
+      "mapsFrom": [
+        "PHOTO_PULSE_DELAY_US"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3312,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE",
+        "PHOTO_PULSES_US"
+      ],
+      "examples": [
+        "13"
+      ]
+    },
+    "spindleFeature": {
+      "mapsFrom": [
+        "SPINDLE_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3333
+    },
+    "laserFeature": {
+      "mapsFrom": [
+        "LASER_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3334
+    },
+    "spindleLaserActiveState": {
+      "mapsFrom": [
+        "SPINDLE_LASER_ACTIVE_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3336,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "spindleLaserUsePwm": {
+      "mapsFrom": [
+        "SPINDLE_LASER_USE_PWM"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3338,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "// Enable if your controller supports setting the speed/power"
+      ]
+    },
+    "spindleLaserPwmInvert": {
+      "mapsFrom": [
+        "SPINDLE_LASER_PWM_INVERT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3340,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "SPINDLE_LASER_USE_PWM",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "spindleLaserFrequency": {
+      "mapsFrom": [
+        "SPINDLE_LASER_FREQUENCY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3341,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "SPINDLE_LASER_USE_PWM",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "2500"
+      ]
+    },
+    "airEvacuation": {
+      "mapsFrom": [
+        "AIR_EVACUATION"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3347,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "// Cutter Vacuum / Laser Blower motor control with G-codes M10-M11"
+      ]
+    },
+    "airEvacuationActive": {
+      "mapsFrom": [
+        "AIR_EVACUATION_ACTIVE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3349,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "AIR_EVACUATION",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "airEvacuationPin": {
+      "mapsFrom": [
+        "AIR_EVACUATION_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3350,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "AIR_EVACUATION",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "42"
+      ]
+    },
+    "airAssist": {
+      "mapsFrom": [
+        "AIR_ASSIST"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3353,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "// Air Assist control with G-codes M8-M9"
+      ]
+    },
+    "airAssistActive": {
+      "mapsFrom": [
+        "AIR_ASSIST_ACTIVE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3355,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "AIR_ASSIST",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "airAssistPin": {
+      "mapsFrom": [
+        "AIR_ASSIST_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3356,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "AIR_ASSIST",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "44"
+      ]
+    }
+  }
+}

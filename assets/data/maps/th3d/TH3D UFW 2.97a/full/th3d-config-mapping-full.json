@@ -1,0 +1,3300 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration.h",
+  "totalDefines": 224,
+  "basic": {
+    "configurationHVersion": {
+      "mapsFrom": [
+        "CONFIGURATION_H_VERSION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 6,
+      "examples": [
+        "02010204"
+      ]
+    },
+    "serialPort": {
+      "mapsFrom": [
+        "SERIAL_PORT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1417,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "baudrate": {
+      "mapsFrom": [
+        "BAUDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1419,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "115200"
+      ]
+    },
+    "motherboard": {
+      "mapsFrom": [
+        "MOTHERBOARD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1422,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "MOTHERBOARD"
+      ],
+      "examples": [
+        "BOARD_CREALITY_V422"
+      ]
+    },
+    "showBootscreen": {
+      "mapsFrom": [
+        "SHOW_BOOTSCREEN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1431,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ]
+    },
+    "extruders": {
+      "mapsFrom": [
+        "EXTRUDERS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1433,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "lcdSerialPort": {
+      "mapsFrom": [
+        "LCD_SERIAL_PORT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1599,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "3"
+      ]
+    }
+  },
+  "other_1": {
+    "unifiedVersion": {
+      "mapsFrom": [
+        "UNIFIED_VERSION"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 8,
+      "examples": [
+        "\"TH3D UFW 2.97a\""
+      ]
+    },
+    "stringDistributionDate": {
+      "mapsFrom": [
+        "STRING_DISTRIBUTION_DATE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 9,
+      "examples": [
+        "\"2025-08-26\""
+      ]
+    },
+    "ender3": {
+      "mapsFrom": [
+        "ENDER3"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 538,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_NEO"
+      ],
+      "notes": "=========================================================================== ============================ TH3D Configuration =========================== =========================================================================== ONLY UNCOMMENT ONE PRINTER AT A TIME!!! IF YOU HAVE MULTIPLE MACHINES FLASH THEM ONE AT A TIME. UNCOMMENT MEANS REMOVING THE // IN FRONT OF A #define XXXXXX LINE. DO NOT USE AUTO BUILD MARLIN WITH OUR FIRMWARE - UNINSTALL IT FROM VSCODE BEFORE USING IF YOU HAVE ISSUES COMPILING. If you have a 512K CPU please read the notes in the platformio.ini file for details on compiling for these chips. Most boards regardless of the CPU will work as-is but if you have issues with the board flashing the firmware you may have to change the default_envs value as noted in platformio.ini. GD32 CPU Notes If you have a GD32 CPU you no longer need to change to a GD32 environment as the STM32 one work with those chips. If you converted a NEO or V2 printer to the 12864 LCD make sure to enable the ENDER3_12864_LCD_KIT option that is lower in the config section. =========================================================================== *********   CREALITY PRINTERS W/V4.X.X BOARD - F103/F303 CPU   *********** =========================================================================== ------------------------------ V4.2.2 Board -------------------------------"
+    },
+    "ender3Pro": {
+      "mapsFrom": [
+        "ENDER3_PRO"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 34
+    },
+    "ender3Neo": {
+      "mapsFrom": [
+        "ENDER3_NEO"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 35
+    },
+    "ender3Max": {
+      "mapsFrom": [
+        "ENDER3_MAX"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 559,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX_NEO"
+      ]
+    },
+    "ender3MaxNeo": {
+      "mapsFrom": [
+        "ENDER3_MAX_NEO"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 37
+    },
+    "ender3V2": {
+      "mapsFrom": [
+        "ENDER3_V2"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 525,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2_NEO"
+      ]
+    },
+    "ender3V2Neo": {
+      "mapsFrom": [
+        "ENDER3_V2_NEO"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 39
+    },
+    "ender5": {
+      "mapsFrom": [
+        "ENDER5"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 507,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER5_PRO"
+      ]
+    },
+    "ender5Pro": {
+      "mapsFrom": [
+        "ENDER5_PRO"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 41
+    },
+    "ender5Plus": {
+      "mapsFrom": [
+        "ENDER5_PLUS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 42,
+      "examples": [
+        "//REQUIRES TH3D LCD KIT AND DUAL CABLE LCD ADAPTER BOARD"
+      ]
+    },
+    "v42xTmc220xDrivers": {
+      "mapsFrom": [
+        "V42X_TMC220X_DRIVERS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 516,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER6",
+        "ENDER3_V2",
+        "ENDER2_PRO"
+      ],
+      "notes": "V4.2.2 TMC Driver Settings - Uncomment if you have TMC drivers on a 4.2.2 Board to set driver timings"
+    },
+    "ender2Pro": {
+      "mapsFrom": [
+        "ENDER2_PRO"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 48,
+      "notes": "------------------------------ V4.2.3 Board -------------------------------"
+    },
+    "ender6": {
+      "mapsFrom": [
+        "ENDER6"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 51,
+      "notes": "------------------------------ V4.3.1 Board -------------------------------"
+    },
+    "ender6NofilamentSensor": {
+      "mapsFrom": [
+        "ENDER6_NOFILAMENT_SENSOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 55,
+      "notes": "Ender 6 - Filament Sensor Override If you have issues with your filament sensor on the Ender 6 uncomment the below option to disable it."
+    },
+    "ender6TmcxyA4988zeDrivers": {
+      "mapsFrom": [
+        "ENDER6_TMCXY_A4988ZE_DRIVERS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 59,
+      "notes": "Ender 6 - Mixed Stepper Drivers If you have the newer revision of the Ender 6 board that uses TMC drivers on the XY and A4988 on the ZE axis, uncomment below to enable correct firmware settings."
+    },
+    "ezoutEnable": {
+      "mapsFrom": [
+        "EZOUT_ENABLE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 591,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZOUT_ENABLE_J1"
+      ],
+      "notes": "------------------------------ Upgrade Settings ------------------------------- EZOut Filament Sensor Kit - LCD Header Connection If you are using our EZOut filament sensor kit please follow the install guide and then uncomment the #define EZOUT_ENABLE line below."
+    },
+    "ezoutEnableJ1": {
+      "mapsFrom": [
+        "EZOUT_ENABLE_J1"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 574,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZOUT_ENABLE_J1",
+        "EZOUT_ENABLE",
+        "ENDER3_MAX_NEO"
+      ],
+      "notes": "EZOut Filament Sensor Kit - J1 Plug Connection If you are using our EZOut filament sensor kit please follow the install guide and then uncomment the #define EZOUT_ENABLE_J1 line below."
+    },
+    "cr10sStockfilamentsensor": {
+      "mapsFrom": [
+        "CR10S_STOCKFILAMENTSENSOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 74,
+      "notes": "Creality CR-10S Series Filament Sensor Connect the stock sensor to the \"J1\" port and uncomment the below line to enable the filament sensor."
+    },
+    "cr10Oem": {
+      "mapsFrom": [
+        "CR10_OEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 77,
+      "notes": "EZABL Probe Mounts - Uncomment the mount you are using for your EZABL to enable EZABL support in the firmware."
+    },
+    "ender2ProOem": {
+      "mapsFrom": [
+        "ENDER2_PRO_OEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 78
+    },
+    "ender2ProOemMicro": {
+      "mapsFrom": [
+        "ENDER2_PRO_OEM_MICRO"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 79
+    },
+    "ender3Oem": {
+      "mapsFrom": [
+        "ENDER3_OEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 80
+    },
+    "ender3V2Oem": {
+      "mapsFrom": [
+        "ENDER3_V2_OEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 81
+    },
+    "ender3MaxOem": {
+      "mapsFrom": [
+        "ENDER3_MAX_OEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 82
+    },
+    "ender5Oem": {
+      "mapsFrom": [
+        "ENDER5_OEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 83
+    },
+    "ender5PlusOem": {
+      "mapsFrom": [
+        "ENDER5_PLUS_OEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 84
+    },
+    "ender6Oem": {
+      "mapsFrom": [
+        "ENDER6_OEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 85
+    },
+    "ender6Petsfang": {
+      "mapsFrom": [
+        "ENDER6_PETSFANG"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 86,
+      "examples": [
+        "//Source: https:"
+      ]
+    }
+  },
+  "other_2": {
+    "spriteExtruder18mmMount": {
+      "mapsFrom": [
+        "SPRITE_EXTRUDER_18MM_MOUNT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 87,
+      "examples": [
+        "// Mounts to the stock CRTouch bracket"
+      ]
+    },
+    "ender5NewLeadscrew": {
+      "mapsFrom": [
+        "ENDER5_NEW_LEADSCREW"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 97,
+      "notes": "Ender 5 - Leadscrew Setting If you have the new Ender 5/5 Pro Model that has the new 800steps/mm Z leadscrew uncomment the below option to set the correct steps/mm"
+    },
+    "ender5PlusEzabl": {
+      "mapsFrom": [
+        "ENDER5_PLUS_EZABL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 102,
+      "notes": "Ender 5 Plus ONLY ABL Settings By default the Ender 5 Plus comes with a BL Touch. Enabling the ENDER5_PLUS_EZABL or ENDER5_PLUS_NOABL will override the BL Touch setting If you are using the stock BL Touch with a non-stock mount enable the CUSTOM_PROBE line above and enter the offsets below for the new mount."
+    },
+    "ender5PlusNoabl": {
+      "mapsFrom": [
+        "ENDER5_PLUS_NOABL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 103
+    },
+    "ender6LdoXy": {
+      "mapsFrom": [
+        "ENDER6_LDO_XY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 107,
+      "notes": "Ender 6 - LDO 0.9 Motor Kit Settings If you have upgraded to the 0.9 degree LDO motor kit for your Ender 6, uncomment the below line to set the XY steps needed."
+    },
+    "ezneo220": {
+      "mapsFrom": [
+        "EZNEO_220"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 112,
+      "notes": "EZNeo Settings If you are using an EZNeo strip on your printer, uncomment the line for what strip you are using. Specify your IO pin below as well as this board does not have a dedicated NEOPIXEL header on it."
+    },
+    "neopixelPin": {
+      "mapsFrom": [
+        "NEOPIXEL_PIN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 116,
+      "examples": [
+        "PA4"
+      ],
+      "notes": "EZNeo Manual IO Pin Setting If you have the EZNeo wired with your own 5V power provided, specify the pin used below."
+    },
+    "ezablPoints": {
+      "mapsFrom": [
+        "EZABL_POINTS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1338,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER5_PLUS_EZABL",
+        "ENDER5",
+        "ENDER5_PLUS_NOABL",
+        "ENDER3"
+      ],
+      "conditionalOnNot": [
+        "EZABL_POINTS"
+      ],
+      "examples": [
+        "5"
+      ],
+      "notes": "Probing Grid Points - If you want more or less EZABL probe points change the number below, use odd numbers. Total points is # times #."
+    },
+    "ablUbl": {
+      "mapsFrom": [
+        "ABL_UBL"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 133,
+      "notes": "CHOOSE ABL_UBL OR  DEFAULT IS ABL_BILINEAR"
+    },
+    "probingSteppersOff": {
+      "mapsFrom": [
+        "PROBING_STEPPERS_OFF"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 145,
+      "notes": "Probing Steppers Off - This will cycle the XYE stepper motors during probing to reduce interference from them. When using this do NOT touch the X or Y during probing as they will not be locked."
+    },
+    "servo0Pin": {
+      "mapsFrom": [
+        "SERVO0_PIN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 164,
+      "examples": [
+        "PB0"
+      ]
+    },
+    "customEsteps": {
+      "mapsFrom": [
+        "CUSTOM_ESTEPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 227,
+      "notes": "#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 } =========================================================================== ******************** Extra Features and Tweaks **************************** =========================================================================== EXTRUDER SETTINGS ------------------------------- Use to set custom esteps and/or reverse your E Motor direction if you are installing an extruder that needs the direction reversed. If you reversed the wiring on your E motor already (like the Bondtech Guide says to do) then you do not need to reverse it in the firmware here.  Example EStep Values For Common Extuders: TH3D Aluminum Extruder ------  95 ESteps Micro Swiss DD Extruder ----- 130 ESteps LGX/LGX Lite/MS NG Extruder - 400 ESteps TH3D Tough Extruder V2 ------ 407 ESteps TH3D Tough Extruder V1 ------ 410 ESteps Bondtech BMG Extruder ------- 415 ESteps Creality Sprite Extruder ---- 425 ESteps LDO Orbiter/Sherpa Mini ----- 690 ESteps  If you want to change the Esteps for your printer you can uncomment the below line and set CUSTOM_ESTEPS_VALUE to what you want - USE WHOLE NUMBERS ONLY This option sets the esteps from the CUSTOM_ESTEPS_VALUE line below. If you need to reverse the e motor direction also enabled the REVERSE_E_MOTOR_DIRECTION option."
+    },
+    "customEstepsValue": {
+      "mapsFrom": [
+        "CUSTOM_ESTEPS_VALUE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 228,
+      "examples": [
+        "425"
+      ]
+    },
+    "reverseEMotorDirection": {
+      "mapsFrom": [
+        "REVERSE_E_MOTOR_DIRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 229
+    },
+    "mountedFilamentSensor": {
+      "mapsFrom": [
+        "MOUNTED_FILAMENT_SENSOR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1047,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER3",
+        "ENDER5"
+      ],
+      "notes": "FILAMENT SENSOR UNLOAD SETTINGS ----------------- If you have a filament sensor that is physically mounted to the machine you can enable MOUNTED_FILAMENT_SENSOR to set the unload length to 5mm to prevent filament from backing up in the sensor by uncommenting MOUNTED_FILAMENT_SENSOR"
+    },
+    "directDrivePrinter": {
+      "mapsFrom": [
+        "DIRECT_DRIVE_PRINTER"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 236,
+      "notes": "If you have a direct drive machine with a filament sensor uncomment DIRECT_DRIVE_PRINTER to decrease the unload length from 100mm to 20mm"
+    },
+    "v6Hotend": {
+      "mapsFrom": [
+        "V6_HOTEND"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 241,
+      "notes": "THERMISTOR SETTINGS ----------------------------- If you are using an E3D V6 Hotend (or Hemera) with their cartridge thermistor (not glass version) uncomment the below line."
+    },
+    "th3dHotendThermistor": {
+      "mapsFrom": [
+        "TH3D_HOTEND_THERMISTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 244,
+      "notes": "If you are using a Tough Hotend from TH3D or any thermistors TH3D sells for your hotend uncomment the below line."
+    },
+    "knownHotendThermistor": {
+      "mapsFrom": [
+        "KNOWN_HOTEND_THERMISTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 247,
+      "notes": "If you are using a known hotend thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_HOTEND_THERMISTOR_VALUE"
+    },
+    "knownHotendThermistorValue": {
+      "mapsFrom": [
+        "KNOWN_HOTEND_THERMISTOR_VALUE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 248,
+      "examples": [
+        "X"
+      ]
+    },
+    "acBed": {
+      "mapsFrom": [
+        "AC_BED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 268,
+      "notes": "If you are using an AC bed with a standalone controller (Keenovo) uncomment the below line to disable the heated bed in the firmware"
+    },
+    "reverseKnobDirection": {
+      "mapsFrom": [
+        "REVERSE_KNOB_DIRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 275,
+      "notes": "MISC -------------------------------------------- LCD Knob Direction Turning your LCD knob clockwise should move DOWN in the menus/make values increase and counter-clockwise should move UP in the menus/make values decrease If yours is behaving opposite then enable the REVERSE_KNOB_DIRECTION option below"
+    },
+    "fanFix": {
+      "mapsFrom": [
+        "FAN_FIX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 278,
+      "notes": "If you have a 5015 fan that whines when under 100% speed uncomment the below line."
+    },
+    "customPrinterName": {
+      "mapsFrom": [
+        "CUSTOM_PRINTER_NAME"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 281,
+      "notes": "Use your own printer name - Uncomment both lines"
+    },
+    "userPrinterName": {
+      "mapsFrom": [
+        "USER_PRINTER_NAME"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 282,
+      "examples": [
+        "\"Maxy\""
+      ]
+    },
+    "slowerHoming": {
+      "mapsFrom": [
+        "SLOWER_HOMING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 285,
+      "notes": "If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive."
+    },
+    "reverseXMotor": {
+      "mapsFrom": [
+        "REVERSE_X_MOTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 290,
+      "notes": "Axis Direction Settings If you need to reverse the direction of a motor uncomment the below option for that axis. E motor settings are below in the Extruder Settings Section"
+    },
+    "reverseYMotor": {
+      "mapsFrom": [
+        "REVERSE_Y_MOTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 291
+    },
+    "reverseZMotor": {
+      "mapsFrom": [
+        "REVERSE_Z_MOTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 292
+    },
+    "xtenderE3300": {
+      "mapsFrom": [
+        "XTENDER_E3_300"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 297,
+      "examples": [
+        "//300x300x250 Size"
+      ],
+      "notes": "ENDER XTENDER KIT SETTINGS ---------------------- Ender Xtender Kits for Ender 3/3 Pro/3 V2"
+    }
+  },
+  "other_3": {
+    "xtenderE3300xl": {
+      "mapsFrom": [
+        "XTENDER_E3_300XL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 298,
+      "examples": [
+        "//300x300x400 Size"
+      ]
+    },
+    "xtenderE3400": {
+      "mapsFrom": [
+        "XTENDER_E3_400"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 299,
+      "examples": [
+        "//400x400x250 Size"
+      ]
+    },
+    "xtenderE3400z": {
+      "mapsFrom": [
+        "XTENDER_E3_400Z"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 300,
+      "examples": [
+        "//235x235x400 Size"
+      ]
+    },
+    "xtenderE3400xl": {
+      "mapsFrom": [
+        "XTENDER_E3_400XL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 301,
+      "examples": [
+        "//400x400x500 Size"
+      ]
+    },
+    "xtenderE3500z": {
+      "mapsFrom": [
+        "XTENDER_E3_500Z"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 302,
+      "examples": [
+        "//235x235x500 Size"
+      ]
+    },
+    "xtenderE55xl": {
+      "mapsFrom": [
+        "XTENDER_E5_5XL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 305,
+      "examples": [
+        "//235x235x500 Size"
+      ],
+      "notes": "Ender Xtender Kits for Ender 5/5 Pro"
+    },
+    "xtenderE5p400": {
+      "mapsFrom": [
+        "XTENDER_E5P_400"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 308,
+      "examples": [
+        "//510x510x400 Size"
+      ],
+      "notes": "Ender Xtender Kits for Ender 5 Plus"
+    },
+    "xtenderE5p500": {
+      "mapsFrom": [
+        "XTENDER_E5P_500"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 309,
+      "examples": [
+        "//510x510x500 Size"
+      ]
+    },
+    "customZHeight": {
+      "mapsFrom": [
+        "CUSTOM_Z_HEIGHT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 351,
+      "examples": [
+        "XXX"
+      ]
+    },
+    "fineBabystepping": {
+      "mapsFrom": [
+        "FINE_BABYSTEPPING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 380
+    },
+    "linearAdvance": {
+      "mapsFrom": [
+        "LINEAR_ADVANCE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 389
+    },
+    "linearAdvanceK": {
+      "mapsFrom": [
+        "LINEAR_ADVANCE_K"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 390,
+      "examples": [
+        "0.10"
+      ]
+    },
+    "skewCorrection": {
+      "mapsFrom": [
+        "SKEW_CORRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 432
+    },
+    "xyDiagAc": {
+      "mapsFrom": [
+        "XY_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 436,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ],
+      "notes": "Input all length measurements here:"
+    },
+    "xyDiagBd": {
+      "mapsFrom": [
+        "XY_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 437,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "xySideAd": {
+      "mapsFrom": [
+        "XY_SIDE_AD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 438,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "xySkewFactor": {
+      "mapsFrom": [
+        "XY_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 441,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "0.0"
+      ],
+      "notes": "Or, set the XY skew factor directly:"
+    },
+    "skewCorrectionForZ": {
+      "mapsFrom": [
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 443,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ]
+    },
+    "xzDiagAc": {
+      "mapsFrom": [
+        "XZ_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 445,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "xzDiagBd": {
+      "mapsFrom": [
+        "XZ_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 446,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzDiagAc": {
+      "mapsFrom": [
+        "YZ_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 447,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzDiagBd": {
+      "mapsFrom": [
+        "YZ_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 448,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzSideAd": {
+      "mapsFrom": [
+        "YZ_SIDE_AD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 449,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "xzSkewFactor": {
+      "mapsFrom": [
+        "XZ_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 452,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "0.0"
+      ],
+      "notes": "Or, set the Z skew factors directly:"
+    },
+    "yzSkewFactor": {
+      "mapsFrom": [
+        "YZ_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 453,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "skewCorrectionGcode": {
+      "mapsFrom": [
+        "SKEW_CORRECTION_GCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 457,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "notes": "Enable this option for M852 to set skew at runtime"
+    },
+    "noSdcard": {
+      "mapsFrom": [
+        "NO_SDCARD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 484
+    },
+    "printerVoltage24": {
+      "mapsFrom": [
+        "PRINTER_VOLTAGE_24"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1050,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER3",
+        "ENDER5"
+      ]
+    },
+    "reverseEncoderDirection": {
+      "mapsFrom": [
+        "REVERSE_ENCODER_DIRECTION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1171,
+      "isConditional": true,
+      "conditionalOn": [
+        "REVERSE_KNOB_DIRECTION",
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER5",
+        "ENDER3"
+      ]
+    },
+    "ymaxPlug": {
+      "mapsFrom": [
+        "USE_YMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1185,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER3",
+        "ENDER5"
+      ]
+    }
+  },
+  "other_4": {
+    "zminPlug": {
+      "mapsFrom": [
+        "USE_ZMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1484,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ]
+    },
+    "kp": {
+      "mapsFrom": [
+        "DEFAULT_Kp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1529,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "28.72"
+      ]
+    },
+    "ki": {
+      "mapsFrom": [
+        "DEFAULT_Ki"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1530,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "2.62"
+      ]
+    },
+    "kd": {
+      "mapsFrom": [
+        "DEFAULT_Kd"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1531,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "78.81"
+      ]
+    },
+    "bedkp": {
+      "mapsFrom": [
+        "DEFAULT_bedKp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1533,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "462.10"
+      ]
+    },
+    "bedki": {
+      "mapsFrom": [
+        "DEFAULT_bedKi"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1534,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "85.47"
+      ]
+    },
+    "bedkd": {
+      "mapsFrom": [
+        "DEFAULT_bedKd"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1535,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "624.59"
+      ]
+    },
+    "xEnableOn": {
+      "mapsFrom": [
+        "X_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1558,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "yEnableOn": {
+      "mapsFrom": [
+        "Y_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1559,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "zEnableOn": {
+      "mapsFrom": [
+        "Z_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1560,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "eEnableOn": {
+      "mapsFrom": [
+        "E_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1561,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "coreyx": {
+      "mapsFrom": [
+        "COREYX"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 732,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER6"
+      ]
+    },
+    "invertXDir": {
+      "mapsFrom": [
+        "INVERT_X_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1566,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "REVERSE_X_MOTOR"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "invertYDir": {
+      "mapsFrom": [
+        "INVERT_Y_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1572,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "REVERSE_Y_MOTOR"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "invertZDir": {
+      "mapsFrom": [
+        "INVERT_Z_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1578,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "REVERSE_Z_MOTOR"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "invertE0Dir": {
+      "mapsFrom": [
+        "INVERT_E0_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1584,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "REVERSE_E_MOTOR_DIRECTION"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE1Dir": {
+      "mapsFrom": [
+        "INVERT_E1_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1587,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE2Dir": {
+      "mapsFrom": [
+        "INVERT_E2_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1588,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE3Dir": {
+      "mapsFrom": [
+        "INVERT_E3_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1589,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE4Dir": {
+      "mapsFrom": [
+        "INVERT_E4_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1590,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE5Dir": {
+      "mapsFrom": [
+        "INVERT_E5_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1591,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE6Dir": {
+      "mapsFrom": [
+        "INVERT_E6_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1592,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE7Dir": {
+      "mapsFrom": [
+        "INVERT_E7_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1593,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "encoderPulsesPerStep": {
+      "mapsFrom": [
+        "ENCODER_PULSES_PER_STEP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1614,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "encoderStepsPerMenuItem": {
+      "mapsFrom": [
+        "ENCODER_STEPS_PER_MENU_ITEM"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1615,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "filRunoutEnabledDefault": {
+      "mapsFrom": [
+        "FIL_RUNOUT_ENABLED_DEFAULT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1629,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "numRunoutSensors": {
+      "mapsFrom": [
+        "NUM_RUNOUT_SENSORS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1630,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "filRunoutState": {
+      "mapsFrom": [
+        "FIL_RUNOUT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1631,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "filRunoutPullup": {
+      "mapsFrom": [
+        "FIL_RUNOUT_PULLUP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1632,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "// Use internal pullup for filament runout pins."
+      ]
+    },
+    "filRunoutPulldown": {
+      "mapsFrom": [
+        "FIL_RUNOUT_PULLDOWN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1633,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "// Use internal pulldown for filament runout pins."
+      ]
+    }
+  },
+  "other_5": {
+    "filamentMotionSensor": {
+      "mapsFrom": [
+        "FILAMENT_MOTION_SENSOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1648,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR",
+        "ENDER3_V2",
+        "FILAMENT_RUNOUT_DISTANCE_MM"
+      ],
+      "notes": "Enable this option to use an encoder disc that toggles the runout pin as the filament moves. (Be sure to set FILAMENT_RUNOUT_DISTANCE_MM large enough to avoid false positives.)"
+    },
+    "rgbLights": {
+      "mapsFrom": [
+        "RGB_LIGHTS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1653,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZNEO_220",
+        "ENDER3_V2"
+      ]
+    },
+    "neopixelLed": {
+      "mapsFrom": [
+        "NEOPIXEL_LED"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1654,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZNEO_220",
+        "ENDER3_V2"
+      ]
+    },
+    "neopixelType": {
+      "mapsFrom": [
+        "NEOPIXEL_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1656,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZNEO_220",
+        "NEOPIXEL_LED",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "NEO_GRB"
+      ]
+    },
+    "neopixelPixels": {
+      "mapsFrom": [
+        "NEOPIXEL_PIXELS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1657,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZNEO_220",
+        "NEOPIXEL_LED",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "15"
+      ]
+    },
+    "neopixelIsSequential": {
+      "mapsFrom": [
+        "NEOPIXEL_IS_SEQUENTIAL"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1658,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZNEO_220",
+        "NEOPIXEL_LED",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "// Sequential display for temperature change - LED by LED. Disable to change all LEDs at once."
+      ]
+    },
+    "neopixelBrightness": {
+      "mapsFrom": [
+        "NEOPIXEL_BRIGHTNESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1659,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZNEO_220",
+        "NEOPIXEL_LED",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "neopixelStartupTest": {
+      "mapsFrom": [
+        "NEOPIXEL_STARTUP_TEST"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1660,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZNEO_220",
+        "NEOPIXEL_LED",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "// Cycle through colors at startup"
+      ]
+    },
+    "printerEventLeds": {
+      "mapsFrom": [
+        "PRINTER_EVENT_LEDS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1675,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZNEO_220",
+        "RGB_LED",
+        "NEOPIXEL_LED",
+        "ENDER3_V2",
+        "RGBW_LED",
+        "BLINKM",
+        "PCA9632",
+        "PCA9533"
+      ]
+    },
+    "yminPlug": {
+      "mapsFrom": [
+        "USE_YMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1483,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ]
+    },
+    "speakerKill": {
+      "mapsFrom": [
+        "SPEAKER_KILL"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1624,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZOUT_ENABLE_J1",
+        "EZOUT_ENABLE",
+        "ENDER3_V2"
+      ]
+    },
+    "dwinMarlinuiPortrait": {
+      "mapsFrom": [
+        "DWIN_MARLINUI_PORTRAIT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1605,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// MarlinUI (portrait orientation)"
+      ]
+    },
+    "dwinMarlinuiLandscape": {
+      "mapsFrom": [
+        "DWIN_MARLINUI_LANDSCAPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1606,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// MarlinUI (landscape orientation)"
+      ]
+    },
+    "crealityZSteps": {
+      "mapsFrom": [
+        "CREALITY_Z_STEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1093,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER5",
+        "ENDER3"
+      ],
+      "conditionalOnNot": [
+        "ENDER5_NEW_LEADSCREW"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "400"
+      ]
+    },
+    "ablEnable": {
+      "mapsFrom": [
+        "ABL_ENABLE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1346,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER5",
+        "ENDER5_PLUS_NOABL",
+        "ENDER3"
+      ]
+    },
+    "machineSize": {
+      "mapsFrom": [
+        "MACHINE_SIZE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1470,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "XTENDER_E3_500Z"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "\"220x220x250\""
+      ]
+    }
+  },
+  "probe": {
+    "customProbe": {
+      "mapsFrom": [
+        "CUSTOM_PROBE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1341,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_PROBE",
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER5_PLUS_EZABL",
+        "ENDER5",
+        "ENDER5_PLUS_NOABL",
+        "ENDER3"
+      ]
+    },
+    "ezablProbeEdge": {
+      "mapsFrom": [
+        "EZABL_PROBE_EDGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1335,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER5_PLUS_EZABL",
+        "ENDER5",
+        "ENDER5_PLUS_NOABL",
+        "ENDER3"
+      ],
+      "conditionalOnNot": [
+        "EZABL_PROBE_EDGE"
+      ],
+      "examples": [
+        "15"
+      ],
+      "notes": "Probe Edge - How far from the edge of the bed to probe from. Use 30 if using binder clips. This also sets the edge inset value for MANUAL_MESH_LEVELING."
+    },
+    "ezablFastprobe": {
+      "mapsFrom": [
+        "EZABL_FASTPROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 136,
+      "notes": "Fast Probing - Works with most machines and all EZABL sensors (8mm/s)"
+    },
+    "ezablSuperfastprobe": {
+      "mapsFrom": [
+        "EZABL_SUPERFASTPROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 139,
+      "notes": "Superfast Probing - Works with Pro/NG EZABL Probes (15mm/s) & BLTouch/CRTouch (10mm/s)"
+    },
+    "slowerProbeMoves": {
+      "mapsFrom": [
+        "SLOWER_PROBE_MOVES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 148,
+      "notes": "Slow Down Moves - Does your machine make weird noises/vibrations when it is probing the mesh? Enable this to slow down the speed between probe points."
+    },
+    "bltouch": {
+      "mapsFrom": [
+        "BLTOUCH"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1333,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER5_PLUS_EZABL",
+        "ENDER5",
+        "ENDER5_PLUS_NOABL",
+        "ENDER3"
+      ]
+    },
+    "bltouchOn5pin": {
+      "mapsFrom": [
+        "BLTOUCH_ON_5PIN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 565,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH",
+        "ENDER3_MAX_OEM",
+        "CUSTOM_PROBE",
+        "ENDER3_MAX_NEO"
+      ]
+    },
+    "nozzleToProbeOffset": {
+      "mapsFrom": [
+        "NOZZLE_TO_PROBE_OFFSET"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1342,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_PROBE",
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER5_PLUS_EZABL",
+        "ENDER5",
+        "ENDER5_PLUS_NOABL",
+        "ENDER3"
+      ],
+      "examples": [
+        "{ -44, -9, 0}"
+      ]
+    },
+    "crtouchProbeNaming": {
+      "mapsFrom": [
+        "CRTOUCH_PROBE_NAMING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 566,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH",
+        "ENDER3_MAX_OEM",
+        "CUSTOM_PROBE",
+        "ENDER3_MAX_NEO"
+      ]
+    },
+    "probeForZHoming": {
+      "mapsFrom": [
+        "USE_PROBE_FOR_Z_HOMING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1548,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "BLTOUCH_ON_5PIN"
+      ]
+    },
+    "zProbeOffsetRangeMin": {
+      "mapsFrom": [
+        "Z_PROBE_OFFSET_RANGE_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1617,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "-10"
+      ]
+    },
+    "zProbeOffsetRangeMax": {
+      "mapsFrom": [
+        "Z_PROBE_OFFSET_RANGE_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1618,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "10"
+      ]
+    }
+  },
+  "hardware": {
+    "ender312864LcdKit": {
+      "mapsFrom": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 93,
+      "notes": "Ender 3 NEO Series/Ender 3 V2 LCD - LCD Setting If you converted your Ender 3 NEO Series OR V2 LCD to the 12864 Version, Uncomment the below line. Get the conversion kit here: https://www.th3dstudio.com/product/creality-ender-3-v2-12864-lcd-conversion-upgrade-kit/"
+    },
+    "ender3NeoLcd": {
+      "mapsFrom": [
+        "ENDER3_NEO_LCD"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 570,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_12864_LCD_KIT",
+        "ENDER3_MAX_NEO"
+      ]
+    },
+    "cr10Stockdisplay": {
+      "mapsFrom": [
+        "CR10_STOCKDISPLAY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1596,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_12864_LCD_KIT",
+        "ENDER3_V2"
+      ]
+    },
+    "ret612864Lcd": {
+      "mapsFrom": [
+        "RET6_12864_LCD"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1597,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_12864_LCD_KIT",
+        "ENDER3_V2"
+      ]
+    },
+    "tempSensor0": {
+      "mapsFrom": [
+        "TEMP_SENSOR_0"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1500,
+      "isConditional": true,
+      "conditionalOn": [
+        "TH3D_HOTEND_THERMISTOR",
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "V6_HOTEND",
+        "TH3D_HOTEND_THERMISTOR",
+        "KNOWN_HOTEND_THERMISTOR"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "ENABLED(TH3D_HOTEND_THERMISTOR)"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "tempSensor1": {
+      "mapsFrom": [
+        "TEMP_SENSOR_1"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1504,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor2": {
+      "mapsFrom": [
+        "TEMP_SENSOR_2"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1505,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor3": {
+      "mapsFrom": [
+        "TEMP_SENSOR_3"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1506,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor4": {
+      "mapsFrom": [
+        "TEMP_SENSOR_4"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1507,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor5": {
+      "mapsFrom": [
+        "TEMP_SENSOR_5"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1508,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor6": {
+      "mapsFrom": [
+        "TEMP_SENSOR_6"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1509,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor7": {
+      "mapsFrom": [
+        "TEMP_SENSOR_7"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1510,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorBed": {
+      "mapsFrom": [
+        "TEMP_SENSOR_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1522,
+      "isConditional": true,
+      "conditionalOn": [
+        "KEENOVO_TEMPSENSOR",
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "KNOWN_BED_THERMISTOR",
+        "TH3D_BED_THERMISTOR",
+        "KEENOVO_TEMPSENSOR",
+        "AC_BED"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "ENABLED(KEENOVO_TEMPSENSOR)"
+      ],
+      "examples": [
+        "11"
+      ]
+    },
+    "tempSensorProbe": {
+      "mapsFrom": [
+        "TEMP_SENSOR_PROBE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1526,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorChamber": {
+      "mapsFrom": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1527,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "xDriverType": {
+      "mapsFrom": [
+        "X_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1553,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ]
+    },
+    "yDriverType": {
+      "mapsFrom": [
+        "Y_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1554,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ]
+    },
+    "zDriverType": {
+      "mapsFrom": [
+        "Z_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1555,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ]
+    },
+    "e0DriverType": {
+      "mapsFrom": [
+        "E0_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1556,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ]
+    },
+    "noLcdReinit": {
+      "mapsFrom": [
+        "NO_LCD_REINIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1600,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "dwinCrealityLcd": {
+      "mapsFrom": [
+        "DWIN_CREALITY_LCD"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1602,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Creality UI"
+      ],
+      "notes": "Different Ender 3 V2 LCD Display Options - Change at your own risk!!!"
+    },
+    "dwinCrealityLcdEnhanced": {
+      "mapsFrom": [
+        "DWIN_CREALITY_LCD_ENHANCED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1603,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Enhanced UI"
+      ]
+    },
+    "dwinCrealityLcdJyersui": {
+      "mapsFrom": [
+        "DWIN_CREALITY_LCD_JYERSUI"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1604,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Jyers UI by Jacob Myers"
+      ]
+    }
+  },
+  "temperature": {
+    "heatersOnDuringProbing": {
+      "mapsFrom": [
+        "HEATERS_ON_DURING_PROBING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 142,
+      "notes": "Heaters on During Probing - Heaters will stay on during probing - May reduce accuracy do not use unless told to by support"
+    },
+    "highTempThermistor": {
+      "mapsFrom": [
+        "HIGH_TEMP_THERMISTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 252,
+      "notes": "If you have a hotend and thermistor capable of over 290C you can set the max temp value below. Setting this higher than 290C on a stock or traditional thermistor will damage it. Refer to your thermistor documentation to see what max temp is."
+    },
+    "highTempThermistorTemp": {
+      "mapsFrom": [
+        "HIGH_TEMP_THERMISTOR_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 253,
+      "examples": [
+        "350"
+      ]
+    },
+    "th3dBedThermistor": {
+      "mapsFrom": [
+        "TH3D_BED_THERMISTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 258,
+      "notes": "BED THERMISTOR SETTINGS ------------------------- If you are using a thermistor TH3D sells for your bed uncomment the below line."
+    },
+    "keenovoTempsensor": {
+      "mapsFrom": [
+        "KEENOVO_TEMPSENSOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 261,
+      "notes": "If you are using a Keenovo with SSR and the Keenovo temperature sensor uncomment the below line."
+    },
+    "knownBedThermistor": {
+      "mapsFrom": [
+        "KNOWN_BED_THERMISTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 264,
+      "notes": "If you are using a known bed thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_BED_THERMISTOR_VALUE"
+    },
+    "knownBedThermistorValue": {
+      "mapsFrom": [
+        "KNOWN_BED_THERMISTOR_VALUE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 265,
+      "examples": [
+        "X"
+      ]
+    },
+    "customXBedSize": {
+      "mapsFrom": [
+        "CUSTOM_X_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 349,
+      "examples": [
+        "300"
+      ]
+    },
+    "customYBedSize": {
+      "mapsFrom": [
+        "CUSTOM_Y_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 350,
+      "examples": [
+        "310"
+      ]
+    },
+    "pidbed": {
+      "mapsFrom": [
+        "ENABLE_PIDBED"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1610,
+      "isConditional": true,
+      "conditionalOn": [
+        "DWIN_CREALITY_LCD",
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "ENDER3_V2",
+        "DWIN_CREALITY_LCD_ENHANCED"
+      ]
+    },
+    "xBedSize": {
+      "mapsFrom": [
+        "X_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1467,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "XTENDER_E3_500Z"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "220"
+      ]
+    },
+    "yBedSize": {
+      "mapsFrom": [
+        "Y_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1468,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "XTENDER_E3_500Z"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "220"
+      ]
+    }
+  },
+  "features": {
+    "sdcardEepromEmulation": {
+      "mapsFrom": [
+        "SDCARD_EEPROM_EMULATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 324
+    }
+  },
+  "advanced": {
+    "inputShaping": {
+      "mapsFrom": [
+        "INPUT_SHAPING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 334
+    },
+    "inputShapingFreqX": {
+      "mapsFrom": [
+        "INPUT_SHAPING_FREQ_X"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 337,
+      "examples": [
+        "40"
+      ],
+      "notes": "X Axis Settings"
+    },
+    "inputShapingDampingX": {
+      "mapsFrom": [
+        "INPUT_SHAPING_DAMPING_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 338,
+      "examples": [
+        "0.15f"
+      ]
+    },
+    "inputShapingFreqY": {
+      "mapsFrom": [
+        "INPUT_SHAPING_FREQ_Y"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 340,
+      "examples": [
+        "40"
+      ],
+      "notes": "Y Axis Settings"
+    },
+    "inputShapingDampingY": {
+      "mapsFrom": [
+        "INPUT_SHAPING_DAMPING_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 341,
+      "examples": [
+        "0.15f"
+      ]
+    },
+    "disableArcSupport": {
+      "mapsFrom": [
+        "DISABLE_ARC_SUPPORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 476
+    },
+    "filamentRunoutSensor": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1622,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZOUT_ENABLE",
+        "ENDER3_V2"
+      ]
+    },
+    "filamentRunoutScript": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SCRIPT"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1637,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "\"M600\""
+      ],
+      "notes": "Set one or more commands to execute on filament runout. (After 'M412 H' Marlin will ask the host to handle the process.)"
+    },
+    "filamentRunoutDistanceMm": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_DISTANCE_MM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1642,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "25"
+      ],
+      "notes": "After a runout is detected, continue printing this length of filament before executing the runout script. Useful for a sensor at the end of a feed tube. Requires 4 bytes SRAM per sensor, plus 4 bytes overhead."
+    }
+  },
+  "endstops": {
+    "homeAdjust": {
+      "mapsFrom": [
+        "HOME_ADJUST"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 578,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOME_ADJUST",
+        "ENDER3_MAX_NEO"
+      ]
+    },
+    "xHomeLocation": {
+      "mapsFrom": [
+        "X_HOME_LOCATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 581,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOME_ADJUST",
+        "ENDER3_MAX_NEO"
+      ],
+      "examples": [
+        "-24"
+      ]
+    },
+    "yHomeLocation": {
+      "mapsFrom": [
+        "Y_HOME_LOCATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 582,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOME_ADJUST",
+        "ENDER3_MAX_NEO"
+      ],
+      "examples": [
+        "-4"
+      ]
+    },
+    "xmaxPlug": {
+      "mapsFrom": [
+        "USE_XMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1184,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER5_PLUS",
+        "ENDER3_MAX",
+        "ENDER3",
+        "ENDER5"
+      ]
+    },
+    "xHomeDir": {
+      "mapsFrom": [
+        "X_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1486,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "yHomeDir": {
+      "mapsFrom": [
+        "Y_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1487,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "zHomeDir": {
+      "mapsFrom": [
+        "Z_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1488,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "endstoppullups": {
+      "mapsFrom": [
+        "ENDSTOPPULLUPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1537,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ]
+    },
+    "xMinEndstopInverting": {
+      "mapsFrom": [
+        "X_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1539,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "yMinEndstopInverting": {
+      "mapsFrom": [
+        "Y_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1540,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1541,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "xMaxEndstopInverting": {
+      "mapsFrom": [
+        "X_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1542,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "yMaxEndstopInverting": {
+      "mapsFrom": [
+        "Y_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1543,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "zMaxEndstopInverting": {
+      "mapsFrom": [
+        "Z_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1544,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinProbeEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1545,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinProbeUsesZMinEndstopPin": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1550,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "BLTOUCH_ON_5PIN"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ]
+    },
+    "xminPlug": {
+      "mapsFrom": [
+        "USE_XMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1482,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ]
+    }
+  },
+  "geometry": {
+    "manualMeshLeveling": {
+      "mapsFrom": [
+        "MANUAL_MESH_LEVELING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 402
+    },
+    "zMaxPos": {
+      "mapsFrom": [
+        "Z_MAX_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1469,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "XTENDER_E3_500Z"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "250"
+      ]
+    },
+    "xMinPos": {
+      "mapsFrom": [
+        "X_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1478,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "HOME_ADJUST"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "yMinPos": {
+      "mapsFrom": [
+        "Y_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1479,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "HOME_ADJUST"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ]
+    }
+  },
+  "safety": {
+    "powerLossRecovery": {
+      "mapsFrom": [
+        "POWER_LOSS_RECOVERY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1611,
+      "isConditional": true,
+      "conditionalOn": [
+        "DWIN_CREALITY_LCD",
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "ENDER3_V2",
+        "DWIN_CREALITY_LCD_ENHANCED"
+      ]
+    },
+    "extrudeMaxlength": {
+      "mapsFrom": [
+        "EXTRUDE_MAXLENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1619,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "1000"
+      ]
+    }
+  },
+  "motion": {
+    "axisStepsPerUnit": {
+      "mapsFrom": [
+        "DEFAULT_AXIS_STEPS_PER_UNIT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1428,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "CUSTOM_ESTEPS"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "{ 80, 80, 400, 95 }"
+      ]
+    }
+  }
+}

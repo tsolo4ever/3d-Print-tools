@@ -476,21 +476,46 @@ def load_ui_metadata(analysis_file: Path) -> Dict[str, Dict[str, Any]]:
     return {}
 
 
-def main():
-    parser = argparse.ArgumentParser(description='Create comprehensive Marlin configuration mappings')
-    parser.add_argument('--config', type=Path, default=Path('firmware-helper/example-ender5plus-config.h'),
-                       help='Path to Configuration.h file')
-    parser.add_argument('--version', default='2.1.x', help='Marlin version')
-    parser.add_argument('--firmware', default='marlin', help='Firmware type (marlin/th3d)')
-    parser.add_argument('--output-dir', type=Path, default=Path('assets/data/maps'),
-                       help='Output directory for mappings')
-    parser.add_argument('--max-lines', type=int, default=900,
-                       help='Maximum lines per mapping file')
+def scan_config_directory(base_dir: Path = Path('new configs')) -> List[Tuple[str, str, Path]]:
+    """
+    Scan the new configs directory structure and find all .h files.
+    Returns list of (firmware_type, version, config_file_path) tuples.
+    """
+    config_files = []
     
-    args = parser.parse_args()
+    if not base_dir.exists():
+        return config_files
     
-    print(f"🔧 Parsing {args.config}...")
-    config_parser = ConfigParser(args.config)
+    # Scan firmware directories (marlin, th3d)
+    for firmware_dir in base_dir.iterdir():
+        if not firmware_dir.is_dir():
+            continue
+        
+        firmware_type = firmware_dir.name
+        
+        # Scan version directories (2.0.x, 2.1.x, 3.0.x, etc.)
+        for version_dir in firmware_dir.iterdir():
+            if not version_dir.is_dir():
+                continue
+            
+            version = version_dir.name
+            
+            # Find all .h files in this version directory
+            for config_file in version_dir.glob('*.h'):
+                config_files.append((firmware_type, version, config_file))
+    
+    return config_files
+
+
+def process_single_config(config_path: Path, firmware: str, version: str, 
+                         output_dir: Path, max_lines: int, skip_organization: bool = False):
+    """Process a single configuration file and generate mappings with organized structure"""
+    print(f"\n{'='*60}")
+    print(f"🔧 Parsing {config_path.name}...")
+    print(f"   Firmware: {firmware}")
+    print(f"   Version: {version}")
+    
+    config_parser = ConfigParser(config_path)
     defines = config_parser.parse()
     print(f"✅ Found {len(defines)} #define statements")
     
@@ -503,15 +528,11 @@ def main():
     for category, fields in all_mappings.items():
         print(f"   • {category}: {len(fields)} fields")
     
-    print(f"\n✂️  Splitting into parts (<{args.max_lines} lines each)...")
-    parts = builder.split_by_line_count(all_mappings, args.max_lines)
-    
-    # Create versioned output directory
-    output_base = args.output_dir / args.firmware / args.version
-    output_base.mkdir(parents=True, exist_ok=True)
+    print(f"\n✂️  Splitting into parts (<{max_lines} lines each)...")
+    parts = builder.split_by_line_count(all_mappings, max_lines)
     
     # Extract source filename for naming
-    source_name = args.config.stem.replace('example-', '').replace('example-th3d-ender5plus-', '')
+    source_name = config_path.stem.replace('example-', '').replace('example-th3d-ender5plus-', '')
     config_suffix = ''
     if '_adv' in source_name:
         config_suffix = '-adv'
@@ -520,21 +541,55 @@ def main():
     elif '_speed' in source_name:
         config_suffix = '-speed'
     
-    print(f"\n💾 Saving {len(parts)} mapping file(s) to {output_base}/...")
-    for part_suffix, mapping_data in parts:
-        filename = f"{args.firmware}-config{config_suffix}-mapping{part_suffix}.json"
-        output_path = output_base / filename
+    # Metadata for output files
+    metadata = {
+        '$schema': f'{firmware.capitalize()} Configuration Field Mapping',
+        'version': version,
+        'firmware': firmware,
+        'configFile': config_path.name,
+        'generatedFrom': str(config_path),
+        'totalDefines': len(defines)
+    }
+    
+    # LEGACY MODE: Save directly to version folder (old behavior)
+    if skip_organization:
+        output_base = output_dir / firmware / version
+        output_base.mkdir(parents=True, exist_ok=True)
         
-        # Add metadata
-        output_data = {
-            '$schema': f'{args.firmware.capitalize()} Configuration Field Mapping',
-            'version': args.version,
-            'firmware': args.firmware,
-            'configFile': 'Configuration.h',
-            'generatedFrom': str(args.config),
-            'totalDefines': len(defines),
-            **mapping_data
-        }
+        print(f"\n💾 Saving {len(parts)} mapping file(s) to {output_base}/...")
+        for part_suffix, mapping_data in parts:
+            filename = f"{firmware}-config{config_suffix}-mapping{part_suffix}.json"
+            output_path = output_base / filename
+            
+            output_data = {**metadata, **mapping_data}
+            
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(output_data, f, indent=2)
+            
+            lines = len(open(output_path).readlines())
+            print(f"   ✅ {filename} ({lines} lines)")
+        
+        print(f"✨ Complete! Generated mappings for {firmware} {version}")
+        print(f"📁 Output location: {output_base}/")
+        return
+    
+    # NEW ORGANIZED MODE: Create full/ and core/ subdirectories
+    print(f"\n🗂️  Creating organized structure: full/ and core/...")
+    
+    # Create directory structure
+    output_base = output_dir / firmware / version
+    full_dir = output_base / 'full'
+    core_dir = output_base / 'core'
+    full_dir.mkdir(parents=True, exist_ok=True)
+    core_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Step 1: Save part files to full/ directory
+    print(f"\n💾 Step 1: Saving {len(parts)} part file(s) to full/...")
+    for part_suffix, mapping_data in parts:
+        filename = f"{firmware}-config{config_suffix}-mapping{part_suffix}.json"
+        output_path = full_dir / filename
+        
+        output_data = {**metadata, **mapping_data}
         
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(output_data, f, indent=2)
@@ -542,8 +597,299 @@ def main():
         lines = len(open(output_path).readlines())
         print(f"   ✅ {filename} ({lines} lines)")
     
-    print(f"\n✨ Complete! Generated comprehensive mappings for {args.firmware} {args.version}")
-    print(f"📁 Output location: {output_base}/")
+    # Step 2: Create consolidated full mapping
+    print(f"\n📦 Step 2: Creating consolidated full mapping...")
+    consolidated_full = consolidate_parts(parts, metadata)
+    full_filename = f"{firmware}-config{config_suffix}-mapping-full.json"
+    full_path = full_dir / full_filename
+    
+    with open(full_path, 'w', encoding='utf-8') as f:
+        json.dump(consolidated_full, f, indent=2)
+    
+    print(f"   ✅ {full_filename} ({len(consolidated_full.get('totalDefines', 0))} defines)")
+    
+    # Step 3: Split into core and full versions
+    print(f"\n🎯 Step 3: Splitting core fields from full mapping...")
+    try:
+        core_fields = load_core_fields()
+        print(f"   ✅ Loaded {len(core_fields)} core field definitions")
+    except Exception as e:
+        print(f"   ⚠️  Warning: Could not load CORE_FIELDS: {e}")
+        print(f"   ⏭️  Skipping core/full split")
+        return
+    
+    core_mapping, full_mapping = split_into_core_and_full(consolidated_full, core_fields)
+    core_count = core_mapping.get('coreDefines', 0)
+    print(f"   ✅ Extracted {core_count} core fields")
+    
+    # Save updated full mapping (with fullDefines count)
+    with open(full_path, 'w', encoding='utf-8') as f:
+        json.dump(full_mapping, f, indent=2)
+    print(f"   ✅ Updated {full_filename} with fullDefines metadata")
+    
+    # Step 4: Save core mapping
+    print(f"\n💎 Step 4: Saving core mapping to core/...")
+    core_filename = f"{firmware}-config{config_suffix}-mapping-core.json"
+    core_path = core_dir / core_filename
+    
+    with open(core_path, 'w', encoding='utf-8') as f:
+        json.dump(core_mapping, f, indent=2)
+    
+    print(f"   ✅ {core_filename} ({core_count} core defines)")
+    
+    # Step 5: Add UI field mappings to core files
+    print(f"\n🎨 Step 5: Adding UI field mappings to core file...")
+    try:
+        ui_mappings = load_ui_mappings()
+        print(f"   ✅ Loaded {len(ui_mappings)} UI field mappings")
+        
+        ui_count = add_ui_mappings_to_core(core_mapping, ui_mappings)
+        
+        # Save updated core mapping with UI fields
+        with open(core_path, 'w', encoding='utf-8') as f:
+            json.dump(core_mapping, f, indent=2)
+        
+        print(f"   ✅ Added {ui_count} UI field mappings to core file")
+    except Exception as e:
+        print(f"   ⚠️  Warning: Could not add UI mappings: {e}")
+        print(f"   ℹ️  Core file saved without UI mappings")
+    
+    # Final summary
+    print(f"\n{'='*60}")
+    print(f"✨ Complete! Generated organized mappings for {firmware} {version}")
+    print(f"\n📁 Output structure:")
+    print(f"   {output_base}/")
+    print(f"   ├── full/")
+    print(f"   │   ├── {len(parts)} part file(s)")
+    print(f"   │   └── {full_filename} ({len(defines)} total defines)")
+    print(f"   └── core/")
+    print(f"       └── {core_filename} ({core_count} core defines, {ui_count if 'ui_count' in locals() else 0} UI mappings)")
+    print(f"{'='*60}")
+
+
+# Load CORE_FIELDS from split-core-mappings.py
+def load_core_fields() -> set:
+    """Load CORE_FIELDS set from split-core-mappings.py"""
+    from importlib import util
+    spec = util.spec_from_file_location("split_core_mappings", 
+                                        Path(__file__).parent / "split-core-mappings.py")
+    module = util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.CORE_FIELDS
+
+
+# Load UI_FIELD_MAPPINGS from add-ui-mappings.py
+def load_ui_mappings() -> Dict[str, str]:
+    """Load UI_FIELD_MAPPINGS from add-ui-mappings.py"""
+    from importlib import util
+    spec = util.spec_from_file_location("add_ui_mappings",
+                                        Path(__file__).parent / "add-ui-mappings.py")
+    module = util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.UI_FIELD_MAPPINGS
+
+
+def split_into_core_and_full(full_mapping: Dict, core_fields: set) -> Tuple[Dict, Dict]:
+    """Split mapping into core (essential) and full (complete) versions"""
+    core_mapping = {}
+    full_mapping_copy = {}
+    
+    metadata_keys = {'$schema', 'version', 'firmware', 'configFile', 'generatedFrom', 'totalDefines'}
+    
+    for key, value in full_mapping.items():
+        if key in metadata_keys:
+            core_mapping[key] = value
+            full_mapping_copy[key] = value
+            continue
+        
+        if not isinstance(value, dict):
+            continue
+        
+        # Check each field in this category
+        core_category = {}
+        full_category = {}
+        
+        for field_name, field_data in value.items():
+            if not isinstance(field_data, dict):
+                continue
+            
+            # Check if any of the mapsFrom defines are in core fields
+            maps_from = field_data.get('mapsFrom', [])
+            is_core = any(define in core_fields for define in maps_from)
+            
+            full_category[field_name] = field_data
+            if is_core:
+                core_category[field_name] = field_data
+        
+        if full_category:
+            full_mapping_copy[key] = full_category
+        if core_category:
+            core_mapping[key] = core_category
+    
+    # Add core field count
+    core_count = sum(len(cat) for cat in core_mapping.values() 
+                    if isinstance(cat, dict) and not any(k in metadata_keys for k in [cat]))
+    core_mapping['coreDefines'] = core_count
+    full_mapping_copy['fullDefines'] = full_mapping_copy['totalDefines']
+    
+    return core_mapping, full_mapping_copy
+
+
+def add_ui_mappings_to_core(core_mapping: Dict, ui_mappings: Dict[str, str]) -> int:
+    """Add uiFieldId properties to core mapping fields"""
+    updated_count = 0
+    metadata_keys = {'$schema', 'version', 'firmware', 'configFile', 'generatedFrom', 
+                     'totalDefines', 'coreDefines', 'fullDefines'}
+    
+    for category_name, category_fields in core_mapping.items():
+        if category_name in metadata_keys or not isinstance(category_fields, dict):
+            continue
+        
+        for field_name, field_data in category_fields.items():
+            if not isinstance(field_data, dict):
+                continue
+            
+            maps_from = field_data.get('mapsFrom', [])
+            if not maps_from:
+                continue
+            
+            define_name = maps_from[0]
+            if define_name in ui_mappings:
+                field_data['uiFieldId'] = ui_mappings[define_name]
+                updated_count += 1
+    
+    return updated_count
+
+
+def consolidate_parts(parts: List[Tuple[str, Dict]], metadata: Dict) -> Dict:
+    """Consolidate part files into single full mapping"""
+    consolidated = dict(metadata)
+    
+    for _, part_data in parts:
+        for category, fields in part_data.items():
+            if category in consolidated:
+                # Merge with existing category
+                if isinstance(consolidated[category], dict) and isinstance(fields, dict):
+                    consolidated[category].update(fields)
+            else:
+                consolidated[category] = fields
+    
+    return consolidated
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description='Create comprehensive Marlin configuration mappings with automated core/full organization',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  # Auto-scan new configs directory and process all .h files
+  python create-comprehensive-mappings.py --scan
+  
+  # Scan specific firmware/version
+  python create-comprehensive-mappings.py --scan --firmware marlin --version 2.1.x
+  
+  # Process single config file (manual mode)
+  python create-comprehensive-mappings.py --config path/to/Configuration.h --version 2.1.x --firmware marlin
+  
+Automated Workflow:
+  - Creates full/ and core/ subdirectories
+  - Generates part files in full/
+  - Creates consolidated -full.json files
+  - Splits core fields into core/ directory
+  - Adds UI field mappings to core files
+        """
+    )
+    
+    # Mode selection
+    parser.add_argument('--scan', action='store_true',
+                       help='Scan new configs/ directory structure and process all found .h files')
+    parser.add_argument('--scan-dir', type=Path, default=Path('new configs'),
+                       help='Directory to scan for config files (default: new configs)')
+    
+    # Manual mode arguments
+    parser.add_argument('--config', type=Path,
+                       help='Path to Configuration.h file (manual mode)')
+    parser.add_argument('--version', 
+                       help='Firmware version (e.g., 2.1.x, 3.0.x). Auto-detected in scan mode.')
+    parser.add_argument('--firmware', 
+                       help='Firmware type (marlin/th3d). Auto-detected in scan mode.')
+    
+    # Common arguments
+    parser.add_argument('--output-dir', type=Path, default=Path('assets/data/maps'),
+                       help='Output directory for mappings')
+    parser.add_argument('--max-lines', type=int, default=900,
+                       help='Maximum lines per mapping file')
+    parser.add_argument('--skip-organization', action='store_true',
+                       help='Skip automatic core/full organization (legacy mode)')
+    
+    args = parser.parse_args()
+    
+    # SCAN MODE: Auto-discover and process config files
+    if args.scan:
+        print(f"🔍 Scanning {args.scan_dir}/ for configuration files...")
+        config_files = scan_config_directory(args.scan_dir)
+        
+        if not config_files:
+            print(f"❌ No .h files found in {args.scan_dir}/")
+            print(f"   Place your Configuration.h files in:")
+            print(f"   - {args.scan_dir}/marlin/2.0.x/ or 2.1.x/")
+            print(f"   - {args.scan_dir}/th3d/2.0.x/ or 3.0.x/")
+            return
+        
+        # Filter by firmware/version if specified
+        if args.firmware:
+            config_files = [(f, v, p) for f, v, p in config_files if f == args.firmware]
+        if args.version:
+            config_files = [(f, v, p) for f, v, p in config_files if v == args.version]
+        
+        if not config_files:
+            print(f"❌ No config files found matching filters:")
+            if args.firmware:
+                print(f"   Firmware: {args.firmware}")
+            if args.version:
+                print(f"   Version: {args.version}")
+            return
+        
+        print(f"✅ Found {len(config_files)} configuration file(s):")
+        for firmware, version, path in config_files:
+            print(f"   • {firmware}/{version}/{path.name}")
+        
+        # Process each config file
+        for firmware, version, config_path in config_files:
+            try:
+                process_single_config(config_path, firmware, version, 
+                                     args.output_dir, args.max_lines, args.skip_organization)
+            except Exception as e:
+                print(f"\n❌ Error processing {config_path}: {e}")
+                import traceback
+                traceback.print_exc()
+                continue
+        
+        print(f"\n{'='*60}")
+        print(f"🎉 All done! Processed {len(config_files)} configuration file(s)")
+        
+    # MANUAL MODE: Process single config file with specified parameters
+    else:
+        if not args.config:
+            print("❌ Error: --config is required in manual mode")
+            print("   Use --scan to auto-discover configs, or specify --config path")
+            parser.print_help()
+            return
+        
+        if not args.version:
+            print("❌ Error: --version is required in manual mode")
+            print("   Example: --version 2.1.x")
+            return
+        
+        if not args.firmware:
+            print("❌ Error: --firmware is required in manual mode")
+            print("   Options: marlin or th3d")
+            return
+        
+        # Process single config file
+        process_single_config(args.config, args.firmware, args.version,
+                             args.output_dir, args.max_lines, args.skip_organization)
 
 
 if __name__ == '__main__':

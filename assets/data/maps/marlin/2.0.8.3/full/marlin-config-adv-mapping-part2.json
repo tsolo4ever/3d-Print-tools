@@ -1,0 +1,513 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_2": {
+    "coolerResistance25cOhms": {
+      "mapsFrom": [
+        "COOLER_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 118,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "coolerBeta": {
+      "mapsFrom": [
+        "COOLER_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 119,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "chamberCheckInterval": {
+      "mapsFrom": [
+        "CHAMBER_CHECK_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 153,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "5000"
+      ]
+    },
+    "chamberHysteresis": {
+      "mapsFrom": [
+        "CHAMBER_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 155,
+      "isConditional": true,
+      "conditionalOn": [
+        "CHAMBER_LIMIT_SWITCHING",
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "fan1Pin": {
+      "mapsFrom": [
+        "FAN1_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 162,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "chamberFan": {
+      "mapsFrom": [
+        "CHAMBER_FAN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 164,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "// Enable a fan on the chamber"
+      ]
+    },
+    "chamberFanMode": {
+      "mapsFrom": [
+        "CHAMBER_FAN_MODE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 166,
+      "isConditional": true,
+      "conditionalOn": [
+        "CHAMBER_FAN",
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "chamberFanBase": {
+      "mapsFrom": [
+        "CHAMBER_FAN_BASE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 176,
+      "isConditional": true,
+      "conditionalOn": [
+        "CHAMBER_FAN",
+        "TEMP_SENSOR_CHAMBER",
+        "CHAMBER_FAN_MODE"
+      ],
+      "conditionalExpression": [
+        "CHAMBER_FAN_MODE == 3"
+      ],
+      "examples": [
+        "128"
+      ]
+    },
+    "chamberFanFactor": {
+      "mapsFrom": [
+        "CHAMBER_FAN_FACTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 177,
+      "isConditional": true,
+      "conditionalOn": [
+        "CHAMBER_FAN",
+        "TEMP_SENSOR_CHAMBER",
+        "CHAMBER_FAN_MODE"
+      ],
+      "conditionalExpression": [
+        "CHAMBER_FAN_MODE == 3"
+      ],
+      "examples": [
+        "25"
+      ]
+    },
+    "chamberVent": {
+      "mapsFrom": [
+        "CHAMBER_VENT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 181,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "// Enable a servo-controlled vent on the chamber"
+      ]
+    },
+    "chamberVentServoNr": {
+      "mapsFrom": [
+        "CHAMBER_VENT_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 183,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER",
+        "CHAMBER_VENT"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "highExcessHeatLimit": {
+      "mapsFrom": [
+        "HIGH_EXCESS_HEAT_LIMIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 184,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER",
+        "CHAMBER_VENT"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "lowExcessHeatLimit": {
+      "mapsFrom": [
+        "LOW_EXCESS_HEAT_LIMIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 185,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER",
+        "CHAMBER_VENT"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "minCoolingSlopeTimeChamberVent": {
+      "mapsFrom": [
+        "MIN_COOLING_SLOPE_TIME_CHAMBER_VENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 186,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER",
+        "CHAMBER_VENT"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "minCoolingSlopeDegChamberVent": {
+      "mapsFrom": [
+        "MIN_COOLING_SLOPE_DEG_CHAMBER_VENT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 187,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER",
+        "CHAMBER_VENT"
+      ],
+      "examples": [
+        "1.5"
+      ]
+    },
+    "coolerPin": {
+      "mapsFrom": [
+        "COOLER_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 199,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "coolerInverting": {
+      "mapsFrom": [
+        "COOLER_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 200,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "coolerFan": {
+      "mapsFrom": [
+        "COOLER_FAN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 202,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "// Enable a fan on the cooler, Fan# 0,1,2,3 etc."
+      ]
+    },
+    "coolerFanIndex": {
+      "mapsFrom": [
+        "COOLER_FAN_INDEX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 203,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "coolerFanBase": {
+      "mapsFrom": [
+        "COOLER_FAN_BASE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 205,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER",
+        "COOLER_FAN"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "coolerFanFactor": {
+      "mapsFrom": [
+        "COOLER_FAN_FACTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 206,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER",
+        "COOLER_FAN"
+      ],
+      "examples": [
+        "25"
+      ]
+    },
+    "laserCoolantFlowMeter": {
+      "mapsFrom": [
+        "LASER_COOLANT_FLOW_METER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 213,
+      "notes": " Laser Coolant Flow Meter "
+    },
+    "flowmeterPin": {
+      "mapsFrom": [
+        "FLOWMETER_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 215,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_COOLANT_FLOW_METER"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "flowmeterPpl": {
+      "mapsFrom": [
+        "FLOWMETER_PPL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 216,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_COOLANT_FLOW_METER"
+      ],
+      "examples": [
+        "5880"
+      ]
+    },
+    "flowmeterInterval": {
+      "mapsFrom": [
+        "FLOWMETER_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 217,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_COOLANT_FLOW_METER"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "flowmeterSafety": {
+      "mapsFrom": [
+        "FLOWMETER_SAFETY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 218,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_COOLANT_FLOW_METER"
+      ],
+      "examples": [
+        "// Prevent running the laser without the minimum flow rate set below"
+      ]
+    },
+    "flowmeterMinLitersPerMinute": {
+      "mapsFrom": [
+        "FLOWMETER_MIN_LITERS_PER_MINUTE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 220,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_COOLANT_FLOW_METER",
+        "FLOWMETER_SAFETY"
+      ],
+      "examples": [
+        "1.5"
+      ]
+    },
+    "kc": {
+      "mapsFrom": [
+        "DEFAULT_Kc"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 312,
+      "isConditional": true,
+      "conditionalOn": [
+        "PID_EXTRUSION_SCALING",
+        "PIDTEMP"
+      ],
+      "examples": [
+        "(100)"
+      ]
+    },
+    "lpqMaxLen": {
+      "mapsFrom": [
+        "LPQ_MAX_LEN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 313,
+      "isConditional": true,
+      "conditionalOn": [
+        "PID_EXTRUSION_SCALING",
+        "PIDTEMP"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "kf": {
+      "mapsFrom": [
+        "DEFAULT_Kf"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 361,
+      "isConditional": true,
+      "conditionalOn": [
+        "PID_FAN_SCALING",
+        "PIDTEMP"
+      ],
+      "conditionalOnNot": [
+        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "10"
+      ]
+    }
+  }
+}

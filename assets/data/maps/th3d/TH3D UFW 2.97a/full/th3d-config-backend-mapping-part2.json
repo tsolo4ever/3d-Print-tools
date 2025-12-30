@@ -1,0 +1,446 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_backend.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_backend.h",
+  "totalDefines": 205,
+  "probe": {
+    "nozzleToProbeOffset": {
+      "mapsFrom": [
+        "NOZZLE_TO_PROBE_OFFSET"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 156,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER4_OEM"
+      ],
+      "examples": [
+        "{ -53, -19, 0 }"
+      ]
+    },
+    "probeForZHoming": {
+      "mapsFrom": [
+        "USE_PROBE_FOR_Z_HOMING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 167,
+      "isConditional": true,
+      "conditionalOn": [
+        "CHIRON",
+        "ABL_ENABLE"
+      ]
+    },
+    "zProbeOffsetRangeMin": {
+      "mapsFrom": [
+        "Z_PROBE_OFFSET_RANGE_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 706,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "-10"
+      ]
+    },
+    "zProbeOffsetRangeMax": {
+      "mapsFrom": [
+        "Z_PROBE_OFFSET_RANGE_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 708,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "zMinProbeRepeatabilityTest": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_REPEATABILITY_TEST"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 177,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE"
+      ]
+    },
+    "zProbeLowPoint": {
+      "mapsFrom": [
+        "Z_PROBE_LOW_POINT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 181,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "-10"
+      ]
+    },
+    "fixMountedProbe": {
+      "mapsFrom": [
+        "FIX_MOUNTED_PROBE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 184,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "BLTOUCH"
+      ]
+    },
+    "multipleProbing": {
+      "mapsFrom": [
+        "MULTIPLE_PROBING"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 203,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "zClearanceDeployProbe": {
+      "mapsFrom": [
+        "Z_CLEARANCE_DEPLOY_PROBE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 546,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "ABL_ENABLE",
+        "EZABL_SUPERFASTPROBE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "zClearanceBetweenProbes": {
+      "mapsFrom": [
+        "Z_CLEARANCE_BETWEEN_PROBES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 547,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "ABL_ENABLE",
+        "EZABL_SUPERFASTPROBE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "zClearanceMultiProbe": {
+      "mapsFrom": [
+        "Z_CLEARANCE_MULTI_PROBE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 548,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "ABL_ENABLE",
+        "EZABL_SUPERFASTPROBE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "bltouchSet5vDelay": {
+      "mapsFrom": [
+        "BLTOUCH_SET5V_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 534,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ],
+      "examples": [
+        "150"
+      ]
+    },
+    "bltouchSetodDelay": {
+      "mapsFrom": [
+        "BLTOUCH_SETOD_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 535,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ],
+      "examples": [
+        "150"
+      ]
+    },
+    "bltouchModeStoreDelay": {
+      "mapsFrom": [
+        "BLTOUCH_MODE_STORE_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 536,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ],
+      "examples": [
+        "150"
+      ]
+    },
+    "bltouchDeployDelay": {
+      "mapsFrom": [
+        "BLTOUCH_DEPLOY_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 537,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ],
+      "examples": [
+        "250"
+      ]
+    },
+    "bltouchStowDelay": {
+      "mapsFrom": [
+        "BLTOUCH_STOW_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 538,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ],
+      "examples": [
+        "250"
+      ]
+    },
+    "bltouchResetDelay": {
+      "mapsFrom": [
+        "BLTOUCH_RESET_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 539,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ],
+      "examples": [
+        "250"
+      ]
+    }
+  },
+  "motion": {
+    "xyProbeFeedrate": {
+      "mapsFrom": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 702,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "(50*60)"
+      ]
+    },
+    "g26XyFeedrate": {
+      "mapsFrom": [
+        "G26_XY_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 326,
+      "isConditional": true,
+      "conditionalOn": [
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "g26XyFeedrateTravel": {
+      "mapsFrom": [
+        "G26_XY_FEEDRATE_TRAVEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 327,
+      "isConditional": true,
+      "conditionalOn": [
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "allowLowEjerk": {
+      "mapsFrom": [
+        "ALLOW_LOW_EJERK"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 332,
+      "notes": "Bypass Linear Advance Low Jerk Warning"
+    },
+    "homingFeedrateMmM": {
+      "mapsFrom": [
+        "HOMING_FEEDRATE_MM_M"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 500,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "EZABL_FASTPROBE",
+        "ABL_ENABLE",
+        "SLOWER_HOMING"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "else block"
+      ],
+      "examples": [
+        "{ (50*60), (50*60), (5*60) }"
+      ]
+    },
+    "zProbeFeedrateFast": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_FAST"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 501,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "EZABL_FASTPROBE",
+        "ABL_ENABLE",
+        "SLOWER_HOMING"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "else block"
+      ],
+      "examples": [
+        "(5*60)"
+      ]
+    },
+    "zProbeFeedrateSlow": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_SLOW"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 549,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "ABL_ENABLE",
+        "EZABL_SUPERFASTPROBE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "(Z_PROBE_FEEDRATE_FAST / 2)"
+      ]
+    },
+    "nozzleParkXyFeedrate": {
+      "mapsFrom": [
+        "NOZZLE_PARK_XY_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 596,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "nozzleParkZFeedrate": {
+      "mapsFrom": [
+        "NOZZLE_PARK_Z_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 597,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "8"
+      ]
+    }
+  }
+}

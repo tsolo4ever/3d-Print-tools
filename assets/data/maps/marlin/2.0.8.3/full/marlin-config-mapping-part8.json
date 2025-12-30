@@ -1,0 +1,708 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration.h",
+  "totalDefines": 690,
+  "other_12": {
+    "neopixel2Type": {
+      "mapsFrom": [
+        "NEOPIXEL2_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2694,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "NEOPIXEL_TYPE"
+      ]
+    },
+    "neopixel2Pin": {
+      "mapsFrom": [
+        "NEOPIXEL2_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2695,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "neopixelPixels": {
+      "mapsFrom": [
+        "NEOPIXEL_PIXELS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2696,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "neopixelIsSequential": {
+      "mapsFrom": [
+        "NEOPIXEL_IS_SEQUENTIAL"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2697,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "// Sequential display for temperature change - LED by LED. Disable to change all LEDs at once."
+      ]
+    },
+    "neopixelBrightness": {
+      "mapsFrom": [
+        "NEOPIXEL_BRIGHTNESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2698,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "127"
+      ]
+    },
+    "neopixelStartupTest": {
+      "mapsFrom": [
+        "NEOPIXEL_STARTUP_TEST"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2699,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "// Cycle through colors at startup"
+      ]
+    },
+    "neopixel2Separate": {
+      "mapsFrom": [
+        "NEOPIXEL2_SEPARATE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2702,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "notes": "Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ..."
+    },
+    "neopixel2Pixels": {
+      "mapsFrom": [
+        "NEOPIXEL2_PIXELS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2704,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL2_SEPARATE",
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "15"
+      ]
+    },
+    "neopixel2Brightness": {
+      "mapsFrom": [
+        "NEOPIXEL2_BRIGHTNESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2705,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL2_SEPARATE",
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "127"
+      ]
+    },
+    "neopixel2StartupTest": {
+      "mapsFrom": [
+        "NEOPIXEL2_STARTUP_TEST"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2706,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL2_SEPARATE",
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "// Cycle through colors at startup"
+      ]
+    },
+    "neopixel2Inseries": {
+      "mapsFrom": [
+        "NEOPIXEL2_INSERIES"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2708,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "conditionalOnNot": [
+        "NEOPIXEL2_SEPARATE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Default behavior is NeoPixel 2 in parallel"
+      ]
+    },
+    "neopixelBkgdIndexFirst": {
+      "mapsFrom": [
+        "NEOPIXEL_BKGD_INDEX_FIRST"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2712,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "0"
+      ],
+      "notes": "Use some of the NeoPixel LEDs for static (background) lighting"
+    },
+    "neopixelBkgdIndexLast": {
+      "mapsFrom": [
+        "NEOPIXEL_BKGD_INDEX_LAST"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2713,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "neopixelBkgdColor": {
+      "mapsFrom": [
+        "NEOPIXEL_BKGD_COLOR"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2714,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "{ 255, 255, 255, 0 }"
+      ]
+    },
+    "neopixelBkgdAlwaysOn": {
+      "mapsFrom": [
+        "NEOPIXEL_BKGD_ALWAYS_ON"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2715,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "// Keep the backlight on when other NeoPixels are off"
+      ]
+    },
+    "printerEventLeds": {
+      "mapsFrom": [
+        "PRINTER_EVENT_LEDS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2730,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED",
+        "PCA9533",
+        "PCA9632",
+        "RGB_LED",
+        "BLINKM",
+        "RGBW_LED"
+      ]
+    },
+    "numServos": {
+      "mapsFrom": [
+        "NUM_SERVOS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2740,
+      "examples": [
+        "3"
+      ]
+    },
+    "servoDelay": {
+      "mapsFrom": [
+        "SERVO_DELAY"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2745,
+      "examples": [
+        "{ 300 }"
+      ],
+      "notes": "(ms) Delay  before the next move will start, to give the servo time to reach its target angle. 300ms is a good value but you can try less delay. If the servo can't reach the requested position, increase it."
+    },
+    "deactivateServosAfterMove": {
+      "mapsFrom": [
+        "DEACTIVATE_SERVOS_AFTER_MOVE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2748,
+      "notes": "Only power servos during movement, otherwise leave off to prevent jitter"
+    },
+    "editableServoAngles": {
+      "mapsFrom": [
+        "EDITABLE_SERVO_ANGLES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2751,
+      "notes": "Edit servo angles with M281 and save to EEPROM with M500"
+    }
+  },
+  "temperature_1": {
+    "singlenozzleStandbyTemp": {
+      "mapsFrom": [
+        "SINGLENOZZLE_STANDBY_TEMP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 167,
+      "isConditional": true,
+      "conditionalOn": [
+        "SINGLENOZZLE"
+      ]
+    },
+    "autoPowerETemp": {
+      "mapsFrom": [
+        "AUTO_POWER_E_TEMP"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 345,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "AUTO_POWER_CONTROL"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "autoPowerChamberTemp": {
+      "mapsFrom": [
+        "AUTO_POWER_CHAMBER_TEMP"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 346,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "AUTO_POWER_CONTROL"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "autoPowerCoolerTemp": {
+      "mapsFrom": [
+        "AUTO_POWER_COOLER_TEMP"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 347,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "AUTO_POWER_CONTROL"
+      ],
+      "examples": [
+        "26"
+      ]
+    },
+    "tempResidencyTime": {
+      "mapsFrom": [
+        "TEMP_RESIDENCY_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 452,
+      "examples": [
+        "10"
+      ]
+    },
+    "tempWindow": {
+      "mapsFrom": [
+        "TEMP_WINDOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 453,
+      "examples": [
+        "1"
+      ]
+    },
+    "tempHysteresis": {
+      "mapsFrom": [
+        "TEMP_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 454,
+      "examples": [
+        "3"
+      ]
+    },
+    "tempBedResidencyTime": {
+      "mapsFrom": [
+        "TEMP_BED_RESIDENCY_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 456,
+      "examples": [
+        "10"
+      ]
+    },
+    "tempBedWindow": {
+      "mapsFrom": [
+        "TEMP_BED_WINDOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 457,
+      "examples": [
+        "1"
+      ]
+    },
+    "tempBedHysteresis": {
+      "mapsFrom": [
+        "TEMP_BED_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 458,
+      "examples": [
+        "3"
+      ]
+    },
+    "tempChamberResidencyTime": {
+      "mapsFrom": [
+        "TEMP_CHAMBER_RESIDENCY_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 460,
+      "examples": [
+        "10"
+      ]
+    },
+    "tempChamberWindow": {
+      "mapsFrom": [
+        "TEMP_CHAMBER_WINDOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 461,
+      "examples": [
+        "1"
+      ]
+    },
+    "tempChamberHysteresis": {
+      "mapsFrom": [
+        "TEMP_CHAMBER_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 462,
+      "examples": [
+        "3"
+      ]
+    },
+    "bedMintemp": {
+      "mapsFrom": [
+        "BED_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 474,
+      "examples": [
+        "5"
+      ]
+    },
+    "chamberMintemp": {
+      "mapsFrom": [
+        "CHAMBER_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 475,
+      "examples": [
+        "5"
+      ]
+    },
+    "bedMaxtemp": {
+      "mapsFrom": [
+        "BED_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 488,
+      "examples": [
+        "150"
+      ]
+    },
+    "chamberMaxtemp": {
+      "mapsFrom": [
+        "CHAMBER_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 489,
+      "examples": [
+        "60"
+      ]
+    },
+    "bedOvershoot": {
+      "mapsFrom": [
+        "BED_OVERSHOOT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 498,
+      "examples": [
+        "10"
+      ]
+    },
+    "pidtemp": {
+      "mapsFrom": [
+        "PIDTEMP"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 507,
+      "notes": "=========================================================================== ============================= PID Settings ================================ =========================================================================== PID Tuning Guide here: https://reprap.org/wiki/PID_Tuning Comment the following line to disable PID and enable bang-bang."
+    },
+    "pidMax": {
+      "mapsFrom": [
+        "PID_MAX"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 509,
+      "examples": [
+        "BANG_MAX"
+      ]
+    },
+    "pidK1": {
+      "mapsFrom": [
+        "PID_K1"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 510,
+      "examples": [
+        "0.95"
+      ]
+    },
+    "pidEditMenu": {
+      "mapsFrom": [
+        "PID_EDIT_MENU"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 513,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "examples": [
+        "// Add PID editing to the \"Advanced Settings\" menu. (~700 bytes of PROGMEM)"
+      ]
+    },
+    "pidAutotuneMenu": {
+      "mapsFrom": [
+        "PID_AUTOTUNE_MENU"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 514,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "examples": [
+        "// Add PID auto-tuning to the \"Advanced Settings\" menu. (~250 bytes of PROGMEM)"
+      ]
+    },
+    "pidParamsPerHotend": {
+      "mapsFrom": [
+        "PID_PARAMS_PER_HOTEND"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 515,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "examples": [
+        "// Uses separate PID parameters for each extruder (useful for mismatched extruders)"
+      ]
+    },
+    "pidtempbed": {
+      "mapsFrom": [
+        "PIDTEMPBED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 548
+    },
+    "bedLimitSwitching": {
+      "mapsFrom": [
+        "BED_LIMIT_SWITCHING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 550
+    },
+    "maxBedPower": {
+      "mapsFrom": [
+        "MAX_BED_POWER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 558,
+      "examples": [
+        "255"
+      ]
+    },
+    "minBedPower": {
+      "mapsFrom": [
+        "MIN_BED_POWER"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 561,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "pidBedDebug": {
+      "mapsFrom": [
+        "PID_BED_DEBUG"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 562,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "// Sends debug data to the serial port."
+      ]
+    },
+    "pidtempchamber": {
+      "mapsFrom": [
+        "PIDTEMPCHAMBER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 591
+    }
+  }
+}

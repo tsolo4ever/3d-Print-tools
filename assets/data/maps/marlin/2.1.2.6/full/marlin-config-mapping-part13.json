@@ -1,0 +1,450 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "temperature_1": {
+    "singlenozzleStandbyTemp": {
+      "mapsFrom": [
+        "SINGLENOZZLE_STANDBY_TEMP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 244,
+      "isConditional": true,
+      "conditionalOn": [
+        "SINGLENOZZLE"
+      ]
+    },
+    "autoPowerETemp": {
+      "mapsFrom": [
+        "AUTO_POWER_E_TEMP"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 438,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "POWER_OFF_WAIT_FOR_COOLDOWN",
+        "EITHER",
+        "AUTO_POWER_CONTROL"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "autoPowerChamberTemp": {
+      "mapsFrom": [
+        "AUTO_POWER_CHAMBER_TEMP"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 439,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "POWER_OFF_WAIT_FOR_COOLDOWN",
+        "EITHER",
+        "AUTO_POWER_CONTROL"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "autoPowerCoolerTemp": {
+      "mapsFrom": [
+        "AUTO_POWER_COOLER_TEMP"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 440,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "POWER_OFF_WAIT_FOR_COOLDOWN",
+        "EITHER",
+        "AUTO_POWER_CONTROL"
+      ],
+      "examples": [
+        "26"
+      ]
+    },
+    "tempResidencyTime": {
+      "mapsFrom": [
+        "TEMP_RESIDENCY_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 588,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_E_TEMP_SENSOR"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "tempWindow": {
+      "mapsFrom": [
+        "TEMP_WINDOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 589,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_E_TEMP_SENSOR"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "tempHysteresis": {
+      "mapsFrom": [
+        "TEMP_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 590,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_E_TEMP_SENSOR"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "tempBedResidencyTime": {
+      "mapsFrom": [
+        "TEMP_BED_RESIDENCY_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 594,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BED"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "tempBedWindow": {
+      "mapsFrom": [
+        "TEMP_BED_WINDOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 595,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BED"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "tempBedHysteresis": {
+      "mapsFrom": [
+        "TEMP_BED_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 596,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BED"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "tempChamberResidencyTime": {
+      "mapsFrom": [
+        "TEMP_CHAMBER_RESIDENCY_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 600,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "tempChamberWindow": {
+      "mapsFrom": [
+        "TEMP_CHAMBER_WINDOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 601,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "tempChamberHysteresis": {
+      "mapsFrom": [
+        "TEMP_CHAMBER_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 602,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "bedMintemp": {
+      "mapsFrom": [
+        "BED_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 631,
+      "examples": [
+        "5"
+      ]
+    },
+    "chamberMintemp": {
+      "mapsFrom": [
+        "CHAMBER_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 632,
+      "examples": [
+        "5"
+      ]
+    },
+    "bedMaxtemp": {
+      "mapsFrom": [
+        "BED_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 645,
+      "examples": [
+        "150"
+      ]
+    },
+    "chamberMaxtemp": {
+      "mapsFrom": [
+        "CHAMBER_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 646,
+      "examples": [
+        "60"
+      ]
+    },
+    "bedOvershoot": {
+      "mapsFrom": [
+        "BED_OVERSHOOT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 655,
+      "examples": [
+        "10"
+      ]
+    },
+    "pidtemp": {
+      "mapsFrom": [
+        "PIDTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 671,
+      "examples": [
+        "// See the PID Tuning Guide at https:"
+      ]
+    },
+    "mpctemp": {
+      "mapsFrom": [
+        "MPCTEMP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 672,
+      "examples": [
+        "// See https:"
+      ]
+    },
+    "pidMax": {
+      "mapsFrom": [
+        "PID_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 674,
+      "examples": [
+        "255"
+      ]
+    },
+    "pidK1": {
+      "mapsFrom": [
+        "PID_K1"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 675,
+      "examples": [
+        "0.95"
+      ]
+    },
+    "pidDebug": {
+      "mapsFrom": [
+        "PID_DEBUG"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 678,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "examples": [
+        "// Print PID debug data to the serial port. Use 'M303 D' to toggle activation."
+      ]
+    },
+    "pidParamsPerHotend": {
+      "mapsFrom": [
+        "PID_PARAMS_PER_HOTEND"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 679,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "examples": [
+        "// Use separate PID parameters for each extruder (useful for mismatched extruders)"
+      ]
+    },
+    "maxBedPower": {
+      "mapsFrom": [
+        "MAX_BED_POWER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 756,
+      "examples": [
+        "255"
+      ]
+    },
+    "pidtempbed": {
+      "mapsFrom": [
+        "PIDTEMPBED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 770
+    },
+    "minBedPower": {
+      "mapsFrom": [
+        "MIN_BED_POWER"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 773,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "pidBedDebug": {
+      "mapsFrom": [
+        "PID_BED_DEBUG"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 774,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "// Print Bed PID debug data to the serial port."
+      ]
+    },
+    "bedKp": {
+      "mapsFrom": [
+        "DEFAULT_BED_KP"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 778,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "10.00"
+      ],
+      "notes": "120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+) from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)"
+    },
+    "bedKi": {
+      "mapsFrom": [
+        "DEFAULT_BED_KI"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 779,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        ".023"
+      ]
+    }
+  }
+}

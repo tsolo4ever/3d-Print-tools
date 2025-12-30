@@ -1,0 +1,447 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_2": {
+    "hotend6ShCCoeff": {
+      "mapsFrom": [
+        "HOTEND6_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 120,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_6"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "hotend7PullupResistorOhms": {
+      "mapsFrom": [
+        "HOTEND7_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 124,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_7"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "hotend7Resistance25cOhms": {
+      "mapsFrom": [
+        "HOTEND7_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 125,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_7"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "hotend7Beta": {
+      "mapsFrom": [
+        "HOTEND7_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 126,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_7"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "hotend7ShCCoeff": {
+      "mapsFrom": [
+        "HOTEND7_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 127,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_7"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "chamberPullupResistorOhms": {
+      "mapsFrom": [
+        "CHAMBER_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 138,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "chamberResistance25cOhms": {
+      "mapsFrom": [
+        "CHAMBER_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 139,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "chamberBeta": {
+      "mapsFrom": [
+        "CHAMBER_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 140,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "chamberShCCoeff": {
+      "mapsFrom": [
+        "CHAMBER_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 141,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "coolerPullupResistorOhms": {
+      "mapsFrom": [
+        "COOLER_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 145,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "coolerResistance25cOhms": {
+      "mapsFrom": [
+        "COOLER_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 146,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "coolerBeta": {
+      "mapsFrom": [
+        "COOLER_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 147,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "coolerShCCoeff": {
+      "mapsFrom": [
+        "COOLER_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 148,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "redundantPullupResistorOhms": {
+      "mapsFrom": [
+        "REDUNDANT_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 166,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_REDUNDANT"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "redundantResistance25cOhms": {
+      "mapsFrom": [
+        "REDUNDANT_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 167,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_REDUNDANT"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "redundantBeta": {
+      "mapsFrom": [
+        "REDUNDANT_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 168,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_REDUNDANT"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "redundantShCCoeff": {
+      "mapsFrom": [
+        "REDUNDANT_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 169,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_REDUNDANT"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "max31865SensorWires0": {
+      "mapsFrom": [
+        "MAX31865_SENSOR_WIRES_0"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 176,
+      "examples": [
+        "2"
+      ]
+    },
+    "max31865SensorWires1": {
+      "mapsFrom": [
+        "MAX31865_SENSOR_WIRES_1"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 177,
+      "examples": [
+        "2"
+      ]
+    },
+    "max31865SensorWires2": {
+      "mapsFrom": [
+        "MAX31865_SENSOR_WIRES_2"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 178,
+      "examples": [
+        "2"
+      ]
+    },
+    "max3186550hzFilter": {
+      "mapsFrom": [
+        "MAX31865_50HZ_FILTER"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 180,
+      "examples": [
+        "// Use a 50Hz filter instead of the default 60Hz."
+      ]
+    },
+    "max31865UseReadErrorDetection": {
+      "mapsFrom": [
+        "MAX31865_USE_READ_ERROR_DETECTION"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 181,
+      "examples": [
+        "// Treat value spikes (20\u00b0C delta in under 1s) as read errors."
+      ]
+    },
+    "max31865UseAutoMode": {
+      "mapsFrom": [
+        "MAX31865_USE_AUTO_MODE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 183,
+      "examples": [
+        "// Read faster and more often than 1-shot; bias voltage always on; slight effect on RTD temperature."
+      ]
+    },
+    "max31865MinSamplingTimeMsec": {
+      "mapsFrom": [
+        "MAX31865_MIN_SAMPLING_TIME_MSEC"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 184,
+      "examples": [
+        "100"
+      ]
+    },
+    "max31865IgnoreInitialFaultyReads": {
+      "mapsFrom": [
+        "MAX31865_IGNORE_INITIAL_FAULTY_READS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 185,
+      "examples": [
+        "10"
+      ]
+    },
+    "max31865WireOhms0": {
+      "mapsFrom": [
+        "MAX31865_WIRE_OHMS_0"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 187,
+      "examples": [
+        "0.95f"
+      ]
+    },
+    "max31865WireOhms1": {
+      "mapsFrom": [
+        "MAX31865_WIRE_OHMS_1"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 188,
+      "examples": [
+        "0.0f"
+      ]
+    },
+    "max31865WireOhms2": {
+      "mapsFrom": [
+        "MAX31865_WIRE_OHMS_2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 189,
+      "examples": [
+        "0.0f"
+      ]
+    },
+    "chamberCheckInterval": {
+      "mapsFrom": [
+        "CHAMBER_CHECK_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 214,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "5000"
+      ]
+    },
+    "chamberHysteresis": {
+      "mapsFrom": [
+        "CHAMBER_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 216,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER",
+        "CHAMBER_LIMIT_SWITCHING"
+      ],
+      "examples": [
+        "2"
+      ]
+    }
+  }
+}

@@ -1,0 +1,561 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_8": {
+    "ledControlMenu": {
+      "mapsFrom": [
+        "LED_CONTROL_MENU"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1193,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU"
+      ]
+    },
+    "ledColorPresets": {
+      "mapsFrom": [
+        "LED_COLOR_PRESETS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1195,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "// Enable the Preset Color menu option"
+      ]
+    },
+    "neo2ColorPresets": {
+      "mapsFrom": [
+        "NEO2_COLOR_PRESETS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1196,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "// Enable a second NeoPixel Preset Color menu option"
+      ]
+    },
+    "ledUserPresetRed": {
+      "mapsFrom": [
+        "LED_USER_PRESET_RED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1198,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "LED_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "ledUserPresetGreen": {
+      "mapsFrom": [
+        "LED_USER_PRESET_GREEN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1199,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "LED_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "128"
+      ]
+    },
+    "ledUserPresetBlue": {
+      "mapsFrom": [
+        "LED_USER_PRESET_BLUE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1200,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "LED_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "ledUserPresetWhite": {
+      "mapsFrom": [
+        "LED_USER_PRESET_WHITE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1201,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "LED_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "ledUserPresetBrightness": {
+      "mapsFrom": [
+        "LED_USER_PRESET_BRIGHTNESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1202,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "LED_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "ledUserPresetStartup": {
+      "mapsFrom": [
+        "LED_USER_PRESET_STARTUP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1203,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "LED_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "// Have the printer display the user preset color on startup"
+      ]
+    },
+    "neo2UserPresetRed": {
+      "mapsFrom": [
+        "NEO2_USER_PRESET_RED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1206,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "NEO2_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "neo2UserPresetGreen": {
+      "mapsFrom": [
+        "NEO2_USER_PRESET_GREEN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1207,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "NEO2_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "128"
+      ]
+    },
+    "neo2UserPresetBlue": {
+      "mapsFrom": [
+        "NEO2_USER_PRESET_BLUE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1208,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "NEO2_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "neo2UserPresetWhite": {
+      "mapsFrom": [
+        "NEO2_USER_PRESET_WHITE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1209,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "NEO2_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "neo2UserPresetBrightness": {
+      "mapsFrom": [
+        "NEO2_USER_PRESET_BRIGHTNESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1210,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "NEO2_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "neo2UserPresetStartup": {
+      "mapsFrom": [
+        "NEO2_USER_PRESET_STARTUP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1211,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU",
+        "NEO2_COLOR_PRESETS",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "// Have the printer display the user preset color on startup for the second strip"
+      ]
+    },
+    "bootscreenTimeout": {
+      "mapsFrom": [
+        "BOOTSCREEN_TIMEOUT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1225,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY",
+        "SHOW_BOOTSCREEN"
+      ],
+      "examples": [
+        "4000"
+      ]
+    },
+    "bootMarlinLogoSmall": {
+      "mapsFrom": [
+        "BOOT_MARLIN_LOGO_SMALL"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1227,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "HAS_DISPLAY",
+        "TFT_COLOR_UI",
+        "SHOW_BOOTSCREEN",
+        "EITHER"
+      ],
+      "examples": [
+        "// Show a smaller Marlin logo on the Boot Screen (saving lots of flash)"
+      ]
+    },
+    "statusMessageScrolling": {
+      "mapsFrom": [
+        "STATUS_MESSAGE_SCROLLING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1232,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY"
+      ],
+      "notes": "Scroll a longer status message into view"
+    },
+    "showRemainingTime": {
+      "mapsFrom": [
+        "SHOW_REMAINING_TIME"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1245,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "SDSUPPORT",
+        "IS_TFTGLCD_PANEL",
+        "LCD_SET_PROGRESS_MANUALLY",
+        "EITHER",
+        "HAS_MARLINUI_HD44780",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "// Display estimated time to completion"
+      ]
+    },
+    "m73RemainingTime": {
+      "mapsFrom": [
+        "USE_M73_REMAINING_TIME"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1247,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "SDSUPPORT",
+        "IS_TFTGLCD_PANEL",
+        "SHOW_REMAINING_TIME",
+        "LCD_SET_PROGRESS_MANUALLY",
+        "EITHER",
+        "HAS_MARLINUI_HD44780",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "// Use remaining time from M73 command instead of estimation"
+      ]
+    },
+    "printProgressShowDecimals": {
+      "mapsFrom": [
+        "PRINT_PROGRESS_SHOW_DECIMALS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1252,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "SDSUPPORT",
+        "IS_TFTGLCD_PANEL",
+        "LCD_SET_PROGRESS_MANUALLY",
+        "EITHER",
+        "HAS_MARLINUI_HD44780",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "// Show progress with decimal digits"
+      ]
+    },
+    "progressBarBarTime": {
+      "mapsFrom": [
+        "PROGRESS_BAR_BAR_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1258,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "SDSUPPORT",
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "LCD_SET_PROGRESS_MANUALLY",
+        "EITHER",
+        "HAS_MARLINUI_HD44780",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "2000"
+      ]
+    },
+    "progressBarMsgTime": {
+      "mapsFrom": [
+        "PROGRESS_BAR_MSG_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1259,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "SDSUPPORT",
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "LCD_SET_PROGRESS_MANUALLY",
+        "EITHER",
+        "HAS_MARLINUI_HD44780",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "3000"
+      ]
+    },
+    "progressMsgExpire": {
+      "mapsFrom": [
+        "PROGRESS_MSG_EXPIRE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1260,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "SDSUPPORT",
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "LCD_SET_PROGRESS_MANUALLY",
+        "EITHER",
+        "HAS_MARLINUI_HD44780",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "progressMsgOnce": {
+      "mapsFrom": [
+        "PROGRESS_MSG_ONCE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1261,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "SDSUPPORT",
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "LCD_SET_PROGRESS_MANUALLY",
+        "EITHER",
+        "HAS_MARLINUI_HD44780",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "// Show the message for MSG_TIME then clear it"
+      ]
+    },
+    "sdcardReadonly": {
+      "mapsFrom": [
+        "SDCARD_READONLY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1284,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// Read-only SD card (to save over 2K of flash)"
+      ]
+    },
+    "gcodeRepeatMarkers": {
+      "mapsFrom": [
+        "GCODE_REPEAT_MARKERS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1286,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// Enable G-code M808 to set repeat markers and do looping"
+      ]
+    },
+    "sdcardRatherrecentfirst": {
+      "mapsFrom": [
+        "SDCARD_RATHERRECENTFIRST"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1295,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "notes": "Reverse SD sort to show \"more recent\" files first, according to the card's FAT. Since the FAT gets out of order with usage, SDCARD_SORT_ALPHA is recommended."
+    },
+    "menuAddautostart": {
+      "mapsFrom": [
+        "MENU_ADDAUTOSTART"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1300,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// Add a menu option to run auto#.g files"
+      ]
+    },
+    "browseMediaOnInsert": {
+      "mapsFrom": [
+        "BROWSE_MEDIA_ON_INSERT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1302,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// Open the file browser when media is inserted"
+      ]
+    }
+  }
+}

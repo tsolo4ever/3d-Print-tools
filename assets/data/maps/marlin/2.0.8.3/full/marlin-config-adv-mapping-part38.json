@@ -1,0 +1,97 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "basic": {
+    "lcdSerialPort": {
+      "mapsFrom": [
+        "LCD_SERIAL_PORT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1592,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "lcdBaudrate": {
+      "mapsFrom": [
+        "LCD_BAUDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1593,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "115200"
+      ]
+    },
+    "filamentUnloadAllExtruders": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_ALL_EXTRUDERS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2355,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Allow M702 to unload all extruders above a minimum target temp (as set by M302)"
+      ]
+    },
+    "meatpackOnSerialPort1": {
+      "mapsFrom": [
+        "MEATPACK_ON_SERIAL_PORT_1"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3501,
+      "notes": "Support for MeatPack G-code compression (https://github.com/scottmudge/OctoPrint-MeatPack)"
+    },
+    "meatpackOnSerialPort2": {
+      "mapsFrom": [
+        "MEATPACK_ON_SERIAL_PORT_2"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3502
+    },
+    "mmu2SerialPort": {
+      "mapsFrom": [
+        "MMU2_SERIAL_PORT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3892,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "2"
+      ],
+      "notes": "Serial port used for communication with MMU2."
+    }
+  }
+}

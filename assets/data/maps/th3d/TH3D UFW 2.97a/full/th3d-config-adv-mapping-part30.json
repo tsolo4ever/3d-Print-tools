@@ -1,0 +1,466 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_33": {
+    "mainMenuItem4Confirm": {
+      "mapsFrom": [
+        "MAIN_MENU_ITEM_4_CONFIRM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4165,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_MAIN"
+      ]
+    },
+    "mainMenuItem5Desc": {
+      "mapsFrom": [
+        "MAIN_MENU_ITEM_5_DESC"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4167,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_MAIN"
+      ],
+      "examples": [
+        "\"Home & Info\""
+      ]
+    },
+    "mainMenuItem5Gcode": {
+      "mapsFrom": [
+        "MAIN_MENU_ITEM_5_GCODE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4168,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_MAIN"
+      ],
+      "examples": [
+        "\"G28\\nM503\""
+      ]
+    },
+    "mainMenuItem5Confirm": {
+      "mapsFrom": [
+        "MAIN_MENU_ITEM_5_CONFIRM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4169,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_MAIN"
+      ]
+    },
+    "customMenuConfig": {
+      "mapsFrom": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4175,
+      "notes": "@section custom config menu Custom Menu: Configuration Menu"
+    },
+    "customMenuConfigTitle": {
+      "mapsFrom": [
+        "CUSTOM_MENU_CONFIG_TITLE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4177,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"Custom Commands\""
+      ]
+    },
+    "customMenuConfigScriptDone": {
+      "mapsFrom": [
+        "CUSTOM_MENU_CONFIG_SCRIPT_DONE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4178,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"M117 Wireless Script Done\""
+      ]
+    },
+    "customMenuConfigScriptAudibleFeedback": {
+      "mapsFrom": [
+        "CUSTOM_MENU_CONFIG_SCRIPT_AUDIBLE_FEEDBACK"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4179,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ]
+    },
+    "customMenuConfigScriptReturn": {
+      "mapsFrom": [
+        "CUSTOM_MENU_CONFIG_SCRIPT_RETURN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4180,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "// Return to status screen after a script"
+      ]
+    },
+    "customMenuConfigOnlyIdle": {
+      "mapsFrom": [
+        "CUSTOM_MENU_CONFIG_ONLY_IDLE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4181,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "// Only show custom menu when the machine is idle"
+      ]
+    },
+    "configMenuItem1Desc": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_1_DESC"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4183,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"Wifi ON\""
+      ]
+    },
+    "configMenuItem1Gcode": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_1_GCODE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4184,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"M118 [ESP110] WIFI-STA pwd=12345678\""
+      ]
+    },
+    "configMenuItem1Confirm": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_1_CONFIRM"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4185,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "// Show a confirmation dialog before this action"
+      ]
+    },
+    "configMenuItem2Desc": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_2_DESC"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4187,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"Bluetooth ON\""
+      ]
+    },
+    "configMenuItem2Gcode": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_2_GCODE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4188,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"M118 [ESP110] BT pwd=12345678\""
+      ]
+    },
+    "configMenuItem2Confirm": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_2_CONFIRM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4189,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ]
+    },
+    "configMenuItem3Desc": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_3_DESC"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4191,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"Radio OFF\""
+      ]
+    },
+    "configMenuItem3Gcode": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_3_GCODE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4192,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"M118 [ESP110] OFF pwd=12345678\""
+      ]
+    },
+    "configMenuItem3Confirm": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_3_CONFIRM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4193,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ]
+    },
+    "configMenuItem4Desc": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_4_DESC"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4195,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"Wifi ????\""
+      ]
+    },
+    "configMenuItem4Gcode": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_4_GCODE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4196,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"M118 ????\""
+      ]
+    },
+    "configMenuItem4Confirm": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_4_CONFIRM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4197,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ]
+    },
+    "configMenuItem5Desc": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_5_DESC"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4199,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"Wifi ????\""
+      ]
+    },
+    "configMenuItem5Gcode": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_5_GCODE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4200,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"M118 ????\""
+      ]
+    },
+    "configMenuItem5Confirm": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_5_CONFIRM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4201,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ]
+    },
+    "customUserButtons": {
+      "mapsFrom": [
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4211,
+      "isConditional": true,
+      "conditionalOn": [
+        "LDO_FILAMENT_UNLOAD_PIN"
+      ]
+    },
+    "button1Pin": {
+      "mapsFrom": [
+        "BUTTON1_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4214,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "LDO_FILAMENT_UNLOAD_PIN"
+      ]
+    },
+    "button1HitState": {
+      "mapsFrom": [
+        "BUTTON1_HIT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4216,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON1",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "HIGH"
+      ]
+    },
+    "button1WhenPrinting": {
+      "mapsFrom": [
+        "BUTTON1_WHEN_PRINTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4217,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON1",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "button1Gcode": {
+      "mapsFrom": [
+        "BUTTON1_GCODE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4218,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON1",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"M702 U100\""
+      ]
+    }
+  }
+}

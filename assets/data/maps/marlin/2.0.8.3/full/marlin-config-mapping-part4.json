@@ -1,0 +1,823 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration.h",
+  "totalDefines": 690,
+  "other_5": {
+    "yEnableOn": {
+      "mapsFrom": [
+        "Y_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1177,
+      "examples": [
+        "0"
+      ]
+    },
+    "zEnableOn": {
+      "mapsFrom": [
+        "Z_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1178,
+      "examples": [
+        "0"
+      ]
+    },
+    "eEnableOn": {
+      "mapsFrom": [
+        "E_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1179,
+      "examples": [
+        "0"
+      ]
+    },
+    "disableX": {
+      "mapsFrom": [
+        "DISABLE_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1183,
+      "examples": [
+        "false"
+      ],
+      "notes": "Disable axis steppers immediately when they're not being stepped. WARNING: When motors turn off there is a chance of losing position accuracy!"
+    },
+    "disableY": {
+      "mapsFrom": [
+        "DISABLE_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1184,
+      "examples": [
+        "false"
+      ]
+    },
+    "disableZ": {
+      "mapsFrom": [
+        "DISABLE_Z"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1185,
+      "examples": [
+        "false"
+      ]
+    },
+    "disableReducedAccuracyWarning": {
+      "mapsFrom": [
+        "DISABLE_REDUCED_ACCURACY_WARNING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1188,
+      "notes": "Turn off the display blinking that warns about possible accuracy reduction"
+    },
+    "disableE": {
+      "mapsFrom": [
+        "DISABLE_E"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1192,
+      "examples": [
+        "false"
+      ],
+      "notes": "@section extruder"
+    },
+    "disableInactiveExtruder": {
+      "mapsFrom": [
+        "DISABLE_INACTIVE_EXTRUDER"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1193,
+      "examples": [
+        "// Keep only the active extruder enabled"
+      ]
+    },
+    "invertXDir": {
+      "mapsFrom": [
+        "INVERT_X_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1198,
+      "examples": [
+        "false"
+      ],
+      "notes": "@section machine Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way."
+    },
+    "invertYDir": {
+      "mapsFrom": [
+        "INVERT_Y_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1199,
+      "examples": [
+        "true"
+      ]
+    },
+    "invertZDir": {
+      "mapsFrom": [
+        "INVERT_Z_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1200,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE0Dir": {
+      "mapsFrom": [
+        "INVERT_E0_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1205,
+      "examples": [
+        "false"
+      ],
+      "notes": "@section extruder For direct drive extruder v9 set to true, for geared extruder set to false."
+    },
+    "invertE1Dir": {
+      "mapsFrom": [
+        "INVERT_E1_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1206,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE2Dir": {
+      "mapsFrom": [
+        "INVERT_E2_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1207,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE3Dir": {
+      "mapsFrom": [
+        "INVERT_E3_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1208,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE4Dir": {
+      "mapsFrom": [
+        "INVERT_E4_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1209,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE5Dir": {
+      "mapsFrom": [
+        "INVERT_E5_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1210,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE6Dir": {
+      "mapsFrom": [
+        "INVERT_E6_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1211,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertE7Dir": {
+      "mapsFrom": [
+        "INVERT_E7_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1212,
+      "examples": [
+        "false"
+      ]
+    },
+    "noMotionBeforeHoming": {
+      "mapsFrom": [
+        "NO_MOTION_BEFORE_HOMING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1216,
+      "examples": [
+        "// Inhibit movement until all axes have been homed. Also enable HOME_AFTER_DEACTIVATE for extra safety."
+      ],
+      "notes": "@section homing"
+    },
+    "zIdleHeight": {
+      "mapsFrom": [
+        "Z_IDLE_HEIGHT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1224,
+      "examples": [
+        "Z_HOME_POS"
+      ]
+    },
+    "zHomingHeight": {
+      "mapsFrom": [
+        "Z_HOMING_HEIGHT"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1226,
+      "examples": [
+        "4"
+      ]
+    },
+    "zAfterHoming": {
+      "mapsFrom": [
+        "Z_AFTER_HOMING"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1229,
+      "examples": [
+        "10"
+      ],
+      "notes": "Be sure to have this much clearance over your Z_MAX_POS to prevent grinding."
+    },
+    "filRunoutEnabledDefault": {
+      "mapsFrom": [
+        "FIL_RUNOUT_ENABLED_DEFAULT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1295,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "numRunoutSensors": {
+      "mapsFrom": [
+        "NUM_RUNOUT_SENSORS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1296,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "filRunoutState": {
+      "mapsFrom": [
+        "FIL_RUNOUT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1298,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "filRunoutPullup": {
+      "mapsFrom": [
+        "FIL_RUNOUT_PULLUP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1299,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "// Use internal pullup for filament runout pins."
+      ]
+    },
+    "filRunoutPulldown": {
+      "mapsFrom": [
+        "FIL_RUNOUT_PULLDOWN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1300,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "// Use internal pulldown for filament runout pins."
+      ]
+    },
+    "watchAllRunoutSensors": {
+      "mapsFrom": [
+        "WATCH_ALL_RUNOUT_SENSORS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1301,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "// Execute runout script on any triggering sensor, not only for the active extruder."
+      ]
+    }
+  },
+  "other_6": {
+    "filRunout1State": {
+      "mapsFrom": [
+        "FIL_RUNOUT1_STATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1305,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "LOW"
+      ],
+      "notes": "This is automatically enabled for MIXING_EXTRUDERs. Override individually if the runout sensors vary"
+    },
+    "filRunout1Pullup": {
+      "mapsFrom": [
+        "FIL_RUNOUT1_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1306,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout1Pulldown": {
+      "mapsFrom": [
+        "FIL_RUNOUT1_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1307,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout2State": {
+      "mapsFrom": [
+        "FIL_RUNOUT2_STATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1309,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "filRunout2Pullup": {
+      "mapsFrom": [
+        "FIL_RUNOUT2_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1310,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout2Pulldown": {
+      "mapsFrom": [
+        "FIL_RUNOUT2_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1311,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout3State": {
+      "mapsFrom": [
+        "FIL_RUNOUT3_STATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1313,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "filRunout3Pullup": {
+      "mapsFrom": [
+        "FIL_RUNOUT3_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1314,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout3Pulldown": {
+      "mapsFrom": [
+        "FIL_RUNOUT3_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1315,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout4State": {
+      "mapsFrom": [
+        "FIL_RUNOUT4_STATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1317,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "filRunout4Pullup": {
+      "mapsFrom": [
+        "FIL_RUNOUT4_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1318,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout4Pulldown": {
+      "mapsFrom": [
+        "FIL_RUNOUT4_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1319,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout5State": {
+      "mapsFrom": [
+        "FIL_RUNOUT5_STATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1321,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "filRunout5Pullup": {
+      "mapsFrom": [
+        "FIL_RUNOUT5_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1322,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout5Pulldown": {
+      "mapsFrom": [
+        "FIL_RUNOUT5_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1323,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout6State": {
+      "mapsFrom": [
+        "FIL_RUNOUT6_STATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1325,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "filRunout6Pullup": {
+      "mapsFrom": [
+        "FIL_RUNOUT6_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1326,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout6Pulldown": {
+      "mapsFrom": [
+        "FIL_RUNOUT6_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1327,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout7State": {
+      "mapsFrom": [
+        "FIL_RUNOUT7_STATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1329,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "filRunout7Pullup": {
+      "mapsFrom": [
+        "FIL_RUNOUT7_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1330,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout7Pulldown": {
+      "mapsFrom": [
+        "FIL_RUNOUT7_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1331,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout8State": {
+      "mapsFrom": [
+        "FIL_RUNOUT8_STATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1333,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "filRunout8Pullup": {
+      "mapsFrom": [
+        "FIL_RUNOUT8_PULLUP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1334,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filRunout8Pulldown": {
+      "mapsFrom": [
+        "FIL_RUNOUT8_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1335,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ]
+    },
+    "filamentMotionSensor": {
+      "mapsFrom": [
+        "FILAMENT_MOTION_SENSOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1351,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_DISTANCE_MM",
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "notes": "Enable this option to use an encoder disc that toggles the runout pin as the filament moves. (Be sure to set FILAMENT_RUNOUT_DISTANCE_MM large enough to avoid false positives.)"
+    },
+    "levelingAfterG28": {
+      "mapsFrom": [
+        "ENABLE_LEVELING_AFTER_G28"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1405
+    },
+    "debugLevelingFeature": {
+      "mapsFrom": [
+        "DEBUG_LEVELING_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1421
+    },
+    "levelingFadeHeight": {
+      "mapsFrom": [
+        "DEFAULT_LEVELING_FADE_HEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1434,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENABLE_LEVELING_FADE_HEIGHT",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING"
+      ],
+      "examples": [
+        "10.0"
+      ]
+    },
+    "segmentLeveledMoves": {
+      "mapsFrom": [
+        "SEGMENT_LEVELED_MOVES"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1440,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING"
+      ],
+      "notes": "For Cartesian machines, instead of dividing moves on mesh boundaries, split up moves into short segments like a Delta. This follows the contours of the bed more closely than edge-to-edge straight moves."
+    },
+    "leveledSegmentLength": {
+      "mapsFrom": [
+        "LEVELED_SEGMENT_LENGTH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1441,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING"
+      ],
+      "examples": [
+        "5.0"
+      ]
+    }
+  }
+}

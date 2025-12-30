@@ -1,0 +1,513 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "probe": {
+    "probePullupResistorOhms": {
+      "mapsFrom": [
+        "PROBE_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 152,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_PROBE"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "probeResistance25cOhms": {
+      "mapsFrom": [
+        "PROBE_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 153,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_PROBE"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "probeBeta": {
+      "mapsFrom": [
+        "PROBE_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 154,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_PROBE"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "probeShCCoeff": {
+      "mapsFrom": [
+        "PROBE_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 155,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_PROBE"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "bltouchDelay": {
+      "mapsFrom": [
+        "BLTOUCH_DELAY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 913,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ],
+      "examples": [
+        "500"
+      ],
+      "notes": "Safety: The probe needs time to recognize the command. Minimum command delay (ms). Enable and increase if needed."
+    },
+    "bltouchForceSwMode": {
+      "mapsFrom": [
+        "BLTOUCH_FORCE_SW_MODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 921,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ],
+      "notes": "Feature: Switch into SW mode after a deploy. It makes the output pulse longer. Can be useful in special cases, like noisy or filtered input configurations."
+    },
+    "bltouchSet5vMode": {
+      "mapsFrom": [
+        "BLTOUCH_SET_5V_MODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 939,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ]
+    },
+    "bltouchForceModeSet": {
+      "mapsFrom": [
+        "BLTOUCH_FORCE_MODE_SET"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 950,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ]
+    },
+    "bltouchHsMode": {
+      "mapsFrom": [
+        "BLTOUCH_HS_MODE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 960,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "probeOffsetWizard": {
+      "mapsFrom": [
+        "PROBE_OFFSET_WIZARD"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1380,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_BED_PROBE",
+        "HAS_TFT_LVGL_UI",
+        "EITHER",
+        "HAS_MARLINUI_MENU"
+      ],
+      "examples": [
+        "// Add a Probe Z Offset calibration option to the LCD menu"
+      ]
+    },
+    "probeOffsetWizardStartZ": {
+      "mapsFrom": [
+        "PROBE_OFFSET_WIZARD_START_Z"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1387,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_OFFSET_WIZARD",
+        "HAS_TFT_LVGL_UI",
+        "HAS_BED_PROBE",
+        "HAS_MARLINUI_MENU",
+        "EITHER"
+      ],
+      "examples": [
+        "-4.0"
+      ]
+    },
+    "probeOffsetWizardXyPos": {
+      "mapsFrom": [
+        "PROBE_OFFSET_WIZARD_XY_POS"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1390,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_OFFSET_WIZARD",
+        "HAS_TFT_LVGL_UI",
+        "HAS_BED_PROBE",
+        "HAS_MARLINUI_MENU",
+        "EITHER"
+      ],
+      "examples": [
+        "{ X_CENTER, Y_CENTER }"
+      ],
+      "notes": "Set a convenient position to do the calibration (probing point and nozzle/bed-distance)"
+    },
+    "probeDeployStowMenu": {
+      "mapsFrom": [
+        "PROBE_DEPLOY_STOW_MENU"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1399,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_BED_PROBE",
+        "HAS_MARLINUI_MENU"
+      ],
+      "notes": "Show Deploy / Stow Probe options in the Motion menu."
+    },
+    "babystepZprobeOffset": {
+      "mapsFrom": [
+        "BABYSTEP_ZPROBE_OFFSET"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2090,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "// Combine M851 Z and Babystepping"
+      ]
+    },
+    "babystepZprobeGfxOverlay": {
+      "mapsFrom": [
+        "BABYSTEP_ZPROBE_GFX_OVERLAY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2093,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING",
+        "BABYSTEP_ZPROBE_OFFSET"
+      ],
+      "examples": [
+        "// Enable graphical overlay on Z-offset editor"
+      ]
+    },
+    "probePt1X": {
+      "mapsFrom": [
+        "PROBE_PT_1_X"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2149,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_3POINT",
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "examples": [
+        "15"
+      ]
+    },
+    "probePt1Y": {
+      "mapsFrom": [
+        "PROBE_PT_1_Y"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2150,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_3POINT",
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "examples": [
+        "180"
+      ]
+    },
+    "probePt2X": {
+      "mapsFrom": [
+        "PROBE_PT_2_X"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2151,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_3POINT",
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "examples": [
+        "15"
+      ]
+    },
+    "probePt2Y": {
+      "mapsFrom": [
+        "PROBE_PT_2_Y"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2152,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_3POINT",
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "probePt3X": {
+      "mapsFrom": [
+        "PROBE_PT_3_X"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2153,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_3POINT",
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "examples": [
+        "170"
+      ]
+    },
+    "probePt3Y": {
+      "mapsFrom": [
+        "PROBE_PT_3_Y"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2154,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_3POINT",
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "ptcProbe": {
+      "mapsFrom": [
+        "PTC_PROBE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2225,
+      "examples": [
+        "// Compensate based on probe temperature"
+      ]
+    },
+    "ptcProbeStart": {
+      "mapsFrom": [
+        "PTC_PROBE_START"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2240,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "30"
+      ],
+      "notes": "Probe temperature calibration generates a table of values starting at PTC_PROBE_START (e.g., 30), in steps of PTC_PROBE_RES (e.g., 5) with PTC_PROBE_COUNT (e.g., 10) samples."
+    },
+    "ptcProbeRes": {
+      "mapsFrom": [
+        "PTC_PROBE_RES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2241,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "ptcProbeCount": {
+      "mapsFrom": [
+        "PTC_PROBE_COUNT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2242,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "ptcProbeZoffs": {
+      "mapsFrom": [
+        "PTC_PROBE_ZOFFS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2243,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "{ 0 }"
+      ]
+    },
+    "ptcProbePos": {
+      "mapsFrom": [
+        "PTC_PROBE_POS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2269,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "BOTH",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "{ 90, 100 }"
+      ],
+      "notes": "Probe position to probe and wait for probe to reach target temperature"
+    },
+    "ptcProbeHeatingOffset": {
+      "mapsFrom": [
+        "PTC_PROBE_HEATING_OFFSET"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2277,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "BOTH",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "0.5"
+      ],
+      "notes": "Height above Z=0.0 to raise the nozzle. Lowering this can help the probe to heat faster. Note: The Z=0.0 offset is determined by the probe Z offset (e.g., as set with M851 Z)."
+    },
+    "g38ProbeTarget": {
+      "mapsFrom": [
+        "G38_PROBE_TARGET"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2326
+    },
+    "g38ProbeAway": {
+      "mapsFrom": [
+        "G38_PROBE_AWAY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2328,
+      "isConditional": true,
+      "conditionalOn": [
+        "G38_PROBE_TARGET"
+      ],
+      "examples": [
+        "// Include G38.4 and G38.5 to probe away from target"
+      ]
+    }
+  }
+}

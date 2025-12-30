@@ -1,0 +1,528 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_20": {
+    "e3Rsense": {
+      "mapsFrom": [
+        "E3_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2593,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "E3",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "e3ChainPos": {
+      "mapsFrom": [
+        "E3_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2993,
+      "isConditional": true,
+      "conditionalOn": [
+        "E3",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e3Interpolate": {
+      "mapsFrom": [
+        "E3_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2595,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "E3",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "e4Current": {
+      "mapsFrom": [
+        "E4_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2599,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "E4",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "800"
+      ]
+    },
+    "e4Rsense": {
+      "mapsFrom": [
+        "E4_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2601,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "E4",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "e4ChainPos": {
+      "mapsFrom": [
+        "E4_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3002,
+      "isConditional": true,
+      "conditionalOn": [
+        "E4",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e4Interpolate": {
+      "mapsFrom": [
+        "E4_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2603,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "E4",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "e5Current": {
+      "mapsFrom": [
+        "E5_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2607,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "HAS_TRINAMIC_CONFIG",
+        "E5"
+      ],
+      "examples": [
+        "800"
+      ]
+    },
+    "e5Rsense": {
+      "mapsFrom": [
+        "E5_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2609,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "HAS_TRINAMIC_CONFIG",
+        "E5"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "e5ChainPos": {
+      "mapsFrom": [
+        "E5_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3011,
+      "isConditional": true,
+      "conditionalOn": [
+        "E5",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e5Interpolate": {
+      "mapsFrom": [
+        "E5_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2611,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "HAS_TRINAMIC_CONFIG",
+        "E5"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "e6Current": {
+      "mapsFrom": [
+        "E6_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2615,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "HAS_TRINAMIC_CONFIG",
+        "E6"
+      ],
+      "examples": [
+        "800"
+      ]
+    },
+    "e6Rsense": {
+      "mapsFrom": [
+        "E6_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2617,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "HAS_TRINAMIC_CONFIG",
+        "E6"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "e6ChainPos": {
+      "mapsFrom": [
+        "E6_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3020,
+      "isConditional": true,
+      "conditionalOn": [
+        "E6",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e6Interpolate": {
+      "mapsFrom": [
+        "E6_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2619,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "HAS_TRINAMIC_CONFIG",
+        "E6"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "e7Current": {
+      "mapsFrom": [
+        "E7_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2623,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "E7",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "800"
+      ]
+    },
+    "e7Rsense": {
+      "mapsFrom": [
+        "E7_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2625,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "E7",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "e7ChainPos": {
+      "mapsFrom": [
+        "E7_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3029,
+      "isConditional": true,
+      "conditionalOn": [
+        "E7",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e7Interpolate": {
+      "mapsFrom": [
+        "E7_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2627,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_TMC",
+        "E7",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "xCsPin": {
+      "mapsFrom": [
+        "X_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2634,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "yCsPin": {
+      "mapsFrom": [
+        "Y_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2635,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "zCsPin": {
+      "mapsFrom": [
+        "Z_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2636,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "x2CsPin": {
+      "mapsFrom": [
+        "X2_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2637,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "y2CsPin": {
+      "mapsFrom": [
+        "Y2_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2638,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "z2CsPin": {
+      "mapsFrom": [
+        "Z2_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2639,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "z3CsPin": {
+      "mapsFrom": [
+        "Z3_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2640,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e0CsPin": {
+      "mapsFrom": [
+        "E0_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2641,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e1CsPin": {
+      "mapsFrom": [
+        "E1_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2642,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e2CsPin": {
+      "mapsFrom": [
+        "E2_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2643,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e3CsPin": {
+      "mapsFrom": [
+        "E3_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2644,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    }
+  }
+}

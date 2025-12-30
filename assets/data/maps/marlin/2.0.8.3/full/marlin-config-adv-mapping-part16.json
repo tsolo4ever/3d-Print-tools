@@ -1,0 +1,550 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_17": {
+    "zSenseResistor": {
+      "mapsFrom": [
+        "Z_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2394,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_Z"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "zMicrosteps": {
+      "mapsFrom": [
+        "Z_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2926,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "128"
+      ]
+    },
+    "z2MaxCurrent": {
+      "mapsFrom": [
+        "Z2_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2399,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_Z2"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "z2SenseResistor": {
+      "mapsFrom": [
+        "Z2_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2400,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_Z2"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "z2Microsteps": {
+      "mapsFrom": [
+        "Z2_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2935,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_L64XX",
+        "Z2",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "Z_MICROSTEPS"
+      ]
+    },
+    "z3MaxCurrent": {
+      "mapsFrom": [
+        "Z3_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2405,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_DRIVER_TYPE_Z3",
+        "HAS_DRIVER",
+        "TMC26X"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "z3SenseResistor": {
+      "mapsFrom": [
+        "Z3_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2406,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_DRIVER_TYPE_Z3",
+        "HAS_DRIVER",
+        "TMC26X"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "z3Microsteps": {
+      "mapsFrom": [
+        "Z3_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2944,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z3",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "Z_MICROSTEPS"
+      ]
+    },
+    "z4MaxCurrent": {
+      "mapsFrom": [
+        "Z4_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2411,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_Z4"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "z4SenseResistor": {
+      "mapsFrom": [
+        "Z4_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2412,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_Z4"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "z4Microsteps": {
+      "mapsFrom": [
+        "Z4_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2953,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z4",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "Z_MICROSTEPS"
+      ]
+    },
+    "e0MaxCurrent": {
+      "mapsFrom": [
+        "E0_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2417,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_E0"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "e0SenseResistor": {
+      "mapsFrom": [
+        "E0_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2418,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_E0"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "e0Microsteps": {
+      "mapsFrom": [
+        "E0_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2962,
+      "isConditional": true,
+      "conditionalOn": [
+        "E0",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "128"
+      ]
+    },
+    "e1MaxCurrent": {
+      "mapsFrom": [
+        "E1_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2423,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_E1"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "e1SenseResistor": {
+      "mapsFrom": [
+        "E1_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2424,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_E1"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "e1Microsteps": {
+      "mapsFrom": [
+        "E1_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2971,
+      "isConditional": true,
+      "conditionalOn": [
+        "E1",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "E0_MICROSTEPS"
+      ]
+    },
+    "e2MaxCurrent": {
+      "mapsFrom": [
+        "E2_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2429,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_DRIVER_TYPE_E2",
+        "HAS_DRIVER",
+        "TMC26X"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "e2SenseResistor": {
+      "mapsFrom": [
+        "E2_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2430,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_DRIVER_TYPE_E2",
+        "HAS_DRIVER",
+        "TMC26X"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "e2Microsteps": {
+      "mapsFrom": [
+        "E2_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2980,
+      "isConditional": true,
+      "conditionalOn": [
+        "E2",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "E0_MICROSTEPS"
+      ]
+    },
+    "e3MaxCurrent": {
+      "mapsFrom": [
+        "E3_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2435,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_E3"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "e3SenseResistor": {
+      "mapsFrom": [
+        "E3_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2436,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_E3"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "e3Microsteps": {
+      "mapsFrom": [
+        "E3_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2989,
+      "isConditional": true,
+      "conditionalOn": [
+        "E3",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "E0_MICROSTEPS"
+      ]
+    },
+    "e4MaxCurrent": {
+      "mapsFrom": [
+        "E4_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2441,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_E4"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "e4SenseResistor": {
+      "mapsFrom": [
+        "E4_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2442,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_E4"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "e4Microsteps": {
+      "mapsFrom": [
+        "E4_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2998,
+      "isConditional": true,
+      "conditionalOn": [
+        "E4",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "E0_MICROSTEPS"
+      ]
+    },
+    "e5MaxCurrent": {
+      "mapsFrom": [
+        "E5_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2447,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_E5"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "e5SenseResistor": {
+      "mapsFrom": [
+        "E5_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2448,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_E5"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "e5Microsteps": {
+      "mapsFrom": [
+        "E5_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3007,
+      "isConditional": true,
+      "conditionalOn": [
+        "E5",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "E0_MICROSTEPS"
+      ]
+    },
+    "e6MaxCurrent": {
+      "mapsFrom": [
+        "E6_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2453,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_E6"
+      ],
+      "examples": [
+        "1000"
+      ]
+    }
+  }
+}

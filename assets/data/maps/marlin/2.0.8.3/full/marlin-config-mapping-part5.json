@@ -1,0 +1,495 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration.h",
+  "totalDefines": 690,
+  "other_7": {
+    "g26RetractMultiplier": {
+      "mapsFrom": [
+        "G26_RETRACT_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1454,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "1.0"
+      ]
+    },
+    "extrapolateBeyondGrid": {
+      "mapsFrom": [
+        "EXTRAPOLATE_BEYOND_GRID"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1472,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_LINEAR",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "EITHER"
+      ],
+      "notes": "Beyond the probed grid, continue the implied tilt? Default is to maintain the height of the nearest edge."
+    },
+    "ablBilinearSubdivision": {
+      "mapsFrom": [
+        "ABL_BILINEAR_SUBDIVISION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1478,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_LINEAR",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "EITHER"
+      ],
+      "notes": " Experimental Subdivision of the grid by Catmull-Rom method. Synthesizes intermediate points to produce a more detailed mesh. "
+    },
+    "bilinearSubdivisions": {
+      "mapsFrom": [
+        "BILINEAR_SUBDIVISIONS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1481,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_LINEAR",
+        "ABL_BILINEAR_SUBDIVISION",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "EITHER"
+      ],
+      "examples": [
+        "3"
+      ],
+      "notes": "Number of subdivisions between probe points"
+    },
+    "ublHilbertCurve": {
+      "mapsFrom": [
+        "UBL_HILBERT_CURVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1498,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "conditionalExpression": [
+        "ENABLED(AUTO_BED_LEVELING_UBL)"
+      ],
+      "examples": [
+        "// Use Hilbert distribution for less travel when probing multiple points"
+      ]
+    },
+    "ublSaveActiveOnM500": {
+      "mapsFrom": [
+        "UBL_SAVE_ACTIVE_ON_M500"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1501,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "conditionalExpression": [
+        "ENABLED(AUTO_BED_LEVELING_UBL)"
+      ],
+      "examples": [
+        "// Save the currently active mesh in the current slot on M500"
+      ]
+    },
+    "ublZRaiseWhenOffMesh": {
+      "mapsFrom": [
+        "UBL_Z_RAISE_WHEN_OFF_MESH"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1503,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "conditionalExpression": [
+        "ENABLED(AUTO_BED_LEVELING_UBL)"
+      ],
+      "examples": [
+        "2.5"
+      ]
+    },
+    "levelCornersInsetLfrb": {
+      "mapsFrom": [
+        "LEVEL_CORNERS_INSET_LFRB"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1538,
+      "isConditional": true,
+      "conditionalOn": [
+        "LEVEL_BED_CORNERS"
+      ],
+      "examples": [
+        "{ 30, 30, 30, 30 }"
+      ]
+    },
+    "levelCornersHeight": {
+      "mapsFrom": [
+        "LEVEL_CORNERS_HEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1539,
+      "isConditional": true,
+      "conditionalOn": [
+        "LEVEL_BED_CORNERS"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "levelCornersZHop": {
+      "mapsFrom": [
+        "LEVEL_CORNERS_Z_HOP"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1540,
+      "isConditional": true,
+      "conditionalOn": [
+        "LEVEL_BED_CORNERS"
+      ],
+      "examples": [
+        "4.0"
+      ]
+    },
+    "levelCenterToo": {
+      "mapsFrom": [
+        "LEVEL_CENTER_TOO"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1541,
+      "isConditional": true,
+      "conditionalOn": [
+        "LEVEL_BED_CORNERS"
+      ],
+      "examples": [
+        "// Move to the center after the last corner"
+      ]
+    },
+    "levelCornersVerifyRaised": {
+      "mapsFrom": [
+        "LEVEL_CORNERS_VERIFY_RAISED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1545,
+      "isConditional": true,
+      "conditionalOn": [
+        "LEVEL_CORNERS_USE_PROBE",
+        "LEVEL_BED_CORNERS"
+      ],
+      "examples": [
+        "// After adjustment triggers the probe, re-probe to verify"
+      ]
+    },
+    "levelCornersAudioFeedback": {
+      "mapsFrom": [
+        "LEVEL_CORNERS_AUDIO_FEEDBACK"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1546,
+      "isConditional": true,
+      "conditionalOn": [
+        "LEVEL_CORNERS_USE_PROBE",
+        "LEVEL_BED_CORNERS"
+      ]
+    },
+    "levelCornersLevelingOrder": {
+      "mapsFrom": [
+        "LEVEL_CORNERS_LEVELING_ORDER"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1566,
+      "isConditional": true,
+      "conditionalOn": [
+        "LEVEL_BED_CORNERS"
+      ],
+      "examples": [
+        "{ LF, RF, RB, LB }"
+      ]
+    },
+    "skewCorrection": {
+      "mapsFrom": [
+        "SKEW_CORRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1638
+    },
+    "xyDiagAc": {
+      "mapsFrom": [
+        "XY_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1642,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ],
+      "notes": "Input all length measurements here:"
+    },
+    "xyDiagBd": {
+      "mapsFrom": [
+        "XY_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1643,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "xySideAd": {
+      "mapsFrom": [
+        "XY_SIDE_AD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1644,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "xySkewFactor": {
+      "mapsFrom": [
+        "XY_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1648,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "0.0"
+      ],
+      "notes": "Or, set the default skew factors directly here to override the above measurements:"
+    },
+    "skewCorrectionForZ": {
+      "mapsFrom": [
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1650,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ]
+    },
+    "xzDiagAc": {
+      "mapsFrom": [
+        "XZ_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1652,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "xzDiagBd": {
+      "mapsFrom": [
+        "XZ_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1653,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzDiagAc": {
+      "mapsFrom": [
+        "YZ_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1654,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzDiagBd": {
+      "mapsFrom": [
+        "YZ_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1655,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzSideAd": {
+      "mapsFrom": [
+        "YZ_SIDE_AD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1656,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "xzSkewFactor": {
+      "mapsFrom": [
+        "XZ_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1657,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "yzSkewFactor": {
+      "mapsFrom": [
+        "YZ_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1658,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "skewCorrectionGcode": {
+      "mapsFrom": [
+        "SKEW_CORRECTION_GCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1662,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "notes": "Enable this option for M852 to set skew at runtime"
+    },
+    "disableM503": {
+      "mapsFrom": [
+        "DISABLE_M503"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1681,
+      "examples": [
+        "// Saves ~2700 bytes of PROGMEM. Disable for release!"
+      ]
+    },
+    "hostKeepaliveFeature": {
+      "mapsFrom": [
+        "HOST_KEEPALIVE_FEATURE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1694,
+      "examples": [
+        "// Disable this if your host doesn't like keepalive messages"
+      ],
+      "notes": " Host Keepalive  When enabled Marlin will send a busy status message to the host every couple of seconds when it can't accept commands. "
+    }
+  }
+}

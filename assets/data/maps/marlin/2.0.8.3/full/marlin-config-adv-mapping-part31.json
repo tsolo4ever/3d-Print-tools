@@ -1,0 +1,806 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_33": {
+    "max7219Gcode": {
+      "mapsFrom": [
+        "MAX7219_GCODE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3810,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "// Add the M7219 G-code to control the LED matrix"
+      ]
+    },
+    "max7219InitTest": {
+      "mapsFrom": [
+        "MAX7219_INIT_TEST"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3811,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "max7219NumberUnits": {
+      "mapsFrom": [
+        "MAX7219_NUMBER_UNITS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3812,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "max7219Rotate": {
+      "mapsFrom": [
+        "MAX7219_ROTATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3813,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "max7219ReverseOrder": {
+      "mapsFrom": [
+        "MAX7219_REVERSE_ORDER"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3815,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "// The individual LED matrix units may be in reversed order"
+      ],
+      "notes": "connector at:  right=0   bottom=-90  top=90  left=180"
+    },
+    "max7219SideBySide": {
+      "mapsFrom": [
+        "MAX7219_SIDE_BY_SIDE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3816,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "// Big chip+matrix boards can be chained side-by-side"
+      ]
+    },
+    "max7219DebugPrinterAlive": {
+      "mapsFrom": [
+        "MAX7219_DEBUG_PRINTER_ALIVE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3822,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "// Blink corner LED of 8x8 matrix to show that the firmware is functioning"
+      ]
+    },
+    "max7219DebugPlannerHead": {
+      "mapsFrom": [
+        "MAX7219_DEBUG_PLANNER_HEAD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3823,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "max7219DebugPlannerTail": {
+      "mapsFrom": [
+        "MAX7219_DEBUG_PLANNER_TAIL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3824,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "max7219DebugPlannerQueue": {
+      "mapsFrom": [
+        "MAX7219_DEBUG_PLANNER_QUEUE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3826,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "nanodlpZSync": {
+      "mapsFrom": [
+        "NANODLP_Z_SYNC"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3838
+    },
+    "nanodlpAllAxis": {
+      "mapsFrom": [
+        "NANODLP_ALL_AXIS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3840,
+      "isConditional": true,
+      "conditionalOn": [
+        "NANODLP_Z_SYNC"
+      ],
+      "examples": [
+        "// Send a \"Z_move_comp\" report for any axis move (not just Z)."
+      ]
+    },
+    "macAddress": {
+      "mapsFrom": [
+        "MAC_ADDRESS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3847,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_ETHERNET"
+      ],
+      "examples": [
+        "{ 0xDE, 0xAD, 0xBE, 0xEF, 0xF0, 0x0D }"
+      ]
+    },
+    "wifisupport": {
+      "mapsFrom": [
+        "WIFISUPPORT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3853,
+      "examples": [
+        "// Marlin embedded WiFi managenent"
+      ]
+    },
+    "esp3dWifisupport": {
+      "mapsFrom": [
+        "ESP3D_WIFISUPPORT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3854,
+      "examples": [
+        "// ESP3D Library WiFi management (https:"
+      ]
+    },
+    "websupport": {
+      "mapsFrom": [
+        "WEBSUPPORT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3857,
+      "isConditional": true,
+      "conditionalOn": [
+        "ESP3D_WIFISUPPORT",
+        "EITHER",
+        "WIFISUPPORT"
+      ],
+      "examples": [
+        "// Start a webserver (which may include auto-discovery)"
+      ]
+    },
+    "otasupport": {
+      "mapsFrom": [
+        "OTASUPPORT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3858,
+      "isConditional": true,
+      "conditionalOn": [
+        "ESP3D_WIFISUPPORT",
+        "EITHER",
+        "WIFISUPPORT"
+      ],
+      "examples": [
+        "// Support over-the-air firmware updates"
+      ]
+    },
+    "wifiCustomCommand": {
+      "mapsFrom": [
+        "WIFI_CUSTOM_COMMAND"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3859,
+      "isConditional": true,
+      "conditionalOn": [
+        "ESP3D_WIFISUPPORT",
+        "EITHER",
+        "WIFISUPPORT"
+      ],
+      "examples": [
+        "// Accept feature config commands (e.g., WiFi ESP3D) from the host"
+      ]
+    },
+    "eMux0Pin": {
+      "mapsFrom": [
+        "E_MUX0_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3887,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU1"
+      ],
+      "examples": [
+        "40"
+      ]
+    },
+    "eMux1Pin": {
+      "mapsFrom": [
+        "E_MUX1_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3888,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU1"
+      ],
+      "examples": [
+        "42"
+      ]
+    },
+    "eMux2Pin": {
+      "mapsFrom": [
+        "E_MUX2_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3889,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU1"
+      ],
+      "examples": [
+        "44"
+      ]
+    },
+    "mmu2RstPin": {
+      "mapsFrom": [
+        "MMU2_RST_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3895,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "23"
+      ],
+      "notes": "Use hardware reset for MMU if a pin is defined for it"
+    },
+    "mmu2Mode12v": {
+      "mapsFrom": [
+        "MMU2_MODE_12V"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3898,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "notes": "Enable if the MMU2 has 12V stepper motors (MMU2 Firmware 1.0.2 and up)"
+    },
+    "mmu2Menus": {
+      "mapsFrom": [
+        "MMU2_MENUS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3904,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "notes": "Add an LCD menu for MMU2"
+    },
+    "mmu2FilamentchangeEjectFeed": {
+      "mapsFrom": [
+        "MMU2_FILAMENTCHANGE_EJECT_FEED"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3908,
+      "isConditional": true,
+      "conditionalOn": [
+        "MMU2_MENUS",
+        "HAS_PRUSA_MMU2S",
+        "EITHER",
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "80.0"
+      ],
+      "notes": "Settings for filament load / unload from the LCD menu. This is for Pr\u016f\u0161a MK3-style extruders. Customize for your hardware."
+    },
+    "mmu2LoadToNozzleSequence": {
+      "mapsFrom": [
+        "MMU2_LOAD_TO_NOZZLE_SEQUENCE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3909,
+      "isConditional": true,
+      "conditionalOn": [
+        "MMU2_MENUS",
+        "HAS_PRUSA_MMU2S",
+        "EITHER",
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "\\"
+      ]
+    },
+    "mmu2RammingSequence": {
+      "mapsFrom": [
+        "MMU2_RAMMING_SEQUENCE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3916,
+      "isConditional": true,
+      "conditionalOn": [
+        "MMU2_MENUS",
+        "HAS_PRUSA_MMU2S",
+        "EITHER",
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "\\"
+      ]
+    },
+    "mmu2C0Retry": {
+      "mapsFrom": [
+        "MMU2_C0_RETRY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3936,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "mmu2CanLoadSequence": {
+      "mapsFrom": [
+        "MMU2_CAN_LOAD_SEQUENCE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3939,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "\\"
+      ]
+    },
+    "mmu2CanLoadRetract": {
+      "mapsFrom": [
+        "MMU2_CAN_LOAD_RETRACT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3944,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "6.0"
+      ]
+    }
+  },
+  "other_34": {
+    "mmu2CanLoadDeviation": {
+      "mapsFrom": [
+        "MMU2_CAN_LOAD_DEVIATION"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3945,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "0.8"
+      ]
+    },
+    "mmu2CanLoadIncrement": {
+      "mapsFrom": [
+        "MMU2_CAN_LOAD_INCREMENT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3947,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "0.2"
+      ]
+    },
+    "mmu2CanLoadIncrementSequence": {
+      "mapsFrom": [
+        "MMU2_CAN_LOAD_INCREMENT_SEQUENCE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3948,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "\\"
+      ]
+    },
+    "mmuExtruderSensor": {
+      "mapsFrom": [
+        "MMU_EXTRUDER_SENSOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3964,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalOnNot": [
+        "HAS_PRUSA_MMU2S"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2",
+        "else block"
+      ]
+    },
+    "mmu2Debug": {
+      "mapsFrom": [
+        "MMU2_DEBUG"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3971,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "// Write debug info to serial output"
+      ]
+    },
+    "serviceWarningBuzzes": {
+      "mapsFrom": [
+        "SERVICE_WARNING_BUZZES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3979,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRINTCOUNTER"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "serviceName1": {
+      "mapsFrom": [
+        "SERVICE_NAME_1"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3981,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRINTCOUNTER"
+      ],
+      "examples": [
+        "\"Service S\""
+      ],
+      "notes": "Activate up to 3 service interval watchdogs"
+    },
+    "serviceInterval1": {
+      "mapsFrom": [
+        "SERVICE_INTERVAL_1"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3982,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRINTCOUNTER"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "serviceName2": {
+      "mapsFrom": [
+        "SERVICE_NAME_2"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3983,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRINTCOUNTER"
+      ],
+      "examples": [
+        "\"Service L\""
+      ]
+    },
+    "serviceInterval2": {
+      "mapsFrom": [
+        "SERVICE_INTERVAL_2"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3984,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRINTCOUNTER"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "serviceName3": {
+      "mapsFrom": [
+        "SERVICE_NAME_3"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3985,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRINTCOUNTER"
+      ],
+      "examples": [
+        "\"Service 3\""
+      ]
+    },
+    "serviceInterval3": {
+      "mapsFrom": [
+        "SERVICE_INTERVAL_3"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3986,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRINTCOUNTER"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "m100FreeMemoryWatcher": {
+      "mapsFrom": [
+        "M100_FREE_MEMORY_WATCHER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3994,
+      "notes": "@section develop  M100 Free Memory Watcher to debug memory usage "
+    },
+    "directPinControl": {
+      "mapsFrom": [
+        "DIRECT_PIN_CONTROL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3999,
+      "notes": " M42 - Set pin states "
+    },
+    "pinsDebugging": {
+      "mapsFrom": [
+        "PINS_DEBUGGING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4004,
+      "notes": " M43 - display pin status, toggle pins, watch pins, watch endstops & toggle LED, test servo probe "
+    },
+    "marlinDevMode": {
+      "mapsFrom": [
+        "MARLIN_DEV_MODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4007,
+      "notes": "Enable Marlin dev mode which adds some special commands"
+    },
+    "postmortemDebugging": {
+      "mapsFrom": [
+        "POSTMORTEM_DEBUGGING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4014
+    },
+    "softResetViaSerial": {
+      "mapsFrom": [
+        "SOFT_RESET_VIA_SERIAL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4019,
+      "examples": [
+        "// 'KILL' and '^X' commands will soft-reset the controller"
+      ]
+    },
+    "softResetOnKill": {
+      "mapsFrom": [
+        "SOFT_RESET_ON_KILL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4020,
+      "examples": [
+        "// Use a digital button to soft-reset the controller after KILL"
+      ]
+    }
+  }
+}

@@ -1,0 +1,839 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "other_15": {
+    "touchScreen": {
+      "mapsFrom": [
+        "TOUCH_SCREEN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3214,
+      "notes": " Touch Screen Settings "
+    },
+    "buttonDelayEdit": {
+      "mapsFrom": [
+        "BUTTON_DELAY_EDIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3216,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "buttonDelayMenu": {
+      "mapsFrom": [
+        "BUTTON_DELAY_MENU"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3217,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "250"
+      ]
+    },
+    "disableEncoder": {
+      "mapsFrom": [
+        "DISABLE_ENCODER"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3219,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "// Disable the click encoder, if any"
+      ]
+    },
+    "touchIdleSleepMins": {
+      "mapsFrom": [
+        "TOUCH_IDLE_SLEEP_MINS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3220,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "touchScreenCalibration": {
+      "mapsFrom": [
+        "TOUCH_SCREEN_CALIBRATION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3222,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ]
+    },
+    "touchCalibrationX": {
+      "mapsFrom": [
+        "TOUCH_CALIBRATION_X"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3224,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "12316"
+      ]
+    },
+    "touchCalibrationY": {
+      "mapsFrom": [
+        "TOUCH_CALIBRATION_Y"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3225,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "-8981"
+      ]
+    },
+    "touchOffsetX": {
+      "mapsFrom": [
+        "TOUCH_OFFSET_X"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3226,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "-43"
+      ]
+    },
+    "touchOffsetY": {
+      "mapsFrom": [
+        "TOUCH_OFFSET_Y"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3227,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "257"
+      ]
+    },
+    "touchOrientation": {
+      "mapsFrom": [
+        "TOUCH_ORIENTATION"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3228,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "TOUCH_LANDSCAPE"
+      ]
+    },
+    "touchCalibrationAutoSave": {
+      "mapsFrom": [
+        "TOUCH_CALIBRATION_AUTO_SAVE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3231,
+      "isConditional": true,
+      "conditionalOn": [
+        "EEPROM_SETTINGS",
+        "BOTH",
+        "TOUCH_SCREEN_CALIBRATION",
+        "TOUCH_SCREEN"
+      ],
+      "examples": [
+        "// Auto save successful calibration values to EEPROM"
+      ]
+    },
+    "singleTouchNavigation": {
+      "mapsFrom": [
+        "SINGLE_TOUCH_NAVIGATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3235,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_COLOR_UI",
+        "TOUCH_SCREEN"
+      ]
+    },
+    "reprapworldKeypad": {
+      "mapsFrom": [
+        "REPRAPWORLD_KEYPAD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3243,
+      "notes": " RepRapWorld REPRAPWORLD_KEYPAD v1.1 https://reprapworld.com/products/electronics/ramps/keypad_v1_0_fully_assembled/ "
+    },
+    "reprapworldKeypadMoveStep": {
+      "mapsFrom": [
+        "REPRAPWORLD_KEYPAD_MOVE_STEP"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3244,
+      "examples": [
+        "10.0"
+      ]
+    },
+    "easythreedUi": {
+      "mapsFrom": [
+        "EASYTHREED_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3249,
+      "notes": " EasyThreeD ET-4000+ with button input and status LED "
+    },
+    "numM106Fans": {
+      "mapsFrom": [
+        "NUM_M106_FANS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3259,
+      "examples": [
+        "1"
+      ],
+      "notes": "============================================================================= =============================== Extra Features ============================== ============================================================================= @section fans Set number of user-controlled fans. Disable to use all board-defined fans. :[1,2,3,4,5,6,7,8]"
+    },
+    "fanSoftPwm": {
+      "mapsFrom": [
+        "FAN_SOFT_PWM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3264,
+      "notes": "Use software PWM to drive the fan, as for the heaters. This uses a very low frequency which is not as annoying as with the hardware PWM. On the other hand, if this frequency is too low, you should also increment SOFT_PWM_SCALE."
+    },
+    "softPwmScale": {
+      "mapsFrom": [
+        "SOFT_PWM_SCALE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3271,
+      "examples": [
+        "0"
+      ],
+      "notes": "Incrementing this by 1 will double the software PWM frequency, affecting heaters, and the fan if FAN_SOFT_PWM is enabled. However, control resolution will be halved for each increment; at zero value, there are 128 effective control positions. :[0,1,2,3,4,5,6,7]"
+    },
+    "softPwmDither": {
+      "mapsFrom": [
+        "SOFT_PWM_DITHER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3277,
+      "notes": "If SOFT_PWM_SCALE is set to a value higher than 0, dithering can be used to mitigate the associated resolution loss. If enabled, some of the PWM cycles are stretched so on average the desired duty cycle is attained."
+    },
+    "baricuda": {
+      "mapsFrom": [
+        "BARICUDA"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3282,
+      "notes": "@section extras Support for the BariCUDA Paste Extruder"
+    },
+    "blinkm": {
+      "mapsFrom": [
+        "BLINKM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3292,
+      "notes": "Support for BlinkM/CyzRgb"
+    },
+    "pca9632": {
+      "mapsFrom": [
+        "PCA9632"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3295,
+      "notes": "Support for PCA9632 PWM LED driver"
+    },
+    "pca9533": {
+      "mapsFrom": [
+        "PCA9533"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3298,
+      "notes": "Support for PCA9533 PWM LED driver"
+    },
+    "rgbLed": {
+      "mapsFrom": [
+        "RGB_LED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3324,
+      "notes": "LED Type. Enable only one of the following two options:"
+    },
+    "rgbwLed": {
+      "mapsFrom": [
+        "RGBW_LED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3325
+    },
+    "rgbLedRPin": {
+      "mapsFrom": [
+        "RGB_LED_R_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3328,
+      "isConditional": true,
+      "conditionalOn": [
+        "RGB_LED",
+        "RGBW_LED",
+        "EITHER"
+      ],
+      "examples": [
+        "34"
+      ]
+    },
+    "rgbLedGPin": {
+      "mapsFrom": [
+        "RGB_LED_G_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3329,
+      "isConditional": true,
+      "conditionalOn": [
+        "RGB_LED",
+        "RGBW_LED",
+        "EITHER"
+      ],
+      "examples": [
+        "43"
+      ]
+    },
+    "rgbLedBPin": {
+      "mapsFrom": [
+        "RGB_LED_B_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3330,
+      "isConditional": true,
+      "conditionalOn": [
+        "RGB_LED",
+        "RGBW_LED",
+        "EITHER"
+      ],
+      "examples": [
+        "35"
+      ]
+    },
+    "rgbLedWPin": {
+      "mapsFrom": [
+        "RGB_LED_W_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3331,
+      "isConditional": true,
+      "conditionalOn": [
+        "RGB_LED",
+        "RGBW_LED",
+        "EITHER"
+      ],
+      "examples": [
+        "-1"
+      ]
+    }
+  },
+  "other_16": {
+    "rgbStartupTest": {
+      "mapsFrom": [
+        "RGB_STARTUP_TEST"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3335,
+      "isConditional": true,
+      "conditionalOn": [
+        "RGBW_LED",
+        "PCA9632",
+        "RGB_LED"
+      ],
+      "examples": [
+        "// For PWM pins, fade between all colors"
+      ]
+    },
+    "rgbStartupTestInnerMs": {
+      "mapsFrom": [
+        "RGB_STARTUP_TEST_INNER_MS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3337,
+      "isConditional": true,
+      "conditionalOn": [
+        "RGBW_LED",
+        "PCA9632",
+        "RGB_STARTUP_TEST",
+        "RGB_LED"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "neopixelLed": {
+      "mapsFrom": [
+        "NEOPIXEL_LED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3342,
+      "notes": "Support for Adafruit NeoPixel LED driver"
+    },
+    "neopixelType": {
+      "mapsFrom": [
+        "NEOPIXEL_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3344,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "NEO_GRBW"
+      ]
+    },
+    "neopixelPin": {
+      "mapsFrom": [
+        "NEOPIXEL_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3346,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "4"
+      ],
+      "notes": "See https://github.com/adafruit/Adafruit_NeoPixel/blob/master/Adafruit_NeoPixel.h"
+    },
+    "neopixel2Type": {
+      "mapsFrom": [
+        "NEOPIXEL2_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3347,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "NEOPIXEL_TYPE"
+      ]
+    },
+    "neopixel2Pin": {
+      "mapsFrom": [
+        "NEOPIXEL2_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3348,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "neopixelPixels": {
+      "mapsFrom": [
+        "NEOPIXEL_PIXELS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3349,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "neopixelIsSequential": {
+      "mapsFrom": [
+        "NEOPIXEL_IS_SEQUENTIAL"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3350,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "// Sequential display for temperature change - LED by LED. Disable to change all LEDs at once."
+      ]
+    },
+    "neopixelBrightness": {
+      "mapsFrom": [
+        "NEOPIXEL_BRIGHTNESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3351,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "127"
+      ]
+    },
+    "neopixelStartupTest": {
+      "mapsFrom": [
+        "NEOPIXEL_STARTUP_TEST"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3352,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "// Cycle through colors at startup"
+      ]
+    },
+    "neopixel2Separate": {
+      "mapsFrom": [
+        "NEOPIXEL2_SEPARATE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3355,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "notes": "Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ..."
+    },
+    "neopixel2Pixels": {
+      "mapsFrom": [
+        "NEOPIXEL2_PIXELS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3357,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL2_SEPARATE",
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "15"
+      ]
+    },
+    "neopixel2Brightness": {
+      "mapsFrom": [
+        "NEOPIXEL2_BRIGHTNESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3358,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL2_SEPARATE",
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "127"
+      ]
+    },
+    "neopixel2StartupTest": {
+      "mapsFrom": [
+        "NEOPIXEL2_STARTUP_TEST"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3359,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL2_SEPARATE",
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "// Cycle through colors at startup"
+      ]
+    },
+    "neopixelM150Default": {
+      "mapsFrom": [
+        "NEOPIXEL_M150_DEFAULT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3360,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL2_SEPARATE",
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "neopixel2Inseries": {
+      "mapsFrom": [
+        "NEOPIXEL2_INSERIES"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3362,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "conditionalOnNot": [
+        "NEOPIXEL2_SEPARATE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Default behavior is NeoPixel 2 in parallel"
+      ]
+    },
+    "neopixelBkgdIndexFirst": {
+      "mapsFrom": [
+        "NEOPIXEL_BKGD_INDEX_FIRST"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3366,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "0"
+      ],
+      "notes": "Use some of the NeoPixel LEDs for static (background) lighting"
+    },
+    "neopixelBkgdIndexLast": {
+      "mapsFrom": [
+        "NEOPIXEL_BKGD_INDEX_LAST"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3367,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "neopixelBkgdColor": {
+      "mapsFrom": [
+        "NEOPIXEL_BKGD_COLOR"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3368,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "{ 255, 255, 255, 0 }"
+      ]
+    },
+    "neopixelBkgdAlwaysOn": {
+      "mapsFrom": [
+        "NEOPIXEL_BKGD_ALWAYS_ON"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3369,
+      "isConditional": true,
+      "conditionalOn": [
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "// Keep the backlight on when other NeoPixels are off"
+      ]
+    },
+    "printerEventLeds": {
+      "mapsFrom": [
+        "PRINTER_EVENT_LEDS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3384,
+      "isConditional": true,
+      "conditionalOn": [
+        "PCA9533",
+        "RGBW_LED",
+        "PCA9632",
+        "BLINKM",
+        "NEOPIXEL_LED",
+        "RGB_LED"
+      ]
+    },
+    "numServos": {
+      "mapsFrom": [
+        "NUM_SERVOS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3396,
+      "examples": [
+        "3"
+      ]
+    },
+    "servoDelay": {
+      "mapsFrom": [
+        "SERVO_DELAY"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3401,
+      "examples": [
+        "{ 300 }"
+      ],
+      "notes": "(ms) Delay before the next move will start, to give the servo time to reach its target angle. 300ms is a good value but you can try less delay. If the servo can't reach the requested position, increase it."
+    },
+    "deactivateServosAfterMove": {
+      "mapsFrom": [
+        "DEACTIVATE_SERVOS_AFTER_MOVE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3404,
+      "notes": "Only power servos during movement, otherwise leave off to prevent jitter"
+    },
+    "editableServoAngles": {
+      "mapsFrom": [
+        "EDITABLE_SERVO_ANGLES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3407,
+      "notes": "Edit servo angles with M281 and save to EEPROM with M500"
+    },
+    "servoDetachGcode": {
+      "mapsFrom": [
+        "SERVO_DETACH_GCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3410,
+      "notes": "Disable servo with M282 to reduce power consumption, noise, and heat when not in use"
+    }
+  }
+}

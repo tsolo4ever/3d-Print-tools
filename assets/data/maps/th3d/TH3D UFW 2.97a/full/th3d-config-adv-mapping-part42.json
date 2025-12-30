@@ -1,0 +1,80 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "basic": {
+    "lcdBaudrate": {
+      "mapsFrom": [
+        "LCD_BAUDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2008,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "115200"
+      ]
+    },
+    "filamentUnloadAllExtruders": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_ALL_EXTRUDERS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2871,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Allow M702 to unload all extruders above a minimum target temp (as set by M302)"
+      ]
+    },
+    "meatpackOnSerialPort1": {
+      "mapsFrom": [
+        "MEATPACK_ON_SERIAL_PORT_1"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4083
+    },
+    "meatpackOnSerialPort2": {
+      "mapsFrom": [
+        "MEATPACK_ON_SERIAL_PORT_2"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4084
+    },
+    "mmu2SerialPort": {
+      "mapsFrom": [
+        "MMU2_SERIAL_PORT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4525,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "2"
+      ],
+      "notes": "Serial port used for communication with MMU2."
+    }
+  }
+}

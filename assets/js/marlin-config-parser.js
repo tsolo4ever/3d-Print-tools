@@ -31,7 +31,7 @@ const MarlinConfigParser = {
   mappingSets: {
     th3d: {
       name: 'TH3D Unified Firmware',
-      basePath: 'assets/data/maps/th3d/',
+      basePath: 'assets/data/maps/th3d/default/',
       files: [
         'th3d-config-mapping.json',
         'th3d-config-adv-mapping-part1.json',
@@ -39,7 +39,7 @@ const MarlinConfigParser = {
         'th3d-config-adv-mapping-part3.json',
         'th3d-config-adv-mapping-part4.json',
         'th3d-config-backend-mapping.json',
-        'th3d-config-speed-mapping.json' // includes the speed mapping you shared
+        'th3d-config-speed-mapping.json'
       ]
     },
     marlin: {
@@ -152,8 +152,8 @@ const MarlinConfigParser = {
     return merged;
   },
 
-  /**
-   * Strip block comments (/* ... */) before parsing
+  /*
+    Strip block comments before parsing
    */
   stripBlockComments(text) {
     return text.replace(/\/\*[\s\S]*?\*\//g, '');
@@ -1007,5 +1007,3 @@ async function saveConfigToFile(config, filename = 'parsed-config.json') {
     console.log(`✅ Config download triggered: ${filename}`);
   }
 }
-``
-

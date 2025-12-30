@@ -1,0 +1,455 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "hardware_1": {
+    "boardPullupResistorOhms": {
+      "mapsFrom": [
+        "BOARD_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 159,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BOARD"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "boardResistance25cOhms": {
+      "mapsFrom": [
+        "BOARD_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 160,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BOARD"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "boardBeta": {
+      "mapsFrom": [
+        "BOARD_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 161,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BOARD"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "boardShCCoeff": {
+      "mapsFrom": [
+        "BOARD_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 162,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BOARD"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorForceHwSpi": {
+      "mapsFrom": [
+        "TEMP_SENSOR_FORCE_HW_SPI"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 175,
+      "examples": [
+        "// Ignore SCK/MOSI/MISO pins; use CS and the default SPI bus."
+      ]
+    },
+    "heaterBedInverting": {
+      "mapsFrom": [
+        "HEATER_BED_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 197,
+      "isConditional": true,
+      "conditionalOn": [
+        "HEPHESTOS2_HEATED_BED_KIT"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "heaterChamberPin": {
+      "mapsFrom": [
+        "HEATER_CHAMBER_PIN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 221,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "P2_04"
+      ]
+    },
+    "heaterChamberInverting": {
+      "mapsFrom": [
+        "HEATER_CHAMBER_INVERTING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 222,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "boardMintemp": {
+      "mapsFrom": [
+        "BOARD_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 277,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BOARD"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "boardMaxtemp": {
+      "mapsFrom": [
+        "BOARD_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 278,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BOARD"
+      ],
+      "examples": [
+        "70"
+      ]
+    },
+    "tempBoardPin": {
+      "mapsFrom": [
+        "TEMP_BOARD_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 279,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_BOARD"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "tempSensorAd595Offset": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD595_OFFSET"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 522,
+      "examples": [
+        "0.0"
+      ],
+      "notes": "@section temperature Calibration for AD595 / AD8495 sensor to adjust temperature measurements. The final temperature is calculated as (measuredTemp * GAIN) + OFFSET."
+    },
+    "tempSensorAd595Gain": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD595_GAIN"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 523,
+      "examples": [
+        "1.0"
+      ]
+    },
+    "tempSensorAd8495Offset": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD8495_OFFSET"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 524,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "tempSensorAd8495Gain": {
+      "mapsFrom": [
+        "TEMP_SENSOR_AD8495_GAIN"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 525,
+      "examples": [
+        "1.0"
+      ]
+    },
+    "controllerFan": {
+      "mapsFrom": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 536
+    },
+    "controllerFanPin": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 538,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "controllerFan2Pin": {
+      "mapsFrom": [
+        "CONTROLLER_FAN2_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 539,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "controllerFanUseZOnly": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_USE_Z_ONLY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 540,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "// With this option only the Z axis is considered"
+      ]
+    },
+    "controllerFanIgnoreZ": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_IGNORE_Z"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 541,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "// Ignore Z stepper. Useful when stepper timeout is disabled."
+      ]
+    },
+    "controllerfanSpeedMin": {
+      "mapsFrom": [
+        "CONTROLLERFAN_SPEED_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 542,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "controllerfanSpeedActive": {
+      "mapsFrom": [
+        "CONTROLLERFAN_SPEED_ACTIVE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 543,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "controllerfanSpeedIdle": {
+      "mapsFrom": [
+        "CONTROLLERFAN_SPEED_IDLE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 544,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "controllerfanIdleTime": {
+      "mapsFrom": [
+        "CONTROLLERFAN_IDLE_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 545,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "controllerFanMinBoardTemp": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_MIN_BOARD_TEMP"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 548,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "40"
+      ],
+      "notes": "Use TEMP_SENSOR_BOARD as a trigger for enabling the controller fan"
+    },
+    "controllerFanEditable": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_EDITABLE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 550,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN"
+      ],
+      "examples": [
+        "// Enable M710 configurable settings"
+      ]
+    },
+    "controllerFanMenu": {
+      "mapsFrom": [
+        "CONTROLLER_FAN_MENU"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 552,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_CONTROLLER_FAN",
+        "CONTROLLER_FAN_EDITABLE"
+      ],
+      "examples": [
+        "// Enable the Controller Fan submenu"
+      ]
+    },
+    "externalClosedLoopController": {
+      "mapsFrom": [
+        "EXTERNAL_CLOSED_LOOP_CONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 736,
+      "notes": "Employ an external closed loop controller. Override pins here if needed."
+    },
+    "bltouchLcdVoltageMenu": {
+      "mapsFrom": [
+        "BLTOUCH_LCD_VOLTAGE_MENU"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 942,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH"
+      ],
+      "notes": "Safety: Enable voltage mode settings in the LCD menu."
+    },
+    "lcdBacklightTimeoutMins": {
+      "mapsFrom": [
+        "LCD_BACKLIGHT_TIMEOUT_MINS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1377,
+      "examples": [
+        "1"
+      ],
+      "notes": " LCD Backlight Timeout "
+    }
+  }
+}

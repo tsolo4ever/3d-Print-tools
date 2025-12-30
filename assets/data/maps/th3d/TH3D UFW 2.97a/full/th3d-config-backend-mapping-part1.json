@@ -1,0 +1,687 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_backend.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_backend.h",
+  "totalDefines": 205,
+  "other": {
+    "configurationBackendHVersion": {
+      "mapsFrom": [
+        "CONFIGURATION_BACKEND_H_VERSION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3,
+      "examples": [
+        "02010204"
+      ]
+    },
+    "unifiedVersion": {
+      "mapsFrom": [
+        "UNIFIED_VERSION"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 10,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "UNIFIED_VERSION"
+      ],
+      "examples": [
+        "\"TH3D UFW 2.97a\""
+      ]
+    },
+    "ablEnable": {
+      "mapsFrom": [
+        "ABL_ENABLE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 157,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER4_OEM"
+      ]
+    },
+    "xAxisTwistCompensation": {
+      "mapsFrom": [
+        "X_AXIS_TWIST_COMPENSATION"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 170,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "//added in V2.90"
+      ]
+    },
+    "zAfterHoming": {
+      "mapsFrom": [
+        "Z_AFTER_HOMING"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 179,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "BLTOUCH"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "ezablPoints": {
+      "mapsFrom": [
+        "EZABL_POINTS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 697,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "conditionalOnNot": [
+        "EZABL_POINTS"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "probingMargin": {
+      "mapsFrom": [
+        "PROBING_MARGIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 210,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "ABL_BILINEAR"
+      ],
+      "examples": [
+        "EZABL_PROBE_EDGE"
+      ]
+    },
+    "extrapolateBeyondGrid": {
+      "mapsFrom": [
+        "EXTRAPOLATE_BEYOND_GRID"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 212,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "ABL_BILINEAR"
+      ],
+      "examples": [
+        "// Estimate beyond probed area"
+      ]
+    },
+    "ablBilinearSubdivision": {
+      "mapsFrom": [
+        "ABL_BILINEAR_SUBDIVISION"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 213,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "ABL_BILINEAR"
+      ],
+      "examples": [
+        "// Smooth the mesh interpolation"
+      ]
+    },
+    "bilinearSubdivisions": {
+      "mapsFrom": [
+        "BILINEAR_SUBDIVISIONS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 215,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "ABL_BILINEAR_SUBDIVISION",
+        "ABL_BILINEAR"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "ublSaveActiveOnM500": {
+      "mapsFrom": [
+        "UBL_SAVE_ACTIVE_ON_M500"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 224,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ]
+    },
+    "segmentLeveledMoves": {
+      "mapsFrom": [
+        "SEGMENT_LEVELED_MOVES"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 693,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ]
+    },
+    "leveledSegmentLength": {
+      "mapsFrom": [
+        "LEVELED_SEGMENT_LENGTH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 694,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "5.0"
+      ]
+    },
+    "levelingFadeHeight": {
+      "mapsFrom": [
+        "DEFAULT_LEVELING_FADE_HEIGHT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 246,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "ENABLE_LEVELING_FADE_HEIGHT"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "noCreality422DriverWarning": {
+      "mapsFrom": [
+        "NO_CREALITY_422_DRIVER_WARNING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 317
+    },
+    "noAutoAssignWarning": {
+      "mapsFrom": [
+        "NO_AUTO_ASSIGN_WARNING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 318
+    },
+    "diagJumpersRemoved": {
+      "mapsFrom": [
+        "DIAG_JUMPERS_REMOVED"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 319
+    },
+    "g26RetractMultiplier": {
+      "mapsFrom": [
+        "G26_RETRACT_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 328,
+      "isConditional": true,
+      "conditionalOn": [
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "1.0"
+      ]
+    },
+    "dummyThermistor998Value": {
+      "mapsFrom": [
+        "DUMMY_THERMISTOR_998_VALUE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 345,
+      "examples": [
+        "25"
+      ]
+    },
+    "dummyThermistor999Value": {
+      "mapsFrom": [
+        "DUMMY_THERMISTOR_999_VALUE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 346,
+      "examples": [
+        "100"
+      ]
+    },
+    "hotendOvershoot": {
+      "mapsFrom": [
+        "HOTEND_OVERSHOOT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 403,
+      "examples": [
+        "5"
+      ]
+    },
+    "coolerOvershoot": {
+      "mapsFrom": [
+        "COOLER_OVERSHOOT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 405,
+      "examples": [
+        "2"
+      ]
+    },
+    "bangMax": {
+      "mapsFrom": [
+        "BANG_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 417,
+      "examples": [
+        "255"
+      ]
+    },
+    "kp": {
+      "mapsFrom": [
+        "DEFAULT_Kp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 430,
+      "isConditional": true,
+      "examples": [
+        "22.2"
+      ]
+    },
+    "ki": {
+      "mapsFrom": [
+        "DEFAULT_Ki"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 431,
+      "isConditional": true,
+      "examples": [
+        "1.08"
+      ]
+    },
+    "kd": {
+      "mapsFrom": [
+        "DEFAULT_Kd"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 432,
+      "isConditional": true,
+      "examples": [
+        "114"
+      ]
+    },
+    "bedkp": {
+      "mapsFrom": [
+        "DEFAULT_bedKp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 440,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED",
+        "ENABLE_PIDBED"
+      ],
+      "examples": [
+        "113.36"
+      ]
+    },
+    "bedki": {
+      "mapsFrom": [
+        "DEFAULT_bedKi"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 441,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED",
+        "ENABLE_PIDBED"
+      ],
+      "examples": [
+        "21.62"
+      ]
+    },
+    "bedkd": {
+      "mapsFrom": [
+        "DEFAULT_bedKd"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 442,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED",
+        "ENABLE_PIDBED"
+      ],
+      "examples": [
+        "148.59"
+      ]
+    },
+    "customVersionFile": {
+      "mapsFrom": [
+        "CUSTOM_VERSION_FILE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 461,
+      "examples": [
+        "Version.h"
+      ]
+    },
+    "printjobTimerAutostart": {
+      "mapsFrom": [
+        "PRINTJOB_TIMER_AUTOSTART"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 509
+    },
+    "speaker": {
+      "mapsFrom": [
+        "SPEAKER"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 516,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPEAKER_KILL"
+      ]
+    },
+    "fanSoftPwm": {
+      "mapsFrom": [
+        "FAN_SOFT_PWM"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 520,
+      "isConditional": true,
+      "conditionalOn": [
+        "FAN_FIX"
+      ]
+    },
+    "softPwmScale": {
+      "mapsFrom": [
+        "SOFT_PWM_SCALE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 524,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "FAN_FIX"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "softPwmDither": {
+      "mapsFrom": [
+        "SOFT_PWM_DITHER"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 522,
+      "isConditional": true,
+      "conditionalOn": [
+        "FAN_FIX"
+      ]
+    },
+    "hostKeepaliveFeature": {
+      "mapsFrom": [
+        "HOST_KEEPALIVE_FEATURE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 552
+    },
+    "keepaliveInterval": {
+      "mapsFrom": [
+        "DEFAULT_KEEPALIVE_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 553,
+      "examples": [
+        "2"
+      ]
+    },
+    "busyWhileHeating": {
+      "mapsFrom": [
+        "BUSY_WHILE_HEATING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 554
+    },
+    "disableX": {
+      "mapsFrom": [
+        "DISABLE_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 600,
+      "examples": [
+        "false"
+      ]
+    },
+    "disableY": {
+      "mapsFrom": [
+        "DISABLE_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 601,
+      "examples": [
+        "false"
+      ]
+    },
+    "disableZ": {
+      "mapsFrom": [
+        "DISABLE_Z"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 602,
+      "examples": [
+        "false"
+      ]
+    },
+    "disableE": {
+      "mapsFrom": [
+        "DISABLE_E"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 603,
+      "examples": [
+        "false"
+      ]
+    },
+    "servoDelay": {
+      "mapsFrom": [
+        "SERVO_DELAY"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 610,
+      "examples": [
+        "{ 300 }"
+      ]
+    },
+    "noConfigurationEmbeddingWarning": {
+      "mapsFrom": [
+        "NO_CONFIGURATION_EMBEDDING_WARNING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 616,
+      "examples": [
+        "//Added in V2.90"
+      ]
+    },
+    "disableReducedAccuracyWarning": {
+      "mapsFrom": [
+        "DISABLE_REDUCED_ACCURACY_WARNING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 625
+    },
+    "encoderNoiseFilter": {
+      "mapsFrom": [
+        "ENCODER_NOISE_FILTER"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 631,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_COLOR_UI",
+        "DWIN_MARLINUI_PORTRAIT",
+        "DISABLE_ENCODER_NOISE_FILTER",
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "DWIN_MARLINUI_LANDSCAPE",
+        "DWIN_CREALITY_LCD",
+        "LCD2004"
+      ],
+      "examples": [
+        "//Added in V2.90"
+      ]
+    },
+    "encoderSamples": {
+      "mapsFrom": [
+        "ENCODER_SAMPLES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 635,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_COLOR_UI",
+        "ENCODER_NOISE_FILTER",
+        "DWIN_MARLINUI_PORTRAIT",
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "DWIN_MARLINUI_LANDSCAPE",
+        "DWIN_CREALITY_LCD",
+        "LCD2004"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "bigEditFont": {
+      "mapsFrom": [
+        "USE_BIG_EDIT_FONT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 643
+    },
+    "individualAxisHomingMenu": {
+      "mapsFrom": [
+        "INDIVIDUAL_AXIS_HOMING_MENU"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 646,
+      "isConditional": true,
+      "conditionalOn": [
+        "DWIN_CREALITY_LCD"
+      ]
+    }
+  }
+}

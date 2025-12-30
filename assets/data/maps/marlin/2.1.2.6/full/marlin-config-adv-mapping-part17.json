@@ -1,0 +1,496 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_19": {
+    "toolchangeFsRetractSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_RETRACT_SPEED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2586,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "examples": [
+        "(50*60)"
+      ]
+    },
+    "toolchangeFsUnretractSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_UNRETRACT_SPEED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2587,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "examples": [
+        "(25*60)"
+      ]
+    },
+    "toolchangeFsExtraPrime": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_EXTRA_PRIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2590,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "examples": [
+        "0"
+      ],
+      "notes": "Longer prime to clean out a SINGLENOZZLE"
+    },
+    "toolchangeFsPrimeSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_PRIME_SPEED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2591,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "examples": [
+        "(4.6*60)"
+      ]
+    },
+    "toolchangeFsWipeRetract": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_WIPE_RETRACT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2592,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "toolchangeFsFan": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_FAN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2595,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "examples": [
+        "-1"
+      ],
+      "notes": "Cool after prime to reduce stringing"
+    },
+    "toolchangeFsFanSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2596,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "toolchangeFsFanTime": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_FAN_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2597,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "toolchangeFsSlowFirstPrime": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_SLOW_FIRST_PRIME"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2600,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "notes": "Use TOOLCHANGE_FS_PRIME_SPEED feedrate the first time each extruder is primed"
+    },
+    "toolchangeFsPrimeFirstUsed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_PRIME_FIRST_USED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2609,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
+      ]
+    },
+    "toolchangeMigrationFeature": {
+      "mapsFrom": [
+        "TOOLCHANGE_MIGRATION_FEATURE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2621,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
+      ]
+    },
+    "toolchangePark": {
+      "mapsFrom": [
+        "TOOLCHANGE_PARK"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2629,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER"
+      ]
+    },
+    "toolchangeParkXy": {
+      "mapsFrom": [
+        "TOOLCHANGE_PARK_XY"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2631,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_PARK"
+      ],
+      "examples": [
+        "{ X_MIN_POS + 10, Y_MIN_POS + 10 }"
+      ]
+    },
+    "toolchangeParkXOnly": {
+      "mapsFrom": [
+        "TOOLCHANGE_PARK_X_ONLY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2633,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_PARK"
+      ],
+      "examples": [
+        "// X axis only move"
+      ]
+    },
+    "toolchangeParkYOnly": {
+      "mapsFrom": [
+        "TOOLCHANGE_PARK_Y_ONLY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2634,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_PARK"
+      ],
+      "examples": [
+        "// Y axis only move"
+      ]
+    },
+    "pauseParkRetractLength": {
+      "mapsFrom": [
+        "PAUSE_PARK_RETRACT_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2654,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "filamentChangeUnloadAccel": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_UNLOAD_ACCEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2657,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "25"
+      ]
+    },
+    "filamentChangeUnloadLength": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_UNLOAD_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2658,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "filamentChangeSlowLoadLength": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_SLOW_LOAD_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2663,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "filamentChangeFastLoadAccel": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_FAST_LOAD_ACCEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2666,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "25"
+      ]
+    },
+    "filamentChangeFastLoadLength": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_FAST_LOAD_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2667,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "filamentUnloadPurgeRetract": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_PURGE_RETRACT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2680,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "13"
+      ],
+      "notes": "Filament Unload does a Retract, Delay, and Purge first:"
+    },
+    "filamentUnloadPurgeDelay": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_PURGE_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2681,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "5000"
+      ]
+    },
+    "filamentUnloadPurgeLength": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_PURGE_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2682,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "pauseParkNozzleTimeout": {
+      "mapsFrom": [
+        "PAUSE_PARK_NOZZLE_TIMEOUT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2685,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "45"
+      ]
+    },
+    "filamentChangeAlertBeeps": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_ALERT_BEEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2686,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "pauseParkNoStepperTimeout": {
+      "mapsFrom": [
+        "PAUSE_PARK_NO_STEPPER_TIMEOUT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2687,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Enable for XYZ steppers to stay powered on during filament change."
+      ]
+    },
+    "filamentChangeResumeOnInsert": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_RESUME_ON_INSERT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2688,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Automatically continue / load filament when runout sensor is triggered again."
+      ]
+    },
+    "pauseReheatFastResume": {
+      "mapsFrom": [
+        "PAUSE_REHEAT_FAST_RESUME"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2689,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Reduce number of waits by not prompting again post-timeout before continuing."
+      ]
+    },
+    "parkHeadOnPause": {
+      "mapsFrom": [
+        "PARK_HEAD_ON_PAUSE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2691,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Park the nozzle during pause and filament change."
+      ]
+    }
+  }
+}

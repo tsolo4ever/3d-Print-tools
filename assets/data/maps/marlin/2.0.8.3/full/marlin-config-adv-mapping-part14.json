@@ -1,0 +1,488 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_15": {
+    "fwretract": {
+      "mapsFrom": [
+        "FWRETRACT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2206
+    },
+    "fwretractAutoretract": {
+      "mapsFrom": [
+        "FWRETRACT_AUTORETRACT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2208,
+      "isConditional": true,
+      "conditionalOn": [
+        "FWRETRACT"
+      ],
+      "examples": [
+        "// Override slicer retractions"
+      ]
+    },
+    "minAutoretract": {
+      "mapsFrom": [
+        "MIN_AUTORETRACT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2210,
+      "isConditional": true,
+      "conditionalOn": [
+        "FWRETRACT_AUTORETRACT",
+        "FWRETRACT"
+      ],
+      "examples": [
+        "0.1"
+      ]
+    },
+    "maxAutoretract": {
+      "mapsFrom": [
+        "MAX_AUTORETRACT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2211,
+      "isConditional": true,
+      "conditionalOn": [
+        "FWRETRACT_AUTORETRACT",
+        "FWRETRACT"
+      ],
+      "examples": [
+        "10.0"
+      ]
+    },
+    "retractLength": {
+      "mapsFrom": [
+        "RETRACT_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2213,
+      "isConditional": true,
+      "conditionalOn": [
+        "FWRETRACT"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "retractLengthSwap": {
+      "mapsFrom": [
+        "RETRACT_LENGTH_SWAP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2214,
+      "isConditional": true,
+      "conditionalOn": [
+        "FWRETRACT"
+      ],
+      "examples": [
+        "13"
+      ]
+    },
+    "retractZraise": {
+      "mapsFrom": [
+        "RETRACT_ZRAISE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2216,
+      "isConditional": true,
+      "conditionalOn": [
+        "FWRETRACT"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "retractRecoverLength": {
+      "mapsFrom": [
+        "RETRACT_RECOVER_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2217,
+      "isConditional": true,
+      "conditionalOn": [
+        "FWRETRACT"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "retractRecoverLengthSwap": {
+      "mapsFrom": [
+        "RETRACT_RECOVER_LENGTH_SWAP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2218,
+      "isConditional": true,
+      "conditionalOn": [
+        "FWRETRACT"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "retractSyncMixing": {
+      "mapsFrom": [
+        "RETRACT_SYNC_MIXING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2222,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIXING_EXTRUDER",
+        "FWRETRACT"
+      ],
+      "examples": [
+        "// Retract and restore all mixing steppers simultaneously"
+      ]
+    },
+    "toolchangeZraise": {
+      "mapsFrom": [
+        "TOOLCHANGE_ZRAISE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2232,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "examples": [
+        "2"
+      ],
+      "notes": "Z raise distance for tool-change, as needed for some extruders"
+    },
+    "toolchangeZraiseBeforeRetract": {
+      "mapsFrom": [
+        "TOOLCHANGE_ZRAISE_BEFORE_RETRACT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2233,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "examples": [
+        "// Apply raise before swap retraction (if enabled)"
+      ]
+    },
+    "toolchangeNoReturn": {
+      "mapsFrom": [
+        "TOOLCHANGE_NO_RETURN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2234,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER"
+      ],
+      "examples": [
+        "// Never return to previous position on tool-change"
+      ]
+    },
+    "eventGcodeAfterToolchange": {
+      "mapsFrom": [
+        "EVENT_GCODE_AFTER_TOOLCHANGE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2236,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_NO_RETURN"
+      ],
+      "examples": [
+        "\"G12X\""
+      ]
+    },
+    "toolSensor": {
+      "mapsFrom": [
+        "TOOL_SENSOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2243,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER"
+      ]
+    },
+    "toolchangeFilamentSwap": {
+      "mapsFrom": [
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2249,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER"
+      ]
+    },
+    "toolchangeFsLength": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2252,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "examples": [
+        "12"
+      ],
+      "notes": "Load / Unload"
+    },
+    "toolchangeFsExtraResumeLength": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_EXTRA_RESUME_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2253,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "toolchangeFsRetractSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_RETRACT_SPEED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2254,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "examples": [
+        "(50*60)"
+      ]
+    },
+    "toolchangeFsUnretractSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_UNRETRACT_SPEED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2255,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "examples": [
+        "(25*60)"
+      ]
+    },
+    "toolchangeFsExtraPrime": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_EXTRA_PRIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2258,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "examples": [
+        "0"
+      ],
+      "notes": "Longer prime to clean out a SINGLENOZZLE"
+    },
+    "toolchangeFsPrimeSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_PRIME_SPEED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2259,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "examples": [
+        "(4.6*60)"
+      ]
+    },
+    "toolchangeFsWipeRetract": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_WIPE_RETRACT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2260,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "toolchangeFsFan": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_FAN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2263,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "examples": [
+        "-1"
+      ],
+      "notes": "Cool after prime to reduce stringing"
+    },
+    "toolchangeFsFanSpeed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2264,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "toolchangeFsFanTime": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_FAN_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2265,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "toolchangeFsInitBeforeSwap": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_INIT_BEFORE_SWAP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2269,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "notes": "Swap uninitialized extruder with TOOLCHANGE_FS_PRIME_SPEED for all lengths (recover + prime) (May break filament if not retracted beforehand.)"
+    },
+    "toolchangeFsPrimeFirstUsed": {
+      "mapsFrom": [
+        "TOOLCHANGE_FS_PRIME_FIRST_USED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2273,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ],
+      "notes": "Prime on the first T0 (If other, TOOLCHANGE_FS_INIT_BEFORE_SWAP applied) Enable it (M217 V[0/1]) before printing, to avoid unwanted priming on host connect"
+    },
+    "toolchangeMigrationFeature": {
+      "mapsFrom": [
+        "TOOLCHANGE_MIGRATION_FEATURE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2285,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_FILAMENT_SWAP"
+      ]
+    },
+    "toolchangePark": {
+      "mapsFrom": [
+        "TOOLCHANGE_PARK"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2293,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER"
+      ]
+    }
+  }
+}

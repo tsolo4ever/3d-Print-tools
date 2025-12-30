@@ -1,0 +1,840 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_7": {
+    "assistedTramming": {
+      "mapsFrom": [
+        "ASSISTED_TRAMMING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1138,
+      "notes": " Add the G35 command to read bed corners to help adjust screws. Requires a bed probe. "
+    },
+    "trammingPointXy": {
+      "mapsFrom": [
+        "TRAMMING_POINT_XY"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1142,
+      "isConditional": true,
+      "conditionalOn": [
+        "ASSISTED_TRAMMING"
+      ],
+      "examples": [
+        "{ {  20, 20 }, { 180,  20 }, { 180, 180 }, { 20, 180 } }"
+      ],
+      "notes": "Define from 3 to 9 points to probe."
+    },
+    "trammingPointName1": {
+      "mapsFrom": [
+        "TRAMMING_POINT_NAME_1"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1145,
+      "isConditional": true,
+      "conditionalOn": [
+        "ASSISTED_TRAMMING"
+      ],
+      "examples": [
+        "\"Front-Left\""
+      ],
+      "notes": "Define position names for probe points."
+    },
+    "trammingPointName2": {
+      "mapsFrom": [
+        "TRAMMING_POINT_NAME_2"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1146,
+      "isConditional": true,
+      "conditionalOn": [
+        "ASSISTED_TRAMMING"
+      ],
+      "examples": [
+        "\"Front-Right\""
+      ]
+    },
+    "trammingPointName3": {
+      "mapsFrom": [
+        "TRAMMING_POINT_NAME_3"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1147,
+      "isConditional": true,
+      "conditionalOn": [
+        "ASSISTED_TRAMMING"
+      ],
+      "examples": [
+        "\"Back-Right\""
+      ]
+    },
+    "trammingPointName4": {
+      "mapsFrom": [
+        "TRAMMING_POINT_NAME_4"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1148,
+      "isConditional": true,
+      "conditionalOn": [
+        "ASSISTED_TRAMMING"
+      ],
+      "examples": [
+        "\"Back-Left\""
+      ]
+    },
+    "reportTrammingMm": {
+      "mapsFrom": [
+        "REPORT_TRAMMING_MM"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1151,
+      "isConditional": true,
+      "conditionalOn": [
+        "ASSISTED_TRAMMING"
+      ],
+      "examples": [
+        "// Report Z deviation (mm) for each point relative to the first"
+      ]
+    },
+    "assistedTrammingWizard": {
+      "mapsFrom": [
+        "ASSISTED_TRAMMING_WIZARD"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1153,
+      "isConditional": true,
+      "conditionalOn": [
+        "ASSISTED_TRAMMING"
+      ],
+      "examples": [
+        "// Add a Tramming Wizard to the LCD menu"
+      ]
+    },
+    "assistedTrammingWaitPosition": {
+      "mapsFrom": [
+        "ASSISTED_TRAMMING_WAIT_POSITION"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1155,
+      "isConditional": true,
+      "conditionalOn": [
+        "ASSISTED_TRAMMING"
+      ],
+      "examples": [
+        "{ X_CENTER, Y_CENTER, 30 }"
+      ]
+    },
+    "trammingScrewThread": {
+      "mapsFrom": [
+        "TRAMMING_SCREW_THREAD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1163,
+      "isConditional": true,
+      "conditionalOn": [
+        "ASSISTED_TRAMMING"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "shapingFreqX": {
+      "mapsFrom": [
+        "SHAPING_FREQ_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1196,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING_X",
+        "INPUT_SHAPING_Y",
+        "EITHER"
+      ],
+      "examples": [
+        "INPUT_SHAPING_FREQ_X"
+      ]
+    },
+    "shapingZetaX": {
+      "mapsFrom": [
+        "SHAPING_ZETA_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1197,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING_X",
+        "INPUT_SHAPING_Y",
+        "EITHER"
+      ],
+      "examples": [
+        "INPUT_SHAPING_DAMPING_X"
+      ]
+    },
+    "shapingFreqY": {
+      "mapsFrom": [
+        "SHAPING_FREQ_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1200,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING_X",
+        "INPUT_SHAPING_Y",
+        "EITHER"
+      ],
+      "examples": [
+        "INPUT_SHAPING_FREQ_Y"
+      ]
+    },
+    "shapingZetaY": {
+      "mapsFrom": [
+        "SHAPING_ZETA_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1201,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING_X",
+        "INPUT_SHAPING_Y",
+        "EITHER"
+      ],
+      "examples": [
+        "INPUT_SHAPING_DAMPING_X"
+      ]
+    },
+    "shapingMinFreq": {
+      "mapsFrom": [
+        "SHAPING_MIN_FREQ"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1203,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING_X",
+        "INPUT_SHAPING_Y",
+        "EITHER"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "shapingMaxSteprate": {
+      "mapsFrom": [
+        "SHAPING_MAX_STEPRATE"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1204,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING_X",
+        "INPUT_SHAPING_Y",
+        "EITHER"
+      ],
+      "examples": [
+        "10000"
+      ]
+    },
+    "shapingMenu": {
+      "mapsFrom": [
+        "SHAPING_MENU"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1205,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING_X",
+        "INPUT_SHAPING_Y",
+        "EITHER"
+      ],
+      "examples": [
+        "// Add a menu to the LCD to set shaping parameters."
+      ]
+    },
+    "axisRelativeModes": {
+      "mapsFrom": [
+        "AXIS_RELATIVE_MODES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1210,
+      "examples": [
+        "{ false, false, false, false }"
+      ],
+      "notes": "@section motion"
+    },
+    "multiNozzleDuplication": {
+      "mapsFrom": [
+        "MULTI_NOZZLE_DUPLICATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1213,
+      "notes": "Add a Duplicate option for well-separated conjoined nozzles"
+    },
+    "invertXStepPin": {
+      "mapsFrom": [
+        "INVERT_X_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1216,
+      "examples": [
+        "false"
+      ],
+      "notes": "By default pololu step drivers require an active high signal. However, some high power drivers require an active low signal as step."
+    },
+    "invertYStepPin": {
+      "mapsFrom": [
+        "INVERT_Y_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1217,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertZStepPin": {
+      "mapsFrom": [
+        "INVERT_Z_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1218,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertIStepPin": {
+      "mapsFrom": [
+        "INVERT_I_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1219,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertJStepPin": {
+      "mapsFrom": [
+        "INVERT_J_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1220,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertKStepPin": {
+      "mapsFrom": [
+        "INVERT_K_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1221,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertUStepPin": {
+      "mapsFrom": [
+        "INVERT_U_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1222,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertVStepPin": {
+      "mapsFrom": [
+        "INVERT_V_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1223,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertWStepPin": {
+      "mapsFrom": [
+        "INVERT_W_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1224,
+      "examples": [
+        "false"
+      ]
+    },
+    "invertEStepPin": {
+      "mapsFrom": [
+        "INVERT_E_STEP_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1225,
+      "examples": [
+        "false"
+      ]
+    },
+    "stepperTimeoutSec": {
+      "mapsFrom": [
+        "DEFAULT_STEPPER_TIMEOUT_SEC"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1232,
+      "examples": [
+        "120"
+      ]
+    }
+  },
+  "other_8": {
+    "disableIdleX": {
+      "mapsFrom": [
+        "DISABLE_IDLE_X"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1233
+    },
+    "disableIdleY": {
+      "mapsFrom": [
+        "DISABLE_IDLE_Y"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1234
+    },
+    "disableIdleZ": {
+      "mapsFrom": [
+        "DISABLE_IDLE_Z"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1235,
+      "examples": [
+        "// Disable if the nozzle could fall onto your printed part!"
+      ]
+    },
+    "disableIdleI": {
+      "mapsFrom": [
+        "DISABLE_IDLE_I"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1236
+    },
+    "disableIdleJ": {
+      "mapsFrom": [
+        "DISABLE_IDLE_J"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1237
+    },
+    "disableIdleK": {
+      "mapsFrom": [
+        "DISABLE_IDLE_K"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1238
+    },
+    "disableIdleU": {
+      "mapsFrom": [
+        "DISABLE_IDLE_U"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1239
+    },
+    "disableIdleV": {
+      "mapsFrom": [
+        "DISABLE_IDLE_V"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1240
+    },
+    "disableIdleW": {
+      "mapsFrom": [
+        "DISABLE_IDLE_W"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1241
+    },
+    "disableIdleE": {
+      "mapsFrom": [
+        "DISABLE_IDLE_E"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1242,
+      "examples": [
+        "// Shut down all idle extruders"
+      ]
+    },
+    "minsegmenttime": {
+      "mapsFrom": [
+        "DEFAULT_MINSEGMENTTIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1249,
+      "examples": [
+        "20000"
+      ],
+      "notes": "Minimum time that a segment needs to take as the buffer gets emptied"
+    },
+    "slowdown": {
+      "mapsFrom": [
+        "SLOWDOWN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1253,
+      "notes": "Slow down the machine if the lookahead buffer is (by default) half full. Increase the slowdown divisor for larger buffer sizes."
+    },
+    "slowdownDivisor": {
+      "mapsFrom": [
+        "SLOWDOWN_DIVISOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1255,
+      "isConditional": true,
+      "conditionalOn": [
+        "SLOWDOWN"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "xyFrequencyLimit": {
+      "mapsFrom": [
+        "XY_FREQUENCY_LIMIT"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1264,
+      "examples": [
+        "10"
+      ]
+    },
+    "xyFrequencyMinPercent": {
+      "mapsFrom": [
+        "XY_FREQUENCY_MIN_PERCENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1266,
+      "isConditional": true,
+      "conditionalOn": [
+        "XY_FREQUENCY_LIMIT"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "minimumPlannerSpeed": {
+      "mapsFrom": [
+        "MINIMUM_PLANNER_SPEED"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1272,
+      "examples": [
+        "0.05"
+      ],
+      "notes": "Minimum planner junction speed. Sets the default minimum speed the planner plans for at the end of the buffer and all stops. This should not be much greater than zero and should only be changed if unwanted behavior is observed on a user's machine when running at very slow speeds."
+    },
+    "backlashCompensation": {
+      "mapsFrom": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1278,
+      "notes": " Backlash Compensation Adds extra movement to axes on direction-changes to account for backlash. "
+    },
+    "backlashDistanceMm": {
+      "mapsFrom": [
+        "BACKLASH_DISTANCE_MM"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1282,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "examples": [
+        "{ 0, 0, 0 }"
+      ],
+      "notes": "Define values for backlash distance and correction. If BACKLASH_GCODE is enabled these values are the defaults."
+    },
+    "backlashCorrection": {
+      "mapsFrom": [
+        "BACKLASH_CORRECTION"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1283,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "coreBacklash": {
+      "mapsFrom": [
+        "CORE_BACKLASH"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1286,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "notes": "Add steps for motor direction changes on CORE kinematics"
+    },
+    "backlashSmoothingMm": {
+      "mapsFrom": [
+        "BACKLASH_SMOOTHING_MM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1290,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "examples": [
+        "3"
+      ],
+      "notes": "Set BACKLASH_SMOOTHING_MM to spread backlash correction over multiple segments to reduce print artifacts. (Enabling this is costly in memory and computation!)"
+    },
+    "backlashGcode": {
+      "mapsFrom": [
+        "BACKLASH_GCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1293,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION"
+      ],
+      "notes": "Add runtime configuration and tuning of backlash values (M425)"
+    },
+    "measureBacklashWhenProbing": {
+      "mapsFrom": [
+        "MEASURE_BACKLASH_WHEN_PROBING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1297,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION",
+        "BACKLASH_GCODE"
+      ],
+      "notes": "Measure the Z backlash when probing (G29) and set with \"M425 Z\""
+    },
+    "backlashMeasurementLimit": {
+      "mapsFrom": [
+        "BACKLASH_MEASUREMENT_LIMIT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1303,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION",
+        "MEASURE_BACKLASH_WHEN_PROBING",
+        "BACKLASH_GCODE"
+      ],
+      "examples": [
+        "0.5"
+      ],
+      "notes": "When measuring, the probe will move up to BACKLASH_MEASUREMENT_LIMIT mm away from point of contact in BACKLASH_MEASUREMENT_RESOLUTION increments while checking for the contact to be broken."
+    },
+    "backlashMeasurementResolution": {
+      "mapsFrom": [
+        "BACKLASH_MEASUREMENT_RESOLUTION"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1304,
+      "isConditional": true,
+      "conditionalOn": [
+        "BACKLASH_COMPENSATION",
+        "MEASURE_BACKLASH_WHEN_PROBING",
+        "BACKLASH_GCODE"
+      ],
+      "examples": [
+        "0.005"
+      ]
+    },
+    "calibrationGcode": {
+      "mapsFrom": [
+        "CALIBRATION_GCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1323
+    },
+    "calibrationScriptPre": {
+      "mapsFrom": [
+        "CALIBRATION_SCRIPT_PRE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1326,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "\"M117 Starting Auto-Calibration\\nT0\\nG28\\nG12\\nM117 Calibrating...\""
+      ]
+    },
+    "calibrationScriptPost": {
+      "mapsFrom": [
+        "CALIBRATION_SCRIPT_POST"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1327,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "\"M500\\nM117 Calibration data saved\""
+      ]
+    },
+    "calibrationMeasurementResolution": {
+      "mapsFrom": [
+        "CALIBRATION_MEASUREMENT_RESOLUTION"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1329,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "0.01"
+      ]
+    },
+    "calibrationNozzleTipHeight": {
+      "mapsFrom": [
+        "CALIBRATION_NOZZLE_TIP_HEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1336,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "1.0"
+      ],
+      "notes": "The following parameters refer to the conical section of the nozzle tip."
+    }
+  }
+}

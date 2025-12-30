@@ -1,0 +1,496 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "other_4": {
+    "max31865SensorOhms2": {
+      "mapsFrom": [
+        "MAX31865_SENSOR_OHMS_2"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 583,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_IS_MAX_TC"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "max31865CalibrationOhms2": {
+      "mapsFrom": [
+        "MAX31865_CALIBRATION_OHMS_2"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 584,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_IS_MAX_TC"
+      ],
+      "examples": [
+        "430"
+      ]
+    },
+    "hotendOvershoot": {
+      "mapsFrom": [
+        "HOTEND_OVERSHOOT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 654,
+      "examples": [
+        "15"
+      ]
+    },
+    "coolerOvershoot": {
+      "mapsFrom": [
+        "COOLER_OVERSHOOT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 656,
+      "examples": [
+        "2"
+      ]
+    },
+    "kpList": {
+      "mapsFrom": [
+        "DEFAULT_KP_LIST"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 685,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PID_PARAMS_PER_HOTEND"
+      ],
+      "examples": [
+        "{  22.20,  22.20 }"
+      ],
+      "notes": "Specify up to one value per hotend here, according to your setup. If there are fewer values, the last one applies to the remaining hotends."
+    },
+    "kiList": {
+      "mapsFrom": [
+        "DEFAULT_KI_LIST"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 686,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PID_PARAMS_PER_HOTEND"
+      ],
+      "examples": [
+        "{   1.08,   1.08 }"
+      ]
+    },
+    "kdList": {
+      "mapsFrom": [
+        "DEFAULT_KD_LIST"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 687,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PID_PARAMS_PER_HOTEND"
+      ],
+      "examples": [
+        "{ 114.00, 114.00 }"
+      ]
+    },
+    "kp": {
+      "mapsFrom": [
+        "DEFAULT_KP"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 689,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "conditionalOnNot": [
+        "PID_PARAMS_PER_HOTEND"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "22.20"
+      ]
+    },
+    "ki": {
+      "mapsFrom": [
+        "DEFAULT_KI"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 690,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "conditionalOnNot": [
+        "PID_PARAMS_PER_HOTEND"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "1.08"
+      ]
+    },
+    "kd": {
+      "mapsFrom": [
+        "DEFAULT_KD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 691,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "conditionalOnNot": [
+        "PID_PARAMS_PER_HOTEND"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "114.00"
+      ]
+    },
+    "bangMax": {
+      "mapsFrom": [
+        "BANG_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 694,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "PIDTEMP"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "mpcEditMenu": {
+      "mapsFrom": [
+        "MPC_EDIT_MENU"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 706,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "// Add MPC editing to the \"Advanced Settings\" menu. (~1.3K bytes of flash)"
+      ]
+    },
+    "mpcAutotuneMenu": {
+      "mapsFrom": [
+        "MPC_AUTOTUNE_MENU"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 707,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "// Add MPC auto-tuning to the \"Advanced Settings\" menu. (~350 bytes of flash)"
+      ]
+    },
+    "mpcMax": {
+      "mapsFrom": [
+        "MPC_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 709,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "mpcIncludeFan": {
+      "mapsFrom": [
+        "MPC_INCLUDE_FAN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 712,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "// Model the fan speed?"
+      ]
+    },
+    "mpcBlockHeatCapacity": {
+      "mapsFrom": [
+        "MPC_BLOCK_HEAT_CAPACITY"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 715,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "{ 16.7f }"
+      ],
+      "notes": "Measured physical constants from M306"
+    },
+    "mpcSensorResponsiveness": {
+      "mapsFrom": [
+        "MPC_SENSOR_RESPONSIVENESS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 716,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "{ 0.22f }"
+      ]
+    },
+    "mpcAmbientXferCoeff": {
+      "mapsFrom": [
+        "MPC_AMBIENT_XFER_COEFF"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 717,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "{ 0.068f }"
+      ]
+    },
+    "mpcAmbientXferCoeffFan255": {
+      "mapsFrom": [
+        "MPC_AMBIENT_XFER_COEFF_FAN255"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 719,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPC_INCLUDE_FAN",
+        "MPCTEMP"
+      ],
+      "examples": [
+        "{ 0.097f }"
+      ]
+    },
+    "mpcFan0AllHotends": {
+      "mapsFrom": [
+        "MPC_FAN_0_ALL_HOTENDS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 724,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPC_INCLUDE_FAN",
+        "MPCTEMP"
+      ]
+    },
+    "mpcFan0ActiveHotend": {
+      "mapsFrom": [
+        "MPC_FAN_0_ACTIVE_HOTEND"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 725,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPC_INCLUDE_FAN",
+        "MPCTEMP"
+      ]
+    },
+    "filamentHeatCapacityPermm": {
+      "mapsFrom": [
+        "FILAMENT_HEAT_CAPACITY_PERMM"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 730,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "{ 5.6e-3f }"
+      ],
+      "notes": "Filament Heat Capacity (joules/kelvin/mm) Set at runtime with M306 H<value>"
+    },
+    "mpcSmoothingFactor": {
+      "mapsFrom": [
+        "MPC_SMOOTHING_FACTOR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 736,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "0.5f"
+      ],
+      "notes": "0.0036 J/K/mm for 1.75mm PETG (0.0094 J/K/mm for 2.85mm PETG). 0.00515 J/K/mm for 1.75mm ABS (0.0137 J/K/mm for 2.85mm ABS). 0.00522 J/K/mm for 1.75mm Nylon (0.0138 J/K/mm for 2.85mm Nylon). Advanced options"
+    },
+    "mpcMinAmbientChange": {
+      "mapsFrom": [
+        "MPC_MIN_AMBIENT_CHANGE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 737,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "1.0f"
+      ]
+    },
+    "mpcSteadystate": {
+      "mapsFrom": [
+        "MPC_STEADYSTATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 738,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "0.5f"
+      ]
+    },
+    "mpcTuningPos": {
+      "mapsFrom": [
+        "MPC_TUNING_POS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 740,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "{ X_CENTER, Y_CENTER, 1.0f }"
+      ]
+    },
+    "mpcTuningEndZ": {
+      "mapsFrom": [
+        "MPC_TUNING_END_Z"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 741,
+      "isConditional": true,
+      "conditionalOn": [
+        "MPCTEMP"
+      ],
+      "examples": [
+        "10.0f"
+      ]
+    },
+    "chamberLimitSwitching": {
+      "mapsFrom": [
+        "CHAMBER_LIMIT_SWITCHING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 807
+    },
+    "maxChamberPower": {
+      "mapsFrom": [
+        "MAX_CHAMBER_POWER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 815,
+      "examples": [
+        "255"
+      ]
+    },
+    "minChamberPower": {
+      "mapsFrom": [
+        "MIN_CHAMBER_POWER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 818,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "0"
+      ]
+    }
+  }
+}

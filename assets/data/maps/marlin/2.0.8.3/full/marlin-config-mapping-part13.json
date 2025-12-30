@@ -1,0 +1,799 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration.h",
+  "totalDefines": 690,
+  "probe": {
+    "probeForZHoming": {
+      "mapsFrom": [
+        "USE_PROBE_FOR_Z_HOMING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 917,
+      "notes": "Force the use of the probe for Z-axis homing"
+    },
+    "zMinProbePin": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 934,
+      "examples": [
+        "32"
+      ]
+    },
+    "probeManually": {
+      "mapsFrom": [
+        "PROBE_MANUALLY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 948
+    },
+    "fixMountedProbe": {
+      "mapsFrom": [
+        "FIX_MOUNTED_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 954
+    },
+    "nozzleAsProbe": {
+      "mapsFrom": [
+        "NOZZLE_AS_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 960
+    },
+    "zProbeServoNr": {
+      "mapsFrom": [
+        "Z_PROBE_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 965,
+      "examples": [
+        "0"
+      ]
+    },
+    "bltouch": {
+      "mapsFrom": [
+        "BLTOUCH"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 971
+    },
+    "touchMiProbe": {
+      "mapsFrom": [
+        "TOUCH_MI_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 983
+    },
+    "solenoidProbe": {
+      "mapsFrom": [
+        "SOLENOID_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 991,
+      "notes": "A probe that is deployed and stowed with a solenoid pin (SOL1_PIN)"
+    },
+    "zProbeSled": {
+      "mapsFrom": [
+        "Z_PROBE_SLED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 994,
+      "notes": "A sled-mounted probe like those designed by Charles Bell."
+    },
+    "rackAndPinionProbe": {
+      "mapsFrom": [
+        "RACK_AND_PINION_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 998,
+      "notes": "A probe deployed by moving the x-axis, such as the Wilson II's rack-and-pinion probe designed by Marty Rice."
+    },
+    "zProbeDeployX": {
+      "mapsFrom": [
+        "Z_PROBE_DEPLOY_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1000,
+      "isConditional": true,
+      "conditionalOn": [
+        "RACK_AND_PINION_PROBE"
+      ],
+      "examples": [
+        "X_MIN_POS"
+      ]
+    },
+    "zProbeRetractX": {
+      "mapsFrom": [
+        "Z_PROBE_RETRACT_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1001,
+      "isConditional": true,
+      "conditionalOn": [
+        "RACK_AND_PINION_PROBE"
+      ],
+      "examples": [
+        "X_MAX_POS"
+      ]
+    },
+    "nozzleToProbeOffset": {
+      "mapsFrom": [
+        "NOZZLE_TO_PROBE_OFFSET"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1063,
+      "examples": [
+        "{ 10, 10, 0 }"
+      ]
+    },
+    "probeActivationSwitch": {
+      "mapsFrom": [
+        "PROBE_ACTIVATION_SWITCH"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1083
+    },
+    "probeActivationSwitchState": {
+      "mapsFrom": [
+        "PROBE_ACTIVATION_SWITCH_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1085,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_ACTIVATION_SWITCH"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "probeActivationSwitchPin": {
+      "mapsFrom": [
+        "PROBE_ACTIVATION_SWITCH_PIN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1086,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_ACTIVATION_SWITCH"
+      ],
+      "examples": [
+        "PC6"
+      ]
+    },
+    "probeTare": {
+      "mapsFrom": [
+        "PROBE_TARE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1094
+    },
+    "probeTareTime": {
+      "mapsFrom": [
+        "PROBE_TARE_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1096,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TARE"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "probeTareDelay": {
+      "mapsFrom": [
+        "PROBE_TARE_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1097,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TARE"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "probeTareState": {
+      "mapsFrom": [
+        "PROBE_TARE_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1098,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TARE"
+      ],
+      "examples": [
+        "HIGH"
+      ]
+    },
+    "probeTarePin": {
+      "mapsFrom": [
+        "PROBE_TARE_PIN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1099,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TARE"
+      ],
+      "examples": [
+        "PA5"
+      ]
+    },
+    "probeTareOnlyWhileInactive": {
+      "mapsFrom": [
+        "PROBE_TARE_ONLY_WHILE_INACTIVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1101,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_ACTIVATION_SWITCH",
+        "PROBE_TARE"
+      ],
+      "examples": [
+        "// Fail to tare/probe if PROBE_ACTIVATION_SWITCH is active"
+      ]
+    },
+    "multipleProbing": {
+      "mapsFrom": [
+        "MULTIPLE_PROBING"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1114,
+      "examples": [
+        "2"
+      ]
+    },
+    "zClearanceDeployProbe": {
+      "mapsFrom": [
+        "Z_CLEARANCE_DEPLOY_PROBE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1131,
+      "examples": [
+        "10"
+      ]
+    },
+    "zClearanceBetweenProbes": {
+      "mapsFrom": [
+        "Z_CLEARANCE_BETWEEN_PROBES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1132,
+      "examples": [
+        "5"
+      ]
+    },
+    "zClearanceMultiProbe": {
+      "mapsFrom": [
+        "Z_CLEARANCE_MULTI_PROBE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1133,
+      "examples": [
+        "5"
+      ]
+    },
+    "zProbeLowPoint": {
+      "mapsFrom": [
+        "Z_PROBE_LOW_POINT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1136,
+      "examples": [
+        "-2"
+      ]
+    },
+    "zProbeOffsetRangeMin": {
+      "mapsFrom": [
+        "Z_PROBE_OFFSET_RANGE_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1139,
+      "examples": [
+        "-20"
+      ],
+      "notes": "For M851 give a range for adjusting the Z probe offset"
+    },
+    "zProbeOffsetRangeMax": {
+      "mapsFrom": [
+        "Z_PROBE_OFFSET_RANGE_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1140,
+      "examples": [
+        "20"
+      ]
+    },
+    "zMinProbeRepeatabilityTest": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_REPEATABILITY_TEST"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1143,
+      "notes": "Enable the M48 repeatability test to test probe accuracy"
+    },
+    "pauseProbeDeployWhenTriggered": {
+      "mapsFrom": [
+        "PAUSE_PROBE_DEPLOY_WHEN_TRIGGERED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1148,
+      "isConditional": true,
+      "conditionalOn": [
+        "PAUSE_BEFORE_DEPLOY_STOW"
+      ],
+      "examples": [
+        "// For Manual Deploy Allenkey Probe"
+      ]
+    },
+    "probeYFirst": {
+      "mapsFrom": [
+        "PROBE_Y_FIRST"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1466,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_LINEAR",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "EITHER"
+      ],
+      "notes": "Probe along the Y axis, advancing X after each column"
+    },
+    "levelCornersUseProbe": {
+      "mapsFrom": [
+        "LEVEL_CORNERS_USE_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1542,
+      "isConditional": true,
+      "conditionalOn": [
+        "LEVEL_BED_CORNERS"
+      ]
+    },
+    "levelCornersProbeTolerance": {
+      "mapsFrom": [
+        "LEVEL_CORNERS_PROBE_TOLERANCE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1544,
+      "isConditional": true,
+      "conditionalOn": [
+        "LEVEL_CORNERS_USE_PROBE",
+        "LEVEL_BED_CORNERS"
+      ],
+      "examples": [
+        "0.1"
+      ]
+    },
+    "zProbeEndScript": {
+      "mapsFrom": [
+        "Z_PROBE_END_SCRIPT"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1573,
+      "examples": [
+        "\"G1 Z10 F12000\\nG1 X15 Y330\\nG1 Z0.5\\nG1 Z10\""
+      ]
+    }
+  },
+  "advanced": {
+    "filamentRunoutSensor": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1293
+    },
+    "filamentRunoutScript": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SCRIPT"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1340,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "\"M600\""
+      ],
+      "notes": "Commands to execute on filament runout. With multiple runout sensors use the %c placeholder for the current tool in commands (e.g., \"M600 T%c\") NOTE: After 'M412 H1' the host handles filament runout and this script does not apply."
+    },
+    "filamentRunoutDistanceMm": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_DISTANCE_MM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1345,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "25"
+      ],
+      "notes": "After a runout is detected, continue printing this length of filament before executing the runout script. Useful for a sensor at the end of a feed tube. Requires 4 bytes SRAM per sensor, plus 4 bytes overhead."
+    }
+  },
+  "bedLeveling": {
+    "restoreLevelingAfterG28": {
+      "mapsFrom": [
+        "RESTORE_LEVELING_AFTER_G28"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1404
+    },
+    "levelingFadeHeight": {
+      "mapsFrom": [
+        "ENABLE_LEVELING_FADE_HEIGHT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1432,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING"
+      ],
+      "notes": "Gradually reduce leveling correction until a set height is reached, at which point movement will be level to the machine's XY plane. The height can be set with M420 Z<height>"
+    },
+    "g26MeshValidation": {
+      "mapsFrom": [
+        "G26_MESH_VALIDATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1446,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING"
+      ]
+    },
+    "meshTestNozzleSize": {
+      "mapsFrom": [
+        "MESH_TEST_NOZZLE_SIZE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1448,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "0.4"
+      ]
+    },
+    "meshTestLayerHeight": {
+      "mapsFrom": [
+        "MESH_TEST_LAYER_HEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1449,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "0.2"
+      ]
+    },
+    "gridMaxPointsX": {
+      "mapsFrom": [
+        "GRID_MAX_POINTS_X"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1515,
+      "isConditional": true,
+      "conditionalOn": [
+        "MESH_BED_LEVELING"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MESH_BED_LEVELING)"
+      ],
+      "examples": [
+        "3"
+      ],
+      "notes": "Set the number of grid points per dimension."
+    },
+    "gridMaxPointsY": {
+      "mapsFrom": [
+        "GRID_MAX_POINTS_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1516,
+      "isConditional": true,
+      "conditionalOn": [
+        "MESH_BED_LEVELING"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MESH_BED_LEVELING)"
+      ],
+      "examples": [
+        "GRID_MAX_POINTS_X"
+      ]
+    },
+    "meshEditGfxOverlay": {
+      "mapsFrom": [
+        "MESH_EDIT_GFX_OVERLAY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1492,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "conditionalExpression": [
+        "ENABLED(AUTO_BED_LEVELING_UBL)"
+      ],
+      "examples": [
+        "// Display a graphics overlay while editing the mesh"
+      ],
+      "notes": "=========================================================================== ========================= Unified Bed Leveling ============================ ==========================================================================="
+    },
+    "meshInset": {
+      "mapsFrom": [
+        "MESH_INSET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1514,
+      "isConditional": true,
+      "conditionalOn": [
+        "MESH_BED_LEVELING"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MESH_BED_LEVELING)"
+      ],
+      "examples": [
+        "10"
+      ],
+      "notes": "=========================================================================== =================================== Mesh ================================== ==========================================================================="
+    },
+    "ublMeshEditMovesZ": {
+      "mapsFrom": [
+        "UBL_MESH_EDIT_MOVES_Z"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1500,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "conditionalExpression": [
+        "ENABLED(AUTO_BED_LEVELING_UBL)"
+      ],
+      "examples": [
+        "// Sophisticated users prefer no movement of nozzle"
+      ]
+    },
+    "ublMeshWizard": {
+      "mapsFrom": [
+        "UBL_MESH_WIZARD"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1506,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "conditionalExpression": [
+        "ENABLED(AUTO_BED_LEVELING_UBL)"
+      ],
+      "examples": [
+        "// Run several commands in a row to get a complete mesh"
+      ],
+      "notes": "as the Z-Height correction value."
+    },
+    "meshG28RestOrigin": {
+      "mapsFrom": [
+        "MESH_G28_REST_ORIGIN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1518,
+      "isConditional": true,
+      "conditionalOn": [
+        "MESH_BED_LEVELING"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MESH_BED_LEVELING)"
+      ],
+      "examples": [
+        "// After homing all axes ('G28' or 'G28 XYZ') rest Z at Z_MIN_POS"
+      ]
+    },
+    "meshEditZStep": {
+      "mapsFrom": [
+        "MESH_EDIT_Z_STEP"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1529,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_LEVELING"
+      ],
+      "examples": [
+        "0.025"
+      ]
+    },
+    "meshEditMenu": {
+      "mapsFrom": [
+        "MESH_EDIT_MENU"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1531,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_LEVELING"
+      ],
+      "examples": [
+        "// Add a menu to edit mesh points"
+      ]
+    },
+    "zSafeHoming": {
+      "mapsFrom": [
+        "Z_SAFE_HOMING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1595,
+      "notes": "Use \"Z Safe Homing\" to avoid homing with a Z probe outside the bed area.  With this feature enabled:  - Allow Z homing only after X and Y homing AND stepper drivers still enabled. - If stepper drivers time out, it will need X and Y homing again before Z homing. - Move the Z probe (or nozzle) to a defined XY point before Z Homing. - Prevent Z homing when the Z probe is outside bed area. "
+    },
+    "zSafeHomingXPoint": {
+      "mapsFrom": [
+        "Z_SAFE_HOMING_X_POINT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1598,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_SAFE_HOMING"
+      ],
+      "examples": [
+        "X_CENTER"
+      ]
+    },
+    "zSafeHomingYPoint": {
+      "mapsFrom": [
+        "Z_SAFE_HOMING_Y_POINT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1599,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_SAFE_HOMING"
+      ],
+      "examples": [
+        "Y_CENTER"
+      ]
+    }
+  }
+}

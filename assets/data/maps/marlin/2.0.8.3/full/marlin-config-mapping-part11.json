@@ -1,0 +1,750 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration.h",
+  "totalDefines": 690,
+  "hardware_2": {
+    "heater7Maxtemp": {
+      "mapsFrom": [
+        "HEATER_7_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 487,
+      "examples": [
+        "275"
+      ]
+    },
+    "xDriverType": {
+      "mapsFrom": [
+        "X_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 751,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "yDriverType": {
+      "mapsFrom": [
+        "Y_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 752,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "zDriverType": {
+      "mapsFrom": [
+        "Z_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 753,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "x2DriverType": {
+      "mapsFrom": [
+        "X2_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 754,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "y2DriverType": {
+      "mapsFrom": [
+        "Y2_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 755,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "z2DriverType": {
+      "mapsFrom": [
+        "Z2_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 756,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "z3DriverType": {
+      "mapsFrom": [
+        "Z3_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 757,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "z4DriverType": {
+      "mapsFrom": [
+        "Z4_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 758,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e0DriverType": {
+      "mapsFrom": [
+        "E0_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 759,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e1DriverType": {
+      "mapsFrom": [
+        "E1_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 760,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e2DriverType": {
+      "mapsFrom": [
+        "E2_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 761,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e3DriverType": {
+      "mapsFrom": [
+        "E3_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 762,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e4DriverType": {
+      "mapsFrom": [
+        "E4_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 763,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e5DriverType": {
+      "mapsFrom": [
+        "E5_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 764,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e6DriverType": {
+      "mapsFrom": [
+        "E6_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 765,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "e7DriverType": {
+      "mapsFrom": [
+        "E7_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 766,
+      "examples": [
+        "A4988"
+      ]
+    },
+    "lcdBedLeveling": {
+      "mapsFrom": [
+        "LCD_BED_LEVELING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1526
+    },
+    "lcdProbeZRange": {
+      "mapsFrom": [
+        "LCD_PROBE_Z_RANGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1530,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_LEVELING"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "lcdLanguage": {
+      "mapsFrom": [
+        "LCD_LANGUAGE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1905,
+      "examples": [
+        "en"
+      ]
+    },
+    "displayCharsetHd44780": {
+      "mapsFrom": [
+        "DISPLAY_CHARSET_HD44780"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1929,
+      "examples": [
+        "JAPANESE"
+      ]
+    },
+    "lcdInfoScreenStyle": {
+      "mapsFrom": [
+        "LCD_INFO_SCREEN_STYLE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1936,
+      "examples": [
+        "0"
+      ]
+    },
+    "noLcdMenus": {
+      "mapsFrom": [
+        "NO_LCD_MENUS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1959
+    },
+    "slimLcdMenus": {
+      "mapsFrom": [
+        "SLIM_LCD_MENUS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1960
+    },
+    "lcdFeedbackFrequencyDurationMs": {
+      "mapsFrom": [
+        "LCD_FEEDBACK_FREQUENCY_DURATION_MS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2031,
+      "examples": [
+        "2"
+      ],
+      "notes": " The duration and frequency for the UI feedback sound. Set these to 0 to disable audio feedback in the LCD menus.  Note: Test audio output with the G-Code: M300 S<frequency Hz> P<duration ms> "
+    },
+    "lcdFeedbackFrequencyHz": {
+      "mapsFrom": [
+        "LCD_FEEDBACK_FREQUENCY_HZ"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2032,
+      "examples": [
+        "5000"
+      ]
+    },
+    "reprapDiscountSmartController": {
+      "mapsFrom": [
+        "REPRAP_DISCOUNT_SMART_CONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2045,
+      "notes": "============================================================================= ======================== LCD / Controller Selection ========================= ========================   (Character-based LCDs)   ========================= =============================================================================  RepRapDiscount Smart Controller. https://reprap.org/wiki/RepRapDiscount_Smart_Controller  Note: Usually sold with a white PCB. "
+    },
+    "raddsDisplay": {
+      "mapsFrom": [
+        "RADDS_DISPLAY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2059,
+      "notes": " Original RADDS LCD Display+Encoder+SDCardReader http://doku.radds.org/dokumentation/lcd-display/ "
+    },
+    "ultimakercontroller": {
+      "mapsFrom": [
+        "ULTIMAKERCONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2064,
+      "notes": " ULTIMAKER Controller. "
+    },
+    "makeboardMini2LineDisplay1602": {
+      "mapsFrom": [
+        "MAKEBOARD_MINI_2_LINE_DISPLAY_1602"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2095,
+      "notes": " Makeboard 3D Printer Parts 3D Printer Mini Display 1602 Mini Controller https://www.aliexpress.com/item/32765887917.html "
+    }
+  },
+  "hardware_3": {
+    "zonestarLcd": {
+      "mapsFrom": [
+        "ZONESTAR_LCD"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2100,
+      "examples": [
+        "// Requires ADC_KEYPAD_PIN to be assigned to an analog pin."
+      ],
+      "notes": " ANET and Tronxy 20x4 Controller "
+    },
+    "ultraLcd": {
+      "mapsFrom": [
+        "ULTRA_LCD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2108,
+      "notes": "This LCD is known to be susceptible to electrical interference which scrambles the display.  Pressing any button clears it up. This is a LCD2004 display with 5 analog buttons.  Generic 16x2, 16x4, 20x2, or 20x4 character-based LCD. "
+    },
+    "lcdSainsmartI2c1602": {
+      "mapsFrom": [
+        "LCD_SAINSMART_I2C_1602"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2134,
+      "notes": " Sainsmart (YwRobot) LCD Displays  These require F.Malpartida's LiquidCrystal_I2C library https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home "
+    },
+    "lcdSainsmartI2c2004": {
+      "mapsFrom": [
+        "LCD_SAINSMART_I2C_2004"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2135
+    },
+    "lcdI2cPanelolu2": {
+      "mapsFrom": [
+        "LCD_I2C_PANELOLU2"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2152,
+      "notes": " PANELOLU2 LCD with status LEDs, separate encoder and click inputs.  Note: This controller requires Arduino's LiquidTWI2 library v1.2.3 or later. For more info: https://github.com/lincomatic/LiquidTWI2  Note: The PANELOLU2 encoder click input can either be directly connected to a pin (if BTN_ENC defined to != -1) or read through I2C (when BTN_ENC == -1). "
+    },
+    "lcdI2cViki": {
+      "mapsFrom": [
+        "LCD_I2C_VIKI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2158,
+      "notes": " Panucatt VIKI LCD with status LEDs, integrated click & L/R/U/D buttons, separate encoder inputs. "
+    },
+    "sav3dlcd": {
+      "mapsFrom": [
+        "SAV_3DLCD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2168,
+      "notes": " CONTROLLER TYPE: Shift register panels   2-wire Non-latching LCD SR from https://goo.gl/aJJ4sH LCD configuration: https://reprap.org/wiki/SAV_3D_LCD "
+    },
+    "tftglcdPanelSpi": {
+      "mapsFrom": [
+        "TFTGLCD_PANEL_SPI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2182,
+      "notes": " TFT GLCD Panel with Marlin UI Panel connected to main board by SPI or I2C interface. See https://github.com/Serhiy-K/TFTGLCDAdapter "
+    },
+    "tftglcdPanelI2c": {
+      "mapsFrom": [
+        "TFTGLCD_PANEL_I2C"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2183
+    },
+    "reprapDiscountFullGraphicSmartController": {
+      "mapsFrom": [
+        "REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2203,
+      "notes": "============================================================================= =======================   LCD / Controller Selection  ======================= =========================      (Graphical LCDs)      ======================== =============================================================================  CONTROLLER TYPE: Graphical 128x64 (DOGM)  IMPORTANT: The U8glib library is required for Graphical Display! https://github.com/olikraus/U8glib_Arduino  NOTE: If the LCD is unresponsive you may need to reverse the plugs.   RepRapDiscount FULL GRAPHIC Smart Controller https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller "
+    },
+    "k3dFullGraphicSmartController": {
+      "mapsFrom": [
+        "K3D_FULL_GRAPHIC_SMART_CONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2208,
+      "notes": " K.3D Full Graphic Smart Controller "
+    },
+    "reprapworldGraphicalLcd": {
+      "mapsFrom": [
+        "REPRAPWORLD_GRAPHICAL_LCD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2214,
+      "notes": " ReprapWorld Graphical LCD https://reprapworld.com/?products_details&products_id/1218 "
+    },
+    "elbFullGraphicController": {
+      "mapsFrom": [
+        "ELB_FULL_GRAPHIC_CONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2240,
+      "notes": " Adafruit ST7565 Full Graphic Controller. https://github.com/eboston/Adafruit-ST7565-Full-Graphic-Controller/ "
+    },
+    "bqLcdSmartController": {
+      "mapsFrom": [
+        "BQ_LCD_SMART_CONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2246,
+      "notes": " BQ LCD Smart Controller shipped by default with the BQ Hephestos 2 and Witbox 2. "
+    },
+    "lcdForMelzi": {
+      "mapsFrom": [
+        "LCD_FOR_MELZI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2257,
+      "notes": " LCD for Melzi Card with Graphical LCD "
+    },
+    "ultiController": {
+      "mapsFrom": [
+        "ULTI_CONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2263,
+      "notes": " Original Ulticontroller from Ultimaker 2 printer with SSD1309 I2C display and encoder https://github.com/Ultimaker/Ultimaker2/tree/master/1249_Ulticontroller_Board_(x1) "
+    },
+    "mksLcd12864a": {
+      "mapsFrom": [
+        "MKS_LCD12864A"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2275,
+      "notes": " MKS LCD12864A/B with graphic controller and SD support. Follows MKS_MINI_12864 pinout. https://www.aliexpress.com/item/33018110072.html "
+    },
+    "mksLcd12864b": {
+      "mapsFrom": [
+        "MKS_LCD12864B"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2276
+    },
+    "cr10Stockdisplay": {
+      "mapsFrom": [
+        "CR10_STOCKDISPLAY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2295,
+      "notes": " Factory display for Creality CR-10 https://www.aliexpress.com/item/32833148327.html  This is RAMPS-compatible using a single 10-pin connector. (For CR-10 owners who want to replace the Melzi Creality board but retain the display) "
+    },
+    "ender2Stockdisplay": {
+      "mapsFrom": [
+        "ENDER2_STOCKDISPLAY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2300,
+      "notes": " Ender-2 OEM display, a variant of the MKS_MINI_12864 "
+    },
+    "anetFullGraphicsLcd": {
+      "mapsFrom": [
+        "ANET_FULL_GRAPHICS_LCD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2309,
+      "notes": " ANET and Tronxy Graphical Controller  Anet 128x64 full graphics lcd with rotary encoder as used on Anet A6 A clone of the RepRapDiscount full graphics display but with different pins/wiring (see pins_ANET_10.h). Enable one of these. "
+    },
+    "anetFullGraphicsLcdAltWiring": {
+      "mapsFrom": [
+        "ANET_FULL_GRAPHICS_LCD_ALT_WIRING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2310
+    },
+    "silverGateGlcdController": {
+      "mapsFrom": [
+        "SILVER_GATE_GLCD_CONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2322,
+      "notes": " Silvergate GLCD controller https://github.com/android444/Silvergate "
+    },
+    "sav3dglcd": {
+      "mapsFrom": [
+        "SAV_3DGLCD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2336,
+      "notes": " SAV OLEd LCD module support using either SSD1306 or SH1106 based LCD modules "
+    },
+    "zonestar12864lcd": {
+      "mapsFrom": [
+        "ZONESTAR_12864LCD"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2359,
+      "examples": [
+        "// Graphical (DOGM) with ST7920 controller"
+      ],
+      "notes": " Zonestar OLED 128\u00d764 Full Graphics Controller "
+    },
+    "k3d242OledController": {
+      "mapsFrom": [
+        "K3D_242_OLED_CONTROLLER"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2381,
+      "examples": [
+        "// Software SPI"
+      ],
+      "notes": " K.3D SSD1309 OLED 2.42\" 128\u00d764 Full Graphics Controller "
+    },
+    "dgusLcdUiOrigin": {
+      "mapsFrom": [
+        "DGUS_LCD_UI_ORIGIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2392,
+      "notes": "============================================================================= ========================== Extensible UI Displays =========================== =============================================================================  DGUS Touch Display with DWIN OS. (Choose one.) ORIGIN : https://www.aliexpress.com/item/32993409517.html FYSETC : https://www.aliexpress.com/item/32961471929.html "
+    },
+    "dgusLcdUiFysetc": {
+      "mapsFrom": [
+        "DGUS_LCD_UI_FYSETC"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2393
+    },
+    "dgusLcdUiHiprecy": {
+      "mapsFrom": [
+        "DGUS_LCD_UI_HIPRECY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2394
+    },
+    "dgusLcdUiMks": {
+      "mapsFrom": [
+        "DGUS_LCD_UI_MKS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2396
+    }
+  },
+  "hardware_4": {
+    "malyanLcd": {
+      "mapsFrom": [
+        "MALYAN_LCD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2404,
+      "notes": " Touch-screen LCD for Malyan M200/M300 printers "
+    },
+    "anycubicLcdI3mega": {
+      "mapsFrom": [
+        "ANYCUBIC_LCD_I3MEGA"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2418,
+      "notes": " Touch-screen LCD for Anycubic printers "
+    },
+    "anycubicLcdChiron": {
+      "mapsFrom": [
+        "ANYCUBIC_LCD_CHIRON"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2419
+    },
+    "anycubicLcdDebug": {
+      "mapsFrom": [
+        "ANYCUBIC_LCD_DEBUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2422,
+      "isConditional": true,
+      "conditionalOn": [
+        "ANYCUBIC_LCD_CHIRON",
+        "ANYCUBIC_LCD_I3MEGA",
+        "EITHER"
+      ]
+    },
+    "dwinCrealityLcd": {
+      "mapsFrom": [
+        "DWIN_CREALITY_LCD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2576,
+      "notes": "============================================================================= ============================  Other Controllers  ============================ =============================================================================  Ender-3 v2 OEM display. A DWIN display with Rotary Encoder. "
+    }
+  },
+  "safety": {
+    "preventColdExtrusion": {
+      "mapsFrom": [
+        "PREVENT_COLD_EXTRUSION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 634
+    },
+    "preventLengthyExtrude": {
+      "mapsFrom": [
+        "PREVENT_LENGTHY_EXTRUDE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 641
+    },
+    "extrudeMaxlength": {
+      "mapsFrom": [
+        "EXTRUDE_MAXLENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 642,
+      "examples": [
+        "200"
+      ]
+    }
+  }
+}

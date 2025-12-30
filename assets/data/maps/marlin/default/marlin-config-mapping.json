@@ -1,0 +1,1319 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "1.0.0",
+  "description": "Vanilla Marlin Configuration.h field mappings",
+  "firmware": "Marlin",
+  "configFile": "Configuration.h",
+  
+  "basic": {
+    "configVersion": {
+      "mapsFrom": ["CONFIGURATION_H_VERSION"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [2010300],
+      "notes": "Marlin configuration version identifier"
+    },
+    
+    "machineName": {
+      "mapsFrom": ["CUSTOM_MACHINE_NAME"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["3D Printer", "My Printer"],
+      "validation": {
+        "maxLength": 50
+      },
+      "uiId": "profileName",
+      "uiTab": 1,
+      "uiSection": "Basic Information",
+      "uiOrder": 1,
+      "uiWidget": "text",
+      "helpText": "Friendly name for this printer profile"
+    },
+    
+    "machineUUID": {
+      "mapsFrom": ["MACHINE_UUID"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["00000000-0000-0000-0000-000000000000"]
+    },
+    
+    "motherboard": {
+      "mapsFrom": ["MOTHERBOARD"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["BOARD_RAMPS_14_EFB", "BOARD_BTT_SKR_V1_4"],
+      "notes": "Board type from boards.h",
+      "uiId": "hardwareBoard",
+      "uiTab": 2,
+      "uiSection": "Hardware",
+      "uiOrder": 10,
+      "uiWidget": "database-select",
+      "uiDatabase": "marlin-boards-V2",
+      "uiDisplayFormat": "{name} ({mcu})",
+      "helpText": "Select your motherboard or choose Custom"
+    },
+    
+    "serialPort": {
+      "mapsFrom": ["SERIAL_PORT"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [0, -1],
+      "validation": {
+        "min": -1,
+        "max": 9
+      }
+    },
+    
+    "baudRate": {
+      "mapsFrom": ["BAUDRATE"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [250000, 115200],
+      "validation": {
+        "enum": [2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
+      },
+      "uiId": "baudRate",
+      "uiTab": 7,
+      "uiSection": "Communication",
+      "uiOrder": 20,
+      "uiWidget": "select",
+      "helpText": "Serial communication speed (115200 or 250000 typical)"
+    },
+    
+    "serialPort2": {
+      "mapsFrom": ["SERIAL_PORT_2"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [-1, 1]
+    },
+    
+    "baudRate2": {
+      "mapsFrom": ["BAUDRATE_2"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [250000]
+    },
+    
+    "extruders": {
+      "mapsFrom": ["EXTRUDERS"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [1, 2],
+      "validation": {
+        "min": 0,
+        "max": 8
+      },
+      "uiId": "extruderCount",
+      "uiTab": 2,
+      "uiSection": "Hardware Configuration",
+      "uiOrder": 5,
+      "uiWidget": "number",
+      "helpText": "Number of extruders (1-8, typically 1 or 2)"
+    },
+    
+    "defaultFilamentDia": {
+      "mapsFrom": ["DEFAULT_NOMINAL_FILAMENT_DIA"],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [1.75, 2.85, 3.0],
+      "notes": "Expected filament diameter in mm"
+    }
+  },
+  
+  "hardware": {
+    "board": {
+      "mapsFrom": ["MOTHERBOARD"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["BOARD_RAMPS_14_EFB", "BOARD_BTT_SKR_V1_4"],
+      "notes": "Motherboard/controller board",
+      "uiId": "hardwareBoard2",
+      "uiTab": 2,
+      "uiSection": "Hardware Configuration",
+      "uiOrder": 1,
+      "uiWidget": "database-select",
+      "uiDatabase": "marlin-boards-V2",
+      "uiDisplayFormat": "{name} ({mcu})",
+      "helpText": "Motherboard/controller board (allows custom entry)"
+    },
+    
+    "display": {
+      "mapsFrom": ["DISPLAY_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["REPRAP_DISCOUNT_SMART_CONTROLLER", "CR10_STOCKDISPLAY"],
+      "notes": "LCD/Display type",
+      "uiId": "displayType",
+      "uiTab": 2,
+      "uiSection": "Display",
+      "uiOrder": 10,
+      "uiWidget": "database-select",
+      "uiDatabase": "displays",
+      "uiDisplayFormat": "{name}",
+      "helpText": "LCD display type (allows custom entry)"
+    },
+    
+    "driverX": {
+      "mapsFrom": ["X_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209", "TMC2130"],
+      "uiId": "driverX",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 30,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "X-axis stepper driver type"
+    },
+    
+    "driverX2": {
+      "mapsFrom": ["X_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209", "TMC2130"],
+      "uiId": "driverX2",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 20,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "X-axis stepper driver (allows custom entry)"
+    },
+    
+    "driverY": {
+      "mapsFrom": ["Y_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverY",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 31,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Y-axis stepper driver type"
+    },
+    
+    "driverY2": {
+      "mapsFrom": ["Y_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverY2",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 21,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Y-axis stepper driver (allows custom entry)"
+    },
+    
+    "driverZ": {
+      "mapsFrom": ["Z_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverZ",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 32,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Z-axis stepper driver type"
+    },
+    
+    "driverZ2": {
+      "mapsFrom": ["Z_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverZ2",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 22,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Z-axis stepper driver (allows custom entry)"
+    },
+    
+    "driverE0": {
+      "mapsFrom": ["E0_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverE0",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 33,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Extruder stepper driver type"
+    },
+    
+    "driverE02": {
+      "mapsFrom": ["E0_DRIVER_TYPE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["A4988", "TMC2209"],
+      "uiId": "driverE2",
+      "uiTab": 2,
+      "uiSection": "Stepper Drivers",
+      "uiOrder": 23,
+      "uiWidget": "database-select",
+      "uiDatabase": "stepper-drivers-V2",
+      "uiDisplayFormat": "{name} ({type})",
+      "helpText": "Extruder stepper driver (allows custom entry)"
+    },
+    
+    "thermistorHotend": {
+      "mapsFrom": ["TEMP_SENSOR_0"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [1, 5, 11],
+      "notes": "Hotend thermistor type",
+      "uiId": "thermistorHotend",
+      "uiTab": 2,
+      "uiSection": "Temperature Sensors",
+      "uiOrder": 40,
+      "uiWidget": "database-select",
+      "uiDatabase": "thermistors-V2",
+      "uiDisplayFormat": "{id}: {name}",
+      "helpText": "Hotend thermistor/thermocouple type"
+    },
+    
+    "thermistorBed": {
+      "mapsFrom": ["TEMP_SENSOR_BED"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [0, 1, 3],
+      "notes": "Bed thermistor type, 0 = disabled",
+      "uiId": "thermistorBed",
+      "uiTab": 2,
+      "uiSection": "Temperature Sensors",
+      "uiOrder": 41,
+      "uiWidget": "database-select",
+      "uiDatabase": "thermistors-V2",
+      "uiDisplayFormat": "{id}: {name}",
+      "helpText": "Bed thermistor type (0 = disabled)"
+    }
+  },
+  
+  "temperature": {
+    "hotendType": {
+      "mapsFrom": ["HOTEND_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["E3D V6", "Micro Swiss", "Dragon"],
+      "notes": "Hotend model/type",
+      "uiId": "hotendType",
+      "uiTab": 3,
+      "uiSection": "Hotend Configuration",
+      "uiOrder": 1,
+      "uiWidget": "database-select",
+      "uiDatabase": "Hotends",
+      "uiDisplayFormat": "{name}",
+      "helpText": "Select hotend type (allows custom entry)"
+    },
+    
+    "hotendMinTemp": {
+      "mapsFrom": ["HEATER_0_MINTEMP"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [5],
+      "validation": {
+        "min": 0,
+        "max": 50
+      }
+    },
+    
+    "hotendMaxTemp": {
+      "mapsFrom": ["HEATER_0_MAXTEMP"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [275, 300],
+      "validation": {
+        "min": 200,
+        "max": 500
+      },
+      "uiId": "hotendMaxTemp",
+      "uiTab": 3,
+      "uiSection": "Hotend Configuration",
+      "uiOrder": 2,
+      "uiWidget": "number",
+      "helpText": "Maximum hotend temperature in °C (200-500)"
+    },
+    
+    "hotendHeater": {
+      "mapsFrom": ["HOTEND_HEATER_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["24V 40W", "12V 40W"],
+      "notes": "Heater cartridge type",
+      "uiId": "hotendHeater",
+      "uiTab": 3,
+      "uiSection": "Hotend Configuration",
+      "uiOrder": 3,
+      "uiWidget": "database-select",
+      "uiDatabase": "heaters",
+      "uiDisplayFormat": "{name}",
+      "helpText": "Heater cartridge type/voltage"
+    },
+    
+    "highFlowHotend": {
+      "mapsFrom": ["HIGH_FLOW_HOTEND"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "notes": "High flow hotend flag",
+      "uiId": "highFlowHotend",
+      "uiTab": 3,
+      "uiSection": "Hotend Configuration",
+      "uiOrder": 4,
+      "uiWidget": "checkbox",
+      "helpText": "Enable for high-flow hotends (CHT, Dragon HF, etc.)"
+    },
+    
+    "thermistorHotend3": {
+      "mapsFrom": ["TEMP_SENSOR_0"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [1, 5, 11],
+      "notes": "Hotend thermistor type (Tab 3)",
+      "uiId": "thermistorHotend3",
+      "uiTab": 3,
+      "uiSection": "Temperature Sensing",
+      "uiOrder": 10,
+      "uiWidget": "database-select",
+      "uiDatabase": "thermistors-V2",
+      "uiDisplayFormat": "{id}: {name}",
+      "helpText": "Hotend thermistor/thermocouple type (allows custom)"
+    },
+    
+    "bedType": {
+      "mapsFrom": ["BED_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["standard", "magnetic", "pei", "glass"],
+      "notes": "Bed surface type",
+      "uiId": "bedType",
+      "uiTab": 4,
+      "uiSection": "Bed Configuration",
+      "uiOrder": 1,
+      "uiWidget": "select",
+      "helpText": "Bed surface type (standard/magnetic/PEI/glass)"
+    },
+    
+    "bedMinTemp": {
+      "mapsFrom": ["BED_MINTEMP"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [5]
+    },
+    
+    "bedMaxTemp": {
+      "mapsFrom": ["BED_MAXTEMP"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [150, 130],
+      "uiId": "bedMaxTemp",
+      "uiTab": 4,
+      "uiSection": "Bed Configuration",
+      "uiOrder": 2,
+      "uiWidget": "number",
+      "helpText": "Maximum bed temperature in °C"
+    },
+    
+    "thermistorBed4": {
+      "mapsFrom": ["TEMP_SENSOR_BED"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [0, 1, 3],
+      "notes": "Bed thermistor type (Tab 4)",
+      "uiId": "thermistorBed4",
+      "uiTab": 4,
+      "uiSection": "Temperature Sensing",
+      "uiOrder": 10,
+      "uiWidget": "database-select",
+      "uiDatabase": "thermistors-V2",
+      "uiDisplayFormat": "{id}: {name}",
+      "helpText": "Bed thermistor type (0 = disabled, allows custom)"
+    },
+    
+    "pidTemp": {
+      "mapsFrom": ["PIDTEMP"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "notes": "Enable PID for hotend"
+    },
+    
+    "pidKp": {
+      "mapsFrom": ["DEFAULT_KP"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["PIDTEMP"],
+      "fileLocation": "Configuration.h",
+      "examples": [22.20],
+      "uiId": "pidKp",
+      "uiTab": 3,
+      "uiSection": "PID Tuning",
+      "uiOrder": 20,
+      "uiWidget": "number",
+      "helpText": "PID Proportional value (P)"
+    },
+    
+    "pidKi": {
+      "mapsFrom": ["DEFAULT_KI"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["PIDTEMP"],
+      "fileLocation": "Configuration.h",
+      "examples": [1.08],
+      "uiId": "pidKi",
+      "uiTab": 3,
+      "uiSection": "PID Tuning",
+      "uiOrder": 21,
+      "uiWidget": "number",
+      "helpText": "PID Integral value (I)"
+    },
+    
+    "pidKd": {
+      "mapsFrom": ["DEFAULT_KD"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["PIDTEMP"],
+      "fileLocation": "Configuration.h",
+      "examples": [114.00],
+      "uiId": "pidKd",
+      "uiTab": 3,
+      "uiSection": "PID Tuning",
+      "uiOrder": 22,
+      "uiWidget": "number",
+      "helpText": "PID Derivative value (D)"
+    },
+    
+    "pidTempBed": {
+      "mapsFrom": ["PIDTEMPBED"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "notes": "Enable PID for bed"
+    },
+    
+    "pidBedKp": {
+      "mapsFrom": ["DEFAULT_BED_KP"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["PIDTEMPBED"],
+      "fileLocation": "Configuration.h",
+      "examples": [10.00],
+      "uiId": "pidBedKp",
+      "uiTab": 4,
+      "uiSection": "Bed PID Tuning",
+      "uiOrder": 20,
+      "uiWidget": "number",
+      "helpText": "Bed PID Proportional value (P)"
+    },
+    
+    "pidBedKi": {
+      "mapsFrom": ["DEFAULT_BED_KI"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["PIDTEMPBED"],
+      "fileLocation": "Configuration.h",
+      "examples": [0.023],
+      "uiId": "pidBedKi",
+      "uiTab": 4,
+      "uiSection": "Bed PID Tuning",
+      "uiOrder": 21,
+      "uiWidget": "number",
+      "helpText": "Bed PID Integral value (I)"
+    },
+    
+    "pidBedKd": {
+      "mapsFrom": ["DEFAULT_BED_KD"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["PIDTEMPBED"],
+      "fileLocation": "Configuration.h",
+      "examples": [305.4],
+      "uiId": "pidBedKd",
+      "uiTab": 4,
+      "uiSection": "Bed PID Tuning",
+      "uiOrder": 22,
+      "uiWidget": "number",
+      "helpText": "Bed PID Derivative value (D)"
+    },
+    
+    "extrudeMinTemp": {
+      "mapsFrom": ["EXTRUDE_MINTEMP"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [170],
+      "notes": "Minimum temp for extrusion"
+    },
+    
+    "preheat1Label": {
+      "mapsFrom": ["PREHEAT_1_LABEL"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["PLA"]
+    },
+    
+    "preheat1TempHotend": {
+      "mapsFrom": ["PREHEAT_1_TEMP_HOTEND"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [180, 200]
+    },
+    
+    "preheat1TempBed": {
+      "mapsFrom": ["PREHEAT_1_TEMP_BED"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [70, 60]
+    },
+    
+    "preheat2Label": {
+      "mapsFrom": ["PREHEAT_2_LABEL"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["ABS"]
+    },
+    
+    "preheat2TempHotend": {
+      "mapsFrom": ["PREHEAT_2_TEMP_HOTEND"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [240, 230]
+    },
+    
+    "preheat2TempBed": {
+      "mapsFrom": ["PREHEAT_2_TEMP_BED"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [110, 100]
+    }
+  },
+  
+  "geometry": {
+    "bedSizeX": {
+      "mapsFrom": ["X_BED_SIZE"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [200, 220, 235],
+      "validation": {
+        "min": 50,
+        "max": 1000
+      },
+      "uiId": "bedSizeX",
+      "uiTab": 4,
+      "uiSection": "Bed Dimensions",
+      "uiOrder": 30,
+      "uiWidget": "number",
+      "helpText": "Bed width (X axis) in mm"
+    },
+    
+    "bedSizeY": {
+      "mapsFrom": ["Y_BED_SIZE"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [200, 220, 235],
+      "uiId": "bedSizeY",
+      "uiTab": 4,
+      "uiSection": "Bed Dimensions",
+      "uiOrder": 31,
+      "uiWidget": "number",
+      "helpText": "Bed depth (Y axis) in mm"
+    },
+    
+    "bedSizeZ": {
+      "mapsFrom": ["Z_MAX_POS"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [200, 250, 300],
+      "notes": "Build height (Z axis)",
+      "uiId": "bedSizeZ",
+      "uiTab": 4,
+      "uiSection": "Bed Dimensions",
+      "uiOrder": 32,
+      "uiWidget": "number",
+      "helpText": "Build height (Z axis) in mm"
+    },
+    
+    "xMinPos": {
+      "mapsFrom": ["X_MIN_POS"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [0, -5]
+    },
+    
+    "yMinPos": {
+      "mapsFrom": ["Y_MIN_POS"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [0, -5]
+    },
+    
+    "zMinPos": {
+      "mapsFrom": ["Z_MIN_POS"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [0]
+    },
+    
+    "xMaxPos": {
+      "mapsFrom": ["X_MAX_POS"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [200, 220],
+      "notes": "Usually equals X_BED_SIZE"
+    },
+    
+    "yMaxPos": {
+      "mapsFrom": ["Y_MAX_POS"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [200, 220]
+    },
+    
+    "zMaxPos": {
+      "mapsFrom": ["Z_MAX_POS"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [200, 250, 300]
+    }
+  },
+  
+  "motion": {
+    "extruderType": {
+      "mapsFrom": ["EXTRUDER_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["direct", "bowden"],
+      "notes": "Extruder mounting type",
+      "uiId": "extruderType",
+      "uiTab": 3,
+      "uiSection": "Extruder Configuration",
+      "uiOrder": 30,
+      "uiWidget": "select",
+      "helpText": "Select Direct Drive or Bowden"
+    },
+    
+    "stepsPerMM": {
+      "mapsFrom": ["DEFAULT_AXIS_STEPS_PER_UNIT"],
+      "type": "array",
+      "arrayFields": ["x", "y", "z", "e"],
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [[80, 80, 400, 500], [80, 80, 400, 93]],
+      "notes": "Steps per mm for X, Y, Z, E axes"
+    },
+    
+    "stepsPerMME": {
+      "mapsFrom": ["DEFAULT_AXIS_STEPS_PER_UNIT"],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [93, 415, 500],
+      "notes": "E-axis steps/mm (Tab 3)",
+      "uiId": "stepsPerMME",
+      "uiTab": 3,
+      "uiSection": "Extruder Motion",
+      "uiOrder": 40,
+      "uiWidget": "number",
+      "helpText": "E-axis steps per mm (E-steps)"
+    },
+    
+    "maxFeedrate": {
+      "mapsFrom": ["DEFAULT_MAX_FEEDRATE"],
+      "type": "array",
+      "arrayFields": ["x", "y", "z", "e"],
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [[300, 300, 5, 25]],
+      "notes": "Maximum feedrate in mm/s"
+    },
+    
+    "maxFeedrateE": {
+      "mapsFrom": ["DEFAULT_MAX_FEEDRATE"],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [25, 50],
+      "notes": "E-axis max feedrate (Tab 3)",
+      "uiId": "maxFeedrateE",
+      "uiTab": 3,
+      "uiSection": "Extruder Motion",
+      "uiOrder": 41,
+      "uiWidget": "number",
+      "helpText": "E-axis maximum feedrate in mm/s"
+    },
+    
+    "maxAcceleration": {
+      "mapsFrom": ["DEFAULT_MAX_ACCELERATION"],
+      "type": "array",
+      "arrayFields": ["x", "y", "z", "e"],
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [[3000, 3000, 100, 10000]],
+      "notes": "Maximum acceleration in mm/s²"
+    },
+    
+    "maxAccelerationE": {
+      "mapsFrom": ["DEFAULT_MAX_ACCELERATION"],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [10000, 5000],
+      "notes": "E-axis max acceleration (Tab 3)",
+      "uiId": "maxAccelerationE",
+      "uiTab": 3,
+      "uiSection": "Extruder Motion",
+      "uiOrder": 42,
+      "uiWidget": "number",
+      "helpText": "E-axis maximum acceleration in mm/s²"
+    },
+    
+    "acceleration": {
+      "mapsFrom": ["DEFAULT_ACCELERATION"],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [3000, 500],
+      "notes": "Default printing acceleration"
+    },
+    
+    "retractAcceleration": {
+      "mapsFrom": ["DEFAULT_RETRACT_ACCELERATION"],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [3000, 500]
+    },
+    
+    "travelAcceleration": {
+      "mapsFrom": ["DEFAULT_TRAVEL_ACCELERATION"],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [3000, 1000]
+    },
+    
+    "classicJerk": {
+      "mapsFrom": ["CLASSIC_JERK"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "notes": "Enable classic jerk instead of junction deviation"
+    },
+    
+    "jerkX": {
+      "mapsFrom": ["DEFAULT_XJERK"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["CLASSIC_JERK"],
+      "fileLocation": "Configuration.h",
+      "examples": [10.0, 8.0]
+    },
+    
+    "jerkY": {
+      "mapsFrom": ["DEFAULT_YJERK"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["CLASSIC_JERK"],
+      "fileLocation": "Configuration.h",
+      "examples": [10.0, 8.0]
+    },
+    
+    "jerkZ": {
+      "mapsFrom": ["DEFAULT_ZJERK"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["CLASSIC_JERK"],
+      "fileLocation": "Configuration.h",
+      "examples": [0.3, 0.4]
+    },
+    
+    "jerkE": {
+      "mapsFrom": ["DEFAULT_EJERK"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["CLASSIC_JERK"],
+      "fileLocation": "Configuration.h",
+      "examples": [5.0]
+    },
+    
+    "junctionDeviation": {
+      "mapsFrom": ["JUNCTION_DEVIATION_MM"],
+      "type": "float",
+      "required": false,
+      "conditionalOn": ["!CLASSIC_JERK"],
+      "fileLocation": "Configuration.h",
+      "examples": [0.013, 0.02]
+    },
+    
+    "sCurveAcceleration": {
+      "mapsFrom": ["S_CURVE_ACCELERATION"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "notes": "Enable S-curve acceleration"
+    }
+  },
+  
+  "endstops": {
+    "xMinEndstop": {
+      "mapsFrom": ["X_MIN_ENDSTOP_HIT_STATE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["HIGH", "LOW"]
+    },
+    
+    "yMinEndstop": {
+      "mapsFrom": ["Y_MIN_ENDSTOP_HIT_STATE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["HIGH", "LOW"]
+    },
+    
+    "zMinEndstop": {
+      "mapsFrom": ["Z_MIN_ENDSTOP_HIT_STATE"],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": ["HIGH", "LOW"]
+    },
+    
+    "xHomeDir": {
+      "mapsFrom": ["X_HOME_DIR"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [-1, 1],
+      "validation": {
+        "enum": [-1, 1]
+      },
+      "notes": "-1 = MIN, 1 = MAX"
+    },
+    
+    "yHomeDir": {
+      "mapsFrom": ["Y_HOME_DIR"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [-1, 1]
+    },
+    
+    "zHomeDir": {
+      "mapsFrom": ["Z_HOME_DIR"],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [-1, 1]
+    },
+    
+    "homingFeedrate": {
+      "mapsFrom": ["HOMING_FEEDRATE_MM_M"],
+      "type": "array",
+      "arrayFields": ["x", "y", "z"],
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "examples": [[3000, 3000, 240]],
+      "notes": "Homing feedrate in mm/min"
+    }
+  },
+  
+  "probe": {
+    "probeType": {
+      "mapsFrom": ["PROBE_TYPE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["none", "bltouch", "inductive", "capacitive"],
+      "notes": "Bed probe type",
+      "uiId": "probeType",
+      "uiTab": 5,
+      "uiSection": "Probe Configuration",
+      "uiOrder": 1,
+      "uiWidget": "database-select",
+      "uiDatabase": "bed-probes",
+      "uiDisplayFormat": "{name}",
+      "helpText": "Bed leveling probe type (allows custom entry)"
+    },
+    
+    "zMinProbeUsesZMinPin": {
+      "mapsFrom": ["Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "notes": "Probe connected to Z_MIN pin"
+    },
+    
+    "fixMountedProbe": {
+      "mapsFrom": ["FIX_MOUNTED_PROBE"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "nozzleAsProbe": {
+      "mapsFrom": ["NOZZLE_AS_PROBE"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "bltouch": {
+      "mapsFrom": ["BLTOUCH"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "probeOffset": {
+      "mapsFrom": ["NOZZLE_TO_PROBE_OFFSET"],
+      "type": "array",
+      "arrayFields": ["x", "y", "z"],
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [[10, 10, 0], [-44, -10, 0]],
+      "notes": "Probe offset from nozzle in mm"
+    },
+    
+    "probeOffsetX": {
+      "mapsFrom": ["NOZZLE_TO_PROBE_OFFSET"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [10, -44, 0],
+      "notes": "Probe X offset (Tab 5)",
+      "uiId": "probeOffsetX",
+      "uiTab": 5,
+      "uiSection": "Probe Offsets",
+      "uiOrder": 10,
+      "uiWidget": "number",
+      "helpText": "Probe X offset from nozzle in mm"
+    },
+    
+    "probeOffsetY": {
+      "mapsFrom": ["NOZZLE_TO_PROBE_OFFSET"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [10, -10, 0],
+      "notes": "Probe Y offset (Tab 5)",
+      "uiId": "probeOffsetY",
+      "uiTab": 5,
+      "uiSection": "Probe Offsets",
+      "uiOrder": 11,
+      "uiWidget": "number",
+      "helpText": "Probe Y offset from nozzle in mm"
+    },
+    
+    "probeOffsetZ": {
+      "mapsFrom": ["NOZZLE_TO_PROBE_OFFSET"],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [0, -2.5],
+      "notes": "Probe Z offset (Tab 5)",
+      "uiId": "probeOffsetZ",
+      "uiTab": 5,
+      "uiSection": "Probe Offsets",
+      "uiOrder": 12,
+      "uiWidget": "number",
+      "helpText": "Probe Z offset from nozzle in mm"
+    },
+    
+    "xyProbeFeedrate": {
+      "mapsFrom": ["XY_PROBE_FEEDRATE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [8000, 6000],
+      "notes": "Feedrate in mm/min"
+    },
+    
+    "zProbeFeedrateFast": {
+      "mapsFrom": ["Z_PROBE_FEEDRATE_FAST"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [240, 480]
+    },
+    
+    "zProbeFeedrateSlow": {
+      "mapsFrom": ["Z_PROBE_FEEDRATE_SLOW"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [120, 240]
+    },
+    
+    "multipleProbing": {
+      "mapsFrom": ["MULTIPLE_PROBING"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [2, 3]
+    },
+    
+    "zClearanceDeploy": {
+      "mapsFrom": ["Z_CLEARANCE_DEPLOY_PROBE"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [10, 15]
+    },
+    
+    "zClearanceBetween": {
+      "mapsFrom": ["Z_CLEARANCE_BETWEEN_PROBES"],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": [5]
+    }
+  },
+  
+  "bedLeveling": {
+    "abl3Point": {
+      "mapsFrom": ["AUTO_BED_LEVELING_3POINT"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "ablLinear": {
+      "mapsFrom": ["AUTO_BED_LEVELING_LINEAR"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "ablBilinear": {
+      "mapsFrom": ["AUTO_BED_LEVELING_BILINEAR"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "ablUBL": {
+      "mapsFrom": ["AUTO_BED_LEVELING_UBL"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "meshBedLeveling": {
+      "mapsFrom": ["MESH_BED_LEVELING"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "gridMaxPointsX": {
+      "mapsFrom": ["GRID_MAX_POINTS_X"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["AUTO_BED_LEVELING_LINEAR", "AUTO_BED_LEVELING_BILINEAR", "AUTO_BED_LEVELING_UBL", "MESH_BED_LEVELING"],
+      "fileLocation": "Configuration.h",
+      "examples": [3, 5, 7]
+    },
+    
+    "gridMaxPointsY": {
+      "mapsFrom": ["GRID_MAX_POINTS_Y"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["AUTO_BED_LEVELING_LINEAR", "AUTO_BED_LEVELING_BILINEAR", "AUTO_BED_LEVELING_UBL", "MESH_BED_LEVELING"],
+      "fileLocation": "Configuration.h",
+      "examples": [3, 5, 7]
+    },
+    
+    "restoreLevelingAfterG28": {
+      "mapsFrom": ["RESTORE_LEVELING_AFTER_G28"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "enableLevelingFadeHeight": {
+      "mapsFrom": ["ENABLE_LEVELING_FADE_HEIGHT"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "lcdBedLeveling": {
+      "mapsFrom": ["LCD_BED_LEVELING"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "zSafeHoming": {
+      "mapsFrom": ["Z_SAFE_HOMING"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    }
+  },
+  
+  "safety": {
+    "thermalProtectionHotends": {
+      "mapsFrom": ["THERMAL_PROTECTION_HOTENDS"],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "thermalProtectionBed": {
+      "mapsFrom": ["THERMAL_PROTECTION_BED"],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "preventColdExtrusion": {
+      "mapsFrom": ["PREVENT_COLD_EXTRUSION"],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "preventLengthyExtrude": {
+      "mapsFrom": ["PREVENT_LENGTHY_EXTRUDE"],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "extrudeMaxLength": {
+      "mapsFrom": ["EXTRUDE_MAXLENGTH"],
+      "type": "integer",
+      "required": false,
+      "conditionalOn": ["PREVENT_LENGTHY_EXTRUDE"],
+      "fileLocation": "Configuration.h",
+      "examples": [200, 500]
+    },
+    
+    "minSoftwareEndstops": {
+      "mapsFrom": ["MIN_SOFTWARE_ENDSTOPS"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "maxSoftwareEndstops": {
+      "mapsFrom": ["MAX_SOFTWARE_ENDSTOPS"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    }
+  },
+  
+  "storage": {
+    "eepromSettings": {
+      "mapsFrom": ["EEPROM_SETTINGS"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "sdSupport": {
+      "mapsFrom": ["SDSUPPORT"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    }
+  },
+  
+  "lcd": {
+    "lcdLanguage": {
+      "mapsFrom": ["LCD_LANGUAGE"],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "examples": ["en", "de", "fr", "es"]
+    },
+    
+    "reprapDiscountSmartController": {
+      "mapsFrom": ["REPRAP_DISCOUNT_SMART_CONTROLLER"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "reprapDiscountFullGraphicSmartController": {
+      "mapsFrom": ["REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    },
+    
+    "cr10Stockdisplay": {
+      "mapsFrom": ["CR10_STOCKDISPLAY"],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h"
+    }
+  }
+}

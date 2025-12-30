@@ -1,0 +1,771 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration.h",
+  "totalDefines": 690,
+  "motion": {
+    "switchingToolheadPrimeFeedrate": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_PRIME_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 284,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "300"
+      ]
+    },
+    "switchingToolheadRetractFeedrate": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_RETRACT_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 285,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "2400"
+      ]
+    },
+    "axisStepsPerUnit": {
+      "mapsFrom": [
+        "DEFAULT_AXIS_STEPS_PER_UNIT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 814,
+      "examples": [
+        "{ 80, 80, 400, 500 }"
+      ]
+    },
+    "maxFeedrate": {
+      "mapsFrom": [
+        "DEFAULT_MAX_FEEDRATE"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 821,
+      "examples": [
+        "{ 300, 300, 5, 25 }"
+      ]
+    },
+    "maxFeedrateEditValues": {
+      "mapsFrom": [
+        "MAX_FEEDRATE_EDIT_VALUES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 825,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIMITED_MAX_FR_EDITING"
+      ],
+      "examples": [
+        "{ 600, 600, 10, 50 }"
+      ]
+    },
+    "maxAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_MAX_ACCELERATION"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 834,
+      "examples": [
+        "{ 3000, 3000, 100, 10000 }"
+      ]
+    },
+    "acceleration": {
+      "mapsFrom": [
+        "DEFAULT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 849,
+      "examples": [
+        "3000"
+      ]
+    },
+    "retractAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_RETRACT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 850,
+      "examples": [
+        "3000"
+      ]
+    },
+    "travelAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_TRAVEL_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 851,
+      "examples": [
+        "3000"
+      ]
+    },
+    "classicJerk": {
+      "mapsFrom": [
+        "CLASSIC_JERK"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 861
+    },
+    "xjerk": {
+      "mapsFrom": [
+        "DEFAULT_XJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 863,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "10.0"
+      ]
+    },
+    "yjerk": {
+      "mapsFrom": [
+        "DEFAULT_YJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 864,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "10.0"
+      ]
+    },
+    "zjerk": {
+      "mapsFrom": [
+        "DEFAULT_ZJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 865,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ]
+    },
+    "travelExtraXyjerk": {
+      "mapsFrom": [
+        "TRAVEL_EXTRA_XYJERK"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 867,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "limitedJerkEditing": {
+      "mapsFrom": [
+        "LIMITED_JERK_EDITING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 869,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "// Limit edit via M205 or LCD to DEFAULT_aJERK * 2"
+      ]
+    },
+    "maxJerkEditValues": {
+      "mapsFrom": [
+        "MAX_JERK_EDIT_VALUES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 871,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIMITED_JERK_EDITING",
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "{ 20, 20, 0.6, 10 }"
+      ]
+    },
+    "ejerk": {
+      "mapsFrom": [
+        "DEFAULT_EJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 875,
+      "examples": [
+        "5.0"
+      ]
+    },
+    "junctionDeviationMm": {
+      "mapsFrom": [
+        "JUNCTION_DEVIATION_MM"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 885,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.013"
+      ]
+    },
+    "sCurveAcceleration": {
+      "mapsFrom": [
+        "S_CURVE_ACCELERATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 898
+    },
+    "xyProbeFeedrate": {
+      "mapsFrom": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1070,
+      "examples": [
+        "(133*60)"
+      ],
+      "notes": "X and Y axis travel speed (mm/min) between probes"
+    },
+    "zProbeFeedrateFast": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_FAST"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1073,
+      "examples": [
+        "(4*60)"
+      ],
+      "notes": "Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)"
+    },
+    "zProbeFeedrateSlow": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_SLOW"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1076,
+      "examples": [
+        "(Z_PROBE_FEEDRATE_FAST / 2)"
+      ],
+      "notes": "Feedrate (mm/min) for the \"accurate\" probe of each point"
+    },
+    "g26XyFeedrate": {
+      "mapsFrom": [
+        "G26_XY_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1452,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "g26XyFeedrateTravel": {
+      "mapsFrom": [
+        "G26_XY_FEEDRATE_TRAVEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1453,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "homingFeedrateMmM": {
+      "mapsFrom": [
+        "HOMING_FEEDRATE_MM_M"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1603,
+      "examples": [
+        "{ (50*60), (50*60), (4*60) }"
+      ],
+      "notes": "Homing speeds (mm/min)"
+    },
+    "nozzleParkXyFeedrate": {
+      "mapsFrom": [
+        "NOZZLE_PARK_XY_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1744,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "nozzleParkZFeedrate": {
+      "mapsFrom": [
+        "NOZZLE_PARK_Z_FEEDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1745,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "5"
+      ]
+    }
+  },
+  "hardware_1": {
+    "autoPowerControllerfan": {
+      "mapsFrom": [
+        "AUTO_POWER_CONTROLLERFAN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 342,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "AUTO_POWER_CONTROL"
+      ]
+    },
+    "tempSensor0": {
+      "mapsFrom": [
+        "TEMP_SENSOR_0"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 424,
+      "examples": [
+        "1"
+      ]
+    },
+    "tempSensor1": {
+      "mapsFrom": [
+        "TEMP_SENSOR_1"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 425,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor2": {
+      "mapsFrom": [
+        "TEMP_SENSOR_2"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 426,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor3": {
+      "mapsFrom": [
+        "TEMP_SENSOR_3"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 427,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor4": {
+      "mapsFrom": [
+        "TEMP_SENSOR_4"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 428,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor5": {
+      "mapsFrom": [
+        "TEMP_SENSOR_5"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 429,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor6": {
+      "mapsFrom": [
+        "TEMP_SENSOR_6"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 430,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor7": {
+      "mapsFrom": [
+        "TEMP_SENSOR_7"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 431,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorBed": {
+      "mapsFrom": [
+        "TEMP_SENSOR_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 432,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorProbe": {
+      "mapsFrom": [
+        "TEMP_SENSOR_PROBE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 433,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorChamber": {
+      "mapsFrom": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 434,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorCooler": {
+      "mapsFrom": [
+        "TEMP_SENSOR_COOLER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 435,
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor1AsRedundant": {
+      "mapsFrom": [
+        "TEMP_SENSOR_1_AS_REDUNDANT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 449,
+      "notes": "Use temp sensor 1 as a redundant sensor with sensor 0. If the readings from the two sensors differ too much the print will be aborted."
+    },
+    "maxRedundantTempSensorDiff": {
+      "mapsFrom": [
+        "MAX_REDUNDANT_TEMP_SENSOR_DIFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 450,
+      "examples": [
+        "10"
+      ]
+    },
+    "heater0Mintemp": {
+      "mapsFrom": [
+        "HEATER_0_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 466,
+      "examples": [
+        "5"
+      ],
+      "notes": "Below this temperature the heater will be switched off because it probably indicates a broken thermistor wire."
+    },
+    "heater1Mintemp": {
+      "mapsFrom": [
+        "HEATER_1_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 467,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater2Mintemp": {
+      "mapsFrom": [
+        "HEATER_2_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 468,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater3Mintemp": {
+      "mapsFrom": [
+        "HEATER_3_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 469,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater4Mintemp": {
+      "mapsFrom": [
+        "HEATER_4_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 470,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater5Mintemp": {
+      "mapsFrom": [
+        "HEATER_5_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 471,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater6Mintemp": {
+      "mapsFrom": [
+        "HEATER_6_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 472,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater7Mintemp": {
+      "mapsFrom": [
+        "HEATER_7_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 473,
+      "examples": [
+        "5"
+      ]
+    },
+    "heater0Maxtemp": {
+      "mapsFrom": [
+        "HEATER_0_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 480,
+      "examples": [
+        "275"
+      ],
+      "notes": "Above this temperature the heater will be switched off. This can protect components from overheating, but NOT from shorts and failures. (Use MINTEMP for thermistor short/failure protection.)"
+    },
+    "heater1Maxtemp": {
+      "mapsFrom": [
+        "HEATER_1_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 481,
+      "examples": [
+        "275"
+      ]
+    },
+    "heater2Maxtemp": {
+      "mapsFrom": [
+        "HEATER_2_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 482,
+      "examples": [
+        "275"
+      ]
+    },
+    "heater3Maxtemp": {
+      "mapsFrom": [
+        "HEATER_3_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 483,
+      "examples": [
+        "275"
+      ]
+    },
+    "heater4Maxtemp": {
+      "mapsFrom": [
+        "HEATER_4_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 484,
+      "examples": [
+        "275"
+      ]
+    },
+    "heater5Maxtemp": {
+      "mapsFrom": [
+        "HEATER_5_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 485,
+      "examples": [
+        "275"
+      ]
+    },
+    "heater6Maxtemp": {
+      "mapsFrom": [
+        "HEATER_6_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 486,
+      "examples": [
+        "275"
+      ]
+    }
+  }
+}

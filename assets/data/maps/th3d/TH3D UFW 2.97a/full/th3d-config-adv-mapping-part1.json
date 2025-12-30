@@ -1,0 +1,506 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_1": {
+    "configurationAdvHVersion": {
+      "mapsFrom": [
+        "CONFIGURATION_ADV_H_VERSION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 33,
+      "examples": [
+        "02010204"
+      ]
+    },
+    "configExport": {
+      "mapsFrom": [
+        "CONFIG_EXPORT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 51,
+      "examples": [
+        "2"
+      ]
+    },
+    "thermocoupleMaxErrors": {
+      "mapsFrom": [
+        "THERMOCOUPLE_MAX_ERRORS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 69,
+      "examples": [
+        "15"
+      ]
+    },
+    "hotend0PullupResistorOhms": {
+      "mapsFrom": [
+        "HOTEND0_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 83,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_0"
+      ],
+      "conditionalOnNot": [
+        "SOVOL_SV06_PLUS",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "hotend0Resistance25cOhms": {
+      "mapsFrom": [
+        "HOTEND0_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 84,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_0"
+      ],
+      "conditionalOnNot": [
+        "SOVOL_SV06_PLUS",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "hotend0Beta": {
+      "mapsFrom": [
+        "HOTEND0_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 85,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_0"
+      ],
+      "conditionalOnNot": [
+        "SOVOL_SV06_PLUS",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "hotend0ShCCoeff": {
+      "mapsFrom": [
+        "HOTEND0_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 86,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_0"
+      ],
+      "conditionalOnNot": [
+        "SOVOL_SV06_PLUS",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "hotend1PullupResistorOhms": {
+      "mapsFrom": [
+        "HOTEND1_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 91,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_1"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "hotend1Resistance25cOhms": {
+      "mapsFrom": [
+        "HOTEND1_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 92,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_1"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "hotend1Beta": {
+      "mapsFrom": [
+        "HOTEND1_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 93,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_1"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "hotend1ShCCoeff": {
+      "mapsFrom": [
+        "HOTEND1_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 94,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_1"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "hotend2PullupResistorOhms": {
+      "mapsFrom": [
+        "HOTEND2_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 98,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_2"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "hotend2Resistance25cOhms": {
+      "mapsFrom": [
+        "HOTEND2_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 99,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_2"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "hotend2Beta": {
+      "mapsFrom": [
+        "HOTEND2_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 100,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_2"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "hotend2ShCCoeff": {
+      "mapsFrom": [
+        "HOTEND2_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 101,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "hotend3PullupResistorOhms": {
+      "mapsFrom": [
+        "HOTEND3_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 105,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_3"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "hotend3Resistance25cOhms": {
+      "mapsFrom": [
+        "HOTEND3_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 106,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_3"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "hotend3Beta": {
+      "mapsFrom": [
+        "HOTEND3_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 107,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_3"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "hotend3ShCCoeff": {
+      "mapsFrom": [
+        "HOTEND3_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 108,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_3"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "hotend4PullupResistorOhms": {
+      "mapsFrom": [
+        "HOTEND4_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 112,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_4"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "hotend4Resistance25cOhms": {
+      "mapsFrom": [
+        "HOTEND4_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 113,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_4"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "hotend4Beta": {
+      "mapsFrom": [
+        "HOTEND4_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 114,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_4"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "hotend4ShCCoeff": {
+      "mapsFrom": [
+        "HOTEND4_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 115,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_4"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "hotend5PullupResistorOhms": {
+      "mapsFrom": [
+        "HOTEND5_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 119,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_5"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "hotend5Resistance25cOhms": {
+      "mapsFrom": [
+        "HOTEND5_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 120,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_5"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "hotend5Beta": {
+      "mapsFrom": [
+        "HOTEND5_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 121,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_5"
+      ],
+      "examples": [
+        "3950"
+      ]
+    },
+    "hotend5ShCCoeff": {
+      "mapsFrom": [
+        "HOTEND5_SH_C_COEFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 122,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_5"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "hotend6PullupResistorOhms": {
+      "mapsFrom": [
+        "HOTEND6_PULLUP_RESISTOR_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 126,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_6"
+      ],
+      "examples": [
+        "4700"
+      ]
+    },
+    "hotend6Resistance25cOhms": {
+      "mapsFrom": [
+        "HOTEND6_RESISTANCE_25C_OHMS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 127,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_6"
+      ],
+      "examples": [
+        "100000"
+      ]
+    },
+    "hotend6Beta": {
+      "mapsFrom": [
+        "HOTEND6_BETA"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 128,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_6"
+      ],
+      "examples": [
+        "3950"
+      ]
+    }
+  }
+}

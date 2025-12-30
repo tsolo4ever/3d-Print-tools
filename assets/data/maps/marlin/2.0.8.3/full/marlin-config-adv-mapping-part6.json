@@ -1,0 +1,441 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_7": {
+    "calibrationMeasureLeft": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_LEFT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1040,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureBack": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_BACK"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1041,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureAtTopEdges": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_AT_TOP_EDGES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1045,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "notes": "Probing at the exact top center only works if the center is flat. If probing on a screwhead or hollow washer, probe near the edges."
+    },
+    "calibrationPin": {
+      "mapsFrom": [
+        "CALIBRATION_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1049,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "conditionalOnNot": [
+        "CALIBRATION_PIN"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "calibrationPinInverting": {
+      "mapsFrom": [
+        "CALIBRATION_PIN_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1050,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "conditionalOnNot": [
+        "CALIBRATION_PIN"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "calibrationPinPulldown": {
+      "mapsFrom": [
+        "CALIBRATION_PIN_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1051,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "conditionalOnNot": [
+        "CALIBRATION_PIN"
+      ]
+    },
+    "calibrationPinPullup": {
+      "mapsFrom": [
+        "CALIBRATION_PIN_PULLUP"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1052,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "conditionalOnNot": [
+        "CALIBRATION_PIN"
+      ]
+    },
+    "microstep1": {
+      "mapsFrom": [
+        "MICROSTEP1"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1068,
+      "examples": [
+        "LOW,LOW,LOW"
+      ]
+    },
+    "microstep2": {
+      "mapsFrom": [
+        "MICROSTEP2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1069,
+      "examples": [
+        "HIGH,LOW,LOW"
+      ]
+    },
+    "microstep4": {
+      "mapsFrom": [
+        "MICROSTEP4"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1070,
+      "examples": [
+        "LOW,HIGH,LOW"
+      ]
+    },
+    "microstep8": {
+      "mapsFrom": [
+        "MICROSTEP8"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1071,
+      "examples": [
+        "HIGH,HIGH,LOW"
+      ]
+    },
+    "microstep16": {
+      "mapsFrom": [
+        "MICROSTEP16"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1072,
+      "examples": [
+        "LOW,LOW,HIGH"
+      ]
+    },
+    "microstep32": {
+      "mapsFrom": [
+        "MICROSTEP32"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1073,
+      "examples": [
+        "HIGH,LOW,HIGH"
+      ]
+    },
+    "microstepModes": {
+      "mapsFrom": [
+        "MICROSTEP_MODES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1076,
+      "examples": [
+        "{ 16, 16, 16, 16, 16, 16 }"
+      ],
+      "notes": "Microstep settings (Requires a board with pins named X_MS1, X_MS2, etc.)"
+    },
+    "pwmMotorCurrent": {
+      "mapsFrom": [
+        "PWM_MOTOR_CURRENT"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1098,
+      "examples": [
+        "{ 1300, 1300, 1250 }"
+      ]
+    },
+    "digipotMotorCurrent": {
+      "mapsFrom": [
+        "DIGIPOT_MOTOR_CURRENT"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1099,
+      "examples": [
+        "{ 135,135,135,135,135 }"
+      ]
+    },
+    "dacMotorCurrentDefault": {
+      "mapsFrom": [
+        "DAC_MOTOR_CURRENT_DEFAULT"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1100,
+      "examples": [
+        "{ 70, 80, 90, 80 }"
+      ]
+    },
+    "digipotMcp4018": {
+      "mapsFrom": [
+        "DIGIPOT_MCP4018"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1105,
+      "examples": [
+        "// Requires https:"
+      ]
+    },
+    "digipotMcp4451": {
+      "mapsFrom": [
+        "DIGIPOT_MCP4451"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1106
+    },
+    "digipotI2cNumChannels": {
+      "mapsFrom": [
+        "DIGIPOT_I2C_NUM_CHANNELS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1108,
+      "isConditional": true,
+      "conditionalOn": [
+        "DIGIPOT_MCP4451",
+        "EITHER",
+        "DIGIPOT_MCP4018"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "digipotI2cMotorCurrents": {
+      "mapsFrom": [
+        "DIGIPOT_I2C_MOTOR_CURRENTS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1112,
+      "isConditional": true,
+      "conditionalOn": [
+        "DIGIPOT_MCP4451",
+        "EITHER",
+        "DIGIPOT_MCP4018"
+      ],
+      "examples": [
+        "{ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }"
+      ],
+      "notes": "Actual motor currents in Amps. The number of entries must match DIGIPOT_I2C_NUM_CHANNELS. These correspond to the physical drivers, so be mindful if the order is changed."
+    },
+    "digipotUseRawValues": {
+      "mapsFrom": [
+        "DIGIPOT_USE_RAW_VALUES"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1114,
+      "isConditional": true,
+      "conditionalOn": [
+        "DIGIPOT_MCP4451",
+        "EITHER",
+        "DIGIPOT_MCP4018"
+      ],
+      "examples": [
+        "// Use DIGIPOT_MOTOR_CURRENT raw wiper values (instead of A4988 motor currents)"
+      ]
+    },
+    "digipotI2cAddressA": {
+      "mapsFrom": [
+        "DIGIPOT_I2C_ADDRESS_A"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1126,
+      "isConditional": true,
+      "conditionalOn": [
+        "DIGIPOT_MCP4451",
+        "EITHER",
+        "DIGIPOT_MCP4018"
+      ],
+      "examples": [
+        "0x2C"
+      ]
+    },
+    "digipotI2cAddressB": {
+      "mapsFrom": [
+        "DIGIPOT_I2C_ADDRESS_B"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1127,
+      "isConditional": true,
+      "conditionalOn": [
+        "DIGIPOT_MCP4451",
+        "EITHER",
+        "DIGIPOT_MCP4018"
+      ],
+      "examples": [
+        "0x2D"
+      ]
+    },
+    "ultipanelFeedmultiply": {
+      "mapsFrom": [
+        "ULTIPANEL_FEEDMULTIPLY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1141,
+      "isConditional": true,
+      "conditionalOn": [
+        "EITHER",
+        "IS_ULTIPANEL",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "// Encoder sets the feedrate multiplier on the Status Screen"
+      ]
+    },
+    "encoderRateMultiplier": {
+      "mapsFrom": [
+        "ENCODER_RATE_MULTIPLIER"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1146,
+      "notes": "Change values more rapidly when the encoder is rotated faster"
+    },
+    "encoder10xStepsPerSec": {
+      "mapsFrom": [
+        "ENCODER_10X_STEPS_PER_SEC"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1148,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENCODER_RATE_MULTIPLIER"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "encoder100xStepsPerSec": {
+      "mapsFrom": [
+        "ENCODER_100X_STEPS_PER_SEC"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1149,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENCODER_RATE_MULTIPLIER"
+      ],
+      "examples": [
+        "80"
+      ]
+    },
+    "turboBackMenuItem": {
+      "mapsFrom": [
+        "TURBO_BACK_MENU_ITEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1184,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU"
+      ],
+      "notes": "BACK menu items keep the highlight at the top"
+    },
+    "soundMenuItem": {
+      "mapsFrom": [
+        "SOUND_MENU_ITEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1187,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_LCD_MENU"
+      ],
+      "notes": "Add a mute option to the LCD menu"
+    }
+  }
+}

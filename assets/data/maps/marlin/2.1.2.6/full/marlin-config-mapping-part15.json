@@ -1,0 +1,389 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "geometry": {
+    "manualSolenoidControl": {
+      "mapsFrom": [
+        "MANUAL_SOLENOID_CONTROL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 294,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_PARKING_EXTRUDER",
+        "PARKING_EXTRUDER",
+        "EITHER"
+      ],
+      "examples": [
+        "// Manual control of docking solenoids with M380 S / M381"
+      ]
+    },
+    "touchMiManualDeploy": {
+      "mapsFrom": [
+        "TOUCH_MI_MANUAL_DEPLOY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1389,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_MI_PROBE"
+      ],
+      "examples": [
+        "// For manual deploy (LCD menu)"
+      ]
+    },
+    "xMinPos": {
+      "mapsFrom": [
+        "X_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1731,
+      "examples": [
+        "0"
+      ],
+      "notes": "Travel limits (linear=mm, rotational=\u00b0) after homing, corresponding to endstop positions."
+    },
+    "yMinPos": {
+      "mapsFrom": [
+        "Y_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1732,
+      "examples": [
+        "0"
+      ]
+    },
+    "zMinPos": {
+      "mapsFrom": [
+        "Z_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1733,
+      "examples": [
+        "0"
+      ]
+    },
+    "xMaxPos": {
+      "mapsFrom": [
+        "X_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1734,
+      "examples": [
+        "X_BED_SIZE"
+      ]
+    },
+    "yMaxPos": {
+      "mapsFrom": [
+        "Y_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1735,
+      "examples": [
+        "Y_BED_SIZE"
+      ]
+    },
+    "zMaxPos": {
+      "mapsFrom": [
+        "Z_MAX_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1736,
+      "examples": [
+        "200"
+      ]
+    },
+    "iMinPos": {
+      "mapsFrom": [
+        "I_MIN_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1737,
+      "examples": [
+        "0"
+      ]
+    },
+    "iMaxPos": {
+      "mapsFrom": [
+        "I_MAX_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1738,
+      "examples": [
+        "50"
+      ]
+    },
+    "jMinPos": {
+      "mapsFrom": [
+        "J_MIN_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1739,
+      "examples": [
+        "0"
+      ]
+    },
+    "jMaxPos": {
+      "mapsFrom": [
+        "J_MAX_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1740,
+      "examples": [
+        "50"
+      ]
+    },
+    "kMinPos": {
+      "mapsFrom": [
+        "K_MIN_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1741,
+      "examples": [
+        "0"
+      ]
+    },
+    "kMaxPos": {
+      "mapsFrom": [
+        "K_MAX_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1742,
+      "examples": [
+        "50"
+      ]
+    },
+    "uMinPos": {
+      "mapsFrom": [
+        "U_MIN_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1743,
+      "examples": [
+        "0"
+      ]
+    },
+    "uMaxPos": {
+      "mapsFrom": [
+        "U_MAX_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1744,
+      "examples": [
+        "50"
+      ]
+    },
+    "vMinPos": {
+      "mapsFrom": [
+        "V_MIN_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1745,
+      "examples": [
+        "0"
+      ]
+    },
+    "vMaxPos": {
+      "mapsFrom": [
+        "V_MAX_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1746,
+      "examples": [
+        "50"
+      ]
+    },
+    "wMinPos": {
+      "mapsFrom": [
+        "W_MIN_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1747,
+      "examples": [
+        "0"
+      ]
+    },
+    "wMaxPos": {
+      "mapsFrom": [
+        "W_MAX_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1748,
+      "examples": [
+        "50"
+      ]
+    },
+    "manualProbeStartZ": {
+      "mapsFrom": [
+        "MANUAL_PROBE_START_Z"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1953,
+      "isConditional": true,
+      "conditionalOn": [
+        "MESH_BED_LEVELING",
+        "PROBE_MANUALLY",
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "examples": [
+        "0.2"
+      ],
+      "notes": "Set a height for the start of manual adjustment"
+    },
+    "manualXHomePos": {
+      "mapsFrom": [
+        "MANUAL_X_HOME_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2108,
+      "examples": [
+        "0"
+      ],
+      "notes": "Manually set the home position. Leave these undefined for automatic settings. For DELTA this is the top-center of the Cartesian print volume."
+    },
+    "manualYHomePos": {
+      "mapsFrom": [
+        "MANUAL_Y_HOME_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2109,
+      "examples": [
+        "0"
+      ]
+    },
+    "manualZHomePos": {
+      "mapsFrom": [
+        "MANUAL_Z_HOME_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2110,
+      "examples": [
+        "0"
+      ]
+    },
+    "manualIHomePos": {
+      "mapsFrom": [
+        "MANUAL_I_HOME_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2111,
+      "examples": [
+        "0"
+      ]
+    },
+    "manualJHomePos": {
+      "mapsFrom": [
+        "MANUAL_J_HOME_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2112,
+      "examples": [
+        "0"
+      ]
+    },
+    "manualKHomePos": {
+      "mapsFrom": [
+        "MANUAL_K_HOME_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2113,
+      "examples": [
+        "0"
+      ]
+    },
+    "manualUHomePos": {
+      "mapsFrom": [
+        "MANUAL_U_HOME_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2114,
+      "examples": [
+        "0"
+      ]
+    },
+    "manualVHomePos": {
+      "mapsFrom": [
+        "MANUAL_V_HOME_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2115,
+      "examples": [
+        "0"
+      ]
+    },
+    "manualWHomePos": {
+      "mapsFrom": [
+        "MANUAL_W_HOME_POS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2116,
+      "examples": [
+        "0"
+      ]
+    }
+  }
+}

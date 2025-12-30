@@ -1,0 +1,492 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_30": {
+    "configMenuItem2Desc": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_2_DESC"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3590,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"Bluetooth ON\""
+      ]
+    },
+    "configMenuItem2Gcode": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_2_GCODE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3591,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"M118 [ESP110] BT pwd=12345678\""
+      ]
+    },
+    "configMenuItem2Confirm": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_2_CONFIRM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3592,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ]
+    },
+    "configMenuItem3Desc": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_3_DESC"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3594,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"Radio OFF\""
+      ]
+    },
+    "configMenuItem3Gcode": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_3_GCODE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3595,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"M118 [ESP110] OFF pwd=12345678\""
+      ]
+    },
+    "configMenuItem3Confirm": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_3_CONFIRM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3596,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ]
+    },
+    "configMenuItem4Desc": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_4_DESC"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3598,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"Wifi ????\""
+      ]
+    },
+    "configMenuItem4Gcode": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_4_GCODE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3599,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"M118 ????\""
+      ]
+    },
+    "configMenuItem4Confirm": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_4_CONFIRM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3600,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ]
+    },
+    "configMenuItem5Desc": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_5_DESC"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3602,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"Wifi ????\""
+      ]
+    },
+    "configMenuItem5Gcode": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_5_GCODE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3603,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ],
+      "examples": [
+        "\"M118 ????\""
+      ]
+    },
+    "configMenuItem5Confirm": {
+      "mapsFrom": [
+        "CONFIG_MENU_ITEM_5_CONFIRM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3604,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_MENU_CONFIG"
+      ]
+    },
+    "customUserButtons": {
+      "mapsFrom": [
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3611
+    },
+    "button1Pin": {
+      "mapsFrom": [
+        "BUTTON1_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3613,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "button1HitState": {
+      "mapsFrom": [
+        "BUTTON1_HIT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3615,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON1",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "button1WhenPrinting": {
+      "mapsFrom": [
+        "BUTTON1_WHEN_PRINTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3616,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON1",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "button1Gcode": {
+      "mapsFrom": [
+        "BUTTON1_GCODE"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3617,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON1",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"G28\""
+      ]
+    },
+    "button1Desc": {
+      "mapsFrom": [
+        "BUTTON1_DESC"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3618,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON1",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"Homing\""
+      ]
+    },
+    "button2Pin": {
+      "mapsFrom": [
+        "BUTTON2_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3621,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "button2HitState": {
+      "mapsFrom": [
+        "BUTTON2_HIT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3623,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON2",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "button2WhenPrinting": {
+      "mapsFrom": [
+        "BUTTON2_WHEN_PRINTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3624,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON2",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "button2Gcode": {
+      "mapsFrom": [
+        "BUTTON2_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3625,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON2",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"M140 S\" STRINGIFY(PREHEAT_1_TEMP_BED) \"\\nM104 S\" STRINGIFY(PREHEAT_1_TEMP_HOTEND)"
+      ]
+    },
+    "button2Desc": {
+      "mapsFrom": [
+        "BUTTON2_DESC"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3626,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON2",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"Preheat for \" PREHEAT_1_LABEL"
+      ]
+    },
+    "button3Pin": {
+      "mapsFrom": [
+        "BUTTON3_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3629,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "button3HitState": {
+      "mapsFrom": [
+        "BUTTON3_HIT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3631,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON3",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "button3WhenPrinting": {
+      "mapsFrom": [
+        "BUTTON3_WHEN_PRINTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3632,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON3",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "button3Gcode": {
+      "mapsFrom": [
+        "BUTTON3_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3633,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON3",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"M140 S\" STRINGIFY(PREHEAT_2_TEMP_BED) \"\\nM104 S\" STRINGIFY(PREHEAT_2_TEMP_HOTEND)"
+      ]
+    },
+    "button3Desc": {
+      "mapsFrom": [
+        "BUTTON3_DESC"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3634,
+      "isConditional": true,
+      "conditionalOn": [
+        "BUTTON3",
+        "PIN_EXISTS",
+        "CUSTOM_USER_BUTTONS"
+      ],
+      "examples": [
+        "\"Preheat for \" PREHEAT_2_LABEL"
+      ]
+    },
+    "hostPromptSupport": {
+      "mapsFrom": [
+        "HOST_PROMPT_SUPPORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3654,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOST_ACTION_COMMANDS"
+      ]
+    },
+    "hostStartMenuItem": {
+      "mapsFrom": [
+        "HOST_START_MENU_ITEM"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3655,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOST_ACTION_COMMANDS"
+      ],
+      "examples": [
+        "// Add a menu item that tells the host to start"
+      ]
+    }
+  }
+}

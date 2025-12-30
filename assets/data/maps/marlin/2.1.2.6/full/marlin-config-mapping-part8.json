@@ -1,0 +1,842 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "other_11": {
+    "bilinearSubdivisions": {
+      "mapsFrom": [
+        "BILINEAR_SUBDIVISIONS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2013,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_LINEAR",
+        "ABL_BILINEAR_SUBDIVISION",
+        "EITHER",
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "examples": [
+        "3"
+      ],
+      "notes": "Number of subdivisions between probe points"
+    },
+    "ublHilbertCurve": {
+      "mapsFrom": [
+        "UBL_HILBERT_CURVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2030,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "conditionalExpression": [
+        "ENABLED(AUTO_BED_LEVELING_UBL)"
+      ],
+      "examples": [
+        "// Use Hilbert distribution for less travel when probing multiple points"
+      ]
+    },
+    "ublSaveActiveOnM500": {
+      "mapsFrom": [
+        "UBL_SAVE_ACTIVE_ON_M500"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2033,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "conditionalExpression": [
+        "ENABLED(AUTO_BED_LEVELING_UBL)"
+      ],
+      "examples": [
+        "// Save the currently active mesh in the current slot on M500"
+      ]
+    },
+    "ublZRaiseWhenOffMesh": {
+      "mapsFrom": [
+        "UBL_Z_RAISE_WHEN_OFF_MESH"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2035,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "conditionalExpression": [
+        "ENABLED(AUTO_BED_LEVELING_UBL)"
+      ],
+      "examples": [
+        "2.5"
+      ]
+    },
+    "skewCorrection": {
+      "mapsFrom": [
+        "SKEW_CORRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2168
+    },
+    "xyDiagAc": {
+      "mapsFrom": [
+        "XY_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2172,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ],
+      "notes": "Input all length measurements here:"
+    },
+    "xyDiagBd": {
+      "mapsFrom": [
+        "XY_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2173,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "xySideAd": {
+      "mapsFrom": [
+        "XY_SIDE_AD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2174,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "xySkewFactor": {
+      "mapsFrom": [
+        "XY_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2177,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "0.0"
+      ],
+      "notes": "Or, set the XY skew factor directly:"
+    },
+    "skewCorrectionForZ": {
+      "mapsFrom": [
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2179,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ]
+    },
+    "xzDiagAc": {
+      "mapsFrom": [
+        "XZ_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2181,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "xzDiagBd": {
+      "mapsFrom": [
+        "XZ_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2182,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzDiagAc": {
+      "mapsFrom": [
+        "YZ_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2183,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzDiagBd": {
+      "mapsFrom": [
+        "YZ_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2184,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzSideAd": {
+      "mapsFrom": [
+        "YZ_SIDE_AD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2185,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "xzSkewFactor": {
+      "mapsFrom": [
+        "XZ_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2188,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "0.0"
+      ],
+      "notes": "Or, set the Z skew factors directly:"
+    },
+    "yzSkewFactor": {
+      "mapsFrom": [
+        "YZ_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2189,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "skewCorrectionGcode": {
+      "mapsFrom": [
+        "SKEW_CORRECTION_GCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2193,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "notes": "Enable this option for M852 to set skew at runtime"
+    },
+    "disableM503": {
+      "mapsFrom": [
+        "DISABLE_M503"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2212,
+      "examples": [
+        "// Saves ~2700 bytes of flash. Disable for release!"
+      ]
+    },
+    "hostKeepaliveFeature": {
+      "mapsFrom": [
+        "HOST_KEEPALIVE_FEATURE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2228,
+      "examples": [
+        "// Disable this if your host doesn't like keepalive messages"
+      ],
+      "notes": "@section host  Host Keepalive  When enabled Marlin will send a busy status message to the host every couple of seconds when it can't accept commands. "
+    },
+    "keepaliveInterval": {
+      "mapsFrom": [
+        "DEFAULT_KEEPALIVE_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2229,
+      "examples": [
+        "2"
+      ]
+    },
+    "busyWhileHeating": {
+      "mapsFrom": [
+        "BUSY_WHILE_HEATING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2230,
+      "examples": [
+        "// Some hosts require \"busy\" messages even during heating"
+      ]
+    },
+    "inchModeSupport": {
+      "mapsFrom": [
+        "INCH_MODE_SUPPORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2237,
+      "notes": "@section units  G20/G21 Inch mode support "
+    },
+    "nozzleCleanFeature": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2323
+    },
+    "nozzleCleanStrokes": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_STROKES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2327,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "12"
+      ],
+      "notes": "Default number of pattern repetitions"
+    },
+    "nozzleCleanTriangles": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_TRIANGLES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2330,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "3"
+      ],
+      "notes": "Default number of triangles"
+    },
+    "nozzleCleanStartPoint": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_START_POINT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2334,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "{ {  30, 30, (Z_MIN_POS + 1) } }"
+      ],
+      "notes": "Specify positions for each tool as { { X, Y, Z }, { X, Y, Z } } Dual hotend system may use { {  -20, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) },  {  420, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) }}"
+    },
+    "nozzleCleanEndPoint": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_END_POINT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2335,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "{ { 100, 60, (Z_MIN_POS + 1) } }"
+      ]
+    },
+    "nozzleCleanCircleRadius": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_CIRCLE_RADIUS"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2338,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "6.5"
+      ],
+      "notes": "Circular pattern radius"
+    },
+    "nozzleCleanCircleFn": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_CIRCLE_FN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2340,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "10"
+      ],
+      "notes": "Circular pattern circle fragments number"
+    }
+  },
+  "other_12": {
+    "nozzleCleanCircleMiddle": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_CIRCLE_MIDDLE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2342,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "NOZZLE_CLEAN_START_POINT"
+      ],
+      "notes": "Middle point of circle"
+    },
+    "nozzleCleanGoback": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_GOBACK"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2345,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "notes": "Move the nozzle to the initial position after cleaning"
+    },
+    "nozzleCleanNoZ": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_NO_Z"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2348,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "notes": "For a purge/clean station that's always at the gantry height (thus no Z move)"
+    },
+    "nozzleCleanNoY": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_NO_Y"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2351,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "notes": "For a purge/clean station mounted on the X axis"
+    },
+    "nozzleCleanHeatup": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_HEATUP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2355,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "// Heat up the nozzle instead of skipping wipe"
+      ]
+    },
+    "wipeSequenceCommands": {
+      "mapsFrom": [
+        "WIPE_SEQUENCE_COMMANDS"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2358,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "\"G1 X-17 Y25 Z10 F4000\\nG1 Z1\\nM114\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 X-17 Y25\\nG1 X-17 Y95\\nG1 Z15\\nM400\\nG0 X-10.0 Y-9.0\""
+      ],
+      "notes": "Explicit wipe G-code script applies to a G12 with no arguments."
+    },
+    "printjobTimerAutostart": {
+      "mapsFrom": [
+        "PRINTJOB_TIMER_AUTOSTART"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2388
+    },
+    "passwordFeature": {
+      "mapsFrom": [
+        "PASSWORD_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2430
+    },
+    "passwordLength": {
+      "mapsFrom": [
+        "PASSWORD_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2432,
+      "isConditional": true,
+      "conditionalOn": [
+        "PASSWORD_FEATURE"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "passwordOnStartup": {
+      "mapsFrom": [
+        "PASSWORD_ON_STARTUP"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2433,
+      "isConditional": true,
+      "conditionalOn": [
+        "PASSWORD_FEATURE"
+      ]
+    },
+    "passwordUnlockGcode": {
+      "mapsFrom": [
+        "PASSWORD_UNLOCK_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2434,
+      "isConditional": true,
+      "conditionalOn": [
+        "PASSWORD_FEATURE"
+      ],
+      "examples": [
+        "// Unlock with the M511 P<password> command. Disable to prevent brute-force attack."
+      ]
+    },
+    "passwordChangeGcode": {
+      "mapsFrom": [
+        "PASSWORD_CHANGE_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2435,
+      "isConditional": true,
+      "conditionalOn": [
+        "PASSWORD_FEATURE"
+      ],
+      "examples": [
+        "// Change the password with M512 P<old> S<new>."
+      ]
+    },
+    "encoderPulsesPerStep": {
+      "mapsFrom": [
+        "ENCODER_PULSES_PER_STEP"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2521,
+      "examples": [
+        "4"
+      ],
+      "notes": " ENCODER SETTINGS  This option overrides the default number of encoder pulses needed to produce one step. Should be increased for high-resolution encoders. "
+    },
+    "encoderStepsPerMenuItem": {
+      "mapsFrom": [
+        "ENCODER_STEPS_PER_MENU_ITEM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2527,
+      "examples": [
+        "1"
+      ],
+      "notes": " Use this option to override the number of step signals required to move between next/prev menu items. "
+    },
+    "reverseEncoderDirection": {
+      "mapsFrom": [
+        "REVERSE_ENCODER_DIRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2544,
+      "notes": " This option reverses the encoder direction everywhere.  Set this option if CLOCKWISE causes values to DECREASE "
+    },
+    "reverseMenuDirection": {
+      "mapsFrom": [
+        "REVERSE_MENU_DIRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2552,
+      "notes": " This option reverses the encoder direction for navigating LCD menus.  If CLOCKWISE normally moves DOWN this makes it go UP. If CLOCKWISE normally moves UP this makes it go DOWN. "
+    },
+    "reverseSelectDirection": {
+      "mapsFrom": [
+        "REVERSE_SELECT_DIRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2560,
+      "notes": " This option reverses the encoder direction for Select Screen.  If CLOCKWISE normally moves LEFT this makes it go RIGHT. If CLOCKWISE normally moves RIGHT this makes it go LEFT. "
+    },
+    "encoderNoiseFilter": {
+      "mapsFrom": [
+        "ENCODER_NOISE_FILTER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2567,
+      "notes": " Encoder EMI Noise Filter  This option increases encoder samples to filter out phantom encoder clicks caused by EMI noise. "
+    },
+    "encoderSamples": {
+      "mapsFrom": [
+        "ENCODER_SAMPLES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2569,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENCODER_NOISE_FILTER"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "individualAxisHomingMenu": {
+      "mapsFrom": [
+        "INDIVIDUAL_AXIS_HOMING_MENU"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2577,
+      "notes": " Individual Axis Homing  Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu. "
+    },
+    "individualAxisHomingSubmenu": {
+      "mapsFrom": [
+        "INDIVIDUAL_AXIS_HOMING_SUBMENU"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2578
+    },
+    "speaker": {
+      "mapsFrom": [
+        "SPEAKER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2586,
+      "notes": " SPEAKER/BUZZER  If you have a speaker that can produce tones, enable it here. By default Marlin assumes you have a buzzer with a fixed frequency. "
+    },
+    "yhcb2004": {
+      "mapsFrom": [
+        "YHCB2004"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2618,
+      "notes": " GT2560 (YHCB2004) LCD Display  Requires Testato, Koepel softwarewire library and Andriy Golovnya's LiquidCrystal_AIP31068 library. "
+    },
+    "ultipanel": {
+      "mapsFrom": [
+        "ULTIPANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2634,
+      "notes": " ULTIPANEL as seen on Thingiverse. "
+    },
+    "panelOne": {
+      "mapsFrom": [
+        "PANEL_ONE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2640,
+      "notes": " PanelOne from T3P3 (via RAMPS 1.4 AUX2/AUX3) https://reprap.org/wiki/PanelOne "
+    },
+    "g3dPanel": {
+      "mapsFrom": [
+        "G3D_PANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2648,
+      "notes": " GADGETS3D G3D LCD/SD Controller https://reprap.org/wiki/RAMPS_1.3/1.4_GADGETS3D_Shield_with_Panel  Note: Usually sold with a blue PCB. "
+    },
+    "rigidbotPanel": {
+      "mapsFrom": [
+        "RIGIDBOT_PANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2653,
+      "notes": " RigidBot Panel V1.0 "
+    },
+    "raControlPanel": {
+      "mapsFrom": [
+        "RA_CONTROL_PANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2690,
+      "notes": "============================================================================= ======================== LCD / Controller Selection ========================= =====================   (I2C and Shift-Register LCDs)   ===================== =============================================================================  CONTROLLER TYPE: I2C  Note: These controllers require the installation of Arduino's LiquidCrystal_I2C library. For more info: https://github.com/kiyoshigawa/LiquidCrystal_I2C   Elefu RA Board Control Panel https://web.archive.org/web/20140823033947/www.elefu.com/index.php?route=product/product&product_id=53 "
+    },
+    "lcm1602": {
+      "mapsFrom": [
+        "LCM1602"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2705,
+      "notes": " Generic LCM1602 LCD adapter "
+    },
+    "ffInterfaceboard": {
+      "mapsFrom": [
+        "FF_INTERFACEBOARD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2740,
+      "notes": " 3-wire SR LCD with strobe using 74HC4094 https://github.com/mikeshub/SailfishLCD Uses the code directly from Sailfish "
+    }
+  }
+}

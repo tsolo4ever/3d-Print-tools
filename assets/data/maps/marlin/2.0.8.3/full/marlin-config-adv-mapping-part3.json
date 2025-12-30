@@ -1,0 +1,828 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_3": {
+    "extruderRunoutPrevent": {
+      "mapsFrom": [
+        "EXTRUDER_RUNOUT_PREVENT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 428,
+      "notes": "@section extruder Extruder runout prevention. If the machine is idle and the temperature over MINTEMP then extrude some filament every couple of SECONDS."
+    },
+    "extruderRunoutSeconds": {
+      "mapsFrom": [
+        "EXTRUDER_RUNOUT_SECONDS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 431,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXTRUDER_RUNOUT_PREVENT"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "extruderRunoutSpeed": {
+      "mapsFrom": [
+        "EXTRUDER_RUNOUT_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 432,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXTRUDER_RUNOUT_PREVENT"
+      ],
+      "examples": [
+        "1500"
+      ]
+    },
+    "extruderRunoutExtrude": {
+      "mapsFrom": [
+        "EXTRUDER_RUNOUT_EXTRUDE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 433,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXTRUDER_RUNOUT_PREVENT"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "hotendIdleTimeout": {
+      "mapsFrom": [
+        "HOTEND_IDLE_TIMEOUT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 440
+    },
+    "hotendIdleTimeoutSec": {
+      "mapsFrom": [
+        "HOTEND_IDLE_TIMEOUT_SEC"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 442,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOTEND_IDLE_TIMEOUT"
+      ],
+      "examples": [
+        "(5*60)"
+      ]
+    },
+    "hotendIdleMinTrigger": {
+      "mapsFrom": [
+        "HOTEND_IDLE_MIN_TRIGGER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 443,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOTEND_IDLE_TIMEOUT"
+      ],
+      "examples": [
+        "180"
+      ]
+    },
+    "hotendIdleNozzleTarget": {
+      "mapsFrom": [
+        "HOTEND_IDLE_NOZZLE_TARGET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 444,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOTEND_IDLE_TIMEOUT"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "fanKickstartTime": {
+      "mapsFrom": [
+        "FAN_KICKSTART_TIME"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 482,
+      "examples": [
+        "100"
+      ],
+      "notes": "When first starting the main fan, run it at full speed for the given number of milliseconds.  This gets the fan spinning reliably before setting a PWM value. (Does not work with software PWM for fan on Sanguinololu)"
+    },
+    "fanOffPwm": {
+      "mapsFrom": [
+        "FAN_OFF_PWM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 485,
+      "examples": [
+        "1"
+      ],
+      "notes": "Some coolers may require a non-zero \"off\" state."
+    },
+    "fanMinPwm": {
+      "mapsFrom": [
+        "FAN_MIN_PWM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 499,
+      "examples": [
+        "50"
+      ]
+    },
+    "fanMaxPwm": {
+      "mapsFrom": [
+        "FAN_MAX_PWM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 500,
+      "examples": [
+        "128"
+      ]
+    },
+    "fastPwmFanFrequency": {
+      "mapsFrom": [
+        "FAST_PWM_FAN_FREQUENCY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 525,
+      "isConditional": true,
+      "conditionalOn": [
+        "FAST_PWM_FAN"
+      ],
+      "examples": [
+        "31400"
+      ]
+    },
+    "ocr2aAsTop": {
+      "mapsFrom": [
+        "USE_OCR2A_AS_TOP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 526,
+      "isConditional": true,
+      "conditionalOn": [
+        "FAST_PWM_FAN"
+      ]
+    },
+    "e0AutoFanPin": {
+      "mapsFrom": [
+        "E0_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 543,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e1AutoFanPin": {
+      "mapsFrom": [
+        "E1_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 544,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e2AutoFanPin": {
+      "mapsFrom": [
+        "E2_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 545,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e3AutoFanPin": {
+      "mapsFrom": [
+        "E3_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 546,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e4AutoFanPin": {
+      "mapsFrom": [
+        "E4_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 547,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e5AutoFanPin": {
+      "mapsFrom": [
+        "E5_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 548,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e6AutoFanPin": {
+      "mapsFrom": [
+        "E6_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 549,
+      "examples": [
+        "-1"
+      ]
+    },
+    "e7AutoFanPin": {
+      "mapsFrom": [
+        "E7_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 550,
+      "examples": [
+        "-1"
+      ]
+    },
+    "chamberAutoFanPin": {
+      "mapsFrom": [
+        "CHAMBER_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 551,
+      "examples": [
+        "-1"
+      ]
+    },
+    "coolerAutoFanPin": {
+      "mapsFrom": [
+        "COOLER_AUTO_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 552,
+      "examples": [
+        "-1"
+      ]
+    },
+    "coolerFanPin": {
+      "mapsFrom": [
+        "COOLER_FAN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 553,
+      "examples": [
+        "-1"
+      ]
+    },
+    "extruderAutoFanSpeed": {
+      "mapsFrom": [
+        "EXTRUDER_AUTO_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 556,
+      "examples": [
+        "255"
+      ]
+    },
+    "chamberAutoFanSpeed": {
+      "mapsFrom": [
+        "CHAMBER_AUTO_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 558,
+      "examples": [
+        "255"
+      ]
+    },
+    "coolerAutoFanSpeed": {
+      "mapsFrom": [
+        "COOLER_AUTO_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 560,
+      "examples": [
+        "255"
+      ]
+    },
+    "fanmux0Pin": {
+      "mapsFrom": [
+        "FANMUX0_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 569,
+      "examples": [
+        "-1"
+      ]
+    },
+    "fanmux1Pin": {
+      "mapsFrom": [
+        "FANMUX1_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 570,
+      "examples": [
+        "-1"
+      ]
+    }
+  },
+  "other_4": {
+    "fanmux2Pin": {
+      "mapsFrom": [
+        "FANMUX2_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 571,
+      "examples": [
+        "-1"
+      ]
+    },
+    "caseLightEnable": {
+      "mapsFrom": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 576
+    },
+    "caseLightPin": {
+      "mapsFrom": [
+        "CASE_LIGHT_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 578,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "invertCaseLight": {
+      "mapsFrom": [
+        "INVERT_CASE_LIGHT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 579,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "caseLightDefaultOn": {
+      "mapsFrom": [
+        "CASE_LIGHT_DEFAULT_ON"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 580,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "caseLightDefaultBrightness": {
+      "mapsFrom": [
+        "CASE_LIGHT_DEFAULT_BRIGHTNESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 581,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "105"
+      ]
+    },
+    "caseLightNoBrightness": {
+      "mapsFrom": [
+        "CASE_LIGHT_NO_BRIGHTNESS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 582,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "// Disable brightness control. Enable for non-PWM lighting."
+      ]
+    },
+    "caseLightMaxPwm": {
+      "mapsFrom": [
+        "CASE_LIGHT_MAX_PWM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 583,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "128"
+      ]
+    },
+    "caseLightMenu": {
+      "mapsFrom": [
+        "CASE_LIGHT_MENU"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 584,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE"
+      ],
+      "examples": [
+        "// Add Case Light options to the LCD menu"
+      ]
+    },
+    "caseLightUseNeopixel": {
+      "mapsFrom": [
+        "CASE_LIGHT_USE_NEOPIXEL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 586,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE",
+        "NEOPIXEL_LED"
+      ],
+      "examples": [
+        "// Use NeoPixel LED as case light"
+      ]
+    },
+    "caseLightUseRgbLed": {
+      "mapsFrom": [
+        "CASE_LIGHT_USE_RGB_LED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 589,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE",
+        "RGB_LED",
+        "EITHER",
+        "RGBW_LED"
+      ],
+      "examples": [
+        "// Use RGB / RGBW LED as case light"
+      ]
+    },
+    "caseLightDefaultColor": {
+      "mapsFrom": [
+        "CASE_LIGHT_DEFAULT_COLOR"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 592,
+      "isConditional": true,
+      "conditionalOn": [
+        "CASE_LIGHT_ENABLE",
+        "EITHER",
+        "CASE_LIGHT_USE_NEOPIXEL",
+        "CASE_LIGHT_USE_RGB_LED"
+      ],
+      "examples": [
+        "{ 255, 255, 255, 255 }"
+      ]
+    },
+    "zLateEnable": {
+      "mapsFrom": [
+        "Z_LATE_ENABLE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 604,
+      "examples": [
+        "// Enable Z the last moment. Needed if your Z driver overheats."
+      ],
+      "notes": "@section extras"
+    },
+    "closedLoopEnablePin": {
+      "mapsFrom": [
+        "CLOSED_LOOP_ENABLE_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 609,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXTERNAL_CLOSED_LOOP_CONTROLLER"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "closedLoopMoveCompletePin": {
+      "mapsFrom": [
+        "CLOSED_LOOP_MOVE_COMPLETE_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 610,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXTERNAL_CLOSED_LOOP_CONTROLLER"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "xDualStepperDrivers": {
+      "mapsFrom": [
+        "X_DUAL_STEPPER_DRIVERS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 628
+    },
+    "invertX2VsXDir": {
+      "mapsFrom": [
+        "INVERT_X2_VS_X_DIR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 630,
+      "isConditional": true,
+      "conditionalOn": [
+        "X_DUAL_STEPPER_DRIVERS"
+      ],
+      "examples": [
+        "// Enable if X2 direction signal is opposite to X"
+      ]
+    },
+    "yDualStepperDrivers": {
+      "mapsFrom": [
+        "Y_DUAL_STEPPER_DRIVERS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 638
+    },
+    "invertY2VsYDir": {
+      "mapsFrom": [
+        "INVERT_Y2_VS_Y_DIR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 640,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_DUAL_STEPPER_DRIVERS"
+      ],
+      "examples": [
+        "// Enable if Y2 direction signal is opposite to Y"
+      ]
+    },
+    "numZStepperDrivers": {
+      "mapsFrom": [
+        "NUM_Z_STEPPER_DRIVERS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 651,
+      "examples": [
+        "1"
+      ],
+      "notes": " For Z set the number of stepper drivers "
+    },
+    "invertZ2VsZDir": {
+      "mapsFrom": [
+        "INVERT_Z2_VS_Z_DIR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 655,
+      "isConditional": true,
+      "conditionalOn": [
+        "NUM_Z_STEPPER_DRIVERS"
+      ],
+      "notes": "Enable if Z motor direction signals are the opposite of Z1"
+    },
+    "invertZ3VsZDir": {
+      "mapsFrom": [
+        "INVERT_Z3_VS_Z_DIR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 656,
+      "isConditional": true,
+      "conditionalOn": [
+        "NUM_Z_STEPPER_DRIVERS"
+      ]
+    },
+    "invertZ4VsZDir": {
+      "mapsFrom": [
+        "INVERT_Z4_VS_Z_DIR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 657,
+      "isConditional": true,
+      "conditionalOn": [
+        "NUM_Z_STEPPER_DRIVERS"
+      ]
+    },
+    "dualXCarriage": {
+      "mapsFrom": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 702
+    },
+    "dualXCarriageMode": {
+      "mapsFrom": [
+        "DEFAULT_DUAL_X_CARRIAGE_MODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 716,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "DXC_AUTO_PARK_MODE"
+      ],
+      "notes": "However: In this mode the HOTEND_OFFSET_X value for the second extruder provides a software override for X2_HOME_POS. This also allow recalibration of the distance between the two endstops without modifying the firmware (through the \"M218 T1 X???\" command). Remember: you should set the second extruder x-offset to 0 in your slicer. This is the default power-up mode which can be later using M605."
+    },
+    "duplicationXOffset": {
+      "mapsFrom": [
+        "DEFAULT_DUPLICATION_X_OFFSET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 719,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "100"
+      ],
+      "notes": "Default x offset in duplication mode (typically set to half print bed width)"
+    },
+    "eventGcodeIdexAfterModechange": {
+      "mapsFrom": [
+        "EVENT_GCODE_IDEX_AFTER_MODECHANGE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 722,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "\"G28X\""
+      ],
+      "notes": "Default action to execute following M605 mode change commands. Typically G28X to apply new mode."
+    },
+    "extSolenoid": {
+      "mapsFrom": [
+        "EXT_SOLENOID"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 727,
+      "notes": "Activate a solenoid on the active extruder with M380. Disable all with M381. Define SOL0_PIN, SOL1_PIN, etc., for each extruder that has a solenoid."
+    },
+    "sensorlessBackoffMm": {
+      "mapsFrom": [
+        "SENSORLESS_BACKOFF_MM"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 737,
+      "examples": [
+        "{ 2, 2 }"
+      ]
+    },
+    "homingBumpMm": {
+      "mapsFrom": [
+        "HOMING_BUMP_MM"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 739,
+      "examples": [
+        "{ 5, 5, 2 }"
+      ]
+    }
+  }
+}

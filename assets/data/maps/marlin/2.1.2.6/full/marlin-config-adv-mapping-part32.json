@@ -1,0 +1,481 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_35": {
+    "i2cpeEnc2Type": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3924,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ENC_TYPE_LINEAR"
+      ]
+    },
+    "i2cpeEnc2TicksUnit": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_TICKS_UNIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3925,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "2048"
+      ]
+    },
+    "i2cpeEnc2TicksRev": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_TICKS_REV"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3926,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "(16 * 200)"
+      ]
+    },
+    "i2cpeEnc2Invert": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_INVERT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3927,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ]
+    },
+    "i2cpeEnc2EcMethod": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_EC_METHOD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3928,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ECM_MICROSTEP"
+      ]
+    },
+    "i2cpeEnc2EcThresh": {
+      "mapsFrom": [
+        "I2CPE_ENC_2_EC_THRESH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3929,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "0.10"
+      ]
+    },
+    "i2cpeEnc3Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_3_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3931,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_PRESET_ADDR_Z"
+      ]
+    },
+    "i2cpeEnc3Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_3_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3932,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "Z_AXIS"
+      ]
+    },
+    "i2cpeEnc4Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_4_ADDR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3934,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_PRESET_ADDR_E"
+      ]
+    },
+    "i2cpeEnc4Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_4_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3935,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "E_AXIS"
+      ]
+    },
+    "i2cpeEnc5Addr": {
+      "mapsFrom": [
+        "I2CPE_ENC_5_ADDR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3937,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "34"
+      ]
+    },
+    "i2cpeEnc5Axis": {
+      "mapsFrom": [
+        "I2CPE_ENC_5_AXIS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3938,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "E_AXIS"
+      ]
+    },
+    "i2cpeDefType": {
+      "mapsFrom": [
+        "I2CPE_DEF_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3941,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ENC_TYPE_LINEAR"
+      ],
+      "notes": "Default settings for encoders which are enabled, but without settings configured above."
+    },
+    "i2cpeDefEncTicksUnit": {
+      "mapsFrom": [
+        "I2CPE_DEF_ENC_TICKS_UNIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3942,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "2048"
+      ]
+    },
+    "i2cpeDefTicksRev": {
+      "mapsFrom": [
+        "I2CPE_DEF_TICKS_REV"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3943,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "(16 * 200)"
+      ]
+    },
+    "i2cpeDefEcMethod": {
+      "mapsFrom": [
+        "I2CPE_DEF_EC_METHOD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3944,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "I2CPE_ECM_NONE"
+      ]
+    },
+    "i2cpeDefEcThresh": {
+      "mapsFrom": [
+        "I2CPE_DEF_EC_THRESH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3945,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "0.1"
+      ]
+    },
+    "i2cpeErrThreshAbort": {
+      "mapsFrom": [
+        "I2CPE_ERR_THRESH_ABORT"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3947,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "100.0"
+      ]
+    },
+    "i2cpeTimeTrusted": {
+      "mapsFrom": [
+        "I2CPE_TIME_TRUSTED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3951,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "10000"
+      ],
+      "notes": "axis after which the printer will abort. Comment out to disable abort behavior."
+    },
+    "i2cpeMinUpdTimeMs": {
+      "mapsFrom": [
+        "I2CPE_MIN_UPD_TIME_MS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3960,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "i2cpeErrRollingAverage": {
+      "mapsFrom": [
+        "I2CPE_ERR_ROLLING_AVERAGE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3963,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "notes": "Use a rolling average to identify persistent errors that indicate skips, as opposed to vibration and noise."
+    },
+    "joystick": {
+      "mapsFrom": [
+        "JOYSTICK"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3971
+    },
+    "joyXPin": {
+      "mapsFrom": [
+        "JOY_X_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3973,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "joyYPin": {
+      "mapsFrom": [
+        "JOY_Y_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3974,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "joyZPin": {
+      "mapsFrom": [
+        "JOY_Z_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3975,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "12"
+      ]
+    },
+    "joyEnPin": {
+      "mapsFrom": [
+        "JOY_EN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3976,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "44"
+      ]
+    },
+    "invertJoyX": {
+      "mapsFrom": [
+        "INVERT_JOY_X"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3978,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "// Enable if X direction is reversed"
+      ]
+    },
+    "invertJoyY": {
+      "mapsFrom": [
+        "INVERT_JOY_Y"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3979,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "// Enable if Y direction is reversed"
+      ]
+    },
+    "invertJoyZ": {
+      "mapsFrom": [
+        "INVERT_JOY_Z"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3980,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "// Enable if Z direction is reversed"
+      ]
+    },
+    "joyXLimits": {
+      "mapsFrom": [
+        "JOY_X_LIMITS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3983,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "{ 5600, 8190-100, 8190+100, 10800 }"
+      ],
+      "notes": "Use M119 with JOYSTICK_DEBUG to find reasonable values after connecting:"
+    }
+  }
+}

@@ -1,0 +1,771 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "advanced": {
+    "adaptiveFanSlowing": {
+      "mapsFrom": [
+        "ADAPTIVE_FAN_SLOWING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 244,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_HOTENDS"
+      ],
+      "examples": [
+        "// Slow part cooling fan if temperature drops"
+      ]
+    },
+    "adaptiveStepSmoothing": {
+      "mapsFrom": [
+        "ADAPTIVE_STEP_SMOOTHING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1062
+    },
+    "arcSupport": {
+      "mapsFrom": [
+        "ARC_SUPPORT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1987,
+      "examples": [
+        "// Disable this feature to save ~3226 bytes"
+      ],
+      "notes": " G2/G3 Arc Support "
+    },
+    "bezierCurveSupport": {
+      "mapsFrom": [
+        "BEZIER_CURVE_SUPPORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2000,
+      "notes": "Support for G5 with XYZE destination and IJPQ offsets. Requires ~2666 bytes."
+    },
+    "advancedPauseFeature": {
+      "mapsFrom": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2313
+    },
+    "advancedPauseContinuousPurge": {
+      "mapsFrom": [
+        "ADVANCED_PAUSE_CONTINUOUS_PURGE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2332,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Purge continuously up to the purge length until interrupted."
+      ],
+      "notes": "For Bowden, the full length of the tube and nozzle. For direct drive, the full length of the nozzle."
+    },
+    "advancedPausePurgeLength": {
+      "mapsFrom": [
+        "ADVANCED_PAUSE_PURGE_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2334,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "advancedPauseResumePrime": {
+      "mapsFrom": [
+        "ADVANCED_PAUSE_RESUME_PRIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2338,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "0"
+      ],
+      "notes": "Set to 0 for manual extrusion. Filament can be extruded repeatedly from the Filament Change menu until extrusion is consistent, and to purge old filament."
+    },
+    "advancedPauseFansPause": {
+      "mapsFrom": [
+        "ADVANCED_PAUSE_FANS_PAUSE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2339,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Turn off print-cooling fans while the machine is paused."
+      ]
+    },
+    "mmu2FilamentRunoutScript": {
+      "mapsFrom": [
+        "MMU2_FILAMENT_RUNOUT_SCRIPT"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3901,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2"
+      ],
+      "examples": [
+        "\"M600\""
+      ],
+      "notes": "G-code to execute when MMU2 F.I.N.D.A. probe detects filament runout"
+    }
+  },
+  "endstops": {
+    "endstopsAlwaysOnDefault": {
+      "mapsFrom": [
+        "ENDSTOPS_ALWAYS_ON_DEFAULT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 600,
+      "notes": "@section homing If you want endstops to stay on (by default) even when not homing enable this option. Override at any time with M120, M121."
+    },
+    "xDualEndstops": {
+      "mapsFrom": [
+        "X_DUAL_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 631,
+      "isConditional": true,
+      "conditionalOn": [
+        "X_DUAL_STEPPER_DRIVERS"
+      ]
+    },
+    "x2UseEndstop": {
+      "mapsFrom": [
+        "X2_USE_ENDSTOP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 633,
+      "isConditional": true,
+      "conditionalOn": [
+        "X_DUAL_ENDSTOPS",
+        "X_DUAL_STEPPER_DRIVERS"
+      ],
+      "examples": [
+        "_XMAX_"
+      ]
+    },
+    "x2EndstopAdjustment": {
+      "mapsFrom": [
+        "X2_ENDSTOP_ADJUSTMENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 634,
+      "isConditional": true,
+      "conditionalOn": [
+        "X_DUAL_ENDSTOPS",
+        "X_DUAL_STEPPER_DRIVERS"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "yDualEndstops": {
+      "mapsFrom": [
+        "Y_DUAL_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 641,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_DUAL_STEPPER_DRIVERS"
+      ]
+    },
+    "y2UseEndstop": {
+      "mapsFrom": [
+        "Y2_USE_ENDSTOP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 643,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_DUAL_ENDSTOPS",
+        "Y_DUAL_STEPPER_DRIVERS"
+      ],
+      "examples": [
+        "_YMAX_"
+      ]
+    },
+    "y2EndstopAdjustment": {
+      "mapsFrom": [
+        "Y2_ENDSTOP_ADJUSTMENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 644,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_DUAL_ENDSTOPS",
+        "Y_DUAL_STEPPER_DRIVERS"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "zMultiEndstops": {
+      "mapsFrom": [
+        "Z_MULTI_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 659,
+      "isConditional": true,
+      "conditionalOn": [
+        "NUM_Z_STEPPER_DRIVERS"
+      ]
+    },
+    "z2UseEndstop": {
+      "mapsFrom": [
+        "Z2_USE_ENDSTOP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 661,
+      "isConditional": true,
+      "conditionalOn": [
+        "NUM_Z_STEPPER_DRIVERS",
+        "Z_MULTI_ENDSTOPS"
+      ],
+      "examples": [
+        "_XMAX_"
+      ]
+    },
+    "z2EndstopAdjustment": {
+      "mapsFrom": [
+        "Z2_ENDSTOP_ADJUSTMENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 662,
+      "isConditional": true,
+      "conditionalOn": [
+        "NUM_Z_STEPPER_DRIVERS",
+        "Z_MULTI_ENDSTOPS"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "z3UseEndstop": {
+      "mapsFrom": [
+        "Z3_USE_ENDSTOP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 664,
+      "isConditional": true,
+      "conditionalOn": [
+        "NUM_Z_STEPPER_DRIVERS",
+        "Z_MULTI_ENDSTOPS"
+      ],
+      "examples": [
+        "_YMAX_"
+      ]
+    },
+    "z3EndstopAdjustment": {
+      "mapsFrom": [
+        "Z3_ENDSTOP_ADJUSTMENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 665,
+      "isConditional": true,
+      "conditionalOn": [
+        "NUM_Z_STEPPER_DRIVERS",
+        "Z_MULTI_ENDSTOPS"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "z4UseEndstop": {
+      "mapsFrom": [
+        "Z4_USE_ENDSTOP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 668,
+      "isConditional": true,
+      "conditionalOn": [
+        "NUM_Z_STEPPER_DRIVERS",
+        "Z_MULTI_ENDSTOPS"
+      ],
+      "examples": [
+        "_ZMAX_"
+      ]
+    },
+    "z4EndstopAdjustment": {
+      "mapsFrom": [
+        "Z4_ENDSTOP_ADJUSTMENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 669,
+      "isConditional": true,
+      "conditionalOn": [
+        "NUM_Z_STEPPER_DRIVERS",
+        "Z_MULTI_ENDSTOPS"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "x2HomeDir": {
+      "mapsFrom": [
+        "X2_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 708,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "x2HomePos": {
+      "mapsFrom": [
+        "X2_HOME_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 709,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "X2_MAX_POS"
+      ]
+    },
+    "homeYBeforeX": {
+      "mapsFrom": [
+        "HOME_Y_BEFORE_X"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 745,
+      "examples": [
+        "// If G28 contains XY home Y before X"
+      ]
+    },
+    "homeZFirst": {
+      "mapsFrom": [
+        "HOME_Z_FIRST"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 746,
+      "examples": [
+        "// Home Z first. Requires a Z-MIN endstop (not a probe)."
+      ]
+    },
+    "homeAfterG34": {
+      "mapsFrom": [
+        "HOME_AFTER_G34"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 875,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_STEPPER_AUTO_ALIGN"
+      ],
+      "notes": "After G34, re-home Z (G28 Z) or just calculate it from the last probe heights? Re-homing might be more precise in reproducing the actual 'G28 Z' homing height, especially on an uneven bed."
+    },
+    "powerLossZhomePos": {
+      "mapsFrom": [
+        "POWER_LOSS_ZHOME_POS"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1339,
+      "isConditional": true,
+      "conditionalOn": [
+        "POWER_LOSS_RECOVER_ZHOME",
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ],
+      "examples": [
+        "{ 0, 0 }"
+      ]
+    },
+    "sdAbortOnEndstopHit": {
+      "mapsFrom": [
+        "SD_ABORT_ON_ENDSTOP_HIT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1399,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ]
+    },
+    "homeBeforeFilamentChange": {
+      "mapsFrom": [
+        "HOME_BEFORE_FILAMENT_CHANGE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2352,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// If needed, home before parking for filament change"
+      ]
+    },
+    "spiEndstops": {
+      "mapsFrom": [
+        "SPI_ENDSTOPS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2821,
+      "isConditional": true,
+      "conditionalOn": [
+        "SENSORLESS_PROBING",
+        "SENSORLESS_HOMING",
+        "EITHER",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "// TMC2130 only"
+      ]
+    },
+    "tmcHomePhase": {
+      "mapsFrom": [
+        "TMC_HOME_PHASE"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2835,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "{ 896, 896, 896 }"
+      ]
+    }
+  },
+  "geometry": {
+    "x1MinPos": {
+      "mapsFrom": [
+        "X1_MIN_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 704,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "X_MIN_POS"
+      ]
+    },
+    "x1MaxPos": {
+      "mapsFrom": [
+        "X1_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 705,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "X_BED_SIZE"
+      ]
+    },
+    "x2MinPos": {
+      "mapsFrom": [
+        "X2_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 706,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "80"
+      ]
+    },
+    "x2MaxPos": {
+      "mapsFrom": [
+        "X2_MAX_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 707,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "353"
+      ]
+    },
+    "manualFeedrate": {
+      "mapsFrom": [
+        "MANUAL_FEEDRATE"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1137,
+      "isConditional": true,
+      "conditionalOn": [
+        "EITHER",
+        "IS_ULTIPANEL",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "{ 50*60, 50*60, 4*60, 2*60 }"
+      ]
+    },
+    "fineManualMove": {
+      "mapsFrom": [
+        "FINE_MANUAL_MOVE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1138,
+      "isConditional": true,
+      "conditionalOn": [
+        "EITHER",
+        "IS_ULTIPANEL",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "0.025"
+      ]
+    },
+    "manualEMovesRelative": {
+      "mapsFrom": [
+        "MANUAL_E_MOVES_RELATIVE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1140,
+      "isConditional": true,
+      "conditionalOn": [
+        "EITHER",
+        "IS_ULTIPANEL",
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "// Display extruder move distance rather than \"position\""
+      ]
+    }
+  },
+  "bedLeveling": {
+    "restoreLevelingAfterG34": {
+      "mapsFrom": [
+        "RESTORE_LEVELING_AFTER_G34"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 872,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_STEPPER_AUTO_ALIGN"
+      ],
+      "examples": [
+        "// Restore leveling after G34 is done?"
+      ]
+    },
+    "restoreLevelingAfterG35": {
+      "mapsFrom": [
+        "RESTORE_LEVELING_AFTER_G35"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 893,
+      "isConditional": true,
+      "conditionalOn": [
+        "ASSISTED_TRAMMING"
+      ],
+      "examples": [
+        "// Enable to restore leveling setup after operation"
+      ]
+    },
+    "meshMinX": {
+      "mapsFrom": [
+        "MESH_MIN_X"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1893,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "EITHER",
+        "MESH_BED_LEVELING"
+      ],
+      "examples": [
+        "MESH_INSET"
+      ],
+      "notes": "Override the mesh area if the automatic (max) area is too large"
+    },
+    "meshMinY": {
+      "mapsFrom": [
+        "MESH_MIN_Y"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1894,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "EITHER",
+        "MESH_BED_LEVELING"
+      ],
+      "examples": [
+        "MESH_INSET"
+      ]
+    },
+    "meshMaxX": {
+      "mapsFrom": [
+        "MESH_MAX_X"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1895,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "EITHER",
+        "MESH_BED_LEVELING"
+      ],
+      "examples": [
+        "X_BED_SIZE - (MESH_INSET)"
+      ]
+    },
+    "meshMaxY": {
+      "mapsFrom": [
+        "MESH_MAX_Y"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1896,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
+        "EITHER",
+        "MESH_BED_LEVELING"
+      ],
+      "examples": [
+        "Y_BED_SIZE - (MESH_INSET)"
+      ]
+    },
+    "optimizedMeshStorage": {
+      "mapsFrom": [
+        "OPTIMIZED_MESH_STORAGE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1900,
+      "isConditional": true,
+      "conditionalOn": [
+        "EEPROM_SETTINGS",
+        "BOTH",
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "examples": [
+        "// Store mesh with less precision to save EEPROM space"
+      ]
+    }
+  }
+}

@@ -1,0 +1,459 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_32": {
+    "i2cpeDefEcThresh": {
+      "mapsFrom": [
+        "I2CPE_DEF_EC_THRESH"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3726,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "0.1"
+      ]
+    },
+    "i2cpeErrThreshAbort": {
+      "mapsFrom": [
+        "I2CPE_ERR_THRESH_ABORT"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3728,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "100.0"
+      ]
+    },
+    "i2cpeTimeTrusted": {
+      "mapsFrom": [
+        "I2CPE_TIME_TRUSTED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3732,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "10000"
+      ],
+      "notes": "axis after which the printer will abort. Comment out to disable abort behavior."
+    },
+    "i2cpeMinUpdTimeMs": {
+      "mapsFrom": [
+        "I2CPE_MIN_UPD_TIME_MS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3741,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "i2cpeErrRollingAverage": {
+      "mapsFrom": [
+        "I2CPE_ERR_ROLLING_AVERAGE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3744,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_POSITION_ENCODERS"
+      ],
+      "notes": "Use a rolling average to identify persistant errors that indicate skips, as opposed to vibration and noise."
+    },
+    "joystick": {
+      "mapsFrom": [
+        "JOYSTICK"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3751
+    },
+    "joyXPin": {
+      "mapsFrom": [
+        "JOY_X_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3753,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "joyYPin": {
+      "mapsFrom": [
+        "JOY_Y_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3754,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "joyZPin": {
+      "mapsFrom": [
+        "JOY_Z_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3755,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "12"
+      ]
+    },
+    "joyEnPin": {
+      "mapsFrom": [
+        "JOY_EN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3756,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "44"
+      ]
+    },
+    "invertJoyX": {
+      "mapsFrom": [
+        "INVERT_JOY_X"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3758,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "// Enable if X direction is reversed"
+      ]
+    },
+    "invertJoyY": {
+      "mapsFrom": [
+        "INVERT_JOY_Y"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3759,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "// Enable if Y direction is reversed"
+      ]
+    },
+    "invertJoyZ": {
+      "mapsFrom": [
+        "INVERT_JOY_Z"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3760,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "// Enable if Z direction is reversed"
+      ]
+    },
+    "joyXLimits": {
+      "mapsFrom": [
+        "JOY_X_LIMITS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3763,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "{ 5600, 8190-100, 8190+100, 10800 }"
+      ],
+      "notes": "Use M119 with JOYSTICK_DEBUG to find reasonable values after connecting:"
+    },
+    "joyYLimits": {
+      "mapsFrom": [
+        "JOY_Y_LIMITS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3764,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "{ 5600, 8250-100, 8250+100, 11000 }"
+      ]
+    },
+    "joyZLimits": {
+      "mapsFrom": [
+        "JOY_Z_LIMITS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3765,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ],
+      "examples": [
+        "{ 4800, 8080-100, 8080+100, 11550 }"
+      ]
+    },
+    "joystickDebug": {
+      "mapsFrom": [
+        "JOYSTICK_DEBUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3766,
+      "isConditional": true,
+      "conditionalOn": [
+        "JOYSTICK"
+      ]
+    },
+    "mechanicalGantryCalibration": {
+      "mapsFrom": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3775
+    },
+    "gantryCalibrationCurrent": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3777,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "600"
+      ]
+    },
+    "gantryCalibrationExtraHeight": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_EXTRA_HEIGHT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3778,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "15"
+      ]
+    },
+    "gantryCalibrationToMin": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_TO_MIN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3780,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "// Enable to calibrate Z in the MIN direction"
+      ]
+    },
+    "gantryCalibrationSafePosition": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_SAFE_POSITION"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3782,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "XY_CENTER"
+      ]
+    },
+    "gantryCalibrationCommandsPre": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_COMMANDS_PRE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3784,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "\"\""
+      ]
+    },
+    "gantryCalibrationCommandsPost": {
+      "mapsFrom": [
+        "GANTRY_CALIBRATION_COMMANDS_POST"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3785,
+      "isConditional": true,
+      "conditionalOn": [
+        "MECHANICAL_GANTRY_CALIBRATION"
+      ],
+      "examples": [
+        "\"G28\""
+      ]
+    },
+    "freezeFeature": {
+      "mapsFrom": [
+        "FREEZE_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3793
+    },
+    "freezePin": {
+      "mapsFrom": [
+        "FREEZE_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3795,
+      "isConditional": true,
+      "conditionalOn": [
+        "FREEZE_FEATURE"
+      ],
+      "examples": [
+        "41"
+      ]
+    },
+    "max7219Debug": {
+      "mapsFrom": [
+        "MAX7219_DEBUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3804
+    },
+    "max7219ClkPin": {
+      "mapsFrom": [
+        "MAX7219_CLK_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3806,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "64"
+      ]
+    },
+    "max7219DinPin": {
+      "mapsFrom": [
+        "MAX7219_DIN_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3807,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "57"
+      ]
+    },
+    "max7219LoadPin": {
+      "mapsFrom": [
+        "MAX7219_LOAD_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3808,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX7219_DEBUG"
+      ],
+      "examples": [
+        "44"
+      ]
+    }
+  }
+}

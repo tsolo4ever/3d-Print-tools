@@ -1,0 +1,620 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "basic": {
+    "configurationHVersion": {
+      "mapsFrom": [
+        "CONFIGURATION_H_VERSION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 38,
+      "examples": [
+        "02010206"
+      ]
+    },
+    "stringConfigHAuthor": {
+      "mapsFrom": [
+        "STRING_CONFIG_H_AUTHOR"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 64,
+      "examples": [
+        "\"(none, default config)\""
+      ],
+      "notes": "@section info Author info of this build printed to the host during boot and M115"
+    },
+    "showBootscreen": {
+      "mapsFrom": [
+        "SHOW_BOOTSCREEN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 79,
+      "notes": "Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **"
+    },
+    "showCustomBootscreen": {
+      "mapsFrom": [
+        "SHOW_CUSTOM_BOOTSCREEN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 82,
+      "notes": "Show the bitmap in Marlin/_Bootscreen.h on startup."
+    },
+    "motherboard": {
+      "mapsFrom": [
+        "MOTHERBOARD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 91,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "MOTHERBOARD"
+      ],
+      "examples": [
+        "BOARD_RAMPS_14_EFB"
+      ]
+    },
+    "serialPort": {
+      "mapsFrom": [
+        "SERIAL_PORT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 104,
+      "examples": [
+        "0"
+      ]
+    },
+    "baudrate": {
+      "mapsFrom": [
+        "BAUDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 117,
+      "examples": [
+        "250000"
+      ]
+    },
+    "serialPort2": {
+      "mapsFrom": [
+        "SERIAL_PORT_2"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 126,
+      "examples": [
+        "-1"
+      ]
+    },
+    "baudrate2": {
+      "mapsFrom": [
+        "BAUDRATE_2"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 127,
+      "examples": [
+        "250000"
+      ]
+    },
+    "serialPort3": {
+      "mapsFrom": [
+        "SERIAL_PORT_3"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 134,
+      "examples": [
+        "1"
+      ]
+    },
+    "baudrate3": {
+      "mapsFrom": [
+        "BAUDRATE_3"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 135,
+      "examples": [
+        "250000"
+      ]
+    },
+    "customMachineName": {
+      "mapsFrom": [
+        "CUSTOM_MACHINE_NAME"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 141,
+      "examples": [
+        "\"3D Printer\""
+      ],
+      "notes": "Name displayed in the LCD \"Ready\" message and Info menu"
+    },
+    "machineUuid": {
+      "mapsFrom": [
+        "MACHINE_UUID"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 145,
+      "examples": [
+        "\"00000000-0000-0000-0000-000000000000\""
+      ],
+      "notes": "Printer's unique ID, used by some programs to differentiate between machines. Choose your own or use a service like https://www.uuidgenerator.net/version4"
+    },
+    "extruders": {
+      "mapsFrom": [
+        "EXTRUDERS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 233,
+      "examples": [
+        "1"
+      ],
+      "notes": "@section extruder This defines the number of extruders :[0, 1, 2, 3, 4, 5, 6, 7, 8]"
+    },
+    "nominalFilamentDia": {
+      "mapsFrom": [
+        "DEFAULT_NOMINAL_FILAMENT_DIA"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 236,
+      "examples": [
+        "1.75"
+      ],
+      "notes": "Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc."
+    },
+    "disableOtherExtruders": {
+      "mapsFrom": [
+        "DISABLE_OTHER_EXTRUDERS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1668,
+      "examples": [
+        "// Keep only the active extruder enabled"
+      ]
+    }
+  },
+  "other_1": {
+    "customVersionFile": {
+      "mapsFrom": [
+        "CUSTOM_VERSION_FILE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 65,
+      "examples": [
+        "Version.h"
+      ]
+    },
+    "customStatusScreenImage": {
+      "mapsFrom": [
+        "CUSTOM_STATUS_SCREEN_IMAGE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 85,
+      "notes": "Show the bitmap in Marlin/_Statusscreen.h on the status screen."
+    },
+    "baudRateGcode": {
+      "mapsFrom": [
+        "BAUD_RATE_GCODE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 119,
+      "examples": [
+        "// Enable G-code M575 to set the baud rate"
+      ]
+    },
+    "bluetooth": {
+      "mapsFrom": [
+        "BLUETOOTH"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 138,
+      "notes": "Enable the Bluetooth serial interface on AT90USB devices"
+    },
+    "axis4Name": {
+      "mapsFrom": [
+        "AXIS4_NAME"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 205,
+      "isConditional": true,
+      "conditionalOn": [
+        "I_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'A'"
+      ]
+    },
+    "axis4Rotates": {
+      "mapsFrom": [
+        "AXIS4_ROTATES"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 206,
+      "isConditional": true,
+      "conditionalOn": [
+        "I_DRIVER_TYPE"
+      ]
+    },
+    "axis5Name": {
+      "mapsFrom": [
+        "AXIS5_NAME"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 209,
+      "isConditional": true,
+      "conditionalOn": [
+        "J_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'B'"
+      ]
+    },
+    "axis5Rotates": {
+      "mapsFrom": [
+        "AXIS5_ROTATES"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 210,
+      "isConditional": true,
+      "conditionalOn": [
+        "J_DRIVER_TYPE"
+      ]
+    },
+    "axis6Name": {
+      "mapsFrom": [
+        "AXIS6_NAME"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 213,
+      "isConditional": true,
+      "conditionalOn": [
+        "K_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'C'"
+      ]
+    },
+    "axis6Rotates": {
+      "mapsFrom": [
+        "AXIS6_ROTATES"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 214,
+      "isConditional": true,
+      "conditionalOn": [
+        "K_DRIVER_TYPE"
+      ]
+    },
+    "axis7Name": {
+      "mapsFrom": [
+        "AXIS7_NAME"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 217,
+      "isConditional": true,
+      "conditionalOn": [
+        "U_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'U'"
+      ]
+    },
+    "axis7Rotates": {
+      "mapsFrom": [
+        "AXIS7_ROTATES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 218,
+      "isConditional": true,
+      "conditionalOn": [
+        "U_DRIVER_TYPE"
+      ]
+    },
+    "axis8Name": {
+      "mapsFrom": [
+        "AXIS8_NAME"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 221,
+      "isConditional": true,
+      "conditionalOn": [
+        "V_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'V'"
+      ]
+    },
+    "axis8Rotates": {
+      "mapsFrom": [
+        "AXIS8_ROTATES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 222,
+      "isConditional": true,
+      "conditionalOn": [
+        "V_DRIVER_TYPE"
+      ]
+    },
+    "axis9Name": {
+      "mapsFrom": [
+        "AXIS9_NAME"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 225,
+      "isConditional": true,
+      "conditionalOn": [
+        "W_DRIVER_TYPE"
+      ],
+      "examples": [
+        "'W'"
+      ]
+    },
+    "axis9Rotates": {
+      "mapsFrom": [
+        "AXIS9_ROTATES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 226,
+      "isConditional": true,
+      "conditionalOn": [
+        "W_DRIVER_TYPE"
+      ]
+    },
+    "singlenozzle": {
+      "mapsFrom": [
+        "SINGLENOZZLE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 239,
+      "notes": "For Cyclops or any \"multi-extruder\" that shares a single nozzle."
+    },
+    "singlenozzleStandbyFan": {
+      "mapsFrom": [
+        "SINGLENOZZLE_STANDBY_FAN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 245,
+      "isConditional": true,
+      "conditionalOn": [
+        "SINGLENOZZLE"
+      ]
+    },
+    "switchingExtruder": {
+      "mapsFrom": [
+        "SWITCHING_EXTRUDER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 249,
+      "notes": "A dual extruder that uses a single stepper motor"
+    },
+    "switchingExtruderServoNr": {
+      "mapsFrom": [
+        "SWITCHING_EXTRUDER_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 251,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_EXTRUDER"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "switchingExtruderServoAngles": {
+      "mapsFrom": [
+        "SWITCHING_EXTRUDER_SERVO_ANGLES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 252,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_EXTRUDER"
+      ],
+      "examples": [
+        "{ 0, 90 }"
+      ]
+    },
+    "switchingExtruderE23ServoNr": {
+      "mapsFrom": [
+        "SWITCHING_EXTRUDER_E23_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 254,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_EXTRUDER",
+        "EXTRUDERS"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "switchingNozzle": {
+      "mapsFrom": [
+        "SWITCHING_NOZZLE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 259,
+      "notes": "A dual-nozzle that uses a servomotor to raise/lower one (or both) of the nozzles"
+    },
+    "switchingNozzleServoNr": {
+      "mapsFrom": [
+        "SWITCHING_NOZZLE_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 261,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_NOZZLE"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "switchingNozzleE1ServoNr": {
+      "mapsFrom": [
+        "SWITCHING_NOZZLE_E1_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 262,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_NOZZLE"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "switchingNozzleServoAngles": {
+      "mapsFrom": [
+        "SWITCHING_NOZZLE_SERVO_ANGLES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 263,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_NOZZLE"
+      ],
+      "examples": [
+        "{ 0, 90 }"
+      ]
+    },
+    "switchingNozzleServoDwell": {
+      "mapsFrom": [
+        "SWITCHING_NOZZLE_SERVO_DWELL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 265,
+      "isConditional": true,
+      "conditionalOn": [
+        "SWITCHING_NOZZLE"
+      ],
+      "examples": [
+        "2500"
+      ],
+      "notes": "For Dual Servo use two pairs: { { lower, raise }, { lower, raise } }"
+    },
+    "parkingExtruder": {
+      "mapsFrom": [
+        "PARKING_EXTRUDER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 272
+    },
+    "magneticParkingExtruder": {
+      "mapsFrom": [
+        "MAGNETIC_PARKING_EXTRUDER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 282
+    },
+    "parkingExtruderParkingX": {
+      "mapsFrom": [
+        "PARKING_EXTRUDER_PARKING_X"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 286,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_PARKING_EXTRUDER",
+        "PARKING_EXTRUDER",
+        "EITHER"
+      ],
+      "examples": [
+        "{ -78, 184 }"
+      ]
+    }
+  }
+}

@@ -1,0 +1,469 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_17": {
+    "ptcLinearExtrapolation": {
+      "mapsFrom": [
+        "PTC_LINEAR_EXTRAPOLATION"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2392,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "ptcHotendStart": {
+      "mapsFrom": [
+        "PTC_HOTEND_START"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2413,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "180"
+      ],
+      "notes": "Note: There is no automatic calibration for the hotend. Use M871."
+    },
+    "ptcHotendRes": {
+      "mapsFrom": [
+        "PTC_HOTEND_RES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2414,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "ptcHotendCount": {
+      "mapsFrom": [
+        "PTC_HOTEND_COUNT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2415,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "ptcHotendZoffs": {
+      "mapsFrom": [
+        "PTC_HOTEND_ZOFFS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2416,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "{ 0 }"
+      ]
+    },
+    "ptcParkPos": {
+      "mapsFrom": [
+        "PTC_PARK_POS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2422,
+      "isConditional": true,
+      "conditionalOn": [
+        "BOTH",
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "{ 0, 0, 100 }"
+      ],
+      "notes": "Park position to wait for probe cooldown"
+    },
+    "savedPositions": {
+      "mapsFrom": [
+        "SAVED_POSITIONS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2443,
+      "examples": [
+        "1"
+      ],
+      "notes": "@section extras  G60/G61 Position Save and Return "
+    },
+    "minArcSegmentMm": {
+      "mapsFrom": [
+        "MIN_ARC_SEGMENT_MM"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2452,
+      "isConditional": true,
+      "conditionalOn": [
+        "ARC_SUPPORT"
+      ],
+      "examples": [
+        "0.1"
+      ]
+    },
+    "maxArcSegmentMm": {
+      "mapsFrom": [
+        "MAX_ARC_SEGMENT_MM"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2453,
+      "isConditional": true,
+      "conditionalOn": [
+        "ARC_SUPPORT"
+      ],
+      "examples": [
+        "1.0"
+      ]
+    },
+    "minCircleSegments": {
+      "mapsFrom": [
+        "MIN_CIRCLE_SEGMENTS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2454,
+      "isConditional": true,
+      "conditionalOn": [
+        "ARC_SUPPORT"
+      ],
+      "examples": [
+        "72"
+      ]
+    },
+    "arcSegmentsPerSec": {
+      "mapsFrom": [
+        "ARC_SEGMENTS_PER_SEC"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2455,
+      "isConditional": true,
+      "conditionalOn": [
+        "ARC_SUPPORT"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "nArcCorrection": {
+      "mapsFrom": [
+        "N_ARC_CORRECTION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2456,
+      "isConditional": true,
+      "conditionalOn": [
+        "ARC_SUPPORT"
+      ],
+      "examples": [
+        "25"
+      ]
+    },
+    "arcPCircles": {
+      "mapsFrom": [
+        "ARC_P_CIRCLES"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2457,
+      "isConditional": true,
+      "conditionalOn": [
+        "ARC_SUPPORT"
+      ],
+      "examples": [
+        "// Enable the 'P' parameter to specify complete circles"
+      ]
+    },
+    "sfArcFix": {
+      "mapsFrom": [
+        "SF_ARC_FIX"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2458,
+      "isConditional": true,
+      "conditionalOn": [
+        "ARC_SUPPORT"
+      ],
+      "examples": [
+        "// Enable only if using SkeinForge with \"Arc Point\" fillet procedure"
+      ]
+    },
+    "cncWorkspacePlanes": {
+      "mapsFrom": [
+        "CNC_WORKSPACE_PLANES"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2465,
+      "isConditional": true,
+      "conditionalOn": [
+        "BEZIER_CURVE_SUPPORT",
+        "ARC_SUPPORT",
+        "EITHER"
+      ],
+      "examples": [
+        "// Allow G2/G3/G5 to operate in XY, ZX, or YZ planes"
+      ]
+    },
+    "directStepping": {
+      "mapsFrom": [
+        "DIRECT_STEPPING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2476
+    },
+    "g38MinimumMove": {
+      "mapsFrom": [
+        "G38_MINIMUM_MOVE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2488,
+      "isConditional": true,
+      "conditionalOn": [
+        "G38_PROBE_TARGET"
+      ],
+      "examples": [
+        "0.0275"
+      ]
+    },
+    "minStepsPerSegment": {
+      "mapsFrom": [
+        "MIN_STEPS_PER_SEGMENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2494,
+      "examples": [
+        "6"
+      ],
+      "notes": "@section motion Moves (or segments) with fewer steps than this will be joined with the next move"
+    },
+    "minimumStepperPostDirDelay": {
+      "mapsFrom": [
+        "MINIMUM_STEPPER_POST_DIR_DELAY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2509,
+      "examples": [
+        "650"
+      ]
+    },
+    "minimumStepperPreDirDelay": {
+      "mapsFrom": [
+        "MINIMUM_STEPPER_PRE_DIR_DELAY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2510,
+      "examples": [
+        "650"
+      ]
+    },
+    "minimumStepperPulse": {
+      "mapsFrom": [
+        "MINIMUM_STEPPER_PULSE"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2523,
+      "examples": [
+        "2"
+      ]
+    },
+    "maximumStepperRate": {
+      "mapsFrom": [
+        "MAXIMUM_STEPPER_RATE"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2537,
+      "examples": [
+        "250000"
+      ]
+    },
+    "blockBufferSize": {
+      "mapsFrom": [
+        "BLOCK_BUFFER_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2557,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "SPACE_SAVER_2560"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "32"
+      ]
+    },
+    "maxCmdSize": {
+      "mapsFrom": [
+        "MAX_CMD_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2563,
+      "examples": [
+        "96"
+      ],
+      "notes": "@section serial The ASCII buffer for serial input"
+    },
+    "bufsize": {
+      "mapsFrom": [
+        "BUFSIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2568,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "SPACE_SAVER_2560"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "32"
+      ]
+    },
+    "txBufferSize": {
+      "mapsFrom": [
+        "TX_BUFFER_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2578,
+      "examples": [
+        "0"
+      ],
+      "notes": "Transmission to Host Buffer Size To save 386 bytes of flash (and TX_BUFFER_SIZE+3 bytes of RAM) set to 0. To buffer a simple \"ok\" you need 4 bytes. For ADVANCED_OK (M105) you need 32 bytes. For debug-echo: 128 bytes for the optimal speed. Other output doesn't need to be that speedy. :[0, 2, 4, 8, 16, 32, 64, 128, 256]"
+    },
+    "rxBufferSize": {
+      "mapsFrom": [
+        "RX_BUFFER_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2584,
+      "examples": [
+        "128"
+      ],
+      "notes": "Host Receive Buffer Size Without XON/XOFF flow control (see SERIAL_XON_XOFF below) 32 bytes should be enough. To use flow control, set this buffer size to at least 1024 bytes. :[0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]"
+    },
+    "serialXonXoff": {
+      "mapsFrom": [
+        "SERIAL_XON_XOFF"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2589,
+      "isConditional": true,
+      "conditionalOn": [
+        "RX_BUFFER_SIZE"
+      ],
+      "notes": "Enable to have the controller send XON/XOFF control characters to the host to signal the RX buffer is becoming full."
+    },
+    "serialStatsMaxRxQueued": {
+      "mapsFrom": [
+        "SERIAL_STATS_MAX_RX_QUEUED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2595,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "notes": "Enable this option to collect and display the maximum RX queue usage after transferring a file to SD."
+    },
+    "serialStatsDroppedRx": {
+      "mapsFrom": [
+        "SERIAL_STATS_DROPPED_RX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2599,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "notes": "Enable this option to collect and display the number of dropped bytes after a file transfer to SD."
+    }
+  }
+}

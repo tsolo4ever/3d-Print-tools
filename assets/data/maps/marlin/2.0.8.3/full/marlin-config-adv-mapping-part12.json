@@ -1,0 +1,515 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_13": {
+    "babystepMillimeterUnits": {
+      "mapsFrom": [
+        "BABYSTEP_MILLIMETER_UNITS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1802,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "// Specify BABYSTEP_MULTIPLICATOR_(XY|Z) in mm instead of micro-steps"
+      ]
+    },
+    "babystepMultiplicatorZ": {
+      "mapsFrom": [
+        "BABYSTEP_MULTIPLICATOR_Z"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1803,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "babystepMultiplicatorXy": {
+      "mapsFrom": [
+        "BABYSTEP_MULTIPLICATOR_XY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1804,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "doubleclickForZBabystepping": {
+      "mapsFrom": [
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1806,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "// Double-click on the Status Screen for Z Babystepping."
+      ]
+    },
+    "doubleclickMaxInterval": {
+      "mapsFrom": [
+        "DOUBLECLICK_MAX_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1808,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING",
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+      ],
+      "examples": [
+        "1250"
+      ]
+    },
+    "moveZWhenIdle": {
+      "mapsFrom": [
+        "MOVE_Z_WHEN_IDLE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1810,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING",
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+      ],
+      "examples": [
+        "// Jump to the move Z menu on doubleclick when printer is idle."
+      ],
+      "notes": "Note: Extra time may be added to mitigate controller latency."
+    },
+    "moveZIdleMultiplicator": {
+      "mapsFrom": [
+        "MOVE_Z_IDLE_MULTIPLICATOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1812,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING",
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING",
+        "MOVE_Z_WHEN_IDLE"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "babystepHotendZOffset": {
+      "mapsFrom": [
+        "BABYSTEP_HOTEND_Z_OFFSET"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1820,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING",
+        "BABYSTEP_ZPROBE_OFFSET"
+      ],
+      "examples": [
+        "// For multiple hotends, babystep relative Z offsets"
+      ]
+    },
+    "laDebug": {
+      "mapsFrom": [
+        "LA_DEBUG"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1846,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIN_ADVANCE"
+      ],
+      "examples": [
+        "// If enabled, this will generate debug information output over USB."
+      ]
+    },
+    "experimentalScurve": {
+      "mapsFrom": [
+        "EXPERIMENTAL_SCURVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1847,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIN_ADVANCE"
+      ],
+      "examples": [
+        "// Enable this option to permit S-Curve Acceleration"
+      ]
+    },
+    "probingMarginLeft": {
+      "mapsFrom": [
+        "PROBING_MARGIN_LEFT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1885,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_SELECTED",
+        "IS_KINEMATIC"
+      ],
+      "examples": [
+        "PROBING_MARGIN"
+      ]
+    },
+    "probingMarginRight": {
+      "mapsFrom": [
+        "PROBING_MARGIN_RIGHT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1886,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_SELECTED",
+        "IS_KINEMATIC"
+      ],
+      "examples": [
+        "PROBING_MARGIN"
+      ]
+    },
+    "probingMarginFront": {
+      "mapsFrom": [
+        "PROBING_MARGIN_FRONT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1887,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_SELECTED",
+        "IS_KINEMATIC"
+      ],
+      "examples": [
+        "PROBING_MARGIN"
+      ]
+    },
+    "probingMarginBack": {
+      "mapsFrom": [
+        "PROBING_MARGIN_BACK"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1888,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_SELECTED",
+        "IS_KINEMATIC"
+      ],
+      "examples": [
+        "PROBING_MARGIN"
+      ]
+    },
+    "g29RetryAndRecover": {
+      "mapsFrom": [
+        "G29_RETRY_AND_RECOVER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1907
+    },
+    "g29MaxRetries": {
+      "mapsFrom": [
+        "G29_MAX_RETRIES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1909,
+      "isConditional": true,
+      "conditionalOn": [
+        "G29_RETRY_AND_RECOVER"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "g29HaltOnFailure": {
+      "mapsFrom": [
+        "G29_HALT_ON_FAILURE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1910,
+      "isConditional": true,
+      "conditionalOn": [
+        "G29_RETRY_AND_RECOVER"
+      ]
+    },
+    "g29SuccessCommands": {
+      "mapsFrom": [
+        "G29_SUCCESS_COMMANDS"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1915,
+      "isConditional": true,
+      "conditionalOn": [
+        "G29_RETRY_AND_RECOVER"
+      ],
+      "examples": [
+        "\"M117 Bed leveling done.\""
+      ]
+    },
+    "g29RecoverCommands": {
+      "mapsFrom": [
+        "G29_RECOVER_COMMANDS"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1916,
+      "isConditional": true,
+      "conditionalOn": [
+        "G29_RETRY_AND_RECOVER"
+      ],
+      "examples": [
+        "\"M117 Probe failed. Rewiping.\\nG28\\nG12 P0 S12 T0\""
+      ]
+    },
+    "g29FailureCommands": {
+      "mapsFrom": [
+        "G29_FAILURE_COMMANDS"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1917,
+      "isConditional": true,
+      "conditionalOn": [
+        "G29_RETRY_AND_RECOVER"
+      ],
+      "examples": [
+        "\"M117 Bed leveling failed.\\nG0 Z10\\nM300 P25 S880\\nM300 P50 S0\\nM300 P25 S880\\nM300 P50 S0\\nM300 P25 S880\\nM300 P50 S0\\nG4 S1\""
+      ]
+    },
+    "ptcParkPos": {
+      "mapsFrom": [
+        "PTC_PARK_POS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1935,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TEMP_COMPENSATION",
+        "TEMP_SENSOR_PROBE",
+        "TEMP_SENSOR_BED",
+        "HAS_BED_PROBE"
+      ],
+      "examples": [
+        "{ 0, 0, 100 }"
+      ],
+      "notes": "Park position to wait for probe cooldown"
+    },
+    "ptcSampleStart": {
+      "mapsFrom": [
+        "PTC_SAMPLE_START"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1947,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TEMP_COMPENSATION",
+        "TEMP_SENSOR_PROBE",
+        "TEMP_SENSOR_BED",
+        "HAS_BED_PROBE"
+      ],
+      "examples": [
+        "30.0f"
+      ],
+      "notes": "Probe temperature calibration generates a table of values starting at PTC_SAMPLE_START (e.g. 30), in steps of PTC_SAMPLE_RES (e.g. 5) with PTC_SAMPLE_COUNT (e.g. 10) samples."
+    },
+    "ptcSampleRes": {
+      "mapsFrom": [
+        "PTC_SAMPLE_RES"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1948,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TEMP_COMPENSATION",
+        "TEMP_SENSOR_PROBE",
+        "TEMP_SENSOR_BED",
+        "HAS_BED_PROBE"
+      ],
+      "examples": [
+        "5.0f"
+      ]
+    },
+    "ptcSampleCount": {
+      "mapsFrom": [
+        "PTC_SAMPLE_COUNT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1949,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TEMP_COMPENSATION",
+        "TEMP_SENSOR_PROBE",
+        "TEMP_SENSOR_BED",
+        "HAS_BED_PROBE"
+      ],
+      "examples": [
+        "10U"
+      ]
+    },
+    "btcSampleStart": {
+      "mapsFrom": [
+        "BTC_SAMPLE_START"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1953,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TEMP_COMPENSATION",
+        "TEMP_SENSOR_PROBE",
+        "TEMP_SENSOR_BED",
+        "HAS_BED_PROBE"
+      ],
+      "examples": [
+        "60.0f"
+      ],
+      "notes": "Bed temperature calibration builds a similar table."
+    },
+    "btcSampleRes": {
+      "mapsFrom": [
+        "BTC_SAMPLE_RES"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1954,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TEMP_COMPENSATION",
+        "TEMP_SENSOR_PROBE",
+        "TEMP_SENSOR_BED",
+        "HAS_BED_PROBE"
+      ],
+      "examples": [
+        "5.0f"
+      ]
+    },
+    "btcSampleCount": {
+      "mapsFrom": [
+        "BTC_SAMPLE_COUNT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1955,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TEMP_COMPENSATION",
+        "TEMP_SENSOR_PROBE",
+        "TEMP_SENSOR_BED",
+        "HAS_BED_PROBE"
+      ],
+      "examples": [
+        "10U"
+      ]
+    },
+    "ptcLinearExtrapolation": {
+      "mapsFrom": [
+        "PTC_LINEAR_EXTRAPOLATION"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1973,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_TEMP_COMPENSATION",
+        "TEMP_SENSOR_PROBE",
+        "TEMP_SENSOR_BED",
+        "HAS_BED_PROBE"
+      ],
+      "examples": [
+        "4"
+      ],
+      "notes": "If the probe is outside of the defined range, use linear extrapolation using the closest point and the PTC_LINEAR_EXTRAPOLATION'th next point. E.g. if set to 4 it will use data[0] and data[4] to perform linear extrapolation for values below PTC_SAMPLE_START."
+    },
+    "savedPositions": {
+      "mapsFrom": [
+        "SAVED_POSITIONS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1982,
+      "examples": [
+        "1"
+      ],
+      "notes": "@section extras  G60/G61 Position Save and Return "
+    },
+    "mmPerArcSegment": {
+      "mapsFrom": [
+        "MM_PER_ARC_SEGMENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1989,
+      "isConditional": true,
+      "conditionalOn": [
+        "ARC_SUPPORT"
+      ],
+      "examples": [
+        "1"
+      ]
+    }
+  }
+}

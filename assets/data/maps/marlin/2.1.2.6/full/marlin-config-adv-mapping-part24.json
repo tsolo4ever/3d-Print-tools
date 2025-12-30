@@ -1,0 +1,499 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_26": {
+    "z2SlaveAddress": {
+      "mapsFrom": [
+        "Z2_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3004,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "z3SlaveAddress": {
+      "mapsFrom": [
+        "Z3_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3005,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "z4SlaveAddress": {
+      "mapsFrom": [
+        "Z4_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3006,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "iSlaveAddress": {
+      "mapsFrom": [
+        "I_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3007,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "jSlaveAddress": {
+      "mapsFrom": [
+        "J_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3008,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "kSlaveAddress": {
+      "mapsFrom": [
+        "K_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3009,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "uSlaveAddress": {
+      "mapsFrom": [
+        "U_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3010,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "vSlaveAddress": {
+      "mapsFrom": [
+        "V_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3011,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "wSlaveAddress": {
+      "mapsFrom": [
+        "W_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3012,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e0SlaveAddress": {
+      "mapsFrom": [
+        "E0_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3013,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e1SlaveAddress": {
+      "mapsFrom": [
+        "E1_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3014,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e2SlaveAddress": {
+      "mapsFrom": [
+        "E2_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3015,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e3SlaveAddress": {
+      "mapsFrom": [
+        "E3_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3016,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e4SlaveAddress": {
+      "mapsFrom": [
+        "E4_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3017,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e5SlaveAddress": {
+      "mapsFrom": [
+        "E5_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3018,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e6SlaveAddress": {
+      "mapsFrom": [
+        "E6_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3019,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e7SlaveAddress": {
+      "mapsFrom": [
+        "E7_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3020,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "softwareDriverEnable": {
+      "mapsFrom": [
+        "SOFTWARE_DRIVER_ENABLE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3030,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "stealthchopXy": {
+      "mapsFrom": [
+        "STEALTHCHOP_XY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3040,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_STEALTHCHOP"
+      ]
+    },
+    "stealthchopZ": {
+      "mapsFrom": [
+        "STEALTHCHOP_Z"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3041,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_STEALTHCHOP"
+      ]
+    },
+    "stealthchopI": {
+      "mapsFrom": [
+        "STEALTHCHOP_I"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3042,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_STEALTHCHOP"
+      ]
+    },
+    "stealthchopJ": {
+      "mapsFrom": [
+        "STEALTHCHOP_J"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3043,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_STEALTHCHOP"
+      ]
+    },
+    "stealthchopK": {
+      "mapsFrom": [
+        "STEALTHCHOP_K"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3044,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_STEALTHCHOP"
+      ]
+    },
+    "stealthchopU": {
+      "mapsFrom": [
+        "STEALTHCHOP_U"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3045,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_STEALTHCHOP"
+      ]
+    },
+    "stealthchopV": {
+      "mapsFrom": [
+        "STEALTHCHOP_V"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3046,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_STEALTHCHOP"
+      ]
+    },
+    "stealthchopW": {
+      "mapsFrom": [
+        "STEALTHCHOP_W"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3047,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_STEALTHCHOP"
+      ]
+    },
+    "stealthchopE": {
+      "mapsFrom": [
+        "STEALTHCHOP_E"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3048,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_STEALTHCHOP"
+      ]
+    },
+    "chopperTiming": {
+      "mapsFrom": [
+        "CHOPPER_TIMING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3066,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_DEFAULT_12V"
+      ]
+    },
+    "chopperTimingX": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_X"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3067,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingX2": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_X2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3068,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_X"
+      ]
+    }
+  }
+}

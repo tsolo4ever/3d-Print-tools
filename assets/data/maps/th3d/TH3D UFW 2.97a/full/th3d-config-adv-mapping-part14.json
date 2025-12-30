@@ -1,0 +1,491 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_16": {
+    "babystepping": {
+      "mapsFrom": [
+        "BABYSTEPPING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2210
+    },
+    "integratedBabystepping": {
+      "mapsFrom": [
+        "INTEGRATED_BABYSTEPPING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2212,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "// EXPERIMENTAL integration of babystepping into the Stepper ISR"
+      ]
+    },
+    "babystepWithoutHoming": {
+      "mapsFrom": [
+        "BABYSTEP_WITHOUT_HOMING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2213,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ]
+    },
+    "babystepAlwaysAvailable": {
+      "mapsFrom": [
+        "BABYSTEP_ALWAYS_AVAILABLE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2214,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "// Allow babystepping at all times (not just during movement)"
+      ]
+    },
+    "babystepXy": {
+      "mapsFrom": [
+        "BABYSTEP_XY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2215,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "// Also enable X/Y Babystepping. Not supported on DELTA!"
+      ]
+    },
+    "babystepInvertZ": {
+      "mapsFrom": [
+        "BABYSTEP_INVERT_Z"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2216,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "babystepMillimeterUnits": {
+      "mapsFrom": [
+        "BABYSTEP_MILLIMETER_UNITS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2217,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "// Specify BABYSTEP_MULTIPLICATOR_(XY|Z) in mm instead of micro-steps"
+      ]
+    },
+    "babystepMultiplicatorZ": {
+      "mapsFrom": [
+        "BABYSTEP_MULTIPLICATOR_Z"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2222,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "conditionalOnNot": [
+        "FINE_BABYSTEPPING"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0.025"
+      ]
+    },
+    "babystepMultiplicatorXy": {
+      "mapsFrom": [
+        "BABYSTEP_MULTIPLICATOR_XY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2224,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "doubleclickForZBabystepping": {
+      "mapsFrom": [
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2227,
+      "isConditional": true,
+      "conditionalOn": [
+        "DWIN_CREALITY_LCD",
+        "BABYSTEPPING"
+      ],
+      "examples": [
+        "// Double-click on the Status Screen for Z Babystepping."
+      ]
+    },
+    "doubleclickMaxInterval": {
+      "mapsFrom": [
+        "DOUBLECLICK_MAX_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2230,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING",
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+      ],
+      "examples": [
+        "2000"
+      ]
+    },
+    "moveZWhenIdle": {
+      "mapsFrom": [
+        "MOVE_Z_WHEN_IDLE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2232,
+      "isConditional": true,
+      "conditionalOn": [
+        "BABYSTEPPING",
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+      ],
+      "examples": [
+        "// Jump to the move Z menu on doubleclick when printer is idle."
+      ],
+      "notes": "Note: Extra time may be added to mitigate controller latency."
+    },
+    "moveZIdleMultiplicator": {
+      "mapsFrom": [
+        "MOVE_Z_IDLE_MULTIPLICATOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2234,
+      "isConditional": true,
+      "conditionalOn": [
+        "MOVE_Z_WHEN_IDLE",
+        "BABYSTEPPING",
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "babystepHotendZOffset": {
+      "mapsFrom": [
+        "BABYSTEP_HOTEND_Z_OFFSET"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2244,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "BABYSTEP_ZPROBE_OFFSET",
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "DWIN_CREALITY_LCD",
+        "BABYSTEPPING",
+        "DWIN_MARLINUI_LANDSCAPE",
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_MARLINUI_PORTRAIT"
+      ],
+      "examples": [
+        "// For multiple hotends, babystep relative Z offsets"
+      ]
+    },
+    "advanceK": {
+      "mapsFrom": [
+        "ADVANCE_K"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2276,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIN_ADVANCE"
+      ],
+      "conditionalOnNot": [
+        "DISTINCT_E_FACTORS"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "LINEAR_ADVANCE_K"
+      ]
+    },
+    "advanceKExtra": {
+      "mapsFrom": [
+        "ADVANCE_K_EXTRA"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2278,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIN_ADVANCE"
+      ],
+      "examples": [
+        "// Add a second linear advance constant, configurable with M900 L."
+      ]
+    },
+    "laDebug": {
+      "mapsFrom": [
+        "LA_DEBUG"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2279,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIN_ADVANCE"
+      ],
+      "examples": [
+        "// Print debug information to serial during operation. Disable for production use."
+      ]
+    },
+    "experimentalI2sLa": {
+      "mapsFrom": [
+        "EXPERIMENTAL_I2S_LA"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2281,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIN_ADVANCE"
+      ],
+      "examples": [
+        "// Allow I2S_STEPPER_STREAM to be used with LA. Performance degrades as the LA step rate reaches ~20kHz."
+      ]
+    },
+    "probingMarginLeft": {
+      "mapsFrom": [
+        "PROBING_MARGIN_LEFT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2334,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_SELECTED",
+        "IS_KINEMATIC"
+      ],
+      "examples": [
+        "PROBING_MARGIN"
+      ]
+    },
+    "probingMarginRight": {
+      "mapsFrom": [
+        "PROBING_MARGIN_RIGHT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2335,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_SELECTED",
+        "IS_KINEMATIC"
+      ],
+      "examples": [
+        "PROBING_MARGIN"
+      ]
+    },
+    "probingMarginFront": {
+      "mapsFrom": [
+        "PROBING_MARGIN_FRONT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2336,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_SELECTED",
+        "IS_KINEMATIC"
+      ],
+      "examples": [
+        "PROBING_MARGIN"
+      ]
+    },
+    "probingMarginBack": {
+      "mapsFrom": [
+        "PROBING_MARGIN_BACK"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2337,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBE_SELECTED",
+        "IS_KINEMATIC"
+      ],
+      "examples": [
+        "PROBING_MARGIN"
+      ]
+    },
+    "g29RetryAndRecover": {
+      "mapsFrom": [
+        "G29_RETRY_AND_RECOVER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2356
+    },
+    "g29MaxRetries": {
+      "mapsFrom": [
+        "G29_MAX_RETRIES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2358,
+      "isConditional": true,
+      "conditionalOn": [
+        "G29_RETRY_AND_RECOVER"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "g29HaltOnFailure": {
+      "mapsFrom": [
+        "G29_HALT_ON_FAILURE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2359,
+      "isConditional": true,
+      "conditionalOn": [
+        "G29_RETRY_AND_RECOVER"
+      ]
+    },
+    "g29SuccessCommands": {
+      "mapsFrom": [
+        "G29_SUCCESS_COMMANDS"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2364,
+      "isConditional": true,
+      "conditionalOn": [
+        "G29_RETRY_AND_RECOVER"
+      ],
+      "examples": [
+        "\"M117 Bed leveling done.\""
+      ]
+    },
+    "g29RecoverCommands": {
+      "mapsFrom": [
+        "G29_RECOVER_COMMANDS"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2365,
+      "isConditional": true,
+      "conditionalOn": [
+        "G29_RETRY_AND_RECOVER"
+      ],
+      "examples": [
+        "\"M117 Probe failed. Rewiping.\\nG28\\nG12 P0 S12 T0\""
+      ]
+    },
+    "g29FailureCommands": {
+      "mapsFrom": [
+        "G29_FAILURE_COMMANDS"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2366,
+      "isConditional": true,
+      "conditionalOn": [
+        "G29_RETRY_AND_RECOVER"
+      ],
+      "examples": [
+        "\"M117 Bed leveling failed.\\nG0 Z10\\nM300 P25 S880\\nM300 P50 S0\\nM300 P25 S880\\nM300 P50 S0\\nM300 P25 S880\\nM300 P50 S0\\nG4 S1\""
+      ]
+    },
+    "ptcBed": {
+      "mapsFrom": [
+        "PTC_BED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2383,
+      "examples": [
+        "// Compensate based on bed temperature"
+      ]
+    },
+    "ptcHotend": {
+      "mapsFrom": [
+        "PTC_HOTEND"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2384,
+      "examples": [
+        "// Compensate based on hotend temperature"
+      ]
+    }
+  }
+}

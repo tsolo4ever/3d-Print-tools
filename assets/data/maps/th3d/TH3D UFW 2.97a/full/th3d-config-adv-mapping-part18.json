@@ -1,0 +1,756 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_20": {
+    "filamentLoadUnloadGcodes": {
+      "mapsFrom": [
+        "FILAMENT_LOAD_UNLOAD_GCODES"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2869,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPACE_SAVER_2560",
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu."
+      ]
+    },
+    "holdMultiplier": {
+      "mapsFrom": [
+        "HOLD_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2902,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "interpolate": {
+      "mapsFrom": [
+        "INTERPOLATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2908,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "xCurrent": {
+      "mapsFrom": [
+        "X_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2930,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "800"
+      ]
+    },
+    "xCurrentHome": {
+      "mapsFrom": [
+        "X_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2931,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "X_CURRENT"
+      ]
+    },
+    "xMicrosteps": {
+      "mapsFrom": [
+        "X_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2932,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "16"
+      ]
+    },
+    "xRsense": {
+      "mapsFrom": [
+        "X_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2933,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "xChainPos": {
+      "mapsFrom": [
+        "X_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2934,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "xInterpolate": {
+      "mapsFrom": [
+        "X_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2935,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "xHoldMultiplier": {
+      "mapsFrom": [
+        "X_HOLD_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2936,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "x2Current": {
+      "mapsFrom": [
+        "X2_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2942,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "800"
+      ]
+    },
+    "x2CurrentHome": {
+      "mapsFrom": [
+        "X2_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2943,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "X2_CURRENT"
+      ]
+    },
+    "x2Microsteps": {
+      "mapsFrom": [
+        "X2_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2944,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "X_MICROSTEPS"
+      ]
+    },
+    "x2Rsense": {
+      "mapsFrom": [
+        "X2_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2945,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "x2ChainPos": {
+      "mapsFrom": [
+        "X2_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2946,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "x2Interpolate": {
+      "mapsFrom": [
+        "X2_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2947,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "x2HoldMultiplier": {
+      "mapsFrom": [
+        "X2_HOLD_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2948,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "X2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "yCurrent": {
+      "mapsFrom": [
+        "Y_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2976,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "800"
+      ]
+    },
+    "yCurrentHome": {
+      "mapsFrom": [
+        "Y_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2977,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "Y_CURRENT"
+      ]
+    },
+    "yMicrosteps": {
+      "mapsFrom": [
+        "Y_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2978,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "16"
+      ]
+    },
+    "yRsense": {
+      "mapsFrom": [
+        "Y_RSENSE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2979,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0.11"
+      ]
+    },
+    "yChainPos": {
+      "mapsFrom": [
+        "Y_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2980,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "yInterpolate": {
+      "mapsFrom": [
+        "Y_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2981,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "yHoldMultiplier": {
+      "mapsFrom": [
+        "Y_HOLD_MULTIPLIER"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2982,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "conditionalOnNot": [
+        "EZBOARD_V2",
+        "E3FREERUNS",
+        "SKR_E3_MINI_BOARD",
+        "SKR_E3_MINI_V3_0",
+        "DIY_TMCBOARD",
+        "SOVOL_SV06_PLUS",
+        "EZBOARD",
+        "SOVOL_SV06"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "y2Current": {
+      "mapsFrom": [
+        "Y2_CURRENT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2987,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "Y_CURRENT"
+      ]
+    },
+    "y2CurrentHome": {
+      "mapsFrom": [
+        "Y2_CURRENT_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2988,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "Y_CURRENT_HOME"
+      ]
+    },
+    "y2Microsteps": {
+      "mapsFrom": [
+        "Y2_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2989,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "Y_MICROSTEPS"
+      ]
+    },
+    "y2Rsense": {
+      "mapsFrom": [
+        "Y2_RSENSE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2990,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "Y_RSENSE"
+      ]
+    },
+    "y2ChainPos": {
+      "mapsFrom": [
+        "Y2_CHAIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2991,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "y2Interpolate": {
+      "mapsFrom": [
+        "Y2_INTERPOLATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2992,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "Y2",
+        "HAS_TRINAMIC_CONFIG",
+        "AXIS_IS_TMC_CONFIG"
+      ],
+      "examples": [
+        "true"
+      ]
+    }
+  }
+}

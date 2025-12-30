@@ -1,0 +1,511 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_27": {
+    "chopperTimingY": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Y"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3069,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingY2": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Y2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3070,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_Y"
+      ]
+    },
+    "chopperTimingZ": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Z"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3071,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingZ2": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Z2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3072,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_Z"
+      ]
+    },
+    "chopperTimingZ3": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Z3"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3073,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_Z"
+      ]
+    },
+    "chopperTimingZ4": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Z4"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3074,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_Z"
+      ]
+    },
+    "chopperTimingI": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_I"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3075,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingJ": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_J"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3076,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingK": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_K"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3077,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingU": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_U"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3078,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingV": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_V"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3079,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingW": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_W"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3080,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingE": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3081,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingE1": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E1"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3082,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE2": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3083,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE3": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E3"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3084,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE4": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E4"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3085,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE5": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E5"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3086,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE6": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E6"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3087,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE7": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E7"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3088,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "monitorDriverStatus": {
+      "mapsFrom": [
+        "MONITOR_DRIVER_STATUS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3103,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "currentStepDown": {
+      "mapsFrom": [
+        "CURRENT_STEP_DOWN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3106,
+      "isConditional": true,
+      "conditionalOn": [
+        "MONITOR_DRIVER_STATUS",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "reportCurrentChange": {
+      "mapsFrom": [
+        "REPORT_CURRENT_CHANGE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3107,
+      "isConditional": true,
+      "conditionalOn": [
+        "MONITOR_DRIVER_STATUS",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "stopOnError": {
+      "mapsFrom": [
+        "STOP_ON_ERROR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3108,
+      "isConditional": true,
+      "conditionalOn": [
+        "MONITOR_DRIVER_STATUS",
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "hybridThreshold": {
+      "mapsFrom": [
+        "HYBRID_THRESHOLD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3120,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "xHybridThreshold": {
+      "mapsFrom": [
+        "X_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3122,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "x2HybridThreshold": {
+      "mapsFrom": [
+        "X2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3123,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "yHybridThreshold": {
+      "mapsFrom": [
+        "Y_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3124,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "y2HybridThreshold": {
+      "mapsFrom": [
+        "Y2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3125,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "zHybridThreshold": {
+      "mapsFrom": [
+        "Z_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3126,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    }
+  }
+}

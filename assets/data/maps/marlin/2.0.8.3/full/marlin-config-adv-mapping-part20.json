@@ -1,0 +1,475 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_21": {
+    "e4CsPin": {
+      "mapsFrom": [
+        "E4_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2645,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e5CsPin": {
+      "mapsFrom": [
+        "E5_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2646,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e6CsPin": {
+      "mapsFrom": [
+        "E6_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2647,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "e7CsPin": {
+      "mapsFrom": [
+        "E7_CS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2648,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "tmcUseSwSpi": {
+      "mapsFrom": [
+        "TMC_USE_SW_SPI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2655,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "tmcSwMosi": {
+      "mapsFrom": [
+        "TMC_SW_MOSI"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2656,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "tmcSwMiso": {
+      "mapsFrom": [
+        "TMC_SW_MISO"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2657,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "tmcSwSck": {
+      "mapsFrom": [
+        "TMC_SW_SCK"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2658,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "xSlaveAddress": {
+      "mapsFrom": [
+        "X_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2672,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "ySlaveAddress": {
+      "mapsFrom": [
+        "Y_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2673,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "zSlaveAddress": {
+      "mapsFrom": [
+        "Z_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2674,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "x2SlaveAddress": {
+      "mapsFrom": [
+        "X2_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2675,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "y2SlaveAddress": {
+      "mapsFrom": [
+        "Y2_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2676,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "z2SlaveAddress": {
+      "mapsFrom": [
+        "Z2_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2677,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "z3SlaveAddress": {
+      "mapsFrom": [
+        "Z3_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2678,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "z4SlaveAddress": {
+      "mapsFrom": [
+        "Z4_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2679,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e0SlaveAddress": {
+      "mapsFrom": [
+        "E0_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2680,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e1SlaveAddress": {
+      "mapsFrom": [
+        "E1_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2681,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e2SlaveAddress": {
+      "mapsFrom": [
+        "E2_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2682,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e3SlaveAddress": {
+      "mapsFrom": [
+        "E3_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2683,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e4SlaveAddress": {
+      "mapsFrom": [
+        "E4_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2684,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e5SlaveAddress": {
+      "mapsFrom": [
+        "E5_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2685,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e6SlaveAddress": {
+      "mapsFrom": [
+        "E6_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2686,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "e7SlaveAddress": {
+      "mapsFrom": [
+        "E7_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2687,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "softwareDriverEnable": {
+      "mapsFrom": [
+        "SOFTWARE_DRIVER_ENABLE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2695,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "stealthchopXy": {
+      "mapsFrom": [
+        "STEALTHCHOP_XY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2702,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "stealthchopZ": {
+      "mapsFrom": [
+        "STEALTHCHOP_Z"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2703,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "stealthchopE": {
+      "mapsFrom": [
+        "STEALTHCHOP_E"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2704,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "chopperTiming": {
+      "mapsFrom": [
+        "CHOPPER_TIMING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2721,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_DEFAULT_12V"
+      ]
+    },
+    "chopperTimingX": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_X"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2722,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    }
+  }
+}

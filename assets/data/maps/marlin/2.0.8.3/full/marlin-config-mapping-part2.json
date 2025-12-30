@@ -1,0 +1,503 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration.h",
+  "totalDefines": 690,
+  "other_2": {
+    "switchingToolheadYSecurity": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_Y_SECURITY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 271,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "switchingToolheadYClear": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_Y_CLEAR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 272,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "switchingToolheadXPos": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_X_POS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 273,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "examples": [
+        "{ 215, 0 }"
+      ]
+    },
+    "switchingToolheadServoNr": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 275,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "switchingToolheadServoAngles": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_SERVO_ANGLES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 276,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "examples": [
+        "{ 0, 180 }"
+      ]
+    },
+    "switchingToolheadYRelease": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_Y_RELEASE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 278,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "switchingToolheadXSecurity": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_X_SECURITY"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 279,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "{ 90, 150 }"
+      ]
+    },
+    "primeBeforeRemove": {
+      "mapsFrom": [
+        "PRIME_BEFORE_REMOVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 280,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "// Prime the nozzle before release from the dock"
+      ]
+    },
+    "switchingToolheadPrimeMm": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_PRIME_MM"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 282,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "switchingToolheadRetractMm": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_RETRACT_MM"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 283,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "switchingToolheadZHop": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_Z_HOP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 288,
+      "isConditional": true,
+      "conditionalOn": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(ELECTROMAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "mixingExtruder": {
+      "mapsFrom": [
+        "MIXING_EXTRUDER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 300
+    },
+    "mixingSteppers": {
+      "mapsFrom": [
+        "MIXING_STEPPERS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 302,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIXING_EXTRUDER"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "mixingVirtualTools": {
+      "mapsFrom": [
+        "MIXING_VIRTUAL_TOOLS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 303,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIXING_EXTRUDER"
+      ],
+      "examples": [
+        "16"
+      ]
+    },
+    "directMixingInG1": {
+      "mapsFrom": [
+        "DIRECT_MIXING_IN_G1"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 304,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIXING_EXTRUDER"
+      ],
+      "examples": [
+        "// Allow ABCDHI mix factors in G1 movement commands"
+      ]
+    },
+    "gradientMix": {
+      "mapsFrom": [
+        "GRADIENT_MIX"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 305,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIXING_EXTRUDER"
+      ],
+      "examples": [
+        "// Support for gradient mixing with M166 and LCD"
+      ]
+    },
+    "gradientVtool": {
+      "mapsFrom": [
+        "GRADIENT_VTOOL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 307,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIXING_EXTRUDER",
+        "GRADIENT_MIX"
+      ],
+      "examples": [
+        "// Add M166 T to use a V-tool index as a Gradient alias"
+      ]
+    },
+    "hotendOffsetX": {
+      "mapsFrom": [
+        "HOTEND_OFFSET_X"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 314,
+      "examples": [
+        "{ 0.0, 20.00 }"
+      ],
+      "notes": "Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing). The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder). For the other hotends it is their distance from the extruder 0 hotend."
+    },
+    "hotendOffsetY": {
+      "mapsFrom": [
+        "HOTEND_OFFSET_Y"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 315,
+      "examples": [
+        "{ 0.0, 5.00 }"
+      ]
+    },
+    "hotendOffsetZ": {
+      "mapsFrom": [
+        "HOTEND_OFFSET_Z"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 316,
+      "examples": [
+        "{ 0.0, 0.00 }"
+      ]
+    },
+    "psuControl": {
+      "mapsFrom": [
+        "PSU_CONTROL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 326
+    },
+    "psuName": {
+      "mapsFrom": [
+        "PSU_NAME"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 327,
+      "examples": [
+        "\"Power Supply\""
+      ]
+    },
+    "psuActiveState": {
+      "mapsFrom": [
+        "PSU_ACTIVE_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 330,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "psuDefaultOff": {
+      "mapsFrom": [
+        "PSU_DEFAULT_OFF"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 332,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL"
+      ],
+      "examples": [
+        "// Keep power off until enabled directly with M80"
+      ]
+    },
+    "psuPowerupDelay": {
+      "mapsFrom": [
+        "PSU_POWERUP_DELAY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 333,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL"
+      ],
+      "examples": [
+        "250"
+      ]
+    },
+    "psuPowerupGcode": {
+      "mapsFrom": [
+        "PSU_POWERUP_GCODE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 335,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL"
+      ],
+      "examples": [
+        "\"M355 S1\""
+      ]
+    },
+    "psuPoweroffGcode": {
+      "mapsFrom": [
+        "PSU_POWEROFF_GCODE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 336,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL"
+      ],
+      "examples": [
+        "\"M355 S0\""
+      ]
+    },
+    "autoPowerControl": {
+      "mapsFrom": [
+        "AUTO_POWER_CONTROL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 338,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL"
+      ],
+      "examples": [
+        "// Enable automatic control of the PS_ON pin"
+      ]
+    },
+    "autoPowerFans": {
+      "mapsFrom": [
+        "AUTO_POWER_FANS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 340,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "AUTO_POWER_CONTROL"
+      ],
+      "examples": [
+        "// Turn on PSU if fans need power"
+      ]
+    },
+    "autoPowerEFans": {
+      "mapsFrom": [
+        "AUTO_POWER_E_FANS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 341,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "AUTO_POWER_CONTROL"
+      ]
+    }
+  }
+}

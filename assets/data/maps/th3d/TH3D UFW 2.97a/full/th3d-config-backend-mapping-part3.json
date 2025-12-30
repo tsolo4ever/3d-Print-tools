@@ -1,0 +1,677 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_backend.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_backend.h",
+  "totalDefines": 205,
+  "temperature": {
+    "probingHeatersOff": {
+      "mapsFrom": [
+        "PROBING_HEATERS_OFF"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 200,
+      "isConditional": true,
+      "conditionalOn": [
+        "HEATERS_ON_DURING_PROBING",
+        "ABL_ENABLE"
+      ]
+    },
+    "autoBedLevelingBilinear": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 209,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "ABL_BILINEAR"
+      ]
+    },
+    "autoBedLevelingUbl": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 221,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ]
+    },
+    "xBedSize": {
+      "mapsFrom": [
+        "X_BED_SIZE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 284,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_X_BED_SIZE"
+      ],
+      "examples": [
+        "CUSTOM_X_BED_SIZE"
+      ]
+    },
+    "yBedSize": {
+      "mapsFrom": [
+        "Y_BED_SIZE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 289,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_Y_BED_SIZE"
+      ],
+      "examples": [
+        "CUSTOM_Y_BED_SIZE"
+      ]
+    },
+    "meshTestHotendTemp": {
+      "mapsFrom": [
+        "MESH_TEST_HOTEND_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 324,
+      "isConditional": true,
+      "conditionalOn": [
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "205"
+      ]
+    },
+    "meshTestBedTemp": {
+      "mapsFrom": [
+        "MESH_TEST_BED_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 325,
+      "isConditional": true,
+      "conditionalOn": [
+        "G26_MESH_VALIDATION"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "extrudeMintemp": {
+      "mapsFrom": [
+        "EXTRUDE_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 342,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "LDO_FILAMENT_ENABLE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "170"
+      ]
+    },
+    "bedMintemp": {
+      "mapsFrom": [
+        "BED_MINTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 361,
+      "examples": [
+        "HEATER_0_MINTEMP"
+      ]
+    },
+    "bedMaxtemp": {
+      "mapsFrom": [
+        "BED_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 394,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "BED_HIGHTEMP"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "120"
+      ]
+    },
+    "bedOvershoot": {
+      "mapsFrom": [
+        "BED_OVERSHOOT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 404,
+      "examples": [
+        "5"
+      ]
+    },
+    "tempResidencyTime": {
+      "mapsFrom": [
+        "TEMP_RESIDENCY_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 407,
+      "examples": [
+        "3"
+      ]
+    },
+    "tempWindow": {
+      "mapsFrom": [
+        "TEMP_WINDOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 408,
+      "examples": [
+        "1"
+      ]
+    },
+    "tempHysteresis": {
+      "mapsFrom": [
+        "TEMP_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 409,
+      "examples": [
+        "3"
+      ]
+    },
+    "tempBedResidencyTime": {
+      "mapsFrom": [
+        "TEMP_BED_RESIDENCY_TIME"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 411,
+      "examples": [
+        "3"
+      ]
+    },
+    "tempBedWindow": {
+      "mapsFrom": [
+        "TEMP_BED_WINDOW"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 412,
+      "examples": [
+        "1"
+      ]
+    },
+    "tempBedHysteresis": {
+      "mapsFrom": [
+        "TEMP_BED_HYSTERESIS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 413,
+      "examples": [
+        "3"
+      ]
+    },
+    "pidtemp": {
+      "mapsFrom": [
+        "PIDTEMP"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 416,
+      "notes": "PID Settings"
+    },
+    "pidMax": {
+      "mapsFrom": [
+        "PID_MAX"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 418,
+      "examples": [
+        "BANG_MAX"
+      ]
+    },
+    "pidK1": {
+      "mapsFrom": [
+        "PID_K1"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 419,
+      "examples": [
+        "0.95"
+      ]
+    },
+    "pidAutotuneMenu": {
+      "mapsFrom": [
+        "PID_AUTOTUNE_MENU"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 422,
+      "isConditional": true,
+      "conditionalOn": [
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_CREALITY_LCD"
+      ]
+    },
+    "pidEditMenu": {
+      "mapsFrom": [
+        "PID_EDIT_MENU"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 426,
+      "isConditional": true,
+      "conditionalOn": [
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_CREALITY_LCD"
+      ]
+    },
+    "pidtempbed": {
+      "mapsFrom": [
+        "PIDTEMPBED"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 436,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENABLE_PIDBED"
+      ]
+    },
+    "maxBedPower": {
+      "mapsFrom": [
+        "MAX_BED_POWER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 437,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENABLE_PIDBED"
+      ],
+      "examples": [
+        "255"
+      ]
+    },
+    "pidFunctionalRange": {
+      "mapsFrom": [
+        "PID_FUNCTIONAL_RANGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 448,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED",
+        "EITHER",
+        "PIDTEMP"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "thermalProtectionHotends": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_HOTENDS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 453,
+      "notes": "End PID Settings Enable Thermal Protection for Bed and Hotends"
+    },
+    "thermalProtectionBed": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_BED"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 454
+    },
+    "preheat1Label": {
+      "mapsFrom": [
+        "PREHEAT_1_LABEL"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 578,
+      "examples": [
+        "\"PLA\""
+      ]
+    },
+    "preheat1TempHotend": {
+      "mapsFrom": [
+        "PREHEAT_1_TEMP_HOTEND"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 579,
+      "examples": [
+        "210"
+      ]
+    },
+    "preheat1TempBed": {
+      "mapsFrom": [
+        "PREHEAT_1_TEMP_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 580,
+      "examples": [
+        "60"
+      ]
+    },
+    "preheat1FanSpeed": {
+      "mapsFrom": [
+        "PREHEAT_1_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 581,
+      "examples": [
+        "0"
+      ]
+    },
+    "preheat2Label": {
+      "mapsFrom": [
+        "PREHEAT_2_LABEL"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 583,
+      "examples": [
+        "\"PETG\""
+      ]
+    },
+    "preheat2TempHotend": {
+      "mapsFrom": [
+        "PREHEAT_2_TEMP_HOTEND"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 584,
+      "examples": [
+        "235"
+      ]
+    },
+    "preheat2TempBed": {
+      "mapsFrom": [
+        "PREHEAT_2_TEMP_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 585,
+      "examples": [
+        "80"
+      ]
+    },
+    "preheat2FanSpeed": {
+      "mapsFrom": [
+        "PREHEAT_2_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 586,
+      "examples": [
+        "0"
+      ]
+    },
+    "preheat3Label": {
+      "mapsFrom": [
+        "PREHEAT_3_LABEL"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 588,
+      "examples": [
+        "\"ABS/ASA\""
+      ]
+    },
+    "preheat3TempHotend": {
+      "mapsFrom": [
+        "PREHEAT_3_TEMP_HOTEND"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 589,
+      "examples": [
+        "245"
+      ]
+    },
+    "preheat3TempBed": {
+      "mapsFrom": [
+        "PREHEAT_3_TEMP_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 590,
+      "examples": [
+        "100"
+      ]
+    },
+    "preheat3FanSpeed": {
+      "mapsFrom": [
+        "PREHEAT_3_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 591,
+      "examples": [
+        "0"
+      ]
+    },
+    "bedTrammingInsetLfrb": {
+      "mapsFrom": [
+        "BED_TRAMMING_INSET_LFRB"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 654,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "{ 30, 30, 30, 30 }"
+      ]
+    },
+    "bedTrammingHeight": {
+      "mapsFrom": [
+        "BED_TRAMMING_HEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 655,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "bedTrammingZHop": {
+      "mapsFrom": [
+        "BED_TRAMMING_Z_HOP"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 656,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "5.0"
+      ]
+    },
+    "bedTrammingIncludeCenter": {
+      "mapsFrom": [
+        "BED_TRAMMING_INCLUDE_CENTER"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 657,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "// Move to the center after the last corner"
+      ]
+    },
+    "bedTrammingUseProbe": {
+      "mapsFrom": [
+        "BED_TRAMMING_USE_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 658,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ]
+    },
+    "bedTrammingProbeTolerance": {
+      "mapsFrom": [
+        "BED_TRAMMING_PROBE_TOLERANCE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 660,
+      "isConditional": true,
+      "conditionalOn": [
+        "BED_TRAMMING_USE_PROBE",
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "0.1"
+      ]
+    },
+    "bedTrammingVerifyRaised": {
+      "mapsFrom": [
+        "BED_TRAMMING_VERIFY_RAISED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 661,
+      "isConditional": true,
+      "conditionalOn": [
+        "BED_TRAMMING_USE_PROBE",
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "// After adjustment triggers the probe, re-probe to verify"
+      ]
+    },
+    "bedTrammingAudioFeedback": {
+      "mapsFrom": [
+        "BED_TRAMMING_AUDIO_FEEDBACK"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 662,
+      "isConditional": true,
+      "conditionalOn": [
+        "BED_TRAMMING_USE_PROBE",
+        "LCD_BED_TRAMMING"
+      ]
+    },
+    "bedTrammingLevelingOrder": {
+      "mapsFrom": [
+        "BED_TRAMMING_LEVELING_ORDER"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 682,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "{ LF, RF, RB, LB }"
+      ]
+    },
+    "meshBedLeveling": {
+      "mapsFrom": [
+        "MESH_BED_LEVELING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 687,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ]
+    }
+  }
+}

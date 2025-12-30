@@ -1,0 +1,488 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_10": {
+    "microstep32": {
+      "mapsFrom": [
+        "MICROSTEP32"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1288,
+      "examples": [
+        "HIGH,LOW,HIGH"
+      ]
+    },
+    "microstepModes": {
+      "mapsFrom": [
+        "MICROSTEP_MODES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1291,
+      "examples": [
+        "{ 16, 16, 16, 16, 16, 16 }"
+      ],
+      "notes": "Microstep settings (Requires a board with pins named X_MS1, X_MS2, etc.)"
+    },
+    "pwmMotorCurrent": {
+      "mapsFrom": [
+        "PWM_MOTOR_CURRENT"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1313,
+      "examples": [
+        "{ 1300, 1300, 1250 }"
+      ]
+    },
+    "digipotMotorCurrent": {
+      "mapsFrom": [
+        "DIGIPOT_MOTOR_CURRENT"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1314,
+      "examples": [
+        "{ 135,135,135,135,135 }"
+      ]
+    },
+    "dacMotorCurrentDefault": {
+      "mapsFrom": [
+        "DAC_MOTOR_CURRENT_DEFAULT"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1315,
+      "examples": [
+        "{ 70, 80, 90, 80 }"
+      ]
+    },
+    "digipotMcp4018": {
+      "mapsFrom": [
+        "DIGIPOT_MCP4018"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1320,
+      "examples": [
+        "// Requires https:"
+      ]
+    },
+    "digipotMcp4451": {
+      "mapsFrom": [
+        "DIGIPOT_MCP4451"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1321
+    },
+    "digipotI2cNumChannels": {
+      "mapsFrom": [
+        "DIGIPOT_I2C_NUM_CHANNELS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1323,
+      "isConditional": true,
+      "conditionalOn": [
+        "DIGIPOT_MCP4018",
+        "EITHER",
+        "DIGIPOT_MCP4451"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "digipotI2cMotorCurrents": {
+      "mapsFrom": [
+        "DIGIPOT_I2C_MOTOR_CURRENTS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1327,
+      "isConditional": true,
+      "conditionalOn": [
+        "DIGIPOT_MCP4018",
+        "EITHER",
+        "DIGIPOT_MCP4451"
+      ],
+      "examples": [
+        "{ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }"
+      ],
+      "notes": "Actual motor currents in Amps. The number of entries must match DIGIPOT_I2C_NUM_CHANNELS. These correspond to the physical drivers, so be mindful if the order is changed."
+    },
+    "digipotUseRawValues": {
+      "mapsFrom": [
+        "DIGIPOT_USE_RAW_VALUES"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1329,
+      "isConditional": true,
+      "conditionalOn": [
+        "DIGIPOT_MCP4018",
+        "EITHER",
+        "DIGIPOT_MCP4451"
+      ],
+      "examples": [
+        "// Use DIGIPOT_MOTOR_CURRENT raw wiper values (instead of A4988 motor currents)"
+      ]
+    },
+    "digipotI2cAddressA": {
+      "mapsFrom": [
+        "DIGIPOT_I2C_ADDRESS_A"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1341,
+      "isConditional": true,
+      "conditionalOn": [
+        "DIGIPOT_MCP4018",
+        "EITHER",
+        "DIGIPOT_MCP4451"
+      ],
+      "examples": [
+        "0x2C"
+      ]
+    },
+    "digipotI2cAddressB": {
+      "mapsFrom": [
+        "DIGIPOT_I2C_ADDRESS_B"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1342,
+      "isConditional": true,
+      "conditionalOn": [
+        "DIGIPOT_MCP4018",
+        "EITHER",
+        "DIGIPOT_MCP4451"
+      ],
+      "examples": [
+        "0x2D"
+      ]
+    },
+    "ultipanelFeedmultiply": {
+      "mapsFrom": [
+        "ULTIPANEL_FEEDMULTIPLY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1356,
+      "isConditional": true,
+      "conditionalOn": [
+        "IS_ULTIPANEL",
+        "HAS_MANUAL_MOVE_MENU"
+      ],
+      "examples": [
+        "// Encoder sets the feedrate multiplier on the Status Screen"
+      ]
+    },
+    "encoderRateMultiplier": {
+      "mapsFrom": [
+        "ENCODER_RATE_MULTIPLIER"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1361,
+      "notes": "Change values more rapidly when the encoder is rotated faster"
+    },
+    "encoder10xStepsPerSec": {
+      "mapsFrom": [
+        "ENCODER_10X_STEPS_PER_SEC"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1363,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENCODER_RATE_MULTIPLIER"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "encoder100xStepsPerSec": {
+      "mapsFrom": [
+        "ENCODER_100X_STEPS_PER_SEC"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1364,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENCODER_RATE_MULTIPLIER"
+      ],
+      "examples": [
+        "80"
+      ]
+    },
+    "xAxisTwistCompensation": {
+      "mapsFrom": [
+        "X_AXIS_TWIST_COMPENSATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1402,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_BED_PROBE",
+        "HAS_MARLINUI_MENU"
+      ],
+      "notes": "Add calibration in the Probe Offsets menu to compensate for X-axis twist."
+    },
+    "xatcStartZ": {
+      "mapsFrom": [
+        "XATC_START_Z"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1409,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_BED_PROBE",
+        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_MARLINUI_MENU"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "xatcMaxPoints": {
+      "mapsFrom": [
+        "XATC_MAX_POINTS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1410,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_BED_PROBE",
+        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_MARLINUI_MENU"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "xatcYPosition": {
+      "mapsFrom": [
+        "XATC_Y_POSITION"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1411,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_BED_PROBE",
+        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_MARLINUI_MENU"
+      ],
+      "examples": [
+        "Y_CENTER"
+      ]
+    },
+    "xatcZOffsets": {
+      "mapsFrom": [
+        "XATC_Z_OFFSETS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1412,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_BED_PROBE",
+        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_MARLINUI_MENU"
+      ],
+      "examples": [
+        "{ 0, 0, 0 }"
+      ]
+    },
+    "turboBackMenuItem": {
+      "mapsFrom": [
+        "TURBO_BACK_MENU_ITEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1424,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_MENU"
+      ],
+      "notes": "BACK menu items keep the highlight at the top"
+    },
+    "soundMenuItem": {
+      "mapsFrom": [
+        "SOUND_MENU_ITEM"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1432,
+      "isConditional": true,
+      "conditionalOn": [
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "DWIN_LCD_PROUI",
+        "HAS_DISPLAY"
+      ],
+      "examples": [
+        "// Add a mute option to the LCD menu"
+      ]
+    },
+    "soundOnDefault": {
+      "mapsFrom": [
+        "SOUND_ON_DEFAULT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1433,
+      "isConditional": true,
+      "conditionalOn": [
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "DWIN_LCD_PROUI",
+        "HAS_DISPLAY"
+      ],
+      "examples": [
+        "// Buzzer/speaker default enabled state"
+      ]
+    },
+    "bootscreenTimeout": {
+      "mapsFrom": [
+        "BOOTSCREEN_TIMEOUT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1441,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "EITHER",
+        "SHOW_BOOTSCREEN"
+      ],
+      "examples": [
+        "3000"
+      ]
+    },
+    "bootMarlinLogoSmall": {
+      "mapsFrom": [
+        "BOOT_MARLIN_LOGO_SMALL"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1443,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "DWIN_LCD_PROUI",
+        "EITHER",
+        "SHOW_BOOTSCREEN",
+        "TFT_COLOR_UI",
+        "HAS_DISPLAY"
+      ],
+      "examples": [
+        "// Show a smaller Marlin logo on the Boot Screen (saving lots of flash)"
+      ]
+    },
+    "statusMessageScrolling": {
+      "mapsFrom": [
+        "STATUS_MESSAGE_SCROLLING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1448,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "EITHER"
+      ],
+      "notes": "Scroll a longer status message into view"
+    },
+    "statusMessageTimeoutSec": {
+      "mapsFrom": [
+        "STATUS_MESSAGE_TIMEOUT_SEC"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1451,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "EITHER"
+      ],
+      "examples": [
+        "30"
+      ],
+      "notes": "Apply a timeout to low-priority status messages"
+    },
+    "ledControlMenu": {
+      "mapsFrom": [
+        "LED_CONTROL_MENU"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1463,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "EITHER"
+      ]
+    },
+    "ledColorPresets": {
+      "mapsFrom": [
+        "LED_COLOR_PRESETS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1465,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "EITHER",
+        "LED_CONTROL_MENU"
+      ],
+      "examples": [
+        "// Enable the Preset Color menu option"
+      ]
+    }
+  }
+}

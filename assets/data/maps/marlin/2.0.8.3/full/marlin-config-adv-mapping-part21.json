@@ -1,0 +1,481 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_22": {
+    "chopperTimingX2": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_X2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2723,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_X"
+      ]
+    },
+    "chopperTimingY": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Y"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2724,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingY2": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Y2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2725,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_Y"
+      ]
+    },
+    "chopperTimingZ": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Z"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2726,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingZ2": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Z2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2727,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_Z"
+      ]
+    },
+    "chopperTimingZ3": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Z3"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2728,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_Z"
+      ]
+    },
+    "chopperTimingZ4": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_Z4"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2729,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_Z"
+      ]
+    },
+    "chopperTimingE": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2730,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING"
+      ]
+    },
+    "chopperTimingE1": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E1"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2731,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE2": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2732,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE3": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E3"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2733,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE4": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E4"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2734,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE5": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E5"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2735,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE6": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E6"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2736,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "chopperTimingE7": {
+      "mapsFrom": [
+        "CHOPPER_TIMING_E7"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2737,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "CHOPPER_TIMING_E"
+      ]
+    },
+    "monitorDriverStatus": {
+      "mapsFrom": [
+        "MONITOR_DRIVER_STATUS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2750,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "currentStepDown": {
+      "mapsFrom": [
+        "CURRENT_STEP_DOWN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2753,
+      "isConditional": true,
+      "conditionalOn": [
+        "MONITOR_DRIVER_STATUS",
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "reportCurrentChange": {
+      "mapsFrom": [
+        "REPORT_CURRENT_CHANGE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2754,
+      "isConditional": true,
+      "conditionalOn": [
+        "MONITOR_DRIVER_STATUS",
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "stopOnError": {
+      "mapsFrom": [
+        "STOP_ON_ERROR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2755,
+      "isConditional": true,
+      "conditionalOn": [
+        "MONITOR_DRIVER_STATUS",
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "hybridThreshold": {
+      "mapsFrom": [
+        "HYBRID_THRESHOLD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2765,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "xHybridThreshold": {
+      "mapsFrom": [
+        "X_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2767,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "x2HybridThreshold": {
+      "mapsFrom": [
+        "X2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2768,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "yHybridThreshold": {
+      "mapsFrom": [
+        "Y_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2769,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "y2HybridThreshold": {
+      "mapsFrom": [
+        "Y2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2770,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "zHybridThreshold": {
+      "mapsFrom": [
+        "Z_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2771,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "z2HybridThreshold": {
+      "mapsFrom": [
+        "Z2_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2772,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "z3HybridThreshold": {
+      "mapsFrom": [
+        "Z3_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2773,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "z4HybridThreshold": {
+      "mapsFrom": [
+        "Z4_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2774,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "e0HybridThreshold": {
+      "mapsFrom": [
+        "E0_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2775,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "e1HybridThreshold": {
+      "mapsFrom": [
+        "E1_HYBRID_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2776,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "30"
+      ]
+    }
+  }
+}

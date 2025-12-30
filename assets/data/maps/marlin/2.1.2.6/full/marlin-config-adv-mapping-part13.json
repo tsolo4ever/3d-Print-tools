@@ -1,0 +1,481 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_15": {
+    "otherPinLayout": {
+      "mapsFrom": [
+        "OTHER_PIN_LAYOUT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1961,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Define pins manually below"
+      ]
+    },
+    "touchUiInverted": {
+      "mapsFrom": [
+        "TOUCH_UI_INVERTED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1979,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "Display Orientation. An inverted (i.e. upside-down) display is supported on the FT800. The FT810 and beyond also support portrait and mirrored orientations."
+    },
+    "touchUiPortrait": {
+      "mapsFrom": [
+        "TOUCH_UI_PORTRAIT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1980,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ]
+    },
+    "touchUiMirrored": {
+      "mapsFrom": [
+        "TOUCH_UI_MIRRORED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1981,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ]
+    },
+    "touchUiUseUtf8": {
+      "mapsFrom": [
+        "TOUCH_UI_USE_UTF8"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1985,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "UTF8 processing and rendering. Unsupported characters are shown as '?'."
+    },
+    "touchUiUtf8WesternCharset": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1989,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "Western accents support. These accented characters use combined bitmaps and require relatively little storage."
+    },
+    "touchUiUtf8Superscripts": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_SUPERSCRIPTS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1993,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE",
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "examples": [
+        "// \u00b9 \u00b2 \u00b3"
+      ],
+      "notes": "Additional character groups. These characters require full bitmaps and take up considerable storage:"
+    },
+    "touchUiUtf8Copyright": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_COPYRIGHT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1994,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE",
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "examples": [
+        "// \u00a9 \u00ae"
+      ]
+    },
+    "touchUiUtf8Germanic": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_GERMANIC"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1995,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE",
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "examples": [
+        "// \u00df"
+      ]
+    },
+    "touchUiUtf8Scandinavian": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_SCANDINAVIAN"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1996,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE",
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "examples": [
+        "// \u00c6 \u00d0 \u00d8 \u00de \u00e6 \u00f0 \u00f8 \u00fe"
+      ]
+    },
+    "touchUiUtf8Punctuation": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_PUNCTUATION"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1997,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE",
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "examples": [
+        "// \u00ab \u00bb \u00bf \u00a1"
+      ]
+    },
+    "touchUiUtf8Currency": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_CURRENCY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1998,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE",
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "examples": [
+        "// \u00a2 \u00a3 \u00a4 \u00a5"
+      ]
+    },
+    "touchUiUtf8Ordinals": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_ORDINALS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1999,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE",
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "examples": [
+        "// \u00ba \u00aa"
+      ]
+    },
+    "touchUiUtf8Mathematics": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_MATHEMATICS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2000,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE",
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "examples": [
+        "// \u00b1 \u00d7 \u00f7"
+      ]
+    },
+    "touchUiUtf8Fractions": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_FRACTIONS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2001,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE",
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "examples": [
+        "// \u00bc \u00bd \u00be"
+      ]
+    },
+    "touchUiUtf8Symbols": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_SYMBOLS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2002,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE",
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "examples": [
+        "// \u00b5 \u00b6 \u00a6 \u00a7 \u00ac"
+      ]
+    },
+    "touchUiUtf8CyrillicCharset": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_CYRILLIC_CHARSET"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2006,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "Cyrillic character set, costs about 27KiB of flash"
+    },
+    "touchUiFitText": {
+      "mapsFrom": [
+        "TOUCH_UI_FIT_TEXT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2010,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "Use a smaller font when labels don't fit buttons"
+    },
+    "touchUiPasscode": {
+      "mapsFrom": [
+        "TOUCH_UI_PASSCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2014,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "Use a numeric passcode for \"Screen lock\" keypad. (recommended for smaller displays)"
+    },
+    "touchUiDebug": {
+      "mapsFrom": [
+        "TOUCH_UI_DEBUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2017,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "Output extra debug info for Touch UI events"
+    },
+    "touchUiDeveloperMenu": {
+      "mapsFrom": [
+        "TOUCH_UI_DEVELOPER_MENU"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2020,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "Developer menu (accessed by touching \"About Printer\" copyright text)"
+    },
+    "tftMarlinuiColor": {
+      "mapsFrom": [
+        "TFT_MARLINUI_COLOR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2027,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_SCALED_DOGLCD"
+      ],
+      "examples": [
+        "0xFFFF"
+      ]
+    },
+    "tftMarlinbgColor": {
+      "mapsFrom": [
+        "TFT_MARLINBG_COLOR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2028,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_SCALED_DOGLCD"
+      ],
+      "examples": [
+        "0x0000"
+      ]
+    },
+    "tftDisabledColor": {
+      "mapsFrom": [
+        "TFT_DISABLED_COLOR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2029,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_SCALED_DOGLCD"
+      ],
+      "examples": [
+        "0x0003"
+      ]
+    },
+    "tftBtcancelColor": {
+      "mapsFrom": [
+        "TFT_BTCANCEL_COLOR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2030,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_SCALED_DOGLCD"
+      ],
+      "examples": [
+        "0xF800"
+      ]
+    },
+    "tftBtarrowsColor": {
+      "mapsFrom": [
+        "TFT_BTARROWS_COLOR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2031,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_SCALED_DOGLCD"
+      ],
+      "examples": [
+        "0xDEE6"
+      ]
+    },
+    "tftBtokmenuColor": {
+      "mapsFrom": [
+        "TFT_BTOKMENU_COLOR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2032,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_SCALED_DOGLCD"
+      ],
+      "examples": [
+        "0x145F"
+      ]
+    },
+    "adcButtonDebounceDelay": {
+      "mapsFrom": [
+        "ADC_BUTTON_DEBOUNCE_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2039,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_ADC_BUTTONS"
+      ],
+      "examples": [
+        "16"
+      ]
+    },
+    "watchdog": {
+      "mapsFrom": [
+        "USE_WATCHDOG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2053
+    },
+    "watchdogResetManual": {
+      "mapsFrom": [
+        "WATCHDOG_RESET_MANUAL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2055,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_WATCHDOG"
+      ]
+    }
+  }
+}

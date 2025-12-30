@@ -1,0 +1,426 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_9": {
+    "calibrationNozzleOuterDiameter": {
+      "mapsFrom": [
+        "CALIBRATION_NOZZLE_OUTER_DIAMETER"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1229,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "2.0"
+      ]
+    },
+    "calibrationReporting": {
+      "mapsFrom": [
+        "CALIBRATION_REPORTING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1232,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "notes": "Uncomment to enable reporting (required for \"G425 V\", but consumes flash)."
+    },
+    "calibrationObjectCenter": {
+      "mapsFrom": [
+        "CALIBRATION_OBJECT_CENTER"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1235,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "{ 264.0, -22.0,  -2.0 }"
+      ],
+      "notes": "The true location and dimension the cube/bolt/washer on the bed."
+    },
+    "calibrationObjectDimensions": {
+      "mapsFrom": [
+        "CALIBRATION_OBJECT_DIMENSIONS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1236,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "examples": [
+        "{  10.0,  10.0,  10.0 }"
+      ]
+    },
+    "calibrationMeasureRight": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_RIGHT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1240,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "notes": "Comment out any sides which are unreachable by the probe. For best auto-calibration results, all sides must be reachable."
+    },
+    "calibrationMeasureFront": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_FRONT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1241,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureLeft": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_LEFT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1242,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureBack": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_BACK"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1243,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureImin": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_IMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1245,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureImax": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_IMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1246,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureJmin": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_JMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1247,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureJmax": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_JMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1248,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureKmin": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_KMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1249,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureKmax": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_KMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1250,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureUmin": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_UMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1251,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureUmax": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_UMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1252,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureVmin": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_VMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1253,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureVmax": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_VMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1254,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureWmin": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_WMIN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1255,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureWmax": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_WMAX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1256,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ]
+    },
+    "calibrationMeasureAtTopEdges": {
+      "mapsFrom": [
+        "CALIBRATION_MEASURE_AT_TOP_EDGES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1260,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "notes": "Probing at the exact top center only works if the center is flat. If probing on a screw head or hollow washer, probe near the edges."
+    },
+    "calibrationPin": {
+      "mapsFrom": [
+        "CALIBRATION_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1264,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "conditionalOnNot": [
+        "CALIBRATION_PIN"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "calibrationPinInverting": {
+      "mapsFrom": [
+        "CALIBRATION_PIN_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1265,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "conditionalOnNot": [
+        "CALIBRATION_PIN"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "calibrationPinPulldown": {
+      "mapsFrom": [
+        "CALIBRATION_PIN_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1266,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "conditionalOnNot": [
+        "CALIBRATION_PIN"
+      ]
+    },
+    "calibrationPinPullup": {
+      "mapsFrom": [
+        "CALIBRATION_PIN_PULLUP"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1267,
+      "isConditional": true,
+      "conditionalOn": [
+        "CALIBRATION_GCODE"
+      ],
+      "conditionalOnNot": [
+        "CALIBRATION_PIN"
+      ]
+    },
+    "microstep1": {
+      "mapsFrom": [
+        "MICROSTEP1"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1283,
+      "examples": [
+        "LOW,LOW,LOW"
+      ]
+    },
+    "microstep2": {
+      "mapsFrom": [
+        "MICROSTEP2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1284,
+      "examples": [
+        "HIGH,LOW,LOW"
+      ]
+    },
+    "microstep4": {
+      "mapsFrom": [
+        "MICROSTEP4"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1285,
+      "examples": [
+        "LOW,HIGH,LOW"
+      ]
+    },
+    "microstep8": {
+      "mapsFrom": [
+        "MICROSTEP8"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1286,
+      "examples": [
+        "HIGH,HIGH,LOW"
+      ]
+    },
+    "microstep16": {
+      "mapsFrom": [
+        "MICROSTEP16"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1287,
+      "examples": [
+        "LOW,LOW,HIGH"
+      ]
+    }
+  }
+}

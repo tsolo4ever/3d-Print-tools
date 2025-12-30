@@ -1,0 +1,808 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration.h",
+  "totalDefines": 690,
+  "other_3": {
+    "autoPowerChamberFan": {
+      "mapsFrom": [
+        "AUTO_POWER_CHAMBER_FAN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 343,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "AUTO_POWER_CONTROL"
+      ]
+    },
+    "autoPowerCoolerFan": {
+      "mapsFrom": [
+        "AUTO_POWER_COOLER_FAN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 344,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "AUTO_POWER_CONTROL"
+      ]
+    },
+    "powerTimeout": {
+      "mapsFrom": [
+        "POWER_TIMEOUT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 348,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "AUTO_POWER_CONTROL"
+      ],
+      "examples": [
+        "30"
+      ]
+    },
+    "powerOffDelay": {
+      "mapsFrom": [
+        "POWER_OFF_DELAY"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 349,
+      "isConditional": true,
+      "conditionalOn": [
+        "PSU_CONTROL",
+        "AUTO_POWER_CONTROL"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "dummyThermistor998Value": {
+      "mapsFrom": [
+        "DUMMY_THERMISTOR_998_VALUE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 438,
+      "examples": [
+        "25"
+      ],
+      "notes": "Dummy thermistor constant temperature readings, for use with 998 and 999"
+    },
+    "dummyThermistor999Value": {
+      "mapsFrom": [
+        "DUMMY_THERMISTOR_999_VALUE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 439,
+      "examples": [
+        "100"
+      ]
+    },
+    "max31865SensorOhms0": {
+      "mapsFrom": [
+        "MAX31865_SENSOR_OHMS_0"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 442,
+      "examples": [
+        "100"
+      ],
+      "notes": "Resistor values when using MAX31865 sensors (-5) on TEMP_SENSOR_0 / 1"
+    },
+    "max31865CalibrationOhms0": {
+      "mapsFrom": [
+        "MAX31865_CALIBRATION_OHMS_0"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 443,
+      "examples": [
+        "430"
+      ]
+    },
+    "max31865SensorOhms1": {
+      "mapsFrom": [
+        "MAX31865_SENSOR_OHMS_1"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 444,
+      "examples": [
+        "100"
+      ]
+    },
+    "max31865CalibrationOhms1": {
+      "mapsFrom": [
+        "MAX31865_CALIBRATION_OHMS_1"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 445,
+      "examples": [
+        "430"
+      ]
+    },
+    "hotendOvershoot": {
+      "mapsFrom": [
+        "HOTEND_OVERSHOOT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 497,
+      "examples": [
+        "15"
+      ]
+    },
+    "coolerOvershoot": {
+      "mapsFrom": [
+        "COOLER_OVERSHOOT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 499,
+      "examples": [
+        "2"
+      ]
+    },
+    "bangMax": {
+      "mapsFrom": [
+        "BANG_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 508,
+      "examples": [
+        "255"
+      ]
+    },
+    "kpList": {
+      "mapsFrom": [
+        "DEFAULT_Kp_LIST"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 521,
+      "isConditional": true,
+      "conditionalOn": [
+        "PID_PARAMS_PER_HOTEND",
+        "PIDTEMP"
+      ],
+      "examples": [
+        "{  22.20,  22.20 }"
+      ],
+      "notes": "Specify between 1 and HOTENDS values per array. If fewer than EXTRUDER values are provided, the last element will be repeated."
+    },
+    "kiList": {
+      "mapsFrom": [
+        "DEFAULT_Ki_LIST"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 522,
+      "isConditional": true,
+      "conditionalOn": [
+        "PID_PARAMS_PER_HOTEND",
+        "PIDTEMP"
+      ],
+      "examples": [
+        "{   1.08,   1.08 }"
+      ]
+    },
+    "kdList": {
+      "mapsFrom": [
+        "DEFAULT_Kd_LIST"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 523,
+      "isConditional": true,
+      "conditionalOn": [
+        "PID_PARAMS_PER_HOTEND",
+        "PIDTEMP"
+      ],
+      "examples": [
+        "{ 114.00, 114.00 }"
+      ]
+    },
+    "kp": {
+      "mapsFrom": [
+        "DEFAULT_Kp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 525,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "conditionalOnNot": [
+        "PID_PARAMS_PER_HOTEND"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "22.20"
+      ]
+    },
+    "ki": {
+      "mapsFrom": [
+        "DEFAULT_Ki"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 526,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "conditionalOnNot": [
+        "PID_PARAMS_PER_HOTEND"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "1.08"
+      ]
+    },
+    "kd": {
+      "mapsFrom": [
+        "DEFAULT_Kd"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 527,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "conditionalOnNot": [
+        "PID_PARAMS_PER_HOTEND"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "114.00"
+      ]
+    },
+    "bedkp": {
+      "mapsFrom": [
+        "DEFAULT_bedKp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 566,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "10.00"
+      ],
+      "notes": "120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+) from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)"
+    },
+    "bedki": {
+      "mapsFrom": [
+        "DEFAULT_bedKi"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 567,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        ".023"
+      ]
+    },
+    "bedkd": {
+      "mapsFrom": [
+        "DEFAULT_bedKd"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 568,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "305.4"
+      ]
+    },
+    "chamberLimitSwitching": {
+      "mapsFrom": [
+        "CHAMBER_LIMIT_SWITCHING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 592
+    },
+    "maxChamberPower": {
+      "mapsFrom": [
+        "MAX_CHAMBER_POWER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 600,
+      "examples": [
+        "255"
+      ]
+    },
+    "minChamberPower": {
+      "mapsFrom": [
+        "MIN_CHAMBER_POWER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 603,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "chamberkp": {
+      "mapsFrom": [
+        "DEFAULT_chamberKp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 609,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "37.04"
+      ],
+      "notes": "Lasko \"MyHeat Personal Heater\" (200w) modified with a Fotek SSR-10DA to control only the heating element and placed inside the small Creality printer enclosure tent. "
+    },
+    "chamberki": {
+      "mapsFrom": [
+        "DEFAULT_chamberKi"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 610,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "1.40"
+      ]
+    },
+    "chamberkd": {
+      "mapsFrom": [
+        "DEFAULT_chamberKd"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 611,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "655.17"
+      ]
+    },
+    "corexy": {
+      "mapsFrom": [
+        "COREXY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 674,
+      "notes": "=========================================================================== ============================= Mechanical Settings ========================= =========================================================================== @section machine Enable one of the options below for CoreXY, CoreXZ, or CoreYZ kinematics, either in the usual order or reversed"
+    },
+    "corexz": {
+      "mapsFrom": [
+        "COREXZ"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 675
+    }
+  },
+  "other_4": {
+    "coreyz": {
+      "mapsFrom": [
+        "COREYZ"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 676
+    },
+    "coreyx": {
+      "mapsFrom": [
+        "COREYX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 677
+    },
+    "corezx": {
+      "mapsFrom": [
+        "COREZX"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 678
+    },
+    "corezy": {
+      "mapsFrom": [
+        "COREZY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 679
+    },
+    "markforgedXy": {
+      "mapsFrom": [
+        "MARKFORGED_XY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 680,
+      "examples": [
+        "// MarkForged. See https:"
+      ]
+    },
+    "yminPlug": {
+      "mapsFrom": [
+        "USE_YMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 692
+    },
+    "zminPlug": {
+      "mapsFrom": [
+        "USE_ZMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 693
+    },
+    "ymaxPlug": {
+      "mapsFrom": [
+        "USE_YMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 695
+    },
+    "zmaxPlug": {
+      "mapsFrom": [
+        "USE_ZMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 696
+    },
+    "distinctEFactors": {
+      "mapsFrom": [
+        "DISTINCT_E_FACTORS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 807
+    },
+    "limitedMaxFrEditing": {
+      "mapsFrom": [
+        "LIMITED_MAX_FR_EDITING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 823,
+      "examples": [
+        "// Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2"
+      ]
+    },
+    "limitedMaxAccelEditing": {
+      "mapsFrom": [
+        "LIMITED_MAX_ACCEL_EDITING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 836,
+      "examples": [
+        "// Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2"
+      ]
+    },
+    "maxAccelEditValues": {
+      "mapsFrom": [
+        "MAX_ACCEL_EDIT_VALUES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 838,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIMITED_MAX_ACCEL_EDITING"
+      ],
+      "examples": [
+        "{ 6000, 6000, 200, 20000 }"
+      ]
+    },
+    "jdHandleSmallSegments": {
+      "mapsFrom": [
+        "JD_HANDLE_SMALL_SEGMENTS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 886,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "// Use curvature estimation instead of just the junction angle"
+      ]
+    },
+    "zServoAngles": {
+      "mapsFrom": [
+        "Z_SERVO_ANGLES"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 966,
+      "examples": [
+        "{ 70, 0 }"
+      ]
+    },
+    "touchMiRetractZ": {
+      "mapsFrom": [
+        "TOUCH_MI_RETRACT_Z"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 985,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_MI_PROBE"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "touchMiDeployXpos": {
+      "mapsFrom": [
+        "TOUCH_MI_DEPLOY_XPOS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 986,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_MI_PROBE"
+      ],
+      "examples": [
+        "(X_MAX_BED + 2)"
+      ]
+    },
+    "sledDockingOffset": {
+      "mapsFrom": [
+        "SLED_DOCKING_OFFSET"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 995,
+      "examples": [
+        "5"
+      ]
+    },
+    "duetSmartEffector": {
+      "mapsFrom": [
+        "DUET_SMART_EFFECTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1006,
+      "notes": "Duet Smart Effector (for delta printers) - https://bit.ly/2ul5U7J When the pin is defined you can use M672 to set/reset the probe sensivity."
+    },
+    "smartEffectorModPin": {
+      "mapsFrom": [
+        "SMART_EFFECTOR_MOD_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1008,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUET_SMART_EFFECTOR"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "sensorlessProbing": {
+      "mapsFrom": [
+        "SENSORLESS_PROBING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1017
+    },
+    "probingMargin": {
+      "mapsFrom": [
+        "PROBING_MARGIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1067,
+      "examples": [
+        "10"
+      ],
+      "notes": "Most probes should stay away from the edges of the bed, but with NOZZLE_AS_PROBE this can be negative for a wider probing area."
+    },
+    "extraProbing": {
+      "mapsFrom": [
+        "EXTRA_PROBING"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1115,
+      "examples": [
+        "1"
+      ]
+    },
+    "zAfterProbing": {
+      "mapsFrom": [
+        "Z_AFTER_PROBING"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1134,
+      "examples": [
+        "5"
+      ]
+    },
+    "pauseBeforeDeployStow": {
+      "mapsFrom": [
+        "PAUSE_BEFORE_DEPLOY_STOW"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1146,
+      "notes": "Before deploy/stow pause for user confirmation"
+    },
+    "waitForHotend": {
+      "mapsFrom": [
+        "WAIT_FOR_HOTEND"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1161,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBING_HEATERS_OFF"
+      ],
+      "examples": [
+        "// Wait for hotend to heat back up between probes (to improve accuracy & prevent cold extrude)"
+      ]
+    },
+    "probingFansOff": {
+      "mapsFrom": [
+        "PROBING_FANS_OFF"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1163,
+      "examples": [
+        "// Turn fans off when probing"
+      ]
+    },
+    "probingSteppersOff": {
+      "mapsFrom": [
+        "PROBING_STEPPERS_OFF"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1164,
+      "examples": [
+        "// Turn steppers off (unless needed to hold position) when probing"
+      ]
+    },
+    "delayBeforeProbing": {
+      "mapsFrom": [
+        "DELAY_BEFORE_PROBING"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1165,
+      "examples": [
+        "200"
+      ]
+    },
+    "xEnableOn": {
+      "mapsFrom": [
+        "X_ENABLE_ON"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1176,
+      "examples": [
+        "0"
+      ],
+      "notes": "For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1 :{ 0:'Low', 1:'High' }"
+    }
+  }
+}

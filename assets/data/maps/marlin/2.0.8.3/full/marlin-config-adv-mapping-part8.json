@@ -1,0 +1,490 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_9": {
+    "mediaMenuAtTop": {
+      "mapsFrom": [
+        "MEDIA_MENU_AT_TOP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1304,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "// Force the media menu to be listed on the top of the main menu"
+      ]
+    },
+    "peLedsCompletedTime": {
+      "mapsFrom": [
+        "PE_LEDS_COMPLETED_TIME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1309,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "PRINTER_EVENT_LEDS"
+      ],
+      "examples": [
+        "(30*60)"
+      ]
+    },
+    "plrEnabledDefault": {
+      "mapsFrom": [
+        "PLR_ENABLED_DEFAULT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1322,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "backupPowerSupply": {
+      "mapsFrom": [
+        "BACKUP_POWER_SUPPLY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1323,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ],
+      "examples": [
+        "// Backup power / UPS to move the steppers on power loss"
+      ]
+    },
+    "powerLossZraise": {
+      "mapsFrom": [
+        "POWER_LOSS_ZRAISE"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1324,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "powerLossPin": {
+      "mapsFrom": [
+        "POWER_LOSS_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1325,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ],
+      "examples": [
+        "44"
+      ]
+    },
+    "powerLossState": {
+      "mapsFrom": [
+        "POWER_LOSS_STATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1326,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ],
+      "examples": [
+        "HIGH"
+      ]
+    },
+    "powerLossPullup": {
+      "mapsFrom": [
+        "POWER_LOSS_PULLUP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1327,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ],
+      "examples": [
+        "// Set pullup / pulldown as appropriate for your sensor"
+      ]
+    },
+    "powerLossPulldown": {
+      "mapsFrom": [
+        "POWER_LOSS_PULLDOWN"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1328,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ]
+    },
+    "powerLossPurgeLen": {
+      "mapsFrom": [
+        "POWER_LOSS_PURGE_LEN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1329,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "powerLossRetractLen": {
+      "mapsFrom": [
+        "POWER_LOSS_RETRACT_LEN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1330,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "powerLossMinZChange": {
+      "mapsFrom": [
+        "POWER_LOSS_MIN_Z_CHANGE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1334,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ],
+      "examples": [
+        "0.05"
+      ],
+      "notes": "Without a POWER_LOSS_PIN the following option helps reduce wear on the SD card, especially with \"vase mode\" printing. Set too high and vases cannot be continued."
+    },
+    "powerLossRecoverZhome": {
+      "mapsFrom": [
+        "POWER_LOSS_RECOVER_ZHOME"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1337,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
+      ],
+      "notes": "Enable if Z homing is needed for proper recovery. 99.9% of the time this should be disabled!"
+    },
+    "sdcardSortAlpha": {
+      "mapsFrom": [
+        "SDCARD_SORT_ALPHA"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1366,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ]
+    },
+    "sdsortLimit": {
+      "mapsFrom": [
+        "SDSORT_LIMIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1370,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
+      ],
+      "examples": [
+        "40"
+      ]
+    },
+    "folderSorting": {
+      "mapsFrom": [
+        "FOLDER_SORTING"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1371,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "sdsortGcode": {
+      "mapsFrom": [
+        "SDSORT_GCODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1372,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "sdsortUsesRam": {
+      "mapsFrom": [
+        "SDSORT_USES_RAM"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1373,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "sdsortUsesStack": {
+      "mapsFrom": [
+        "SDSORT_USES_STACK"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1374,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "sdsortCacheNames": {
+      "mapsFrom": [
+        "SDSORT_CACHE_NAMES"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1375,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "sdsortDynamicRam": {
+      "mapsFrom": [
+        "SDSORT_DYNAMIC_RAM"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1376,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "sdsortCacheVfats": {
+      "mapsFrom": [
+        "SDSORT_CACHE_VFATS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1377,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "utfFilenameSupport": {
+      "mapsFrom": [
+        "UTF_FILENAME_SUPPORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1383,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "notes": "Allow international symbols in long filenames. To display correctly, the LCD's font must contain the characters. Check your selected LCD language."
+    },
+    "longFilenameHostSupport": {
+      "mapsFrom": [
+        "LONG_FILENAME_HOST_SUPPORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1386,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "notes": "This allows hosts to request long names for files and folders with M33"
+    },
+    "scrollLongFilenames": {
+      "mapsFrom": [
+        "SCROLL_LONG_FILENAMES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1389,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "notes": "Enable this option to scroll long filenames in the SD card menu"
+    },
+    "usbFlashDriveSupport": {
+      "mapsFrom": [
+        "USB_FLASH_DRIVE_SUPPORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1427,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ]
+    },
+    "uhs2Usb": {
+      "mapsFrom": [
+        "USE_UHS2_USB"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1439,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "USB_FLASH_DRIVE_SUPPORT"
+      ]
+    },
+    "uhs3Usb": {
+      "mapsFrom": [
+        "USE_UHS3_USB"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1440,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "USB_FLASH_DRIVE_SUPPORT"
+      ]
+    },
+    "otgUsbHost": {
+      "mapsFrom": [
+        "USE_OTG_USB_HOST"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1445,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT",
+        "USB_FLASH_DRIVE_SUPPORT"
+      ]
+    },
+    "usbCsPin": {
+      "mapsFrom": [
+        "USB_CS_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1448,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_OTG_USB_HOST",
+        "SDSUPPORT",
+        "USB_FLASH_DRIVE_SUPPORT"
+      ],
+      "examples": [
+        "SDSS"
+      ]
+    }
+  }
+}

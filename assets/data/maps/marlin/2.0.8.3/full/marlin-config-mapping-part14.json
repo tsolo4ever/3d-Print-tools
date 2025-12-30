@@ -1,0 +1,221 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration.h",
+  "totalDefines": 690,
+  "features": {
+    "eepromSettings": {
+      "mapsFrom": [
+        "EEPROM_SETTINGS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1680,
+      "examples": [
+        "// Persistent storage with M500 and M501"
+      ]
+    },
+    "eepromChitchat": {
+      "mapsFrom": [
+        "EEPROM_CHITCHAT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1682,
+      "examples": [
+        "// Give feedback on EEPROM commands. Disable to save PROGMEM."
+      ]
+    },
+    "eepromBootSilent": {
+      "mapsFrom": [
+        "EEPROM_BOOT_SILENT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1683,
+      "examples": [
+        "// Keep M503 quiet and only give errors during first load"
+      ]
+    },
+    "eepromAutoInit": {
+      "mapsFrom": [
+        "EEPROM_AUTO_INIT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1685,
+      "isConditional": true,
+      "conditionalOn": [
+        "EEPROM_SETTINGS"
+      ],
+      "examples": [
+        "// Init EEPROM automatically on any errors."
+      ]
+    },
+    "nozzleParkFeature": {
+      "mapsFrom": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1736
+    },
+    "nozzleParkPoint": {
+      "mapsFrom": [
+        "NOZZLE_PARK_POINT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1740,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }"
+      ],
+      "notes": "Specify a park position as { X, Y, Z_raise }"
+    },
+    "nozzleParkXOnly": {
+      "mapsFrom": [
+        "NOZZLE_PARK_X_ONLY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1741,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "// X move only is required to park"
+      ]
+    },
+    "nozzleParkYOnly": {
+      "mapsFrom": [
+        "NOZZLE_PARK_Y_ONLY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1742,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "// Y move only is required to park"
+      ]
+    },
+    "nozzleParkZRaiseMin": {
+      "mapsFrom": [
+        "NOZZLE_PARK_Z_RAISE_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1743,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "printcounter": {
+      "mapsFrom": [
+        "PRINTCOUNTER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1853
+    },
+    "printcounterSaveInterval": {
+      "mapsFrom": [
+        "PRINTCOUNTER_SAVE_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1855,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRINTCOUNTER"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "passwordOnSdPrintMenu": {
+      "mapsFrom": [
+        "PASSWORD_ON_SD_PRINT_MENU"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1883,
+      "isConditional": true,
+      "conditionalOn": [
+        "PASSWORD_FEATURE"
+      ],
+      "examples": [
+        "// This does not prevent gcodes from running"
+      ]
+    },
+    "passwordAfterSdPrintEnd": {
+      "mapsFrom": [
+        "PASSWORD_AFTER_SD_PRINT_END"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1884,
+      "isConditional": true,
+      "conditionalOn": [
+        "PASSWORD_FEATURE"
+      ]
+    },
+    "passwordAfterSdPrintAbort": {
+      "mapsFrom": [
+        "PASSWORD_AFTER_SD_PRINT_ABORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1885,
+      "isConditional": true,
+      "conditionalOn": [
+        "PASSWORD_FEATURE"
+      ]
+    },
+    "sdsupport": {
+      "mapsFrom": [
+        "SDSUPPORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1944
+    },
+    "sdCheckAndRetry": {
+      "mapsFrom": [
+        "SD_CHECK_AND_RETRY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1951
+    }
+  }
+}

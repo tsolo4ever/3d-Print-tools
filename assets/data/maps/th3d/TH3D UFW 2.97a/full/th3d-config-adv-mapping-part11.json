@@ -1,0 +1,476 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_13": {
+    "uhs2Usb": {
+      "mapsFrom": [
+        "USE_UHS2_USB"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1820,
+      "isConditional": true,
+      "conditionalOn": [
+        "USB_FLASH_DRIVE_SUPPORT",
+        "SDSUPPORT"
+      ]
+    },
+    "uhs3Usb": {
+      "mapsFrom": [
+        "USE_UHS3_USB"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1821,
+      "isConditional": true,
+      "conditionalOn": [
+        "USB_FLASH_DRIVE_SUPPORT",
+        "SDSUPPORT"
+      ]
+    },
+    "otgUsbHost": {
+      "mapsFrom": [
+        "USE_OTG_USB_HOST"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1828,
+      "isConditional": true,
+      "conditionalOn": [
+        "USB_FLASH_DRIVE_SUPPORT",
+        "SDSUPPORT"
+      ]
+    },
+    "usbCsPin": {
+      "mapsFrom": [
+        "USB_CS_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1831,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_OTG_USB_HOST",
+        "USB_FLASH_DRIVE_SUPPORT",
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "SDSS"
+      ]
+    },
+    "usbIntrPin": {
+      "mapsFrom": [
+        "USB_INTR_PIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1832,
+      "isConditional": true,
+      "conditionalOn": [
+        "USE_OTG_USB_HOST",
+        "USB_FLASH_DRIVE_SUPPORT",
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "SD_DETECT_PIN"
+      ]
+    },
+    "configurationEmbedding": {
+      "mapsFrom": [
+        "CONFIGURATION_EMBEDDING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1859,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPACE_SAVER_2560",
+        "SDSUPPORT"
+      ]
+    },
+    "binaryFileTransfer": {
+      "mapsFrom": [
+        "BINARY_FILE_TRANSFER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1863,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "notes": "Add an optimized binary file transfer mode, initiated with 'M28 B1'"
+    },
+    "customFirmwareUpload": {
+      "mapsFrom": [
+        "CUSTOM_FIRMWARE_UPLOAD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1867,
+      "isConditional": true,
+      "conditionalOn": [
+        "BINARY_FILE_TRANSFER",
+        "SDSUPPORT"
+      ],
+      "notes": "Include extra facilities (e.g., 'M20 F') supporting firmware upload via BINARY_FILE_TRANSFER"
+    },
+    "sdcardConnection": {
+      "mapsFrom": [
+        "SDCARD_CONNECTION"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1880,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "conditionalOnNot": [
+        "SDCARD_CONNECTION"
+      ],
+      "examples": [
+        "ONBOARD"
+      ]
+    },
+    "multiVolume": {
+      "mapsFrom": [
+        "MULTI_VOLUME"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1890,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ]
+    },
+    "volumeUsbFlashDrive": {
+      "mapsFrom": [
+        "VOLUME_USB_FLASH_DRIVE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1893,
+      "isConditional": true,
+      "conditionalOn": [
+        "MULTI_VOLUME",
+        "SDSUPPORT"
+      ]
+    },
+    "volume": {
+      "mapsFrom": [
+        "DEFAULT_VOLUME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1894,
+      "isConditional": true,
+      "conditionalOn": [
+        "MULTI_VOLUME",
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "SV_SD_ONBOARD"
+      ]
+    },
+    "sharedVolume": {
+      "mapsFrom": [
+        "DEFAULT_SHARED_VOLUME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1895,
+      "isConditional": true,
+      "conditionalOn": [
+        "MULTI_VOLUME",
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "SV_USB_FLASH_DRIVE"
+      ]
+    },
+    "xyzNoFrame": {
+      "mapsFrom": [
+        "XYZ_NO_FRAME"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1920,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "notes": "Save many cycles by drawing a hollow frame or no frame on the Info Screen"
+    },
+    "xyzHollowFrame": {
+      "mapsFrom": [
+        "XYZ_HOLLOW_FRAME"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1921,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ]
+    },
+    "bigEditFont": {
+      "mapsFrom": [
+        "USE_BIG_EDIT_FONT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1925,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "notes": "A bigger font is available for edit items. Costs 3120 bytes of flash. Western only. Not available for Cyrillic, Kana, Turkish, Greek, or Chinese."
+    },
+    "smallInfofont": {
+      "mapsFrom": [
+        "USE_SMALL_INFOFONT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1929,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "notes": "A smaller font may be used on the Info Screen. Costs 2434 bytes of flash. Western only. Not available for Cyrillic, Kana, Turkish, Greek, or Chinese."
+    },
+    "dogmSpiDelayUs": {
+      "mapsFrom": [
+        "DOGM_SPI_DELAY_US"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1957,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "IS_U8GLIB_ST7920"
+      ],
+      "examples": [
+        "5"
+      ],
+      "notes": "Enable this option and reduce the value to optimize screen updates. The normal delay is 10\u00b5s. Use the lowest value that still gives a reliable display."
+    },
+    "lightweightUi": {
+      "mapsFrom": [
+        "LIGHTWEIGHT_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1959,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "IS_U8GLIB_ST7920"
+      ]
+    },
+    "statusExpireSeconds": {
+      "mapsFrom": [
+        "STATUS_EXPIRE_SECONDS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1961,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB",
+        "IS_U8GLIB_ST7920",
+        "LIGHTWEIGHT_UI"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "statusHotendNumberless": {
+      "mapsFrom": [
+        "STATUS_HOTEND_NUMBERLESS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1971,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Use plain hotend icons instead of numbered ones (with 2+ hotends)"
+      ]
+    },
+    "statusHotendInverted": {
+      "mapsFrom": [
+        "STATUS_HOTEND_INVERTED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1972,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Show solid nozzle bitmaps when heating (Requires STATUS_HOTEND_ANIM for numbered hotends)"
+      ]
+    },
+    "statusHotendAnim": {
+      "mapsFrom": [
+        "STATUS_HOTEND_ANIM"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1973,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Use a second bitmap to indicate hotend heating"
+      ]
+    },
+    "statusChamberAnim": {
+      "mapsFrom": [
+        "STATUS_CHAMBER_ANIM"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1977,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Use a second bitmap to indicate chamber heating"
+      ]
+    },
+    "statusCutterAnim": {
+      "mapsFrom": [
+        "STATUS_CUTTER_ANIM"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1978,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Use a second bitmap to indicate spindle / laser active"
+      ]
+    },
+    "statusCoolerAnim": {
+      "mapsFrom": [
+        "STATUS_COOLER_ANIM"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1979,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Use a second bitmap to indicate laser cooling"
+      ]
+    },
+    "statusFlowmeterAnim": {
+      "mapsFrom": [
+        "STATUS_FLOWMETER_ANIM"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1980,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Use multiple bitmaps to indicate coolant flow"
+      ]
+    },
+    "statusAltFanBitmap": {
+      "mapsFrom": [
+        "STATUS_ALT_FAN_BITMAP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1982,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Use the alternative fan bitmap"
+      ]
+    },
+    "statusFanFrames": {
+      "mapsFrom": [
+        "STATUS_FAN_FRAMES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1983,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "4"
+      ]
+    },
+    "statusHeatPercent": {
+      "mapsFrom": [
+        "STATUS_HEAT_PERCENT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1984,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Show heating in a progress bar"
+      ]
+    }
+  }
+}

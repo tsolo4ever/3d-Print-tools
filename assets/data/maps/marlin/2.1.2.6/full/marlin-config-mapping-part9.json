@@ -1,0 +1,692 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "other_13": {
+    "viki2": {
+      "mapsFrom": [
+        "VIKI2"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2786,
+      "notes": " Activate one of these if you have a Panucatt Devices Viki 2.0 or mini Viki with Graphic LCD https://www.panucatt.com "
+    },
+    "miniviki": {
+      "mapsFrom": [
+        "miniVIKI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2787
+    },
+    "wyhL12864": {
+      "mapsFrom": [
+        "WYH_L12864"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2792,
+      "notes": " Alfawise Ex8 printer LCD marked as WYH L12864 COG "
+    },
+    "minipanel": {
+      "mapsFrom": [
+        "MINIPANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2798,
+      "notes": " MakerLab Mini Panel with graphic controller and SD support - https://reprap.org/wiki/Mini_panel "
+    },
+    "makrpanel": {
+      "mapsFrom": [
+        "MAKRPANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2804,
+      "notes": " MaKr3d Makr-Panel with graphic controller and SD support. https://reprap.org/wiki/MaKrPanel "
+    },
+    "cartesioUi": {
+      "mapsFrom": [
+        "CARTESIO_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2822,
+      "notes": " Cartesio UI https://web.archive.org/web/20180605050442/mauk.cc/webshop/cartesio-shop/electronics/user-interface "
+    },
+    "mksMini12864": {
+      "mapsFrom": [
+        "MKS_MINI_12864"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2839,
+      "notes": " MKS MINI12864 with graphic controller and SD support https://reprap.org/wiki/MKS_MINI_12864 "
+    },
+    "mksMini12864V3": {
+      "mapsFrom": [
+        "MKS_MINI_12864_V3"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2844,
+      "notes": " MKS MINI12864 V3 is an alias for FYSETC_MINI_12864_2_1. Type A/B. NeoPixel RGB Backlight. "
+    },
+    "fysetcMini12864XX": {
+      "mapsFrom": [
+        "FYSETC_MINI_12864_X_X"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2857,
+      "examples": [
+        "// Type C/D/E/F. No tunable RGB Backlight by default"
+      ],
+      "notes": " FYSETC variant of the MINI12864 graphic controller with SD support https://wiki.fysetc.com/Mini12864_Panel/ "
+    },
+    "fysetcMini1286412": {
+      "mapsFrom": [
+        "FYSETC_MINI_12864_1_2"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2858,
+      "examples": [
+        "// Type C/D/E/F. Simple RGB Backlight (always on)"
+      ]
+    },
+    "fysetcMini1286420": {
+      "mapsFrom": [
+        "FYSETC_MINI_12864_2_0"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2859,
+      "examples": [
+        "// Type A/B. Discreet RGB Backlight"
+      ]
+    },
+    "fysetcMini1286421": {
+      "mapsFrom": [
+        "FYSETC_MINI_12864_2_1"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2860,
+      "examples": [
+        "// Type A/B. NeoPixel RGB Backlight"
+      ]
+    },
+    "fysetcGeneric1286411": {
+      "mapsFrom": [
+        "FYSETC_GENERIC_12864_1_1"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2861,
+      "examples": [
+        "// Larger display with basic ON/OFF backlight."
+      ]
+    },
+    "bttMini12864": {
+      "mapsFrom": [
+        "BTT_MINI_12864"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2867,
+      "notes": " BigTreeTech Mini 12864 V1.0 / V2.0 is an alias for FYSETC_MINI_12864_2_1. Type A/B. NeoPixel RGB Backlight. https://github.com/bigtreetech/MINI-12864 "
+    },
+    "azsmz12864": {
+      "mapsFrom": [
+        "AZSMZ_12864"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2896,
+      "notes": " AZSMZ 12864 LCD with SD https://www.aliexpress.com/item/32837222770.html "
+    },
+    "u8glibSsd1306": {
+      "mapsFrom": [
+        "U8GLIB_SSD1306"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2924,
+      "isConditional": true,
+      "conditionalOn": [
+        "SAV_3DGLCD"
+      ],
+      "notes": "============================================================================= ==============================  OLED Displays  ============================== =============================================================================  SSD1306 OLED full graphics generic display "
+    },
+    "u8glibSh1106": {
+      "mapsFrom": [
+        "U8GLIB_SH1106"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2925,
+      "isConditional": true,
+      "conditionalOn": [
+        "SAV_3DGLCD"
+      ]
+    },
+    "oledPanelTinyboy2": {
+      "mapsFrom": [
+        "OLED_PANEL_TINYBOY2"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2931,
+      "notes": " TinyBoy2 128x64 OLED / Encoder Panel "
+    },
+    "mks12864oled": {
+      "mapsFrom": [
+        "MKS_12864OLED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2939,
+      "examples": [
+        "// Uses the SH1106 controller (default)"
+      ],
+      "notes": " MKS OLED 1.3\" 128\u00d764 Full Graphics Controller https://reprap.org/wiki/MKS_12864OLED  Tiny, but very sharp OLED display "
+    },
+    "mks12864oledSsd1306": {
+      "mapsFrom": [
+        "MKS_12864OLED_SSD1306"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2940,
+      "examples": [
+        "// Uses the SSD1306 controller"
+      ]
+    },
+    "zonestar12864oled": {
+      "mapsFrom": [
+        "ZONESTAR_12864OLED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2946,
+      "examples": [
+        "// 1.3\" OLED with SH1106 controller (default)"
+      ]
+    },
+    "zonestar12864oledSsd1306": {
+      "mapsFrom": [
+        "ZONESTAR_12864OLED_SSD1306"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2947,
+      "examples": [
+        "// 0.96\" OLED with SSD1306 controller"
+      ]
+    },
+    "u8glibSh1106Einstart": {
+      "mapsFrom": [
+        "U8GLIB_SH1106_EINSTART"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2952,
+      "notes": " Einstart S OLED SSD1306 "
+    },
+    "overlordOled": {
+      "mapsFrom": [
+        "OVERLORD_OLED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2957,
+      "notes": " Overlord OLED display/controller with i2c buzzer and LEDs "
+    },
+    "fysetc242Oled12864": {
+      "mapsFrom": [
+        "FYSETC_242_OLED_12864"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2962,
+      "examples": [
+        "// Uses the SSD1309 controller"
+      ],
+      "notes": " FYSETC OLED 2.42\" 128\u00d764 Full Graphics Controller with WS2812 RGB Where to find : https://www.aliexpress.com/item/4000345255731.html"
+    },
+    "mksGreenUi": {
+      "mapsFrom": [
+        "USE_MKS_GREEN_UI"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3020,
+      "isConditional": true,
+      "conditionalOn": [
+        "DGUS_LCD_UI_MKS"
+      ]
+    },
+    "touchUiFtdiEve": {
+      "mapsFrom": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3032,
+      "notes": " Touch UI for FTDI EVE (FT800/FT810) displays See Configuration_adv.h for all configuration options. "
+    },
+    "nextionTft": {
+      "mapsFrom": [
+        "NEXTION_TFT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3047,
+      "notes": " 320x240 Nextion 2.8\" serial TFT Resistive Touch Screen NX3224T028 "
+    },
+    "extensibleUi": {
+      "mapsFrom": [
+        "EXTENSIBLE_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3053,
+      "notes": " Third-party or vendor-customized controller interfaces. Sources should be installed in 'src/lcd/extui'. "
+    },
+    "extuiLocalBeeper": {
+      "mapsFrom": [
+        "EXTUI_LOCAL_BEEPER"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3056,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXTENSIBLE_UI"
+      ],
+      "examples": [
+        "// Enables use of local Beeper pin with external display"
+      ]
+    }
+  },
+  "other_14": {
+    "mksTs35V20": {
+      "mapsFrom": [
+        "MKS_TS35_V2_0"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3073,
+      "notes": " 480x320, 3.5\", SPI Display with Rotary Encoder from MKS Usually paired with MKS Robin Nano V2 & V3 https://github.com/makerbase-mks/MKS-TFT-Hardware/tree/master/MKS%20TS35 "
+    },
+    "mksRobinTft24": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT24"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3079,
+      "notes": " 320x240, 2.4\", FSMC Display From MKS Usually paired with MKS Robin Nano V1.2 "
+    },
+    "mksRobinTft28": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT28"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3085,
+      "notes": " 320x240, 2.8\", FSMC Display From MKS Usually paired with MKS Robin Nano V1.2 "
+    },
+    "mksRobinTft32": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT32"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3091,
+      "notes": " 320x240, 3.2\", FSMC Display From MKS Usually paired with MKS Robin Nano V1.2 "
+    },
+    "mksRobinTft35": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT35"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3097,
+      "notes": " 480x320, 3.5\", FSMC Display From MKS Usually paired with MKS Robin Nano V1.2 "
+    },
+    "mksRobinTft43": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT43"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3102,
+      "notes": " 480x272, 4.3\", FSMC Display From MKS "
+    },
+    "mksRobinTftV11r": {
+      "mapsFrom": [
+        "MKS_ROBIN_TFT_V1_1R"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3108,
+      "notes": " 320x240, 3.2\", FSMC Display From MKS Usually paired with MKS Robin "
+    },
+    "tftTronxyX5sa": {
+      "mapsFrom": [
+        "TFT_TRONXY_X5SA"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3113,
+      "notes": " 480x320, 3.5\", FSMC Stock Display from Tronxy "
+    },
+    "anycubicTft35": {
+      "mapsFrom": [
+        "ANYCUBIC_TFT35"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3118,
+      "notes": " 480x320, 3.5\", FSMC Stock Display from AnyCubic "
+    },
+    "longerLkTft28": {
+      "mapsFrom": [
+        "LONGER_LK_TFT28"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3123,
+      "notes": " 320x240, 2.8\", FSMC Stock Display from Longer/Alfawise "
+    },
+    "anetEt4Tft28": {
+      "mapsFrom": [
+        "ANET_ET4_TFT28"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3128,
+      "notes": " 320x240, 2.8\", FSMC Stock Display from ET4 "
+    },
+    "anetEt5Tft35": {
+      "mapsFrom": [
+        "ANET_ET5_TFT35"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3133,
+      "notes": " 480x320, 3.5\", FSMC Stock Display from ET5 "
+    },
+    "biquBxTft70": {
+      "mapsFrom": [
+        "BIQU_BX_TFT70"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3139,
+      "notes": " 1024x600, 7\", RGB Stock Display with Rotary Encoder from BIQU BX https://github.com/bigtreetech/BIQU-BX/tree/master/Hardware "
+    },
+    "bttTft35SpiV10": {
+      "mapsFrom": [
+        "BTT_TFT35_SPI_V1_0"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3145,
+      "notes": " 480x320, 3.5\", SPI Stock Display with Rotary Encoder from BIQU B1 SE Series https://github.com/bigtreetech/TFT35-SPI/tree/master/v1 "
+    },
+    "tftGeneric": {
+      "mapsFrom": [
+        "TFT_GENERIC"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3150,
+      "notes": " Generic TFT with detailed options "
+    },
+    "tftDriver": {
+      "mapsFrom": [
+        "TFT_DRIVER"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3153,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ],
+      "examples": [
+        "AUTO"
+      ],
+      "notes": ":[ 'AUTO', 'ST7735', 'ST7789', 'ST7796', 'R61505', 'ILI9328', 'ILI9341', 'ILI9488' ]"
+    },
+    "tftInterfaceFsmc": {
+      "mapsFrom": [
+        "TFT_INTERFACE_FSMC"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3156,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ],
+      "notes": "Interface. Enable one of the following options:"
+    },
+    "tftInterfaceSpi": {
+      "mapsFrom": [
+        "TFT_INTERFACE_SPI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3157,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ]
+    },
+    "tftRes320x240": {
+      "mapsFrom": [
+        "TFT_RES_320x240"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3160,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ],
+      "notes": "TFT Resolution. Enable one of the following options:"
+    },
+    "tftRes480x272": {
+      "mapsFrom": [
+        "TFT_RES_480x272"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3161,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ]
+    },
+    "tftRes480x320": {
+      "mapsFrom": [
+        "TFT_RES_480x320"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3162,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ]
+    },
+    "tftRes1024x600": {
+      "mapsFrom": [
+        "TFT_RES_1024x600"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3163,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_GENERIC"
+      ]
+    },
+    "tftClassicUi": {
+      "mapsFrom": [
+        "TFT_CLASSIC_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3176
+    },
+    "tftColorUi": {
+      "mapsFrom": [
+        "TFT_COLOR_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3177
+    },
+    "tftLvglUi": {
+      "mapsFrom": [
+        "TFT_LVGL_UI"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3178
+    },
+    "tftSharedIo": {
+      "mapsFrom": [
+        "TFT_SHARED_IO"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3181,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_COLOR_UI"
+      ],
+      "examples": [
+        "// SPI is shared between TFT display and other devices. Disable async data transfer"
+      ]
+    },
+    "mksWifiModule": {
+      "mapsFrom": [
+        "MKS_WIFI_MODULE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3185,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_LVGL_UI"
+      ],
+      "examples": [
+        "// MKS WiFi module"
+      ]
+    },
+    "tftRotation": {
+      "mapsFrom": [
+        "TFT_ROTATION"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3196,
+      "examples": [
+        "TFT_NO_ROTATION"
+      ]
+    },
+    "dwinMarlinuiPortrait": {
+      "mapsFrom": [
+        "DWIN_MARLINUI_PORTRAIT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3208,
+      "examples": [
+        "// MarlinUI (portrait orientation)"
+      ]
+    },
+    "dwinMarlinuiLandscape": {
+      "mapsFrom": [
+        "DWIN_MARLINUI_LANDSCAPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3209,
+      "examples": [
+        "// MarlinUI (landscape orientation)"
+      ]
+    }
+  }
+}

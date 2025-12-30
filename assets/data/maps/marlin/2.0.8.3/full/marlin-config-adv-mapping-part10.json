@@ -1,0 +1,498 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_11": {
+    "gamesEasterEgg": {
+      "mapsFrom": [
+        "GAMES_EASTER_EGG"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1584,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Add extra blank lines above the \"Games\" sub-menu"
+      ]
+    },
+    "dgusRxBufferSize": {
+      "mapsFrom": [
+        "DGUS_RX_BUFFER_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1595,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "128"
+      ]
+    },
+    "dgusTxBufferSize": {
+      "mapsFrom": [
+        "DGUS_TX_BUFFER_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1596,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "48"
+      ]
+    },
+    "serialStatsRxBufferOverruns": {
+      "mapsFrom": [
+        "SERIAL_STATS_RX_BUFFER_OVERRUNS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1597,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "// Fix Rx overrun situation (Currently only for AVR)"
+      ]
+    },
+    "dgusUpdateIntervalMs": {
+      "mapsFrom": [
+        "DGUS_UPDATE_INTERVAL_MS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1599,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "500"
+      ]
+    },
+    "dgusPrintFilename": {
+      "mapsFrom": [
+        "DGUS_PRINT_FILENAME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1602,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC"
+      ],
+      "examples": [
+        "// Display the filename during printing"
+      ]
+    },
+    "dgusUiMoveDisOption": {
+      "mapsFrom": [
+        "DGUS_UI_MOVE_DIS_OPTION"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1608,
+      "isConditional": true,
+      "conditionalOn": [
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "HAS_DGUS_LCD"
+      ],
+      "conditionalOnNot": [
+        "DGUS_LCD_UI_FYSETC",
+        "EITHER",
+        "DGUS_LCD_UI_MKS"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Enabled by default for UI_HIPRECY"
+      ]
+    },
+    "dgusFilamentLoadunload": {
+      "mapsFrom": [
+        "DGUS_FILAMENT_LOADUNLOAD"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1611,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC"
+      ]
+    },
+    "dgusFilamentPurgeLength": {
+      "mapsFrom": [
+        "DGUS_FILAMENT_PURGE_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1613,
+      "isConditional": true,
+      "conditionalOn": [
+        "DGUS_FILAMENT_LOADUNLOAD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "dgusFilamentLoadLengthPerTime": {
+      "mapsFrom": [
+        "DGUS_FILAMENT_LOAD_LENGTH_PER_TIME"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1614,
+      "isConditional": true,
+      "conditionalOn": [
+        "DGUS_FILAMENT_LOADUNLOAD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "0.5"
+      ]
+    },
+    "dgusUiWaiting": {
+      "mapsFrom": [
+        "DGUS_UI_WAITING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1617,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC"
+      ],
+      "examples": [
+        "// Show a \"waiting\" screen between some screens"
+      ]
+    },
+    "dgusUiWaitingStatus": {
+      "mapsFrom": [
+        "DGUS_UI_WAITING_STATUS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1619,
+      "isConditional": true,
+      "conditionalOn": [
+        "DGUS_UI_WAITING",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "dgusUiWaitingStatusPeriod": {
+      "mapsFrom": [
+        "DGUS_UI_WAITING_STATUS_PERIOD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1620,
+      "isConditional": true,
+      "conditionalOn": [
+        "DGUS_UI_WAITING",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "chironTftStandard": {
+      "mapsFrom": [
+        "CHIRON_TFT_STANDARD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1631,
+      "isConditional": true,
+      "conditionalOn": [
+        "ANYCUBIC_LCD_CHIRON"
+      ],
+      "notes": "By default the type of panel is automatically detected. Enable one of these options if you know the panel type."
+    },
+    "chironTftNew": {
+      "mapsFrom": [
+        "CHIRON_TFT_NEW"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1632,
+      "isConditional": true,
+      "conditionalOn": [
+        "ANYCUBIC_LCD_CHIRON"
+      ]
+    },
+    "acDefaultStartupTune": {
+      "mapsFrom": [
+        "AC_DEFAULT_STARTUP_TUNE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1635,
+      "isConditional": true,
+      "conditionalOn": [
+        "ANYCUBIC_LCD_CHIRON"
+      ],
+      "notes": "Enable the longer Anycubic powerup startup tune"
+    },
+    "touchUi320x240": {
+      "mapsFrom": [
+        "TOUCH_UI_320x240"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1678,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "Correct the resolution if not using the stock TFT panel."
+    },
+    "touchUi480x272": {
+      "mapsFrom": [
+        "TOUCH_UI_480x272"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1679,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ]
+    },
+    "touchUi800x480": {
+      "mapsFrom": [
+        "TOUCH_UI_800x480"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1680,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ]
+    },
+    "aoExp1Pinmap": {
+      "mapsFrom": [
+        "AO_EXP1_PINMAP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1683,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// AlephObjects CLCD UI EXP1 mapping"
+      ],
+      "notes": "Mappings for boards with a standard RepRapDiscount Display connector"
+    },
+    "aoExp2Pinmap": {
+      "mapsFrom": [
+        "AO_EXP2_PINMAP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1684,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// AlephObjects CLCD UI EXP2 mapping"
+      ]
+    },
+    "cr10TftPinmap": {
+      "mapsFrom": [
+        "CR10_TFT_PINMAP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1685,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Rudolph Riedel's CR10 pin mapping"
+      ]
+    },
+    "s6TftPinmap": {
+      "mapsFrom": [
+        "S6_TFT_PINMAP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1686,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// FYSETC S6 pin mapping"
+      ]
+    },
+    "f6TftPinmap": {
+      "mapsFrom": [
+        "F6_TFT_PINMAP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1687,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// FYSETC F6 pin mapping"
+      ]
+    },
+    "otherPinLayout": {
+      "mapsFrom": [
+        "OTHER_PIN_LAYOUT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1689,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "examples": [
+        "// Define pins manually below"
+      ]
+    },
+    "touchUiInverted": {
+      "mapsFrom": [
+        "TOUCH_UI_INVERTED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1707,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "Display Orientation. An inverted (i.e. upside-down) display is supported on the FT800. The FT810 and beyond also support portrait and mirrored orientations."
+    },
+    "touchUiPortrait": {
+      "mapsFrom": [
+        "TOUCH_UI_PORTRAIT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1708,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ]
+    },
+    "touchUiMirrored": {
+      "mapsFrom": [
+        "TOUCH_UI_MIRRORED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1709,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ]
+    },
+    "touchUiUseUtf8": {
+      "mapsFrom": [
+        "TOUCH_UI_USE_UTF8"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1713,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE"
+      ],
+      "notes": "UTF8 processing and rendering. Unsupported characters are shown as '?'."
+    },
+    "touchUiUtf8WesternCharset": {
+      "mapsFrom": [
+        "TOUCH_UI_UTF8_WESTERN_CHARSET"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1717,
+      "isConditional": true,
+      "conditionalOn": [
+        "TOUCH_UI_FTDI_EVE",
+        "TOUCH_UI_USE_UTF8"
+      ],
+      "notes": "Western accents support. These accented characters use combined bitmaps and require relatively little storage."
+    }
+  }
+}

@@ -1,0 +1,520 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_16": {
+    "toolchangeParkXy": {
+      "mapsFrom": [
+        "TOOLCHANGE_PARK_XY"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2295,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_PARK"
+      ],
+      "examples": [
+        "{ X_MIN_POS + 10, Y_MIN_POS + 10 }"
+      ]
+    },
+    "toolchangeParkXOnly": {
+      "mapsFrom": [
+        "TOOLCHANGE_PARK_X_ONLY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2297,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_PARK"
+      ],
+      "examples": [
+        "// X axis only move"
+      ]
+    },
+    "toolchangeParkYOnly": {
+      "mapsFrom": [
+        "TOOLCHANGE_PARK_Y_ONLY"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2298,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MULTI_EXTRUDER",
+        "TOOLCHANGE_PARK"
+      ],
+      "examples": [
+        "// Y axis only move"
+      ]
+    },
+    "pauseParkRetractLength": {
+      "mapsFrom": [
+        "PAUSE_PARK_RETRACT_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2316,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "filamentChangeUnloadAccel": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_UNLOAD_ACCEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2319,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "25"
+      ]
+    },
+    "filamentChangeUnloadLength": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_UNLOAD_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2320,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "filamentChangeSlowLoadLength": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_SLOW_LOAD_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2325,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "filamentChangeFastLoadAccel": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_FAST_LOAD_ACCEL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2328,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "25"
+      ]
+    },
+    "filamentChangeFastLoadLength": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_FAST_LOAD_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2329,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "filamentUnloadPurgeRetract": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_PURGE_RETRACT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2342,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "13"
+      ],
+      "notes": "Filament Unload does a Retract, Delay, and Purge first:"
+    },
+    "filamentUnloadPurgeDelay": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_PURGE_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2343,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "5000"
+      ]
+    },
+    "filamentUnloadPurgeLength": {
+      "mapsFrom": [
+        "FILAMENT_UNLOAD_PURGE_LENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2344,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "8"
+      ]
+    },
+    "pauseParkNozzleTimeout": {
+      "mapsFrom": [
+        "PAUSE_PARK_NOZZLE_TIMEOUT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2347,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "45"
+      ]
+    },
+    "filamentChangeAlertBeeps": {
+      "mapsFrom": [
+        "FILAMENT_CHANGE_ALERT_BEEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2348,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "pauseParkNoStepperTimeout": {
+      "mapsFrom": [
+        "PAUSE_PARK_NO_STEPPER_TIMEOUT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2349,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Enable for XYZ steppers to stay powered on during filament change."
+      ]
+    },
+    "parkHeadOnPause": {
+      "mapsFrom": [
+        "PARK_HEAD_ON_PAUSE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2351,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Park the nozzle during pause and filament change."
+      ]
+    },
+    "filamentLoadUnloadGcodes": {
+      "mapsFrom": [
+        "FILAMENT_LOAD_UNLOAD_GCODES"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2354,
+      "isConditional": true,
+      "conditionalOn": [
+        "ADVANCED_PAUSE_FEATURE"
+      ],
+      "examples": [
+        "// Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu."
+      ]
+    },
+    "xMaxCurrent": {
+      "mapsFrom": [
+        "X_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2369,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_DRIVER_TYPE_X",
+        "HAS_DRIVER",
+        "TMC26X"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "xSenseResistor": {
+      "mapsFrom": [
+        "X_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2370,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_DRIVER_TYPE_X",
+        "HAS_DRIVER",
+        "TMC26X"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "xMicrosteps": {
+      "mapsFrom": [
+        "X_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2885,
+      "isConditional": true,
+      "conditionalOn": [
+        "X",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "128"
+      ]
+    },
+    "x2MaxCurrent": {
+      "mapsFrom": [
+        "X2_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2375,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_X2"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "x2SenseResistor": {
+      "mapsFrom": [
+        "X2_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2376,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_X2"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "x2Microsteps": {
+      "mapsFrom": [
+        "X2_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2899,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_IS_L64XX",
+        "X2",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "X_MICROSTEPS"
+      ]
+    },
+    "yMaxCurrent": {
+      "mapsFrom": [
+        "Y_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2381,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_Y"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "ySenseResistor": {
+      "mapsFrom": [
+        "Y_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2382,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_Y"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "yMicrosteps": {
+      "mapsFrom": [
+        "Y_MICROSTEPS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2908,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "128"
+      ]
+    },
+    "y2MaxCurrent": {
+      "mapsFrom": [
+        "Y2_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2387,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_DRIVER_TYPE_Y2",
+        "HAS_DRIVER",
+        "TMC26X"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "y2SenseResistor": {
+      "mapsFrom": [
+        "Y2_SENSE_RESISTOR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2388,
+      "isConditional": true,
+      "conditionalOn": [
+        "AXIS_DRIVER_TYPE_Y2",
+        "HAS_DRIVER",
+        "TMC26X"
+      ],
+      "examples": [
+        "91"
+      ]
+    },
+    "y2Microsteps": {
+      "mapsFrom": [
+        "Y2_MICROSTEPS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2917,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y2",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "Y_MICROSTEPS"
+      ]
+    },
+    "zMaxCurrent": {
+      "mapsFrom": [
+        "Z_MAX_CURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2393,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DRIVER",
+        "TMC26X",
+        "AXIS_DRIVER_TYPE_Z"
+      ],
+      "examples": [
+        "1000"
+      ]
+    }
+  }
+}

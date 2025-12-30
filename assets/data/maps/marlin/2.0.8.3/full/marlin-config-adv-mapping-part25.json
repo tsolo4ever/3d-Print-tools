@@ -1,0 +1,534 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_26": {
+    "photoPosition": {
+      "mapsFrom": [
+        "PHOTO_POSITION"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3109,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "{ X_MAX_POS - 5, Y_MAX_POS, 0 }"
+      ],
+      "notes": "A position to move to (and raise Z) before taking the photo"
+    },
+    "photoDelayMs": {
+      "mapsFrom": [
+        "PHOTO_DELAY_MS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3110,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "photoRetractMm": {
+      "mapsFrom": [
+        "PHOTO_RETRACT_MM"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3111,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "6.5"
+      ]
+    },
+    "photographPin": {
+      "mapsFrom": [
+        "PHOTOGRAPH_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3115,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "23"
+      ],
+      "notes": "Canon RC-1 or homebrew digital camera trigger Data from: https://www.doc-diy.net/photo/rc-1_hacked/"
+    },
+    "chdkPin": {
+      "mapsFrom": [
+        "CHDK_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3119,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "4"
+      ],
+      "notes": "Canon Hack Development Kit https://captain-slow.dk/2014/03/09/3d-printing-timelapses/"
+    },
+    "photoSwitchPosition": {
+      "mapsFrom": [
+        "PHOTO_SWITCH_POSITION"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3122,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "{ X_MAX_POS, Y_MAX_POS }"
+      ],
+      "notes": "Optional second move with delay to trigger the camera shutter"
+    },
+    "photoSwitchMs": {
+      "mapsFrom": [
+        "PHOTO_SWITCH_MS"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3125,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "50"
+      ],
+      "notes": "Duration to hold the switch or keep CHDK_PIN high"
+    },
+    "photoPulsesUs": {
+      "mapsFrom": [
+        "PHOTO_PULSES_US"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3136,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE"
+      ],
+      "examples": [
+        "{ 2000, 27850, 400, 1580, 400, 3580, 400 }"
+      ]
+    },
+    "photoPulseDelayUs": {
+      "mapsFrom": [
+        "PHOTO_PULSE_DELAY_US"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3138,
+      "isConditional": true,
+      "conditionalOn": [
+        "PHOTO_GCODE",
+        "PHOTO_PULSES_US"
+      ],
+      "examples": [
+        "13"
+      ]
+    },
+    "spindleFeature": {
+      "mapsFrom": [
+        "SPINDLE_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3157
+    },
+    "laserFeature": {
+      "mapsFrom": [
+        "LASER_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3158
+    },
+    "spindleLaserActiveState": {
+      "mapsFrom": [
+        "SPINDLE_LASER_ACTIVE_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3160,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "spindleLaserPwm": {
+      "mapsFrom": [
+        "SPINDLE_LASER_PWM"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3161,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "spindleLaserPwmInvert": {
+      "mapsFrom": [
+        "SPINDLE_LASER_PWM_INVERT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3162,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "spindleLaserFrequency": {
+      "mapsFrom": [
+        "SPINDLE_LASER_FREQUENCY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3164,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "2500"
+      ]
+    },
+    "airEvacuation": {
+      "mapsFrom": [
+        "AIR_EVACUATION"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3166,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "// Cutter Vacuum / Laser Blower motor control with G-codes M10-M11"
+      ]
+    },
+    "airEvacuationActive": {
+      "mapsFrom": [
+        "AIR_EVACUATION_ACTIVE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3168,
+      "isConditional": true,
+      "conditionalOn": [
+        "AIR_EVACUATION",
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "airEvacuationPin": {
+      "mapsFrom": [
+        "AIR_EVACUATION_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3169,
+      "isConditional": true,
+      "conditionalOn": [
+        "AIR_EVACUATION",
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "42"
+      ]
+    },
+    "airAssist": {
+      "mapsFrom": [
+        "AIR_ASSIST"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3172,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "// Air Assist control with G-codes M8-M9"
+      ]
+    },
+    "airAssistActive": {
+      "mapsFrom": [
+        "AIR_ASSIST_ACTIVE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3174,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "AIR_ASSIST",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "airAssistPin": {
+      "mapsFrom": [
+        "AIR_ASSIST_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3175,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "AIR_ASSIST",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "44"
+      ]
+    },
+    "spindleServo": {
+      "mapsFrom": [
+        "SPINDLE_SERVO"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3178,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "// A servo converting an angle to spindle power"
+      ]
+    },
+    "spindleServoNr": {
+      "mapsFrom": [
+        "SPINDLE_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3180,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_SERVO",
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "spindleServoMin": {
+      "mapsFrom": [
+        "SPINDLE_SERVO_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3181,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_SERVO",
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "cutterPowerUnit": {
+      "mapsFrom": [
+        "CUTTER_POWER_UNIT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3191,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "PWM255"
+      ]
+    },
+    "cutterPowerRelative": {
+      "mapsFrom": [
+        "CUTTER_POWER_RELATIVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3201,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "// Set speed proportional to [SPEED_POWER_MIN...SPEED_POWER_MAX]"
+      ]
+    },
+    "spindleChangeDir": {
+      "mapsFrom": [
+        "SPINDLE_CHANGE_DIR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3204,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "// Enable if your spindle controller can change spindle direction"
+      ]
+    },
+    "spindleChangeDirStop": {
+      "mapsFrom": [
+        "SPINDLE_CHANGE_DIR_STOP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3205,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "// Enable if the spindle should stop before changing spin direction"
+      ]
+    },
+    "spindleInvertDir": {
+      "mapsFrom": [
+        "SPINDLE_INVERT_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3206,
+      "isConditional": true,
+      "conditionalOn": [
+        "LASER_FEATURE",
+        "EITHER",
+        "SPINDLE_FEATURE"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "spindleLaserPowerupDelay": {
+      "mapsFrom": [
+        "SPINDLE_LASER_POWERUP_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3306,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE",
+        "EITHER"
+      ],
+      "conditionalOnNot": [
+        "LASER_POWER_INLINE",
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "else block"
+      ],
+      "examples": [
+        "50"
+      ]
+    }
+  }
+}

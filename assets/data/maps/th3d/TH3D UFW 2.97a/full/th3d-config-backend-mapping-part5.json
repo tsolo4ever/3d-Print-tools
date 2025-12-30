@@ -1,0 +1,584 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_backend.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_backend.h",
+  "totalDefines": 205,
+  "hardware": {
+    "tempSensorRedundantMaxDiff": {
+      "mapsFrom": [
+        "TEMP_SENSOR_REDUNDANT_MAX_DIFF"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 347,
+      "examples": [
+        "10"
+      ]
+    },
+    "heater0Mintemp": {
+      "mapsFrom": [
+        "HEATER_0_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 352,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "TEMP_SENSOR_0"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "heater1Mintemp": {
+      "mapsFrom": [
+        "HEATER_1_MINTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 354,
+      "examples": [
+        "HEATER_0_MINTEMP"
+      ]
+    },
+    "heater2Mintemp": {
+      "mapsFrom": [
+        "HEATER_2_MINTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 355,
+      "examples": [
+        "HEATER_0_MINTEMP"
+      ]
+    },
+    "heater3Mintemp": {
+      "mapsFrom": [
+        "HEATER_3_MINTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 356,
+      "examples": [
+        "HEATER_0_MINTEMP"
+      ]
+    },
+    "heater4Mintemp": {
+      "mapsFrom": [
+        "HEATER_4_MINTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 357,
+      "examples": [
+        "HEATER_0_MINTEMP"
+      ]
+    },
+    "heater5Mintemp": {
+      "mapsFrom": [
+        "HEATER_5_MINTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 358,
+      "examples": [
+        "HEATER_0_MINTEMP"
+      ]
+    },
+    "heater6Mintemp": {
+      "mapsFrom": [
+        "HEATER_6_MINTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 359,
+      "examples": [
+        "HEATER_0_MINTEMP"
+      ]
+    },
+    "heater7Mintemp": {
+      "mapsFrom": [
+        "HEATER_7_MINTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 360,
+      "examples": [
+        "HEATER_0_MINTEMP"
+      ]
+    },
+    "heater0Maxtemp": {
+      "mapsFrom": [
+        "HEATER_0_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 381,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "HIGH_TEMP_THERMISTOR",
+        "HIGH_TEMP_THERMISTOR_E1"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "290"
+      ]
+    },
+    "heater1Maxtemp": {
+      "mapsFrom": [
+        "HEATER_1_MAXTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 382,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "HIGH_TEMP_THERMISTOR",
+        "HIGH_TEMP_THERMISTOR_E1"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "HEATER_0_MAXTEMP"
+      ]
+    },
+    "heater2Maxtemp": {
+      "mapsFrom": [
+        "HEATER_2_MAXTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 383,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "HIGH_TEMP_THERMISTOR",
+        "HIGH_TEMP_THERMISTOR_E1"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "HEATER_0_MAXTEMP"
+      ]
+    },
+    "heater3Maxtemp": {
+      "mapsFrom": [
+        "HEATER_3_MAXTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 384,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "HIGH_TEMP_THERMISTOR",
+        "HIGH_TEMP_THERMISTOR_E1"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "HEATER_0_MAXTEMP"
+      ]
+    },
+    "heater4Maxtemp": {
+      "mapsFrom": [
+        "HEATER_4_MAXTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 385,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "HIGH_TEMP_THERMISTOR",
+        "HIGH_TEMP_THERMISTOR_E1"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "HEATER_0_MAXTEMP"
+      ]
+    },
+    "heater5Maxtemp": {
+      "mapsFrom": [
+        "HEATER_5_MAXTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 386,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "HIGH_TEMP_THERMISTOR",
+        "HIGH_TEMP_THERMISTOR_E1"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "HEATER_0_MAXTEMP"
+      ]
+    },
+    "heater6Maxtemp": {
+      "mapsFrom": [
+        "HEATER_6_MAXTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 387,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "HIGH_TEMP_THERMISTOR",
+        "HIGH_TEMP_THERMISTOR_E1"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "HEATER_0_MAXTEMP"
+      ]
+    },
+    "heater7Maxtemp": {
+      "mapsFrom": [
+        "HEATER_7_MAXTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 388,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "HIGH_TEMP_THERMISTOR",
+        "HIGH_TEMP_THERMISTOR_E1"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "HEATER_0_MAXTEMP"
+      ]
+    },
+    "lcdLanguage": {
+      "mapsFrom": [
+        "LCD_LANGUAGE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 622,
+      "examples": [
+        "en"
+      ]
+    },
+    "displayCharsetHd44780": {
+      "mapsFrom": [
+        "DISPLAY_CHARSET_HD44780"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 623,
+      "examples": [
+        "JAPANESE"
+      ]
+    },
+    "lcdInfoScreenStyle": {
+      "mapsFrom": [
+        "LCD_INFO_SCREEN_STYLE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 624,
+      "examples": [
+        "0"
+      ]
+    },
+    "lcdFeedbackFrequencyDurationMs": {
+      "mapsFrom": [
+        "LCD_FEEDBACK_FREQUENCY_DURATION_MS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 640,
+      "examples": [
+        "40"
+      ]
+    },
+    "lcdFeedbackFrequencyHz": {
+      "mapsFrom": [
+        "LCD_FEEDBACK_FREQUENCY_HZ"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 641,
+      "examples": [
+        "2000"
+      ]
+    },
+    "lcdBedTramming": {
+      "mapsFrom": [
+        "LCD_BED_TRAMMING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 650,
+      "isConditional": true,
+      "conditionalOn": [
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_CREALITY_LCD"
+      ]
+    },
+    "lcdBedLeveling": {
+      "mapsFrom": [
+        "LCD_BED_LEVELING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 686,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ]
+    },
+    "lcdProbeZRange": {
+      "mapsFrom": [
+        "LCD_PROBE_Z_RANGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 690,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "4"
+      ]
+    }
+  },
+  "basic": {
+    "stringConfigHAuthor": {
+      "mapsFrom": [
+        "STRING_CONFIG_H_AUTHOR"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 460,
+      "examples": [
+        "\"TH3D Studio\""
+      ]
+    },
+    "customMachineName": {
+      "mapsFrom": [
+        "CUSTOM_MACHINE_NAME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 479,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "CUSTOM_PRINTER_NAME",
+        "CR10S_PRO_STOCK_ABL",
+        "CR10S_PRO"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "else block"
+      ],
+      "examples": [
+        "SHORT_BUILD_VERSION"
+      ]
+    },
+    "nominalFilamentDia": {
+      "mapsFrom": [
+        "DEFAULT_NOMINAL_FILAMENT_DIA"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 483,
+      "examples": [
+        "1.75"
+      ]
+    },
+    "disableOtherExtruders": {
+      "mapsFrom": [
+        "DISABLE_OTHER_EXTRUDERS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 604
+    },
+    "showBootscreen": {
+      "mapsFrom": [
+        "SHOW_BOOTSCREEN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 627,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_COLOR_UI",
+        "DWIN_MARLINUI_PORTRAIT",
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "DWIN_MARLINUI_LANDSCAPE",
+        "DWIN_CREALITY_LCD",
+        "LCD2004"
+      ]
+    },
+    "showCustomBootscreen": {
+      "mapsFrom": [
+        "SHOW_CUSTOM_BOOTSCREEN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 628,
+      "isConditional": true,
+      "conditionalOn": [
+        "TFT_COLOR_UI",
+        "DWIN_MARLINUI_PORTRAIT",
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "DWIN_MARLINUI_LANDSCAPE",
+        "DWIN_CREALITY_LCD",
+        "LCD2004"
+      ]
+    }
+  },
+  "features": {
+    "sdsupport": {
+      "mapsFrom": [
+        "SDSUPPORT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 512,
+      "isConditional": true,
+      "conditionalOn": [
+        "NO_SDCARD"
+      ]
+    },
+    "eepromSettings": {
+      "mapsFrom": [
+        "EEPROM_SETTINGS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 556
+    },
+    "eepromChitchat": {
+      "mapsFrom": [
+        "EEPROM_CHITCHAT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 557
+    },
+    "eepromBootSilent": {
+      "mapsFrom": [
+        "EEPROM_BOOT_SILENT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 558
+    },
+    "eepromAutoInit": {
+      "mapsFrom": [
+        "EEPROM_AUTO_INIT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 559
+    },
+    "eepromInitNow": {
+      "mapsFrom": [
+        "EEPROM_INIT_NOW"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 560
+    },
+    "nozzleParkFeature": {
+      "mapsFrom": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 593
+    },
+    "nozzleParkPoint": {
+      "mapsFrom": [
+        "NOZZLE_PARK_POINT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 595,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_PARK_FEATURE"
+      ],
+      "examples": [
+        "{ 10, 10, 10 }"
+      ]
+    }
+  },
+  "advanced": {
+    "filamentRunoutThreshold": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 612,
+      "examples": [
+        "100"
+      ]
+    }
+  }
+}

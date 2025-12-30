@@ -1,0 +1,453 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_6": {
+    "zLateEnable": {
+      "mapsFrom": [
+        "Z_LATE_ENABLE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 834,
+      "examples": [
+        "// Enable Z the last moment. Needed if your Z driver overheats."
+      ],
+      "notes": "@section extras"
+    },
+    "closedLoopEnablePin": {
+      "mapsFrom": [
+        "CLOSED_LOOP_ENABLE_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 839,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXTERNAL_CLOSED_LOOP_CONTROLLER"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "closedLoopMoveCompletePin": {
+      "mapsFrom": [
+        "CLOSED_LOOP_MOVE_COMPLETE_PIN"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 840,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXTERNAL_CLOSED_LOOP_CONTROLLER"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "dualXCarriage": {
+      "mapsFrom": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 873
+    },
+    "dualXCarriageMode": {
+      "mapsFrom": [
+        "DEFAULT_DUAL_X_CARRIAGE_MODE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 885,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "DXC_AUTO_PARK_MODE"
+      ],
+      "notes": "NOTE: For Dual X Carriage use M218 T1 Xn to override the X2_HOME_POS. This allows recalibration of endstops distance without a rebuild. Remember to set the second extruder's X-offset to 0 in your slicer. This is the default power-up mode which can be changed later using M605 S<mode>."
+    },
+    "duplicationXOffset": {
+      "mapsFrom": [
+        "DEFAULT_DUPLICATION_X_OFFSET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 888,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "100"
+      ],
+      "notes": "Default x offset in duplication mode (typically set to half print bed width)"
+    },
+    "eventGcodeIdexAfterModechange": {
+      "mapsFrom": [
+        "EVENT_GCODE_IDEX_AFTER_MODECHANGE"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 891,
+      "isConditional": true,
+      "conditionalOn": [
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "\"G28X\""
+      ],
+      "notes": "Default action to execute following M605 mode change commands. Typically G28X to apply new mode."
+    },
+    "invertX2VsXDir": {
+      "mapsFrom": [
+        "INVERT_X2_VS_X_DIR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 917,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_X2_STEPPER",
+        "DUAL_X_CARRIAGE"
+      ],
+      "examples": [
+        "// X2 direction signal is the opposite of X"
+      ]
+    },
+    "invertY2VsYDir": {
+      "mapsFrom": [
+        "INVERT_Y2_VS_Y_DIR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 926,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_DUAL_Y_STEPPERS"
+      ],
+      "examples": [
+        "// Y2 direction signal is the opposite of Y"
+      ]
+    },
+    "invertZ2VsZDir": {
+      "mapsFrom": [
+        "INVERT_Z2_VS_Z_DIR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 938,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z2_DRIVER_TYPE"
+      ],
+      "examples": [
+        "// Z2 direction signal is the opposite of Z"
+      ]
+    },
+    "invertZ3VsZDir": {
+      "mapsFrom": [
+        "INVERT_Z3_VS_Z_DIR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 946,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z2_DRIVER_TYPE",
+        "Z3_DRIVER_TYPE"
+      ],
+      "examples": [
+        "// Z3 direction signal is the opposite of Z"
+      ]
+    },
+    "invertZ4VsZDir": {
+      "mapsFrom": [
+        "INVERT_Z4_VS_Z_DIR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 953,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z2_DRIVER_TYPE",
+        "Z4_DRIVER_TYPE"
+      ],
+      "examples": [
+        "// Z4 direction signal is the opposite of Z"
+      ]
+    },
+    "eDualStepperDrivers": {
+      "mapsFrom": [
+        "E_DUAL_STEPPER_DRIVERS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 962,
+      "notes": "Drive the E axis with two synchronized steppers"
+    },
+    "invertE1VsE0Dir": {
+      "mapsFrom": [
+        "INVERT_E1_VS_E0_DIR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 964,
+      "isConditional": true,
+      "conditionalOn": [
+        "E_DUAL_STEPPER_DRIVERS"
+      ],
+      "examples": [
+        "// E direction signals are opposites"
+      ]
+    },
+    "extSolenoid": {
+      "mapsFrom": [
+        "EXT_SOLENOID"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 971,
+      "notes": "@section extruder Activate a solenoid on the active extruder with M380. Disable all with M381. Define SOL0_PIN, SOL1_PIN, etc., for each extruder that has a solenoid."
+    },
+    "sensorlessBackoffMm": {
+      "mapsFrom": [
+        "SENSORLESS_BACKOFF_MM"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 981,
+      "examples": [
+        "{ 2, 2, 0 }"
+      ]
+    },
+    "homingBumpMm": {
+      "mapsFrom": [
+        "HOMING_BUMP_MM"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 983,
+      "examples": [
+        "{ 5, 5, 2 }"
+      ]
+    },
+    "homingBumpDivisor": {
+      "mapsFrom": [
+        "HOMING_BUMP_DIVISOR"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 984,
+      "examples": [
+        "{ 2, 2, 4 }"
+      ]
+    },
+    "homingBackoffPostMm": {
+      "mapsFrom": [
+        "HOMING_BACKOFF_POST_MM"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 986,
+      "examples": [
+        "{ 2, 2, 2 }"
+      ]
+    },
+    "xyCounterpartBackoffMm": {
+      "mapsFrom": [
+        "XY_COUNTERPART_BACKOFF_MM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 987,
+      "examples": [
+        "0"
+      ]
+    },
+    "quickHome": {
+      "mapsFrom": [
+        "QUICK_HOME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 989,
+      "examples": [
+        "// If G28 contains XY do a diagonal move first"
+      ]
+    },
+    "codependentXyHoming": {
+      "mapsFrom": [
+        "CODEPENDENT_XY_HOMING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 992,
+      "examples": [
+        "// If X/Y can't home without homing Y/X first"
+      ]
+    },
+    "zStepperAutoAlign": {
+      "mapsFrom": [
+        "Z_STEPPER_AUTO_ALIGN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1074,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "CHIRON",
+        "MKS_MONSTER_8_V2_DUALZ_MOTORS"
+      ]
+    },
+    "zStepperAlignXy": {
+      "mapsFrom": [
+        "Z_STEPPER_ALIGN_XY"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1084,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_STEPPER_AUTO_ALIGN"
+      ],
+      "examples": [
+        "{ {  10, 190 }, { 100,  10 }, { 190, 190 } }"
+      ]
+    },
+    "zSteppersOrientation": {
+      "mapsFrom": [
+        "Z_STEPPERS_ORIENTATION"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1106,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_STEPPER_AUTO_ALIGN"
+      ],
+      "conditionalOnNot": [
+        "Z_STEPPER_ALIGN_XY"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "zStepperAlignStepperXy": {
+      "mapsFrom": [
+        "Z_STEPPER_ALIGN_STEPPER_XY"
+      ],
+      "type": "array",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1117,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_STEPPER_AUTO_ALIGN"
+      ],
+      "examples": [
+        "{ { 210.7, 102.5 }, { 152.6, 220.0 }, { 94.5, 102.5 } }"
+      ]
+    },
+    "zStepperAlignAmp": {
+      "mapsFrom": [
+        "Z_STEPPER_ALIGN_AMP"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1122,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_STEPPER_AUTO_ALIGN"
+      ],
+      "conditionalOnNot": [
+        "Z_STEPPER_ALIGN_STEPPER_XY"
+      ],
+      "examples": [
+        "1.0"
+      ],
+      "notes": "Amplification factor. Used to scale the correction step up or down in case the stepper (spindle) position is farther out than the test point."
+    },
+    "g34MaxGrade": {
+      "mapsFrom": [
+        "G34_MAX_GRADE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1126,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_STEPPER_AUTO_ALIGN"
+      ],
+      "examples": [
+        "5"
+      ],
+      "notes": "On a 300mm bed a 5% grade would give a misalignment of ~1.5cm"
+    },
+    "zStepperAlignIterations": {
+      "mapsFrom": [
+        "Z_STEPPER_ALIGN_ITERATIONS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1127,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_STEPPER_AUTO_ALIGN"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "zStepperAlignAcc": {
+      "mapsFrom": [
+        "Z_STEPPER_ALIGN_ACC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1128,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_STEPPER_AUTO_ALIGN"
+      ],
+      "examples": [
+        "0.02"
+      ]
+    }
+  }
+}

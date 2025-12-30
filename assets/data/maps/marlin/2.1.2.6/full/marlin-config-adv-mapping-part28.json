@@ -1,0 +1,657 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "other_30": {
+    "spindleServo": {
+      "mapsFrom": [
+        "SPINDLE_SERVO"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3359,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "// A servo converting an angle to spindle power"
+      ]
+    },
+    "spindleServoNr": {
+      "mapsFrom": [
+        "SPINDLE_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3361,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "SPINDLE_SERVO",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "spindleServoMin": {
+      "mapsFrom": [
+        "SPINDLE_SERVO_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3362,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "SPINDLE_SERVO",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "cutterPowerUnit": {
+      "mapsFrom": [
+        "CUTTER_POWER_UNIT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3372,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "PWM255"
+      ]
+    },
+    "cutterPowerRelative": {
+      "mapsFrom": [
+        "CUTTER_POWER_RELATIVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3382,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "// Set speed proportional to [SPEED_POWER_MIN...SPEED_POWER_MAX]"
+      ]
+    },
+    "spindleChangeDir": {
+      "mapsFrom": [
+        "SPINDLE_CHANGE_DIR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3385,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "// Enable if your spindle controller can change spindle direction"
+      ]
+    },
+    "spindleChangeDirStop": {
+      "mapsFrom": [
+        "SPINDLE_CHANGE_DIR_STOP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3386,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "// Enable if the spindle should stop before changing spin direction"
+      ]
+    },
+    "spindleInvertDir": {
+      "mapsFrom": [
+        "SPINDLE_INVERT_DIR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3387,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "spindleLaserPowerupDelay": {
+      "mapsFrom": [
+        "SPINDLE_LASER_POWERUP_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3421,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "spindleLaserPowerdownDelay": {
+      "mapsFrom": [
+        "SPINDLE_LASER_POWERDOWN_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3422,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "speedPowerIntercept": {
+      "mapsFrom": [
+        "SPEED_POWER_INTERCEPT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3411,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_LASER_USE_PWM",
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "speedPowerMin": {
+      "mapsFrom": [
+        "SPEED_POWER_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3412,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_LASER_USE_PWM",
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "speedPowerMax": {
+      "mapsFrom": [
+        "SPEED_POWER_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3413,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_LASER_USE_PWM",
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "100"
+      ]
+    },
+    "speedPowerStartup": {
+      "mapsFrom": [
+        "SPEED_POWER_STARTUP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3414,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_LASER_USE_PWM",
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "80"
+      ]
+    },
+    "laserTestPulseMin": {
+      "mapsFrom": [
+        "LASER_TEST_PULSE_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3418,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "1"
+      ],
+      "notes": "Define the minimum and maximum test pulse time values for a laser test fire function"
+    },
+    "laserTestPulseMax": {
+      "mapsFrom": [
+        "LASER_TEST_PULSE_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3419,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "999"
+      ]
+    },
+    "laserSafetyTimeoutMs": {
+      "mapsFrom": [
+        "LASER_SAFETY_TIMEOUT_MS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3432,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "laserPowerSync": {
+      "mapsFrom": [
+        "LASER_POWER_SYNC"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3457,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ]
+    },
+    "laserPowerTrap": {
+      "mapsFrom": [
+        "LASER_POWER_TRAP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3466,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ]
+    },
+    "i2cAmmeter": {
+      "mapsFrom": [
+        "I2C_AMMETER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3471,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "notes": " Laser I2C Ammeter (High precision INA226 low/high side module) "
+    },
+    "i2cAmmeterImax": {
+      "mapsFrom": [
+        "I2C_AMMETER_IMAX"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3473,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_AMMETER",
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0.1"
+      ]
+    },
+    "i2cAmmeterShuntResistor": {
+      "mapsFrom": [
+        "I2C_AMMETER_SHUNT_RESISTOR"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3474,
+      "isConditional": true,
+      "conditionalOn": [
+        "I2C_AMMETER",
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0.1"
+      ]
+    },
+    "laserCoolantFlowMeter": {
+      "mapsFrom": [
+        "LASER_COOLANT_FLOW_METER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3480,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "notes": " Laser Coolant Flow Meter "
+    },
+    "flowmeterPin": {
+      "mapsFrom": [
+        "FLOWMETER_PIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3482,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "LASER_COOLANT_FLOW_METER",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "flowmeterPpl": {
+      "mapsFrom": [
+        "FLOWMETER_PPL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3483,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "LASER_COOLANT_FLOW_METER",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "5880"
+      ]
+    },
+    "flowmeterInterval": {
+      "mapsFrom": [
+        "FLOWMETER_INTERVAL"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3484,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "LASER_COOLANT_FLOW_METER",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "1000"
+      ]
+    },
+    "flowmeterSafety": {
+      "mapsFrom": [
+        "FLOWMETER_SAFETY"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3485,
+      "isConditional": true,
+      "conditionalOn": [
+        "SPINDLE_FEATURE",
+        "LASER_COOLANT_FLOW_METER",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Prevent running the laser without the minimum flow rate set below"
+      ]
+    },
+    "flowmeterMinLitersPerMinute": {
+      "mapsFrom": [
+        "FLOWMETER_MIN_LITERS_PER_MINUTE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3487,
+      "isConditional": true,
+      "conditionalOn": [
+        "FLOWMETER_SAFETY",
+        "SPINDLE_FEATURE",
+        "LASER_COOLANT_FLOW_METER",
+        "EITHER",
+        "LASER_FEATURE"
+      ],
+      "conditionalOnNot": [
+        "SPINDLE_FEATURE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "1.5"
+      ]
+    },
+    "laserSynchronousM106M107": {
+      "mapsFrom": [
+        "LASER_SYNCHRONOUS_M106_M107"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3504
+    },
+    "coolantControl": {
+      "mapsFrom": [
+        "COOLANT_CONTROL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3513
+    }
+  }
+}

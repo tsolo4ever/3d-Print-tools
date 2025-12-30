@@ -1,0 +1,751 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "temperature_2": {
+    "bedKd": {
+      "mapsFrom": [
+        "DEFAULT_BED_KD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 780,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "305.4"
+      ]
+    },
+    "bedLimitSwitching": {
+      "mapsFrom": [
+        "BED_LIMIT_SWITCHING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 784,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "PIDTEMPBED"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Keep the bed temperature within BED_HYSTERESIS of the target"
+      ]
+    },
+    "pidtempchamber": {
+      "mapsFrom": [
+        "PIDTEMPCHAMBER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 806
+    },
+    "pidChamberDebug": {
+      "mapsFrom": [
+        "PID_CHAMBER_DEBUG"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 819,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "// Print Chamber PID debug data to the serial port."
+      ]
+    },
+    "pidOpenloop": {
+      "mapsFrom": [
+        "PID_OPENLOOP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 835,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PIDTEMPBED",
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "// Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX"
+      ]
+    },
+    "slowPwmHeaters": {
+      "mapsFrom": [
+        "SLOW_PWM_HEATERS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 836,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PIDTEMPBED",
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "// PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay"
+      ]
+    },
+    "pidFunctionalRange": {
+      "mapsFrom": [
+        "PID_FUNCTIONAL_RANGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 837,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PIDTEMPBED",
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "pidEditMenu": {
+      "mapsFrom": [
+        "PID_EDIT_MENU"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 840,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PIDTEMPBED",
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "// Add PID editing to the \"Advanced Settings\" menu. (~700 bytes of flash)"
+      ],
+      "notes": "is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max."
+    },
+    "pidAutotuneMenu": {
+      "mapsFrom": [
+        "PID_AUTOTUNE_MENU"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 841,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PIDTEMPBED",
+        "PIDTEMPCHAMBER"
+      ],
+      "examples": [
+        "// Add PID auto-tuning to the \"Advanced Settings\" menu. (~250 bytes of flash)"
+      ]
+    },
+    "extrudeMintemp": {
+      "mapsFrom": [
+        "EXTRUDE_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 854,
+      "examples": [
+        "170"
+      ]
+    },
+    "thermalProtectionHotends": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_HOTENDS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 880,
+      "examples": [
+        "// Enable thermal protection for all extruders"
+      ]
+    },
+    "thermalProtectionBed": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_BED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 881,
+      "examples": [
+        "// Enable thermal protection for the heated bed"
+      ]
+    },
+    "thermalProtectionChamber": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_CHAMBER"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 882,
+      "examples": [
+        "// Enable thermal protection for the heated chamber"
+      ]
+    },
+    "thermalProtectionCooler": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_COOLER"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 883,
+      "examples": [
+        "// Enable thermal protection for the laser cooling"
+      ]
+    },
+    "probingHeatersOff": {
+      "mapsFrom": [
+        "PROBING_HEATERS_OFF"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1618,
+      "examples": [
+        "// Turn heaters off when probing"
+      ]
+    },
+    "waitForBedHeater": {
+      "mapsFrom": [
+        "WAIT_FOR_BED_HEATER"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1620,
+      "isConditional": true,
+      "conditionalOn": [
+        "PROBING_HEATERS_OFF"
+      ],
+      "examples": [
+        "// Wait for bed to heat back up between probes (to improve accuracy)"
+      ]
+    },
+    "preheatBeforeProbing": {
+      "mapsFrom": [
+        "PREHEAT_BEFORE_PROBING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1629,
+      "notes": "Require minimum nozzle and/or bed temperature for probing"
+    },
+    "probingNozzleTemp": {
+      "mapsFrom": [
+        "PROBING_NOZZLE_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1631,
+      "isConditional": true,
+      "conditionalOn": [
+        "PREHEAT_BEFORE_PROBING"
+      ],
+      "examples": [
+        "120"
+      ]
+    },
+    "probingBedTemp": {
+      "mapsFrom": [
+        "PROBING_BED_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1632,
+      "isConditional": true,
+      "conditionalOn": [
+        "PREHEAT_BEFORE_PROBING"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "xBedSize": {
+      "mapsFrom": [
+        "X_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1727,
+      "examples": [
+        "200"
+      ],
+      "notes": "@section geometry The size of the printable area"
+    },
+    "yBedSize": {
+      "mapsFrom": [
+        "Y_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1728,
+      "examples": [
+        "200"
+      ]
+    },
+    "autoBedLeveling3point": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_3POINT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1906
+    },
+    "autoBedLevelingLinear": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_LINEAR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1907
+    },
+    "autoBedLevelingBilinear": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1908
+    },
+    "autoBedLevelingUbl": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1909
+    },
+    "meshBedLeveling": {
+      "mapsFrom": [
+        "MESH_BED_LEVELING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1910
+    },
+    "preheatBeforeLeveling": {
+      "mapsFrom": [
+        "PREHEAT_BEFORE_LEVELING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1929
+    },
+    "levelingNozzleTemp": {
+      "mapsFrom": [
+        "LEVELING_NOZZLE_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1931,
+      "isConditional": true,
+      "conditionalOn": [
+        "PREHEAT_BEFORE_LEVELING"
+      ],
+      "examples": [
+        "120"
+      ]
+    },
+    "levelingBedTemp": {
+      "mapsFrom": [
+        "LEVELING_BED_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1932,
+      "isConditional": true,
+      "conditionalOn": [
+        "PREHEAT_BEFORE_LEVELING"
+      ],
+      "examples": [
+        "50"
+      ]
+    },
+    "meshTestHotendTemp": {
+      "mapsFrom": [
+        "MESH_TEST_HOTEND_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1982,
+      "isConditional": true,
+      "conditionalOn": [
+        "MESH_BED_LEVELING",
+        "G26_MESH_VALIDATION",
+        "AUTO_BED_LEVELING_UBL",
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "examples": [
+        "205"
+      ]
+    }
+  },
+  "temperature_3": {
+    "meshTestBedTemp": {
+      "mapsFrom": [
+        "MESH_TEST_BED_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1983,
+      "isConditional": true,
+      "conditionalOn": [
+        "MESH_BED_LEVELING",
+        "G26_MESH_VALIDATION",
+        "AUTO_BED_LEVELING_UBL",
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "bedTrammingInsetLfrb": {
+      "mapsFrom": [
+        "BED_TRAMMING_INSET_LFRB"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2070,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "{ 30, 30, 30, 30 }"
+      ]
+    },
+    "bedTrammingHeight": {
+      "mapsFrom": [
+        "BED_TRAMMING_HEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2071,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "bedTrammingZHop": {
+      "mapsFrom": [
+        "BED_TRAMMING_Z_HOP"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2072,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "4.0"
+      ]
+    },
+    "bedTrammingIncludeCenter": {
+      "mapsFrom": [
+        "BED_TRAMMING_INCLUDE_CENTER"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2073,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "// Move to the center after the last corner"
+      ]
+    },
+    "bedTrammingUseProbe": {
+      "mapsFrom": [
+        "BED_TRAMMING_USE_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2074,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ]
+    },
+    "bedTrammingProbeTolerance": {
+      "mapsFrom": [
+        "BED_TRAMMING_PROBE_TOLERANCE"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2076,
+      "isConditional": true,
+      "conditionalOn": [
+        "BED_TRAMMING_USE_PROBE",
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "0.1"
+      ]
+    },
+    "bedTrammingVerifyRaised": {
+      "mapsFrom": [
+        "BED_TRAMMING_VERIFY_RAISED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2077,
+      "isConditional": true,
+      "conditionalOn": [
+        "BED_TRAMMING_USE_PROBE",
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "// After adjustment triggers the probe, re-probe to verify"
+      ]
+    },
+    "bedTrammingAudioFeedback": {
+      "mapsFrom": [
+        "BED_TRAMMING_AUDIO_FEEDBACK"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2078,
+      "isConditional": true,
+      "conditionalOn": [
+        "BED_TRAMMING_USE_PROBE",
+        "LCD_BED_TRAMMING"
+      ]
+    },
+    "bedTrammingLevelingOrder": {
+      "mapsFrom": [
+        "BED_TRAMMING_LEVELING_ORDER"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2098,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_TRAMMING"
+      ],
+      "examples": [
+        "{ LF, RF, RB, LB }"
+      ]
+    },
+    "bedCenterAt00": {
+      "mapsFrom": [
+        "BED_CENTER_AT_0_0"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2104,
+      "notes": "@section homing The center of the bed is at (X=0, Y=0)"
+    },
+    "temperatureUnitsSupport": {
+      "mapsFrom": [
+        "TEMPERATURE_UNITS_SUPPORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2242,
+      "notes": " M149 Set temperature units support "
+    },
+    "preheat1Label": {
+      "mapsFrom": [
+        "PREHEAT_1_LABEL"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2249,
+      "examples": [
+        "\"PLA\""
+      ],
+      "notes": "@section temperature  Preheat Constants - Up to 10 are supported without changes "
+    },
+    "preheat1TempHotend": {
+      "mapsFrom": [
+        "PREHEAT_1_TEMP_HOTEND"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2250,
+      "examples": [
+        "180"
+      ]
+    },
+    "preheat1TempBed": {
+      "mapsFrom": [
+        "PREHEAT_1_TEMP_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2251,
+      "examples": [
+        "70"
+      ]
+    },
+    "preheat1TempChamber": {
+      "mapsFrom": [
+        "PREHEAT_1_TEMP_CHAMBER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2252,
+      "examples": [
+        "35"
+      ]
+    },
+    "preheat1FanSpeed": {
+      "mapsFrom": [
+        "PREHEAT_1_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2253,
+      "examples": [
+        "0"
+      ]
+    },
+    "preheat2Label": {
+      "mapsFrom": [
+        "PREHEAT_2_LABEL"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2255,
+      "examples": [
+        "\"ABS\""
+      ]
+    },
+    "preheat2TempHotend": {
+      "mapsFrom": [
+        "PREHEAT_2_TEMP_HOTEND"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2256,
+      "examples": [
+        "240"
+      ]
+    },
+    "preheat2TempBed": {
+      "mapsFrom": [
+        "PREHEAT_2_TEMP_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2257,
+      "examples": [
+        "110"
+      ]
+    },
+    "preheat2TempChamber": {
+      "mapsFrom": [
+        "PREHEAT_2_TEMP_CHAMBER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2258,
+      "examples": [
+        "35"
+      ]
+    },
+    "preheat2FanSpeed": {
+      "mapsFrom": [
+        "PREHEAT_2_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2259,
+      "examples": [
+        "0"
+      ]
+    },
+    "nozzleCleanMinTemp": {
+      "mapsFrom": [
+        "NOZZLE_CLEAN_MIN_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2354,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_CLEAN_FEATURE"
+      ],
+      "examples": [
+        "170"
+      ],
+      "notes": "Require a minimum hotend temperature for cleaning"
+    },
+    "tempStatLeds": {
+      "mapsFrom": [
+        "TEMP_STAT_LEDS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3289,
+      "notes": "@section lights Temperature status LEDs that display the hotend and bed temperature. If all hotends, bed temperature, and target temperature are under 54C then the BLUE led is on. Otherwise the RED led is on. (1C hysteresis)"
+    }
+  }
+}

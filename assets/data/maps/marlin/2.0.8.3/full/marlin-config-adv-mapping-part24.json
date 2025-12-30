@@ -1,0 +1,515 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_25": {
+    "e2Stallcurrent": {
+      "mapsFrom": [
+        "E2_STALLCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2982,
+      "isConditional": true,
+      "conditionalOn": [
+        "E2",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1500"
+      ]
+    },
+    "e2MaxVoltage": {
+      "mapsFrom": [
+        "E2_MAX_VOLTAGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2983,
+      "isConditional": true,
+      "conditionalOn": [
+        "E2",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "127"
+      ]
+    },
+    "e2SlewRate": {
+      "mapsFrom": [
+        "E2_SLEW_RATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2985,
+      "isConditional": true,
+      "conditionalOn": [
+        "E2",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "e3Overcurrent": {
+      "mapsFrom": [
+        "E3_OVERCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2990,
+      "isConditional": true,
+      "conditionalOn": [
+        "E3",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "2000"
+      ]
+    },
+    "e3Stallcurrent": {
+      "mapsFrom": [
+        "E3_STALLCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2991,
+      "isConditional": true,
+      "conditionalOn": [
+        "E3",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1500"
+      ]
+    },
+    "e3MaxVoltage": {
+      "mapsFrom": [
+        "E3_MAX_VOLTAGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2992,
+      "isConditional": true,
+      "conditionalOn": [
+        "E3",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "127"
+      ]
+    },
+    "e3SlewRate": {
+      "mapsFrom": [
+        "E3_SLEW_RATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2994,
+      "isConditional": true,
+      "conditionalOn": [
+        "E3",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "e4Overcurrent": {
+      "mapsFrom": [
+        "E4_OVERCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2999,
+      "isConditional": true,
+      "conditionalOn": [
+        "E4",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "2000"
+      ]
+    },
+    "e4Stallcurrent": {
+      "mapsFrom": [
+        "E4_STALLCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3000,
+      "isConditional": true,
+      "conditionalOn": [
+        "E4",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1500"
+      ]
+    },
+    "e4MaxVoltage": {
+      "mapsFrom": [
+        "E4_MAX_VOLTAGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3001,
+      "isConditional": true,
+      "conditionalOn": [
+        "E4",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "127"
+      ]
+    },
+    "e4SlewRate": {
+      "mapsFrom": [
+        "E4_SLEW_RATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3003,
+      "isConditional": true,
+      "conditionalOn": [
+        "E4",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "e5Overcurrent": {
+      "mapsFrom": [
+        "E5_OVERCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3008,
+      "isConditional": true,
+      "conditionalOn": [
+        "E5",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "2000"
+      ]
+    },
+    "e5Stallcurrent": {
+      "mapsFrom": [
+        "E5_STALLCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3009,
+      "isConditional": true,
+      "conditionalOn": [
+        "E5",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1500"
+      ]
+    },
+    "e5MaxVoltage": {
+      "mapsFrom": [
+        "E5_MAX_VOLTAGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3010,
+      "isConditional": true,
+      "conditionalOn": [
+        "E5",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "127"
+      ]
+    },
+    "e5SlewRate": {
+      "mapsFrom": [
+        "E5_SLEW_RATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3012,
+      "isConditional": true,
+      "conditionalOn": [
+        "E5",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "e6Overcurrent": {
+      "mapsFrom": [
+        "E6_OVERCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3017,
+      "isConditional": true,
+      "conditionalOn": [
+        "E6",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "2000"
+      ]
+    },
+    "e6Stallcurrent": {
+      "mapsFrom": [
+        "E6_STALLCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3018,
+      "isConditional": true,
+      "conditionalOn": [
+        "E6",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1500"
+      ]
+    },
+    "e6MaxVoltage": {
+      "mapsFrom": [
+        "E6_MAX_VOLTAGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3019,
+      "isConditional": true,
+      "conditionalOn": [
+        "E6",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "127"
+      ]
+    },
+    "e6SlewRate": {
+      "mapsFrom": [
+        "E6_SLEW_RATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3021,
+      "isConditional": true,
+      "conditionalOn": [
+        "E6",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "e7Overcurrent": {
+      "mapsFrom": [
+        "E7_OVERCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3026,
+      "isConditional": true,
+      "conditionalOn": [
+        "E7",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "2000"
+      ]
+    },
+    "e7Stallcurrent": {
+      "mapsFrom": [
+        "E7_STALLCURRENT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3027,
+      "isConditional": true,
+      "conditionalOn": [
+        "E7",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1500"
+      ]
+    },
+    "e7MaxVoltage": {
+      "mapsFrom": [
+        "E7_MAX_VOLTAGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3028,
+      "isConditional": true,
+      "conditionalOn": [
+        "E7",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "127"
+      ]
+    },
+    "e7SlewRate": {
+      "mapsFrom": [
+        "E7_SLEW_RATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3030,
+      "isConditional": true,
+      "conditionalOn": [
+        "E7",
+        "AXIS_IS_L64XX",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "monitorL6470DriverStatus": {
+      "mapsFrom": [
+        "MONITOR_L6470_DRIVER_STATUS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3049,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_L64XX"
+      ]
+    },
+    "kvalHoldStepDown": {
+      "mapsFrom": [
+        "KVAL_HOLD_STEP_DOWN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3052,
+      "isConditional": true,
+      "conditionalOn": [
+        "MONITOR_L6470_DRIVER_STATUS",
+        "HAS_L64XX"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "l6470StopOnError": {
+      "mapsFrom": [
+        "L6470_STOP_ON_ERROR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3053,
+      "isConditional": true,
+      "conditionalOn": [
+        "MONITOR_L6470_DRIVER_STATUS",
+        "HAS_L64XX"
+      ]
+    },
+    "i2cMasterId": {
+      "mapsFrom": [
+        "I2C_MASTER_ID"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3064,
+      "examples": [
+        "1"
+      ],
+      "notes": "@section i2cbus  I2C Master ID for LPC176x LCD and Digital Current control Does not apply to other peripherals based on the Wire library. "
+    },
+    "experimentalI2cbus": {
+      "mapsFrom": [
+        "EXPERIMENTAL_I2CBUS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3094
+    },
+    "i2cSlaveAddress": {
+      "mapsFrom": [
+        "I2C_SLAVE_ADDRESS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3096,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXPERIMENTAL_I2CBUS"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "photoGcode": {
+      "mapsFrom": [
+        "PHOTO_GCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3106
+    }
+  }
+}

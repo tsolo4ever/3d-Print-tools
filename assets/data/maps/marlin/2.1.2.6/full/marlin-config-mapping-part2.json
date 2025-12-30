@@ -1,0 +1,535 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "other_2": {
+    "parkingExtruderGrabDistance": {
+      "mapsFrom": [
+        "PARKING_EXTRUDER_GRAB_DISTANCE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 287,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_PARKING_EXTRUDER",
+        "PARKING_EXTRUDER",
+        "EITHER"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "parkingExtruderSolenoidsInvert": {
+      "mapsFrom": [
+        "PARKING_EXTRUDER_SOLENOIDS_INVERT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 291,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_PARKING_EXTRUDER",
+        "PARKING_EXTRUDER",
+        "EITHER"
+      ],
+      "examples": [
+        "// If enabled, the solenoid is NOT magnetized with applied voltage"
+      ]
+    },
+    "parkingExtruderSolenoidsPinsActive": {
+      "mapsFrom": [
+        "PARKING_EXTRUDER_SOLENOIDS_PINS_ACTIVE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 292,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_PARKING_EXTRUDER",
+        "PARKING_EXTRUDER",
+        "EITHER"
+      ],
+      "examples": [
+        "LOW"
+      ]
+    },
+    "parkingExtruderSolenoidsDelay": {
+      "mapsFrom": [
+        "PARKING_EXTRUDER_SOLENOIDS_DELAY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 293,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_PARKING_EXTRUDER",
+        "PARKING_EXTRUDER",
+        "EITHER"
+      ],
+      "examples": [
+        "250"
+      ]
+    },
+    "mpeFastSpeed": {
+      "mapsFrom": [
+        "MPE_FAST_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 298,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_PARKING_EXTRUDER",
+        "PARKING_EXTRUDER",
+        "EITHER"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_PARKING_EXTRUDER)"
+      ],
+      "examples": [
+        "9000"
+      ]
+    },
+    "mpeSlowSpeed": {
+      "mapsFrom": [
+        "MPE_SLOW_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 299,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_PARKING_EXTRUDER",
+        "PARKING_EXTRUDER",
+        "EITHER"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_PARKING_EXTRUDER)"
+      ],
+      "examples": [
+        "4500"
+      ]
+    },
+    "mpeTravelDistance": {
+      "mapsFrom": [
+        "MPE_TRAVEL_DISTANCE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 300,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_PARKING_EXTRUDER",
+        "PARKING_EXTRUDER",
+        "EITHER"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_PARKING_EXTRUDER)"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "mpeCompensation": {
+      "mapsFrom": [
+        "MPE_COMPENSATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 301,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_PARKING_EXTRUDER",
+        "PARKING_EXTRUDER",
+        "EITHER"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_PARKING_EXTRUDER)"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "switchingToolhead": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 313
+    },
+    "magneticSwitchingToolhead": {
+      "mapsFrom": [
+        "MAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 321
+    },
+    "electromagneticSwitchingToolhead": {
+      "mapsFrom": [
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 330
+    },
+    "switchingToolheadYPos": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_Y_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 333,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "examples": [
+        "235"
+      ]
+    },
+    "switchingToolheadYSecurity": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_Y_SECURITY"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 334,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "switchingToolheadYClear": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_Y_CLEAR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 335,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "examples": [
+        "60"
+      ]
+    },
+    "switchingToolheadXPos": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_X_POS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 336,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "examples": [
+        "{ 215, 0 }"
+      ]
+    },
+    "switchingToolheadServoNr": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_SERVO_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 338,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "switchingToolheadServoAngles": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_SERVO_ANGLES"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 339,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "examples": [
+        "{ 0, 180 }"
+      ]
+    },
+    "switchingToolheadYRelease": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_Y_RELEASE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 341,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "switchingToolheadXSecurity": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_X_SECURITY"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 342,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "{ 90, 150 }"
+      ]
+    },
+    "primeBeforeRemove": {
+      "mapsFrom": [
+        "PRIME_BEFORE_REMOVE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 343,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "// Prime the nozzle before release from the dock"
+      ]
+    },
+    "switchingToolheadPrimeMm": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_PRIME_MM"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 345,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "20"
+      ]
+    },
+    "switchingToolheadRetractMm": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_RETRACT_MM"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 346,
+      "isConditional": true,
+      "conditionalOn": [
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "switchingToolheadZHop": {
+      "mapsFrom": [
+        "SWITCHING_TOOLHEAD_Z_HOP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 351,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+      ],
+      "conditionalExpression": [
+        "ENABLED(ELECTROMAGNETIC_SWITCHING_TOOLHEAD)"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "mixingExtruder": {
+      "mapsFrom": [
+        "MIXING_EXTRUDER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 363
+    },
+    "mixingSteppers": {
+      "mapsFrom": [
+        "MIXING_STEPPERS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 365,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIXING_EXTRUDER"
+      ],
+      "examples": [
+        "2"
+      ]
+    },
+    "mixingVirtualTools": {
+      "mapsFrom": [
+        "MIXING_VIRTUAL_TOOLS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 366,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIXING_EXTRUDER"
+      ],
+      "examples": [
+        "16"
+      ]
+    },
+    "directMixingInG1": {
+      "mapsFrom": [
+        "DIRECT_MIXING_IN_G1"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 367,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIXING_EXTRUDER"
+      ],
+      "examples": [
+        "// Allow ABCDHI mix factors in G1 movement commands"
+      ]
+    },
+    "gradientMix": {
+      "mapsFrom": [
+        "GRADIENT_MIX"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 368,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIXING_EXTRUDER"
+      ],
+      "examples": [
+        "// Support for gradient mixing with M166 and LCD"
+      ]
+    },
+    "mixingPresets": {
+      "mapsFrom": [
+        "MIXING_PRESETS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 369,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIXING_EXTRUDER"
+      ],
+      "examples": [
+        "// Assign 8 default V-tool presets for 2 or 3 MIXING_STEPPERS"
+      ]
+    },
+    "gradientVtool": {
+      "mapsFrom": [
+        "GRADIENT_VTOOL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 371,
+      "isConditional": true,
+      "conditionalOn": [
+        "GRADIENT_MIX",
+        "MIXING_EXTRUDER"
+      ],
+      "examples": [
+        "// Add M166 T to use a V-tool index as a Gradient alias"
+      ]
+    }
+  }
+}

@@ -1,0 +1,673 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration_adv.h",
+  "totalDefines": 1391,
+  "temperature_2": {
+    "thermalProtectionVarianceMonitor": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_VARIANCE_MONITOR"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 370,
+      "isConditional": true,
+      "conditionalOn": [
+        "THERMAL_PROTECTION_COOLER",
+        "THERMAL_PROTECTION_HOTENDS",
+        "THERMAL_PROTECTION_BED",
+        "THERMAL_PROTECTION_CHAMBER"
+      ],
+      "examples": [
+        "// Detect a sensor malfunction preventing temperature updates"
+      ]
+    },
+    "pidExtrusionScaling": {
+      "mapsFrom": [
+        "PID_EXTRUSION_SCALING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 376,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ],
+      "notes": "Add an additional term to the heater power, proportional to the extrusion speed. A well-chosen Kc value should add just enough power to melt the increased material volume."
+    },
+    "pidFanScaling": {
+      "mapsFrom": [
+        "PID_FAN_SCALING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 410,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP"
+      ]
+    },
+    "pidFanScalingAlternativeDefinition": {
+      "mapsFrom": [
+        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 412,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PID_FAN_SCALING"
+      ]
+    },
+    "pidFanScalingAtFullSpeed": {
+      "mapsFrom": [
+        "PID_FAN_SCALING_AT_FULL_SPEED"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 418,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PID_FAN_SCALING",
+        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION"
+      ],
+      "examples": [
+        "13.0"
+      ],
+      "notes": "The alternative definition is used for an easier configuration. Just figure out Kf at full speed (255) and PID_FAN_SCALING_MIN_SPEED. DEFAULT_KF and PID_FAN_SCALING_LIN_FACTOR are calculated accordingly."
+    },
+    "pidFanScalingAtMinSpeed": {
+      "mapsFrom": [
+        "PID_FAN_SCALING_AT_MIN_SPEED"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 419,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PID_FAN_SCALING",
+        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION"
+      ],
+      "examples": [
+        "6.0"
+      ]
+    },
+    "pidFanScalingMinSpeed": {
+      "mapsFrom": [
+        "PID_FAN_SCALING_MIN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 428,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PID_FAN_SCALING"
+      ],
+      "conditionalOnNot": [
+        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "pidFanScalingLinFactor": {
+      "mapsFrom": [
+        "PID_FAN_SCALING_LIN_FACTOR"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 426,
+      "isConditional": true,
+      "conditionalOn": [
+        "PIDTEMP",
+        "PID_FAN_SCALING"
+      ],
+      "conditionalOnNot": [
+        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "(0)"
+      ]
+    },
+    "autotemp": {
+      "mapsFrom": [
+        "AUTOTEMP"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 446
+    },
+    "autotempOldweight": {
+      "mapsFrom": [
+        "AUTOTEMP_OLDWEIGHT"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 448,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTOTEMP"
+      ],
+      "examples": [
+        "0.98"
+      ]
+    },
+    "autotempProportional": {
+      "mapsFrom": [
+        "AUTOTEMP_PROPORTIONAL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 450,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTOTEMP"
+      ],
+      "notes": "Turn on AUTOTEMP on M104/M109 by default using proportions set here"
+    },
+    "autotempMinP": {
+      "mapsFrom": [
+        "AUTOTEMP_MIN_P"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 452,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTOTEMP_PROPORTIONAL",
+        "AUTOTEMP"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "autotempMaxP": {
+      "mapsFrom": [
+        "AUTOTEMP_MAX_P"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 453,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTOTEMP_PROPORTIONAL",
+        "AUTOTEMP"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "autotempFactorP": {
+      "mapsFrom": [
+        "AUTOTEMP_FACTOR_P"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 454,
+      "isConditional": true,
+      "conditionalOn": [
+        "AUTOTEMP_PROPORTIONAL",
+        "AUTOTEMP"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "showTempAdcValues": {
+      "mapsFrom": [
+        "SHOW_TEMP_ADC_VALUES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 460,
+      "notes": "Show Temperature ADC value Enable for M105 to include ADC values read from temperature sensors."
+    },
+    "maxConsecutiveLowTemperatureErrorAllowed": {
+      "mapsFrom": [
+        "MAX_CONSECUTIVE_LOW_TEMPERATURE_ERROR_ALLOWED"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 480,
+      "examples": [
+        "0"
+      ],
+      "notes": "The number of consecutive low temperature errors that can occur before a MINTEMP error is triggered. (Shouldn't be more than 10.)"
+    },
+    "millisecondsPreheatTime": {
+      "mapsFrom": [
+        "MILLISECONDS_PREHEAT_TIME"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 489,
+      "examples": [
+        "0"
+      ]
+    },
+    "extruderRunoutMintemp": {
+      "mapsFrom": [
+        "EXTRUDER_RUNOUT_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 500,
+      "isConditional": true,
+      "conditionalOn": [
+        "EXTRUDER_RUNOUT_PREVENT"
+      ],
+      "examples": [
+        "190"
+      ]
+    },
+    "hotendIdleBedTarget": {
+      "mapsFrom": [
+        "HOTEND_IDLE_BED_TARGET"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 515,
+      "isConditional": true,
+      "conditionalOn": [
+        "HOTEND_IDLE_TIMEOUT"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "extruderAutoFanTemperature": {
+      "mapsFrom": [
+        "EXTRUDER_AUTO_FAN_TEMPERATURE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 649,
+      "examples": [
+        "50"
+      ]
+    },
+    "chamberAutoFanTemperature": {
+      "mapsFrom": [
+        "CHAMBER_AUTO_FAN_TEMPERATURE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 651,
+      "examples": [
+        "30"
+      ]
+    },
+    "coolerAutoFanTemperature": {
+      "mapsFrom": [
+        "COOLER_AUTO_FAN_TEMPERATURE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 653,
+      "examples": [
+        "18"
+      ]
+    },
+    "preheatShortcutMenuItem": {
+      "mapsFrom": [
+        "PREHEAT_SHORTCUT_MENU_ITEM"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1427,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_MENU"
+      ],
+      "notes": "Insert a menu for preheating at the top level to allow for quick access"
+    },
+    "statusCombineHeaters": {
+      "mapsFrom": [
+        "STATUS_COMBINE_HEATERS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1833,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Use combined heater images instead of separate ones"
+      ]
+    },
+    "statusBedAnim": {
+      "mapsFrom": [
+        "STATUS_BED_ANIM"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1837,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Use a second bitmap to indicate bed heating"
+      ]
+    },
+    "statusAltBedBitmap": {
+      "mapsFrom": [
+        "STATUS_ALT_BED_BITMAP"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1842,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_MARLINUI_U8GLIB"
+      ],
+      "examples": [
+        "// Use the alternative bed bitmap"
+      ]
+    },
+    "dgusPreheatUi": {
+      "mapsFrom": [
+        "DGUS_PREHEAT_UI"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1875,
+      "isConditional": true,
+      "conditionalOn": [
+        "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD"
+      ],
+      "examples": [
+        "// Display a preheat screen during heatup"
+      ]
+    },
+    "safeBedLevelingStartX": {
+      "mapsFrom": [
+        "SAFE_BED_LEVELING_START_X"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2134,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "safeBedLevelingStartY": {
+      "mapsFrom": [
+        "SAFE_BED_LEVELING_START_Y"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2135,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "safeBedLevelingStartZ": {
+      "mapsFrom": [
+        "SAFE_BED_LEVELING_START_Z"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2136,
+      "examples": [
+        "0.0"
+      ]
+    }
+  },
+  "temperature_3": {
+    "safeBedLevelingStartI": {
+      "mapsFrom": [
+        "SAFE_BED_LEVELING_START_I"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2137,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "safeBedLevelingStartJ": {
+      "mapsFrom": [
+        "SAFE_BED_LEVELING_START_J"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2138,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "safeBedLevelingStartK": {
+      "mapsFrom": [
+        "SAFE_BED_LEVELING_START_K"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2139,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "safeBedLevelingStartU": {
+      "mapsFrom": [
+        "SAFE_BED_LEVELING_START_U"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2140,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "safeBedLevelingStartV": {
+      "mapsFrom": [
+        "SAFE_BED_LEVELING_START_V"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2141,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "safeBedLevelingStartW": {
+      "mapsFrom": [
+        "SAFE_BED_LEVELING_START_W"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2142,
+      "examples": [
+        "0.0"
+      ]
+    },
+    "ptcBedStart": {
+      "mapsFrom": [
+        "PTC_BED_START"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2248,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "60"
+      ],
+      "notes": "Bed temperature calibration builds a similar table."
+    },
+    "ptcBedRes": {
+      "mapsFrom": [
+        "PTC_BED_RES"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2249,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "5"
+      ]
+    },
+    "ptcBedCount": {
+      "mapsFrom": [
+        "PTC_BED_COUNT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2250,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "10"
+      ]
+    },
+    "ptcBedZoffs": {
+      "mapsFrom": [
+        "PTC_BED_ZOFFS"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2251,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "{ 0 }"
+      ]
+    },
+    "ptcProbeTemp": {
+      "mapsFrom": [
+        "PTC_PROBE_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2273,
+      "isConditional": true,
+      "conditionalOn": [
+        "PTC_BED",
+        "PTC_PROBE",
+        "BOTH",
+        "PTC_HOTEND"
+      ],
+      "examples": [
+        "30"
+      ],
+      "notes": "The temperature the probe should be at while taking measurements during bed temperature calibration."
+    },
+    "heatersParallel": {
+      "mapsFrom": [
+        "HEATERS_PARALLEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2383,
+      "notes": "@section temperature Control heater 0 and heater 1 in parallel."
+    },
+    "autoReportTemperatures": {
+      "mapsFrom": [
+        "AUTO_REPORT_TEMPERATURES"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 3613
+    },
+    "mmuLoadingAttemptsNr": {
+      "mapsFrom": [
+        "MMU_LOADING_ATTEMPTS_NR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 4201,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_PRUSA_MMU2",
+        "MMU_EXTRUDER_SENSOR"
+      ],
+      "conditionalOnNot": [
+        "HAS_PRUSA_MMU2S"
+      ],
+      "conditionalExpression": [
+        "HAS_PRUSA_MMU2",
+        "else block"
+      ],
+      "examples": [
+        "5"
+      ]
+    }
+  }
+}

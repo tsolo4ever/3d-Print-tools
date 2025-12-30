@@ -1,0 +1,492 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "endstops_3": {
+    "vMaxEndstopInverting": {
+      "mapsFrom": [
+        "V_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1149,
+      "examples": [
+        "false"
+      ]
+    },
+    "wMaxEndstopInverting": {
+      "mapsFrom": [
+        "W_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1150,
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinProbeEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1151,
+      "examples": [
+        "false"
+      ]
+    },
+    "endstopInterruptsFeature": {
+      "mapsFrom": [
+        "ENDSTOP_INTERRUPTS_FEATURE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1155,
+      "notes": "Enable this feature if all enabled endstop pins are interrupt-capable. This will remove the need to poll the interrupt pins, saving many CPU cycles."
+    },
+    "endstopNoiseThreshold": {
+      "mapsFrom": [
+        "ENDSTOP_NOISE_THRESHOLD"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1169,
+      "examples": [
+        "2"
+      ]
+    },
+    "detectBrokenEndstop": {
+      "mapsFrom": [
+        "DETECT_BROKEN_ENDSTOP"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1172,
+      "notes": "Check for stuck or disconnected endstops during homing moves."
+    },
+    "zMinProbeUsesZMinEndstopPin": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1305
+    },
+    "homeAfterDeactivate": {
+      "mapsFrom": [
+        "HOME_AFTER_DEACTIVATE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1698,
+      "examples": [
+        "// Require rehoming after steppers are deactivated. Also enable NO_MOTION_BEFORE_HOMING for extra safety."
+      ]
+    },
+    "xHomeDir": {
+      "mapsFrom": [
+        "X_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1714,
+      "examples": [
+        "-1"
+      ],
+      "notes": "Direction of endstops when homing; 1=MAX, -1=MIN :[-1,1]"
+    },
+    "yHomeDir": {
+      "mapsFrom": [
+        "Y_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1715,
+      "examples": [
+        "-1"
+      ]
+    },
+    "zHomeDir": {
+      "mapsFrom": [
+        "Z_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1716,
+      "examples": [
+        "-1"
+      ]
+    },
+    "iHomeDir": {
+      "mapsFrom": [
+        "I_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1717,
+      "examples": [
+        "-1"
+      ]
+    },
+    "jHomeDir": {
+      "mapsFrom": [
+        "J_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1718,
+      "examples": [
+        "-1"
+      ]
+    },
+    "kHomeDir": {
+      "mapsFrom": [
+        "K_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1719,
+      "examples": [
+        "-1"
+      ]
+    },
+    "uHomeDir": {
+      "mapsFrom": [
+        "U_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1720,
+      "examples": [
+        "-1"
+      ]
+    },
+    "vHomeDir": {
+      "mapsFrom": [
+        "V_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1721,
+      "examples": [
+        "-1"
+      ]
+    },
+    "wHomeDir": {
+      "mapsFrom": [
+        "W_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1722,
+      "examples": [
+        "-1"
+      ]
+    },
+    "minSoftwareEndstops": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1760,
+      "notes": "Min software endstops constrain movement within minimum coordinate bounds"
+    },
+    "minSoftwareEndstopX": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_X"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1762,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "minSoftwareEndstopY": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_Y"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1763,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "minSoftwareEndstopZ": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_Z"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1764,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "minSoftwareEndstopI": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_I"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1765,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "minSoftwareEndstopJ": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_J"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1766,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "minSoftwareEndstopK": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_K"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1767,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "minSoftwareEndstopU": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_U"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1768,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "minSoftwareEndstopV": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_V"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1769,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "minSoftwareEndstopW": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOP_W"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1770,
+      "isConditional": true,
+      "conditionalOn": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "maxSoftwareEndstops": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1774,
+      "notes": "Max software endstops constrain movement within maximum coordinate bounds"
+    },
+    "maxSoftwareEndstopX": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_X"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1776,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "maxSoftwareEndstopY": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_Y"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1777,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    }
+  },
+  "endstops_4": {
+    "maxSoftwareEndstopZ": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_Z"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1778,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "maxSoftwareEndstopI": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_I"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1779,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "maxSoftwareEndstopJ": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_J"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1780,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "maxSoftwareEndstopK": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_K"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1781,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "maxSoftwareEndstopU": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_U"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1782,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "maxSoftwareEndstopV": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_V"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1783,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "maxSoftwareEndstopW": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOP_W"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1784,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ]
+    },
+    "softEndstopsMenuItem": {
+      "mapsFrom": [
+        "SOFT_ENDSTOPS_MENU_ITEM"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1788,
+      "isConditional": true,
+      "conditionalOn": [
+        "MAX_SOFTWARE_ENDSTOPS",
+        "EITHER",
+        "MIN_SOFTWARE_ENDSTOPS"
+      ],
+      "examples": [
+        "// Enable/Disable software endstops from the LCD"
+      ]
+    },
+    "validateHomingEndstops": {
+      "mapsFrom": [
+        "VALIDATE_HOMING_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2136,
+      "notes": "Validate that endstops are triggered on homing moves"
+    }
+  }
+}

@@ -22,6 +22,65 @@ class EnhancedPrinterProfiles {
     }
   }
 
+  /**
+   * Render compact view of saved printer profiles (for homepage)
+   * @param {string} containerId - ID of container element
+   */
+    static renderCompactView(containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) {
+            console.error(`Container ${containerId} not found`);
+            return;
+        }
+
+        const printers = StorageManager.getPrinters();
+    
+    if (printers.length === 0) {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 40px; color: var(--text-secondary);">
+          <p style="font-size: 1.2em; margin-bottom: 20px;">📦 No printer profiles saved yet</p>
+          <button class="btn-primary" onclick="const ep = new EnhancedPrinterProfiles(); ep.show();">
+            ➕ Create Your First Printer Profile
+          </button>
+        </div>
+      `;
+      return;
+    }
+
+    const printersHTML = printers.map(printer => {
+      const modified = printer.modified ? new Date(printer.modified).toLocaleDateString() : 'N/A';
+      return `
+        <div class="printer-profile-card" style="padding: 15px; background: var(--background); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h4 style="margin: 0 0 5px 0; color: var(--text-primary);">🖨️ ${printer.name || 'Unnamed Printer'}</h4>
+            <p style="margin: 0; font-size: 0.9em; color: var(--text-secondary);">
+              <strong>Model:</strong> ${printer.printerModel || 'N/A'} | 
+              <strong>Firmware:</strong> ${printer.firmwareType || 'N/A'} ${printer.firmwareVersion || ''} | 
+              <strong>Modified:</strong> ${modified}
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <button class="btn-secondary" onclick="const ep = new EnhancedPrinterProfiles(); ep.show('${printer.id}');" style="padding: 8px 16px;">
+              ✏️ Edit
+            </button>
+            <button class="btn-secondary" onclick="if(confirm('Delete ${printer.name}?')) { StorageManager.deletePrinter('${printer.id}'); EnhancedPrinterProfiles.renderCompactView('${containerId}'); }" style="padding: 8px 16px; color: var(--danger);">
+              🗑️ Delete
+            </button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    container.innerHTML = `
+      ${printersHTML}
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="btn-primary" onclick="const ep = new EnhancedPrinterProfiles(); ep.show();" style="padding: 12px 24px;">
+          ➕ Add New Printer Profile
+        </button>
+      </div>
+    `;
+  }
+
   constructor() {
     this.currentProfile = null;
     this.currentTab = 1;
@@ -31,6 +90,7 @@ class EnhancedPrinterProfiles {
     this.tempConfigFiles = [];
     this.tempParsedConfig = null;
     this.mappingData = null;  // Marlin mapping for JSON-driven rendering
+    this.coreMappingData = null;  // Core mapping for UI field population
     
     // Initialize renderers
     this.initRenderers();
@@ -300,9 +360,7 @@ class EnhancedPrinterProfiles {
     
     // Add special features that aren't in mapping (autocomplete, import)
     const specialFeaturesHTML = `
-      <div class="special-features-section" style="margin-top: 30px; padding-top: 20px; border-top: 2px solid var(--border, #ddd);">
-        <h4>🔍 Quick Setup (Optional)</h4>
-        
+      <div class="printer-search-section" style="margin-top: 30px; padding-top: 20px; border-top: 2px solid var(--border, #ddd);">
         <div class="form-group">
           <label>Search Printer Database</label>
           <div style="position: relative;">
@@ -315,7 +373,11 @@ class EnhancedPrinterProfiles {
           <p class="field-help">💡 Type to search from 280+ printer models. Auto-fills hardware settings.</p>
           <div id="selectedPrinterInfo" style="display: none; margin-top: 10px; padding: 10px; background: #e3f2fd; border-left: 3px solid #2196f3; border-radius: 4px;"></div>
         </div>
+      </div>
 
+      <div class="quick-setup-section" style="margin-top: 30px; padding-top: 20px; border-top: 2px solid var(--border, #ddd);">
+        <h4>🔍 Quick Setup (Optional)</h4>
+        
         <div class="import-section" style="margin-top: 20px;">
           <h4>📥 Import Settings</h4>
           <p>Import your Configuration.h or EEPROM backup to auto-fill settings:</p>
@@ -2475,8 +2537,40 @@ class EnhancedPrinterProfiles {
     });
   }
 
+  /** Load core mapping file for the detected firmware type */
+  async loadCoreMappingFile(variant, version = null) {
+    try {
+      // Determine the path based on variant and version
+      let path;
+      if (variant === 'th3d') {
+        // TH3D: Try version-specific, fallback to latest
+        version = version || '2.0.x'; // Default to 2.0.x
+        path = `assets/data/maps/th3d/${version}/th3d-config-mapping-core.json`;
+      } else {
+        // Marlin: Try version-specific, fallback to latest
+        version = version || '2.0.8.3'; // Default to 2.0.8.3
+        path = `assets/data/maps/marlin/${version}/marlin-config-mapping-core.json`;
+      }
+
+      EnhancedPrinterProfiles.log(`📥 Loading core mapping from: ${path}`);
+      const response = await fetch(path);
+      
+      if (response.ok) {
+        this.coreMappingData = await response.json();
+        EnhancedPrinterProfiles.log('✅ Core mapping loaded:', Object.keys(this.coreMappingData).length, 'fields');
+        return true;
+      } else {
+        console.warn(`⚠️ Core mapping file not found: ${path}`);
+        return false;
+      }
+    } catch (error) {
+      console.error('❌ Error loading core mapping:', error);
+      return false;
+    }
+  }
+
   /** Apply parsed configuration to current profile */
-  applyParsedConfig() {
+  async applyParsedConfig() {
     if (!this.tempParsedConfig) {
       alert('No parsed configuration data available');
       return;
@@ -2699,6 +2793,9 @@ class EnhancedPrinterProfiles {
     EnhancedPrinterProfiles.log('📥 Hardware after apply:', this.currentProfile.hardware);
     EnhancedPrinterProfiles.log('📥 Motion after apply:', this.currentProfile.motion);
 
+    // 🔥 NEW: Auto-populate UI fields using UIFieldMapper
+    await this.applyUIFieldMapping(parsed);
+
     const resultDiv = document.getElementById('uploadResult');
     if (resultDiv) {
       resultDiv.innerHTML = `
@@ -2711,6 +2808,41 @@ class EnhancedPrinterProfiles {
       `;
     }
     this.renderCurrentTab();
+  }
+
+  /** Apply UI field mapping using UIFieldMapper */
+  async applyUIFieldMapping(parsedConfig) {
+    try {
+      // Check if UIFieldMapper is available
+      if (typeof UIFieldMapper === 'undefined') {
+        console.warn('⚠️ UIFieldMapper not loaded - skipping UI auto-population');
+        return;
+      }
+
+      // Check if mapping data is loaded
+      if (!this.mappingData) {
+        console.warn('⚠️ Mapping data not loaded - skipping UI auto-population');
+        return;
+      }
+
+      // Apply UI field mapping using the already-loaded mapping data
+      EnhancedPrinterProfiles.log('🎨 Auto-populating UI fields from parsed config...');
+      EnhancedPrinterProfiles.log('📦 Parsed config categories:', Object.keys(parsedConfig));
+      EnhancedPrinterProfiles.log('📋 Mapping data categories:', Object.keys(this.mappingData));
+      
+      const result = UIFieldMapper.applyToUI(
+        parsedConfig,
+        this.mappingData,
+        this.currentProfile
+      );
+
+      EnhancedPrinterProfiles.log(`✅ UIFieldMapper: ${result.applied} fields populated, ${result.skipped} skipped`);
+      if (result.errors.length > 0) {
+        console.warn('⚠️ UIFieldMapper errors:', result.errors);
+      }
+    } catch (error) {
+      console.error('❌ Error in applyUIFieldMapping:', error);
+    }
   }
 
   /** Parse & Apply M503 */
