@@ -1,3 +1,0 @@
-[submodule "assets/data/marlin-configs"]
-	path = assets/data/marlin-configs
-	url = https://github.com/MarlinFirmware/Configurations.git
