@@ -1,24 +1,18 @@
 /**
- * Enhanced Printer Profiles - Tab 6: Motion Settings
+ * Tab 6: Motion Settings
+ * Steps/mm, feedrates, acceleration, jerk, and travel settings
  * 
- * Handles motion configuration including:
- * - Steps per mm (X/Y/Z/E)
- * - Maximum feedrates
- * - Maximum acceleration
- * - Jerk settings
- * - Print/Retract/Travel acceleration
- * 
- * @module tab-6-motion
- * @version 1.0.0
+ * @module Tab6Motion
  */
 
-/**
- * Render Tab 6: Motion Settings
- * @param {Object} profile - Current printer profile
- * @param {Object} databases - Hardware databases (not used in this tab)
- * @returns {string} HTML content for motion tab
- */
-export function render(profile, databases) {
+export const Tab6Motion = {
+  /**
+   * Render tab HTML
+   * @param {Object} profile - Current printer profile
+   * @param {Object} databases - Hardware databases (not used in this tab)
+   * @returns {string} HTML string
+   */
+  render(profile, databases) {
   const motion = profile.motion || {
     steps: { x: 80, y: 80, z: 400, e: 93 },
     maxFeedrates: { x: 500, y: 500, z: 5, e: 25 },
@@ -146,16 +140,16 @@ export function render(profile, databases) {
       </div>
     </div>
   `;
-}
+  },
 
-/**
- * Attach event listeners for Tab 6: Motion Settings
- * @param {Object} profile - Current printer profile
- * @param {Function} updateCallback - Callback function when profile is updated
- * @param {Object} databases - Hardware databases (not used in this tab)
- * @param {Object} context - Parent context (for logging, etc.)
- */
-export function attachListeners(profile, updateCallback, databases, context) {
+  /**
+   * Attach event listeners for this tab
+   * @param {Object} profile - Current printer profile
+   * @param {Function} updateCallback - Called when profile changes
+   * @param {Object} databases - Hardware databases (not used in this tab)
+   * @param {Object} context - Additional context (parent controller methods)
+   */
+  attachListeners(profile, updateCallback, databases, context) {
   // Motion — Steps per mm
   ['stepsX', 'stepsY', 'stepsZ', 'stepsE'].forEach(id => {
     const el = document.getElementById(id);
@@ -228,4 +222,5 @@ export function attachListeners(profile, updateCallback, databases, context) {
       });
     }
   });
-}
+  }
+};
