@@ -17,9 +17,9 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION"
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "1.0"
@@ -35,8 +35,8 @@
       "lineNumber": 1472,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_BED_LEVELING_LINEAR",
         "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_LINEAR",
         "EITHER"
       ],
       "notes": "Beyond the probed grid, continue the implied tilt? Default is to maintain the height of the nearest edge."
@@ -51,8 +51,8 @@
       "lineNumber": 1478,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_BED_LEVELING_LINEAR",
         "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_LINEAR",
         "EITHER"
       ],
       "notes": " Experimental Subdivision of the grid by Catmull-Rom method. Synthesizes intermediate points to produce a more detailed mesh. "
@@ -67,9 +67,9 @@
       "lineNumber": 1481,
       "isConditional": true,
       "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
         "AUTO_BED_LEVELING_LINEAR",
         "ABL_BILINEAR_SUBDIVISION",
-        "AUTO_BED_LEVELING_BILINEAR",
         "EITHER"
       ],
       "examples": [
@@ -208,8 +208,8 @@
       "lineNumber": 1545,
       "isConditional": true,
       "conditionalOn": [
-        "LEVEL_CORNERS_USE_PROBE",
-        "LEVEL_BED_CORNERS"
+        "LEVEL_BED_CORNERS",
+        "LEVEL_CORNERS_USE_PROBE"
       ],
       "examples": [
         "// After adjustment triggers the probe, re-probe to verify"
@@ -225,8 +225,8 @@
       "lineNumber": 1546,
       "isConditional": true,
       "conditionalOn": [
-        "LEVEL_CORNERS_USE_PROBE",
-        "LEVEL_BED_CORNERS"
+        "LEVEL_BED_CORNERS",
+        "LEVEL_CORNERS_USE_PROBE"
       ]
     },
     "levelCornersLevelingOrder": {

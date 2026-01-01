@@ -16,8 +16,8 @@
       "lineNumber": 1986,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
-        "SPACE_SAVER_2560"
+        "SPACE_SAVER_2560",
+        "HAS_MARLINUI_U8GLIB"
       ],
       "examples": [
         "// Animated Marlin logo. Costs ~3260 (or ~940) bytes of flash."
@@ -91,8 +91,8 @@
       "lineNumber": 2000,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
-        "IS_DWIN_MARLINUI"
+        "IS_DWIN_MARLINUI",
+        "HAS_MARLINUI_U8GLIB"
       ],
       "examples": [
         "// Enable to save many cycles by drawing a hollow frame on Menu Screens"
@@ -108,8 +108,8 @@
       "lineNumber": 2001,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
-        "IS_DWIN_MARLINUI"
+        "IS_DWIN_MARLINUI",
+        "HAS_MARLINUI_U8GLIB"
       ],
       "examples": [
         "// Swap the CW/CCW indicators in the graphics overlay"
@@ -189,10 +189,10 @@
       "lineNumber": 2017,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY"
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS"
       ],
       "examples": [
         "// Display the filename during printing"
@@ -208,15 +208,15 @@
       "lineNumber": 2023,
       "isConditional": true,
       "conditionalOn": [
+        "DGUS_LCD_UI_FYSETC",
         "DGUS_LCD_UI_HIPRECY",
         "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_FYSETC",
         "DGUS_LCD_UI_MKS"
       ],
       "conditionalOnNot": [
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "EITHER"
+        "EITHER",
+        "DGUS_LCD_UI_MKS"
       ],
       "conditionalExpression": [
         "else block"
@@ -235,10 +235,10 @@
       "lineNumber": 2026,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY"
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS"
       ]
     },
     "dgusFilamentPurgeLength": {
@@ -251,11 +251,11 @@
       "lineNumber": 2028,
       "isConditional": true,
       "conditionalOn": [
+        "DGUS_FILAMENT_LOADUNLOAD",
+        "DGUS_LCD_UI_FYSETC",
         "DGUS_LCD_UI_HIPRECY",
         "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_MKS",
-        "DGUS_FILAMENT_LOADUNLOAD"
+        "DGUS_LCD_UI_MKS"
       ],
       "examples": [
         "10"
@@ -271,11 +271,11 @@
       "lineNumber": 2029,
       "isConditional": true,
       "conditionalOn": [
+        "DGUS_FILAMENT_LOADUNLOAD",
+        "DGUS_LCD_UI_FYSETC",
         "DGUS_LCD_UI_HIPRECY",
         "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_MKS",
-        "DGUS_FILAMENT_LOADUNLOAD"
+        "DGUS_LCD_UI_MKS"
       ],
       "examples": [
         "0.5"
@@ -291,10 +291,10 @@
       "lineNumber": 2032,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY"
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS"
       ],
       "examples": [
         "// Show a \"waiting\" screen between some screens"
@@ -310,11 +310,11 @@
       "lineNumber": 2034,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_LCD_UI_HIPRECY",
-        "DGUS_UI_WAITING",
-        "HAS_DGUS_LCD",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_MKS"
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_UI_WAITING"
       ],
       "examples": [
         "10"
@@ -330,11 +330,11 @@
       "lineNumber": 2035,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_LCD_UI_HIPRECY",
-        "DGUS_UI_WAITING",
-        "HAS_DGUS_LCD",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_MKS"
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_UI_WAITING"
       ],
       "examples": [
         "8"

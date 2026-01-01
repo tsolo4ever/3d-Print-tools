@@ -134,8 +134,8 @@
       "lineNumber": 1163,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_LCD_MENU",
-        "HAS_BED_PROBE"
+        "HAS_BED_PROBE",
+        "HAS_LCD_MENU"
       ]
     },
     "probeOffsetWizardStartZ": {
@@ -148,9 +148,9 @@
       "lineNumber": 1170,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_BED_PROBE",
         "HAS_LCD_MENU",
-        "PROBE_OFFSET_WIZARD",
-        "HAS_BED_PROBE"
+        "PROBE_OFFSET_WIZARD"
       ],
       "examples": [
         "-4.0"
@@ -167,9 +167,9 @@
       "lineNumber": 1173,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_BED_PROBE",
         "HAS_LCD_MENU",
-        "PROBE_OFFSET_WIZARD",
-        "HAS_BED_PROBE"
+        "PROBE_OFFSET_WIZARD"
       ],
       "examples": [
         "{ X_CENTER, Y_CENTER }"
@@ -219,9 +219,9 @@
       "lineNumber": 1857,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
+        "AUTO_BED_LEVELING_3POINT",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_3POINT"
+        "EITHER"
       ],
       "examples": [
         "15"
@@ -237,9 +237,9 @@
       "lineNumber": 1858,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
+        "AUTO_BED_LEVELING_3POINT",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_3POINT"
+        "EITHER"
       ],
       "examples": [
         "180"
@@ -255,9 +255,9 @@
       "lineNumber": 1859,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
+        "AUTO_BED_LEVELING_3POINT",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_3POINT"
+        "EITHER"
       ],
       "examples": [
         "15"
@@ -273,9 +273,9 @@
       "lineNumber": 1860,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
+        "AUTO_BED_LEVELING_3POINT",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_3POINT"
+        "EITHER"
       ],
       "examples": [
         "20"
@@ -291,9 +291,9 @@
       "lineNumber": 1861,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
+        "AUTO_BED_LEVELING_3POINT",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_3POINT"
+        "EITHER"
       ],
       "examples": [
         "170"
@@ -309,9 +309,9 @@
       "lineNumber": 1862,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
+        "AUTO_BED_LEVELING_3POINT",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_3POINT"
+        "EITHER"
       ],
       "examples": [
         "20"
@@ -328,9 +328,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "{ 90, 100 }"
@@ -348,9 +348,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "0.5f"
@@ -368,9 +368,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "15U"

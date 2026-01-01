@@ -16,11 +16,11 @@
       "lineNumber": 3187,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -36,11 +36,11 @@
       "lineNumber": 3188,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -56,11 +56,11 @@
       "lineNumber": 3190,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ]
     },
     "squareWaveStepping": {
@@ -316,8 +316,8 @@
       "lineNumber": 3336,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -334,8 +334,8 @@
       "lineNumber": 3338,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -352,9 +352,9 @@
       "lineNumber": 3340,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "SPINDLE_LASER_USE_PWM",
         "EITHER",
+        "SPINDLE_LASER_USE_PWM",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -371,9 +371,9 @@
       "lineNumber": 3341,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "SPINDLE_LASER_USE_PWM",
         "EITHER",
+        "SPINDLE_LASER_USE_PWM",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -390,8 +390,8 @@
       "lineNumber": 3347,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -408,9 +408,9 @@
       "lineNumber": 3349,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "AIR_EVACUATION",
         "EITHER",
+        "AIR_EVACUATION",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -427,9 +427,9 @@
       "lineNumber": 3350,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "AIR_EVACUATION",
         "EITHER",
+        "AIR_EVACUATION",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -446,8 +446,8 @@
       "lineNumber": 3353,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -464,9 +464,9 @@
       "lineNumber": 3355,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
         "AIR_ASSIST",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -483,9 +483,9 @@
       "lineNumber": 3356,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
         "AIR_ASSIST",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [

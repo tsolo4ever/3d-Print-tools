@@ -201,9 +201,9 @@
       "lineNumber": 2084,
       "isConditional": true,
       "conditionalOn": [
+        "MOVE_Z_WHEN_IDLE",
         "BABYSTEPPING",
-        "DOUBLECLICK_FOR_Z_BABYSTEPPING",
-        "MOVE_Z_WHEN_IDLE"
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
       ],
       "examples": [
         "1"
@@ -219,8 +219,8 @@
       "lineNumber": 2092,
       "isConditional": true,
       "conditionalOn": [
-        "BABYSTEPPING",
-        "BABYSTEP_ZPROBE_OFFSET"
+        "BABYSTEP_ZPROBE_OFFSET",
+        "BABYSTEPPING"
       ],
       "examples": [
         "// For multiple hotends, babystep relative Z offsets"

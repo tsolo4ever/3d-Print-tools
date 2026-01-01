@@ -699,8 +699,8 @@
       "lineNumber": 2422,
       "isConditional": true,
       "conditionalOn": [
-        "ANYCUBIC_LCD_CHIRON",
         "ANYCUBIC_LCD_I3MEGA",
+        "ANYCUBIC_LCD_CHIRON",
         "EITHER"
       ]
     },

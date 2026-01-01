@@ -371,15 +371,15 @@
         "ABL_ENABLE"
       ],
       "conditionalOnNot": [
+        "ENDER3_S1_PRO",
         "INVERT_EZABL_LOGIC",
         "SV06_EZABL_INSTALLED",
-        "ENDER5_S1",
-        "ENDER3_S1_PRO",
-        "ENDER3_S1",
-        "CR10S_PRO_STOCK_ABL",
-        "CR10S_PRO",
         "ENDER3_S1_PLUS",
+        "CR10S_PRO_STOCK_ABL",
+        "ENDER5_S1",
+        "ENDER3_S1",
         "SOVOL_SV06",
+        "CR10S_PRO",
         "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
@@ -399,19 +399,19 @@
       "lineNumber": 272,
       "isConditional": true,
       "conditionalOn": [
-        "CHIRON",
-        "ABL_ENABLE"
+        "ABL_ENABLE",
+        "CHIRON"
       ],
       "conditionalOnNot": [
+        "ENDER3_S1_PRO",
         "INVERT_EZABL_LOGIC",
         "SV06_EZABL_INSTALLED",
-        "ENDER5_S1",
-        "ENDER3_S1_PRO",
-        "ENDER3_S1",
-        "CR10S_PRO_STOCK_ABL",
-        "CR10S_PRO",
         "ENDER3_S1_PLUS",
+        "CR10S_PRO_STOCK_ABL",
+        "ENDER5_S1",
+        "ENDER3_S1",
         "SOVOL_SV06",
+        "CR10S_PRO",
         "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
@@ -501,8 +501,8 @@
       "lineNumber": 567,
       "isConditional": true,
       "conditionalOn": [
-        "MIN_SOFTWARE_ENDSTOPS",
-        "ABL_ENABLE"
+        "ABL_ENABLE",
+        "MIN_SOFTWARE_ENDSTOPS"
       ]
     },
     "maxSoftwareEndstops": {

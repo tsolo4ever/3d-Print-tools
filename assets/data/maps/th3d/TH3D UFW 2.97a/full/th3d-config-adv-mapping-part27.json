@@ -16,11 +16,11 @@
       "lineNumber": 3569,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -36,11 +36,11 @@
       "lineNumber": 3570,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -56,11 +56,11 @@
       "lineNumber": 3572,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ]
     },
     "squareWaveStepping": {
@@ -73,8 +73,8 @@
       "lineNumber": 3592,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ]
     },
     "tmcDebug": {
@@ -87,8 +87,8 @@
       "lineNumber": 3598,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ]
     },
     "i2cMasterId": {
@@ -316,9 +316,9 @@
       "lineNumber": 3718,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "LOW"
@@ -334,9 +334,9 @@
       "lineNumber": 3720,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Enable if your controller supports setting the speed/power"
@@ -352,10 +352,10 @@
       "lineNumber": 3722,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "SPINDLE_LASER_USE_PWM",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "false"
@@ -371,10 +371,10 @@
       "lineNumber": 3723,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "SPINDLE_LASER_USE_PWM",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "2500"
@@ -390,9 +390,9 @@
       "lineNumber": 3729,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Cutter Vacuum / Laser Blower motor control with G-codes M10-M11"
@@ -408,10 +408,10 @@
       "lineNumber": 3731,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "AIR_EVACUATION",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "LOW"
@@ -427,10 +427,10 @@
       "lineNumber": 3732,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "AIR_EVACUATION",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "42"
@@ -446,9 +446,9 @@
       "lineNumber": 3735,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Air Assist control with G-codes M8-M9"
@@ -464,10 +464,10 @@
       "lineNumber": 3737,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "LASER_FEATURE",
         "AIR_ASSIST",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "LOW"
@@ -483,10 +483,10 @@
       "lineNumber": 3738,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "LASER_FEATURE",
         "AIR_ASSIST",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "44"

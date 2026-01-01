@@ -72,8 +72,8 @@
       "lineNumber": 4091,
       "isConditional": true,
       "conditionalOn": [
-        "ESP3D_WIFISUPPORT",
-        "WIFISUPPORT"
+        "WIFISUPPORT",
+        "ESP3D_WIFISUPPORT"
       ],
       "examples": [
         "// Start a webserver (which may include auto-discovery) using SPIFFS"
@@ -89,8 +89,8 @@
       "lineNumber": 4092,
       "isConditional": true,
       "conditionalOn": [
-        "ESP3D_WIFISUPPORT",
-        "WIFISUPPORT"
+        "WIFISUPPORT",
+        "ESP3D_WIFISUPPORT"
       ],
       "examples": [
         "// Support over-the-air firmware updates"
@@ -106,8 +106,8 @@
       "lineNumber": 4093,
       "isConditional": true,
       "conditionalOn": [
-        "ESP3D_WIFISUPPORT",
-        "WIFISUPPORT"
+        "WIFISUPPORT",
+        "ESP3D_WIFISUPPORT"
       ],
       "examples": [
         "// Accept feature config commands (e.g., WiFi ESP3D) from the host"
@@ -283,8 +283,8 @@
       "lineNumber": 4171,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2",
-        "HAS_PRUSA_MMU2S"
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -303,8 +303,8 @@
       "lineNumber": 4174,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2",
-        "HAS_PRUSA_MMU2S"
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -323,8 +323,8 @@
       "lineNumber": 4179,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2",
-        "HAS_PRUSA_MMU2S"
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -343,8 +343,8 @@
       "lineNumber": 4180,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2",
-        "HAS_PRUSA_MMU2S"
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -363,8 +363,8 @@
       "lineNumber": 4182,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2",
-        "HAS_PRUSA_MMU2S"
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -383,8 +383,8 @@
       "lineNumber": 4183,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2",
-        "HAS_PRUSA_MMU2S"
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"

@@ -250,10 +250,10 @@
       "lineNumber": 313,
       "isConditional": true,
       "conditionalOn": [
+        "BOTH",
         "ADAPTIVE_FAN_SLOWING",
         "PIDTEMP",
-        "THERMAL_PROTECTION_HOTENDS",
-        "BOTH"
+        "THERMAL_PROTECTION_HOTENDS"
       ],
       "examples": [
         "// Don't slow fan speed during M303"

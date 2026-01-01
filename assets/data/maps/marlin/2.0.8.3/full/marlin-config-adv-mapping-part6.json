@@ -269,8 +269,8 @@
       "isConditional": true,
       "conditionalOn": [
         "DIGIPOT_MCP4451",
-        "EITHER",
-        "DIGIPOT_MCP4018"
+        "DIGIPOT_MCP4018",
+        "EITHER"
       ],
       "examples": [
         "8"
@@ -287,8 +287,8 @@
       "isConditional": true,
       "conditionalOn": [
         "DIGIPOT_MCP4451",
-        "EITHER",
-        "DIGIPOT_MCP4018"
+        "DIGIPOT_MCP4018",
+        "EITHER"
       ],
       "examples": [
         "{ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }"
@@ -306,8 +306,8 @@
       "isConditional": true,
       "conditionalOn": [
         "DIGIPOT_MCP4451",
-        "EITHER",
-        "DIGIPOT_MCP4018"
+        "DIGIPOT_MCP4018",
+        "EITHER"
       ],
       "examples": [
         "// Use DIGIPOT_MOTOR_CURRENT raw wiper values (instead of A4988 motor currents)"
@@ -324,8 +324,8 @@
       "isConditional": true,
       "conditionalOn": [
         "DIGIPOT_MCP4451",
-        "EITHER",
-        "DIGIPOT_MCP4018"
+        "DIGIPOT_MCP4018",
+        "EITHER"
       ],
       "examples": [
         "0x2C"
@@ -342,8 +342,8 @@
       "isConditional": true,
       "conditionalOn": [
         "DIGIPOT_MCP4451",
-        "EITHER",
-        "DIGIPOT_MCP4018"
+        "DIGIPOT_MCP4018",
+        "EITHER"
       ],
       "examples": [
         "0x2D"
@@ -359,9 +359,9 @@
       "lineNumber": 1141,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
         "IS_ULTIPANEL",
-        "EXTENSIBLE_UI"
+        "EXTENSIBLE_UI",
+        "EITHER"
       ],
       "examples": [
         "// Encoder sets the feedrate multiplier on the Status Screen"

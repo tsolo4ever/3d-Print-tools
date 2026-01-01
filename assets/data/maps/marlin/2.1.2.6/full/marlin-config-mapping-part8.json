@@ -16,10 +16,10 @@
       "lineNumber": 2013,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_BED_LEVELING_LINEAR",
         "ABL_BILINEAR_SUBDIVISION",
-        "EITHER",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_LINEAR",
+        "EITHER"
       ],
       "examples": [
         "3"

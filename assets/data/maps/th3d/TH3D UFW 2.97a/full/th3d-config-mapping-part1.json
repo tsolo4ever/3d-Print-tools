@@ -532,11 +532,11 @@
       "lineNumber": 1338,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5_PLUS_EZABL",
+        "ENDER5_PLUS",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "ENDER3_MAX",
         "ENDER3"
       ],
       "conditionalOnNot": [
@@ -620,10 +620,10 @@
       "lineNumber": 1047,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
         "ENDER3_MAX",
-        "ENDER3",
-        "ENDER5"
+        "ENDER5",
+        "ENDER5_PLUS",
+        "ENDER3"
       ],
       "notes": "FILAMENT SENSOR UNLOAD SETTINGS ----------------- If you have a filament sensor that is physically mounted to the machine you can enable MOUNTED_FILAMENT_SENSOR to set the unload length to 5mm to prevent filament from backing up in the sensor by uncommenting MOUNTED_FILAMENT_SENSOR"
     },

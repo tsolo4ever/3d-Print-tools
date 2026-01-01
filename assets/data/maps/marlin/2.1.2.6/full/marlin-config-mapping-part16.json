@@ -16,10 +16,10 @@
       "lineNumber": 347,
       "isConditional": true,
       "conditionalOn": [
-        "PRIME_BEFORE_REMOVE",
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -38,10 +38,10 @@
       "lineNumber": 348,
       "isConditional": true,
       "conditionalOn": [
-        "PRIME_BEFORE_REMOVE",
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -349,8 +349,8 @@
       "lineNumber": 1262,
       "isConditional": true,
       "conditionalOn": [
-        "LIMITED_JERK_EDITING",
-        "CLASSIC_JERK"
+        "CLASSIC_JERK",
+        "LIMITED_JERK_EDITING"
       ],
       "examples": [
         "{ 20, 20, 0.6, 10 }"
@@ -586,10 +586,10 @@
       "lineNumber": 1984,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "20"
@@ -605,10 +605,10 @@
       "lineNumber": 1985,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "100"

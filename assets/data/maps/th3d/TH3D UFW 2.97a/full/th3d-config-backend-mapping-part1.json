@@ -110,8 +110,8 @@
       "lineNumber": 210,
       "isConditional": true,
       "conditionalOn": [
-        "ABL_ENABLE",
-        "ABL_BILINEAR"
+        "ABL_BILINEAR",
+        "ABL_ENABLE"
       ],
       "examples": [
         "EZABL_PROBE_EDGE"
@@ -127,8 +127,8 @@
       "lineNumber": 212,
       "isConditional": true,
       "conditionalOn": [
-        "ABL_ENABLE",
-        "ABL_BILINEAR"
+        "ABL_BILINEAR",
+        "ABL_ENABLE"
       ],
       "examples": [
         "// Estimate beyond probed area"
@@ -144,8 +144,8 @@
       "lineNumber": 213,
       "isConditional": true,
       "conditionalOn": [
-        "ABL_ENABLE",
-        "ABL_BILINEAR"
+        "ABL_BILINEAR",
+        "ABL_ENABLE"
       ],
       "examples": [
         "// Smooth the mesh interpolation"
@@ -161,9 +161,9 @@
       "lineNumber": 215,
       "isConditional": true,
       "conditionalOn": [
-        "ABL_ENABLE",
         "ABL_BILINEAR_SUBDIVISION",
-        "ABL_BILINEAR"
+        "ABL_BILINEAR",
+        "ABL_ENABLE"
       ],
       "examples": [
         "3"
@@ -384,8 +384,8 @@
       "lineNumber": 440,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMPBED",
-        "ENABLE_PIDBED"
+        "ENABLE_PIDBED",
+        "PIDTEMPBED"
       ],
       "examples": [
         "113.36"
@@ -401,8 +401,8 @@
       "lineNumber": 441,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMPBED",
-        "ENABLE_PIDBED"
+        "ENABLE_PIDBED",
+        "PIDTEMPBED"
       ],
       "examples": [
         "21.62"
@@ -418,8 +418,8 @@
       "lineNumber": 442,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMPBED",
-        "ENABLE_PIDBED"
+        "ENABLE_PIDBED",
+        "PIDTEMPBED"
       ],
       "examples": [
         "148.59"
@@ -625,14 +625,14 @@
       "lineNumber": 631,
       "isConditional": true,
       "conditionalOn": [
-        "TFT_COLOR_UI",
-        "DWIN_MARLINUI_PORTRAIT",
-        "DISABLE_ENCODER_NOISE_FILTER",
-        "DWIN_CREALITY_LCD_ENHANCED",
         "DWIN_CREALITY_LCD_JYERSUI",
-        "DWIN_MARLINUI_LANDSCAPE",
         "DWIN_CREALITY_LCD",
-        "LCD2004"
+        "DISABLE_ENCODER_NOISE_FILTER",
+        "LCD2004",
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "TFT_COLOR_UI",
+        "DWIN_MARLINUI_LANDSCAPE",
+        "DWIN_MARLINUI_PORTRAIT"
       ],
       "examples": [
         "//Added in V2.90"
@@ -648,14 +648,14 @@
       "lineNumber": 635,
       "isConditional": true,
       "conditionalOn": [
-        "TFT_COLOR_UI",
-        "ENCODER_NOISE_FILTER",
-        "DWIN_MARLINUI_PORTRAIT",
-        "DWIN_CREALITY_LCD_ENHANCED",
         "DWIN_CREALITY_LCD_JYERSUI",
-        "DWIN_MARLINUI_LANDSCAPE",
         "DWIN_CREALITY_LCD",
-        "LCD2004"
+        "ENCODER_NOISE_FILTER",
+        "LCD2004",
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "TFT_COLOR_UI",
+        "DWIN_MARLINUI_LANDSCAPE",
+        "DWIN_MARLINUI_PORTRAIT"
       ],
       "examples": [
         "10"

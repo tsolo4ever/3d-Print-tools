@@ -221,9 +221,9 @@
       "lineNumber": 3615,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON1",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "LOW"
@@ -239,9 +239,9 @@
       "lineNumber": 3616,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON1",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "false"
@@ -257,9 +257,9 @@
       "lineNumber": 3617,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON1",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "\"G28\""
@@ -275,9 +275,9 @@
       "lineNumber": 3618,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON1",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "\"Homing\""
@@ -309,9 +309,9 @@
       "lineNumber": 3623,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON2",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "LOW"
@@ -327,9 +327,9 @@
       "lineNumber": 3624,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON2",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "false"
@@ -345,9 +345,9 @@
       "lineNumber": 3625,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON2",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "\"M140 S\" STRINGIFY(PREHEAT_1_TEMP_BED) \"\\nM104 S\" STRINGIFY(PREHEAT_1_TEMP_HOTEND)"
@@ -363,9 +363,9 @@
       "lineNumber": 3626,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON2",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "\"Preheat for \" PREHEAT_1_LABEL"
@@ -397,9 +397,9 @@
       "lineNumber": 3631,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON3",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "LOW"
@@ -415,9 +415,9 @@
       "lineNumber": 3632,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON3",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "false"
@@ -433,9 +433,9 @@
       "lineNumber": 3633,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON3",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "\"M140 S\" STRINGIFY(PREHEAT_2_TEMP_BED) \"\\nM104 S\" STRINGIFY(PREHEAT_2_TEMP_HOTEND)"
@@ -451,9 +451,9 @@
       "lineNumber": 3634,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "BUTTON3",
-        "PIN_EXISTS",
-        "CUSTOM_USER_BUTTONS"
+        "PIN_EXISTS"
       ],
       "examples": [
         "\"Preheat for \" PREHEAT_2_LABEL"

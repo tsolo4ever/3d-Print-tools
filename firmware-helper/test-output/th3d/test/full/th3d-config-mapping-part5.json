@@ -1,0 +1,564 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "test",
+  "firmware": "th3d",
+  "configFile": "Configuration.h",
+  "generatedFrom": "..\\test files\\Configuration.h",
+  "totalDefines": 224,
+  "advanced": {
+    "inputShaping": {
+      "mapsFrom": [
+        "INPUT_SHAPING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 334
+    },
+    "inputShapingFreqX": {
+      "mapsFrom": [
+        "INPUT_SHAPING_FREQ_X"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 337,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING"
+      ],
+      "examples": [
+        "40"
+      ],
+      "notes": "X Axis Settings"
+    },
+    "inputShapingDampingX": {
+      "mapsFrom": [
+        "INPUT_SHAPING_DAMPING_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 338,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING_FREQ_X"
+      ],
+      "examples": [
+        "0.15f"
+      ]
+    },
+    "inputShapingFreqY": {
+      "mapsFrom": [
+        "INPUT_SHAPING_FREQ_Y"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 340,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING_DAMPING_X"
+      ],
+      "examples": [
+        "40"
+      ],
+      "notes": "Y Axis Settings"
+    },
+    "inputShapingDampingY": {
+      "mapsFrom": [
+        "INPUT_SHAPING_DAMPING_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 341,
+      "isConditional": true,
+      "conditionalOn": [
+        "INPUT_SHAPING_FREQ_Y"
+      ],
+      "examples": [
+        "0.15f"
+      ]
+    },
+    "disableArcSupport": {
+      "mapsFrom": [
+        "DISABLE_ARC_SUPPORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 476
+    },
+    "filamentRunoutSensor": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1622,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZOUT_ENABLE",
+        "ENDER3_V2"
+      ]
+    },
+    "filamentRunoutScript": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SCRIPT"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1637,
+      "isConditional": true,
+      "conditionalOn": [
+        "FIL_RUNOUT_PULLUP",
+        "ENDER3_V2",
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "\"M600\""
+      ],
+      "notes": "Set one or more commands to execute on filament runout. (After 'M412 H' Marlin will ask the host to handle the process.)"
+    },
+    "filamentRunoutDistanceMm": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_DISTANCE_MM"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1642,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "25"
+      ],
+      "notes": "After a runout is detected, continue printing this length of filament before executing the runout script. Useful for a sensor at the end of a feed tube. Requires 4 bytes SRAM per sensor, plus 4 bytes overhead."
+    }
+  },
+  "endstops": {
+    "homeAdjust": {
+      "mapsFrom": [
+        "HOME_ADJUST"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 578,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX_NEO",
+        "HOME_ADJUST"
+      ]
+    },
+    "xHomeLocation": {
+      "mapsFrom": [
+        "X_HOME_LOCATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 581,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX_NEO",
+        "HOME_ADJUST"
+      ],
+      "examples": [
+        "-24"
+      ]
+    },
+    "yHomeLocation": {
+      "mapsFrom": [
+        "Y_HOME_LOCATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 582,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX_NEO",
+        "X_HOME_LOCATION",
+        "HOME_ADJUST"
+      ],
+      "examples": [
+        "-4"
+      ]
+    },
+    "xmaxPlug": {
+      "mapsFrom": [
+        "USE_XMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1184,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS",
+        "ENDER5",
+        "ENDER3"
+      ]
+    },
+    "xHomeDir": {
+      "mapsFrom": [
+        "X_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1486,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "yHomeDir": {
+      "mapsFrom": [
+        "Y_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1487,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "X_HOME_DIR"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "zHomeDir": {
+      "mapsFrom": [
+        "Z_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1488,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_HOME_DIR",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "-1"
+      ]
+    },
+    "endstoppullups": {
+      "mapsFrom": [
+        "ENDSTOPPULLUPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1537,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ]
+    },
+    "xMinEndstopInverting": {
+      "mapsFrom": [
+        "X_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1539,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "yMinEndstopInverting": {
+      "mapsFrom": [
+        "Y_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1540,
+      "isConditional": true,
+      "conditionalOn": [
+        "X_MIN_ENDSTOP_INVERTING",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1541,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_MIN_ENDSTOP_INVERTING",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "xMaxEndstopInverting": {
+      "mapsFrom": [
+        "X_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1542,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "Z_MIN_ENDSTOP_INVERTING"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "yMaxEndstopInverting": {
+      "mapsFrom": [
+        "Y_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1543,
+      "isConditional": true,
+      "conditionalOn": [
+        "X_MAX_ENDSTOP_INVERTING",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "zMaxEndstopInverting": {
+      "mapsFrom": [
+        "Z_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1544,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "Y_MAX_ENDSTOP_INVERTING"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinProbeEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1545,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_MAX_ENDSTOP_INVERTING",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinProbeUsesZMinEndstopPin": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1550,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "BLTOUCH_ON_5PIN"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ]
+    },
+    "xminPlug": {
+      "mapsFrom": [
+        "USE_XMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1482,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ]
+    }
+  },
+  "geometry": {
+    "manualMeshLeveling": {
+      "mapsFrom": [
+        "MANUAL_MESH_LEVELING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 402
+    },
+    "zMaxPos": {
+      "mapsFrom": [
+        "Z_MAX_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1469,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_BED_SIZE",
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "XTENDER_E3_500Z"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "250"
+      ]
+    },
+    "xMinPos": {
+      "mapsFrom": [
+        "X_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1478,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "HOME_ADJUST"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "yMinPos": {
+      "mapsFrom": [
+        "Y_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1479,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "X_MIN_POS"
+      ],
+      "conditionalOnNot": [
+        "HOME_ADJUST"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ]
+    }
+  },
+  "safety": {
+    "powerLossRecovery": {
+      "mapsFrom": [
+        "POWER_LOSS_RECOVERY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1611,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENABLE_PIDBED",
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_CREALITY_LCD",
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "ENDER3_V2"
+      ]
+    },
+    "extrudeMaxlength": {
+      "mapsFrom": [
+        "EXTRUDE_MAXLENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1619,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "Z_PROBE_OFFSET_RANGE_MAX"
+      ],
+      "examples": [
+        "1000"
+      ]
+    }
+  },
+  "motion": {
+    "axisStepsPerUnit": {
+      "mapsFrom": [
+        "DEFAULT_AXIS_STEPS_PER_UNIT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1428,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "CUSTOM_ESTEPS"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "{ 80, 80, 400, 95 }"
+      ]
+    }
+  }
+}

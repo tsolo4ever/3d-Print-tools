@@ -149,8 +149,8 @@
       "lineNumber": 3138,
       "isConditional": true,
       "conditionalOn": [
-        "PHOTO_GCODE",
-        "PHOTO_PULSES_US"
+        "PHOTO_PULSES_US",
+        "PHOTO_GCODE"
       ],
       "examples": [
         "13"
@@ -184,9 +184,9 @@
       "lineNumber": 3160,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "LOW"
@@ -202,9 +202,9 @@
       "lineNumber": 3161,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "true"
@@ -220,9 +220,9 @@
       "lineNumber": 3162,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "false"
@@ -238,9 +238,9 @@
       "lineNumber": 3164,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "2500"
@@ -256,9 +256,9 @@
       "lineNumber": 3166,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "// Cutter Vacuum / Laser Blower motor control with G-codes M10-M11"
@@ -275,9 +275,9 @@
       "isConditional": true,
       "conditionalOn": [
         "AIR_EVACUATION",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "LOW"
@@ -294,9 +294,9 @@
       "isConditional": true,
       "conditionalOn": [
         "AIR_EVACUATION",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "42"
@@ -312,9 +312,9 @@
       "lineNumber": 3172,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "// Air Assist control with G-codes M8-M9"
@@ -330,10 +330,10 @@
       "lineNumber": 3174,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
         "AIR_ASSIST",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "LOW"
@@ -349,10 +349,10 @@
       "lineNumber": 3175,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
         "AIR_ASSIST",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "44"
@@ -368,9 +368,9 @@
       "lineNumber": 3178,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "// A servo converting an angle to spindle power"
@@ -387,9 +387,9 @@
       "isConditional": true,
       "conditionalOn": [
         "SPINDLE_SERVO",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "0"
@@ -406,9 +406,9 @@
       "isConditional": true,
       "conditionalOn": [
         "SPINDLE_SERVO",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "10"
@@ -424,9 +424,9 @@
       "lineNumber": 3191,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "PWM255"
@@ -442,9 +442,9 @@
       "lineNumber": 3201,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "// Set speed proportional to [SPEED_POWER_MIN...SPEED_POWER_MAX]"
@@ -460,9 +460,9 @@
       "lineNumber": 3204,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "// Enable if your spindle controller can change spindle direction"
@@ -478,9 +478,9 @@
       "lineNumber": 3205,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "// Enable if the spindle should stop before changing spin direction"
@@ -496,9 +496,9 @@
       "lineNumber": 3206,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "examples": [
         "false"

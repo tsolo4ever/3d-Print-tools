@@ -12,169 +12,144 @@ import argparse
 from pathlib import Path
 from typing import Dict, Optional
 
-# Define mapping from configuration defines to UI field IDs
+# Define mapping from configuration defines to UI field IDs (with tab prefixes)
+# Format: "tab{N}_{fieldId}" where N is the tab number (1-10)
 UI_FIELD_MAPPINGS = {
-    # Basic Information
-    'CUSTOM_MACHINE_NAME': 'profileName',
-    'MOTHERBOARD': 'motherboard',
-    'EXTRUDERS': 'extruders',
-    'DEFAULT_NOMINAL_FILAMENT_DIA': 'filamentDiameter',
+    # Tab 1: Printer Info
+    'CUSTOM_MACHINE_NAME': 'tab1_profileName',
+    'USER_PRINTER_NAME': 'tab1_profileName',  # TH3D-specific
+    'UNIFIED_VERSION': 'tab1_firmwareVersion',  # TH3D-specific
+    'SHORT_BUILD_VERSION': 'tab1_firmwareVersion',
+    'STRING_CONFIG_H_AUTHOR': 'tab1_configAuthor',
     
-    # Serial/Communication
-    'SERIAL_PORT': 'serialPort',
-    'BAUDRATE': 'baudRate',
-    'SERIAL_PORT_2': 'serialPort2',
-    'BAUDRATE_2': 'baudRate2',
+    # Tab 2: Hardware
+    'MOTHERBOARD': 'tab2_motherboard',
+    'X_DRIVER_TYPE': 'tab2_xDriverType',
+    'Y_DRIVER_TYPE': 'tab2_yDriverType',
+    'Z_DRIVER_TYPE': 'tab2_zDriverType',
+    'E0_DRIVER_TYPE': 'tab2_e0DriverType',
+    'X2_DRIVER_TYPE': 'tab2_x2DriverType',
+    'Y2_DRIVER_TYPE': 'tab2_y2DriverType',
+    'Z2_DRIVER_TYPE': 'tab2_z2DriverType',
+    'E1_DRIVER_TYPE': 'tab2_e1DriverType',
     
-    # Temperature Sensors
-    'TEMP_SENSOR_0': 'hotendTempSensor',
-    'TEMP_SENSOR_1': 'hotend2TempSensor',
-    'TEMP_SENSOR_BED': 'bedTempSensor',
-    'TEMP_SENSOR_CHAMBER': 'chamberTempSensor',
+    # Tab 3: Hotend
+    'EXTRUDERS': 'tab3_extruders',
+    'TEMP_SENSOR_0': 'tab3_hotendTempSensor',
+    'TEMP_SENSOR_1': 'tab3_hotend2TempSensor',
+    'HEATER_0_MINTEMP': 'tab3_hotendMinTemp',
+    'HEATER_0_MAXTEMP': 'tab3_hotendMaxTemp',
+    'PIDTEMP': 'tab3_pidHotendEnabled',
+    'DEFAULT_Kp': 'tab3_hotendPidKp',
+    'DEFAULT_Ki': 'tab3_hotendPidKi',
+    'DEFAULT_Kd': 'tab3_hotendPidKd',
     
-    # Temperature Limits
-    'HEATER_0_MINTEMP': 'hotendMinTemp',
-    'HEATER_0_MAXTEMP': 'hotendMaxTemp',
-    'BED_MINTEMP': 'bedMinTemp',
-    'BED_MAXTEMP': 'bedMaxTemp',
+    # Tab 4: Bed
+    'TEMP_SENSOR_BED': 'tab4_bedTempSensor',
+    'TEMP_SENSOR_CHAMBER': 'tab4_chamberTempSensor',
+    'BED_MINTEMP': 'tab4_bedMinTemp',
+    'BED_MAXTEMP': 'tab4_bedMaxTemp',
+    'PIDTEMPBED': 'tab4_pidBedEnabled',
+    'DEFAULT_bedKp': 'tab4_bedPidKp',
+    'DEFAULT_bedKi': 'tab4_bedPidKi',
+    'DEFAULT_bedKd': 'tab4_bedPidKd',
+    'X_BED_SIZE': 'tab4_bedSizeX',
+    'Y_BED_SIZE': 'tab4_bedSizeY',
     
-    # PID Settings - Hotend
-    'PIDTEMP': 'pidHotendEnabled',
-    'DEFAULT_Kp': 'hotendPidKp',
-    'DEFAULT_Ki': 'hotendPidKi',
-    'DEFAULT_Kd': 'hotendPidKd',
+    # Tab 5: Probe
+    'AUTO_BED_LEVELING_BILINEAR': 'tab5_ablBilinear',
+    'AUTO_BED_LEVELING_UBL': 'tab5_ablUBL',
+    'AUTO_BED_LEVELING_3POINT': 'tab5_abl3Point',
+    'MESH_BED_LEVELING': 'tab5_meshBedLeveling',
+    'GRID_MAX_POINTS_X': 'tab5_gridPointsX',
+    'GRID_MAX_POINTS_Y': 'tab5_gridPointsY',
+    'Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN': 'tab5_probeUsesZMinPin',
+    'BLTOUCH': 'tab5_probeTypeBLTouch',
+    'FIX_MOUNTED_PROBE': 'tab5_probeTypeFixed',
+    'NOZZLE_TO_PROBE_OFFSET': 'tab5_probeOffset',
+    'PROBING_MARGIN': 'tab5_probingMargin',
+    'XY_PROBE_FEEDRATE': 'tab5_probeXYSpeed',
+    'Z_PROBE_FEEDRATE_FAST': 'tab5_probeZFastSpeed',
+    'Z_PROBE_FEEDRATE_SLOW': 'tab5_probeZSlowSpeed',
+    'Z_SAFE_HOMING': 'tab5_zSafeHoming',
     
-    # PID Settings - Bed
-    'PIDTEMPBED': 'pidBedEnabled',
-    'DEFAULT_bedKp': 'bedPidKp',
-    'DEFAULT_bedKi': 'bedPidKi',
-    'DEFAULT_bedKd': 'bedPidKd',
+    # Tab 6: Motion
+    'DEFAULT_AXIS_STEPS_PER_UNIT': 'tab6_stepsPerUnit',
+    'DEFAULT_MAX_FEEDRATE': 'tab6_maxFeedrate',
+    'DEFAULT_MAX_ACCELERATION': 'tab6_maxAcceleration',
+    'DEFAULT_ACCELERATION': 'tab6_defaultAcceleration',
+    'DEFAULT_RETRACT_ACCELERATION': 'tab6_retractAcceleration',
+    'DEFAULT_TRAVEL_ACCELERATION': 'tab6_travelAcceleration',
+    'CLASSIC_JERK': 'tab6_classicJerkEnabled',
+    'DEFAULT_XJERK': 'tab6_xJerk',
+    'DEFAULT_YJERK': 'tab6_yJerk',
+    'DEFAULT_ZJERK': 'tab6_zJerk',
+    'DEFAULT_EJERK': 'tab6_eJerk',
+    'JUNCTION_DEVIATION_MM': 'tab6_junctionDeviation',
+    'X_MIN_POS': 'tab6_xMinPosition',
+    'Y_MIN_POS': 'tab6_yMinPosition',
+    'Z_MIN_POS': 'tab6_zMinPosition',
+    'X_MAX_POS': 'tab6_xMaxPosition',
+    'Y_MAX_POS': 'tab6_yMaxPosition',
+    'Z_MAX_POS': 'tab6_zMaxPosition',
+    'X_HOME_DIR': 'tab6_xHomeDirection',
+    'Y_HOME_DIR': 'tab6_yHomeDirection',
+    'Z_HOME_DIR': 'tab6_zHomeDirection',
+    'HOMING_FEEDRATE_MM_M': 'tab6_homingFeedrate',
     
-    # Endstops
-    'USE_XMIN_PLUG': 'useXMinEndstop',
-    'USE_YMIN_PLUG': 'useYMinEndstop',
-    'USE_ZMIN_PLUG': 'useZMinEndstop',
-    'USE_XMAX_PLUG': 'useXMaxEndstop',
-    'USE_YMAX_PLUG': 'useYMaxEndstop',
-    'USE_ZMAX_PLUG': 'useZMaxEndstop',
-    'ENDSTOPPULLUPS': 'endstopPullups',
-    'ENDSTOPPULLDOWNS': 'endstopPulldowns',
+    # Tab 7: Advanced
+    'LIN_ADVANCE': 'tab7_linAdvanceEnabled',
+    'LIN_ADVANCE_K': 'tab7_linAdvanceK',
+    'S_CURVE_ACCELERATION': 'tab7_sCurveAcceleration',
+    'ARC_SUPPORT': 'tab7_arcSupport',
+    'BABYSTEPPING': 'tab7_babystepping',
+    'ADAPTIVE_STEP_SMOOTHING': 'tab7_adaptiveStepSmoothing',
+    'FILAMENT_RUNOUT_SENSOR': 'tab7_filamentRunoutEnabled',
+    'FIL_RUNOUT_ENABLED_DEFAULT': 'tab7_runoutEnabledDefault',
+    'NUM_RUNOUT_SENSORS': 'tab7_numRunoutSensors',
+    'FIL_RUNOUT_STATE': 'tab7_runoutTriggerState',
+    'POWER_LOSS_RECOVERY': 'tab7_powerLossRecovery',
+    'PLR_ENABLED_DEFAULT': 'tab7_plrEnabledDefault',
+    'BAUDRATE': 'tab7_baudRate',
+    'SERIAL_PORT': 'tab7_serialPort',
     
-    # Probe Settings
-    'Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN': 'probeUsesZMinPin',
-    'BLTOUCH': 'probeTypeBLTouch',
-    'FIX_MOUNTED_PROBE': 'probeTypeFixed',
-    'NOZZLE_TO_PROBE_OFFSET': 'probeOffset',
-    'PROBING_MARGIN': 'probingMargin',
-    'XY_PROBE_FEEDRATE': 'probeXYSpeed',
-    'Z_PROBE_FEEDRATE_FAST': 'probeZFastSpeed',
-    'Z_PROBE_FEEDRATE_SLOW': 'probeZSlowSpeed',
+    # Tab 8: Safety
+    'THERMAL_PROTECTION_HOTENDS': 'tab8_thermalProtectionHotend',
+    'THERMAL_PROTECTION_BED': 'tab8_thermalProtectionBed',
+    'MIN_SOFTWARE_ENDSTOPS': 'tab8_minSoftwareEndstops',
+    'MAX_SOFTWARE_ENDSTOPS': 'tab8_maxSoftwareEndstops',
+    'SOFTWARE_MIN_ENDSTOPS': 'tab8_softwareMinEndstops',
+    'SOFTWARE_MAX_ENDSTOPS': 'tab8_softwareMaxEndstops',
+    'USE_XMIN_PLUG': 'tab8_useXMinEndstop',
+    'USE_YMIN_PLUG': 'tab8_useYMinEndstop',
+    'USE_ZMIN_PLUG': 'tab8_useZMinEndstop',
+    'USE_XMAX_PLUG': 'tab8_useXMaxEndstop',
+    'USE_YMAX_PLUG': 'tab8_useYMaxEndstop',
+    'USE_ZMAX_PLUG': 'tab8_useZMaxEndstop',
+    'ENDSTOPPULLUPS': 'tab8_endstopPullups',
+    'ENDSTOPPULLDOWNS': 'tab8_endstopPulldowns',
     
-    # Stepper Drivers
-    'X_DRIVER_TYPE': 'xDriverType',
-    'Y_DRIVER_TYPE': 'yDriverType',
-    'Z_DRIVER_TYPE': 'zDriverType',
-    'E0_DRIVER_TYPE': 'e0DriverType',
-    'X2_DRIVER_TYPE': 'x2DriverType',
-    'Y2_DRIVER_TYPE': 'y2DriverType',
-    'Z2_DRIVER_TYPE': 'z2DriverType',
-    'E1_DRIVER_TYPE': 'e1DriverType',
+    # Tab 9: Nozzles
+    'DEFAULT_NOMINAL_FILAMENT_DIA': 'tab9_filamentDiameter',
     
-    # Movement - Steps
-    'DEFAULT_AXIS_STEPS_PER_UNIT': 'stepsPerUnit',
-    
-    # Movement - Speed
-    'DEFAULT_MAX_FEEDRATE': 'maxFeedrate',
-    
-    # Movement - Acceleration
-    'DEFAULT_MAX_ACCELERATION': 'maxAcceleration',
-    'DEFAULT_ACCELERATION': 'defaultAcceleration',
-    'DEFAULT_RETRACT_ACCELERATION': 'retractAcceleration',
-    'DEFAULT_TRAVEL_ACCELERATION': 'travelAcceleration',
-    
-    # Jerk
-    'CLASSIC_JERK': 'classicJerkEnabled',
-    'DEFAULT_XJERK': 'xJerk',
-    'DEFAULT_YJERK': 'yJerk',
-    'DEFAULT_ZJERK': 'zJerk',
-    'DEFAULT_EJERK': 'eJerk',
-    'JUNCTION_DEVIATION_MM': 'junctionDeviation',
-    
-    # Build Volume
-    'X_BED_SIZE': 'bedSizeX',
-    'Y_BED_SIZE': 'bedSizeY',
-    'X_MIN_POS': 'xMinPosition',
-    'Y_MIN_POS': 'yMinPosition',
-    'Z_MIN_POS': 'zMinPosition',
-    'X_MAX_POS': 'xMaxPosition',
-    'Y_MAX_POS': 'yMaxPosition',
-    'Z_MAX_POS': 'zMaxPosition',
-    
-    # Homing
-    'X_HOME_DIR': 'xHomeDirection',
-    'Y_HOME_DIR': 'yHomeDirection',
-    'Z_HOME_DIR': 'zHomeDirection',
-    'HOMING_FEEDRATE_MM_M': 'homingFeedrate',
-    
-    # Bed Leveling
-    'AUTO_BED_LEVELING_BILINEAR': 'ablBilinear',
-    'AUTO_BED_LEVELING_UBL': 'ablUBL',
-    'AUTO_BED_LEVELING_3POINT': 'abl3Point',
-    'MESH_BED_LEVELING': 'meshBedLeveling',
-    'GRID_MAX_POINTS_X': 'gridPointsX',
-    'GRID_MAX_POINTS_Y': 'gridPointsY',
-    'Z_SAFE_HOMING': 'zSafeHoming',
-    
-    # Filament Runout
-    'FILAMENT_RUNOUT_SENSOR': 'filamentRunoutEnabled',
-    'FIL_RUNOUT_ENABLED_DEFAULT': 'runoutEnabledDefault',
-    'NUM_RUNOUT_SENSORS': 'numRunoutSensors',
-    'FIL_RUNOUT_STATE': 'runoutTriggerState',
-    
-    # Power Loss Recovery
-    'POWER_LOSS_RECOVERY': 'powerLossRecovery',
-    'PLR_ENABLED_DEFAULT': 'plrEnabledDefault',
-    
-    # EEPROM
-    'EEPROM_SETTINGS': 'eepromEnabled',
-    'EEPROM_AUTO_INIT': 'eepromAutoInit',
-    
-    # Display
-    'REPRAP_DISCOUNT_SMART_CONTROLLER': 'displayRepRapSmart',
-    'REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER': 'displayRepRapFullGraphic',
-    'CR10_STOCKDISPLAY': 'displayCR10Stock',
-    'ULTIPANEL': 'ultipanel',
-    'LCD_LANGUAGE': 'lcdLanguage',
-    
-    # SD Card
-    'SDSUPPORT': 'sdCardEnabled',
-    'SD_CHECK_AND_RETRY': 'sdCheckAndRetry',
-    
-    # Safety Features
-    'THERMAL_PROTECTION_HOTENDS': 'thermalProtectionHotend',
-    'THERMAL_PROTECTION_BED': 'thermalProtectionBed',
-    'MIN_SOFTWARE_ENDSTOPS': 'minSoftwareEndstops',
-    'MAX_SOFTWARE_ENDSTOPS': 'maxSoftwareEndstops',
-    'SOFTWARE_MIN_ENDSTOPS': 'softwareMinEndstops',
-    'SOFTWARE_MAX_ENDSTOPS': 'softwareMaxEndstops',
-    
-    # Advanced Features
-    'LIN_ADVANCE': 'linAdvanceEnabled',
-    'LIN_ADVANCE_K': 'linAdvanceK',
-    'S_CURVE_ACCELERATION': 'sCurveAcceleration',
-    'ARC_SUPPORT': 'arcSupport',
-    'BABYSTEPPING': 'babystepping',
-    'ADAPTIVE_STEP_SMOOTHING': 'adaptiveStepSmoothing',
-    
-    # Preheat Presets
-    'PREHEAT_1_LABEL': 'preheat1Label',
-    'PREHEAT_1_TEMP_HOTEND': 'preheat1Hotend',
-    'PREHEAT_1_TEMP_BED': 'preheat1Bed',
-    'PREHEAT_1_FAN_SPEED': 'preheat1Fan',
-    'PREHEAT_2_LABEL': 'preheat2Label',
-    'PREHEAT_2_TEMP_HOTEND': 'preheat2Hotend',
-    'PREHEAT_2_TEMP_BED': 'preheat2Bed',
-    'PREHEAT_2_FAN_SPEED': 'preheat2Fan',
+    # Tab 10: Preferences
+    'PREHEAT_1_LABEL': 'tab10_preheat1Label',
+    'PREHEAT_1_TEMP_HOTEND': 'tab10_preheat1Hotend',
+    'PREHEAT_1_TEMP_BED': 'tab10_preheat1Bed',
+    'PREHEAT_1_FAN_SPEED': 'tab10_preheat1Fan',
+    'PREHEAT_2_LABEL': 'tab10_preheat2Label',
+    'PREHEAT_2_TEMP_HOTEND': 'tab10_preheat2Hotend',
+    'PREHEAT_2_TEMP_BED': 'tab10_preheat2Bed',
+    'PREHEAT_2_FAN_SPEED': 'tab10_preheat2Fan',
+    'EEPROM_SETTINGS': 'tab10_eepromEnabled',
+    'EEPROM_AUTO_INIT': 'tab10_eepromAutoInit',
+    'REPRAP_DISCOUNT_SMART_CONTROLLER': 'tab10_displayRepRapSmart',
+    'REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER': 'tab10_displayRepRapFullGraphic',
+    'CR10_STOCKDISPLAY': 'tab10_displayCR10Stock',
+    'ULTIPANEL': 'tab10_ultipanel',
+    'LCD_LANGUAGE': 'tab10_lcdLanguage',
+    'SDSUPPORT': 'tab10_sdCardEnabled',
+    'SD_CHECK_AND_RETRY': 'tab10_sdCheckAndRetry',
 }
 
 

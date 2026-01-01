@@ -1,0 +1,797 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "test",
+  "firmware": "th3d",
+  "configFile": "Configuration.h",
+  "generatedFrom": "..\\test files\\Configuration.h",
+  "totalDefines": 224,
+  "probe": {
+    "customProbe": {
+      "mapsFrom": [
+        "CUSTOM_PROBE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1341,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS_NOABL",
+        "ENDER5_PLUS",
+        "CUSTOM_PROBE",
+        "ENDER3",
+        "ENDER5",
+        "ENDER5_PLUS_EZABL"
+      ]
+    },
+    "ezablProbeEdge": {
+      "mapsFrom": [
+        "EZABL_PROBE_EDGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1335,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS_NOABL",
+        "ENDER5_PLUS",
+        "ENDER3",
+        "ENDER5",
+        "ENDER5_PLUS_EZABL"
+      ],
+      "conditionalOnNot": [
+        "EZABL_PROBE_EDGE"
+      ],
+      "examples": [
+        "15"
+      ],
+      "notes": "Probe Edge - How far from the edge of the bed to probe from. Use 30 if using binder clips. This also sets the edge inset value for MANUAL_MESH_LEVELING."
+    },
+    "ezablFastprobe": {
+      "mapsFrom": [
+        "EZABL_FASTPROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 136,
+      "notes": "Fast Probing - Works with most machines and all EZABL sensors (8mm/s)"
+    },
+    "ezablSuperfastprobe": {
+      "mapsFrom": [
+        "EZABL_SUPERFASTPROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 139,
+      "notes": "Superfast Probing - Works with Pro/NG EZABL Probes (15mm/s) & BLTouch/CRTouch (10mm/s)"
+    },
+    "slowerProbeMoves": {
+      "mapsFrom": [
+        "SLOWER_PROBE_MOVES"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 148,
+      "notes": "Slow Down Moves - Does your machine make weird noises/vibrations when it is probing the mesh? Enable this to slow down the speed between probe points."
+    },
+    "bltouch": {
+      "mapsFrom": [
+        "BLTOUCH"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1333,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS_NOABL",
+        "ENDER5_PLUS",
+        "ENDER3",
+        "ENDER5",
+        "ENDER5_PLUS_EZABL"
+      ]
+    },
+    "bltouchOn5pin": {
+      "mapsFrom": [
+        "BLTOUCH_ON_5PIN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 565,
+      "isConditional": true,
+      "conditionalOn": [
+        "NOZZLE_TO_PROBE_OFFSET",
+        "CUSTOM_PROBE",
+        "ENDER3_MAX_NEO",
+        "ENDER3_MAX_OEM",
+        "BLTOUCH"
+      ]
+    },
+    "nozzleToProbeOffset": {
+      "mapsFrom": [
+        "NOZZLE_TO_PROBE_OFFSET"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1342,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS_NOABL",
+        "ENDER5_PLUS",
+        "CUSTOM_PROBE",
+        "ENDER3",
+        "ENDER5",
+        "ENDER5_PLUS_EZABL"
+      ],
+      "examples": [
+        "{ -44, -9, 0}"
+      ]
+    },
+    "crtouchProbeNaming": {
+      "mapsFrom": [
+        "CRTOUCH_PROBE_NAMING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 566,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH_ON_5PIN",
+        "CUSTOM_PROBE",
+        "ENDER3_MAX_NEO",
+        "ENDER3_MAX_OEM",
+        "BLTOUCH"
+      ]
+    },
+    "probeForZHoming": {
+      "mapsFrom": [
+        "USE_PROBE_FOR_Z_HOMING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1548,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH_ON_5PIN",
+        "ENDER3_V2"
+      ]
+    },
+    "zProbeOffsetRangeMin": {
+      "mapsFrom": [
+        "Z_PROBE_OFFSET_RANGE_MIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1617,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "-10"
+      ]
+    },
+    "zProbeOffsetRangeMax": {
+      "mapsFrom": [
+        "Z_PROBE_OFFSET_RANGE_MAX"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1618,
+      "isConditional": true,
+      "conditionalOn": [
+        "Z_PROBE_OFFSET_RANGE_MIN",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "10"
+      ]
+    }
+  },
+  "hardware": {
+    "ender312864LcdKit": {
+      "mapsFrom": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 93,
+      "notes": "Ender 3 NEO Series/Ender 3 V2 LCD - LCD Setting If you converted your Ender 3 NEO Series OR V2 LCD to the 12864 Version, Uncomment the below line. Get the conversion kit here: https://www.th3dstudio.com/product/creality-ender-3-v2-12864-lcd-conversion-upgrade-kit/"
+    },
+    "ender3NeoLcd": {
+      "mapsFrom": [
+        "ENDER3_NEO_LCD"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 570,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_12864_LCD_KIT",
+        "ENDER3_MAX_NEO"
+      ]
+    },
+    "cr10Stockdisplay": {
+      "mapsFrom": [
+        "CR10_STOCKDISPLAY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1596,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_12864_LCD_KIT",
+        "ENDER3_V2"
+      ]
+    },
+    "ret612864Lcd": {
+      "mapsFrom": [
+        "RET6_12864_LCD"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1597,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_12864_LCD_KIT",
+        "ENDER3_V2",
+        "CR10_STOCKDISPLAY"
+      ]
+    },
+    "tempSensor0": {
+      "mapsFrom": [
+        "TEMP_SENSOR_0"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1500,
+      "isConditional": true,
+      "conditionalOn": [
+        "TH3D_HOTEND_THERMISTOR",
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "KNOWN_HOTEND_THERMISTOR",
+        "TH3D_HOTEND_THERMISTOR",
+        "V6_HOTEND"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "ENABLED(TH3D_HOTEND_THERMISTOR)"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "tempSensor1": {
+      "mapsFrom": [
+        "TEMP_SENSOR_1"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1504,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor2": {
+      "mapsFrom": [
+        "TEMP_SENSOR_2"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1505,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_1",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor3": {
+      "mapsFrom": [
+        "TEMP_SENSOR_3"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1506,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "TEMP_SENSOR_2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor4": {
+      "mapsFrom": [
+        "TEMP_SENSOR_4"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1507,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "TEMP_SENSOR_3"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor5": {
+      "mapsFrom": [
+        "TEMP_SENSOR_5"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1508,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "TEMP_SENSOR_4"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor6": {
+      "mapsFrom": [
+        "TEMP_SENSOR_6"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1509,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_5",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensor7": {
+      "mapsFrom": [
+        "TEMP_SENSOR_7"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1510,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "TEMP_SENSOR_6"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorBed": {
+      "mapsFrom": [
+        "TEMP_SENSOR_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1522,
+      "isConditional": true,
+      "conditionalOn": [
+        "KEENOVO_TEMPSENSOR",
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "TH3D_BED_THERMISTOR",
+        "KEENOVO_TEMPSENSOR",
+        "AC_BED",
+        "KNOWN_BED_THERMISTOR"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "ENABLED(KEENOVO_TEMPSENSOR)"
+      ],
+      "examples": [
+        "11"
+      ]
+    },
+    "tempSensorProbe": {
+      "mapsFrom": [
+        "TEMP_SENSOR_PROBE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1526,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorChamber": {
+      "mapsFrom": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1527,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_PROBE",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "xDriverType": {
+      "mapsFrom": [
+        "X_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1553,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ]
+    },
+    "yDriverType": {
+      "mapsFrom": [
+        "Y_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1554,
+      "isConditional": true,
+      "conditionalOn": [
+        "X_DRIVER_TYPE",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ]
+    },
+    "zDriverType": {
+      "mapsFrom": [
+        "Z_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1555,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_DRIVER_TYPE",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ]
+    },
+    "e0DriverType": {
+      "mapsFrom": [
+        "E0_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1556,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "Z_DRIVER_TYPE"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ]
+    },
+    "noLcdReinit": {
+      "mapsFrom": [
+        "NO_LCD_REINIT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1600,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_SERIAL_PORT",
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "1"
+      ]
+    },
+    "dwinCrealityLcd": {
+      "mapsFrom": [
+        "DWIN_CREALITY_LCD"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1602,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Creality UI"
+      ],
+      "notes": "Different Ender 3 V2 LCD Display Options - Change at your own risk!!!"
+    },
+    "dwinCrealityLcdEnhanced": {
+      "mapsFrom": [
+        "DWIN_CREALITY_LCD_ENHANCED"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1603,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Enhanced UI"
+      ]
+    },
+    "dwinCrealityLcdJyersui": {
+      "mapsFrom": [
+        "DWIN_CREALITY_LCD_JYERSUI"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1604,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_12864_LCD_KIT"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "// Jyers UI by Jacob Myers"
+      ]
+    }
+  },
+  "temperature": {
+    "heatersOnDuringProbing": {
+      "mapsFrom": [
+        "HEATERS_ON_DURING_PROBING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 142,
+      "notes": "Heaters on During Probing - Heaters will stay on during probing - May reduce accuracy do not use unless told to by support"
+    },
+    "highTempThermistor": {
+      "mapsFrom": [
+        "HIGH_TEMP_THERMISTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 252,
+      "notes": "If you have a hotend and thermistor capable of over 290C you can set the max temp value below. Setting this higher than 290C on a stock or traditional thermistor will damage it. Refer to your thermistor documentation to see what max temp is."
+    },
+    "highTempThermistorTemp": {
+      "mapsFrom": [
+        "HIGH_TEMP_THERMISTOR_TEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 253,
+      "isConditional": true,
+      "conditionalOn": [
+        "DIRECT_DRIVE_PRINTER"
+      ],
+      "examples": [
+        "350"
+      ]
+    },
+    "th3dBedThermistor": {
+      "mapsFrom": [
+        "TH3D_BED_THERMISTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 258,
+      "notes": "BED THERMISTOR SETTINGS ------------------------- If you are using a thermistor TH3D sells for your bed uncomment the below line."
+    },
+    "keenovoTempsensor": {
+      "mapsFrom": [
+        "KEENOVO_TEMPSENSOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 261,
+      "notes": "If you are using a Keenovo with SSR and the Keenovo temperature sensor uncomment the below line."
+    },
+    "knownBedThermistor": {
+      "mapsFrom": [
+        "KNOWN_BED_THERMISTOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 264,
+      "notes": "If you are using a known bed thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_BED_THERMISTOR_VALUE"
+    },
+    "knownBedThermistorValue": {
+      "mapsFrom": [
+        "KNOWN_BED_THERMISTOR_VALUE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 265,
+      "examples": [
+        "X"
+      ]
+    },
+    "customXBedSize": {
+      "mapsFrom": [
+        "CUSTOM_X_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 349,
+      "examples": [
+        "300"
+      ]
+    },
+    "customYBedSize": {
+      "mapsFrom": [
+        "CUSTOM_Y_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 350,
+      "examples": [
+        "310"
+      ]
+    },
+    "pidbed": {
+      "mapsFrom": [
+        "ENABLE_PIDBED"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1610,
+      "isConditional": true,
+      "conditionalOn": [
+        "DWIN_CREALITY_LCD",
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "ENDER3_V2",
+        "DWIN_CREALITY_LCD_ENHANCED"
+      ]
+    },
+    "xBedSize": {
+      "mapsFrom": [
+        "X_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1467,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "XTENDER_E3_500Z"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "220"
+      ]
+    },
+    "yBedSize": {
+      "mapsFrom": [
+        "Y_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1468,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "X_BED_SIZE"
+      ],
+      "conditionalOnNot": [
+        "XTENDER_E3_500Z"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "220"
+      ]
+    }
+  },
+  "features": {
+    "sdcardEepromEmulation": {
+      "mapsFrom": [
+        "SDCARD_EEPROM_EMULATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 324
+    }
+  }
+}

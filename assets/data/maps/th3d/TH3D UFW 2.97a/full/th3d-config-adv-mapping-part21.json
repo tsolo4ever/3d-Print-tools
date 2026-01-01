@@ -16,10 +16,10 @@
       "lineNumber": 3126,
       "isConditional": true,
       "conditionalOn": [
-        "V",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "V",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.11"
@@ -35,10 +35,10 @@
       "lineNumber": 3127,
       "isConditional": true,
       "conditionalOn": [
-        "V",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "V",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -54,10 +54,10 @@
       "lineNumber": 3128,
       "isConditional": true,
       "conditionalOn": [
-        "V",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "V",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -73,10 +73,10 @@
       "lineNumber": 3129,
       "isConditional": true,
       "conditionalOn": [
-        "V",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "V",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -92,10 +92,10 @@
       "lineNumber": 3133,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "800"
@@ -111,10 +111,10 @@
       "lineNumber": 3134,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "W_CURRENT"
@@ -130,10 +130,10 @@
       "lineNumber": 3135,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "8"
@@ -149,10 +149,10 @@
       "lineNumber": 3136,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.11"
@@ -168,10 +168,10 @@
       "lineNumber": 3137,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -187,10 +187,10 @@
       "lineNumber": 3138,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -206,10 +206,10 @@
       "lineNumber": 3139,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -225,18 +225,18 @@
       "lineNumber": 3149,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "conditionalOnNot": [
         "E0_MOTOR_CURRENT"
@@ -258,18 +258,18 @@
       "lineNumber": 3152,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "examples": [
         "16"
@@ -285,22 +285,22 @@
       "lineNumber": 3156,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -319,18 +319,18 @@
       "lineNumber": 3158,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "examples": [
         "-1"
@@ -346,18 +346,18 @@
       "lineNumber": 3159,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "examples": [
         "true"
@@ -373,18 +373,18 @@
       "lineNumber": 3160,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "examples": [
         "0.5"
@@ -401,10 +401,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "conditionalOnNot": [
         "E0_MOTOR_CURRENT"
@@ -427,10 +427,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -447,10 +447,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "examples": [
         "0.11"
@@ -467,10 +467,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "examples": [
         "-1"
@@ -487,10 +487,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "examples": [
         "true"
@@ -507,10 +507,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "examples": [
         "0.5"
@@ -526,10 +526,10 @@
       "lineNumber": 3180,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_CURRENT"
@@ -545,10 +545,10 @@
       "lineNumber": 3181,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -564,10 +564,10 @@
       "lineNumber": 3182,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_RSENSE"
@@ -583,10 +583,10 @@
       "lineNumber": 3183,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -602,10 +602,10 @@
       "lineNumber": 3184,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -621,10 +621,10 @@
       "lineNumber": 3185,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -640,10 +640,10 @@
       "lineNumber": 3189,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_CURRENT"

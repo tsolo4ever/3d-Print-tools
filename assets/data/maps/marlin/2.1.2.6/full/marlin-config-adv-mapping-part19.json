@@ -16,10 +16,10 @@
       "lineNumber": 2771,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Y2"
+        "Y2",
+        "AXIS_IS_TMC_CONFIG",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "0.5"
@@ -35,10 +35,10 @@
       "lineNumber": 2775,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z"
+        "AXIS_IS_TMC_CONFIG",
+        "Z",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "800"
@@ -54,10 +54,10 @@
       "lineNumber": 2776,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z"
+        "AXIS_IS_TMC_CONFIG",
+        "Z",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_CURRENT"
@@ -73,10 +73,10 @@
       "lineNumber": 2777,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z"
+        "AXIS_IS_TMC_CONFIG",
+        "Z",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "16"
@@ -92,10 +92,10 @@
       "lineNumber": 2778,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z"
+        "AXIS_IS_TMC_CONFIG",
+        "Z",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "0.11"
@@ -111,10 +111,10 @@
       "lineNumber": 2779,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z"
+        "AXIS_IS_TMC_CONFIG",
+        "Z",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "-1"
@@ -130,10 +130,10 @@
       "lineNumber": 2780,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z"
+        "AXIS_IS_TMC_CONFIG",
+        "Z",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "true"
@@ -149,10 +149,10 @@
       "lineNumber": 2781,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z"
+        "AXIS_IS_TMC_CONFIG",
+        "Z",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "0.5"
@@ -168,10 +168,10 @@
       "lineNumber": 2785,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z2"
+        "AXIS_IS_TMC_CONFIG",
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_CURRENT"
@@ -187,10 +187,10 @@
       "lineNumber": 2786,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z2"
+        "AXIS_IS_TMC_CONFIG",
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_CURRENT_HOME"
@@ -206,10 +206,10 @@
       "lineNumber": 2787,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z2"
+        "AXIS_IS_TMC_CONFIG",
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_MICROSTEPS"
@@ -225,10 +225,10 @@
       "lineNumber": 2788,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z2"
+        "AXIS_IS_TMC_CONFIG",
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_RSENSE"
@@ -244,10 +244,10 @@
       "lineNumber": 2789,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z2"
+        "AXIS_IS_TMC_CONFIG",
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "-1"
@@ -263,10 +263,10 @@
       "lineNumber": 2790,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z2"
+        "AXIS_IS_TMC_CONFIG",
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "true"
@@ -282,10 +282,10 @@
       "lineNumber": 2791,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z2"
+        "AXIS_IS_TMC_CONFIG",
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "0.5"
@@ -301,10 +301,10 @@
       "lineNumber": 2795,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z3"
+        "AXIS_IS_TMC_CONFIG",
+        "Z3",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_CURRENT"
@@ -320,10 +320,10 @@
       "lineNumber": 2796,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z3"
+        "AXIS_IS_TMC_CONFIG",
+        "Z3",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_CURRENT_HOME"
@@ -339,10 +339,10 @@
       "lineNumber": 2797,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z3"
+        "AXIS_IS_TMC_CONFIG",
+        "Z3",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_MICROSTEPS"
@@ -358,10 +358,10 @@
       "lineNumber": 2798,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z3"
+        "AXIS_IS_TMC_CONFIG",
+        "Z3",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_RSENSE"
@@ -377,10 +377,10 @@
       "lineNumber": 2799,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z3"
+        "AXIS_IS_TMC_CONFIG",
+        "Z3",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "-1"
@@ -396,10 +396,10 @@
       "lineNumber": 2800,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z3"
+        "AXIS_IS_TMC_CONFIG",
+        "Z3",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "true"
@@ -415,10 +415,10 @@
       "lineNumber": 2801,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z3"
+        "AXIS_IS_TMC_CONFIG",
+        "Z3",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "0.5"
@@ -434,10 +434,10 @@
       "lineNumber": 2805,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z4"
+        "AXIS_IS_TMC_CONFIG",
+        "Z4",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_CURRENT"
@@ -453,10 +453,10 @@
       "lineNumber": 2806,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z4"
+        "AXIS_IS_TMC_CONFIG",
+        "Z4",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_CURRENT_HOME"
@@ -472,10 +472,10 @@
       "lineNumber": 2807,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z4"
+        "AXIS_IS_TMC_CONFIG",
+        "Z4",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_MICROSTEPS"
@@ -491,10 +491,10 @@
       "lineNumber": 2808,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z4"
+        "AXIS_IS_TMC_CONFIG",
+        "Z4",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "Z_RSENSE"
@@ -510,10 +510,10 @@
       "lineNumber": 2809,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z4"
+        "AXIS_IS_TMC_CONFIG",
+        "Z4",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "-1"
@@ -529,10 +529,10 @@
       "lineNumber": 2810,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z4"
+        "AXIS_IS_TMC_CONFIG",
+        "Z4",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "true"
@@ -548,10 +548,10 @@
       "lineNumber": 2811,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "Z4"
+        "AXIS_IS_TMC_CONFIG",
+        "Z4",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "0.5"
@@ -567,10 +567,10 @@
       "lineNumber": 2815,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC_CONFIG",
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
-        "I"
+        "AXIS_IS_TMC_CONFIG",
+        "I",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "800"

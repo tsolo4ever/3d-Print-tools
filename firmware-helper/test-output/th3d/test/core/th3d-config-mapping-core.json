@@ -1,0 +1,1244 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "test",
+  "firmware": "th3d",
+  "configFile": "Configuration.h",
+  "generatedFrom": "..\\test files\\Configuration.h",
+  "totalDefines": 224,
+  "basic": {
+    "configurationHVersion": {
+      "mapsFrom": [
+        "CONFIGURATION_H_VERSION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 6,
+      "examples": [
+        "02010204"
+      ]
+    },
+    "serialPort": {
+      "mapsFrom": [
+        "SERIAL_PORT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1417,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "1"
+      ],
+      "uiFieldId": "tab7_serialPort"
+    },
+    "baudrate": {
+      "mapsFrom": [
+        "BAUDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1419,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "115200"
+      ],
+      "uiFieldId": "tab7_baudRate"
+    },
+    "motherboard": {
+      "mapsFrom": [
+        "MOTHERBOARD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1422,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "MOTHERBOARD"
+      ],
+      "examples": [
+        "BOARD_CREALITY_V422"
+      ],
+      "uiFieldId": "tab2_motherboard"
+    },
+    "extruders": {
+      "mapsFrom": [
+        "EXTRUDERS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1433,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "1"
+      ],
+      "uiFieldId": "tab3_extruders"
+    }
+  },
+  "other_1": {
+    "unifiedVersion": {
+      "mapsFrom": [
+        "UNIFIED_VERSION"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 8,
+      "examples": [
+        "\"TH3D UFW 2.97a\""
+      ],
+      "uiFieldId": "tab1_firmwareVersion"
+    },
+    "ender3": {
+      "mapsFrom": [
+        "ENDER3"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 538,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_NEO"
+      ],
+      "notes": "=========================================================================== ============================ TH3D Configuration =========================== =========================================================================== ONLY UNCOMMENT ONE PRINTER AT A TIME!!! IF YOU HAVE MULTIPLE MACHINES FLASH THEM ONE AT A TIME. UNCOMMENT MEANS REMOVING THE // IN FRONT OF A #define XXXXXX LINE. DO NOT USE AUTO BUILD MARLIN WITH OUR FIRMWARE - UNINSTALL IT FROM VSCODE BEFORE USING IF YOU HAVE ISSUES COMPILING. If you have a 512K CPU please read the notes in the platformio.ini file for details on compiling for these chips. Most boards regardless of the CPU will work as-is but if you have issues with the board flashing the firmware you may have to change the default_envs value as noted in platformio.ini. GD32 CPU Notes If you have a GD32 CPU you no longer need to change to a GD32 environment as the STM32 one work with those chips. If you converted a NEO or V2 printer to the 12864 LCD make sure to enable the ENDER3_12864_LCD_KIT option that is lower in the config section. =========================================================================== *********   CREALITY PRINTERS W/V4.X.X BOARD - F103/F303 CPU   *********** =========================================================================== ------------------------------ V4.2.2 Board -------------------------------"
+    },
+    "ender3Max": {
+      "mapsFrom": [
+        "ENDER3_MAX"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 559,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX_NEO"
+      ]
+    },
+    "ender3V2": {
+      "mapsFrom": [
+        "ENDER3_V2"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 525,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2_NEO"
+      ]
+    },
+    "ender5": {
+      "mapsFrom": [
+        "ENDER5"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 507,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER5_PRO"
+      ]
+    },
+    "ender5Pro": {
+      "mapsFrom": [
+        "ENDER5_PRO"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 41
+    },
+    "ender5Plus": {
+      "mapsFrom": [
+        "ENDER5_PLUS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 42,
+      "examples": [
+        "//REQUIRES TH3D LCD KIT AND DUAL CABLE LCD ADAPTER BOARD"
+      ]
+    },
+    "ezoutEnable": {
+      "mapsFrom": [
+        "EZOUT_ENABLE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 591,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZOUT_ENABLE_J1"
+      ],
+      "notes": "------------------------------ Upgrade Settings ------------------------------- EZOut Filament Sensor Kit - LCD Header Connection If you are using our EZOut filament sensor kit please follow the install guide and then uncomment the #define EZOUT_ENABLE line below."
+    }
+  },
+  "other_2": {
+    "ezablPoints": {
+      "mapsFrom": [
+        "EZABL_POINTS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1338,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS_NOABL",
+        "ENDER5_PLUS",
+        "ENDER3",
+        "ENDER5",
+        "ENDER5_PLUS_EZABL"
+      ],
+      "conditionalOnNot": [
+        "EZABL_POINTS"
+      ],
+      "examples": [
+        "5"
+      ],
+      "notes": "Probing Grid Points - If you want more or less EZABL probe points change the number below, use odd numbers. Total points is # times #."
+    },
+    "customEsteps": {
+      "mapsFrom": [
+        "CUSTOM_ESTEPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 227,
+      "isConditional": true,
+      "conditionalOn": [
+        "BLTOUCH_ON_5PIN"
+      ],
+      "notes": "#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 } =========================================================================== ******************** Extra Features and Tweaks **************************** =========================================================================== EXTRUDER SETTINGS ------------------------------- Use to set custom esteps and/or reverse your E Motor direction if you are installing an extruder that needs the direction reversed. If you reversed the wiring on your E motor already (like the Bondtech Guide says to do) then you do not need to reverse it in the firmware here.  Example EStep Values For Common Extuders: TH3D Aluminum Extruder ------  95 ESteps Micro Swiss DD Extruder ----- 130 ESteps LGX/LGX Lite/MS NG Extruder - 400 ESteps TH3D Tough Extruder V2 ------ 407 ESteps TH3D Tough Extruder V1 ------ 410 ESteps Bondtech BMG Extruder ------- 415 ESteps Creality Sprite Extruder ---- 425 ESteps LDO Orbiter/Sherpa Mini ----- 690 ESteps  If you want to change the Esteps for your printer you can uncomment the below line and set CUSTOM_ESTEPS_VALUE to what you want - USE WHOLE NUMBERS ONLY This option sets the esteps from the CUSTOM_ESTEPS_VALUE line below. If you need to reverse the e motor direction also enabled the REVERSE_E_MOTOR_DIRECTION option."
+    },
+    "directDrivePrinter": {
+      "mapsFrom": [
+        "DIRECT_DRIVE_PRINTER"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 236,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_ESTEPS_VALUE"
+      ],
+      "notes": "If you have a direct drive machine with a filament sensor uncomment DIRECT_DRIVE_PRINTER to decrease the unload length from 100mm to 20mm"
+    },
+    "userPrinterName": {
+      "mapsFrom": [
+        "USER_PRINTER_NAME"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 282,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_PRINTER_NAME"
+      ],
+      "examples": [
+        "\"Maxy\""
+      ],
+      "uiFieldId": "tab1_profileName"
+    }
+  },
+  "other_3": {
+    "linearAdvance": {
+      "mapsFrom": [
+        "LINEAR_ADVANCE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 389
+    },
+    "linearAdvanceK": {
+      "mapsFrom": [
+        "LINEAR_ADVANCE_K"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 390,
+      "isConditional": true,
+      "conditionalOn": [
+        "LINEAR_ADVANCE"
+      ],
+      "examples": [
+        "0.10"
+      ]
+    },
+    "ymaxPlug": {
+      "mapsFrom": [
+        "USE_YMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1185,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS",
+        "ENDER3",
+        "USE_XMAX_PLUG",
+        "ENDER5"
+      ],
+      "uiFieldId": "tab8_useYMaxEndstop"
+    }
+  },
+  "other_4": {
+    "zminPlug": {
+      "mapsFrom": [
+        "USE_ZMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1484,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "USE_YMIN_PLUG"
+      ],
+      "uiFieldId": "tab8_useZMinEndstop"
+    },
+    "kp": {
+      "mapsFrom": [
+        "DEFAULT_Kp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1529,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "28.72"
+      ],
+      "uiFieldId": "tab3_hotendPidKp"
+    },
+    "ki": {
+      "mapsFrom": [
+        "DEFAULT_Ki"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1530,
+      "isConditional": true,
+      "conditionalOn": [
+        "DEFAULT_Kp",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "2.62"
+      ],
+      "uiFieldId": "tab3_hotendPidKi"
+    },
+    "kd": {
+      "mapsFrom": [
+        "DEFAULT_Kd"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1531,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "DEFAULT_Ki"
+      ],
+      "examples": [
+        "78.81"
+      ],
+      "uiFieldId": "tab3_hotendPidKd"
+    },
+    "bedkp": {
+      "mapsFrom": [
+        "DEFAULT_bedKp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1533,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "462.10"
+      ],
+      "uiFieldId": "tab4_bedPidKp"
+    },
+    "bedki": {
+      "mapsFrom": [
+        "DEFAULT_bedKi"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1534,
+      "isConditional": true,
+      "conditionalOn": [
+        "DEFAULT_bedKp",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "85.47"
+      ],
+      "uiFieldId": "tab4_bedPidKi"
+    },
+    "bedkd": {
+      "mapsFrom": [
+        "DEFAULT_bedKd"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1535,
+      "isConditional": true,
+      "conditionalOn": [
+        "DEFAULT_bedKi",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "624.59"
+      ],
+      "uiFieldId": "tab4_bedPidKd"
+    },
+    "filRunoutEnabledDefault": {
+      "mapsFrom": [
+        "FIL_RUNOUT_ENABLED_DEFAULT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1629,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "true"
+      ],
+      "uiFieldId": "tab7_runoutEnabledDefault"
+    },
+    "numRunoutSensors": {
+      "mapsFrom": [
+        "NUM_RUNOUT_SENSORS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1630,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "FIL_RUNOUT_ENABLED_DEFAULT",
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "1"
+      ],
+      "uiFieldId": "tab7_numRunoutSensors"
+    },
+    "filRunoutState": {
+      "mapsFrom": [
+        "FIL_RUNOUT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1631,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "NUM_RUNOUT_SENSORS",
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "LOW"
+      ],
+      "uiFieldId": "tab7_runoutTriggerState"
+    }
+  },
+  "other_5": {
+    "yminPlug": {
+      "mapsFrom": [
+        "USE_YMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1483,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "USE_XMIN_PLUG"
+      ],
+      "uiFieldId": "tab8_useYMinEndstop"
+    }
+  },
+  "probe": {
+    "customProbe": {
+      "mapsFrom": [
+        "CUSTOM_PROBE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1341,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS_NOABL",
+        "ENDER5_PLUS",
+        "CUSTOM_PROBE",
+        "ENDER3",
+        "ENDER5",
+        "ENDER5_PLUS_EZABL"
+      ]
+    },
+    "ezablProbeEdge": {
+      "mapsFrom": [
+        "EZABL_PROBE_EDGE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1335,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS_NOABL",
+        "ENDER5_PLUS",
+        "ENDER3",
+        "ENDER5",
+        "ENDER5_PLUS_EZABL"
+      ],
+      "conditionalOnNot": [
+        "EZABL_PROBE_EDGE"
+      ],
+      "examples": [
+        "15"
+      ],
+      "notes": "Probe Edge - How far from the edge of the bed to probe from. Use 30 if using binder clips. This also sets the edge inset value for MANUAL_MESH_LEVELING."
+    },
+    "ezablFastprobe": {
+      "mapsFrom": [
+        "EZABL_FASTPROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 136,
+      "notes": "Fast Probing - Works with most machines and all EZABL sensors (8mm/s)"
+    },
+    "bltouch": {
+      "mapsFrom": [
+        "BLTOUCH"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1333,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS_NOABL",
+        "ENDER5_PLUS",
+        "ENDER3",
+        "ENDER5",
+        "ENDER5_PLUS_EZABL"
+      ],
+      "uiFieldId": "tab5_probeTypeBLTouch"
+    },
+    "nozzleToProbeOffset": {
+      "mapsFrom": [
+        "NOZZLE_TO_PROBE_OFFSET"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1342,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS_NOABL",
+        "ENDER5_PLUS",
+        "CUSTOM_PROBE",
+        "ENDER3",
+        "ENDER5",
+        "ENDER5_PLUS_EZABL"
+      ],
+      "examples": [
+        "{ -44, -9, 0}"
+      ],
+      "uiFieldId": "tab5_probeOffset"
+    }
+  },
+  "hardware": {
+    "cr10Stockdisplay": {
+      "mapsFrom": [
+        "CR10_STOCKDISPLAY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1596,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_12864_LCD_KIT",
+        "ENDER3_V2"
+      ],
+      "uiFieldId": "tab10_displayCR10Stock"
+    },
+    "tempSensor0": {
+      "mapsFrom": [
+        "TEMP_SENSOR_0"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1500,
+      "isConditional": true,
+      "conditionalOn": [
+        "TH3D_HOTEND_THERMISTOR",
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "KNOWN_HOTEND_THERMISTOR",
+        "TH3D_HOTEND_THERMISTOR",
+        "V6_HOTEND"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "ENABLED(TH3D_HOTEND_THERMISTOR)"
+      ],
+      "examples": [
+        "1"
+      ],
+      "uiFieldId": "tab3_hotendTempSensor"
+    },
+    "tempSensor1": {
+      "mapsFrom": [
+        "TEMP_SENSOR_1"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1504,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab3_hotend2TempSensor"
+    },
+    "tempSensor2": {
+      "mapsFrom": [
+        "TEMP_SENSOR_2"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1505,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_1",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ]
+    },
+    "tempSensorBed": {
+      "mapsFrom": [
+        "TEMP_SENSOR_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1522,
+      "isConditional": true,
+      "conditionalOn": [
+        "KEENOVO_TEMPSENSOR",
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "TH3D_BED_THERMISTOR",
+        "KEENOVO_TEMPSENSOR",
+        "AC_BED",
+        "KNOWN_BED_THERMISTOR"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "ENABLED(KEENOVO_TEMPSENSOR)"
+      ],
+      "examples": [
+        "11"
+      ],
+      "uiFieldId": "tab4_bedTempSensor"
+    },
+    "tempSensorChamber": {
+      "mapsFrom": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1527,
+      "isConditional": true,
+      "conditionalOn": [
+        "TEMP_SENSOR_PROBE",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab4_chamberTempSensor"
+    },
+    "xDriverType": {
+      "mapsFrom": [
+        "X_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1553,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ],
+      "uiFieldId": "tab2_xDriverType"
+    },
+    "yDriverType": {
+      "mapsFrom": [
+        "Y_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1554,
+      "isConditional": true,
+      "conditionalOn": [
+        "X_DRIVER_TYPE",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ],
+      "uiFieldId": "tab2_yDriverType"
+    },
+    "zDriverType": {
+      "mapsFrom": [
+        "Z_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1555,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_DRIVER_TYPE",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ],
+      "uiFieldId": "tab2_zDriverType"
+    },
+    "e0DriverType": {
+      "mapsFrom": [
+        "E0_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1556,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "Z_DRIVER_TYPE"
+      ],
+      "examples": [
+        "TMC2208_STANDALONE"
+      ],
+      "uiFieldId": "tab2_e0DriverType"
+    }
+  },
+  "temperature": {
+    "heatersOnDuringProbing": {
+      "mapsFrom": [
+        "HEATERS_ON_DURING_PROBING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 142,
+      "notes": "Heaters on During Probing - Heaters will stay on during probing - May reduce accuracy do not use unless told to by support"
+    },
+    "xBedSize": {
+      "mapsFrom": [
+        "X_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1467,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "XTENDER_E3_500Z"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "220"
+      ],
+      "uiFieldId": "tab4_bedSizeX"
+    },
+    "yBedSize": {
+      "mapsFrom": [
+        "Y_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1468,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "X_BED_SIZE"
+      ],
+      "conditionalOnNot": [
+        "XTENDER_E3_500Z"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "220"
+      ],
+      "uiFieldId": "tab4_bedSizeY"
+    }
+  },
+  "advanced": {
+    "filamentRunoutSensor": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1622,
+      "isConditional": true,
+      "conditionalOn": [
+        "EZOUT_ENABLE",
+        "ENDER3_V2"
+      ],
+      "uiFieldId": "tab7_filamentRunoutEnabled"
+    }
+  },
+  "endstops": {
+    "xmaxPlug": {
+      "mapsFrom": [
+        "USE_XMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1184,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS",
+        "ENDER5",
+        "ENDER3"
+      ],
+      "uiFieldId": "tab8_useXMaxEndstop"
+    },
+    "xHomeDir": {
+      "mapsFrom": [
+        "X_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1486,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "-1"
+      ],
+      "uiFieldId": "tab6_xHomeDirection"
+    },
+    "yHomeDir": {
+      "mapsFrom": [
+        "Y_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1487,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "X_HOME_DIR"
+      ],
+      "examples": [
+        "-1"
+      ],
+      "uiFieldId": "tab6_yHomeDirection"
+    },
+    "zHomeDir": {
+      "mapsFrom": [
+        "Z_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1488,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_HOME_DIR",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "-1"
+      ],
+      "uiFieldId": "tab6_zHomeDirection"
+    },
+    "endstoppullups": {
+      "mapsFrom": [
+        "ENDSTOPPULLUPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1537,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "uiFieldId": "tab8_endstopPullups"
+    },
+    "xMinEndstopInverting": {
+      "mapsFrom": [
+        "X_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1539,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "yMinEndstopInverting": {
+      "mapsFrom": [
+        "Y_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1540,
+      "isConditional": true,
+      "conditionalOn": [
+        "X_MIN_ENDSTOP_INVERTING",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1541,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_MIN_ENDSTOP_INVERTING",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "xMaxEndstopInverting": {
+      "mapsFrom": [
+        "X_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1542,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "Z_MIN_ENDSTOP_INVERTING"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "yMaxEndstopInverting": {
+      "mapsFrom": [
+        "Y_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1543,
+      "isConditional": true,
+      "conditionalOn": [
+        "X_MAX_ENDSTOP_INVERTING",
+        "ENDER3_V2"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "zMaxEndstopInverting": {
+      "mapsFrom": [
+        "Z_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1544,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "Y_MAX_ENDSTOP_INVERTING"
+      ],
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinProbeUsesZMinEndstopPin": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1550,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "BLTOUCH_ON_5PIN"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "uiFieldId": "tab5_probeUsesZMinPin"
+    },
+    "xminPlug": {
+      "mapsFrom": [
+        "USE_XMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1482,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "uiFieldId": "tab8_useXMinEndstop"
+    }
+  },
+  "geometry": {
+    "manualMeshLeveling": {
+      "mapsFrom": [
+        "MANUAL_MESH_LEVELING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 402
+    },
+    "zMaxPos": {
+      "mapsFrom": [
+        "Z_MAX_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1469,
+      "isConditional": true,
+      "conditionalOn": [
+        "Y_BED_SIZE",
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "XTENDER_E3_500Z"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "250"
+      ],
+      "uiFieldId": "tab6_zMaxPosition"
+    },
+    "xMinPos": {
+      "mapsFrom": [
+        "X_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1478,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "HOME_ADJUST"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab6_xMinPosition"
+    },
+    "yMinPos": {
+      "mapsFrom": [
+        "Y_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1479,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "X_MIN_POS"
+      ],
+      "conditionalOnNot": [
+        "HOME_ADJUST"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab6_yMinPosition"
+    }
+  },
+  "safety": {
+    "powerLossRecovery": {
+      "mapsFrom": [
+        "POWER_LOSS_RECOVERY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1611,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENABLE_PIDBED",
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_CREALITY_LCD",
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "ENDER3_V2"
+      ],
+      "uiFieldId": "tab7_powerLossRecovery"
+    },
+    "extrudeMaxlength": {
+      "mapsFrom": [
+        "EXTRUDE_MAXLENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1619,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2",
+        "Z_PROBE_OFFSET_RANGE_MAX"
+      ],
+      "examples": [
+        "1000"
+      ]
+    }
+  },
+  "motion": {
+    "axisStepsPerUnit": {
+      "mapsFrom": [
+        "DEFAULT_AXIS_STEPS_PER_UNIT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1428,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_V2"
+      ],
+      "conditionalOnNot": [
+        "CUSTOM_ESTEPS"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "{ 80, 80, 400, 95 }"
+      ],
+      "uiFieldId": "tab6_stepsPerUnit"
+    }
+  },
+  "coreDefines": 70
+}

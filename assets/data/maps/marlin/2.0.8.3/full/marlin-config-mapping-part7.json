@@ -478,10 +478,10 @@
       "lineNumber": 2595,
       "isConditional": true,
       "conditionalOn": [
-        "BOTH",
         "TOUCH_SCREEN",
-        "EEPROM_SETTINGS",
-        "TOUCH_SCREEN_CALIBRATION"
+        "TOUCH_SCREEN_CALIBRATION",
+        "BOTH",
+        "EEPROM_SETTINGS"
       ],
       "examples": [
         "// Auto save successful calibration values to EEPROM"
@@ -647,9 +647,9 @@
       "lineNumber": 2683,
       "isConditional": true,
       "conditionalOn": [
-        "RGBW_LED",
         "RGB_LED",
-        "EITHER"
+        "EITHER",
+        "RGBW_LED"
       ],
       "examples": [
         "34"
@@ -665,9 +665,9 @@
       "lineNumber": 2684,
       "isConditional": true,
       "conditionalOn": [
-        "RGBW_LED",
         "RGB_LED",
-        "EITHER"
+        "EITHER",
+        "RGBW_LED"
       ],
       "examples": [
         "43"
@@ -683,9 +683,9 @@
       "lineNumber": 2685,
       "isConditional": true,
       "conditionalOn": [
-        "RGBW_LED",
         "RGB_LED",
-        "EITHER"
+        "EITHER",
+        "RGBW_LED"
       ],
       "examples": [
         "35"
@@ -701,9 +701,9 @@
       "lineNumber": 2686,
       "isConditional": true,
       "conditionalOn": [
-        "RGBW_LED",
         "RGB_LED",
-        "EITHER"
+        "EITHER",
+        "RGBW_LED"
       ],
       "examples": [
         "-1"

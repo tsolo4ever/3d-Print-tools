@@ -128,10 +128,10 @@
       "lineNumber": 2813,
       "isConditional": true,
       "conditionalOn": [
-        "SENSORLESS_PROBING",
         "SENSORLESS_HOMING",
-        "EITHER",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_PROBING",
+        "EITHER"
       ],
       "examples": [
         "8"
@@ -148,10 +148,10 @@
       "lineNumber": 2814,
       "isConditional": true,
       "conditionalOn": [
-        "SENSORLESS_PROBING",
         "SENSORLESS_HOMING",
-        "EITHER",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_PROBING",
+        "EITHER"
       ],
       "examples": [
         "X_STALL_SENSITIVITY"
@@ -167,10 +167,10 @@
       "lineNumber": 2815,
       "isConditional": true,
       "conditionalOn": [
-        "SENSORLESS_PROBING",
         "SENSORLESS_HOMING",
-        "EITHER",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_PROBING",
+        "EITHER"
       ],
       "examples": [
         "8"
@@ -186,10 +186,10 @@
       "lineNumber": 2816,
       "isConditional": true,
       "conditionalOn": [
-        "SENSORLESS_PROBING",
         "SENSORLESS_HOMING",
-        "EITHER",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_PROBING",
+        "EITHER"
       ],
       "examples": [
         "Y_STALL_SENSITIVITY"
@@ -205,10 +205,10 @@
       "lineNumber": 2817,
       "isConditional": true,
       "conditionalOn": [
-        "SENSORLESS_PROBING",
         "SENSORLESS_HOMING",
-        "EITHER",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_PROBING",
+        "EITHER"
       ],
       "examples": [
         "8"
@@ -224,10 +224,10 @@
       "lineNumber": 2818,
       "isConditional": true,
       "conditionalOn": [
-        "SENSORLESS_PROBING",
         "SENSORLESS_HOMING",
-        "EITHER",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_PROBING",
+        "EITHER"
       ],
       "examples": [
         "Z_STALL_SENSITIVITY"
@@ -243,10 +243,10 @@
       "lineNumber": 2819,
       "isConditional": true,
       "conditionalOn": [
-        "SENSORLESS_PROBING",
         "SENSORLESS_HOMING",
-        "EITHER",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_PROBING",
+        "EITHER"
       ],
       "examples": [
         "Z_STALL_SENSITIVITY"
@@ -262,10 +262,10 @@
       "lineNumber": 2820,
       "isConditional": true,
       "conditionalOn": [
-        "SENSORLESS_PROBING",
         "SENSORLESS_HOMING",
-        "EITHER",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_PROBING",
+        "EITHER"
       ],
       "examples": [
         "Z_STALL_SENSITIVITY"
@@ -281,10 +281,10 @@
       "lineNumber": 2822,
       "isConditional": true,
       "conditionalOn": [
-        "SENSORLESS_PROBING",
         "SENSORLESS_HOMING",
-        "EITHER",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_PROBING",
+        "EITHER"
       ]
     },
     "squareWaveStepping": {
@@ -340,8 +340,8 @@
       "isConditional": true,
       "conditionalOn": [
         "X",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "2000"
@@ -358,8 +358,8 @@
       "isConditional": true,
       "conditionalOn": [
         "X",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "1500"
@@ -377,8 +377,8 @@
       "isConditional": true,
       "conditionalOn": [
         "X",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "127"
@@ -396,8 +396,8 @@
       "isConditional": true,
       "conditionalOn": [
         "X",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "1"
@@ -413,9 +413,9 @@
       "lineNumber": 2900,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_L64XX",
         "X2",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "2000"
@@ -431,9 +431,9 @@
       "lineNumber": 2901,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_L64XX",
         "X2",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "1500"
@@ -449,9 +449,9 @@
       "lineNumber": 2902,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_L64XX",
         "X2",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "127"
@@ -467,9 +467,9 @@
       "lineNumber": 2904,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_L64XX",
         "X2",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "1"
@@ -485,9 +485,9 @@
       "lineNumber": 2909,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_L64XX",
         "Y",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "2000"
@@ -503,9 +503,9 @@
       "lineNumber": 2910,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_L64XX",
         "Y",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "1500"
@@ -521,9 +521,9 @@
       "lineNumber": 2911,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_L64XX",
         "Y",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "127"

@@ -521,9 +521,9 @@
       "lineNumber": 1648,
       "isConditional": true,
       "conditionalOn": [
+        "FILAMENT_RUNOUT_DISTANCE_MM",
         "FILAMENT_RUNOUT_SENSOR",
-        "ENDER3_V2",
-        "FILAMENT_RUNOUT_DISTANCE_MM"
+        "ENDER3_V2"
       ],
       "notes": "Enable this option to use an encoder disc that toggles the runout pin as the filament moves. (Be sure to set FILAMENT_RUNOUT_DISTANCE_MM large enough to avoid false positives.)"
     },
@@ -565,8 +565,8 @@
       "lineNumber": 1656,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
         "NEOPIXEL_LED",
+        "EZNEO_220",
         "ENDER3_V2"
       ],
       "examples": [
@@ -583,8 +583,8 @@
       "lineNumber": 1657,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
         "NEOPIXEL_LED",
+        "EZNEO_220",
         "ENDER3_V2"
       ],
       "examples": [
@@ -601,8 +601,8 @@
       "lineNumber": 1658,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
         "NEOPIXEL_LED",
+        "EZNEO_220",
         "ENDER3_V2"
       ],
       "examples": [
@@ -619,8 +619,8 @@
       "lineNumber": 1659,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
         "NEOPIXEL_LED",
+        "EZNEO_220",
         "ENDER3_V2"
       ],
       "examples": [
@@ -637,8 +637,8 @@
       "lineNumber": 1660,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
         "NEOPIXEL_LED",
+        "EZNEO_220",
         "ENDER3_V2"
       ],
       "examples": [
@@ -655,14 +655,14 @@
       "lineNumber": 1675,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
-        "RGB_LED",
-        "NEOPIXEL_LED",
-        "ENDER3_V2",
         "RGBW_LED",
-        "BLINKM",
         "PCA9632",
-        "PCA9533"
+        "NEOPIXEL_LED",
+        "EZNEO_220",
+        "PCA9533",
+        "ENDER3_V2",
+        "RGB_LED",
+        "BLINKM"
       ]
     },
     "yminPlug": {
@@ -748,8 +748,8 @@
       "isConditional": true,
       "conditionalOn": [
         "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5",
+        "ENDER3_MAX",
         "ENDER3"
       ],
       "conditionalOnNot": [
@@ -773,9 +773,9 @@
       "isConditional": true,
       "conditionalOn": [
         "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "ENDER3_MAX",
         "ENDER3"
       ]
     },

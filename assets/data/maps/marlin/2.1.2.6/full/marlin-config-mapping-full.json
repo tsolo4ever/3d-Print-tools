@@ -498,8 +498,8 @@
       "lineNumber": 254,
       "isConditional": true,
       "conditionalOn": [
-        "SWITCHING_EXTRUDER",
-        "EXTRUDERS"
+        "EXTRUDERS",
+        "SWITCHING_EXTRUDER"
       ],
       "examples": [
         "1"
@@ -811,9 +811,9 @@
       "lineNumber": 333,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "235"
@@ -829,9 +829,9 @@
       "lineNumber": 334,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "10"
@@ -847,9 +847,9 @@
       "lineNumber": 335,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "60"
@@ -865,9 +865,9 @@
       "lineNumber": 336,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "{ 215, 0 }"
@@ -883,9 +883,9 @@
       "lineNumber": 338,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "2"
@@ -901,9 +901,9 @@
       "lineNumber": 339,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "{ 0, 180 }"
@@ -919,9 +919,9 @@
       "lineNumber": 341,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -940,9 +940,9 @@
       "lineNumber": 342,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -961,9 +961,9 @@
       "lineNumber": 343,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -982,10 +982,10 @@
       "lineNumber": 345,
       "isConditional": true,
       "conditionalOn": [
-        "PRIME_BEFORE_REMOVE",
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -1004,10 +1004,10 @@
       "lineNumber": 346,
       "isConditional": true,
       "conditionalOn": [
-        "PRIME_BEFORE_REMOVE",
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -1026,9 +1026,9 @@
       "lineNumber": 351,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(ELECTROMAGNETIC_SWITCHING_TOOLHEAD)"
@@ -1136,8 +1136,8 @@
       "lineNumber": 371,
       "isConditional": true,
       "conditionalOn": [
-        "GRADIENT_MIX",
-        "MIXING_EXTRUDER"
+        "MIXING_EXTRUDER",
+        "GRADIENT_MIX"
       ],
       "examples": [
         "// Add M166 T to use a V-tool index as a Gradient alias"
@@ -1666,8 +1666,8 @@
       "lineNumber": 685,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
-        "PID_PARAMS_PER_HOTEND"
+        "PID_PARAMS_PER_HOTEND",
+        "PIDTEMP"
       ],
       "examples": [
         "{  22.20,  22.20 }"
@@ -1684,8 +1684,8 @@
       "lineNumber": 686,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
-        "PID_PARAMS_PER_HOTEND"
+        "PID_PARAMS_PER_HOTEND",
+        "PIDTEMP"
       ],
       "examples": [
         "{   1.08,   1.08 }"
@@ -1701,8 +1701,8 @@
       "lineNumber": 687,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
-        "PID_PARAMS_PER_HOTEND"
+        "PID_PARAMS_PER_HOTEND",
+        "PIDTEMP"
       ],
       "examples": [
         "{ 114.00, 114.00 }"
@@ -1916,8 +1916,8 @@
       "lineNumber": 719,
       "isConditional": true,
       "conditionalOn": [
-        "MPC_INCLUDE_FAN",
-        "MPCTEMP"
+        "MPCTEMP",
+        "MPC_INCLUDE_FAN"
       ],
       "examples": [
         "{ 0.097f }"
@@ -1933,8 +1933,8 @@
       "lineNumber": 724,
       "isConditional": true,
       "conditionalOn": [
-        "MPC_INCLUDE_FAN",
-        "MPCTEMP"
+        "MPCTEMP",
+        "MPC_INCLUDE_FAN"
       ]
     },
     "mpcFan0ActiveHotend": {
@@ -1947,8 +1947,8 @@
       "lineNumber": 725,
       "isConditional": true,
       "conditionalOn": [
-        "MPC_INCLUDE_FAN",
-        "MPCTEMP"
+        "MPCTEMP",
+        "MPC_INCLUDE_FAN"
       ]
     },
     "filamentHeatCapacityPermm": {
@@ -2483,8 +2483,8 @@
       "lineNumber": 993,
       "isConditional": true,
       "conditionalOn": [
-        "MORGAN_SCARA",
         "MP_SCARA",
+        "MORGAN_SCARA",
         "EITHER"
       ],
       "examples": [
@@ -2504,8 +2504,8 @@
       "lineNumber": 994,
       "isConditional": true,
       "conditionalOn": [
-        "MORGAN_SCARA",
         "MP_SCARA",
+        "MORGAN_SCARA",
         "EITHER"
       ],
       "examples": [
@@ -2522,8 +2522,8 @@
       "lineNumber": 998,
       "isConditional": true,
       "conditionalOn": [
-        "MORGAN_SCARA",
         "MP_SCARA",
+        "MORGAN_SCARA",
         "EITHER"
       ],
       "examples": [
@@ -2541,8 +2541,8 @@
       "lineNumber": 999,
       "isConditional": true,
       "conditionalOn": [
-        "MORGAN_SCARA",
         "MP_SCARA",
+        "MORGAN_SCARA",
         "EITHER"
       ],
       "examples": [
@@ -2559,8 +2559,8 @@
       "lineNumber": 1003,
       "isConditional": true,
       "conditionalOn": [
-        "MORGAN_SCARA",
         "MP_SCARA",
+        "MORGAN_SCARA",
         "EITHER"
       ]
     },
@@ -2591,8 +2591,8 @@
       "lineNumber": 1009,
       "isConditional": true,
       "conditionalOn": [
-        "MORGAN_SCARA",
         "MP_SCARA",
+        "MORGAN_SCARA",
         "EITHER"
       ],
       "examples": [
@@ -2609,8 +2609,8 @@
       "lineNumber": 1010,
       "isConditional": true,
       "conditionalOn": [
-        "MORGAN_SCARA",
         "MP_SCARA",
+        "MORGAN_SCARA",
         "EITHER"
       ],
       "examples": [
@@ -2627,8 +2627,8 @@
       "lineNumber": 1014,
       "isConditional": true,
       "conditionalOn": [
-        "MORGAN_SCARA",
         "MP_SCARA",
+        "MORGAN_SCARA",
         "EITHER"
       ],
       "conditionalExpression": [
@@ -2648,8 +2648,8 @@
       "lineNumber": 1015,
       "isConditional": true,
       "conditionalOn": [
-        "MORGAN_SCARA",
         "MP_SCARA",
+        "MORGAN_SCARA",
         "EITHER"
       ],
       "conditionalExpression": [
@@ -4375,10 +4375,10 @@
       "lineNumber": 1964,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "ENABLE_LEVELING_FADE_HEIGHT",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "ENABLE_LEVELING_FADE_HEIGHT"
       ],
       "examples": [
         "10.0"
@@ -4394,8 +4394,8 @@
       "lineNumber": 1972,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_BILINEAR"
       ]
     },
@@ -4409,8 +4409,8 @@
       "lineNumber": 1973,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_BILINEAR"
       ],
       "examples": [
@@ -4427,10 +4427,10 @@
       "lineNumber": 1986,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "1.0"
@@ -4446,9 +4446,9 @@
       "lineNumber": 2004,
       "isConditional": true,
       "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
         "AUTO_BED_LEVELING_LINEAR",
-        "EITHER",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "EITHER"
       ],
       "notes": "Beyond the probed grid, continue the implied tilt? Default is to maintain the height of the nearest edge."
     },
@@ -4462,9 +4462,9 @@
       "lineNumber": 2010,
       "isConditional": true,
       "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
         "AUTO_BED_LEVELING_LINEAR",
-        "EITHER",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "EITHER"
       ],
       "notes": " Subdivision of the grid by Catmull-Rom method. Synthesizes intermediate points to produce a more detailed mesh. "
     }
@@ -4480,10 +4480,10 @@
       "lineNumber": 2013,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_BED_LEVELING_LINEAR",
         "ABL_BILINEAR_SUBDIVISION",
-        "EITHER",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_LINEAR",
+        "EITHER"
       ],
       "examples": [
         "3"
@@ -6165,10 +6165,10 @@
       "lineNumber": 3231,
       "isConditional": true,
       "conditionalOn": [
+        "TOUCH_SCREEN",
         "EEPROM_SETTINGS",
         "BOTH",
-        "TOUCH_SCREEN_CALIBRATION",
-        "TOUCH_SCREEN"
+        "TOUCH_SCREEN_CALIBRATION"
       ],
       "examples": [
         "// Auto save successful calibration values to EEPROM"
@@ -6184,8 +6184,8 @@
       "lineNumber": 3235,
       "isConditional": true,
       "conditionalOn": [
-        "TFT_COLOR_UI",
-        "TOUCH_SCREEN"
+        "TOUCH_SCREEN",
+        "TFT_COLOR_UI"
       ]
     },
     "reprapworldKeypad": {
@@ -6335,8 +6335,8 @@
       "lineNumber": 3328,
       "isConditional": true,
       "conditionalOn": [
-        "RGB_LED",
         "RGBW_LED",
+        "RGB_LED",
         "EITHER"
       ],
       "examples": [
@@ -6353,8 +6353,8 @@
       "lineNumber": 3329,
       "isConditional": true,
       "conditionalOn": [
-        "RGB_LED",
         "RGBW_LED",
+        "RGB_LED",
         "EITHER"
       ],
       "examples": [
@@ -6371,8 +6371,8 @@
       "lineNumber": 3330,
       "isConditional": true,
       "conditionalOn": [
-        "RGB_LED",
         "RGBW_LED",
+        "RGB_LED",
         "EITHER"
       ],
       "examples": [
@@ -6389,8 +6389,8 @@
       "lineNumber": 3331,
       "isConditional": true,
       "conditionalOn": [
-        "RGB_LED",
         "RGBW_LED",
+        "RGB_LED",
         "EITHER"
       ],
       "examples": [
@@ -6428,8 +6428,8 @@
       "isConditional": true,
       "conditionalOn": [
         "RGBW_LED",
-        "PCA9632",
         "RGB_STARTUP_TEST",
+        "PCA9632",
         "RGB_LED"
       ],
       "examples": [
@@ -6599,8 +6599,8 @@
       "lineNumber": 3357,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL2_SEPARATE",
-        "NEOPIXEL_LED"
+        "NEOPIXEL_LED",
+        "NEOPIXEL2_SEPARATE"
       ],
       "examples": [
         "15"
@@ -6616,8 +6616,8 @@
       "lineNumber": 3358,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL2_SEPARATE",
-        "NEOPIXEL_LED"
+        "NEOPIXEL_LED",
+        "NEOPIXEL2_SEPARATE"
       ],
       "examples": [
         "127"
@@ -6633,8 +6633,8 @@
       "lineNumber": 3359,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL2_SEPARATE",
-        "NEOPIXEL_LED"
+        "NEOPIXEL_LED",
+        "NEOPIXEL2_SEPARATE"
       ],
       "examples": [
         "// Cycle through colors at startup"
@@ -6650,8 +6650,8 @@
       "lineNumber": 3360,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL2_SEPARATE",
-        "NEOPIXEL_LED"
+        "NEOPIXEL_LED",
+        "NEOPIXEL2_SEPARATE"
       ],
       "examples": [
         "-1"
@@ -6754,11 +6754,11 @@
       "lineNumber": 3384,
       "isConditional": true,
       "conditionalOn": [
-        "PCA9533",
         "RGBW_LED",
+        "NEOPIXEL_LED",
         "PCA9632",
         "BLINKM",
-        "NEOPIXEL_LED",
+        "PCA9533",
         "RGB_LED"
       ]
     },
@@ -8132,8 +8132,8 @@
       "conditionalOn": [
         "PSU_CONTROL",
         "POWER_OFF_WAIT_FOR_COOLDOWN",
-        "EITHER",
-        "AUTO_POWER_CONTROL"
+        "AUTO_POWER_CONTROL",
+        "EITHER"
       ],
       "examples": [
         "50"
@@ -8151,8 +8151,8 @@
       "conditionalOn": [
         "PSU_CONTROL",
         "POWER_OFF_WAIT_FOR_COOLDOWN",
-        "EITHER",
-        "AUTO_POWER_CONTROL"
+        "AUTO_POWER_CONTROL",
+        "EITHER"
       ],
       "examples": [
         "30"
@@ -8170,8 +8170,8 @@
       "conditionalOn": [
         "PSU_CONTROL",
         "POWER_OFF_WAIT_FOR_COOLDOWN",
-        "EITHER",
-        "AUTO_POWER_CONTROL"
+        "AUTO_POWER_CONTROL",
+        "EITHER"
       ],
       "examples": [
         "26"
@@ -8619,9 +8619,9 @@
       "lineNumber": 835,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "// Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX"
@@ -8637,9 +8637,9 @@
       "lineNumber": 836,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "// PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay"
@@ -8655,9 +8655,9 @@
       "lineNumber": 837,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "10"
@@ -8673,9 +8673,9 @@
       "lineNumber": 840,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "// Add PID editing to the \"Advanced Settings\" menu. (~700 bytes of flash)"
@@ -8692,9 +8692,9 @@
       "lineNumber": 841,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "// Add PID auto-tuning to the \"Advanced Settings\" menu. (~250 bytes of flash)"
@@ -8951,10 +8951,10 @@
       "lineNumber": 1982,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "205"
@@ -8972,10 +8972,10 @@
       "lineNumber": 1983,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "60"
@@ -9068,8 +9068,8 @@
       "lineNumber": 2076,
       "isConditional": true,
       "conditionalOn": [
-        "BED_TRAMMING_USE_PROBE",
-        "LCD_BED_TRAMMING"
+        "LCD_BED_TRAMMING",
+        "BED_TRAMMING_USE_PROBE"
       ],
       "examples": [
         "0.1"
@@ -9085,8 +9085,8 @@
       "lineNumber": 2077,
       "isConditional": true,
       "conditionalOn": [
-        "BED_TRAMMING_USE_PROBE",
-        "LCD_BED_TRAMMING"
+        "LCD_BED_TRAMMING",
+        "BED_TRAMMING_USE_PROBE"
       ],
       "examples": [
         "// After adjustment triggers the probe, re-probe to verify"
@@ -9102,8 +9102,8 @@
       "lineNumber": 2078,
       "isConditional": true,
       "conditionalOn": [
-        "BED_TRAMMING_USE_PROBE",
-        "LCD_BED_TRAMMING"
+        "LCD_BED_TRAMMING",
+        "BED_TRAMMING_USE_PROBE"
       ]
     },
     "bedTrammingLevelingOrder": {
@@ -9553,9 +9553,9 @@
       "lineNumber": 1953,
       "isConditional": true,
       "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
         "MESH_BED_LEVELING",
-        "PROBE_MANUALLY",
-        "AUTO_BED_LEVELING_UBL"
+        "PROBE_MANUALLY"
       ],
       "examples": [
         "0.2"
@@ -9683,10 +9683,10 @@
       "lineNumber": 347,
       "isConditional": true,
       "conditionalOn": [
-        "PRIME_BEFORE_REMOVE",
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -9705,10 +9705,10 @@
       "lineNumber": 348,
       "isConditional": true,
       "conditionalOn": [
-        "PRIME_BEFORE_REMOVE",
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -10016,8 +10016,8 @@
       "lineNumber": 1262,
       "isConditional": true,
       "conditionalOn": [
-        "LIMITED_JERK_EDITING",
-        "CLASSIC_JERK"
+        "CLASSIC_JERK",
+        "LIMITED_JERK_EDITING"
       ],
       "examples": [
         "{ 20, 20, 0.6, 10 }"
@@ -10253,10 +10253,10 @@
       "lineNumber": 1984,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "20"
@@ -10272,10 +10272,10 @@
       "lineNumber": 1985,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "100"
@@ -11587,8 +11587,8 @@
       "isConditional": true,
       "conditionalOn": [
         "MAX_SOFTWARE_ENDSTOPS",
-        "EITHER",
-        "MIN_SOFTWARE_ENDSTOPS"
+        "MIN_SOFTWARE_ENDSTOPS",
+        "EITHER"
       ],
       "examples": [
         "// Enable/Disable software endstops from the LCD"
@@ -11616,10 +11616,10 @@
       "lineNumber": 946,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "DELTA_AUTO_CALIBRATION",
         "DELTA_CALIBRATION_MENU",
-        "DELTA",
-        "EITHER"
+        "DELTA"
       ],
       "examples": [
         "0.05"
@@ -12199,9 +12199,9 @@
       "lineNumber": 1998,
       "isConditional": true,
       "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
         "AUTO_BED_LEVELING_LINEAR",
-        "EITHER",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "EITHER"
       ],
       "notes": "Probe along the Y axis, advancing X after each column"
     }
@@ -12271,8 +12271,8 @@
       "lineNumber": 1962,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_BILINEAR"
       ]
     },
@@ -12286,8 +12286,8 @@
       "lineNumber": 1978,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_BILINEAR"
       ]
     },
@@ -12301,10 +12301,10 @@
       "lineNumber": 1980,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "0.4"
@@ -12320,10 +12320,10 @@
       "lineNumber": 1981,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "0.2"
@@ -12752,5 +12752,6 @@
       "fileLocation": "Configuration.h",
       "lineNumber": 2504
     }
-  }
+  },
+  "fullDefines": 945
 }

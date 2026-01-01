@@ -61,8 +61,8 @@
       "lineNumber": 4393,
       "isConditional": true,
       "conditionalOn": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ]
     },
     "gantryCalibrationCurrent": {

@@ -1,0 +1,441 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "test",
+  "firmware": "th3d",
+  "configFile": "Configuration.h",
+  "generatedFrom": "..\\test files\\Configuration.h",
+  "totalDefines": 224,
+  "other_3": {
+    "xtenderE3300xl": {
+      "mapsFrom": [
+        "XTENDER_E3_300XL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 298,
+      "examples": [
+        "//300x300x400 Size"
+      ]
+    },
+    "xtenderE3400": {
+      "mapsFrom": [
+        "XTENDER_E3_400"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 299,
+      "examples": [
+        "//400x400x250 Size"
+      ]
+    },
+    "xtenderE3400z": {
+      "mapsFrom": [
+        "XTENDER_E3_400Z"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 300,
+      "examples": [
+        "//235x235x400 Size"
+      ]
+    },
+    "xtenderE3400xl": {
+      "mapsFrom": [
+        "XTENDER_E3_400XL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 301,
+      "examples": [
+        "//400x400x500 Size"
+      ]
+    },
+    "xtenderE3500z": {
+      "mapsFrom": [
+        "XTENDER_E3_500Z"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 302,
+      "examples": [
+        "//235x235x500 Size"
+      ]
+    },
+    "xtenderE55xl": {
+      "mapsFrom": [
+        "XTENDER_E5_5XL"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 305,
+      "examples": [
+        "//235x235x500 Size"
+      ],
+      "notes": "Ender Xtender Kits for Ender 5/5 Pro"
+    },
+    "xtenderE5p400": {
+      "mapsFrom": [
+        "XTENDER_E5P_400"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 308,
+      "examples": [
+        "//510x510x400 Size"
+      ],
+      "notes": "Ender Xtender Kits for Ender 5 Plus"
+    },
+    "xtenderE5p500": {
+      "mapsFrom": [
+        "XTENDER_E5P_500"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 309,
+      "examples": [
+        "//510x510x500 Size"
+      ]
+    },
+    "customZHeight": {
+      "mapsFrom": [
+        "CUSTOM_Z_HEIGHT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 351,
+      "examples": [
+        "XXX"
+      ]
+    },
+    "fineBabystepping": {
+      "mapsFrom": [
+        "FINE_BABYSTEPPING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 380
+    },
+    "linearAdvance": {
+      "mapsFrom": [
+        "LINEAR_ADVANCE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 389
+    },
+    "linearAdvanceK": {
+      "mapsFrom": [
+        "LINEAR_ADVANCE_K"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 390,
+      "isConditional": true,
+      "conditionalOn": [
+        "LINEAR_ADVANCE"
+      ],
+      "examples": [
+        "0.10"
+      ]
+    },
+    "skewCorrection": {
+      "mapsFrom": [
+        "SKEW_CORRECTION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 432
+    },
+    "xyDiagAc": {
+      "mapsFrom": [
+        "XY_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 436,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ],
+      "notes": "Input all length measurements here:"
+    },
+    "xyDiagBd": {
+      "mapsFrom": [
+        "XY_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 437,
+      "isConditional": true,
+      "conditionalOn": [
+        "XY_DIAG_AC",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "xySideAd": {
+      "mapsFrom": [
+        "XY_SIDE_AD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 438,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION",
+        "XY_DIAG_BD"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "xySkewFactor": {
+      "mapsFrom": [
+        "XY_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 441,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "0.0"
+      ],
+      "notes": "Or, set the XY skew factor directly:"
+    },
+    "skewCorrectionForZ": {
+      "mapsFrom": [
+        "SKEW_CORRECTION_FOR_Z"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 443,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ]
+    },
+    "xzDiagAc": {
+      "mapsFrom": [
+        "XZ_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 445,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "xzDiagBd": {
+      "mapsFrom": [
+        "XZ_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 446,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION",
+        "XZ_DIAG_AC"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzDiagAc": {
+      "mapsFrom": [
+        "YZ_DIAG_AC"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 447,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION",
+        "XZ_DIAG_BD"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzDiagBd": {
+      "mapsFrom": [
+        "YZ_DIAG_BD"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 448,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION",
+        "YZ_DIAG_AC"
+      ],
+      "examples": [
+        "282.8427124746"
+      ]
+    },
+    "yzSideAd": {
+      "mapsFrom": [
+        "YZ_SIDE_AD"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 449,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "YZ_DIAG_BD",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "200"
+      ]
+    },
+    "xzSkewFactor": {
+      "mapsFrom": [
+        "XZ_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 452,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "0.0"
+      ],
+      "notes": "Or, set the Z skew factors directly:"
+    },
+    "yzSkewFactor": {
+      "mapsFrom": [
+        "YZ_SKEW_FACTOR"
+      ],
+      "type": "float",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 453,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
+      ],
+      "examples": [
+        "0.0"
+      ]
+    },
+    "skewCorrectionGcode": {
+      "mapsFrom": [
+        "SKEW_CORRECTION_GCODE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 457,
+      "isConditional": true,
+      "conditionalOn": [
+        "SKEW_CORRECTION"
+      ],
+      "notes": "Enable this option for M852 to set skew at runtime"
+    },
+    "noSdcard": {
+      "mapsFrom": [
+        "NO_SDCARD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 484
+    },
+    "printerVoltage24": {
+      "mapsFrom": [
+        "PRINTER_VOLTAGE_24"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1050,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS",
+        "ENDER5",
+        "ENDER3"
+      ]
+    },
+    "reverseEncoderDirection": {
+      "mapsFrom": [
+        "REVERSE_ENCODER_DIRECTION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1171,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS",
+        "ENDER3",
+        "ENDER5",
+        "REVERSE_KNOB_DIRECTION"
+      ]
+    },
+    "ymaxPlug": {
+      "mapsFrom": [
+        "USE_YMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1185,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER3_MAX",
+        "ENDER5_PLUS",
+        "ENDER3",
+        "USE_XMAX_PLUG",
+        "ENDER5"
+      ]
+    }
+  }
+}

@@ -436,8 +436,8 @@
       "lineNumber": 216,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMPCHAMBER",
-        "CHAMBER_LIMIT_SWITCHING"
+        "CHAMBER_LIMIT_SWITCHING",
+        "PIDTEMPCHAMBER"
       ],
       "examples": [
         "2"

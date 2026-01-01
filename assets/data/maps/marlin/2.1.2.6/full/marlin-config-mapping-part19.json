@@ -16,10 +16,10 @@
       "lineNumber": 946,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "DELTA_AUTO_CALIBRATION",
         "DELTA_CALIBRATION_MENU",
-        "DELTA",
-        "EITHER"
+        "DELTA"
       ],
       "examples": [
         "0.05"
@@ -599,9 +599,9 @@
       "lineNumber": 1998,
       "isConditional": true,
       "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
         "AUTO_BED_LEVELING_LINEAR",
-        "EITHER",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "EITHER"
       ],
       "notes": "Probe along the Y axis, advancing X after each column"
     }

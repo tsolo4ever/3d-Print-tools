@@ -42,8 +42,8 @@
       "lineNumber": 817,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_X2_STEPPER",
-        "DUAL_X_CARRIAGE"
+        "DUAL_X_CARRIAGE",
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "// X2 has its own endstop"
@@ -60,8 +60,8 @@
       "isConditional": true,
       "conditionalOn": [
         "X_DUAL_ENDSTOPS",
-        "HAS_X2_STEPPER",
-        "DUAL_X_CARRIAGE"
+        "DUAL_X_CARRIAGE",
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "_XMAX_"
@@ -78,8 +78,8 @@
       "isConditional": true,
       "conditionalOn": [
         "X_DUAL_ENDSTOPS",
-        "HAS_X2_STEPPER",
-        "DUAL_X_CARRIAGE"
+        "DUAL_X_CARRIAGE",
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "0"
@@ -111,8 +111,8 @@
       "lineNumber": 828,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DUAL_Y_STEPPERS",
-        "Y_DUAL_ENDSTOPS"
+        "Y_DUAL_ENDSTOPS",
+        "HAS_DUAL_Y_STEPPERS"
       ],
       "examples": [
         "_YMAX_"
@@ -128,8 +128,8 @@
       "lineNumber": 829,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DUAL_Y_STEPPERS",
-        "Y_DUAL_ENDSTOPS"
+        "Y_DUAL_ENDSTOPS",
+        "HAS_DUAL_Y_STEPPERS"
       ],
       "examples": [
         "0"
@@ -195,9 +195,9 @@
       "lineNumber": 847,
       "isConditional": true,
       "conditionalOn": [
+        "Z3_DRIVER_TYPE",
         "Z2_DRIVER_TYPE",
-        "Z_MULTI_ENDSTOPS",
-        "Z3_DRIVER_TYPE"
+        "Z_MULTI_ENDSTOPS"
       ],
       "examples": [
         "_YMAX_"
@@ -213,9 +213,9 @@
       "lineNumber": 848,
       "isConditional": true,
       "conditionalOn": [
+        "Z3_DRIVER_TYPE",
         "Z2_DRIVER_TYPE",
-        "Z_MULTI_ENDSTOPS",
-        "Z3_DRIVER_TYPE"
+        "Z_MULTI_ENDSTOPS"
       ],
       "examples": [
         "0"
@@ -232,8 +232,8 @@
       "isConditional": true,
       "conditionalOn": [
         "Z2_DRIVER_TYPE",
-        "Z_MULTI_ENDSTOPS",
-        "Z4_DRIVER_TYPE"
+        "Z4_DRIVER_TYPE",
+        "Z_MULTI_ENDSTOPS"
       ],
       "examples": [
         "_ZMAX_"
@@ -250,8 +250,8 @@
       "isConditional": true,
       "conditionalOn": [
         "Z2_DRIVER_TYPE",
-        "Z_MULTI_ENDSTOPS",
-        "Z4_DRIVER_TYPE"
+        "Z4_DRIVER_TYPE",
+        "Z_MULTI_ENDSTOPS"
       ],
       "examples": [
         "0"
@@ -305,9 +305,9 @@
       "lineNumber": 1593,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVER_ZHOME",
         "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVER_ZHOME"
       ],
       "examples": [
         "{ 0, 0 }"
@@ -336,8 +336,8 @@
       "lineNumber": 1654,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SD_ABORT_ON_ENDSTOP_HIT"
+        "SD_ABORT_ON_ENDSTOP_HIT",
+        "SDSUPPORT"
       ],
       "examples": [
         "\"G28XY\""
@@ -369,11 +369,11 @@
       "lineNumber": 3189,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "// TMC2130/TMC5160 only"
@@ -504,8 +504,8 @@
       "lineNumber": 1355,
       "isConditional": true,
       "conditionalOn": [
-        "IS_ULTIPANEL",
-        "HAS_MANUAL_MOVE_MENU"
+        "HAS_MANUAL_MOVE_MENU",
+        "IS_ULTIPANEL"
       ],
       "examples": [
         "// Display extruder move distance rather than \"position\""
@@ -628,9 +628,9 @@
       "lineNumber": 2192,
       "isConditional": true,
       "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
         "EEPROM_SETTINGS",
-        "BOTH",
-        "AUTO_BED_LEVELING_UBL"
+        "BOTH"
       ],
       "examples": [
         "// Store mesh with less precision to save EEPROM space"

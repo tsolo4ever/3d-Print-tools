@@ -31,8 +31,8 @@
       "conditionalOn": [
         "PSU_CONTROL",
         "POWER_OFF_WAIT_FOR_COOLDOWN",
-        "EITHER",
-        "AUTO_POWER_CONTROL"
+        "AUTO_POWER_CONTROL",
+        "EITHER"
       ],
       "examples": [
         "50"
@@ -50,8 +50,8 @@
       "conditionalOn": [
         "PSU_CONTROL",
         "POWER_OFF_WAIT_FOR_COOLDOWN",
-        "EITHER",
-        "AUTO_POWER_CONTROL"
+        "AUTO_POWER_CONTROL",
+        "EITHER"
       ],
       "examples": [
         "30"
@@ -69,8 +69,8 @@
       "conditionalOn": [
         "PSU_CONTROL",
         "POWER_OFF_WAIT_FOR_COOLDOWN",
-        "EITHER",
-        "AUTO_POWER_CONTROL"
+        "AUTO_POWER_CONTROL",
+        "EITHER"
       ],
       "examples": [
         "26"

@@ -98,8 +98,8 @@
       "lineNumber": 1431,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4451",
         "DIGIPOT_MCP4018",
+        "DIGIPOT_MCP4451",
         "EITHER"
       ],
       "examples": [
@@ -116,8 +116,8 @@
       "lineNumber": 1435,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4451",
         "DIGIPOT_MCP4018",
+        "DIGIPOT_MCP4451",
         "EITHER"
       ],
       "examples": [
@@ -135,8 +135,8 @@
       "lineNumber": 1437,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4451",
         "DIGIPOT_MCP4018",
+        "DIGIPOT_MCP4451",
         "EITHER"
       ],
       "examples": [
@@ -153,8 +153,8 @@
       "lineNumber": 1449,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4451",
         "DIGIPOT_MCP4018",
+        "DIGIPOT_MCP4451",
         "EITHER"
       ],
       "examples": [
@@ -171,8 +171,8 @@
       "lineNumber": 1450,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4451",
         "DIGIPOT_MCP4018",
+        "DIGIPOT_MCP4451",
         "EITHER"
       ],
       "examples": [
@@ -189,8 +189,8 @@
       "lineNumber": 1464,
       "isConditional": true,
       "conditionalOn": [
-        "IS_ULTIPANEL",
-        "HAS_MANUAL_MOVE_MENU"
+        "HAS_MANUAL_MOVE_MENU",
+        "IS_ULTIPANEL"
       ],
       "examples": [
         "// Encoder sets the feedrate multiplier on the Status Screen"
@@ -248,8 +248,8 @@
       "lineNumber": 1506,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "HAS_BED_PROBE",
+        "HAS_MARLINUI_MENU"
       ],
       "notes": "Add calibration in the Probe Offsets menu to compensate for X-axis twist."
     },
@@ -263,9 +263,9 @@
       "lineNumber": 1513,
       "isConditional": true,
       "conditionalOn": [
-        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "X_AXIS_TWIST_COMPENSATION"
       ],
       "examples": [
         "0.0"
@@ -281,9 +281,9 @@
       "lineNumber": 1514,
       "isConditional": true,
       "conditionalOn": [
-        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "X_AXIS_TWIST_COMPENSATION"
       ],
       "examples": [
         "3"
@@ -299,9 +299,9 @@
       "lineNumber": 1515,
       "isConditional": true,
       "conditionalOn": [
-        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "X_AXIS_TWIST_COMPENSATION"
       ],
       "examples": [
         "Y_CENTER"
@@ -317,9 +317,9 @@
       "lineNumber": 1516,
       "isConditional": true,
       "conditionalOn": [
-        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "X_AXIS_TWIST_COMPENSATION"
       ],
       "examples": [
         "{ 0, 0, 0 }"
@@ -335,8 +335,8 @@
       "lineNumber": 1533,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_MENU",
-        "SPACE_SAVER_2560"
+        "SPACE_SAVER_2560",
+        "HAS_MARLINUI_MENU"
       ]
     },
     "soundMenuItem": {
@@ -349,9 +349,9 @@
       "lineNumber": 1542,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "DWIN_CREALITY_LCD_JYERSUI"
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Add a mute option to the LCD menu"
@@ -367,9 +367,9 @@
       "lineNumber": 1543,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "DWIN_CREALITY_LCD_JYERSUI"
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Buzzer/speaker default enabled state"
@@ -385,10 +385,10 @@
       "lineNumber": 1551,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
         "SHOW_BOOTSCREEN",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "1000"
@@ -404,11 +404,11 @@
       "lineNumber": 1553,
       "isConditional": true,
       "conditionalOn": [
-        "SHOW_BOOTSCREEN",
         "TFT_COLOR_UI",
+        "SHOW_BOOTSCREEN",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
         "EITHER",
-        "HAS_DISPLAY",
         "HAS_MARLINUI_U8GLIB"
       ],
       "examples": [
@@ -425,10 +425,10 @@
       "lineNumber": 1559,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
         "DWIN_CREALITY_LCD",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ]
     },
     "statusMessageTimeoutSec": {
@@ -441,9 +441,9 @@
       "lineNumber": 1563,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "30"
@@ -460,10 +460,10 @@
       "lineNumber": 1578,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
-        "DWIN_LCD_PROUI",
         "RGB_LIGHTS",
-        "EITHER"
+        "DWIN_LCD_PROUI",
+        "EITHER",
+        "HAS_DISPLAY"
       ]
     },
     "ledColorPresets": {
@@ -476,10 +476,10 @@
       "lineNumber": 1581,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
         "LED_CONTROL_MENU",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Enable the Preset Color menu option"

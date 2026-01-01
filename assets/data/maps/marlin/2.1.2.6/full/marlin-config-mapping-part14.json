@@ -76,9 +76,9 @@
       "lineNumber": 835,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "// Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX"
@@ -94,9 +94,9 @@
       "lineNumber": 836,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "// PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay"
@@ -112,9 +112,9 @@
       "lineNumber": 837,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "10"
@@ -130,9 +130,9 @@
       "lineNumber": 840,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "// Add PID editing to the \"Advanced Settings\" menu. (~700 bytes of flash)"
@@ -149,9 +149,9 @@
       "lineNumber": 841,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "// Add PID auto-tuning to the \"Advanced Settings\" menu. (~250 bytes of flash)"
@@ -408,10 +408,10 @@
       "lineNumber": 1982,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "205"
@@ -429,10 +429,10 @@
       "lineNumber": 1983,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "60"
@@ -525,8 +525,8 @@
       "lineNumber": 2076,
       "isConditional": true,
       "conditionalOn": [
-        "BED_TRAMMING_USE_PROBE",
-        "LCD_BED_TRAMMING"
+        "LCD_BED_TRAMMING",
+        "BED_TRAMMING_USE_PROBE"
       ],
       "examples": [
         "0.1"
@@ -542,8 +542,8 @@
       "lineNumber": 2077,
       "isConditional": true,
       "conditionalOn": [
-        "BED_TRAMMING_USE_PROBE",
-        "LCD_BED_TRAMMING"
+        "LCD_BED_TRAMMING",
+        "BED_TRAMMING_USE_PROBE"
       ],
       "examples": [
         "// After adjustment triggers the probe, re-probe to verify"
@@ -559,8 +559,8 @@
       "lineNumber": 2078,
       "isConditional": true,
       "conditionalOn": [
-        "BED_TRAMMING_USE_PROBE",
-        "LCD_BED_TRAMMING"
+        "LCD_BED_TRAMMING",
+        "BED_TRAMMING_USE_PROBE"
       ]
     },
     "bedTrammingLevelingOrder": {

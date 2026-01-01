@@ -41,9 +41,9 @@
       "lineNumber": 1305,
       "isConditional": true,
       "conditionalOn": [
-        "BACKLASH_COMPENSATION",
         "MEASURE_BACKLASH_WHEN_PROBING",
-        "BACKLASH_GCODE"
+        "BACKLASH_GCODE",
+        "BACKLASH_COMPENSATION"
       ],
       "examples": [
         "Z_PROBE_FEEDRATE_SLOW"
@@ -402,8 +402,8 @@
       "lineNumber": 4570,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2S",
-        "HAS_PRUSA_MMU2"
+        "HAS_PRUSA_MMU2",
+        "HAS_PRUSA_MMU2S"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -424,10 +424,10 @@
       "lineNumber": 1614,
       "isConditional": true,
       "conditionalOn": [
-        "M73_REPORT",
         "SET_PROGRESS_MANUALLY",
         "SDSUPPORT",
-        "BOTH"
+        "BOTH",
+        "M73_REPORT"
       ],
       "examples": [
         "// Report only when printing from SD"
@@ -669,8 +669,8 @@
       "lineNumber": 1847,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SD_FIRMWARE_UPDATE"
+        "SD_FIRMWARE_UPDATE",
+        "SDSUPPORT"
       ],
       "examples": [
         "0x1FF"
@@ -686,8 +686,8 @@
       "lineNumber": 1848,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SD_FIRMWARE_UPDATE"
+        "SD_FIRMWARE_UPDATE",
+        "SDSUPPORT"
       ],
       "examples": [
         "0xF0"
@@ -703,8 +703,8 @@
       "lineNumber": 1849,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SD_FIRMWARE_UPDATE"
+        "SD_FIRMWARE_UPDATE",
+        "SDSUPPORT"
       ],
       "examples": [
         "0xFF"
@@ -734,8 +734,8 @@
       "lineNumber": 1892,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ]
     },
     "noSdHostDrive": {

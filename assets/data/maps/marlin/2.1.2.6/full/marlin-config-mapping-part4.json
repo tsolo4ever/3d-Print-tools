@@ -72,8 +72,8 @@
       "lineNumber": 685,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
-        "PID_PARAMS_PER_HOTEND"
+        "PID_PARAMS_PER_HOTEND",
+        "PIDTEMP"
       ],
       "examples": [
         "{  22.20,  22.20 }"
@@ -90,8 +90,8 @@
       "lineNumber": 686,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
-        "PID_PARAMS_PER_HOTEND"
+        "PID_PARAMS_PER_HOTEND",
+        "PIDTEMP"
       ],
       "examples": [
         "{   1.08,   1.08 }"
@@ -107,8 +107,8 @@
       "lineNumber": 687,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMP",
-        "PID_PARAMS_PER_HOTEND"
+        "PID_PARAMS_PER_HOTEND",
+        "PIDTEMP"
       ],
       "examples": [
         "{ 114.00, 114.00 }"
@@ -322,8 +322,8 @@
       "lineNumber": 719,
       "isConditional": true,
       "conditionalOn": [
-        "MPC_INCLUDE_FAN",
-        "MPCTEMP"
+        "MPCTEMP",
+        "MPC_INCLUDE_FAN"
       ],
       "examples": [
         "{ 0.097f }"
@@ -339,8 +339,8 @@
       "lineNumber": 724,
       "isConditional": true,
       "conditionalOn": [
-        "MPC_INCLUDE_FAN",
-        "MPCTEMP"
+        "MPCTEMP",
+        "MPC_INCLUDE_FAN"
       ]
     },
     "mpcFan0ActiveHotend": {
@@ -353,8 +353,8 @@
       "lineNumber": 725,
       "isConditional": true,
       "conditionalOn": [
-        "MPC_INCLUDE_FAN",
-        "MPCTEMP"
+        "MPCTEMP",
+        "MPC_INCLUDE_FAN"
       ]
     },
     "filamentHeatCapacityPermm": {

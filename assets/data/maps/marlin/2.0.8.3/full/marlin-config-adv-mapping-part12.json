@@ -80,8 +80,8 @@
       "lineNumber": 1808,
       "isConditional": true,
       "conditionalOn": [
-        "BABYSTEPPING",
-        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING",
+        "BABYSTEPPING"
       ],
       "examples": [
         "1250"
@@ -97,8 +97,8 @@
       "lineNumber": 1810,
       "isConditional": true,
       "conditionalOn": [
-        "BABYSTEPPING",
-        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING",
+        "BABYSTEPPING"
       ],
       "examples": [
         "// Jump to the move Z menu on doubleclick when printer is idle."
@@ -115,8 +115,8 @@
       "lineNumber": 1812,
       "isConditional": true,
       "conditionalOn": [
-        "BABYSTEPPING",
         "DOUBLECLICK_FOR_Z_BABYSTEPPING",
+        "BABYSTEPPING",
         "MOVE_Z_WHEN_IDLE"
       ],
       "examples": [
@@ -337,9 +337,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "{ 0, 0, 100 }"
@@ -357,9 +357,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "30.0f"
@@ -377,9 +377,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "5.0f"
@@ -396,9 +396,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "10U"
@@ -415,9 +415,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "60.0f"
@@ -435,9 +435,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "5.0f"
@@ -454,9 +454,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "10U"
@@ -473,9 +473,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "4"

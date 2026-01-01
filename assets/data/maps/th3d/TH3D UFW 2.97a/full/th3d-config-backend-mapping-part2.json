@@ -139,8 +139,8 @@
       "lineNumber": 546,
       "isConditional": true,
       "conditionalOnNot": [
-        "ABL_ENABLE",
-        "EZABL_SUPERFASTPROBE"
+        "EZABL_SUPERFASTPROBE",
+        "ABL_ENABLE"
       ],
       "conditionalExpression": [
         "else block"
@@ -159,8 +159,8 @@
       "lineNumber": 547,
       "isConditional": true,
       "conditionalOnNot": [
-        "ABL_ENABLE",
-        "EZABL_SUPERFASTPROBE"
+        "EZABL_SUPERFASTPROBE",
+        "ABL_ENABLE"
       ],
       "conditionalExpression": [
         "else block"
@@ -179,8 +179,8 @@
       "lineNumber": 548,
       "isConditional": true,
       "conditionalOnNot": [
-        "ABL_ENABLE",
-        "EZABL_SUPERFASTPROBE"
+        "EZABL_SUPERFASTPROBE",
+        "ABL_ENABLE"
       ],
       "conditionalExpression": [
         "else block"
@@ -356,9 +356,9 @@
       "lineNumber": 500,
       "isConditional": true,
       "conditionalOnNot": [
-        "EZABL_FASTPROBE",
+        "SLOWER_HOMING",
         "ABL_ENABLE",
-        "SLOWER_HOMING"
+        "EZABL_FASTPROBE"
       ],
       "conditionalExpression": [
         "else block",
@@ -378,9 +378,9 @@
       "lineNumber": 501,
       "isConditional": true,
       "conditionalOnNot": [
-        "EZABL_FASTPROBE",
+        "SLOWER_HOMING",
         "ABL_ENABLE",
-        "SLOWER_HOMING"
+        "EZABL_FASTPROBE"
       ],
       "conditionalExpression": [
         "else block",
@@ -400,8 +400,8 @@
       "lineNumber": 549,
       "isConditional": true,
       "conditionalOnNot": [
-        "ABL_ENABLE",
-        "EZABL_SUPERFASTPROBE"
+        "EZABL_SUPERFASTPROBE",
+        "ABL_ENABLE"
       ],
       "conditionalExpression": [
         "else block"

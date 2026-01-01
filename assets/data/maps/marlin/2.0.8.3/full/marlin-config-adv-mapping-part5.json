@@ -232,8 +232,8 @@
       "lineNumber": 987,
       "isConditional": true,
       "conditionalOn": [
-        "BACKLASH_COMPENSATION",
-        "BACKLASH_GCODE"
+        "BACKLASH_GCODE",
+        "BACKLASH_COMPENSATION"
       ],
       "notes": "Measure the Z backlash when probing (G29) and set with \"M425 Z\""
     },
@@ -247,9 +247,9 @@
       "lineNumber": 993,
       "isConditional": true,
       "conditionalOn": [
+        "BACKLASH_GCODE",
         "MEASURE_BACKLASH_WHEN_PROBING",
-        "BACKLASH_COMPENSATION",
-        "BACKLASH_GCODE"
+        "BACKLASH_COMPENSATION"
       ],
       "examples": [
         "0.5"
@@ -266,9 +266,9 @@
       "lineNumber": 994,
       "isConditional": true,
       "conditionalOn": [
+        "BACKLASH_GCODE",
         "MEASURE_BACKLASH_WHEN_PROBING",
-        "BACKLASH_COMPENSATION",
-        "BACKLASH_GCODE"
+        "BACKLASH_COMPENSATION"
       ],
       "examples": [
         "0.005"

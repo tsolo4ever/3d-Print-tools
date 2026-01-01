@@ -91,10 +91,11 @@ def process_config_file(config_path: Path, firmware: str, version: str,
         print("⚠️  Warning: Mapping split failed, continuing...")
     
     # PASS 5: Add UI field mappings to core files
+    mapping_dir_core = mapping_dir / 'core'
     cmd_pass5 = [
         sys.executable,
         'firmware-helper/add-ui-mappings.py',
-        '--mapping-dir', str(mapping_dir)
+        '--mapping-dir', str(mapping_dir_core)
     ]
     
     if not run_command(cmd_pass5, f"PASS 5: Adding UI field mappings"):

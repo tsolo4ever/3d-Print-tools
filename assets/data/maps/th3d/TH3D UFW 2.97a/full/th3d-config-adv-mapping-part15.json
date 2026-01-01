@@ -16,8 +16,8 @@
       "lineNumber": 2392,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -34,8 +34,8 @@
       "lineNumber": 2413,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -53,8 +53,8 @@
       "lineNumber": 2414,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -71,8 +71,8 @@
       "lineNumber": 2415,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -89,8 +89,8 @@
       "lineNumber": 2416,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -108,8 +108,8 @@
       "isConditional": true,
       "conditionalOn": [
         "BOTH",
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -252,9 +252,9 @@
       "lineNumber": 2465,
       "isConditional": true,
       "conditionalOn": [
-        "BEZIER_CURVE_SUPPORT",
         "ARC_SUPPORT",
-        "EITHER"
+        "EITHER",
+        "BEZIER_CURVE_SUPPORT"
       ],
       "examples": [
         "// Allow G2/G3/G5 to operate in XY, ZX, or YZ planes"

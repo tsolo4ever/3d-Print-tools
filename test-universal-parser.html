@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Parser Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 30px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 10px 10px 0;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .status {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            overflow-x: auto;
+            max-height: 400px;
+        }
+        .test-result {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            background: #f8f9fa;
+        }
+        .test-result.pass {
+            border-left-color: #28a745;
+        }
+        .test-result.fail {
+            border-left-color: #dc3545;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔬 Universal Parser Test</h1>
+        <p>Testing the new Universal Parser with TH3D Configuration.h</p>
+
+        <div>
+            <button id="testBtn" onclick="runTest()">▶️ Run Test</button>
+            <button onclick="clearResults()">🗑️ Clear Results</button>
+        </div>
+
+        <div id="status"></div>
+        <div id="results"></div>
+    </div>
+
+    <script src="assets/js/universal-parser.js"></script>
+    <script>
+        async function runTest() {
+            const statusDiv = document.getElementById('status');
+            const resultsDiv = document.getElementById('results');
+            const testBtn = document.getElementById('testBtn');
+            
+            testBtn.disabled = true;
+            resultsDiv.innerHTML = '';
+            statusDiv.innerHTML = '<div class="status info">🔄 Running test...</div>';
+
+            try {
+                // Create parser instance
+                console.log('Creating parser instance...');
+                const parser = UniversalParser.create();
+                
+                // Load mapping
+                statusDiv.innerHTML = '<div class="status info">📂 Loading mapping file...</div>';
+                await parser.loadMapping('assets/data/maps/th3d/TH3D UFW 2.97a/core/th3d-config-mapping-core.json');
+                
+                // Load test Configuration.h
+                statusDiv.innerHTML = '<div class="status info">📄 Loading test Configuration.h...</div>';
+                const response = await fetch('test files/Configuration.h');
+                if (!response.ok) {
+                    throw new Error(`Failed to load Configuration.h: ${response.status}`);
+                }
+                const configContent = await response.text();
+                
+                // Parse
+                statusDiv.innerHTML = '<div class="status info">⚙️ Parsing configuration...</div>';
+                const result = await parser.parse(configContent, 'Configuration.h');
+                
+                // Display results
+                statusDiv.innerHTML = '<div class="status success">✅ Parsing complete!</div>';
+                displayResults(result);
+                
+            } catch (error) {
+                statusDiv.innerHTML = `<div class="status error">❌ Error: ${error.message}</div>`;
+                console.error('Test error:', error);
+            } finally {
+                testBtn.disabled = false;
+            }
+        }
+
+        function displayResults(result) {
+            const resultsDiv = document.getElementById('results');
+            
+            // Test 1: Check if USER_PRINTER_NAME was extracted
+            const userPrinterName = result.other_2?.userPrinterName;
+            const test1Pass = userPrinterName === 'Maxy';
+            
+            let html = '<h2>📊 Test Results</h2>';
+            
+            // Test 1
+            html += `<div class="test-result ${test1Pass ? 'pass' : 'fail'}">`;
+            html += `<h3>${test1Pass ? '✅' : '❌'} Test 1: USER_PRINTER_NAME Extraction</h3>`;
+            html += `<p><strong>Expected:</strong> "Maxy"</p>`;
+            html += `<p><strong>Actual:</strong> ${userPrinterName ? `"${userPrinterName}"` : 'undefined'}</p>`;
+            html += `<p><strong>Status:</strong> ${test1Pass ? 'PASS ✅' : 'FAIL ❌'}</p>`;
+            html += '</div>';
+            
+            // Debug info for USER_PRINTER_NAME
+            const userNameDebug = result._debugLog.filter(entry => 
+                entry.message.includes('USER_PRINTER_NAME')
+            );
+            
+            html += '<div class="test-result">';
+            html += '<h3>🔍 USER_PRINTER_NAME Debug Log</h3>';
+            html += `<p>Found ${userNameDebug.length} debug entries for USER_PRINTER_NAME</p>`;
+            if (userNameDebug.length > 0) {
+                html += '<pre>' + JSON.stringify(userNameDebug, null, 2) + '</pre>';
+            } else {
+                html += '<p class="error">⚠️ No debug entries found for USER_PRINTER_NAME</p>';
+            }
+            html += '</div>';
+            
+            // Summary
+            const fieldCount = Object.keys(result).filter(k => !k.startsWith('_')).reduce((sum, category) => {
+                return sum + Object.keys(result[category] || {}).length;
+            }, 0);
+            
+            html += '<div class="test-result">';
+            html += '<h3>📈 Parsing Summary</h3>';
+            html += `<p><strong>Total Fields Extracted:</strong> ${fieldCount}</p>`;
+            html += `<p><strong>Total Debug Entries:</strong> ${result._debugLog.length}</p>`;
+            html += `<p><strong>Categories:</strong> ${Object.keys(result).filter(k => !k.startsWith('_')).join(', ')}</p>`;
+            html += '</div>';
+            
+            // Debug log summary
+            const debugSummary = {
+                INFO: result._debugLog.filter(e => e.level === 'INFO').length,
+                DEFINE_FOUND: result._debugLog.filter(e => e.level === 'DEFINE_FOUND').length,
+                MAPPING_MATCH: result._debugLog.filter(e => e.level === 'MAPPING_MATCH').length,
+                EXTRACTED: result._debugLog.filter(e => e.level === 'EXTRACTED').length,
+                CONDITIONAL_SKIP: result._debugLog.filter(e => e.level === 'CONDITIONAL_SKIP').length,
+                NOT_IN_MAPPING: result._debugLog.filter(e => e.level === 'NOT_IN_MAPPING').length,
+                SUMMARY: result._debugLog.filter(e => e.level === 'SUMMARY').length
+            };
+            
+            html += '<div class="test-result">';
+            html += '<h3>📊 Debug Log Breakdown</h3>';
+            html += '<ul>';
+            for (const [level, count] of Object.entries(debugSummary)) {
+                html += `<li><strong>${level}:</strong> ${count}</li>`;
+            }
+            html += '</ul>';
+            html += '</div>';
+            
+            // Full parsed config
+            html += '<h2>📄 Full Parsed Configuration</h2>';
+            html += '<details><summary>Click to expand</summary>';
+            html += '<pre>' + JSON.stringify(result, null, 2) + '</pre>';
+            html += '</details>';
+            
+            // Full debug log
+            html += '<h2>🐛 Full Debug Log</h2>';
+            html += '<details><summary>Click to expand</summary>';
+            html += '<pre>' + JSON.stringify(result._debugLog, null, 2) + '</pre>';
+            html += '</details>';
+            
+            resultsDiv.innerHTML = html;
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('status').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

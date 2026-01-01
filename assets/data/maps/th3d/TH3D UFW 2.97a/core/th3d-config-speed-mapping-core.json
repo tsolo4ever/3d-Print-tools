@@ -1,0 +1,195 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_speed.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_speed.h",
+  "totalDefines": 13,
+  "motion": {
+    "maxFeedrate": {
+      "mapsFrom": [
+        "DEFAULT_MAX_FEEDRATE"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 24,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "SPACE_SAVER_2560",
+        "E_SPEED_OVERRIDE_2560"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "{ 400, 400, 15, 200 }"
+      ],
+      "uiFieldId": "tab6_maxFeedrate"
+    },
+    "maxAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_MAX_ACCELERATION"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 76,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "X_BED_SIZE",
+        "MAX_Y_ACCEL",
+        "Y_BED_SIZE"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "else block",
+        "else block"
+      ],
+      "examples": [
+        "{ 1000, 1000, 500, 5000 }"
+      ],
+      "uiFieldId": "tab6_maxAcceleration"
+    },
+    "acceleration": {
+      "mapsFrom": [
+        "DEFAULT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 112,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "X_BED_SIZE",
+        "DEFAULT_ACCELERATION",
+        "Y_BED_SIZE"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "else block"
+      ],
+      "examples": [
+        "500"
+      ],
+      "uiFieldId": "tab6_defaultAcceleration"
+    },
+    "retractAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_RETRACT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 118,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "DEFAULT_RETRACT_ACCELERATION"
+      ],
+      "examples": [
+        "1000"
+      ],
+      "uiFieldId": "tab6_retractAcceleration"
+    },
+    "travelAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_TRAVEL_ACCELERATION"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 122,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "DEFAULT_TRAVEL_ACCELERATION"
+      ],
+      "examples": [
+        "DEFAULT_ACCELERATION"
+      ],
+      "uiFieldId": "tab6_travelAcceleration"
+    },
+    "classicJerk": {
+      "mapsFrom": [
+        "CLASSIC_JERK"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 128,
+      "uiFieldId": "tab6_classicJerkEnabled"
+    },
+    "xjerk": {
+      "mapsFrom": [
+        "DEFAULT_XJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 138,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "X_BED_SIZE",
+        "DEFAULT_XJERK"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "4.0"
+      ],
+      "uiFieldId": "tab6_xJerk"
+    },
+    "yjerk": {
+      "mapsFrom": [
+        "DEFAULT_YJERK"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 143,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "DEFAULT_YJERK"
+      ],
+      "examples": [
+        "DEFAULT_XJERK"
+      ],
+      "uiFieldId": "tab6_yJerk"
+    },
+    "zjerk": {
+      "mapsFrom": [
+        "DEFAULT_ZJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 147,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "DEFAULT_ZJERK"
+      ],
+      "examples": [
+        "0.3"
+      ],
+      "uiFieldId": "tab6_zJerk"
+    },
+    "ejerk": {
+      "mapsFrom": [
+        "DEFAULT_EJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 151,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "DEFAULT_EJERK"
+      ],
+      "examples": [
+        "5.0"
+      ],
+      "uiFieldId": "tab6_eJerk"
+    }
+  },
+  "coreDefines": 10
+}

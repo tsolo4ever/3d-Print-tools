@@ -244,8 +244,8 @@
       "lineNumber": 445,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "282.8427124746"
@@ -261,8 +261,8 @@
       "lineNumber": 446,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "282.8427124746"
@@ -278,8 +278,8 @@
       "lineNumber": 447,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "282.8427124746"
@@ -295,8 +295,8 @@
       "lineNumber": 448,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "282.8427124746"
@@ -312,8 +312,8 @@
       "lineNumber": 449,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "200"
@@ -329,8 +329,8 @@
       "lineNumber": 452,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "0.0"
@@ -347,8 +347,8 @@
       "lineNumber": 453,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "0.0"
@@ -387,10 +387,10 @@
       "lineNumber": 1050,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
         "ENDER3_MAX",
-        "ENDER3",
-        "ENDER5"
+        "ENDER5",
+        "ENDER5_PLUS",
+        "ENDER3"
       ]
     },
     "reverseEncoderDirection": {
@@ -403,10 +403,10 @@
       "lineNumber": 1171,
       "isConditional": true,
       "conditionalOn": [
-        "REVERSE_KNOB_DIRECTION",
         "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5",
+        "REVERSE_KNOB_DIRECTION",
+        "ENDER3_MAX",
         "ENDER3"
       ]
     },
@@ -420,10 +420,10 @@
       "lineNumber": 1185,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
         "ENDER3_MAX",
-        "ENDER3",
-        "ENDER5"
+        "ENDER5",
+        "ENDER5_PLUS",
+        "ENDER3"
       ]
     }
   }

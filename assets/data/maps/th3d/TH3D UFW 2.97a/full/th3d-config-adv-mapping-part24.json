@@ -16,12 +16,12 @@
       "lineNumber": 3366,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -40,12 +40,12 @@
       "lineNumber": 3367,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -64,12 +64,12 @@
       "lineNumber": 3368,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -88,12 +88,12 @@
       "lineNumber": 3369,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -112,12 +112,12 @@
       "lineNumber": 3370,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -136,12 +136,12 @@
       "lineNumber": 3371,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -160,12 +160,12 @@
       "lineNumber": 3372,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -184,12 +184,12 @@
       "lineNumber": 3373,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -208,12 +208,12 @@
       "lineNumber": 3374,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -232,12 +232,12 @@
       "lineNumber": 3375,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -256,12 +256,12 @@
       "lineNumber": 3376,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -280,12 +280,12 @@
       "lineNumber": 3377,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -304,12 +304,12 @@
       "lineNumber": 3378,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -328,12 +328,12 @@
       "lineNumber": 3379,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -352,12 +352,12 @@
       "lineNumber": 3380,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -376,12 +376,12 @@
       "lineNumber": 3381,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -400,12 +400,12 @@
       "lineNumber": 3382,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -424,8 +424,8 @@
       "lineNumber": 3393,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ]
     },
     "stealthchopXy": {
@@ -438,10 +438,10 @@
       "lineNumber": 3404,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "XY_SPREADCYCLE",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "XY_SPREADCYCLE",
+        "HAS_TMC26X"
       ]
     },
     "stealthchopZ": {
@@ -454,10 +454,10 @@
       "lineNumber": 3408,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_STEALTHCHOP",
         "Z_SPREADCYCLE",
-        "HAS_TMC26X",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopI": {
@@ -470,9 +470,9 @@
       "lineNumber": 3411,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopJ": {
@@ -485,9 +485,9 @@
       "lineNumber": 3412,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopK": {
@@ -500,9 +500,9 @@
       "lineNumber": 3413,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopU": {
@@ -515,9 +515,9 @@
       "lineNumber": 3414,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopV": {
@@ -530,9 +530,9 @@
       "lineNumber": 3415,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopW": {
@@ -545,9 +545,9 @@
       "lineNumber": 3416,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopE": {
@@ -560,10 +560,10 @@
       "lineNumber": 3419,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "E_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "chopperTiming": {
@@ -576,8 +576,8 @@
       "lineNumber": 3441,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
         "PRINTER_VOLTAGE_12"
@@ -599,8 +599,8 @@
       "lineNumber": 3443,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -616,8 +616,8 @@
       "lineNumber": 3444,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_X"

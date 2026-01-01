@@ -471,8 +471,8 @@
       "isConditional": true,
       "conditionalOn": [
         "MAX_SOFTWARE_ENDSTOPS",
-        "EITHER",
-        "MIN_SOFTWARE_ENDSTOPS"
+        "MIN_SOFTWARE_ENDSTOPS",
+        "EITHER"
       ],
       "examples": [
         "// Enable/Disable software endstops from the LCD"

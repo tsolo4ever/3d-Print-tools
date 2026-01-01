@@ -126,8 +126,8 @@
       "lineNumber": 2704,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL2_SEPARATE",
-        "NEOPIXEL_LED"
+        "NEOPIXEL_LED",
+        "NEOPIXEL2_SEPARATE"
       ],
       "examples": [
         "15"
@@ -143,8 +143,8 @@
       "lineNumber": 2705,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL2_SEPARATE",
-        "NEOPIXEL_LED"
+        "NEOPIXEL_LED",
+        "NEOPIXEL2_SEPARATE"
       ],
       "examples": [
         "127"
@@ -160,8 +160,8 @@
       "lineNumber": 2706,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL2_SEPARATE",
-        "NEOPIXEL_LED"
+        "NEOPIXEL_LED",
+        "NEOPIXEL2_SEPARATE"
       ],
       "examples": [
         "// Cycle through colors at startup"
@@ -267,9 +267,9 @@
         "NEOPIXEL_LED",
         "PCA9533",
         "PCA9632",
-        "RGB_LED",
+        "RGBW_LED",
         "BLINKM",
-        "RGBW_LED"
+        "RGB_LED"
       ]
     },
     "numServos": {
