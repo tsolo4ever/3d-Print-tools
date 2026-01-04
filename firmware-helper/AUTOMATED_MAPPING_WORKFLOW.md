@@ -66,6 +66,45 @@ assets/data/maps/th3d/2.97a/
 
 ---
 
+## ✨ New Features
+
+### Automatic TH3D Adjacency Pattern Detection
+
+The generator now **automatically detects** the TH3D adjacency pattern where two consecutive `#define` statements with no blank line between them indicates the second define is conditional on the first.
+
+**Example in Configuration.h:**
+```c
+#define CUSTOM_PRINTER_NAME
+#define USER_PRINTER_NAME "Maxy"
+```
+
+**Generated Mapping (Automatic):**
+```json
+{
+  "userPrinterName": {
+    "mapsFrom": ["USER_PRINTER_NAME"],
+    "type": "string",
+    "isConditional": true,
+    "conditionalOn": ["CUSTOM_PRINTER_NAME"],  // ✅ Auto-detected!
+    "uiFieldId": "tab1_profileName"
+  }
+}
+```
+
+**How It Works:**
+- Tracks previous `#define` and blank lines during parsing
+- When two defines are adjacent (no blank line), marks second as conditional on first
+- Adds `"conditionalOn": ["PREVIOUS_DEFINE"]` automatically
+- No manual intervention needed!
+
+**Pattern Detection Rules:**
+- ✅ Two defines, no blank line → Second is conditional on first
+- ❌ Blank line between defines → No conditional relationship
+- ✅ Works for all firmware types (TH3D, Marlin, etc.)
+- ✅ Preserves preprocessor block conditionals (#ifdef, #ifndef, etc.)
+
+---
+
 ## 🔧 Advanced Usage
 
 ### Scan Specific Firmware
