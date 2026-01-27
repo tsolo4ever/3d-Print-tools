@@ -1,0 +1,897 @@
+{
+  "$schema": "Th3d Configuration Field Mapping",
+  "version": "TH3D UFW 2.97a",
+  "firmware": "th3d",
+  "configFile": "Configuration_backend.h",
+  "generatedFrom": "new configs\\th3d\\TH3D UFW 2.97a\\Configuration_backend.h",
+  "totalDefines": 205,
+  "other": {
+    "unifiedVersion": {
+      "mapsFrom": [
+        "UNIFIED_VERSION"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 10,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "UNIFIED_VERSION"
+      ],
+      "examples": [
+        "\"TH3D UFW 2.97a\""
+      ],
+      "uiFieldId": "tab1_firmwareVersion"
+    },
+    "ezablPoints": {
+      "mapsFrom": [
+        "EZABL_POINTS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 697,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "conditionalOnNot": [
+        "EZABL_POINTS"
+      ],
+      "examples": [
+        "3"
+      ]
+    },
+    "probingMargin": {
+      "mapsFrom": [
+        "PROBING_MARGIN"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 210,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_BILINEAR",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "EZABL_PROBE_EDGE"
+      ],
+      "uiFieldId": "tab5_probingMargin"
+    },
+    "kp": {
+      "mapsFrom": [
+        "DEFAULT_Kp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 430,
+      "isConditional": true,
+      "examples": [
+        "22.2"
+      ],
+      "uiFieldId": "tab3_hotendPidKp"
+    },
+    "ki": {
+      "mapsFrom": [
+        "DEFAULT_Ki"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 431,
+      "isConditional": true,
+      "examples": [
+        "1.08"
+      ],
+      "uiFieldId": "tab3_hotendPidKi"
+    },
+    "kd": {
+      "mapsFrom": [
+        "DEFAULT_Kd"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 432,
+      "isConditional": true,
+      "examples": [
+        "114"
+      ],
+      "uiFieldId": "tab3_hotendPidKd"
+    },
+    "bedkp": {
+      "mapsFrom": [
+        "DEFAULT_bedKp"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 440,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENABLE_PIDBED",
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "113.36"
+      ],
+      "uiFieldId": "tab4_bedPidKp"
+    },
+    "bedki": {
+      "mapsFrom": [
+        "DEFAULT_bedKi"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 441,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENABLE_PIDBED",
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "21.62"
+      ],
+      "uiFieldId": "tab4_bedPidKi"
+    },
+    "bedkd": {
+      "mapsFrom": [
+        "DEFAULT_bedKd"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 442,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENABLE_PIDBED",
+        "PIDTEMPBED"
+      ],
+      "examples": [
+        "148.59"
+      ],
+      "uiFieldId": "tab4_bedPidKd"
+    }
+  },
+  "probe": {
+    "nozzleToProbeOffset": {
+      "mapsFrom": [
+        "NOZZLE_TO_PROBE_OFFSET"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 156,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENDER4_OEM"
+      ],
+      "examples": [
+        "{ -53, -19, 0 }"
+      ],
+      "uiFieldId": "tab5_probeOffset"
+    },
+    "fixMountedProbe": {
+      "mapsFrom": [
+        "FIX_MOUNTED_PROBE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 184,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "BLTOUCH"
+      ],
+      "uiFieldId": "tab5_probeTypeFixed"
+    },
+    "multipleProbing": {
+      "mapsFrom": [
+        "MULTIPLE_PROBING"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 203,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "2"
+      ]
+    }
+  },
+  "motion": {
+    "xyProbeFeedrate": {
+      "mapsFrom": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 702,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "(50*60)"
+      ],
+      "uiFieldId": "tab5_probeXYSpeed"
+    },
+    "homingFeedrateMmM": {
+      "mapsFrom": [
+        "HOMING_FEEDRATE_MM_M"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 500,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "SLOWER_HOMING",
+        "ABL_ENABLE",
+        "EZABL_FASTPROBE"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "else block"
+      ],
+      "examples": [
+        "{ (50*60), (50*60), (5*60) }"
+      ],
+      "uiFieldId": "tab6_homingFeedrate"
+    },
+    "zProbeFeedrateFast": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_FAST"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 501,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "SLOWER_HOMING",
+        "ABL_ENABLE",
+        "EZABL_FASTPROBE"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "else block"
+      ],
+      "examples": [
+        "(5*60)"
+      ],
+      "uiFieldId": "tab5_probeZFastSpeed"
+    },
+    "zProbeFeedrateSlow": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_SLOW"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 549,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "EZABL_SUPERFASTPROBE",
+        "ABL_ENABLE"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "(Z_PROBE_FEEDRATE_FAST / 2)"
+      ],
+      "uiFieldId": "tab5_probeZSlowSpeed"
+    }
+  },
+  "temperature": {
+    "autoBedLevelingBilinear": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 209,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_BILINEAR",
+        "ABL_ENABLE"
+      ],
+      "uiFieldId": "tab5_ablBilinear"
+    },
+    "autoBedLevelingUbl": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 221,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "ABL_UBL"
+      ],
+      "uiFieldId": "tab5_ablUBL"
+    },
+    "xBedSize": {
+      "mapsFrom": [
+        "X_BED_SIZE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 284,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_X_BED_SIZE"
+      ],
+      "examples": [
+        "CUSTOM_X_BED_SIZE"
+      ],
+      "uiFieldId": "tab4_bedSizeX"
+    },
+    "yBedSize": {
+      "mapsFrom": [
+        "Y_BED_SIZE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 289,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_Y_BED_SIZE"
+      ],
+      "examples": [
+        "CUSTOM_Y_BED_SIZE"
+      ],
+      "uiFieldId": "tab4_bedSizeY"
+    },
+    "bedMintemp": {
+      "mapsFrom": [
+        "BED_MINTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 361,
+      "examples": [
+        "HEATER_0_MINTEMP"
+      ],
+      "uiFieldId": "tab4_bedMinTemp"
+    },
+    "bedMaxtemp": {
+      "mapsFrom": [
+        "BED_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 394,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "BED_HIGHTEMP"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "120"
+      ],
+      "uiFieldId": "tab4_bedMaxTemp"
+    },
+    "pidtemp": {
+      "mapsFrom": [
+        "PIDTEMP"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 416,
+      "notes": "PID Settings",
+      "uiFieldId": "tab3_pidHotendEnabled"
+    },
+    "pidtempbed": {
+      "mapsFrom": [
+        "PIDTEMPBED"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 436,
+      "isConditional": true,
+      "conditionalOn": [
+        "ENABLE_PIDBED"
+      ],
+      "uiFieldId": "tab4_pidBedEnabled"
+    },
+    "thermalProtectionHotends": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_HOTENDS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 453,
+      "notes": "End PID Settings Enable Thermal Protection for Bed and Hotends",
+      "uiFieldId": "tab8_thermalProtectionHotend"
+    },
+    "thermalProtectionBed": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_BED"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 454,
+      "uiFieldId": "tab8_thermalProtectionBed"
+    },
+    "preheat1Label": {
+      "mapsFrom": [
+        "PREHEAT_1_LABEL"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 578,
+      "examples": [
+        "\"PLA\""
+      ],
+      "uiFieldId": "tab10_preheat1Label"
+    },
+    "preheat1TempHotend": {
+      "mapsFrom": [
+        "PREHEAT_1_TEMP_HOTEND"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 579,
+      "examples": [
+        "210"
+      ],
+      "uiFieldId": "tab10_preheat1Hotend"
+    },
+    "preheat1TempBed": {
+      "mapsFrom": [
+        "PREHEAT_1_TEMP_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 580,
+      "examples": [
+        "60"
+      ],
+      "uiFieldId": "tab10_preheat1Bed"
+    },
+    "preheat1FanSpeed": {
+      "mapsFrom": [
+        "PREHEAT_1_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 581,
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab10_preheat1Fan"
+    },
+    "preheat2Label": {
+      "mapsFrom": [
+        "PREHEAT_2_LABEL"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 583,
+      "examples": [
+        "\"PETG\""
+      ],
+      "uiFieldId": "tab10_preheat2Label"
+    },
+    "preheat2TempHotend": {
+      "mapsFrom": [
+        "PREHEAT_2_TEMP_HOTEND"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 584,
+      "examples": [
+        "235"
+      ],
+      "uiFieldId": "tab10_preheat2Hotend"
+    },
+    "preheat2TempBed": {
+      "mapsFrom": [
+        "PREHEAT_2_TEMP_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 585,
+      "examples": [
+        "80"
+      ],
+      "uiFieldId": "tab10_preheat2Bed"
+    },
+    "preheat2FanSpeed": {
+      "mapsFrom": [
+        "PREHEAT_2_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 586,
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab10_preheat2Fan"
+    },
+    "meshBedLeveling": {
+      "mapsFrom": [
+        "MESH_BED_LEVELING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 687,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "uiFieldId": "tab5_meshBedLeveling"
+    }
+  },
+  "bedLeveling": {
+    "restoreLevelingAfterG28": {
+      "mapsFrom": [
+        "RESTORE_LEVELING_AFTER_G28"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 688,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ]
+    },
+    "gridMaxPointsX": {
+      "mapsFrom": [
+        "GRID_MAX_POINTS_X"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 700,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "EZABL_POINTS"
+      ],
+      "notes": "Define these even if not using Bilinear to satisfy SanityCheck.h",
+      "uiFieldId": "tab5_gridPointsX"
+    },
+    "gridMaxPointsY": {
+      "mapsFrom": [
+        "GRID_MAX_POINTS_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 701,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ],
+      "examples": [
+        "GRID_MAX_POINTS_X"
+      ],
+      "uiFieldId": "tab5_gridPointsY"
+    },
+    "zSafeHoming": {
+      "mapsFrom": [
+        "Z_SAFE_HOMING"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 248,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE"
+      ],
+      "uiFieldId": "tab5_zSafeHoming"
+    },
+    "meshEditMenu": {
+      "mapsFrom": [
+        "MESH_EDIT_MENU"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 703,
+      "isConditional": true,
+      "conditionalOn": [
+        "MANUAL_MESH_LEVELING",
+        "ABL_ENABLE"
+      ]
+    }
+  },
+  "endstops": {
+    "zMinEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 272,
+      "isConditional": true,
+      "conditionalOn": [
+        "ABL_ENABLE",
+        "CHIRON"
+      ],
+      "conditionalOnNot": [
+        "ENDER3_S1_PRO",
+        "INVERT_EZABL_LOGIC",
+        "SV06_EZABL_INSTALLED",
+        "ENDER3_S1_PLUS",
+        "CR10S_PRO_STOCK_ABL",
+        "ENDER5_S1",
+        "ENDER3_S1",
+        "SOVOL_SV06",
+        "CR10S_PRO",
+        "SOVOL_SV06_PLUS"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "true"
+      ]
+    },
+    "minSoftwareEndstops": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 562,
+      "uiFieldId": "tab8_minSoftwareEndstops"
+    },
+    "maxSoftwareEndstops": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 571,
+      "uiFieldId": "tab8_maxSoftwareEndstops"
+    }
+  },
+  "geometry": {
+    "zMaxPos": {
+      "mapsFrom": [
+        "Z_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 294,
+      "isConditional": true,
+      "conditionalOn": [
+        "CUSTOM_Z_HEIGHT"
+      ],
+      "examples": [
+        "CUSTOM_Z_HEIGHT"
+      ],
+      "uiFieldId": "tab6_zMaxPosition"
+    },
+    "zMinPos": {
+      "mapsFrom": [
+        "Z_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 505,
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab6_zMinPosition"
+    },
+    "xMaxPos": {
+      "mapsFrom": [
+        "X_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 506,
+      "examples": [
+        "X_BED_SIZE"
+      ],
+      "uiFieldId": "tab6_xMaxPosition"
+    },
+    "yMaxPos": {
+      "mapsFrom": [
+        "Y_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 507,
+      "examples": [
+        "Y_BED_SIZE"
+      ],
+      "uiFieldId": "tab6_yMaxPosition"
+    }
+  },
+  "safety": {
+    "preventColdExtrusion": {
+      "mapsFrom": [
+        "PREVENT_COLD_EXTRUSION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 338
+    }
+  },
+  "hardware": {
+    "heater0Mintemp": {
+      "mapsFrom": [
+        "HEATER_0_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 352,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "TEMP_SENSOR_0"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab3_hotendMinTemp"
+    },
+    "heater0Maxtemp": {
+      "mapsFrom": [
+        "HEATER_0_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 381,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "HIGH_TEMP_THERMISTOR",
+        "HIGH_TEMP_THERMISTOR_E1"
+      ],
+      "conditionalExpression": [
+        "else block"
+      ],
+      "examples": [
+        "290"
+      ],
+      "uiFieldId": "tab3_hotendMaxTemp"
+    },
+    "lcdLanguage": {
+      "mapsFrom": [
+        "LCD_LANGUAGE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 622,
+      "examples": [
+        "en"
+      ],
+      "uiFieldId": "tab10_lcdLanguage"
+    }
+  },
+  "basic": {
+    "customMachineName": {
+      "mapsFrom": [
+        "CUSTOM_MACHINE_NAME"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 479,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "CR10S_PRO",
+        "CR10S_PRO_STOCK_ABL",
+        "CUSTOM_PRINTER_NAME"
+      ],
+      "conditionalExpression": [
+        "else block",
+        "else block"
+      ],
+      "examples": [
+        "SHORT_BUILD_VERSION"
+      ],
+      "uiFieldId": "tab1_profileName"
+    },
+    "nominalFilamentDia": {
+      "mapsFrom": [
+        "DEFAULT_NOMINAL_FILAMENT_DIA"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 483,
+      "examples": [
+        "1.75"
+      ],
+      "uiFieldId": "tab9_filamentDiameter"
+    }
+  },
+  "features": {
+    "sdsupport": {
+      "mapsFrom": [
+        "SDSUPPORT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 512,
+      "isConditional": true,
+      "conditionalOn": [
+        "NO_SDCARD"
+      ],
+      "uiFieldId": "tab10_sdCardEnabled"
+    },
+    "eepromSettings": {
+      "mapsFrom": [
+        "EEPROM_SETTINGS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 556,
+      "uiFieldId": "tab10_eepromEnabled"
+    },
+    "eepromAutoInit": {
+      "mapsFrom": [
+        "EEPROM_AUTO_INIT"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 559,
+      "uiFieldId": "tab10_eepromAutoInit"
+    }
+  },
+  "coreDefines": 56
+}

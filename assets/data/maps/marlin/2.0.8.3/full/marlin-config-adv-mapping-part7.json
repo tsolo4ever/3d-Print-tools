@@ -64,8 +64,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "LED_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "LED_COLOR_PRESETS"
       ],
       "examples": [
         "255"
@@ -82,8 +82,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "LED_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "LED_COLOR_PRESETS"
       ],
       "examples": [
         "128"
@@ -100,8 +100,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "LED_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "LED_COLOR_PRESETS"
       ],
       "examples": [
         "0"
@@ -118,8 +118,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "LED_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "LED_COLOR_PRESETS"
       ],
       "examples": [
         "255"
@@ -136,8 +136,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "LED_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "LED_COLOR_PRESETS"
       ],
       "examples": [
         "255"
@@ -154,8 +154,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "LED_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "LED_COLOR_PRESETS"
       ],
       "examples": [
         "// Have the printer display the user preset color on startup"
@@ -172,8 +172,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "NEO2_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "NEO2_COLOR_PRESETS"
       ],
       "examples": [
         "255"
@@ -190,8 +190,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "NEO2_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "NEO2_COLOR_PRESETS"
       ],
       "examples": [
         "128"
@@ -208,8 +208,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "NEO2_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "NEO2_COLOR_PRESETS"
       ],
       "examples": [
         "0"
@@ -226,8 +226,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "NEO2_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "NEO2_COLOR_PRESETS"
       ],
       "examples": [
         "255"
@@ -244,8 +244,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "NEO2_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "NEO2_COLOR_PRESETS"
       ],
       "examples": [
         "255"
@@ -262,8 +262,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_LCD_MENU",
-        "NEO2_COLOR_PRESETS",
-        "LED_CONTROL_MENU"
+        "LED_CONTROL_MENU",
+        "NEO2_COLOR_PRESETS"
       ],
       "examples": [
         "// Have the printer display the user preset color on startup for the second strip"
@@ -279,8 +279,8 @@
       "lineNumber": 1225,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
-        "SHOW_BOOTSCREEN"
+        "SHOW_BOOTSCREEN",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "4000"
@@ -296,10 +296,10 @@
       "lineNumber": 1227,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
-        "HAS_DISPLAY",
         "TFT_COLOR_UI",
+        "HAS_MARLINUI_U8GLIB",
         "SHOW_BOOTSCREEN",
+        "HAS_DISPLAY",
         "EITHER"
       ],
       "examples": [
@@ -330,13 +330,13 @@
       "lineNumber": 1245,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
+        "EXTENSIBLE_UI",
+        "HAS_MARLINUI_HD44780",
         "SDSUPPORT",
         "IS_TFTGLCD_PANEL",
+        "HAS_MARLINUI_U8GLIB",
         "LCD_SET_PROGRESS_MANUALLY",
-        "EITHER",
-        "HAS_MARLINUI_HD44780",
-        "EXTENSIBLE_UI"
+        "EITHER"
       ],
       "examples": [
         "// Display estimated time to completion"
@@ -352,14 +352,14 @@
       "lineNumber": 1247,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
+        "EXTENSIBLE_UI",
+        "SHOW_REMAINING_TIME",
+        "HAS_MARLINUI_HD44780",
         "SDSUPPORT",
         "IS_TFTGLCD_PANEL",
-        "SHOW_REMAINING_TIME",
+        "HAS_MARLINUI_U8GLIB",
         "LCD_SET_PROGRESS_MANUALLY",
-        "EITHER",
-        "HAS_MARLINUI_HD44780",
-        "EXTENSIBLE_UI"
+        "EITHER"
       ],
       "examples": [
         "// Use remaining time from M73 command instead of estimation"
@@ -375,13 +375,13 @@
       "lineNumber": 1252,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
+        "EXTENSIBLE_UI",
+        "HAS_MARLINUI_HD44780",
         "SDSUPPORT",
         "IS_TFTGLCD_PANEL",
+        "HAS_MARLINUI_U8GLIB",
         "LCD_SET_PROGRESS_MANUALLY",
-        "EITHER",
-        "HAS_MARLINUI_HD44780",
-        "EXTENSIBLE_UI"
+        "EITHER"
       ],
       "examples": [
         "// Show progress with decimal digits"
@@ -397,14 +397,14 @@
       "lineNumber": 1258,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
+        "LCD_PROGRESS_BAR",
+        "EXTENSIBLE_UI",
+        "HAS_MARLINUI_HD44780",
         "SDSUPPORT",
         "IS_TFTGLCD_PANEL",
-        "LCD_PROGRESS_BAR",
+        "HAS_MARLINUI_U8GLIB",
         "LCD_SET_PROGRESS_MANUALLY",
-        "EITHER",
-        "HAS_MARLINUI_HD44780",
-        "EXTENSIBLE_UI"
+        "EITHER"
       ],
       "examples": [
         "2000"
@@ -420,14 +420,14 @@
       "lineNumber": 1259,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
+        "LCD_PROGRESS_BAR",
+        "EXTENSIBLE_UI",
+        "HAS_MARLINUI_HD44780",
         "SDSUPPORT",
         "IS_TFTGLCD_PANEL",
-        "LCD_PROGRESS_BAR",
+        "HAS_MARLINUI_U8GLIB",
         "LCD_SET_PROGRESS_MANUALLY",
-        "EITHER",
-        "HAS_MARLINUI_HD44780",
-        "EXTENSIBLE_UI"
+        "EITHER"
       ],
       "examples": [
         "3000"
@@ -443,14 +443,14 @@
       "lineNumber": 1260,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
+        "LCD_PROGRESS_BAR",
+        "EXTENSIBLE_UI",
+        "HAS_MARLINUI_HD44780",
         "SDSUPPORT",
         "IS_TFTGLCD_PANEL",
-        "LCD_PROGRESS_BAR",
+        "HAS_MARLINUI_U8GLIB",
         "LCD_SET_PROGRESS_MANUALLY",
-        "EITHER",
-        "HAS_MARLINUI_HD44780",
-        "EXTENSIBLE_UI"
+        "EITHER"
       ],
       "examples": [
         "0"
@@ -466,14 +466,14 @@
       "lineNumber": 1261,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
+        "LCD_PROGRESS_BAR",
+        "EXTENSIBLE_UI",
+        "HAS_MARLINUI_HD44780",
         "SDSUPPORT",
         "IS_TFTGLCD_PANEL",
-        "LCD_PROGRESS_BAR",
+        "HAS_MARLINUI_U8GLIB",
         "LCD_SET_PROGRESS_MANUALLY",
-        "EITHER",
-        "HAS_MARLINUI_HD44780",
-        "EXTENSIBLE_UI"
+        "EITHER"
       ],
       "examples": [
         "// Show the message for MSG_TIME then clear it"

@@ -82,9 +82,9 @@
       "lineNumber": 238,
       "isConditional": true,
       "conditionalOn": [
-        "CHAMBER_FAN_MODE",
         "CHAMBER_FAN",
-        "TEMP_SENSOR_CHAMBER"
+        "TEMP_SENSOR_CHAMBER",
+        "CHAMBER_FAN_MODE"
       ],
       "conditionalExpression": [
         "CHAMBER_FAN_MODE == 3"
@@ -103,9 +103,9 @@
       "lineNumber": 239,
       "isConditional": true,
       "conditionalOn": [
-        "CHAMBER_FAN_MODE",
         "CHAMBER_FAN",
-        "TEMP_SENSOR_CHAMBER"
+        "TEMP_SENSOR_CHAMBER",
+        "CHAMBER_FAN_MODE"
       ],
       "conditionalExpression": [
         "CHAMBER_FAN_MODE == 3"
@@ -323,8 +323,8 @@
       "lineNumber": 378,
       "isConditional": true,
       "conditionalOn": [
-        "PID_EXTRUSION_SCALING",
-        "PIDTEMP"
+        "PIDTEMP",
+        "PID_EXTRUSION_SCALING"
       ],
       "examples": [
         "(100)"
@@ -340,8 +340,8 @@
       "lineNumber": 379,
       "isConditional": true,
       "conditionalOn": [
-        "PID_EXTRUSION_SCALING",
-        "PIDTEMP"
+        "PIDTEMP",
+        "PID_EXTRUSION_SCALING"
       ],
       "examples": [
         "50"

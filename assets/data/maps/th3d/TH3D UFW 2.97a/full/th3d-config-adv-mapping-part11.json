@@ -58,9 +58,9 @@
       "lineNumber": 1831,
       "isConditional": true,
       "conditionalOn": [
-        "USE_OTG_USB_HOST",
         "USB_FLASH_DRIVE_SUPPORT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "USE_OTG_USB_HOST"
       ],
       "examples": [
         "SDSS"
@@ -76,9 +76,9 @@
       "lineNumber": 1832,
       "isConditional": true,
       "conditionalOn": [
-        "USE_OTG_USB_HOST",
         "USB_FLASH_DRIVE_SUPPORT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "USE_OTG_USB_HOST"
       ],
       "examples": [
         "SD_DETECT_PIN"
@@ -169,8 +169,8 @@
       "lineNumber": 1893,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ]
     },
     "volume": {
@@ -183,8 +183,8 @@
       "lineNumber": 1894,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ],
       "examples": [
         "SV_SD_ONBOARD"
@@ -200,8 +200,8 @@
       "lineNumber": 1895,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ],
       "examples": [
         "SV_USB_FLASH_DRIVE"
@@ -304,9 +304,9 @@
       "lineNumber": 1961,
       "isConditional": true,
       "conditionalOn": [
+        "LIGHTWEIGHT_UI",
         "HAS_MARLINUI_U8GLIB",
-        "IS_U8GLIB_ST7920",
-        "LIGHTWEIGHT_UI"
+        "IS_U8GLIB_ST7920"
       ],
       "examples": [
         "20"

@@ -498,8 +498,8 @@
       "lineNumber": 254,
       "isConditional": true,
       "conditionalOn": [
-        "SWITCHING_EXTRUDER",
-        "EXTRUDERS"
+        "EXTRUDERS",
+        "SWITCHING_EXTRUDER"
       ],
       "examples": [
         "1"

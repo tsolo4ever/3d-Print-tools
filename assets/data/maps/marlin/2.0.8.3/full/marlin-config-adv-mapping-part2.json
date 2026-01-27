@@ -337,8 +337,8 @@
       "lineNumber": 205,
       "isConditional": true,
       "conditionalOn": [
-        "TEMP_SENSOR_COOLER",
-        "COOLER_FAN"
+        "COOLER_FAN",
+        "TEMP_SENSOR_COOLER"
       ],
       "examples": [
         "100"
@@ -354,8 +354,8 @@
       "lineNumber": 206,
       "isConditional": true,
       "conditionalOn": [
-        "TEMP_SENSOR_COOLER",
-        "COOLER_FAN"
+        "COOLER_FAN",
+        "TEMP_SENSOR_COOLER"
       ],
       "examples": [
         "25"
@@ -445,8 +445,8 @@
       "lineNumber": 220,
       "isConditional": true,
       "conditionalOn": [
-        "LASER_COOLANT_FLOW_METER",
-        "FLOWMETER_SAFETY"
+        "FLOWMETER_SAFETY",
+        "LASER_COOLANT_FLOW_METER"
       ],
       "examples": [
         "1.5"

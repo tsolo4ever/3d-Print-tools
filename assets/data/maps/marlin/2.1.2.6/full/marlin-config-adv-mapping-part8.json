@@ -98,8 +98,8 @@
       "lineNumber": 1323,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4018",
         "EITHER",
+        "DIGIPOT_MCP4018",
         "DIGIPOT_MCP4451"
       ],
       "examples": [
@@ -116,8 +116,8 @@
       "lineNumber": 1327,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4018",
         "EITHER",
+        "DIGIPOT_MCP4018",
         "DIGIPOT_MCP4451"
       ],
       "examples": [
@@ -135,8 +135,8 @@
       "lineNumber": 1329,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4018",
         "EITHER",
+        "DIGIPOT_MCP4018",
         "DIGIPOT_MCP4451"
       ],
       "examples": [
@@ -153,8 +153,8 @@
       "lineNumber": 1341,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4018",
         "EITHER",
+        "DIGIPOT_MCP4018",
         "DIGIPOT_MCP4451"
       ],
       "examples": [
@@ -171,8 +171,8 @@
       "lineNumber": 1342,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4018",
         "EITHER",
+        "DIGIPOT_MCP4018",
         "DIGIPOT_MCP4451"
       ],
       "examples": [
@@ -189,8 +189,8 @@
       "lineNumber": 1356,
       "isConditional": true,
       "conditionalOn": [
-        "IS_ULTIPANEL",
-        "HAS_MANUAL_MOVE_MENU"
+        "HAS_MANUAL_MOVE_MENU",
+        "IS_ULTIPANEL"
       ],
       "examples": [
         "// Encoder sets the feedrate multiplier on the Status Screen"
@@ -349,9 +349,9 @@
       "lineNumber": 1432,
       "isConditional": true,
       "conditionalOn": [
-        "DWIN_CREALITY_LCD_JYERSUI",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "HAS_DISPLAY"
+        "DWIN_CREALITY_LCD_JYERSUI"
       ],
       "examples": [
         "// Add a mute option to the LCD menu"
@@ -367,9 +367,9 @@
       "lineNumber": 1433,
       "isConditional": true,
       "conditionalOn": [
-        "DWIN_CREALITY_LCD_JYERSUI",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "HAS_DISPLAY"
+        "DWIN_CREALITY_LCD_JYERSUI"
       ],
       "examples": [
         "// Buzzer/speaker default enabled state"
@@ -385,10 +385,10 @@
       "lineNumber": 1441,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
-        "DWIN_LCD_PROUI",
+        "SHOW_BOOTSCREEN",
         "EITHER",
-        "SHOW_BOOTSCREEN"
+        "HAS_DISPLAY",
+        "DWIN_LCD_PROUI"
       ],
       "examples": [
         "3000"
@@ -404,12 +404,12 @@
       "lineNumber": 1443,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
-        "DWIN_LCD_PROUI",
-        "EITHER",
-        "SHOW_BOOTSCREEN",
         "TFT_COLOR_UI",
-        "HAS_DISPLAY"
+        "EITHER",
+        "DWIN_LCD_PROUI",
+        "HAS_DISPLAY",
+        "SHOW_BOOTSCREEN",
+        "HAS_MARLINUI_U8GLIB"
       ],
       "examples": [
         "// Show a smaller Marlin logo on the Boot Screen (saving lots of flash)"
@@ -425,9 +425,9 @@
       "lineNumber": 1448,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "HAS_DISPLAY",
-        "DWIN_LCD_PROUI",
-        "EITHER"
+        "DWIN_LCD_PROUI"
       ],
       "notes": "Scroll a longer status message into view"
     },
@@ -441,9 +441,9 @@
       "lineNumber": 1451,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "HAS_DISPLAY",
-        "DWIN_LCD_PROUI",
-        "EITHER"
+        "DWIN_LCD_PROUI"
       ],
       "examples": [
         "30"
@@ -460,9 +460,9 @@
       "lineNumber": 1463,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "HAS_DISPLAY",
-        "DWIN_LCD_PROUI",
-        "EITHER"
+        "DWIN_LCD_PROUI"
       ]
     },
     "ledColorPresets": {
@@ -475,10 +475,10 @@
       "lineNumber": 1465,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
-        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
         "EITHER",
-        "LED_CONTROL_MENU"
+        "HAS_DISPLAY",
+        "DWIN_LCD_PROUI"
       ],
       "examples": [
         "// Enable the Preset Color menu option"

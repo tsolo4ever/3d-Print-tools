@@ -32,8 +32,8 @@
       "lineNumber": 1309,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "PRINTER_EVENT_LEDS"
+        "PRINTER_EVENT_LEDS",
+        "SDSUPPORT"
       ],
       "examples": [
         "(30*60)"
@@ -49,8 +49,8 @@
       "lineNumber": 1322,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
       ],
       "examples": [
         "false"
@@ -66,8 +66,8 @@
       "lineNumber": 1323,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
       ],
       "examples": [
         "// Backup power / UPS to move the steppers on power loss"
@@ -83,8 +83,8 @@
       "lineNumber": 1324,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
       ],
       "examples": [
         "2"
@@ -100,8 +100,8 @@
       "lineNumber": 1325,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
       ],
       "examples": [
         "44"
@@ -117,8 +117,8 @@
       "lineNumber": 1326,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
       ],
       "examples": [
         "HIGH"
@@ -134,8 +134,8 @@
       "lineNumber": 1327,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
       ],
       "examples": [
         "// Set pullup / pulldown as appropriate for your sensor"
@@ -151,8 +151,8 @@
       "lineNumber": 1328,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
       ]
     },
     "powerLossPurgeLen": {
@@ -165,8 +165,8 @@
       "lineNumber": 1329,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
       ],
       "examples": [
         "20"
@@ -182,8 +182,8 @@
       "lineNumber": 1330,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
       ],
       "examples": [
         "10"
@@ -199,8 +199,8 @@
       "lineNumber": 1334,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
       ],
       "examples": [
         "0.05"
@@ -217,8 +217,8 @@
       "lineNumber": 1337,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
       ],
       "notes": "Enable if Z homing is needed for proper recovery. 99.9% of the time this should be disabled!"
     },
@@ -245,8 +245,8 @@
       "lineNumber": 1370,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "40"
@@ -262,8 +262,8 @@
       "lineNumber": 1371,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "-1"
@@ -279,8 +279,8 @@
       "lineNumber": 1372,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "false"
@@ -296,8 +296,8 @@
       "lineNumber": 1373,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "false"
@@ -313,8 +313,8 @@
       "lineNumber": 1374,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "false"
@@ -330,8 +330,8 @@
       "lineNumber": 1375,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "false"
@@ -347,8 +347,8 @@
       "lineNumber": 1376,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "false"
@@ -364,8 +364,8 @@
       "lineNumber": 1377,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "2"
@@ -436,8 +436,8 @@
       "lineNumber": 1439,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "USB_FLASH_DRIVE_SUPPORT"
+        "USB_FLASH_DRIVE_SUPPORT",
+        "SDSUPPORT"
       ]
     },
     "uhs3Usb": {
@@ -450,8 +450,8 @@
       "lineNumber": 1440,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "USB_FLASH_DRIVE_SUPPORT"
+        "USB_FLASH_DRIVE_SUPPORT",
+        "SDSUPPORT"
       ]
     },
     "otgUsbHost": {
@@ -464,8 +464,8 @@
       "lineNumber": 1445,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "USB_FLASH_DRIVE_SUPPORT"
+        "USB_FLASH_DRIVE_SUPPORT",
+        "SDSUPPORT"
       ]
     },
     "usbCsPin": {
@@ -479,8 +479,8 @@
       "isConditional": true,
       "conditionalOn": [
         "USE_OTG_USB_HOST",
-        "SDSUPPORT",
-        "USB_FLASH_DRIVE_SUPPORT"
+        "USB_FLASH_DRIVE_SUPPORT",
+        "SDSUPPORT"
       ],
       "examples": [
         "SDSS"

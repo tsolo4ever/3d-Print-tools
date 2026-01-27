@@ -42,9 +42,9 @@
       "lineNumber": 3227,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -66,9 +66,9 @@
       "lineNumber": 3228,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -90,9 +90,9 @@
       "lineNumber": 3229,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -114,9 +114,9 @@
       "lineNumber": 3230,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -138,9 +138,9 @@
       "lineNumber": 3233,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -163,9 +163,9 @@
       "lineNumber": 3234,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -187,9 +187,9 @@
       "lineNumber": 3244,
       "isConditional": true,
       "conditionalOn": [
+        "SPINDLE_FEATURE",
         "LASER_FEATURE",
-        "EITHER",
-        "SPINDLE_FEATURE"
+        "EITHER"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -208,9 +208,9 @@
       "lineNumber": 3254,
       "isConditional": true,
       "conditionalOn": [
-        "LASER_POWER_INLINE",
         "SPINDLE_FEATURE",
         "LASER_FEATURE",
+        "LASER_POWER_INLINE",
         "EITHER"
       ],
       "conditionalOnNot": [
@@ -230,9 +230,9 @@
       "lineNumber": 3265,
       "isConditional": true,
       "conditionalOn": [
-        "LASER_POWER_INLINE",
         "SPINDLE_FEATURE",
         "LASER_FEATURE",
+        "LASER_POWER_INLINE",
         "EITHER"
       ],
       "conditionalOnNot": [
@@ -252,9 +252,9 @@
       "lineNumber": 3272,
       "isConditional": true,
       "conditionalOn": [
-        "LASER_POWER_INLINE",
         "SPINDLE_FEATURE",
         "LASER_FEATURE",
+        "LASER_POWER_INLINE",
         "EITHER"
       ],
       "conditionalOnNot": [
@@ -277,9 +277,9 @@
       "lineNumber": 3277,
       "isConditional": true,
       "conditionalOn": [
-        "LASER_POWER_INLINE",
         "SPINDLE_FEATURE",
         "LASER_FEATURE",
+        "LASER_POWER_INLINE",
         "EITHER"
       ],
       "conditionalOnNot": [
@@ -299,9 +299,9 @@
       "lineNumber": 3282,
       "isConditional": true,
       "conditionalOn": [
-        "LASER_POWER_INLINE",
         "SPINDLE_FEATURE",
         "LASER_FEATURE",
+        "LASER_POWER_INLINE",
         "LASER_MOVE_POWER",
         "EITHER"
       ],
@@ -323,9 +323,9 @@
       "lineNumber": 3285,
       "isConditional": true,
       "conditionalOn": [
-        "LASER_POWER_INLINE",
         "SPINDLE_FEATURE",
         "LASER_FEATURE",
+        "LASER_POWER_INLINE",
         "LASER_MOVE_POWER",
         "EITHER"
       ],
@@ -347,9 +347,9 @@
       "lineNumber": 3294,
       "isConditional": true,
       "conditionalOn": [
-        "LASER_POWER_INLINE",
         "SPINDLE_FEATURE",
         "LASER_FEATURE",
+        "LASER_POWER_INLINE",
         "EITHER"
       ],
       "conditionalOnNot": [
@@ -369,9 +369,9 @@
       "lineNumber": 3302,
       "isConditional": true,
       "conditionalOn": [
-        "LASER_POWER_INLINE",
         "SPINDLE_FEATURE",
         "LASER_FEATURE",
+        "LASER_POWER_INLINE",
         "EITHER"
       ],
       "conditionalOnNot": [

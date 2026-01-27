@@ -16,12 +16,12 @@
       "lineNumber": 1341,
       "isConditional": true,
       "conditionalOn": [
-        "CUSTOM_PROBE",
-        "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5_PLUS_EZABL",
+        "ENDER5_PLUS",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "CUSTOM_PROBE",
+        "ENDER3_MAX",
         "ENDER3"
       ]
     },
@@ -35,11 +35,11 @@
       "lineNumber": 1335,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5_PLUS_EZABL",
+        "ENDER5_PLUS",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "ENDER3_MAX",
         "ENDER3"
       ],
       "conditionalOnNot": [
@@ -90,11 +90,11 @@
       "lineNumber": 1333,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5_PLUS_EZABL",
+        "ENDER5_PLUS",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "ENDER3_MAX",
         "ENDER3"
       ]
     },
@@ -108,9 +108,9 @@
       "lineNumber": 565,
       "isConditional": true,
       "conditionalOn": [
-        "BLTOUCH",
-        "ENDER3_MAX_OEM",
         "CUSTOM_PROBE",
+        "ENDER3_MAX_OEM",
+        "BLTOUCH",
         "ENDER3_MAX_NEO"
       ]
     },
@@ -124,12 +124,12 @@
       "lineNumber": 1342,
       "isConditional": true,
       "conditionalOn": [
-        "CUSTOM_PROBE",
-        "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5_PLUS_EZABL",
+        "ENDER5_PLUS",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "CUSTOM_PROBE",
+        "ENDER3_MAX",
         "ENDER3"
       ],
       "examples": [
@@ -146,9 +146,9 @@
       "lineNumber": 566,
       "isConditional": true,
       "conditionalOn": [
-        "BLTOUCH",
-        "ENDER3_MAX_OEM",
         "CUSTOM_PROBE",
+        "ENDER3_MAX_OEM",
+        "BLTOUCH",
         "ENDER3_MAX_NEO"
       ]
     },
@@ -220,8 +220,8 @@
       "lineNumber": 570,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER3_12864_LCD_KIT",
-        "ENDER3_MAX_NEO"
+        "ENDER3_MAX_NEO",
+        "ENDER3_12864_LCD_KIT"
       ]
     },
     "cr10Stockdisplay": {
@@ -234,8 +234,8 @@
       "lineNumber": 1596,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER3_12864_LCD_KIT",
-        "ENDER3_V2"
+        "ENDER3_V2",
+        "ENDER3_12864_LCD_KIT"
       ]
     },
     "ret612864Lcd": {
@@ -248,8 +248,8 @@
       "lineNumber": 1597,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER3_12864_LCD_KIT",
-        "ENDER3_V2"
+        "ENDER3_V2",
+        "ENDER3_12864_LCD_KIT"
       ]
     },
     "tempSensor0": {
@@ -266,9 +266,9 @@
         "ENDER3_V2"
       ],
       "conditionalOnNot": [
+        "KNOWN_HOTEND_THERMISTOR",
         "V6_HOTEND",
-        "TH3D_HOTEND_THERMISTOR",
-        "KNOWN_HOTEND_THERMISTOR"
+        "TH3D_HOTEND_THERMISTOR"
       ],
       "conditionalExpression": [
         "else block",
@@ -400,14 +400,14 @@
       "lineNumber": 1522,
       "isConditional": true,
       "conditionalOn": [
-        "KEENOVO_TEMPSENSOR",
-        "ENDER3_V2"
+        "ENDER3_V2",
+        "KEENOVO_TEMPSENSOR"
       ],
       "conditionalOnNot": [
         "KNOWN_BED_THERMISTOR",
-        "TH3D_BED_THERMISTOR",
+        "AC_BED",
         "KEENOVO_TEMPSENSOR",
-        "AC_BED"
+        "TH3D_BED_THERMISTOR"
       ],
       "conditionalExpression": [
         "else block",
@@ -714,8 +714,8 @@
       "conditionalOn": [
         "DWIN_CREALITY_LCD",
         "DWIN_CREALITY_LCD_JYERSUI",
-        "ENDER3_V2",
-        "DWIN_CREALITY_LCD_ENHANCED"
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "ENDER3_V2"
       ]
     },
     "xBedSize": {

@@ -121,8 +121,8 @@
       "lineNumber": 816,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_X2_STEPPER",
-        "DUAL_X_CARRIAGE"
+        "DUAL_X_CARRIAGE",
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "// X2 direction signal is the opposite of X"
@@ -170,8 +170,8 @@
       "lineNumber": 845,
       "isConditional": true,
       "conditionalOn": [
-        "Z2_DRIVER_TYPE",
-        "Z3_DRIVER_TYPE"
+        "Z3_DRIVER_TYPE",
+        "Z2_DRIVER_TYPE"
       ],
       "examples": [
         "// Z3 direction signal is the opposite of Z"

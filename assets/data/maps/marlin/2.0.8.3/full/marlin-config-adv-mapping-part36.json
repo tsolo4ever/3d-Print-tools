@@ -231,8 +231,8 @@
       "lineNumber": 643,
       "isConditional": true,
       "conditionalOn": [
-        "Y_DUAL_ENDSTOPS",
-        "Y_DUAL_STEPPER_DRIVERS"
+        "Y_DUAL_STEPPER_DRIVERS",
+        "Y_DUAL_ENDSTOPS"
       ],
       "examples": [
         "_YMAX_"
@@ -248,8 +248,8 @@
       "lineNumber": 644,
       "isConditional": true,
       "conditionalOn": [
-        "Y_DUAL_ENDSTOPS",
-        "Y_DUAL_STEPPER_DRIVERS"
+        "Y_DUAL_STEPPER_DRIVERS",
+        "Y_DUAL_ENDSTOPS"
       ],
       "examples": [
         "0"
@@ -278,8 +278,8 @@
       "lineNumber": 661,
       "isConditional": true,
       "conditionalOn": [
-        "NUM_Z_STEPPER_DRIVERS",
-        "Z_MULTI_ENDSTOPS"
+        "Z_MULTI_ENDSTOPS",
+        "NUM_Z_STEPPER_DRIVERS"
       ],
       "examples": [
         "_XMAX_"
@@ -295,8 +295,8 @@
       "lineNumber": 662,
       "isConditional": true,
       "conditionalOn": [
-        "NUM_Z_STEPPER_DRIVERS",
-        "Z_MULTI_ENDSTOPS"
+        "Z_MULTI_ENDSTOPS",
+        "NUM_Z_STEPPER_DRIVERS"
       ],
       "examples": [
         "0"
@@ -312,8 +312,8 @@
       "lineNumber": 664,
       "isConditional": true,
       "conditionalOn": [
-        "NUM_Z_STEPPER_DRIVERS",
-        "Z_MULTI_ENDSTOPS"
+        "Z_MULTI_ENDSTOPS",
+        "NUM_Z_STEPPER_DRIVERS"
       ],
       "examples": [
         "_YMAX_"
@@ -329,8 +329,8 @@
       "lineNumber": 665,
       "isConditional": true,
       "conditionalOn": [
-        "NUM_Z_STEPPER_DRIVERS",
-        "Z_MULTI_ENDSTOPS"
+        "Z_MULTI_ENDSTOPS",
+        "NUM_Z_STEPPER_DRIVERS"
       ],
       "examples": [
         "0"
@@ -346,8 +346,8 @@
       "lineNumber": 668,
       "isConditional": true,
       "conditionalOn": [
-        "NUM_Z_STEPPER_DRIVERS",
-        "Z_MULTI_ENDSTOPS"
+        "Z_MULTI_ENDSTOPS",
+        "NUM_Z_STEPPER_DRIVERS"
       ],
       "examples": [
         "_ZMAX_"
@@ -363,8 +363,8 @@
       "lineNumber": 669,
       "isConditional": true,
       "conditionalOn": [
-        "NUM_Z_STEPPER_DRIVERS",
-        "Z_MULTI_ENDSTOPS"
+        "Z_MULTI_ENDSTOPS",
+        "NUM_Z_STEPPER_DRIVERS"
       ],
       "examples": [
         "0"
@@ -450,9 +450,9 @@
       "lineNumber": 1339,
       "isConditional": true,
       "conditionalOn": [
+        "POWER_LOSS_RECOVERY",
         "POWER_LOSS_RECOVER_ZHOME",
-        "SDSUPPORT",
-        "POWER_LOSS_RECOVERY"
+        "SDSUPPORT"
       ],
       "examples": [
         "{ 0, 0 }"
@@ -497,10 +497,10 @@
       "lineNumber": 2821,
       "isConditional": true,
       "conditionalOn": [
-        "SENSORLESS_PROBING",
         "SENSORLESS_HOMING",
-        "EITHER",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_PROBING",
+        "EITHER"
       ],
       "examples": [
         "// TMC2130 only"
@@ -598,9 +598,9 @@
       "lineNumber": 1137,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
         "IS_ULTIPANEL",
-        "EXTENSIBLE_UI"
+        "EXTENSIBLE_UI",
+        "EITHER"
       ],
       "examples": [
         "{ 50*60, 50*60, 4*60, 2*60 }"
@@ -616,9 +616,9 @@
       "lineNumber": 1138,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
         "IS_ULTIPANEL",
-        "EXTENSIBLE_UI"
+        "EXTENSIBLE_UI",
+        "EITHER"
       ],
       "examples": [
         "0.025"
@@ -634,9 +634,9 @@
       "lineNumber": 1140,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
         "IS_ULTIPANEL",
-        "EXTENSIBLE_UI"
+        "EXTENSIBLE_UI",
+        "EITHER"
       ],
       "examples": [
         "// Display extruder move distance rather than \"position\""
@@ -686,9 +686,9 @@
       "lineNumber": 1893,
       "isConditional": true,
       "conditionalOn": [
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
-        "EITHER",
-        "MESH_BED_LEVELING"
+        "EITHER"
       ],
       "examples": [
         "MESH_INSET"
@@ -705,9 +705,9 @@
       "lineNumber": 1894,
       "isConditional": true,
       "conditionalOn": [
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
-        "EITHER",
-        "MESH_BED_LEVELING"
+        "EITHER"
       ],
       "examples": [
         "MESH_INSET"
@@ -723,9 +723,9 @@
       "lineNumber": 1895,
       "isConditional": true,
       "conditionalOn": [
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
-        "EITHER",
-        "MESH_BED_LEVELING"
+        "EITHER"
       ],
       "examples": [
         "X_BED_SIZE - (MESH_INSET)"
@@ -741,9 +741,9 @@
       "lineNumber": 1896,
       "isConditional": true,
       "conditionalOn": [
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
-        "EITHER",
-        "MESH_BED_LEVELING"
+        "EITHER"
       ],
       "examples": [
         "Y_BED_SIZE - (MESH_INSET)"
@@ -760,8 +760,8 @@
       "isConditional": true,
       "conditionalOn": [
         "EEPROM_SETTINGS",
-        "BOTH",
-        "AUTO_BED_LEVELING_UBL"
+        "AUTO_BED_LEVELING_UBL",
+        "BOTH"
       ],
       "examples": [
         "// Store mesh with less precision to save EEPROM space"

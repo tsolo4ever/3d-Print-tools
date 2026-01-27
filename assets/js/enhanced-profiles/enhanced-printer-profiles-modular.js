@@ -338,11 +338,25 @@ class EnhancedPrinterProfiles {
     // Render tab HTML
     content.innerHTML = tabModule.render(this.currentProfile, this.databases);
 
-    // Attach tab-specific listeners
+    // Attach tab-specific listeners with complete context
     const context = {
+      // Core orchestrator methods
       renderCurrentTab: () => this.renderCurrentTab(),
+      switchTab: (tabNum) => this.switchTab(tabNum),
+      
+      // Profile update
+      onProfileUpdate: () => this.onProfileUpdate(),
+      
+      // Autofill methods that affect multiple tabs
       autofillBoardDetails: (boardId) => this.autofillBoardDetails(boardId),
-      autofillFromHotend: (hotendId) => this.autofillFromHotend(hotendId)
+      autofillFromHotend: (hotendId) => this.autofillFromHotend(hotendId),
+      autofillFromPrinterDatabase: (printer) => this.autofillFromPrinterDatabase(printer),
+      
+      // Provide access to databases for tab-specific operations
+      databases: this.databases,
+      
+      // Provide access to current profile
+      currentProfile: this.currentProfile
     };
 
     tabModule.attachListeners(
@@ -485,6 +499,51 @@ class EnhancedPrinterProfiles {
         document.body.style.overflow = '';
       }, 300);
     }
+  }
+
+  /** Auto-fill from printer database selection (affects multiple tabs) */
+  autofillFromPrinterDatabase(printer) {
+    if (!printer) return;
+
+    EnhancedPrinterProfiles.log('🖨️ Auto-filling from printer database:', printer.name);
+
+    // Basic info already set by Tab1's printer search
+
+    // Hardware - Tab 2
+    if (printer.stockBoard && this.databases['marlin-boards']) {
+      const board = this.databases['marlin-boards'].boards.find(b => 
+        b.id === printer.stockBoard || b.name.includes(printer.stockBoard)
+      );
+      if (board) {
+        if (!this.currentProfile.hardware) this.currentProfile.hardware = {};
+        this.currentProfile.hardware.board = board.id;
+      }
+    }
+
+    // Bed size - Tab 4
+    if (printer.bedSize) {
+      if (!this.currentProfile.bedSize) this.currentProfile.bedSize = {};
+      this.currentProfile.bedSize.x = printer.bedSize.x || 220;
+      this.currentProfile.bedSize.y = printer.bedSize.y || 220;
+      this.currentProfile.bedSize.z = printer.bedSize.z || 250;
+    }
+
+    // Hotend - Tab 3
+    if (printer.stockHotend) {
+      if (!this.currentProfile.hotend) this.currentProfile.hotend = {};
+      this.currentProfile.hotend.type = printer.stockHotend;
+    }
+
+    // Probe - Tab 5
+    if (printer.stockProbe) {
+      if (!this.currentProfile.probe) this.currentProfile.probe = {};
+      this.currentProfile.probe.type = printer.stockProbe;
+    }
+
+    this.onProfileUpdate();
+    this.renderCurrentTab();
+
+    alert(`✅ Auto-filled settings from ${printer.name}!\n\nReview the Hardware, Bed, Hotend, and Probe tabs.`);
   }
 }
 

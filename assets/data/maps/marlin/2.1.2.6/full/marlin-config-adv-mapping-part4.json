@@ -80,8 +80,8 @@
         "FAST_PWM_FAN"
       ],
       "conditionalOnNot": [
-        "__AVR__",
-        "FAST_PWM_FAN_FREQUENCY"
+        "FAST_PWM_FAN_FREQUENCY",
+        "__AVR__"
       ],
       "conditionalExpression": [
         "else block"
@@ -709,9 +709,9 @@
       "lineNumber": 718,
       "isConditional": true,
       "conditionalOn": [
-        "CASE_LIGHT_ENABLE",
         "EITHER",
         "RGBW_LED",
+        "CASE_LIGHT_ENABLE",
         "RGB_LED"
       ],
       "examples": [
@@ -728,10 +728,10 @@
       "lineNumber": 721,
       "isConditional": true,
       "conditionalOn": [
-        "CASE_LIGHT_ENABLE",
-        "CASE_LIGHT_USE_RGB_LED",
+        "CASE_LIGHT_USE_NEOPIXEL",
         "EITHER",
-        "CASE_LIGHT_USE_NEOPIXEL"
+        "CASE_LIGHT_ENABLE",
+        "CASE_LIGHT_USE_RGB_LED"
       ],
       "examples": [
         "{ 255, 255, 255, 255 }"

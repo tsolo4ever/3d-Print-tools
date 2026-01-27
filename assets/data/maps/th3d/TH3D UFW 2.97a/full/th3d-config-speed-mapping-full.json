@@ -71,8 +71,8 @@
       "lineNumber": 24,
       "isConditional": true,
       "conditionalOnNot": [
-        "E_SPEED_OVERRIDE_2560",
-        "SPACE_SAVER_2560"
+        "SPACE_SAVER_2560",
+        "E_SPEED_OVERRIDE_2560"
       ],
       "conditionalExpression": [
         "else block"
@@ -235,5 +235,6 @@
         "5.0"
       ]
     }
-  }
+  },
+  "fullDefines": 13
 }

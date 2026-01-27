@@ -183,10 +183,10 @@
       "lineNumber": 3231,
       "isConditional": true,
       "conditionalOn": [
+        "TOUCH_SCREEN",
         "EEPROM_SETTINGS",
         "BOTH",
-        "TOUCH_SCREEN_CALIBRATION",
-        "TOUCH_SCREEN"
+        "TOUCH_SCREEN_CALIBRATION"
       ],
       "examples": [
         "// Auto save successful calibration values to EEPROM"
@@ -202,8 +202,8 @@
       "lineNumber": 3235,
       "isConditional": true,
       "conditionalOn": [
-        "TFT_COLOR_UI",
-        "TOUCH_SCREEN"
+        "TOUCH_SCREEN",
+        "TFT_COLOR_UI"
       ]
     },
     "reprapworldKeypad": {
@@ -353,8 +353,8 @@
       "lineNumber": 3328,
       "isConditional": true,
       "conditionalOn": [
-        "RGB_LED",
         "RGBW_LED",
+        "RGB_LED",
         "EITHER"
       ],
       "examples": [
@@ -371,8 +371,8 @@
       "lineNumber": 3329,
       "isConditional": true,
       "conditionalOn": [
-        "RGB_LED",
         "RGBW_LED",
+        "RGB_LED",
         "EITHER"
       ],
       "examples": [
@@ -389,8 +389,8 @@
       "lineNumber": 3330,
       "isConditional": true,
       "conditionalOn": [
-        "RGB_LED",
         "RGBW_LED",
+        "RGB_LED",
         "EITHER"
       ],
       "examples": [
@@ -407,8 +407,8 @@
       "lineNumber": 3331,
       "isConditional": true,
       "conditionalOn": [
-        "RGB_LED",
         "RGBW_LED",
+        "RGB_LED",
         "EITHER"
       ],
       "examples": [
@@ -446,8 +446,8 @@
       "isConditional": true,
       "conditionalOn": [
         "RGBW_LED",
-        "PCA9632",
         "RGB_STARTUP_TEST",
+        "PCA9632",
         "RGB_LED"
       ],
       "examples": [
@@ -617,8 +617,8 @@
       "lineNumber": 3357,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL2_SEPARATE",
-        "NEOPIXEL_LED"
+        "NEOPIXEL_LED",
+        "NEOPIXEL2_SEPARATE"
       ],
       "examples": [
         "15"
@@ -634,8 +634,8 @@
       "lineNumber": 3358,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL2_SEPARATE",
-        "NEOPIXEL_LED"
+        "NEOPIXEL_LED",
+        "NEOPIXEL2_SEPARATE"
       ],
       "examples": [
         "127"
@@ -651,8 +651,8 @@
       "lineNumber": 3359,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL2_SEPARATE",
-        "NEOPIXEL_LED"
+        "NEOPIXEL_LED",
+        "NEOPIXEL2_SEPARATE"
       ],
       "examples": [
         "// Cycle through colors at startup"
@@ -668,8 +668,8 @@
       "lineNumber": 3360,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL2_SEPARATE",
-        "NEOPIXEL_LED"
+        "NEOPIXEL_LED",
+        "NEOPIXEL2_SEPARATE"
       ],
       "examples": [
         "-1"
@@ -772,11 +772,11 @@
       "lineNumber": 3384,
       "isConditional": true,
       "conditionalOn": [
-        "PCA9533",
         "RGBW_LED",
+        "NEOPIXEL_LED",
         "PCA9632",
         "BLINKM",
-        "NEOPIXEL_LED",
+        "PCA9533",
         "RGB_LED"
       ]
     },

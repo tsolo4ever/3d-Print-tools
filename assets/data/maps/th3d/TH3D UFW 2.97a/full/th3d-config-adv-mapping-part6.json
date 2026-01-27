@@ -172,9 +172,9 @@
       "lineNumber": 1196,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "INPUT_SHAPING_FREQ_X"
@@ -190,9 +190,9 @@
       "lineNumber": 1197,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "INPUT_SHAPING_DAMPING_X"
@@ -208,9 +208,9 @@
       "lineNumber": 1200,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "INPUT_SHAPING_FREQ_Y"
@@ -226,9 +226,9 @@
       "lineNumber": 1201,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "INPUT_SHAPING_DAMPING_X"
@@ -244,9 +244,9 @@
       "lineNumber": 1203,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "20"
@@ -262,9 +262,9 @@
       "lineNumber": 1204,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "10000"
@@ -280,9 +280,9 @@
       "lineNumber": 1205,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "// Add a menu to the LCD to set shaping parameters."
@@ -720,8 +720,8 @@
       "lineNumber": 1297,
       "isConditional": true,
       "conditionalOn": [
-        "BACKLASH_COMPENSATION",
-        "BACKLASH_GCODE"
+        "BACKLASH_GCODE",
+        "BACKLASH_COMPENSATION"
       ],
       "notes": "Measure the Z backlash when probing (G29) and set with \"M425 Z\""
     },
@@ -735,9 +735,9 @@
       "lineNumber": 1303,
       "isConditional": true,
       "conditionalOn": [
-        "BACKLASH_COMPENSATION",
         "MEASURE_BACKLASH_WHEN_PROBING",
-        "BACKLASH_GCODE"
+        "BACKLASH_GCODE",
+        "BACKLASH_COMPENSATION"
       ],
       "examples": [
         "0.5"
@@ -754,9 +754,9 @@
       "lineNumber": 1304,
       "isConditional": true,
       "conditionalOn": [
-        "BACKLASH_COMPENSATION",
         "MEASURE_BACKLASH_WHEN_PROBING",
-        "BACKLASH_GCODE"
+        "BACKLASH_GCODE",
+        "BACKLASH_COMPENSATION"
       ],
       "examples": [
         "0.005"

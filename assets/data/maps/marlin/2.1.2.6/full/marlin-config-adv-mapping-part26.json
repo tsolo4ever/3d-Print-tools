@@ -322,11 +322,11 @@
       "lineNumber": 3175,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -343,11 +343,11 @@
       "lineNumber": 3176,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "X_STALL_SENSITIVITY"
@@ -363,11 +363,11 @@
       "lineNumber": 3177,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -383,11 +383,11 @@
       "lineNumber": 3178,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "Y_STALL_SENSITIVITY"
@@ -403,11 +403,11 @@
       "lineNumber": 3179,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -423,11 +423,11 @@
       "lineNumber": 3180,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "Z_STALL_SENSITIVITY"
@@ -443,11 +443,11 @@
       "lineNumber": 3181,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "Z_STALL_SENSITIVITY"
@@ -463,11 +463,11 @@
       "lineNumber": 3182,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "Z_STALL_SENSITIVITY"
@@ -483,11 +483,11 @@
       "lineNumber": 3183,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -503,11 +503,11 @@
       "lineNumber": 3184,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -523,11 +523,11 @@
       "lineNumber": 3185,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -543,11 +543,11 @@
       "lineNumber": 3186,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "EITHER",
         "SENSORLESS_PROBING",
         "HAS_TRINAMIC_CONFIG",
-        "SENSORLESS_HOMING",
-        "EITHER"
+        "HAS_TMC26X",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"

@@ -16,8 +16,8 @@
       "lineNumber": 1525,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_MENU",
-        "SPACE_SAVER_2560"
+        "SPACE_SAVER_2560",
+        "HAS_MARLINUI_MENU"
       ]
     },
     "lcdPrinterInfoIsBootscreen": {
@@ -47,9 +47,9 @@
       "lineNumber": 1548,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "10000"
@@ -66,10 +66,10 @@
       "lineNumber": 1567,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
-        "DWIN_LCD_PROUI",
         "SPACE_SAVER_2560",
-        "EITHER"
+        "DWIN_LCD_PROUI",
+        "EITHER",
+        "HAS_DISPLAY"
       ]
     },
     "lcdShowETotal": {
@@ -82,9 +82,9 @@
       "lineNumber": 1571,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "notes": "Show the E position (filament used) during printing"
     },
@@ -98,12 +98,12 @@
       "lineNumber": 1629,
       "isConditional": true,
       "conditionalOn": [
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "// Show a progress bar on HD44780 LCDs for SD printing"
@@ -119,13 +119,13 @@
       "lineNumber": 1635,
       "isConditional": true,
       "conditionalOn": [
-        "LCD_PROGRESS_BAR",
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "// Add a menu item to test the progress bar"
@@ -157,9 +157,9 @@
       "lineNumber": 2069,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "IS_DWIN_MARLINUI",
         "DOGLCD",
+        "TOUCH_UI_FTDI_EVE",
         "TFT_COLOR_UI"
       ],
       "examples": [
@@ -176,9 +176,9 @@
       "lineNumber": 2070,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "IS_DWIN_MARLINUI",
         "DOGLCD",
+        "TOUCH_UI_FTDI_EVE",
         "TFT_COLOR_UI"
       ],
       "examples": [
@@ -195,9 +195,9 @@
       "lineNumber": 2071,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "IS_DWIN_MARLINUI",
         "DOGLCD",
+        "TOUCH_UI_FTDI_EVE",
         "TFT_COLOR_UI"
       ],
       "examples": [
@@ -214,9 +214,9 @@
       "lineNumber": 2072,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "IS_DWIN_MARLINUI",
         "DOGLCD",
+        "TOUCH_UI_FTDI_EVE",
         "TFT_COLOR_UI"
       ],
       "examples": [
@@ -234,9 +234,9 @@
       "isConditional": true,
       "conditionalOn": [
         "TOUCH_UI_FTDI_EVE",
-        "DOGLCD",
         "TFT_COLOR_UI",
         "LCD_LANGUAGE_2",
+        "DOGLCD",
         "IS_DWIN_MARLINUI"
       ],
       "examples": [
@@ -432,9 +432,9 @@
       "lineNumber": 2113,
       "isConditional": true,
       "conditionalOn": [
+        "CLCD_USE_SOFT_SPI",
         "TOUCH_UI_FTDI_EVE",
-        "OTHER_PIN_LAYOUT",
-        "CLCD_USE_SOFT_SPI"
+        "OTHER_PIN_LAYOUT"
       ],
       "examples": [
         "11"
@@ -450,9 +450,9 @@
       "lineNumber": 2114,
       "isConditional": true,
       "conditionalOn": [
+        "CLCD_USE_SOFT_SPI",
         "TOUCH_UI_FTDI_EVE",
-        "OTHER_PIN_LAYOUT",
-        "CLCD_USE_SOFT_SPI"
+        "OTHER_PIN_LAYOUT"
       ],
       "examples": [
         "12"
@@ -468,9 +468,9 @@
       "lineNumber": 2115,
       "isConditional": true,
       "conditionalOn": [
+        "CLCD_USE_SOFT_SPI",
         "TOUCH_UI_FTDI_EVE",
-        "OTHER_PIN_LAYOUT",
-        "CLCD_USE_SOFT_SPI"
+        "OTHER_PIN_LAYOUT"
       ],
       "examples": [
         "13"

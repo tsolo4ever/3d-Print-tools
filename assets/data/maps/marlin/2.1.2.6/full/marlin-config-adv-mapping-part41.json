@@ -41,9 +41,9 @@
       "lineNumber": 1197,
       "isConditional": true,
       "conditionalOn": [
-        "BACKLASH_GCODE",
         "MEASURE_BACKLASH_WHEN_PROBING",
-        "BACKLASH_COMPENSATION"
+        "BACKLASH_COMPENSATION",
+        "BACKLASH_GCODE"
       ],
       "examples": [
         "Z_PROBE_FEEDRATE_SLOW"
@@ -399,8 +399,8 @@
       "lineNumber": 4173,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2",
-        "HAS_PRUSA_MMU2S"
+        "HAS_PRUSA_MMU2S",
+        "HAS_PRUSA_MMU2"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -633,8 +633,8 @@
       "lineNumber": 1690,
       "isConditional": true,
       "conditionalOn": [
-        "USB_FLASH_DRIVE_SUPPORT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "USB_FLASH_DRIVE_SUPPORT"
       ],
       "examples": [
         "// Disable USB Host access to USB Drive to prevent hangs on block access for DUE platform"
@@ -663,8 +663,8 @@
       "lineNumber": 1714,
       "isConditional": true,
       "conditionalOn": [
-        "SD_FIRMWARE_UPDATE",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SD_FIRMWARE_UPDATE"
       ],
       "examples": [
         "0x1FF"
@@ -680,8 +680,8 @@
       "lineNumber": 1715,
       "isConditional": true,
       "conditionalOn": [
-        "SD_FIRMWARE_UPDATE",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SD_FIRMWARE_UPDATE"
       ],
       "examples": [
         "0xF0"
@@ -697,8 +697,8 @@
       "lineNumber": 1716,
       "isConditional": true,
       "conditionalOn": [
-        "SD_FIRMWARE_UPDATE",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SD_FIRMWARE_UPDATE"
       ],
       "examples": [
         "0xFF"
@@ -728,8 +728,8 @@
       "lineNumber": 1755,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ]
     },
     "noSdHostDrive": {

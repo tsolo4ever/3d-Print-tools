@@ -776,8 +776,8 @@
       "lineNumber": 1434,
       "isConditional": true,
       "conditionalOn": [
-        "ENABLE_LEVELING_FADE_HEIGHT",
         "AUTO_BED_LEVELING_BILINEAR",
+        "ENABLE_LEVELING_FADE_HEIGHT",
         "AUTO_BED_LEVELING_UBL",
         "MESH_BED_LEVELING"
       ],

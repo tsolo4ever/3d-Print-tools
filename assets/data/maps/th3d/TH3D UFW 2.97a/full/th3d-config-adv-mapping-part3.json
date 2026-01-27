@@ -323,8 +323,8 @@
       "lineNumber": 387,
       "isConditional": true,
       "conditionalOn": [
-        "PID_EXTRUSION_SCALING",
-        "PIDTEMP"
+        "PIDTEMP",
+        "PID_EXTRUSION_SCALING"
       ],
       "examples": [
         "(100)"
@@ -340,8 +340,8 @@
       "lineNumber": 388,
       "isConditional": true,
       "conditionalOn": [
-        "PID_EXTRUSION_SCALING",
-        "PIDTEMP"
+        "PIDTEMP",
+        "PID_EXTRUSION_SCALING"
       ],
       "examples": [
         "50"

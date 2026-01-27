@@ -121,8 +121,8 @@
       "lineNumber": 917,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_X2_STEPPER",
-        "DUAL_X_CARRIAGE"
+        "DUAL_X_CARRIAGE",
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "// X2 direction signal is the opposite of X"
@@ -324,8 +324,8 @@
       "lineNumber": 1074,
       "isConditional": true,
       "conditionalOn": [
-        "ABL_ENABLE",
         "CHIRON",
+        "ABL_ENABLE",
         "MKS_MONSTER_8_V2_DUALZ_MOTORS"
       ]
     },

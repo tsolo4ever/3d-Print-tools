@@ -736,10 +736,10 @@
       "lineNumber": 1964,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "ENABLE_LEVELING_FADE_HEIGHT",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "ENABLE_LEVELING_FADE_HEIGHT"
       ],
       "examples": [
         "10.0"
@@ -755,8 +755,8 @@
       "lineNumber": 1972,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_BILINEAR"
       ]
     },
@@ -770,8 +770,8 @@
       "lineNumber": 1973,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_BILINEAR"
       ],
       "examples": [
@@ -788,10 +788,10 @@
       "lineNumber": 1986,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "1.0"
@@ -807,9 +807,9 @@
       "lineNumber": 2004,
       "isConditional": true,
       "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
         "AUTO_BED_LEVELING_LINEAR",
-        "EITHER",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "EITHER"
       ],
       "notes": "Beyond the probed grid, continue the implied tilt? Default is to maintain the height of the nearest edge."
     },
@@ -823,9 +823,9 @@
       "lineNumber": 2010,
       "isConditional": true,
       "conditionalOn": [
+        "AUTO_BED_LEVELING_BILINEAR",
         "AUTO_BED_LEVELING_LINEAR",
-        "EITHER",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "EITHER"
       ],
       "notes": " Subdivision of the grid by Catmull-Rom method. Synthesizes intermediate points to produce a more detailed mesh. "
     }

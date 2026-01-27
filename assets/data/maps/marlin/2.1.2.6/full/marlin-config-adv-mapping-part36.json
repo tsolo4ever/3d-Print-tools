@@ -16,10 +16,10 @@
       "lineNumber": 370,
       "isConditional": true,
       "conditionalOn": [
-        "THERMAL_PROTECTION_COOLER",
-        "THERMAL_PROTECTION_HOTENDS",
         "THERMAL_PROTECTION_BED",
-        "THERMAL_PROTECTION_CHAMBER"
+        "THERMAL_PROTECTION_CHAMBER",
+        "THERMAL_PROTECTION_COOLER",
+        "THERMAL_PROTECTION_HOTENDS"
       ],
       "examples": [
         "// Detect a sensor malfunction preventing temperature updates"
@@ -77,8 +77,8 @@
       "isConditional": true,
       "conditionalOn": [
         "PIDTEMP",
-        "PID_FAN_SCALING",
-        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION"
+        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION",
+        "PID_FAN_SCALING"
       ],
       "examples": [
         "13.0"
@@ -96,8 +96,8 @@
       "isConditional": true,
       "conditionalOn": [
         "PIDTEMP",
-        "PID_FAN_SCALING",
-        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION"
+        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION",
+        "PID_FAN_SCALING"
       ],
       "examples": [
         "6.0"
@@ -414,10 +414,10 @@
       "lineNumber": 1875,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY",
-        "HAS_DGUS_LCD"
+        "DGUS_LCD_UI_MKS",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY"
       ],
       "examples": [
         "// Display a preheat screen during heatup"
@@ -543,8 +543,8 @@
       "lineNumber": 2248,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -562,8 +562,8 @@
       "lineNumber": 2249,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -580,8 +580,8 @@
       "lineNumber": 2250,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -598,8 +598,8 @@
       "lineNumber": 2251,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -616,9 +616,9 @@
       "lineNumber": 2273,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
         "BOTH",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -655,8 +655,8 @@
       "lineNumber": 4201,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2",
-        "MMU_EXTRUDER_SENSOR"
+        "MMU_EXTRUDER_SENSOR",
+        "HAS_PRUSA_MMU2"
       ],
       "conditionalOnNot": [
         "HAS_PRUSA_MMU2S"

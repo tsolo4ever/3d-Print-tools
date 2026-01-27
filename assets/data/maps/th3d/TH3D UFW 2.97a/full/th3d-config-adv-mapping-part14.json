@@ -208,9 +208,9 @@
       "lineNumber": 2234,
       "isConditional": true,
       "conditionalOn": [
-        "MOVE_Z_WHEN_IDLE",
         "BABYSTEPPING",
-        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING",
+        "MOVE_Z_WHEN_IDLE"
       ],
       "examples": [
         "1"
@@ -226,13 +226,13 @@
       "lineNumber": 2244,
       "isConditional": true,
       "conditionalOn": [
-        "ABL_ENABLE",
+        "DWIN_CREALITY_LCD",
         "BABYSTEP_ZPROBE_OFFSET",
         "DWIN_CREALITY_LCD_JYERSUI",
-        "DWIN_CREALITY_LCD",
-        "BABYSTEPPING",
-        "DWIN_MARLINUI_LANDSCAPE",
+        "ABL_ENABLE",
         "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_MARLINUI_LANDSCAPE",
+        "BABYSTEPPING",
         "DWIN_MARLINUI_PORTRAIT"
       ],
       "examples": [
@@ -319,8 +319,8 @@
       "lineNumber": 2334,
       "isConditional": true,
       "conditionalOn": [
-        "PROBE_SELECTED",
-        "IS_KINEMATIC"
+        "IS_KINEMATIC",
+        "PROBE_SELECTED"
       ],
       "examples": [
         "PROBING_MARGIN"
@@ -336,8 +336,8 @@
       "lineNumber": 2335,
       "isConditional": true,
       "conditionalOn": [
-        "PROBE_SELECTED",
-        "IS_KINEMATIC"
+        "IS_KINEMATIC",
+        "PROBE_SELECTED"
       ],
       "examples": [
         "PROBING_MARGIN"
@@ -353,8 +353,8 @@
       "lineNumber": 2336,
       "isConditional": true,
       "conditionalOn": [
-        "PROBE_SELECTED",
-        "IS_KINEMATIC"
+        "IS_KINEMATIC",
+        "PROBE_SELECTED"
       ],
       "examples": [
         "PROBING_MARGIN"
@@ -370,8 +370,8 @@
       "lineNumber": 2337,
       "isConditional": true,
       "conditionalOn": [
-        "PROBE_SELECTED",
-        "IS_KINEMATIC"
+        "IS_KINEMATIC",
+        "PROBE_SELECTED"
       ],
       "examples": [
         "PROBING_MARGIN"

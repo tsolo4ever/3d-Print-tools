@@ -17,8 +17,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_Z"
+        "AXIS_DRIVER_TYPE_Z",
+        "TMC26X"
       ],
       "examples": [
         "91"
@@ -35,8 +35,8 @@
       "isConditional": true,
       "conditionalOn": [
         "Z",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "128"
@@ -53,8 +53,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_Z2"
+        "AXIS_DRIVER_TYPE_Z2",
+        "TMC26X"
       ],
       "examples": [
         "1000"
@@ -71,8 +71,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_Z2"
+        "AXIS_DRIVER_TYPE_Z2",
+        "TMC26X"
       ],
       "examples": [
         "91"
@@ -88,9 +88,9 @@
       "lineNumber": 2935,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_L64XX",
+        "HAS_L64XX",
         "Z2",
-        "HAS_L64XX"
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "Z_MICROSTEPS"
@@ -106,8 +106,8 @@
       "lineNumber": 2405,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_DRIVER_TYPE_Z3",
         "HAS_DRIVER",
+        "AXIS_DRIVER_TYPE_Z3",
         "TMC26X"
       ],
       "examples": [
@@ -124,8 +124,8 @@
       "lineNumber": 2406,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_DRIVER_TYPE_Z3",
         "HAS_DRIVER",
+        "AXIS_DRIVER_TYPE_Z3",
         "TMC26X"
       ],
       "examples": [
@@ -143,8 +143,8 @@
       "isConditional": true,
       "conditionalOn": [
         "Z3",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "Z_MICROSTEPS"
@@ -161,8 +161,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_Z4"
+        "AXIS_DRIVER_TYPE_Z4",
+        "TMC26X"
       ],
       "examples": [
         "1000"
@@ -179,8 +179,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_Z4"
+        "AXIS_DRIVER_TYPE_Z4",
+        "TMC26X"
       ],
       "examples": [
         "91"
@@ -196,9 +196,9 @@
       "lineNumber": 2953,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_L64XX",
         "Z4",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "Z_MICROSTEPS"
@@ -215,8 +215,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E0"
+        "AXIS_DRIVER_TYPE_E0",
+        "TMC26X"
       ],
       "examples": [
         "1000"
@@ -233,8 +233,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E0"
+        "AXIS_DRIVER_TYPE_E0",
+        "TMC26X"
       ],
       "examples": [
         "91"
@@ -251,8 +251,8 @@
       "isConditional": true,
       "conditionalOn": [
         "E0",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "128"
@@ -269,8 +269,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E1"
+        "AXIS_DRIVER_TYPE_E1",
+        "TMC26X"
       ],
       "examples": [
         "1000"
@@ -287,8 +287,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E1"
+        "AXIS_DRIVER_TYPE_E1",
+        "TMC26X"
       ],
       "examples": [
         "91"
@@ -304,9 +304,9 @@
       "lineNumber": 2971,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_L64XX",
         "E1",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -322,8 +322,8 @@
       "lineNumber": 2429,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_DRIVER_TYPE_E2",
         "HAS_DRIVER",
+        "AXIS_DRIVER_TYPE_E2",
         "TMC26X"
       ],
       "examples": [
@@ -340,8 +340,8 @@
       "lineNumber": 2430,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_DRIVER_TYPE_E2",
         "HAS_DRIVER",
+        "AXIS_DRIVER_TYPE_E2",
         "TMC26X"
       ],
       "examples": [
@@ -358,9 +358,9 @@
       "lineNumber": 2980,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_L64XX",
         "E2",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -377,8 +377,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E3"
+        "AXIS_DRIVER_TYPE_E3",
+        "TMC26X"
       ],
       "examples": [
         "1000"
@@ -395,8 +395,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E3"
+        "AXIS_DRIVER_TYPE_E3",
+        "TMC26X"
       ],
       "examples": [
         "91"
@@ -413,8 +413,8 @@
       "isConditional": true,
       "conditionalOn": [
         "E3",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -431,8 +431,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E4"
+        "AXIS_DRIVER_TYPE_E4",
+        "TMC26X"
       ],
       "examples": [
         "1000"
@@ -449,8 +449,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E4"
+        "AXIS_DRIVER_TYPE_E4",
+        "TMC26X"
       ],
       "examples": [
         "91"
@@ -466,9 +466,9 @@
       "lineNumber": 2998,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_L64XX",
         "E4",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -485,8 +485,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E5"
+        "AXIS_DRIVER_TYPE_E5",
+        "TMC26X"
       ],
       "examples": [
         "1000"
@@ -503,8 +503,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E5"
+        "AXIS_DRIVER_TYPE_E5",
+        "TMC26X"
       ],
       "examples": [
         "91"
@@ -521,8 +521,8 @@
       "isConditional": true,
       "conditionalOn": [
         "E5",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -539,8 +539,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E6"
+        "AXIS_DRIVER_TYPE_E6",
+        "TMC26X"
       ],
       "examples": [
         "1000"

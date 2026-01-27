@@ -433,9 +433,9 @@
       "lineNumber": 222,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_PARKING_EXTRUDER",
         "PARKING_EXTRUDER",
-        "EITHER"
+        "EITHER",
+        "MAGNETIC_PARKING_EXTRUDER"
       ],
       "examples": [
         "{ -78, 184 }"
@@ -451,9 +451,9 @@
       "lineNumber": 223,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_PARKING_EXTRUDER",
         "PARKING_EXTRUDER",
-        "EITHER"
+        "EITHER",
+        "MAGNETIC_PARKING_EXTRUDER"
       ],
       "examples": [
         "1"
@@ -469,9 +469,9 @@
       "lineNumber": 228,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_PARKING_EXTRUDER",
         "PARKING_EXTRUDER",
-        "EITHER"
+        "EITHER",
+        "MAGNETIC_PARKING_EXTRUDER"
       ],
       "examples": [
         "// If enabled, the solenoid is NOT magnetized with applied voltage"
@@ -487,9 +487,9 @@
       "lineNumber": 229,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_PARKING_EXTRUDER",
         "PARKING_EXTRUDER",
-        "EITHER"
+        "EITHER",
+        "MAGNETIC_PARKING_EXTRUDER"
       ],
       "examples": [
         "LOW"
@@ -505,9 +505,9 @@
       "lineNumber": 230,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_PARKING_EXTRUDER",
         "PARKING_EXTRUDER",
-        "EITHER"
+        "EITHER",
+        "MAGNETIC_PARKING_EXTRUDER"
       ],
       "examples": [
         "250"
@@ -523,9 +523,9 @@
       "lineNumber": 235,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_PARKING_EXTRUDER",
         "PARKING_EXTRUDER",
-        "EITHER"
+        "EITHER",
+        "MAGNETIC_PARKING_EXTRUDER"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_PARKING_EXTRUDER)"
@@ -544,9 +544,9 @@
       "lineNumber": 236,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_PARKING_EXTRUDER",
         "PARKING_EXTRUDER",
-        "EITHER"
+        "EITHER",
+        "MAGNETIC_PARKING_EXTRUDER"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_PARKING_EXTRUDER)"
@@ -565,9 +565,9 @@
       "lineNumber": 237,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_PARKING_EXTRUDER",
         "PARKING_EXTRUDER",
-        "EITHER"
+        "EITHER",
+        "MAGNETIC_PARKING_EXTRUDER"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_PARKING_EXTRUDER)"
@@ -586,9 +586,9 @@
       "lineNumber": 238,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_PARKING_EXTRUDER",
         "PARKING_EXTRUDER",
-        "EITHER"
+        "EITHER",
+        "MAGNETIC_PARKING_EXTRUDER"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_PARKING_EXTRUDER)"
@@ -634,9 +634,9 @@
       "lineNumber": 270,
       "isConditional": true,
       "conditionalOn": [
+        "MAGNETIC_SWITCHING_TOOLHEAD",
         "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
-        "SWITCHING_TOOLHEAD",
-        "MAGNETIC_SWITCHING_TOOLHEAD"
+        "SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "235"

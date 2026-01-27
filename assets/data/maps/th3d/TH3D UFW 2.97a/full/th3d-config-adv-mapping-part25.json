@@ -16,8 +16,8 @@
       "lineNumber": 3445,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -33,8 +33,8 @@
       "lineNumber": 3446,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_Y"
@@ -50,8 +50,8 @@
       "lineNumber": 3447,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -67,8 +67,8 @@
       "lineNumber": 3448,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_Z"
@@ -84,8 +84,8 @@
       "lineNumber": 3449,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_Z"
@@ -101,8 +101,8 @@
       "lineNumber": 3450,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_Z"
@@ -118,8 +118,8 @@
       "lineNumber": 3451,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -135,8 +135,8 @@
       "lineNumber": 3452,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -152,8 +152,8 @@
       "lineNumber": 3453,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -169,8 +169,8 @@
       "lineNumber": 3454,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -186,8 +186,8 @@
       "lineNumber": 3455,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -203,8 +203,8 @@
       "lineNumber": 3456,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -220,8 +220,8 @@
       "lineNumber": 3457,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -237,8 +237,8 @@
       "lineNumber": 3458,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -254,8 +254,8 @@
       "lineNumber": 3459,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -271,8 +271,8 @@
       "lineNumber": 3460,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -288,8 +288,8 @@
       "lineNumber": 3461,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -305,8 +305,8 @@
       "lineNumber": 3462,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -322,8 +322,8 @@
       "lineNumber": 3463,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -339,8 +339,8 @@
       "lineNumber": 3464,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -356,8 +356,8 @@
       "lineNumber": 3479,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ]
     },
     "currentStepDown": {
@@ -370,9 +370,9 @@
       "lineNumber": 3482,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "MONITOR_DRIVER_STATUS",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "50"
@@ -388,9 +388,9 @@
       "lineNumber": 3483,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "MONITOR_DRIVER_STATUS",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TMC26X"
       ]
     },
     "stopOnError": {
@@ -403,9 +403,9 @@
       "lineNumber": 3484,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "MONITOR_DRIVER_STATUS",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TMC26X"
       ]
     },
     "hybridThreshold": {
@@ -418,8 +418,8 @@
       "lineNumber": 3496,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ]
     },
     "xHybridThreshold": {
@@ -432,8 +432,8 @@
       "lineNumber": 3498,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "100"
@@ -449,8 +449,8 @@
       "lineNumber": 3499,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "100"
@@ -466,8 +466,8 @@
       "lineNumber": 3500,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "100"
@@ -483,8 +483,8 @@
       "lineNumber": 3501,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "100"
@@ -500,8 +500,8 @@
       "lineNumber": 3502,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "3"

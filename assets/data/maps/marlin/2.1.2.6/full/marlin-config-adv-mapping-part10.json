@@ -277,8 +277,8 @@
       "lineNumber": 1624,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "40"
@@ -294,8 +294,8 @@
       "lineNumber": 1625,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "-1"
@@ -311,8 +311,8 @@
       "lineNumber": 1626,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "false"
@@ -328,8 +328,8 @@
       "lineNumber": 1627,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "false"
@@ -345,8 +345,8 @@
       "lineNumber": 1628,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "false"
@@ -362,8 +362,8 @@
       "lineNumber": 1629,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "false"
@@ -379,8 +379,8 @@
       "lineNumber": 1630,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "false"
@@ -396,8 +396,8 @@
       "lineNumber": 1631,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SDCARD_SORT_ALPHA"
+        "SDCARD_SORT_ALPHA",
+        "SDSUPPORT"
       ],
       "examples": [
         "2"

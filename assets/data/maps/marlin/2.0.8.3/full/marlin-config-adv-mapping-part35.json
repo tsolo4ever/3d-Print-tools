@@ -266,8 +266,8 @@
       "lineNumber": 475,
       "isConditional": true,
       "conditionalOn": [
-        "CONTROLLER_FAN_EDITABLE",
-        "USE_CONTROLLER_FAN"
+        "USE_CONTROLLER_FAN",
+        "CONTROLLER_FAN_EDITABLE"
       ],
       "examples": [
         "// Enable the Controller Fan submenu"
@@ -397,14 +397,14 @@
       "lineNumber": 1248,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
+        "EXTENSIBLE_UI",
+        "SHOW_REMAINING_TIME",
+        "HAS_MARLINUI_HD44780",
         "SDSUPPORT",
         "IS_TFTGLCD_PANEL",
-        "SHOW_REMAINING_TIME",
+        "HAS_MARLINUI_U8GLIB",
         "LCD_SET_PROGRESS_MANUALLY",
-        "EITHER",
-        "HAS_MARLINUI_HD44780",
-        "EXTENSIBLE_UI"
+        "EITHER"
       ],
       "examples": [
         "// Display (P)rogress, (E)lapsed, and (R)emaining time"
@@ -420,13 +420,13 @@
       "lineNumber": 1256,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
+        "EXTENSIBLE_UI",
+        "HAS_MARLINUI_HD44780",
         "SDSUPPORT",
         "IS_TFTGLCD_PANEL",
+        "HAS_MARLINUI_U8GLIB",
         "LCD_SET_PROGRESS_MANUALLY",
-        "EITHER",
-        "HAS_MARLINUI_HD44780",
-        "EXTENSIBLE_UI"
+        "EITHER"
       ],
       "examples": [
         "// Show a progress bar on HD44780 LCDs for SD printing"
@@ -442,14 +442,14 @@
       "lineNumber": 1262,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
+        "LCD_PROGRESS_BAR",
+        "EXTENSIBLE_UI",
+        "HAS_MARLINUI_HD44780",
         "SDSUPPORT",
         "IS_TFTGLCD_PANEL",
-        "LCD_PROGRESS_BAR",
+        "HAS_MARLINUI_U8GLIB",
         "LCD_SET_PROGRESS_MANUALLY",
-        "EITHER",
-        "HAS_MARLINUI_HD44780",
-        "EXTENSIBLE_UI"
+        "EITHER"
       ],
       "examples": [
         "// Add a menu item to test the progress bar"
@@ -465,9 +465,9 @@
       "lineNumber": 1654,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "DOGLCD",
-        "TFT_COLOR_UI"
+        "TFT_COLOR_UI",
+        "TOUCH_UI_FTDI_EVE"
       ],
       "examples": [
         "fr"
@@ -483,9 +483,9 @@
       "lineNumber": 1655,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "DOGLCD",
-        "TFT_COLOR_UI"
+        "TFT_COLOR_UI",
+        "TOUCH_UI_FTDI_EVE"
       ],
       "examples": [
         "de"
@@ -501,9 +501,9 @@
       "lineNumber": 1656,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "DOGLCD",
-        "TFT_COLOR_UI"
+        "TFT_COLOR_UI",
+        "TOUCH_UI_FTDI_EVE"
       ],
       "examples": [
         "es"
@@ -519,9 +519,9 @@
       "lineNumber": 1657,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "DOGLCD",
-        "TFT_COLOR_UI"
+        "TFT_COLOR_UI",
+        "TOUCH_UI_FTDI_EVE"
       ],
       "examples": [
         "it"
@@ -537,10 +537,10 @@
       "lineNumber": 1659,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "DOGLCD",
         "LCD_LANGUAGE_2",
-        "TFT_COLOR_UI"
+        "TFT_COLOR_UI",
+        "TOUCH_UI_FTDI_EVE"
       ],
       "examples": [
         "// Automatically save language to EEPROM on change"

@@ -25,8 +25,8 @@
       "lineNumber": 1962,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_BILINEAR"
       ]
     },
@@ -40,8 +40,8 @@
       "lineNumber": 1978,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_UBL",
+        "MESH_BED_LEVELING",
         "AUTO_BED_LEVELING_BILINEAR"
       ]
     },
@@ -55,10 +55,10 @@
       "lineNumber": 1980,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "0.4"
@@ -74,10 +74,10 @@
       "lineNumber": 1981,
       "isConditional": true,
       "conditionalOn": [
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "AUTO_BED_LEVELING_BILINEAR"
+        "MESH_BED_LEVELING",
+        "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION"
       ],
       "examples": [
         "0.2"

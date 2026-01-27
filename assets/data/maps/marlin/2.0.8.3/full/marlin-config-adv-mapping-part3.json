@@ -556,8 +556,8 @@
       "conditionalOn": [
         "CASE_LIGHT_ENABLE",
         "RGB_LED",
-        "EITHER",
-        "RGBW_LED"
+        "RGBW_LED",
+        "EITHER"
       ],
       "examples": [
         "// Use RGB / RGBW LED as case light"
@@ -574,9 +574,9 @@
       "isConditional": true,
       "conditionalOn": [
         "CASE_LIGHT_ENABLE",
-        "EITHER",
         "CASE_LIGHT_USE_NEOPIXEL",
-        "CASE_LIGHT_USE_RGB_LED"
+        "CASE_LIGHT_USE_RGB_LED",
+        "EITHER"
       ],
       "examples": [
         "{ 255, 255, 255, 255 }"

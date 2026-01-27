@@ -145,8 +145,8 @@
       "lineNumber": 2699,
       "isConditional": true,
       "conditionalOn": [
-        "FWRETRACT",
-        "FWRETRACT_AUTORETRACT"
+        "FWRETRACT_AUTORETRACT",
+        "FWRETRACT"
       ],
       "examples": [
         "0.1"
@@ -162,8 +162,8 @@
       "lineNumber": 2700,
       "isConditional": true,
       "conditionalOn": [
-        "FWRETRACT",
-        "FWRETRACT_AUTORETRACT"
+        "FWRETRACT_AUTORETRACT",
+        "FWRETRACT"
       ],
       "examples": [
         "10.0"

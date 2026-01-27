@@ -16,8 +16,8 @@
       "lineNumber": 200,
       "isConditional": true,
       "conditionalOn": [
-        "HEATERS_ON_DURING_PROBING",
-        "ABL_ENABLE"
+        "ABL_ENABLE",
+        "HEATERS_ON_DURING_PROBING"
       ]
     },
     "autoBedLevelingBilinear": {
@@ -30,8 +30,8 @@
       "lineNumber": 209,
       "isConditional": true,
       "conditionalOn": [
-        "ABL_ENABLE",
-        "ABL_BILINEAR"
+        "ABL_BILINEAR",
+        "ABL_ENABLE"
       ]
     },
     "autoBedLevelingUbl": {
@@ -347,9 +347,9 @@
       "lineNumber": 448,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMPBED",
+        "PIDTEMP",
         "EITHER",
-        "PIDTEMP"
+        "PIDTEMPBED"
       ],
       "examples": [
         "10"

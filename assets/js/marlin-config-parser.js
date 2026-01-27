@@ -15,7 +15,7 @@
 const MarlinConfigParser = {
 
   // Debug mode - set to false to suppress all console logging
-  DEBUG: false,
+  DEBUG: true,
 
   /**
    * Debug logger - only logs if DEBUG is true
@@ -29,8 +29,8 @@ const MarlinConfigParser = {
    * Add new firmware variants here
    */
   mappingSets: {
-    th3d: {
-      name: 'TH3D Unified Firmware',
+    'th3d-default': {
+      name: 'TH3D Unified Firmware (Fallback)',
       basePath: 'assets/data/maps/th3d/default/',
       files: [
         'th3d-config-mapping.json',
@@ -40,6 +40,16 @@ const MarlinConfigParser = {
         'th3d-config-adv-mapping-part4.json',
         'th3d-config-backend-mapping.json',
         'th3d-config-speed-mapping.json'
+      ]
+    },
+    'th3d-2.97': {
+      name: 'TH3D UFW 2.97a (Core UI Fields)',
+      basePath: 'assets/data/maps/th3d/TH3D UFW 2.97a/core/',
+      files: [
+        'th3d-config-mapping-core.json',
+        'th3d-config-adv-mapping-core.json',
+        'th3d-config-backend-mapping-core.json',
+        'th3d-config-speed-mapping-core.json'
       ]
     },
     marlin: {
@@ -184,13 +194,20 @@ const MarlinConfigParser = {
       jerk: {},
       speed: {},       // for any mapping sets that still use "speed" category
       backend: {},
-      warnings: []
+      warnings: [],
+      _metadata: {},  // Field metadata (defineName, uiFieldId, type, etc.)
+      _debugLog: []   // Debug log for parsing analysis
     };
 
     const cleaned = this.stripBlockComments(content);
     const lines = cleaned.split('\n').map(l => l.trimEnd());
 
     this.log(`🔍 ${this.mappingConfig.name} Parser: Starting parse of ${lines.length} lines`);
+
+    // Initialize debug logging
+    this.debugLog = config._debugLog;
+    this.addDebugLog('INFO', `Starting parse with ${lines.length} lines`);
+    this.addDebugLog('INFO', `Mapping variant: ${this.mappingConfig.name}`);
 
     // Two-pass parsing strategy
     this.firstPass(lines);
@@ -202,7 +219,26 @@ const MarlinConfigParser = {
     // Validate and add warnings
     this.validateConfig(config);
 
+    // Summary
+    const parsedCount = Object.keys(config._metadata).length;
+    this.addDebugLog('SUMMARY', `Parsing complete: ${parsedCount} fields extracted`);
+
     return config;
+  },
+
+  /**
+   * Add debug log entry
+   */
+  addDebugLog(level, message, data = null) {
+    const entry = {
+      level,
+      message,
+      timestamp: new Date().toISOString()
+    };
+    if (data) entry.data = data;
+    if (this.debugLog) {
+      this.debugLog.push(entry);
+    }
   },
 
   /**
@@ -544,7 +580,10 @@ const MarlinConfigParser = {
     const [, defineName, value] = match;
     const cleanValue = value ? value.split('//')[0].trim() : true;
 
+    this.addDebugLog('DEFINE_FOUND', `Found: #define ${defineName} ${cleanValue}`);
+
     // Search through field mapping
+    let foundInMapping = false;
     for (const [category, fields] of Object.entries(this.fieldMapping)) {
       if (category.startsWith('$') || ['description', 'lastUpdated', 'version', 'warnings'].includes(category)) continue;
 
@@ -565,19 +604,56 @@ const MarlinConfigParser = {
         }
         if (!matched) continue;
 
+        foundInMapping = true;
+        this.addDebugLog('MAPPING_MATCH', `${defineName} matches ${category}.${fieldName}`, {
+          mapsFrom: fieldSpec.mapsFrom,
+          hasConditionals: !!(fieldSpec.conditionalOn || fieldSpec.conditionalOnAll || fieldSpec.conditionalOnNot),
+          uiFieldId: fieldSpec.uiFieldId
+        });
+
         // Check conditional dependencies (OR / AND / NOT)
         const condCheck = this.checkConditionalSpec(fieldSpec);
         if (!condCheck.ok) {
           this.log(`   ⏭️  Skipped ${defineName} (${condCheck.reason}) - condition not met`);
+          this.addDebugLog('CONDITIONAL_SKIP', `${defineName} skipped: ${condCheck.reason}`, {
+            category,
+            fieldName,
+            conditionalOn: fieldSpec.conditionalOn,
+            conditionalOnAll: fieldSpec.conditionalOnAll,
+            conditionalOnNot: fieldSpec.conditionalOnNot
+          });
           return;
         }
 
         // Extract and store value
         const extractedValue = this.extractValue(cleanValue, fieldSpec.type, fieldSpec);
         this.storeValue(config, category, fieldName, extractedValue, fieldSpec);
+        
+        // Store metadata for this field
+        const metadataKey = `${category}.${fieldName}`;
+        if (!config._metadata[metadataKey]) {
+          config._metadata[metadataKey] = {
+            defineName: defineName,
+            category: category,
+            fieldName: fieldName,
+            type: fieldSpec.type,
+            uiFieldId: fieldSpec.uiFieldId || null,
+            profilePath: `${category}.${fieldName}`
+          };
+        }
+        
         this.log(`   ✅ Mapped ${defineName} → ${category}.${fieldName} =`, extractedValue);
+        this.addDebugLog('EXTRACTED', `${defineName} → ${category}.${fieldName}`, {
+          value: extractedValue,
+          type: fieldSpec.type,
+          uiFieldId: fieldSpec.uiFieldId
+        });
         return;
       }
+    }
+
+    if (!foundInMapping) {
+      this.addDebugLog('NOT_IN_MAPPING', `${defineName} not found in mapping`);
     }
   },
 
@@ -939,13 +1015,26 @@ const MarlinConfigParser = {
       jerk: {},
       speed: {},
       backend: {},
-      warnings: []
+      warnings: [],
+      _metadata: {},
+      _debugLog: []  // Initialize as array for merged debug logs
     };
 
     for (const config of configs) {
       for (const [category, fields] of Object.entries(config)) {
         if (category === 'warnings') {
           merged.warnings.push(...fields);
+          continue;
+        }
+        if (category === '_metadata') {
+          Object.assign(merged._metadata, fields);
+          continue;
+        }
+        if (category === '_debugLog') {
+          // Merge all debug logs from all files
+          if (Array.isArray(fields)) {
+            merged._debugLog.push(...fields);
+          }
           continue;
         }
         if (!merged[category]) merged[category] = {};
@@ -973,7 +1062,7 @@ const MarlinConfigParser = {
 // Make available globally
 if (typeof window !== 'undefined') {
   window.MarlinConfigParser = MarlinConfigParser;
-  window.TH3DConfigParser = MarlinConfigParser.create('th3d');
+  window.TH3DConfigParser = MarlinConfigParser.create('th3d-default');
 }
 
 // Optional CommonJS export for Node
@@ -1006,4 +1095,49 @@ async function saveConfigToFile(config, filename = 'parsed-config.json') {
     URL.revokeObjectURL(url);
     console.log(`✅ Config download triggered: ${filename}`);
   }
+}
+
+/**
+ * Download debug log as JSON file
+ * @param {object} config - Parsed configuration object with _debugLog
+ */
+function downloadDebugLog(config) {
+  if (!config._debugLog || config._debugLog.length === 0) {
+    console.warn('⚠️ No debug log available');
+    return;
+  }
+
+  const debugData = {
+    timestamp: new Date().toISOString(),
+    totalEntries: config._debugLog.length,
+    summary: {
+      INFO: config._debugLog.filter(e => e.level === 'INFO').length,
+      DEFINE_FOUND: config._debugLog.filter(e => e.level === 'DEFINE_FOUND').length,
+      MAPPING_MATCH: config._debugLog.filter(e => e.level === 'MAPPING_MATCH').length,
+      EXTRACTED: config._debugLog.filter(e => e.level === 'EXTRACTED').length,
+      CONDITIONAL_SKIP: config._debugLog.filter(e => e.level === 'CONDITIONAL_SKIP').length,
+      NOT_IN_MAPPING: config._debugLog.filter(e => e.level === 'NOT_IN_MAPPING').length,
+      SUMMARY: config._debugLog.filter(e => e.level === 'SUMMARY').length
+    },
+    entries: config._debugLog
+  };
+
+  const jsonData = JSON.stringify(debugData, null, 2);
+  const blob = new Blob([jsonData], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `parser-debug-log-${Date.now()}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  
+  console.log('📥 Debug log downloaded');
+  console.log('📊 Debug Summary:', debugData.summary);
+}
+
+// Make downloadDebugLog available globally
+if (typeof window !== 'undefined') {
+  window.downloadDebugLog = downloadDebugLog;
 }

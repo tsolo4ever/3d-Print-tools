@@ -16,10 +16,10 @@
       "lineNumber": 1582,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
         "LED_CONTROL_MENU",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Enable a second NeoPixel Preset Color menu option"
@@ -35,10 +35,10 @@
       "lineNumber": 1584,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -55,10 +55,10 @@
       "lineNumber": 1585,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -75,10 +75,10 @@
       "lineNumber": 1586,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -95,10 +95,10 @@
       "lineNumber": 1587,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -115,10 +115,10 @@
       "lineNumber": 1588,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -135,10 +135,10 @@
       "lineNumber": 1589,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -155,11 +155,11 @@
       "lineNumber": 1592,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "255"
@@ -175,11 +175,11 @@
       "lineNumber": 1593,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "128"
@@ -195,11 +195,11 @@
       "lineNumber": 1594,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "0"
@@ -215,11 +215,11 @@
       "lineNumber": 1595,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "255"
@@ -235,11 +235,11 @@
       "lineNumber": 1596,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "255"
@@ -255,11 +255,11 @@
       "lineNumber": 1597,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "// Have the printer display the user preset color on startup for the second strip"
@@ -352,10 +352,10 @@
       "lineNumber": 1620,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
         "SDSUPPORT",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Show print progress percentage (doesn't affect progress bar)"
@@ -371,10 +371,10 @@
       "lineNumber": 1621,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
         "SDSUPPORT",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Display elapsed printing time (prefix 'E')"
@@ -390,10 +390,10 @@
       "lineNumber": 1622,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
         "SDSUPPORT",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Display estimated time to completion (prefix 'R')"
@@ -409,11 +409,11 @@
       "lineNumber": 1624,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "SET_INTERACTION_TIME"
+        "HAS_DISPLAY",
+        "SET_INTERACTION_TIME",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "// Display time until next user interaction ('C' = filament change)"
@@ -429,10 +429,10 @@
       "lineNumber": 1626,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
         "SDSUPPORT",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Show/report progress with decimal digits, not all UIs support this"
@@ -448,13 +448,13 @@
       "lineNumber": 1631,
       "isConditional": true,
       "conditionalOn": [
-        "LCD_PROGRESS_BAR",
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "2000"
@@ -470,13 +470,13 @@
       "lineNumber": 1632,
       "isConditional": true,
       "conditionalOn": [
-        "LCD_PROGRESS_BAR",
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "3000"
@@ -492,13 +492,13 @@
       "lineNumber": 1633,
       "isConditional": true,
       "conditionalOn": [
-        "LCD_PROGRESS_BAR",
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "0"
@@ -514,13 +514,13 @@
       "lineNumber": 1634,
       "isConditional": true,
       "conditionalOn": [
-        "LCD_PROGRESS_BAR",
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "// Show the message for MSG_TIME then clear it"

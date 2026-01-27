@@ -300,8 +300,8 @@
       "lineNumber": 3615,
       "isConditional": true,
       "conditionalOn": [
-        "TEMP_SENSOR_REDUNDANT",
-        "AUTO_REPORT_TEMPERATURES"
+        "AUTO_REPORT_TEMPERATURES",
+        "TEMP_SENSOR_REDUNDANT"
       ],
       "examples": [
         "// Include the \"R\" sensor in the auto-report"
@@ -379,8 +379,8 @@
       "lineNumber": 3666,
       "isConditional": true,
       "conditionalOn": [
-        "NO_VOLUMETRICS",
-        "VOLUMETRIC_EXTRUDER_LIMIT"
+        "VOLUMETRIC_EXTRUDER_LIMIT",
+        "NO_VOLUMETRICS"
       ],
       "examples": [
         "0.00"

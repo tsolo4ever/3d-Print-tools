@@ -105,8 +105,8 @@
       "lineNumber": 206,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMPBED",
-        "BED_LIMIT_SWITCHING"
+        "BED_LIMIT_SWITCHING",
+        "PIDTEMPBED"
       ],
       "examples": [
         "2"
@@ -251,9 +251,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PIDTEMP",
-        "THERMAL_PROTECTION_HOTENDS",
         "BOTH",
-        "ADAPTIVE_FAN_SLOWING"
+        "ADAPTIVE_FAN_SLOWING",
+        "THERMAL_PROTECTION_HOTENDS"
       ],
       "examples": [
         "// Don't slow fan speed during M303"

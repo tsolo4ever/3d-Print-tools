@@ -199,9 +199,9 @@
       "lineNumber": 333,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "235"
@@ -217,9 +217,9 @@
       "lineNumber": 334,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "10"
@@ -235,9 +235,9 @@
       "lineNumber": 335,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "60"
@@ -253,9 +253,9 @@
       "lineNumber": 336,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "{ 215, 0 }"
@@ -271,9 +271,9 @@
       "lineNumber": 338,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "2"
@@ -289,9 +289,9 @@
       "lineNumber": 339,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "examples": [
         "{ 0, 180 }"
@@ -307,9 +307,9 @@
       "lineNumber": 341,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -328,9 +328,9 @@
       "lineNumber": 342,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -349,9 +349,9 @@
       "lineNumber": 343,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -370,10 +370,10 @@
       "lineNumber": 345,
       "isConditional": true,
       "conditionalOn": [
-        "PRIME_BEFORE_REMOVE",
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -392,10 +392,10 @@
       "lineNumber": 346,
       "isConditional": true,
       "conditionalOn": [
-        "PRIME_BEFORE_REMOVE",
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "PRIME_BEFORE_REMOVE",
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(MAGNETIC_SWITCHING_TOOLHEAD)"
@@ -414,9 +414,9 @@
       "lineNumber": 351,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_SWITCHING_TOOLHEAD",
+        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD",
         "SWITCHING_TOOLHEAD",
-        "ELECTROMAGNETIC_SWITCHING_TOOLHEAD"
+        "MAGNETIC_SWITCHING_TOOLHEAD"
       ],
       "conditionalExpression": [
         "ENABLED(ELECTROMAGNETIC_SWITCHING_TOOLHEAD)"
@@ -524,8 +524,8 @@
       "lineNumber": 371,
       "isConditional": true,
       "conditionalOn": [
-        "GRADIENT_MIX",
-        "MIXING_EXTRUDER"
+        "MIXING_EXTRUDER",
+        "GRADIENT_MIX"
       ],
       "examples": [
         "// Add M166 T to use a V-tool index as a Gradient alias"

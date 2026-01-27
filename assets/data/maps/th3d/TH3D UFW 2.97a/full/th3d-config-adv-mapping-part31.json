@@ -50,8 +50,8 @@
       "lineNumber": 4224,
       "isConditional": true,
       "conditionalOn": [
-        "BUTTON2",
         "PIN_EXISTS",
+        "BUTTON2",
         "CUSTOM_USER_BUTTONS"
       ],
       "examples": [
@@ -68,8 +68,8 @@
       "lineNumber": 4225,
       "isConditional": true,
       "conditionalOn": [
-        "BUTTON2",
         "PIN_EXISTS",
+        "BUTTON2",
         "CUSTOM_USER_BUTTONS"
       ],
       "examples": [
@@ -86,8 +86,8 @@
       "lineNumber": 4226,
       "isConditional": true,
       "conditionalOn": [
-        "BUTTON2",
         "PIN_EXISTS",
+        "BUTTON2",
         "CUSTOM_USER_BUTTONS"
       ],
       "examples": [
@@ -104,8 +104,8 @@
       "lineNumber": 4227,
       "isConditional": true,
       "conditionalOn": [
-        "BUTTON2",
         "PIN_EXISTS",
+        "BUTTON2",
         "CUSTOM_USER_BUTTONS"
       ],
       "examples": [
@@ -226,8 +226,8 @@
       "lineNumber": 4261,
       "isConditional": true,
       "conditionalOn": [
-        "BTT_TOUCH_SCREEN",
-        "HOST_ACTION_COMMANDS"
+        "HOST_ACTION_COMMANDS",
+        "BTT_TOUCH_SCREEN"
       ],
       "examples": [
         "// Initiate host prompts to get user feedback"
@@ -243,8 +243,8 @@
       "lineNumber": 4264,
       "isConditional": true,
       "conditionalOn": [
-        "HOST_PROMPT_SUPPORT",
-        "HOST_ACTION_COMMANDS"
+        "HOST_ACTION_COMMANDS",
+        "HOST_PROMPT_SUPPORT"
       ],
       "examples": [
         "// Send some status messages to the host as notifications"

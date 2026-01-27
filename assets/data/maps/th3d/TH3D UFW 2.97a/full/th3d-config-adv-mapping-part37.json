@@ -154,10 +154,10 @@
       "lineNumber": 1488,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_MENU",
         "HAS_TFT_LVGL_UI",
         "HAS_BED_PROBE",
-        "EITHER"
+        "EITHER",
+        "HAS_MARLINUI_MENU"
       ],
       "examples": [
         "// Add a Probe Z Offset calibration option to the LCD menu"
@@ -175,9 +175,9 @@
       "conditionalOn": [
         "HAS_TFT_LVGL_UI",
         "EITHER",
-        "PROBE_OFFSET_WIZARD",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "PROBE_OFFSET_WIZARD"
       ],
       "examples": [
         "-4.0"
@@ -195,9 +195,9 @@
       "conditionalOn": [
         "HAS_TFT_LVGL_UI",
         "EITHER",
-        "PROBE_OFFSET_WIZARD",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "PROBE_OFFSET_WIZARD"
       ],
       "examples": [
         "{ X_CENTER, Y_CENTER }"
@@ -214,8 +214,8 @@
       "lineNumber": 1520,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "HAS_BED_PROBE",
+        "HAS_MARLINUI_MENU"
       ],
       "notes": "Show Deploy / Stow Probe options in the Motion menu."
     },
@@ -246,13 +246,13 @@
       "lineNumber": 2245,
       "isConditional": true,
       "conditionalOn": [
-        "ABL_ENABLE",
+        "DWIN_CREALITY_LCD",
         "BABYSTEP_ZPROBE_OFFSET",
         "DWIN_CREALITY_LCD_JYERSUI",
-        "DWIN_CREALITY_LCD",
-        "BABYSTEPPING",
-        "DWIN_MARLINUI_LANDSCAPE",
+        "ABL_ENABLE",
         "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_MARLINUI_LANDSCAPE",
+        "BABYSTEPPING",
         "DWIN_MARLINUI_PORTRAIT"
       ],
       "examples": [
@@ -270,8 +270,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "15"
@@ -288,8 +288,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "180"
@@ -306,8 +306,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "15"
@@ -324,8 +324,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "20"
@@ -342,8 +342,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "170"
@@ -360,8 +360,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "20"
@@ -389,8 +389,8 @@
       "lineNumber": 2397,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -408,8 +408,8 @@
       "lineNumber": 2398,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -426,8 +426,8 @@
       "lineNumber": 2399,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -444,8 +444,8 @@
       "lineNumber": 2400,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -463,8 +463,8 @@
       "isConditional": true,
       "conditionalOn": [
         "BOTH",
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -483,8 +483,8 @@
       "isConditional": true,
       "conditionalOn": [
         "BOTH",
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [

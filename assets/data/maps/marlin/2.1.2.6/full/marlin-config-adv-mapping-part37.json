@@ -153,10 +153,10 @@
       "lineNumber": 1380,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_BED_PROBE",
-        "HAS_TFT_LVGL_UI",
         "EITHER",
-        "HAS_MARLINUI_MENU"
+        "HAS_BED_PROBE",
+        "HAS_MARLINUI_MENU",
+        "HAS_TFT_LVGL_UI"
       ],
       "examples": [
         "// Add a Probe Z Offset calibration option to the LCD menu"
@@ -172,11 +172,11 @@
       "lineNumber": 1387,
       "isConditional": true,
       "conditionalOn": [
-        "PROBE_OFFSET_WIZARD",
+        "EITHER",
         "HAS_TFT_LVGL_UI",
-        "HAS_BED_PROBE",
+        "PROBE_OFFSET_WIZARD",
         "HAS_MARLINUI_MENU",
-        "EITHER"
+        "HAS_BED_PROBE"
       ],
       "examples": [
         "-4.0"
@@ -192,11 +192,11 @@
       "lineNumber": 1390,
       "isConditional": true,
       "conditionalOn": [
-        "PROBE_OFFSET_WIZARD",
+        "EITHER",
         "HAS_TFT_LVGL_UI",
-        "HAS_BED_PROBE",
+        "PROBE_OFFSET_WIZARD",
         "HAS_MARLINUI_MENU",
-        "EITHER"
+        "HAS_BED_PROBE"
       ],
       "examples": [
         "{ X_CENTER, Y_CENTER }"
@@ -244,8 +244,8 @@
       "lineNumber": 2093,
       "isConditional": true,
       "conditionalOn": [
-        "BABYSTEPPING",
-        "BABYSTEP_ZPROBE_OFFSET"
+        "BABYSTEP_ZPROBE_OFFSET",
+        "BABYSTEPPING"
       ],
       "examples": [
         "// Enable graphical overlay on Z-offset editor"
@@ -261,9 +261,9 @@
       "lineNumber": 2149,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_BED_LEVELING_3POINT",
+        "AUTO_BED_LEVELING_UBL",
         "EITHER",
-        "AUTO_BED_LEVELING_UBL"
+        "AUTO_BED_LEVELING_3POINT"
       ],
       "examples": [
         "15"
@@ -279,9 +279,9 @@
       "lineNumber": 2150,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_BED_LEVELING_3POINT",
+        "AUTO_BED_LEVELING_UBL",
         "EITHER",
-        "AUTO_BED_LEVELING_UBL"
+        "AUTO_BED_LEVELING_3POINT"
       ],
       "examples": [
         "180"
@@ -297,9 +297,9 @@
       "lineNumber": 2151,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_BED_LEVELING_3POINT",
+        "AUTO_BED_LEVELING_UBL",
         "EITHER",
-        "AUTO_BED_LEVELING_UBL"
+        "AUTO_BED_LEVELING_3POINT"
       ],
       "examples": [
         "15"
@@ -315,9 +315,9 @@
       "lineNumber": 2152,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_BED_LEVELING_3POINT",
+        "AUTO_BED_LEVELING_UBL",
         "EITHER",
-        "AUTO_BED_LEVELING_UBL"
+        "AUTO_BED_LEVELING_3POINT"
       ],
       "examples": [
         "20"
@@ -333,9 +333,9 @@
       "lineNumber": 2153,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_BED_LEVELING_3POINT",
+        "AUTO_BED_LEVELING_UBL",
         "EITHER",
-        "AUTO_BED_LEVELING_UBL"
+        "AUTO_BED_LEVELING_3POINT"
       ],
       "examples": [
         "170"
@@ -351,9 +351,9 @@
       "lineNumber": 2154,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_BED_LEVELING_3POINT",
+        "AUTO_BED_LEVELING_UBL",
         "EITHER",
-        "AUTO_BED_LEVELING_UBL"
+        "AUTO_BED_LEVELING_3POINT"
       ],
       "examples": [
         "20"
@@ -381,8 +381,8 @@
       "lineNumber": 2240,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -400,8 +400,8 @@
       "lineNumber": 2241,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -418,8 +418,8 @@
       "lineNumber": 2242,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -436,8 +436,8 @@
       "lineNumber": 2243,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -454,9 +454,9 @@
       "lineNumber": 2269,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
         "BOTH",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -474,9 +474,9 @@
       "lineNumber": 2277,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
         "BOTH",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [

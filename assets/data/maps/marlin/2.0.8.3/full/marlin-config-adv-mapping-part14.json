@@ -155,8 +155,8 @@
       "lineNumber": 2222,
       "isConditional": true,
       "conditionalOn": [
-        "MIXING_EXTRUDER",
-        "FWRETRACT"
+        "FWRETRACT",
+        "MIXING_EXTRUDER"
       ],
       "examples": [
         "// Retract and restore all mixing steppers simultaneously"
@@ -221,8 +221,8 @@
       "lineNumber": 2236,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_NO_RETURN"
+        "TOOLCHANGE_NO_RETURN",
+        "HAS_MULTI_EXTRUDER"
       ],
       "examples": [
         "\"G12X\""
@@ -264,8 +264,8 @@
       "lineNumber": 2252,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "examples": [
         "12"
@@ -282,8 +282,8 @@
       "lineNumber": 2253,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "examples": [
         "0"
@@ -299,8 +299,8 @@
       "lineNumber": 2254,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "examples": [
         "(50*60)"
@@ -316,8 +316,8 @@
       "lineNumber": 2255,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "examples": [
         "(25*60)"
@@ -333,8 +333,8 @@
       "lineNumber": 2258,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "examples": [
         "0"
@@ -351,8 +351,8 @@
       "lineNumber": 2259,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "examples": [
         "(4.6*60)"
@@ -368,8 +368,8 @@
       "lineNumber": 2260,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "examples": [
         "0"
@@ -385,8 +385,8 @@
       "lineNumber": 2263,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "examples": [
         "-1"
@@ -403,8 +403,8 @@
       "lineNumber": 2264,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "examples": [
         "255"
@@ -420,8 +420,8 @@
       "lineNumber": 2265,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "examples": [
         "10"
@@ -437,8 +437,8 @@
       "lineNumber": 2269,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "notes": "Swap uninitialized extruder with TOOLCHANGE_FS_PRIME_SPEED for all lengths (recover + prime) (May break filament if not retracted beforehand.)"
     },
@@ -452,8 +452,8 @@
       "lineNumber": 2273,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ],
       "notes": "Prime on the first T0 (If other, TOOLCHANGE_FS_INIT_BEFORE_SWAP applied) Enable it (M217 V[0/1]) before printing, to avoid unwanted priming on host connect"
     },
@@ -467,8 +467,8 @@
       "lineNumber": 2285,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MULTI_EXTRUDER",
-        "TOOLCHANGE_FILAMENT_SWAP"
+        "TOOLCHANGE_FILAMENT_SWAP",
+        "HAS_MULTI_EXTRUDER"
       ]
     },
     "toolchangePark": {

@@ -370,8 +370,8 @@
       "lineNumber": 3106,
       "isConditional": true,
       "conditionalOn": [
-        "MONITOR_DRIVER_STATUS",
         "HAS_TMC26X",
+        "MONITOR_DRIVER_STATUS",
         "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
@@ -388,8 +388,8 @@
       "lineNumber": 3107,
       "isConditional": true,
       "conditionalOn": [
-        "MONITOR_DRIVER_STATUS",
         "HAS_TMC26X",
+        "MONITOR_DRIVER_STATUS",
         "HAS_TRINAMIC_CONFIG"
       ]
     },
@@ -403,8 +403,8 @@
       "lineNumber": 3108,
       "isConditional": true,
       "conditionalOn": [
-        "MONITOR_DRIVER_STATUS",
         "HAS_TMC26X",
+        "MONITOR_DRIVER_STATUS",
         "HAS_TRINAMIC_CONFIG"
       ]
     },

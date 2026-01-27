@@ -186,10 +186,10 @@
       "lineNumber": 1874,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY",
-        "HAS_DGUS_LCD"
+        "DGUS_LCD_UI_MKS",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY"
       ],
       "examples": [
         "// Display the filename during printing"
@@ -205,14 +205,14 @@
       "lineNumber": 1880,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
         "DGUS_LCD_UI_MKS",
-        "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY"
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_FYSETC"
       ],
       "conditionalOnNot": [
-        "DGUS_LCD_UI_FYSETC",
         "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_FYSETC",
         "EITHER"
       ],
       "conditionalExpression": [
@@ -232,10 +232,10 @@
       "lineNumber": 1883,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY",
-        "HAS_DGUS_LCD"
+        "DGUS_LCD_UI_MKS",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY"
       ]
     },
     "dgusFilamentPurgeLength": {
@@ -248,11 +248,11 @@
       "lineNumber": 1885,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_MKS",
         "DGUS_FILAMENT_LOADUNLOAD",
-        "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY"
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_FYSETC"
       ],
       "examples": [
         "10"
@@ -268,11 +268,11 @@
       "lineNumber": 1886,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_MKS",
         "DGUS_FILAMENT_LOADUNLOAD",
-        "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY"
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_FYSETC"
       ],
       "examples": [
         "0.5"
@@ -288,10 +288,10 @@
       "lineNumber": 1889,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY",
-        "HAS_DGUS_LCD"
+        "DGUS_LCD_UI_MKS",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY"
       ],
       "examples": [
         "// Show a \"waiting\" screen between some screens"
@@ -307,10 +307,10 @@
       "lineNumber": 1891,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_MKS",
-        "DGUS_LCD_UI_FYSETC",
         "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_FYSETC",
         "DGUS_UI_WAITING"
       ],
       "examples": [
@@ -327,10 +327,10 @@
       "lineNumber": 1892,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_MKS",
-        "DGUS_LCD_UI_FYSETC",
         "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_FYSETC",
         "DGUS_UI_WAITING"
       ],
       "examples": [

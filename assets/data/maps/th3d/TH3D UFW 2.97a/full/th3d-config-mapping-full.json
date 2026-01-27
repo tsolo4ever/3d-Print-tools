@@ -532,11 +532,11 @@
       "lineNumber": 1338,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5_PLUS_EZABL",
+        "ENDER5_PLUS",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "ENDER3_MAX",
         "ENDER3"
       ],
       "conditionalOnNot": [
@@ -620,10 +620,10 @@
       "lineNumber": 1047,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
         "ENDER3_MAX",
-        "ENDER3",
-        "ENDER5"
+        "ENDER5",
+        "ENDER5_PLUS",
+        "ENDER3"
       ],
       "notes": "FILAMENT SENSOR UNLOAD SETTINGS ----------------- If you have a filament sensor that is physically mounted to the machine you can enable MOUNTED_FILAMENT_SENSOR to set the unload length to 5mm to prevent filament from backing up in the sensor by uncommenting MOUNTED_FILAMENT_SENSOR"
     },
@@ -1022,8 +1022,8 @@
       "lineNumber": 445,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "282.8427124746"
@@ -1039,8 +1039,8 @@
       "lineNumber": 446,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "282.8427124746"
@@ -1056,8 +1056,8 @@
       "lineNumber": 447,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "282.8427124746"
@@ -1073,8 +1073,8 @@
       "lineNumber": 448,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "282.8427124746"
@@ -1090,8 +1090,8 @@
       "lineNumber": 449,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "200"
@@ -1107,8 +1107,8 @@
       "lineNumber": 452,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "0.0"
@@ -1125,8 +1125,8 @@
       "lineNumber": 453,
       "isConditional": true,
       "conditionalOn": [
-        "SKEW_CORRECTION",
-        "SKEW_CORRECTION_FOR_Z"
+        "SKEW_CORRECTION_FOR_Z",
+        "SKEW_CORRECTION"
       ],
       "examples": [
         "0.0"
@@ -1165,10 +1165,10 @@
       "lineNumber": 1050,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
         "ENDER3_MAX",
-        "ENDER3",
-        "ENDER5"
+        "ENDER5",
+        "ENDER5_PLUS",
+        "ENDER3"
       ]
     },
     "reverseEncoderDirection": {
@@ -1181,10 +1181,10 @@
       "lineNumber": 1171,
       "isConditional": true,
       "conditionalOn": [
-        "REVERSE_KNOB_DIRECTION",
         "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5",
+        "REVERSE_KNOB_DIRECTION",
+        "ENDER3_MAX",
         "ENDER3"
       ]
     },
@@ -1198,10 +1198,10 @@
       "lineNumber": 1185,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
         "ENDER3_MAX",
-        "ENDER3",
-        "ENDER5"
+        "ENDER5",
+        "ENDER5_PLUS",
+        "ENDER3"
       ]
     }
   },
@@ -1721,9 +1721,9 @@
       "lineNumber": 1648,
       "isConditional": true,
       "conditionalOn": [
+        "FILAMENT_RUNOUT_DISTANCE_MM",
         "FILAMENT_RUNOUT_SENSOR",
-        "ENDER3_V2",
-        "FILAMENT_RUNOUT_DISTANCE_MM"
+        "ENDER3_V2"
       ],
       "notes": "Enable this option to use an encoder disc that toggles the runout pin as the filament moves. (Be sure to set FILAMENT_RUNOUT_DISTANCE_MM large enough to avoid false positives.)"
     },
@@ -1765,8 +1765,8 @@
       "lineNumber": 1656,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
         "NEOPIXEL_LED",
+        "EZNEO_220",
         "ENDER3_V2"
       ],
       "examples": [
@@ -1783,8 +1783,8 @@
       "lineNumber": 1657,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
         "NEOPIXEL_LED",
+        "EZNEO_220",
         "ENDER3_V2"
       ],
       "examples": [
@@ -1801,8 +1801,8 @@
       "lineNumber": 1658,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
         "NEOPIXEL_LED",
+        "EZNEO_220",
         "ENDER3_V2"
       ],
       "examples": [
@@ -1819,8 +1819,8 @@
       "lineNumber": 1659,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
         "NEOPIXEL_LED",
+        "EZNEO_220",
         "ENDER3_V2"
       ],
       "examples": [
@@ -1837,8 +1837,8 @@
       "lineNumber": 1660,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
         "NEOPIXEL_LED",
+        "EZNEO_220",
         "ENDER3_V2"
       ],
       "examples": [
@@ -1855,14 +1855,14 @@
       "lineNumber": 1675,
       "isConditional": true,
       "conditionalOn": [
-        "EZNEO_220",
-        "RGB_LED",
-        "NEOPIXEL_LED",
-        "ENDER3_V2",
         "RGBW_LED",
-        "BLINKM",
         "PCA9632",
-        "PCA9533"
+        "NEOPIXEL_LED",
+        "EZNEO_220",
+        "PCA9533",
+        "ENDER3_V2",
+        "RGB_LED",
+        "BLINKM"
       ]
     },
     "yminPlug": {
@@ -1948,8 +1948,8 @@
       "isConditional": true,
       "conditionalOn": [
         "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5",
+        "ENDER3_MAX",
         "ENDER3"
       ],
       "conditionalOnNot": [
@@ -1973,9 +1973,9 @@
       "isConditional": true,
       "conditionalOn": [
         "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "ENDER3_MAX",
         "ENDER3"
       ]
     },
@@ -2013,12 +2013,12 @@
       "lineNumber": 1341,
       "isConditional": true,
       "conditionalOn": [
-        "CUSTOM_PROBE",
-        "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5_PLUS_EZABL",
+        "ENDER5_PLUS",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "CUSTOM_PROBE",
+        "ENDER3_MAX",
         "ENDER3"
       ]
     },
@@ -2032,11 +2032,11 @@
       "lineNumber": 1335,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5_PLUS_EZABL",
+        "ENDER5_PLUS",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "ENDER3_MAX",
         "ENDER3"
       ],
       "conditionalOnNot": [
@@ -2087,11 +2087,11 @@
       "lineNumber": 1333,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5_PLUS_EZABL",
+        "ENDER5_PLUS",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "ENDER3_MAX",
         "ENDER3"
       ]
     },
@@ -2105,9 +2105,9 @@
       "lineNumber": 565,
       "isConditional": true,
       "conditionalOn": [
-        "BLTOUCH",
-        "ENDER3_MAX_OEM",
         "CUSTOM_PROBE",
+        "ENDER3_MAX_OEM",
+        "BLTOUCH",
         "ENDER3_MAX_NEO"
       ]
     },
@@ -2121,12 +2121,12 @@
       "lineNumber": 1342,
       "isConditional": true,
       "conditionalOn": [
-        "CUSTOM_PROBE",
-        "ENDER5_PLUS",
-        "ENDER3_MAX",
         "ENDER5_PLUS_EZABL",
+        "ENDER5_PLUS",
         "ENDER5",
         "ENDER5_PLUS_NOABL",
+        "CUSTOM_PROBE",
+        "ENDER3_MAX",
         "ENDER3"
       ],
       "examples": [
@@ -2143,9 +2143,9 @@
       "lineNumber": 566,
       "isConditional": true,
       "conditionalOn": [
-        "BLTOUCH",
-        "ENDER3_MAX_OEM",
         "CUSTOM_PROBE",
+        "ENDER3_MAX_OEM",
+        "BLTOUCH",
         "ENDER3_MAX_NEO"
       ]
     },
@@ -2217,8 +2217,8 @@
       "lineNumber": 570,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER3_12864_LCD_KIT",
-        "ENDER3_MAX_NEO"
+        "ENDER3_MAX_NEO",
+        "ENDER3_12864_LCD_KIT"
       ]
     },
     "cr10Stockdisplay": {
@@ -2231,8 +2231,8 @@
       "lineNumber": 1596,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER3_12864_LCD_KIT",
-        "ENDER3_V2"
+        "ENDER3_V2",
+        "ENDER3_12864_LCD_KIT"
       ]
     },
     "ret612864Lcd": {
@@ -2245,8 +2245,8 @@
       "lineNumber": 1597,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER3_12864_LCD_KIT",
-        "ENDER3_V2"
+        "ENDER3_V2",
+        "ENDER3_12864_LCD_KIT"
       ]
     },
     "tempSensor0": {
@@ -2263,9 +2263,9 @@
         "ENDER3_V2"
       ],
       "conditionalOnNot": [
+        "KNOWN_HOTEND_THERMISTOR",
         "V6_HOTEND",
-        "TH3D_HOTEND_THERMISTOR",
-        "KNOWN_HOTEND_THERMISTOR"
+        "TH3D_HOTEND_THERMISTOR"
       ],
       "conditionalExpression": [
         "else block",
@@ -2397,14 +2397,14 @@
       "lineNumber": 1522,
       "isConditional": true,
       "conditionalOn": [
-        "KEENOVO_TEMPSENSOR",
-        "ENDER3_V2"
+        "ENDER3_V2",
+        "KEENOVO_TEMPSENSOR"
       ],
       "conditionalOnNot": [
         "KNOWN_BED_THERMISTOR",
-        "TH3D_BED_THERMISTOR",
+        "AC_BED",
         "KEENOVO_TEMPSENSOR",
-        "AC_BED"
+        "TH3D_BED_THERMISTOR"
       ],
       "conditionalExpression": [
         "else block",
@@ -2711,8 +2711,8 @@
       "conditionalOn": [
         "DWIN_CREALITY_LCD",
         "DWIN_CREALITY_LCD_JYERSUI",
-        "ENDER3_V2",
-        "DWIN_CREALITY_LCD_ENHANCED"
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "ENDER3_V2"
       ]
     },
     "xBedSize": {
@@ -2950,10 +2950,10 @@
       "lineNumber": 1184,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
         "ENDER3_MAX",
-        "ENDER3",
-        "ENDER5"
+        "ENDER5",
+        "ENDER5_PLUS",
+        "ENDER3"
       ]
     },
     "xHomeDir": {
@@ -3252,8 +3252,8 @@
       "conditionalOn": [
         "DWIN_CREALITY_LCD",
         "DWIN_CREALITY_LCD_JYERSUI",
-        "ENDER3_V2",
-        "DWIN_CREALITY_LCD_ENHANCED"
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "ENDER3_V2"
       ]
     },
     "extrudeMaxlength": {
@@ -3296,5 +3296,6 @@
         "{ 80, 80, 400, 95 }"
       ]
     }
-  }
+  },
+  "fullDefines": 224
 }

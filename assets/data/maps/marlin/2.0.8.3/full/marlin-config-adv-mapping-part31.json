@@ -243,8 +243,8 @@
       "isConditional": true,
       "conditionalOn": [
         "ESP3D_WIFISUPPORT",
-        "EITHER",
-        "WIFISUPPORT"
+        "WIFISUPPORT",
+        "EITHER"
       ],
       "examples": [
         "// Start a webserver (which may include auto-discovery)"
@@ -261,8 +261,8 @@
       "isConditional": true,
       "conditionalOn": [
         "ESP3D_WIFISUPPORT",
-        "EITHER",
-        "WIFISUPPORT"
+        "WIFISUPPORT",
+        "EITHER"
       ],
       "examples": [
         "// Support over-the-air firmware updates"
@@ -279,8 +279,8 @@
       "isConditional": true,
       "conditionalOn": [
         "ESP3D_WIFISUPPORT",
-        "EITHER",
-        "WIFISUPPORT"
+        "WIFISUPPORT",
+        "EITHER"
       ],
       "examples": [
         "// Accept feature config commands (e.g., WiFi ESP3D) from the host"
@@ -398,10 +398,10 @@
       "lineNumber": 3908,
       "isConditional": true,
       "conditionalOn": [
-        "MMU2_MENUS",
         "HAS_PRUSA_MMU2S",
-        "EITHER",
-        "HAS_PRUSA_MMU2"
+        "MMU2_MENUS",
+        "HAS_PRUSA_MMU2",
+        "EITHER"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -421,10 +421,10 @@
       "lineNumber": 3909,
       "isConditional": true,
       "conditionalOn": [
-        "MMU2_MENUS",
         "HAS_PRUSA_MMU2S",
-        "EITHER",
-        "HAS_PRUSA_MMU2"
+        "MMU2_MENUS",
+        "HAS_PRUSA_MMU2",
+        "EITHER"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -443,10 +443,10 @@
       "lineNumber": 3916,
       "isConditional": true,
       "conditionalOn": [
-        "MMU2_MENUS",
         "HAS_PRUSA_MMU2S",
-        "EITHER",
-        "HAS_PRUSA_MMU2"
+        "MMU2_MENUS",
+        "HAS_PRUSA_MMU2",
+        "EITHER"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"

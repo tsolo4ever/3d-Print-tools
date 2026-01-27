@@ -16,8 +16,8 @@
       "lineNumber": 1687,
       "isConditional": true,
       "conditionalOn": [
-        "USB_FLASH_DRIVE_SUPPORT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "USB_FLASH_DRIVE_SUPPORT"
       ]
     },
     "uhs3Usb": {
@@ -30,8 +30,8 @@
       "lineNumber": 1688,
       "isConditional": true,
       "conditionalOn": [
-        "USB_FLASH_DRIVE_SUPPORT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "USB_FLASH_DRIVE_SUPPORT"
       ]
     },
     "otgUsbHost": {
@@ -44,8 +44,8 @@
       "lineNumber": 1695,
       "isConditional": true,
       "conditionalOn": [
-        "USB_FLASH_DRIVE_SUPPORT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "USB_FLASH_DRIVE_SUPPORT"
       ]
     },
     "usbCsPin": {
@@ -59,8 +59,8 @@
       "isConditional": true,
       "conditionalOn": [
         "USE_OTG_USB_HOST",
-        "USB_FLASH_DRIVE_SUPPORT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "USB_FLASH_DRIVE_SUPPORT"
       ],
       "examples": [
         "SDSS"
@@ -77,8 +77,8 @@
       "isConditional": true,
       "conditionalOn": [
         "USE_OTG_USB_HOST",
-        "USB_FLASH_DRIVE_SUPPORT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "USB_FLASH_DRIVE_SUPPORT"
       ],
       "examples": [
         "SD_DETECT_PIN"
@@ -165,8 +165,8 @@
       "lineNumber": 1756,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ]
     },
     "volume": {
@@ -179,8 +179,8 @@
       "lineNumber": 1757,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ],
       "examples": [
         "SV_SD_ONBOARD"
@@ -196,8 +196,8 @@
       "lineNumber": 1758,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ],
       "examples": [
         "SV_USB_FLASH_DRIVE"
@@ -268,8 +268,8 @@
       "lineNumber": 1820,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
-        "IS_U8GLIB_ST7920"
+        "IS_U8GLIB_ST7920",
+        "HAS_MARLINUI_U8GLIB"
       ],
       "examples": [
         "5"
@@ -286,8 +286,8 @@
       "lineNumber": 1822,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
-        "IS_U8GLIB_ST7920"
+        "IS_U8GLIB_ST7920",
+        "HAS_MARLINUI_U8GLIB"
       ]
     },
     "statusExpireSeconds": {
@@ -300,9 +300,9 @@
       "lineNumber": 1824,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
         "LIGHTWEIGHT_UI",
-        "IS_U8GLIB_ST7920"
+        "IS_U8GLIB_ST7920",
+        "HAS_MARLINUI_U8GLIB"
       ],
       "examples": [
         "20"

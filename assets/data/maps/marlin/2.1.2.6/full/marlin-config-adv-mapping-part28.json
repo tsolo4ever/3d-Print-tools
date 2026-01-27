@@ -16,8 +16,8 @@
       "lineNumber": 3359,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -34,9 +34,9 @@
       "lineNumber": 3361,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "SPINDLE_SERVO",
         "EITHER",
+        "SPINDLE_SERVO",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -53,9 +53,9 @@
       "lineNumber": 3362,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "SPINDLE_SERVO",
         "EITHER",
+        "SPINDLE_SERVO",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -72,8 +72,8 @@
       "lineNumber": 3372,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -90,8 +90,8 @@
       "lineNumber": 3382,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -108,8 +108,8 @@
       "lineNumber": 3385,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -126,8 +126,8 @@
       "lineNumber": 3386,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -144,8 +144,8 @@
       "lineNumber": 3387,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "examples": [
@@ -162,8 +162,8 @@
       "lineNumber": 3421,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -186,8 +186,8 @@
       "lineNumber": 3422,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -210,9 +210,9 @@
       "lineNumber": 3411,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
+        "SPINDLE_LASER_USE_PWM",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -235,9 +235,9 @@
       "lineNumber": 3412,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
+        "SPINDLE_LASER_USE_PWM",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -260,9 +260,9 @@
       "lineNumber": 3413,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
+        "SPINDLE_LASER_USE_PWM",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -285,9 +285,9 @@
       "lineNumber": 3414,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
+        "SPINDLE_LASER_USE_PWM",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -310,8 +310,8 @@
       "lineNumber": 3418,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -335,8 +335,8 @@
       "lineNumber": 3419,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -359,8 +359,8 @@
       "lineNumber": 3432,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -383,8 +383,8 @@
       "lineNumber": 3457,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -404,8 +404,8 @@
       "lineNumber": 3466,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -425,8 +425,8 @@
       "lineNumber": 3471,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -447,9 +447,9 @@
       "lineNumber": 3473,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "I2C_AMMETER",
         "SPINDLE_FEATURE",
-        "EITHER",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -472,9 +472,9 @@
       "lineNumber": 3474,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "I2C_AMMETER",
         "SPINDLE_FEATURE",
-        "EITHER",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -497,8 +497,8 @@
       "lineNumber": 3480,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "EITHER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -519,9 +519,9 @@
       "lineNumber": 3482,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "LASER_COOLANT_FLOW_METER",
         "EITHER",
+        "LASER_COOLANT_FLOW_METER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -544,9 +544,9 @@
       "lineNumber": 3483,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "LASER_COOLANT_FLOW_METER",
         "EITHER",
+        "LASER_COOLANT_FLOW_METER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -569,9 +569,9 @@
       "lineNumber": 3484,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "LASER_COOLANT_FLOW_METER",
         "EITHER",
+        "LASER_COOLANT_FLOW_METER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -594,9 +594,9 @@
       "lineNumber": 3485,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "LASER_COOLANT_FLOW_METER",
         "EITHER",
+        "LASER_COOLANT_FLOW_METER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [
@@ -619,10 +619,10 @@
       "lineNumber": 3487,
       "isConditional": true,
       "conditionalOn": [
-        "FLOWMETER_SAFETY",
-        "SPINDLE_FEATURE",
-        "LASER_COOLANT_FLOW_METER",
         "EITHER",
+        "FLOWMETER_SAFETY",
+        "LASER_COOLANT_FLOW_METER",
+        "SPINDLE_FEATURE",
         "LASER_FEATURE"
       ],
       "conditionalOnNot": [

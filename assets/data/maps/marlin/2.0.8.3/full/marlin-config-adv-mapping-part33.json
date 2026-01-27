@@ -369,9 +369,9 @@
       "lineNumber": 1603,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_HIPRECY",
         "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD",
         "DGUS_LCD_UI_FYSETC"
       ],
       "examples": [
@@ -388,9 +388,9 @@
       "lineNumber": 1929,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "notes": "Enable thermal first layer compensation using bed and probe temperatures"
     },
@@ -405,9 +405,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "notes": "Enable additional compensation using hotend temperature Note: this values cannot be calibrated automatically but have to be set manually"
     },
@@ -422,9 +422,9 @@
       "isConditional": true,
       "conditionalOn": [
         "PROBE_TEMP_COMPENSATION",
+        "HAS_BED_PROBE",
         "TEMP_SENSOR_PROBE",
-        "TEMP_SENSOR_BED",
-        "HAS_BED_PROBE"
+        "TEMP_SENSOR_BED"
       ],
       "examples": [
         "30.0f"
@@ -460,8 +460,8 @@
       "lineNumber": 3966,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2",
-        "MMU_EXTRUDER_SENSOR"
+        "MMU_EXTRUDER_SENSOR",
+        "HAS_PRUSA_MMU2"
       ],
       "conditionalOnNot": [
         "HAS_PRUSA_MMU2S"

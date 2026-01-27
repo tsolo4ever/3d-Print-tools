@@ -1,0 +1,1513 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.1.2.6",
+  "firmware": "marlin",
+  "configFile": "Configuration.h",
+  "generatedFrom": "new configs\\marlin\\2.1.2.6\\Configuration.h",
+  "totalDefines": 945,
+  "basic": {
+    "configurationHVersion": {
+      "mapsFrom": [
+        "CONFIGURATION_H_VERSION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 38,
+      "examples": [
+        "02010206"
+      ]
+    },
+    "motherboard": {
+      "mapsFrom": [
+        "MOTHERBOARD"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 91,
+      "isConditional": true,
+      "conditionalOnNot": [
+        "MOTHERBOARD"
+      ],
+      "examples": [
+        "BOARD_RAMPS_14_EFB"
+      ],
+      "uiFieldId": "tab2_motherboard"
+    },
+    "serialPort": {
+      "mapsFrom": [
+        "SERIAL_PORT"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 104,
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab7_serialPort"
+    },
+    "baudrate": {
+      "mapsFrom": [
+        "BAUDRATE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 117,
+      "examples": [
+        "250000"
+      ],
+      "uiFieldId": "tab7_baudRate"
+    },
+    "serialPort2": {
+      "mapsFrom": [
+        "SERIAL_PORT_2"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 126,
+      "examples": [
+        "-1"
+      ],
+      "uiFieldId": "tab2_serialPort2"
+    },
+    "baudrate2": {
+      "mapsFrom": [
+        "BAUDRATE_2"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 127,
+      "examples": [
+        "250000"
+      ],
+      "uiFieldId": "tab2_baudRate2"
+    },
+    "customMachineName": {
+      "mapsFrom": [
+        "CUSTOM_MACHINE_NAME"
+      ],
+      "type": "string",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 141,
+      "examples": [
+        "\"3D Printer\""
+      ],
+      "notes": "Name displayed in the LCD \"Ready\" message and Info menu",
+      "uiFieldId": "tab1_profileName"
+    },
+    "extruders": {
+      "mapsFrom": [
+        "EXTRUDERS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 233,
+      "examples": [
+        "1"
+      ],
+      "notes": "@section extruder This defines the number of extruders :[0, 1, 2, 3, 4, 5, 6, 7, 8]",
+      "uiFieldId": "tab2_extruders"
+    },
+    "nominalFilamentDia": {
+      "mapsFrom": [
+        "DEFAULT_NOMINAL_FILAMENT_DIA"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 236,
+      "examples": [
+        "1.75"
+      ],
+      "notes": "Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.",
+      "uiFieldId": "tab9_filamentDiameter"
+    }
+  },
+  "other_6": {
+    "yminPlug": {
+      "mapsFrom": [
+        "USE_YMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1064,
+      "uiFieldId": "tab8_useYMinEndstop"
+    },
+    "zminPlug": {
+      "mapsFrom": [
+        "USE_ZMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1065,
+      "uiFieldId": "tab8_useZMinEndstop"
+    },
+    "ymaxPlug": {
+      "mapsFrom": [
+        "USE_YMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1073,
+      "uiFieldId": "tab8_useYMaxEndstop"
+    },
+    "zmaxPlug": {
+      "mapsFrom": [
+        "USE_ZMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1074,
+      "uiFieldId": "tab8_useZMaxEndstop"
+    }
+  },
+  "other_7": {
+    "probingMargin": {
+      "mapsFrom": [
+        "PROBING_MARGIN"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1518,
+      "examples": [
+        "10"
+      ],
+      "notes": "Most probes should stay away from the edges of the bed, but with NOZZLE_AS_PROBE this can be negative for a wider probing area.",
+      "uiFieldId": "tab5_probingMargin"
+    }
+  },
+  "other_9": {
+    "filRunoutEnabledDefault": {
+      "mapsFrom": [
+        "FIL_RUNOUT_ENABLED_DEFAULT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1808,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "true"
+      ],
+      "uiFieldId": "tab7_runoutEnabledDefault"
+    },
+    "numRunoutSensors": {
+      "mapsFrom": [
+        "NUM_RUNOUT_SENSORS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1809,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "1"
+      ],
+      "uiFieldId": "tab7_numRunoutSensors"
+    },
+    "filRunoutState": {
+      "mapsFrom": [
+        "FIL_RUNOUT_STATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1811,
+      "isConditional": true,
+      "conditionalOn": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "examples": [
+        "LOW"
+      ],
+      "uiFieldId": "tab7_runoutTriggerState"
+    }
+  },
+  "other_12": {
+    "ultipanel": {
+      "mapsFrom": [
+        "ULTIPANEL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2634,
+      "notes": " ULTIPANEL as seen on Thingiverse. ",
+      "uiFieldId": "tab10_ultipanel"
+    }
+  },
+  "hardware_1": {
+    "xDriverType": {
+      "mapsFrom": [
+        "X_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 164,
+      "examples": [
+        "A4988"
+      ],
+      "uiFieldId": "tab2_xDriverType"
+    },
+    "yDriverType": {
+      "mapsFrom": [
+        "Y_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 165,
+      "examples": [
+        "A4988"
+      ],
+      "uiFieldId": "tab2_yDriverType"
+    },
+    "zDriverType": {
+      "mapsFrom": [
+        "Z_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 166,
+      "examples": [
+        "A4988"
+      ],
+      "uiFieldId": "tab2_zDriverType"
+    },
+    "x2DriverType": {
+      "mapsFrom": [
+        "X2_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 167,
+      "examples": [
+        "A4988"
+      ],
+      "uiFieldId": "tab2_x2DriverType"
+    },
+    "y2DriverType": {
+      "mapsFrom": [
+        "Y2_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 168,
+      "examples": [
+        "A4988"
+      ],
+      "uiFieldId": "tab2_y2DriverType"
+    },
+    "z2DriverType": {
+      "mapsFrom": [
+        "Z2_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 169,
+      "examples": [
+        "A4988"
+      ],
+      "uiFieldId": "tab2_z2DriverType"
+    },
+    "e0DriverType": {
+      "mapsFrom": [
+        "E0_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 178,
+      "examples": [
+        "A4988"
+      ],
+      "uiFieldId": "tab2_e0DriverType"
+    },
+    "e1DriverType": {
+      "mapsFrom": [
+        "E1_DRIVER_TYPE"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 179,
+      "examples": [
+        "A4988"
+      ],
+      "uiFieldId": "tab2_e1DriverType"
+    },
+    "tempSensor0": {
+      "mapsFrom": [
+        "TEMP_SENSOR_0"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 554,
+      "examples": [
+        "1"
+      ],
+      "uiFieldId": "tab2_hotendTempSensor"
+    },
+    "tempSensor1": {
+      "mapsFrom": [
+        "TEMP_SENSOR_1"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 555,
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab2_hotend2TempSensor"
+    },
+    "tempSensor2": {
+      "mapsFrom": [
+        "TEMP_SENSOR_2"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 556,
+      "examples": [
+        "0"
+      ]
+    }
+  },
+  "hardware_2": {
+    "tempSensorBed": {
+      "mapsFrom": [
+        "TEMP_SENSOR_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 562,
+      "examples": [
+        "1"
+      ],
+      "uiFieldId": "tab2_bedTempSensor"
+    },
+    "tempSensorChamber": {
+      "mapsFrom": [
+        "TEMP_SENSOR_CHAMBER"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 564,
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab2_chamberTempSensor"
+    },
+    "heater0Mintemp": {
+      "mapsFrom": [
+        "HEATER_0_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 623,
+      "examples": [
+        "5"
+      ],
+      "notes": "Below this temperature the heater will be switched off because it probably indicates a broken thermistor wire.",
+      "uiFieldId": "tab3_hotendMinTemp"
+    },
+    "heater0Maxtemp": {
+      "mapsFrom": [
+        "HEATER_0_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 637,
+      "examples": [
+        "275"
+      ],
+      "notes": "Above this temperature the heater will be switched off. This can protect components from overheating, but NOT from shorts and failures. (Use MINTEMP for thermistor short/failure protection.)",
+      "uiFieldId": "tab3_hotendMaxTemp"
+    }
+  },
+  "hardware_3": {
+    "lcdLanguage": {
+      "mapsFrom": [
+        "LCD_LANGUAGE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2458,
+      "examples": [
+        "en"
+      ],
+      "uiFieldId": "tab10_lcdLanguage"
+    },
+    "reprapDiscountSmartController": {
+      "mapsFrom": [
+        "REPRAP_DISCOUNT_SMART_CONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2610,
+      "notes": "============================================================================= ======================== LCD / Controller Selection ========================= ========================   (Character-based LCDs)   ========================= ============================================================================= @section lcd  RepRapDiscount Smart Controller. https://reprap.org/wiki/RepRapDiscount_Smart_Controller  Note: Usually sold with a white PCB. ",
+      "uiFieldId": "tab10_displayRepRapSmart"
+    },
+    "reprapDiscountFullGraphicSmartController": {
+      "mapsFrom": [
+        "REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2768,
+      "notes": "============================================================================= =======================   LCD / Controller Selection  ======================= =========================      (Graphical LCDs)      ======================== =============================================================================  CONTROLLER TYPE: Graphical 128x64 (DOGM)  IMPORTANT: The U8glib library is required for Graphical Display! https://github.com/olikraus/U8glib_Arduino  NOTE: If the LCD is unresponsive you may need to reverse the plugs.   RepRapDiscount FULL GRAPHIC Smart Controller https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller ",
+      "uiFieldId": "tab10_displayRepRapFullGraphic"
+    },
+    "cr10Stockdisplay": {
+      "mapsFrom": [
+        "CR10_STOCKDISPLAY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2875,
+      "notes": " Factory display for Creality CR-10 / CR-7 / Ender-3 https://marlinfw.org/docs/hardware/controllers.html#cr10_stockdisplay  Connect to EXP1 on RAMPS and compatible boards. ",
+      "uiFieldId": "tab10_displayCR10Stock"
+    }
+  },
+  "hardware_4": {
+    "ender2Stockdisplay": {
+      "mapsFrom": [
+        "ENDER2_STOCKDISPLAY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2880,
+      "notes": " Ender-2 OEM display, a variant of the MKS_MINI_12864 "
+    }
+  },
+  "temperature_1": {
+    "bedMintemp": {
+      "mapsFrom": [
+        "BED_MINTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 631,
+      "examples": [
+        "5"
+      ],
+      "uiFieldId": "tab4_bedMinTemp"
+    },
+    "bedMaxtemp": {
+      "mapsFrom": [
+        "BED_MAXTEMP"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 645,
+      "examples": [
+        "150"
+      ],
+      "uiFieldId": "tab4_bedMaxTemp"
+    },
+    "pidtemp": {
+      "mapsFrom": [
+        "PIDTEMP"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 671,
+      "examples": [
+        "// See the PID Tuning Guide at https:"
+      ],
+      "uiFieldId": "tab3_pidHotendEnabled"
+    },
+    "pidtempbed": {
+      "mapsFrom": [
+        "PIDTEMPBED"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 770,
+      "uiFieldId": "tab4_pidBedEnabled"
+    }
+  },
+  "temperature_2": {
+    "thermalProtectionHotends": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_HOTENDS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 880,
+      "examples": [
+        "// Enable thermal protection for all extruders"
+      ],
+      "uiFieldId": "tab8_thermalProtectionHotend"
+    },
+    "thermalProtectionBed": {
+      "mapsFrom": [
+        "THERMAL_PROTECTION_BED"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 881,
+      "examples": [
+        "// Enable thermal protection for the heated bed"
+      ],
+      "uiFieldId": "tab8_thermalProtectionBed"
+    },
+    "xBedSize": {
+      "mapsFrom": [
+        "X_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1727,
+      "examples": [
+        "200"
+      ],
+      "notes": "@section geometry The size of the printable area",
+      "uiFieldId": "tab4_bedSizeX"
+    },
+    "yBedSize": {
+      "mapsFrom": [
+        "Y_BED_SIZE"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1728,
+      "examples": [
+        "200"
+      ],
+      "uiFieldId": "tab4_bedSizeY"
+    },
+    "autoBedLeveling3point": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_3POINT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1906,
+      "uiFieldId": "tab4_abl3Point"
+    },
+    "autoBedLevelingBilinear": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_BILINEAR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1908,
+      "uiFieldId": "tab4_ablBilinear"
+    },
+    "autoBedLevelingUbl": {
+      "mapsFrom": [
+        "AUTO_BED_LEVELING_UBL"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1909,
+      "uiFieldId": "tab4_ablUBL"
+    },
+    "meshBedLeveling": {
+      "mapsFrom": [
+        "MESH_BED_LEVELING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1910,
+      "uiFieldId": "tab4_meshBedLeveling"
+    }
+  },
+  "temperature_3": {
+    "preheat1Label": {
+      "mapsFrom": [
+        "PREHEAT_1_LABEL"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2249,
+      "examples": [
+        "\"PLA\""
+      ],
+      "notes": "@section temperature  Preheat Constants - Up to 10 are supported without changes ",
+      "uiFieldId": "tab10_preheat1Label"
+    },
+    "preheat1TempHotend": {
+      "mapsFrom": [
+        "PREHEAT_1_TEMP_HOTEND"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2250,
+      "examples": [
+        "180"
+      ],
+      "uiFieldId": "tab10_preheat1Hotend"
+    },
+    "preheat1TempBed": {
+      "mapsFrom": [
+        "PREHEAT_1_TEMP_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2251,
+      "examples": [
+        "70"
+      ],
+      "uiFieldId": "tab10_preheat1Bed"
+    },
+    "preheat1FanSpeed": {
+      "mapsFrom": [
+        "PREHEAT_1_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2253,
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab10_preheat1Fan"
+    },
+    "preheat2Label": {
+      "mapsFrom": [
+        "PREHEAT_2_LABEL"
+      ],
+      "type": "string",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2255,
+      "examples": [
+        "\"ABS\""
+      ],
+      "uiFieldId": "tab10_preheat2Label"
+    },
+    "preheat2TempHotend": {
+      "mapsFrom": [
+        "PREHEAT_2_TEMP_HOTEND"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2256,
+      "examples": [
+        "240"
+      ],
+      "uiFieldId": "tab10_preheat2Hotend"
+    },
+    "preheat2TempBed": {
+      "mapsFrom": [
+        "PREHEAT_2_TEMP_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2257,
+      "examples": [
+        "110"
+      ],
+      "uiFieldId": "tab10_preheat2Bed"
+    },
+    "preheat2FanSpeed": {
+      "mapsFrom": [
+        "PREHEAT_2_FAN_SPEED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2259,
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab10_preheat2Fan"
+    }
+  },
+  "geometry": {
+    "xMinPos": {
+      "mapsFrom": [
+        "X_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1731,
+      "examples": [
+        "0"
+      ],
+      "notes": "Travel limits (linear=mm, rotational=\u00b0) after homing, corresponding to endstop positions.",
+      "uiFieldId": "tab6_xMinPosition"
+    },
+    "yMinPos": {
+      "mapsFrom": [
+        "Y_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1732,
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab6_yMinPosition"
+    },
+    "zMinPos": {
+      "mapsFrom": [
+        "Z_MIN_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1733,
+      "examples": [
+        "0"
+      ],
+      "uiFieldId": "tab6_zMinPosition"
+    },
+    "xMaxPos": {
+      "mapsFrom": [
+        "X_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1734,
+      "examples": [
+        "X_BED_SIZE"
+      ],
+      "uiFieldId": "tab6_xMaxPosition"
+    },
+    "yMaxPos": {
+      "mapsFrom": [
+        "Y_MAX_POS"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1735,
+      "examples": [
+        "Y_BED_SIZE"
+      ],
+      "uiFieldId": "tab6_yMaxPosition"
+    },
+    "zMaxPos": {
+      "mapsFrom": [
+        "Z_MAX_POS"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1736,
+      "examples": [
+        "200"
+      ],
+      "uiFieldId": "tab6_zMaxPosition"
+    }
+  },
+  "motion": {
+    "axisStepsPerUnit": {
+      "mapsFrom": [
+        "DEFAULT_AXIS_STEPS_PER_UNIT"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1199,
+      "examples": [
+        "{ 80, 80, 400, 500 }"
+      ],
+      "uiFieldId": "tab6_stepsPerUnit"
+    },
+    "maxFeedrate": {
+      "mapsFrom": [
+        "DEFAULT_MAX_FEEDRATE"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1206,
+      "examples": [
+        "{ 300, 300, 5, 25 }"
+      ],
+      "uiFieldId": "tab6_maxFeedrate"
+    },
+    "maxAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_MAX_ACCELERATION"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1219,
+      "examples": [
+        "{ 3000, 3000, 100, 10000 }"
+      ],
+      "uiFieldId": "tab6_maxAcceleration"
+    },
+    "acceleration": {
+      "mapsFrom": [
+        "DEFAULT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1234,
+      "examples": [
+        "3000"
+      ],
+      "uiFieldId": "tab6_defaultAcceleration"
+    },
+    "retractAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_RETRACT_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1235,
+      "examples": [
+        "3000"
+      ],
+      "uiFieldId": "tab6_retractAcceleration"
+    },
+    "travelAcceleration": {
+      "mapsFrom": [
+        "DEFAULT_TRAVEL_ACCELERATION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1236,
+      "examples": [
+        "3000"
+      ],
+      "uiFieldId": "tab6_travelAcceleration"
+    },
+    "classicJerk": {
+      "mapsFrom": [
+        "CLASSIC_JERK"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1246,
+      "uiFieldId": "tab6_classicJerkEnabled"
+    },
+    "xjerk": {
+      "mapsFrom": [
+        "DEFAULT_XJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1248,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "10.0"
+      ],
+      "uiFieldId": "tab6_xJerk"
+    },
+    "yjerk": {
+      "mapsFrom": [
+        "DEFAULT_YJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1249,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "10.0"
+      ],
+      "uiFieldId": "tab6_yJerk"
+    },
+    "zjerk": {
+      "mapsFrom": [
+        "DEFAULT_ZJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1250,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.3"
+      ],
+      "uiFieldId": "tab6_zJerk"
+    },
+    "ejerk": {
+      "mapsFrom": [
+        "DEFAULT_EJERK"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1266,
+      "examples": [
+        "5.0"
+      ],
+      "uiFieldId": "tab6_eJerk"
+    },
+    "junctionDeviationMm": {
+      "mapsFrom": [
+        "JUNCTION_DEVIATION_MM"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1276,
+      "isConditional": true,
+      "conditionalOn": [
+        "CLASSIC_JERK"
+      ],
+      "examples": [
+        "0.013"
+      ],
+      "uiFieldId": "tab6_junctionDeviation"
+    },
+    "sCurveAcceleration": {
+      "mapsFrom": [
+        "S_CURVE_ACCELERATION"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1289,
+      "uiFieldId": "tab7_sCurveAcceleration"
+    },
+    "xyProbeFeedrate": {
+      "mapsFrom": [
+        "XY_PROBE_FEEDRATE"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1521,
+      "examples": [
+        "(133*60)"
+      ],
+      "notes": "X and Y axis travel speed (mm/min) between probes",
+      "uiFieldId": "tab5_probeXYSpeed"
+    },
+    "zProbeFeedrateFast": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_FAST"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1524,
+      "examples": [
+        "(4*60)"
+      ],
+      "notes": "Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)",
+      "uiFieldId": "tab5_probeZFastSpeed"
+    },
+    "zProbeFeedrateSlow": {
+      "mapsFrom": [
+        "Z_PROBE_FEEDRATE_SLOW"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1527,
+      "examples": [
+        "(Z_PROBE_FEEDRATE_FAST / 2)"
+      ],
+      "notes": "Feedrate (mm/min) for the \"accurate\" probe of each point",
+      "uiFieldId": "tab5_probeZSlowSpeed"
+    },
+    "homingFeedrateMmM": {
+      "mapsFrom": [
+        "HOMING_FEEDRATE_MM_M"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2133,
+      "examples": [
+        "{ (50*60), (50*60), (4*60) }"
+      ],
+      "notes": "Homing speeds (linear=mm/min, rotational=\u00b0/min)",
+      "uiFieldId": "tab6_homingFeedrate"
+    }
+  },
+  "safety": {
+    "preventColdExtrusion": {
+      "mapsFrom": [
+        "PREVENT_COLD_EXTRUSION"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 853
+    },
+    "preventLengthyExtrude": {
+      "mapsFrom": [
+        "PREVENT_LENGTHY_EXTRUDE"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 860
+    },
+    "extrudeMaxlength": {
+      "mapsFrom": [
+        "EXTRUDE_MAXLENGTH"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 861,
+      "examples": [
+        "200"
+      ]
+    }
+  },
+  "endstops_1": {
+    "xminPlug": {
+      "mapsFrom": [
+        "USE_XMIN_PLUG"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1063,
+      "notes": "=========================================================================== ============================== Endstop Settings =========================== =========================================================================== @section endstops Specify here all the endstop connectors that are connected to any endstop or probe. Almost all printers will be using one per axis. Probes will use one or more of the extra connectors. Leave undefined any used for non-endstop and non-probe purposes.",
+      "uiFieldId": "tab8_useXMinEndstop"
+    },
+    "xmaxPlug": {
+      "mapsFrom": [
+        "USE_XMAX_PLUG"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1072,
+      "uiFieldId": "tab8_useXMaxEndstop"
+    },
+    "endstoppullups": {
+      "mapsFrom": [
+        "ENDSTOPPULLUPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1083,
+      "notes": "Enable pullup for all endstops to prevent a floating state",
+      "uiFieldId": "tab8_endstopPullups"
+    },
+    "endstoppulldowns": {
+      "mapsFrom": [
+        "ENDSTOPPULLDOWNS"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1108,
+      "notes": "Enable pulldown for all endstops to prevent a floating state",
+      "uiFieldId": "tab8_endstopPulldowns"
+    }
+  },
+  "endstops_2": {
+    "xMinEndstopInverting": {
+      "mapsFrom": [
+        "X_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1133,
+      "examples": [
+        "false"
+      ],
+      "notes": "Mechanical endstop with COM to ground and NC to Signal uses \"false\" here (most common setup)."
+    },
+    "yMinEndstopInverting": {
+      "mapsFrom": [
+        "Y_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1134,
+      "examples": [
+        "false"
+      ]
+    },
+    "zMinEndstopInverting": {
+      "mapsFrom": [
+        "Z_MIN_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1135,
+      "examples": [
+        "false"
+      ]
+    },
+    "xMaxEndstopInverting": {
+      "mapsFrom": [
+        "X_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1142,
+      "examples": [
+        "false"
+      ]
+    },
+    "yMaxEndstopInverting": {
+      "mapsFrom": [
+        "Y_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1143,
+      "examples": [
+        "false"
+      ]
+    },
+    "zMaxEndstopInverting": {
+      "mapsFrom": [
+        "Z_MAX_ENDSTOP_INVERTING"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1144,
+      "examples": [
+        "false"
+      ]
+    }
+  },
+  "endstops_3": {
+    "zMinProbeUsesZMinEndstopPin": {
+      "mapsFrom": [
+        "Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1305,
+      "uiFieldId": "tab5_probeUsesZMinPin"
+    },
+    "xHomeDir": {
+      "mapsFrom": [
+        "X_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1714,
+      "examples": [
+        "-1"
+      ],
+      "notes": "Direction of endstops when homing; 1=MAX, -1=MIN :[-1,1]",
+      "uiFieldId": "tab6_xHomeDirection"
+    },
+    "yHomeDir": {
+      "mapsFrom": [
+        "Y_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1715,
+      "examples": [
+        "-1"
+      ],
+      "uiFieldId": "tab6_yHomeDirection"
+    },
+    "zHomeDir": {
+      "mapsFrom": [
+        "Z_HOME_DIR"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1716,
+      "examples": [
+        "-1"
+      ],
+      "uiFieldId": "tab6_zHomeDirection"
+    },
+    "minSoftwareEndstops": {
+      "mapsFrom": [
+        "MIN_SOFTWARE_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1760,
+      "notes": "Min software endstops constrain movement within minimum coordinate bounds",
+      "uiFieldId": "tab8_minSoftwareEndstops"
+    },
+    "maxSoftwareEndstops": {
+      "mapsFrom": [
+        "MAX_SOFTWARE_ENDSTOPS"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1774,
+      "notes": "Max software endstops constrain movement within maximum coordinate bounds",
+      "uiFieldId": "tab8_maxSoftwareEndstops"
+    }
+  },
+  "probe": {
+    "probeManually": {
+      "mapsFrom": [
+        "PROBE_MANUALLY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1337
+    },
+    "fixMountedProbe": {
+      "mapsFrom": [
+        "FIX_MOUNTED_PROBE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1343,
+      "uiFieldId": "tab5_probeTypeFixed"
+    },
+    "bltouch": {
+      "mapsFrom": [
+        "BLTOUCH"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1362,
+      "uiFieldId": "tab5_probeTypeBLTouch"
+    },
+    "nozzleToProbeOffset": {
+      "mapsFrom": [
+        "NOZZLE_TO_PROBE_OFFSET"
+      ],
+      "type": "array",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1514,
+      "examples": [
+        "{ 10, 10, 0 }"
+      ],
+      "uiFieldId": "tab5_probeOffset"
+    },
+    "multipleProbing": {
+      "mapsFrom": [
+        "MULTIPLE_PROBING"
+      ],
+      "type": "integer",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1574,
+      "examples": [
+        "2"
+      ]
+    }
+  },
+  "advanced": {
+    "filamentRunoutSensor": {
+      "mapsFrom": [
+        "FILAMENT_RUNOUT_SENSOR"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1806,
+      "uiFieldId": "tab7_filamentRunoutEnabled"
+    }
+  },
+  "bedLeveling": {
+    "restoreLevelingAfterG28": {
+      "mapsFrom": [
+        "RESTORE_LEVELING_AFTER_G28"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1923
+    },
+    "gridMaxPointsX": {
+      "mapsFrom": [
+        "GRID_MAX_POINTS_X"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2047,
+      "isConditional": true,
+      "conditionalOn": [
+        "MESH_BED_LEVELING"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MESH_BED_LEVELING)"
+      ],
+      "examples": [
+        "3"
+      ],
+      "notes": "Set the number of grid points per dimension.",
+      "uiFieldId": "tab4_gridPointsX"
+    },
+    "gridMaxPointsY": {
+      "mapsFrom": [
+        "GRID_MAX_POINTS_Y"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2048,
+      "isConditional": true,
+      "conditionalOn": [
+        "MESH_BED_LEVELING"
+      ],
+      "conditionalExpression": [
+        "ENABLED(MESH_BED_LEVELING)"
+      ],
+      "examples": [
+        "GRID_MAX_POINTS_X"
+      ],
+      "uiFieldId": "tab4_gridPointsY"
+    },
+    "meshEditMenu": {
+      "mapsFrom": [
+        "MESH_EDIT_MENU"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2063,
+      "isConditional": true,
+      "conditionalOn": [
+        "LCD_BED_LEVELING"
+      ],
+      "examples": [
+        "// Add a menu to edit mesh points"
+      ]
+    },
+    "zSafeHoming": {
+      "mapsFrom": [
+        "Z_SAFE_HOMING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2125,
+      "uiFieldId": "tab5_zSafeHoming"
+    }
+  },
+  "features": {
+    "eepromSettings": {
+      "mapsFrom": [
+        "EEPROM_SETTINGS"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2211,
+      "examples": [
+        "// Persistent storage with M500 and M501"
+      ],
+      "uiFieldId": "tab10_eepromEnabled"
+    },
+    "eepromAutoInit": {
+      "mapsFrom": [
+        "EEPROM_AUTO_INIT"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2216,
+      "isConditional": true,
+      "conditionalOn": [
+        "EEPROM_SETTINGS"
+      ],
+      "examples": [
+        "// Init EEPROM automatically on any errors."
+      ],
+      "uiFieldId": "tab10_eepromAutoInit"
+    },
+    "sdsupport": {
+      "mapsFrom": [
+        "SDSUPPORT"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2497,
+      "uiFieldId": "tab10_sdCardEnabled"
+    },
+    "sdCheckAndRetry": {
+      "mapsFrom": [
+        "SD_CHECK_AND_RETRY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2504,
+      "uiFieldId": "tab10_sdCheckAndRetry"
+    }
+  },
+  "coreDefines": 115
+}

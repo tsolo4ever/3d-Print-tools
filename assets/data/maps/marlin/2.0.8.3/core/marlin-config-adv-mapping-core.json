@@ -1,0 +1,219 @@
+{
+  "$schema": "Marlin Configuration Field Mapping",
+  "version": "2.0.8.3",
+  "firmware": "marlin",
+  "configFile": "Configuration_adv.h",
+  "generatedFrom": "new configs\\marlin\\2.0.8.3\\Configuration_adv.h",
+  "totalDefines": 1249,
+  "other_1": {
+    "configurationAdvHVersion": {
+      "mapsFrom": [
+        "CONFIGURATION_ADV_H_VERSION"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 33,
+      "examples": [
+        "02000801"
+      ]
+    }
+  },
+  "other_9": {
+    "plrEnabledDefault": {
+      "mapsFrom": [
+        "PLR_ENABLED_DEFAULT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1322,
+      "isConditional": true,
+      "conditionalOn": [
+        "POWER_LOSS_RECOVERY",
+        "SDSUPPORT"
+      ],
+      "examples": [
+        "false"
+      ],
+      "uiFieldId": "tab7_plrEnabledDefault"
+    }
+  },
+  "other_12": {
+    "babystepping": {
+      "mapsFrom": [
+        "BABYSTEPPING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1795,
+      "uiFieldId": "tab7_babystepping"
+    }
+  },
+  "other_21": {
+    "stealthchopXy": {
+      "mapsFrom": [
+        "STEALTHCHOP_XY"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2702,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "stealthchopZ": {
+      "mapsFrom": [
+        "STEALTHCHOP_Z"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2703,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    },
+    "stealthchopE": {
+      "mapsFrom": [
+        "STEALTHCHOP_E"
+      ],
+      "type": "boolean",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2704,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    }
+  },
+  "other_22": {
+    "hybridThreshold": {
+      "mapsFrom": [
+        "HYBRID_THRESHOLD"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2765,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ]
+    }
+  },
+  "other_23": {
+    "sensorlessHoming": {
+      "mapsFrom": [
+        "SENSORLESS_HOMING"
+      ],
+      "type": "define",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 2809,
+      "isConditional": true,
+      "conditionalOn": [
+        "HAS_TRINAMIC_CONFIG"
+      ],
+      "examples": [
+        "// StallGuard capable drivers only"
+      ]
+    }
+  },
+  "hardware": {
+    "tempSensorBed": {
+      "mapsFrom": [
+        "TEMP_SENSOR_BED"
+      ],
+      "type": "integer",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 135,
+      "isConditional": true,
+      "conditionalOn": [
+        "HEPHESTOS2_HEATED_BED_KIT"
+      ],
+      "examples": [
+        "70"
+      ],
+      "uiFieldId": "tab2_bedTempSensor"
+    }
+  },
+  "advanced": {
+    "adaptiveStepSmoothing": {
+      "mapsFrom": [
+        "ADAPTIVE_STEP_SMOOTHING"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1062,
+      "uiFieldId": "tab7_adaptiveStepSmoothing"
+    },
+    "arcSupport": {
+      "mapsFrom": [
+        "ARC_SUPPORT"
+      ],
+      "type": "define",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1987,
+      "examples": [
+        "// Disable this feature to save ~3226 bytes"
+      ],
+      "notes": " G2/G3 Arc Support ",
+      "uiFieldId": "tab7_arcSupport"
+    }
+  },
+  "motion": {
+    "linAdvance": {
+      "mapsFrom": [
+        "LIN_ADVANCE"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1842,
+      "uiFieldId": "tab7_linAdvanceEnabled"
+    },
+    "linAdvanceK": {
+      "mapsFrom": [
+        "LIN_ADVANCE_K"
+      ],
+      "type": "float",
+      "required": true,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1845,
+      "isConditional": true,
+      "conditionalOn": [
+        "LIN_ADVANCE"
+      ],
+      "examples": [
+        "0.22"
+      ],
+      "uiFieldId": "tab7_linAdvanceK"
+    }
+  },
+  "safety": {
+    "powerLossRecovery": {
+      "mapsFrom": [
+        "POWER_LOSS_RECOVERY"
+      ],
+      "type": "boolean",
+      "required": false,
+      "fileLocation": "Configuration.h",
+      "lineNumber": 1320,
+      "isConditional": true,
+      "conditionalOn": [
+        "SDSUPPORT"
+      ],
+      "uiFieldId": "tab7_powerLossRecovery"
+    }
+  },
+  "coreDefines": 14
+}

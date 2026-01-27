@@ -55,8 +55,8 @@
         "TEMP_SENSOR_0"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -78,8 +78,8 @@
         "TEMP_SENSOR_0"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -101,8 +101,8 @@
         "TEMP_SENSOR_0"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -124,8 +124,8 @@
         "TEMP_SENSOR_0"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -934,8 +934,8 @@
       "lineNumber": 225,
       "isConditional": true,
       "conditionalOn": [
-        "PIDTEMPCHAMBER",
-        "CHAMBER_LIMIT_SWITCHING"
+        "CHAMBER_LIMIT_SWITCHING",
+        "PIDTEMPCHAMBER"
       ],
       "examples": [
         "2"
@@ -1260,8 +1260,8 @@
       "lineNumber": 387,
       "isConditional": true,
       "conditionalOn": [
-        "PID_EXTRUSION_SCALING",
-        "PIDTEMP"
+        "PIDTEMP",
+        "PID_EXTRUSION_SCALING"
       ],
       "examples": [
         "(100)"
@@ -1277,8 +1277,8 @@
       "lineNumber": 388,
       "isConditional": true,
       "conditionalOn": [
-        "PID_EXTRUSION_SCALING",
-        "PIDTEMP"
+        "PIDTEMP",
+        "PID_EXTRUSION_SCALING"
       ],
       "examples": [
         "50"
@@ -1509,8 +1509,8 @@
         "FAST_PWM_FAN"
       ],
       "conditionalOnNot": [
-        "FAST_PWM_FAN_FREQUENCY",
-        "__AVR__"
+        "__AVR__",
+        "FAST_PWM_FAN_FREQUENCY"
       ],
       "conditionalExpression": [
         "else block"
@@ -2133,8 +2133,8 @@
       "lineNumber": 816,
       "isConditional": true,
       "conditionalOn": [
-        "NEOPIXEL_LED",
-        "CASE_LIGHT_ENABLE"
+        "CASE_LIGHT_ENABLE",
+        "NEOPIXEL_LED"
       ],
       "examples": [
         "// Use NeoPixel LED as case light"
@@ -2150,10 +2150,10 @@
       "lineNumber": 819,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
         "RGB_LED",
+        "CASE_LIGHT_ENABLE",
         "RGBW_LED",
-        "CASE_LIGHT_ENABLE"
+        "EITHER"
       ],
       "examples": [
         "// Use RGB / RGBW LED as case light"
@@ -2169,10 +2169,10 @@
       "lineNumber": 822,
       "isConditional": true,
       "conditionalOn": [
+        "CASE_LIGHT_ENABLE",
         "EITHER",
         "CASE_LIGHT_USE_NEOPIXEL",
-        "CASE_LIGHT_USE_RGB_LED",
-        "CASE_LIGHT_ENABLE"
+        "CASE_LIGHT_USE_RGB_LED"
       ],
       "examples": [
         "{ 255, 255, 255, 255 }"
@@ -2295,8 +2295,8 @@
       "lineNumber": 917,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_X2_STEPPER",
-        "DUAL_X_CARRIAGE"
+        "DUAL_X_CARRIAGE",
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "// X2 direction signal is the opposite of X"
@@ -2498,8 +2498,8 @@
       "lineNumber": 1074,
       "isConditional": true,
       "conditionalOn": [
-        "ABL_ENABLE",
         "CHIRON",
+        "ABL_ENABLE",
         "MKS_MONSTER_8_V2_DUALZ_MOTORS"
       ]
     },
@@ -2791,9 +2791,9 @@
       "lineNumber": 1196,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "INPUT_SHAPING_FREQ_X"
@@ -2809,9 +2809,9 @@
       "lineNumber": 1197,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "INPUT_SHAPING_DAMPING_X"
@@ -2827,9 +2827,9 @@
       "lineNumber": 1200,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "INPUT_SHAPING_FREQ_Y"
@@ -2845,9 +2845,9 @@
       "lineNumber": 1201,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "INPUT_SHAPING_DAMPING_X"
@@ -2863,9 +2863,9 @@
       "lineNumber": 1203,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "20"
@@ -2881,9 +2881,9 @@
       "lineNumber": 1204,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "10000"
@@ -2899,9 +2899,9 @@
       "lineNumber": 1205,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "INPUT_SHAPING_X",
-        "INPUT_SHAPING_Y",
-        "EITHER"
+        "INPUT_SHAPING_Y"
       ],
       "examples": [
         "// Add a menu to the LCD to set shaping parameters."
@@ -3339,8 +3339,8 @@
       "lineNumber": 1297,
       "isConditional": true,
       "conditionalOn": [
-        "BACKLASH_COMPENSATION",
-        "BACKLASH_GCODE"
+        "BACKLASH_GCODE",
+        "BACKLASH_COMPENSATION"
       ],
       "notes": "Measure the Z backlash when probing (G29) and set with \"M425 Z\""
     },
@@ -3354,9 +3354,9 @@
       "lineNumber": 1303,
       "isConditional": true,
       "conditionalOn": [
-        "BACKLASH_COMPENSATION",
         "MEASURE_BACKLASH_WHEN_PROBING",
-        "BACKLASH_GCODE"
+        "BACKLASH_GCODE",
+        "BACKLASH_COMPENSATION"
       ],
       "examples": [
         "0.5"
@@ -3373,9 +3373,9 @@
       "lineNumber": 1304,
       "isConditional": true,
       "conditionalOn": [
-        "BACKLASH_COMPENSATION",
         "MEASURE_BACKLASH_WHEN_PROBING",
-        "BACKLASH_GCODE"
+        "BACKLASH_GCODE",
+        "BACKLASH_COMPENSATION"
       ],
       "examples": [
         "0.005"
@@ -3967,8 +3967,8 @@
       "lineNumber": 1431,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4451",
         "DIGIPOT_MCP4018",
+        "DIGIPOT_MCP4451",
         "EITHER"
       ],
       "examples": [
@@ -3985,8 +3985,8 @@
       "lineNumber": 1435,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4451",
         "DIGIPOT_MCP4018",
+        "DIGIPOT_MCP4451",
         "EITHER"
       ],
       "examples": [
@@ -4004,8 +4004,8 @@
       "lineNumber": 1437,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4451",
         "DIGIPOT_MCP4018",
+        "DIGIPOT_MCP4451",
         "EITHER"
       ],
       "examples": [
@@ -4022,8 +4022,8 @@
       "lineNumber": 1449,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4451",
         "DIGIPOT_MCP4018",
+        "DIGIPOT_MCP4451",
         "EITHER"
       ],
       "examples": [
@@ -4040,8 +4040,8 @@
       "lineNumber": 1450,
       "isConditional": true,
       "conditionalOn": [
-        "DIGIPOT_MCP4451",
         "DIGIPOT_MCP4018",
+        "DIGIPOT_MCP4451",
         "EITHER"
       ],
       "examples": [
@@ -4058,8 +4058,8 @@
       "lineNumber": 1464,
       "isConditional": true,
       "conditionalOn": [
-        "IS_ULTIPANEL",
-        "HAS_MANUAL_MOVE_MENU"
+        "HAS_MANUAL_MOVE_MENU",
+        "IS_ULTIPANEL"
       ],
       "examples": [
         "// Encoder sets the feedrate multiplier on the Status Screen"
@@ -4117,8 +4117,8 @@
       "lineNumber": 1506,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "HAS_BED_PROBE",
+        "HAS_MARLINUI_MENU"
       ],
       "notes": "Add calibration in the Probe Offsets menu to compensate for X-axis twist."
     },
@@ -4132,9 +4132,9 @@
       "lineNumber": 1513,
       "isConditional": true,
       "conditionalOn": [
-        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "X_AXIS_TWIST_COMPENSATION"
       ],
       "examples": [
         "0.0"
@@ -4150,9 +4150,9 @@
       "lineNumber": 1514,
       "isConditional": true,
       "conditionalOn": [
-        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "X_AXIS_TWIST_COMPENSATION"
       ],
       "examples": [
         "3"
@@ -4168,9 +4168,9 @@
       "lineNumber": 1515,
       "isConditional": true,
       "conditionalOn": [
-        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "X_AXIS_TWIST_COMPENSATION"
       ],
       "examples": [
         "Y_CENTER"
@@ -4186,9 +4186,9 @@
       "lineNumber": 1516,
       "isConditional": true,
       "conditionalOn": [
-        "X_AXIS_TWIST_COMPENSATION",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "X_AXIS_TWIST_COMPENSATION"
       ],
       "examples": [
         "{ 0, 0, 0 }"
@@ -4204,8 +4204,8 @@
       "lineNumber": 1533,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_MENU",
-        "SPACE_SAVER_2560"
+        "SPACE_SAVER_2560",
+        "HAS_MARLINUI_MENU"
       ]
     },
     "soundMenuItem": {
@@ -4218,9 +4218,9 @@
       "lineNumber": 1542,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "DWIN_CREALITY_LCD_JYERSUI"
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Add a mute option to the LCD menu"
@@ -4236,9 +4236,9 @@
       "lineNumber": 1543,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "DWIN_CREALITY_LCD_JYERSUI"
+        "DWIN_CREALITY_LCD_JYERSUI",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Buzzer/speaker default enabled state"
@@ -4254,10 +4254,10 @@
       "lineNumber": 1551,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
         "SHOW_BOOTSCREEN",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "1000"
@@ -4273,11 +4273,11 @@
       "lineNumber": 1553,
       "isConditional": true,
       "conditionalOn": [
-        "SHOW_BOOTSCREEN",
         "TFT_COLOR_UI",
+        "SHOW_BOOTSCREEN",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
         "EITHER",
-        "HAS_DISPLAY",
         "HAS_MARLINUI_U8GLIB"
       ],
       "examples": [
@@ -4294,10 +4294,10 @@
       "lineNumber": 1559,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
         "DWIN_CREALITY_LCD",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ]
     },
     "statusMessageTimeoutSec": {
@@ -4310,9 +4310,9 @@
       "lineNumber": 1563,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "30"
@@ -4329,10 +4329,10 @@
       "lineNumber": 1578,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
-        "DWIN_LCD_PROUI",
         "RGB_LIGHTS",
-        "EITHER"
+        "DWIN_LCD_PROUI",
+        "EITHER",
+        "HAS_DISPLAY"
       ]
     },
     "ledColorPresets": {
@@ -4345,10 +4345,10 @@
       "lineNumber": 1581,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
         "LED_CONTROL_MENU",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Enable the Preset Color menu option"
@@ -4366,10 +4366,10 @@
       "lineNumber": 1582,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
         "LED_CONTROL_MENU",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Enable a second NeoPixel Preset Color menu option"
@@ -4385,10 +4385,10 @@
       "lineNumber": 1584,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -4405,10 +4405,10 @@
       "lineNumber": 1585,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -4425,10 +4425,10 @@
       "lineNumber": 1586,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -4445,10 +4445,10 @@
       "lineNumber": 1587,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -4465,10 +4465,10 @@
       "lineNumber": 1588,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -4485,10 +4485,10 @@
       "lineNumber": 1589,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
-        "DWIN_LCD_PROUI",
-        "EITHER",
         "HAS_DISPLAY",
+        "DWIN_LCD_PROUI",
+        "LED_CONTROL_MENU",
+        "EITHER",
         "LED_COLOR_PRESETS"
       ],
       "examples": [
@@ -4505,11 +4505,11 @@
       "lineNumber": 1592,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "255"
@@ -4525,11 +4525,11 @@
       "lineNumber": 1593,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "128"
@@ -4545,11 +4545,11 @@
       "lineNumber": 1594,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "0"
@@ -4565,11 +4565,11 @@
       "lineNumber": 1595,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "255"
@@ -4585,11 +4585,11 @@
       "lineNumber": 1596,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "255"
@@ -4605,11 +4605,11 @@
       "lineNumber": 1597,
       "isConditional": true,
       "conditionalOn": [
-        "LED_CONTROL_MENU",
         "NEO2_COLOR_PRESETS",
+        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER",
-        "HAS_DISPLAY"
+        "LED_CONTROL_MENU",
+        "EITHER"
       ],
       "examples": [
         "// Have the printer display the user preset color on startup for the second strip"
@@ -4702,10 +4702,10 @@
       "lineNumber": 1620,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
         "SDSUPPORT",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Show print progress percentage (doesn't affect progress bar)"
@@ -4721,10 +4721,10 @@
       "lineNumber": 1621,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
         "SDSUPPORT",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Display elapsed printing time (prefix 'E')"
@@ -4740,10 +4740,10 @@
       "lineNumber": 1622,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
         "SDSUPPORT",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Display estimated time to completion (prefix 'R')"
@@ -4759,11 +4759,11 @@
       "lineNumber": 1624,
       "isConditional": true,
       "conditionalOn": [
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "SET_INTERACTION_TIME"
+        "HAS_DISPLAY",
+        "SET_INTERACTION_TIME",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "// Display time until next user interaction ('C' = filament change)"
@@ -4779,10 +4779,10 @@
       "lineNumber": 1626,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
         "SDSUPPORT",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "// Show/report progress with decimal digits, not all UIs support this"
@@ -4798,13 +4798,13 @@
       "lineNumber": 1631,
       "isConditional": true,
       "conditionalOn": [
-        "LCD_PROGRESS_BAR",
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "2000"
@@ -4820,13 +4820,13 @@
       "lineNumber": 1632,
       "isConditional": true,
       "conditionalOn": [
-        "LCD_PROGRESS_BAR",
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "3000"
@@ -4842,13 +4842,13 @@
       "lineNumber": 1633,
       "isConditional": true,
       "conditionalOn": [
-        "LCD_PROGRESS_BAR",
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "0"
@@ -4864,13 +4864,13 @@
       "lineNumber": 1634,
       "isConditional": true,
       "conditionalOn": [
-        "LCD_PROGRESS_BAR",
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "// Show the message for MSG_TIME then clear it"
@@ -5000,8 +5000,8 @@
       "lineNumber": 1703,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "examples": [
         "true"
@@ -5017,8 +5017,8 @@
       "lineNumber": 1704,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "examples": [
         "// Backup power / UPS to move the steppers on power loss"
@@ -5034,8 +5034,8 @@
       "lineNumber": 1705,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "examples": [
         "2"
@@ -5051,8 +5051,8 @@
       "lineNumber": 1706,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "examples": [
         "-1"
@@ -5068,8 +5068,8 @@
       "lineNumber": 1707,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "examples": [
         "HIGH"
@@ -5085,8 +5085,8 @@
       "lineNumber": 1708,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "examples": [
         "// Set pullup / pulldown as appropriate for your sensor"
@@ -5102,8 +5102,8 @@
       "lineNumber": 1709,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ]
     },
     "powerLossPurgeLen": {
@@ -5116,8 +5116,8 @@
       "lineNumber": 1710,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "examples": [
         "20"
@@ -5133,8 +5133,8 @@
       "lineNumber": 1711,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "examples": [
         "10"
@@ -5150,8 +5150,8 @@
       "lineNumber": 1715,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "examples": [
         "0.05"
@@ -5168,8 +5168,8 @@
       "lineNumber": 1718,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "notes": "Enable if Z homing is needed for proper recovery. 99.9% of the time this should be disabled!"
     },
@@ -5196,8 +5196,8 @@
       "lineNumber": 1751,
       "isConditional": true,
       "conditionalOn": [
-        "SDCARD_SORT_ALPHA",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
       ],
       "examples": [
         "40"
@@ -5213,8 +5213,8 @@
       "lineNumber": 1752,
       "isConditional": true,
       "conditionalOn": [
-        "SDCARD_SORT_ALPHA",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
       ],
       "examples": [
         "-1"
@@ -5230,8 +5230,8 @@
       "lineNumber": 1753,
       "isConditional": true,
       "conditionalOn": [
-        "SDCARD_SORT_ALPHA",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
       ],
       "examples": [
         "false"
@@ -5247,8 +5247,8 @@
       "lineNumber": 1754,
       "isConditional": true,
       "conditionalOn": [
-        "SDCARD_SORT_ALPHA",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
       ],
       "examples": [
         "false"
@@ -5264,8 +5264,8 @@
       "lineNumber": 1755,
       "isConditional": true,
       "conditionalOn": [
-        "SDCARD_SORT_ALPHA",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
       ],
       "examples": [
         "false"
@@ -5281,8 +5281,8 @@
       "lineNumber": 1756,
       "isConditional": true,
       "conditionalOn": [
-        "SDCARD_SORT_ALPHA",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
       ],
       "examples": [
         "false"
@@ -5298,8 +5298,8 @@
       "lineNumber": 1757,
       "isConditional": true,
       "conditionalOn": [
-        "SDCARD_SORT_ALPHA",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
       ],
       "examples": [
         "false"
@@ -5315,8 +5315,8 @@
       "lineNumber": 1758,
       "isConditional": true,
       "conditionalOn": [
-        "SDCARD_SORT_ALPHA",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SDCARD_SORT_ALPHA"
       ],
       "examples": [
         "2"
@@ -5397,8 +5397,8 @@
       "lineNumber": 1773,
       "isConditional": true,
       "conditionalOn": [
-        "DWIN_CREALITY_LCD",
         "SPACE_SAVER_2560",
+        "DWIN_CREALITY_LCD",
         "SDSUPPORT"
       ],
       "examples": [
@@ -5472,9 +5472,9 @@
       "lineNumber": 1831,
       "isConditional": true,
       "conditionalOn": [
-        "USE_OTG_USB_HOST",
         "USB_FLASH_DRIVE_SUPPORT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "USE_OTG_USB_HOST"
       ],
       "examples": [
         "SDSS"
@@ -5490,9 +5490,9 @@
       "lineNumber": 1832,
       "isConditional": true,
       "conditionalOn": [
-        "USE_OTG_USB_HOST",
         "USB_FLASH_DRIVE_SUPPORT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "USE_OTG_USB_HOST"
       ],
       "examples": [
         "SD_DETECT_PIN"
@@ -5583,8 +5583,8 @@
       "lineNumber": 1893,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ]
     },
     "volume": {
@@ -5597,8 +5597,8 @@
       "lineNumber": 1894,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ],
       "examples": [
         "SV_SD_ONBOARD"
@@ -5614,8 +5614,8 @@
       "lineNumber": 1895,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ],
       "examples": [
         "SV_USB_FLASH_DRIVE"
@@ -5718,9 +5718,9 @@
       "lineNumber": 1961,
       "isConditional": true,
       "conditionalOn": [
+        "LIGHTWEIGHT_UI",
         "HAS_MARLINUI_U8GLIB",
-        "IS_U8GLIB_ST7920",
-        "LIGHTWEIGHT_UI"
+        "IS_U8GLIB_ST7920"
       ],
       "examples": [
         "20"
@@ -5898,8 +5898,8 @@
       "lineNumber": 1986,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
-        "SPACE_SAVER_2560"
+        "SPACE_SAVER_2560",
+        "HAS_MARLINUI_U8GLIB"
       ],
       "examples": [
         "// Animated Marlin logo. Costs ~3260 (or ~940) bytes of flash."
@@ -5973,8 +5973,8 @@
       "lineNumber": 2000,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
-        "IS_DWIN_MARLINUI"
+        "IS_DWIN_MARLINUI",
+        "HAS_MARLINUI_U8GLIB"
       ],
       "examples": [
         "// Enable to save many cycles by drawing a hollow frame on Menu Screens"
@@ -5990,8 +5990,8 @@
       "lineNumber": 2001,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
-        "IS_DWIN_MARLINUI"
+        "IS_DWIN_MARLINUI",
+        "HAS_MARLINUI_U8GLIB"
       ],
       "examples": [
         "// Swap the CW/CCW indicators in the graphics overlay"
@@ -6071,10 +6071,10 @@
       "lineNumber": 2017,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY"
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS"
       ],
       "examples": [
         "// Display the filename during printing"
@@ -6090,15 +6090,15 @@
       "lineNumber": 2023,
       "isConditional": true,
       "conditionalOn": [
+        "DGUS_LCD_UI_FYSETC",
         "DGUS_LCD_UI_HIPRECY",
         "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_FYSETC",
         "DGUS_LCD_UI_MKS"
       ],
       "conditionalOnNot": [
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "EITHER"
+        "EITHER",
+        "DGUS_LCD_UI_MKS"
       ],
       "conditionalExpression": [
         "else block"
@@ -6117,10 +6117,10 @@
       "lineNumber": 2026,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY"
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS"
       ]
     },
     "dgusFilamentPurgeLength": {
@@ -6133,11 +6133,11 @@
       "lineNumber": 2028,
       "isConditional": true,
       "conditionalOn": [
+        "DGUS_FILAMENT_LOADUNLOAD",
+        "DGUS_LCD_UI_FYSETC",
         "DGUS_LCD_UI_HIPRECY",
         "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_MKS",
-        "DGUS_FILAMENT_LOADUNLOAD"
+        "DGUS_LCD_UI_MKS"
       ],
       "examples": [
         "10"
@@ -6153,11 +6153,11 @@
       "lineNumber": 2029,
       "isConditional": true,
       "conditionalOn": [
+        "DGUS_FILAMENT_LOADUNLOAD",
+        "DGUS_LCD_UI_FYSETC",
         "DGUS_LCD_UI_HIPRECY",
         "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_MKS",
-        "DGUS_FILAMENT_LOADUNLOAD"
+        "DGUS_LCD_UI_MKS"
       ],
       "examples": [
         "0.5"
@@ -6173,10 +6173,10 @@
       "lineNumber": 2032,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY"
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS"
       ],
       "examples": [
         "// Show a \"waiting\" screen between some screens"
@@ -6192,11 +6192,11 @@
       "lineNumber": 2034,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_LCD_UI_HIPRECY",
-        "DGUS_UI_WAITING",
-        "HAS_DGUS_LCD",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_MKS"
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_UI_WAITING"
       ],
       "examples": [
         "10"
@@ -6212,11 +6212,11 @@
       "lineNumber": 2035,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_LCD_UI_HIPRECY",
-        "DGUS_UI_WAITING",
-        "HAS_DGUS_LCD",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_MKS"
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_MKS",
+        "DGUS_UI_WAITING"
       ],
       "examples": [
         "8"
@@ -7061,9 +7061,9 @@
       "lineNumber": 2234,
       "isConditional": true,
       "conditionalOn": [
-        "MOVE_Z_WHEN_IDLE",
         "BABYSTEPPING",
-        "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+        "DOUBLECLICK_FOR_Z_BABYSTEPPING",
+        "MOVE_Z_WHEN_IDLE"
       ],
       "examples": [
         "1"
@@ -7079,13 +7079,13 @@
       "lineNumber": 2244,
       "isConditional": true,
       "conditionalOn": [
-        "ABL_ENABLE",
+        "DWIN_CREALITY_LCD",
         "BABYSTEP_ZPROBE_OFFSET",
         "DWIN_CREALITY_LCD_JYERSUI",
-        "DWIN_CREALITY_LCD",
-        "BABYSTEPPING",
-        "DWIN_MARLINUI_LANDSCAPE",
+        "ABL_ENABLE",
         "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_MARLINUI_LANDSCAPE",
+        "BABYSTEPPING",
         "DWIN_MARLINUI_PORTRAIT"
       ],
       "examples": [
@@ -7172,8 +7172,8 @@
       "lineNumber": 2334,
       "isConditional": true,
       "conditionalOn": [
-        "PROBE_SELECTED",
-        "IS_KINEMATIC"
+        "IS_KINEMATIC",
+        "PROBE_SELECTED"
       ],
       "examples": [
         "PROBING_MARGIN"
@@ -7189,8 +7189,8 @@
       "lineNumber": 2335,
       "isConditional": true,
       "conditionalOn": [
-        "PROBE_SELECTED",
-        "IS_KINEMATIC"
+        "IS_KINEMATIC",
+        "PROBE_SELECTED"
       ],
       "examples": [
         "PROBING_MARGIN"
@@ -7206,8 +7206,8 @@
       "lineNumber": 2336,
       "isConditional": true,
       "conditionalOn": [
-        "PROBE_SELECTED",
-        "IS_KINEMATIC"
+        "IS_KINEMATIC",
+        "PROBE_SELECTED"
       ],
       "examples": [
         "PROBING_MARGIN"
@@ -7223,8 +7223,8 @@
       "lineNumber": 2337,
       "isConditional": true,
       "conditionalOn": [
-        "PROBE_SELECTED",
-        "IS_KINEMATIC"
+        "IS_KINEMATIC",
+        "PROBE_SELECTED"
       ],
       "examples": [
         "PROBING_MARGIN"
@@ -7352,8 +7352,8 @@
       "lineNumber": 2392,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -7370,8 +7370,8 @@
       "lineNumber": 2413,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -7389,8 +7389,8 @@
       "lineNumber": 2414,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -7407,8 +7407,8 @@
       "lineNumber": 2415,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -7425,8 +7425,8 @@
       "lineNumber": 2416,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -7444,8 +7444,8 @@
       "isConditional": true,
       "conditionalOn": [
         "BOTH",
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -7588,9 +7588,9 @@
       "lineNumber": 2465,
       "isConditional": true,
       "conditionalOn": [
-        "BEZIER_CURVE_SUPPORT",
         "ARC_SUPPORT",
-        "EITHER"
+        "EITHER",
+        "BEZIER_CURVE_SUPPORT"
       ],
       "examples": [
         "// Allow G2/G3/G5 to operate in XY, ZX, or YZ planes"
@@ -7942,8 +7942,8 @@
       "lineNumber": 2699,
       "isConditional": true,
       "conditionalOn": [
-        "FWRETRACT",
-        "FWRETRACT_AUTORETRACT"
+        "FWRETRACT_AUTORETRACT",
+        "FWRETRACT"
       ],
       "examples": [
         "0.1"
@@ -7959,8 +7959,8 @@
       "lineNumber": 2700,
       "isConditional": true,
       "conditionalOn": [
-        "FWRETRACT",
-        "FWRETRACT_AUTORETRACT"
+        "FWRETRACT_AUTORETRACT",
+        "FWRETRACT"
       ],
       "examples": [
         "10.0"
@@ -8530,8 +8530,8 @@
         "ADVANCED_PAUSE_FEATURE"
       ],
       "conditionalOnNot": [
-        "MOUNTED_FILAMENT_SENSOR",
-        "FILAMENT_CHANGE_UNLOAD_LENGTH"
+        "FILAMENT_CHANGE_UNLOAD_LENGTH",
+        "MOUNTED_FILAMENT_SENSOR"
       ],
       "conditionalExpression": [
         "else block"
@@ -8762,8 +8762,8 @@
       "lineNumber": 2902,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -8779,8 +8779,8 @@
       "lineNumber": 2908,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -8797,19 +8797,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "X",
         "AXIS_IS_TMC_CONFIG",
+        "X",
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -8829,19 +8829,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "X",
         "AXIS_IS_TMC_CONFIG",
+        "X",
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -8861,19 +8861,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "X",
         "AXIS_IS_TMC_CONFIG",
+        "X",
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -8893,19 +8893,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "X",
         "AXIS_IS_TMC_CONFIG",
+        "X",
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -8925,19 +8925,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "X",
         "AXIS_IS_TMC_CONFIG",
+        "X",
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -8957,19 +8957,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "X",
         "AXIS_IS_TMC_CONFIG",
+        "X",
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -8989,19 +8989,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "X",
         "AXIS_IS_TMC_CONFIG",
+        "X",
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9020,10 +9020,10 @@
       "lineNumber": 2942,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "X2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "X2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "800"
@@ -9039,10 +9039,10 @@
       "lineNumber": 2943,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "X2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "X2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "X2_CURRENT"
@@ -9058,10 +9058,10 @@
       "lineNumber": 2944,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "X2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "X2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "X_MICROSTEPS"
@@ -9077,10 +9077,10 @@
       "lineNumber": 2945,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "X2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "X2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.11"
@@ -9096,10 +9096,10 @@
       "lineNumber": 2946,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "X2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "X2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -9115,10 +9115,10 @@
       "lineNumber": 2947,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "X2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "X2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -9134,10 +9134,10 @@
       "lineNumber": 2948,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "X2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "X2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -9159,14 +9159,14 @@
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9191,14 +9191,14 @@
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9223,14 +9223,14 @@
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9255,14 +9255,14 @@
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9287,14 +9287,14 @@
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9319,14 +9319,14 @@
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9351,14 +9351,14 @@
         "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9377,10 +9377,10 @@
       "lineNumber": 2987,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Y2",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "Y_CURRENT"
@@ -9396,10 +9396,10 @@
       "lineNumber": 2988,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Y2",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "Y_CURRENT_HOME"
@@ -9415,10 +9415,10 @@
       "lineNumber": 2989,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Y2",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "Y_MICROSTEPS"
@@ -9434,10 +9434,10 @@
       "lineNumber": 2990,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Y2",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "Y_RSENSE"
@@ -9453,10 +9453,10 @@
       "lineNumber": 2991,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Y2",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -9472,10 +9472,10 @@
       "lineNumber": 2992,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Y2",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -9493,10 +9493,10 @@
       "lineNumber": 2993,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Y2",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -9513,19 +9513,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "Z",
         "AXIS_IS_TMC_CONFIG",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Z"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9545,19 +9545,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "Z",
         "AXIS_IS_TMC_CONFIG",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Z"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9577,19 +9577,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "Z",
         "AXIS_IS_TMC_CONFIG",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Z"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9609,19 +9609,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "Z",
         "AXIS_IS_TMC_CONFIG",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Z"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9641,19 +9641,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "Z",
         "AXIS_IS_TMC_CONFIG",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Z"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9673,19 +9673,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "Z",
         "AXIS_IS_TMC_CONFIG",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Z"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9705,19 +9705,19 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "Z",
         "AXIS_IS_TMC_CONFIG",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Z"
       ],
       "conditionalOnNot": [
-        "EZBOARD_V2",
+        "SOVOL_SV06",
+        "EZBOARD",
         "E3FREERUNS",
-        "SKR_E3_MINI_BOARD",
+        "EZBOARD_V2",
         "SKR_E3_MINI_V3_0",
         "DIY_TMCBOARD",
-        "SOVOL_SV06_PLUS",
-        "EZBOARD",
-        "SOVOL_SV06"
+        "SKR_E3_MINI_BOARD",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -9737,9 +9737,9 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
         "AXIS_IS_TMC_CONFIG",
-        "Z2"
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
         "DIY_TMCBOARD"
@@ -9762,9 +9762,9 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
         "AXIS_IS_TMC_CONFIG",
-        "Z2"
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
         "DIY_TMCBOARD"
@@ -9787,9 +9787,9 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
         "AXIS_IS_TMC_CONFIG",
-        "Z2"
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
         "DIY_TMCBOARD"
@@ -9812,9 +9812,9 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
         "AXIS_IS_TMC_CONFIG",
-        "Z2"
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
         "DIY_TMCBOARD"
@@ -9837,9 +9837,9 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
         "AXIS_IS_TMC_CONFIG",
-        "Z2"
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
         "DIY_TMCBOARD"
@@ -9862,9 +9862,9 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
         "AXIS_IS_TMC_CONFIG",
-        "Z2"
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
         "DIY_TMCBOARD"
@@ -9887,9 +9887,9 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG",
         "AXIS_IS_TMC_CONFIG",
-        "Z2"
+        "Z2",
+        "HAS_TRINAMIC_CONFIG"
       ],
       "conditionalOnNot": [
         "DIY_TMCBOARD"
@@ -9911,10 +9911,10 @@
       "lineNumber": 3063,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "Z3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "Z3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "Z_CURRENT"
@@ -9930,10 +9930,10 @@
       "lineNumber": 3064,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "Z3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "Z3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "Z_CURRENT_HOME"
@@ -9949,10 +9949,10 @@
       "lineNumber": 3065,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "Z3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "Z3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "Z_MICROSTEPS"
@@ -9968,10 +9968,10 @@
       "lineNumber": 3066,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "Z3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "Z3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "Z_RSENSE"
@@ -9987,10 +9987,10 @@
       "lineNumber": 3067,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "Z3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "Z3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -10006,10 +10006,10 @@
       "lineNumber": 3068,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "Z3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "Z3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -10025,10 +10025,10 @@
       "lineNumber": 3069,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "Z3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "Z3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -10044,10 +10044,10 @@
       "lineNumber": 3073,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Z4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "Z_CURRENT"
@@ -10063,10 +10063,10 @@
       "lineNumber": 3074,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Z4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "Z_CURRENT_HOME"
@@ -10082,10 +10082,10 @@
       "lineNumber": 3075,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Z4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "Z_MICROSTEPS"
@@ -10101,10 +10101,10 @@
       "lineNumber": 3076,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Z4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "Z_RSENSE"
@@ -10120,10 +10120,10 @@
       "lineNumber": 3077,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Z4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -10139,10 +10139,10 @@
       "lineNumber": 3078,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Z4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -10158,10 +10158,10 @@
       "lineNumber": 3079,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "Z4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -10177,10 +10177,10 @@
       "lineNumber": 3083,
       "isConditional": true,
       "conditionalOn": [
-        "I",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "I",
+        "HAS_TMC26X"
       ],
       "examples": [
         "800"
@@ -10198,10 +10198,10 @@
       "lineNumber": 3084,
       "isConditional": true,
       "conditionalOn": [
-        "I",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "I",
+        "HAS_TMC26X"
       ],
       "examples": [
         "I_CURRENT"
@@ -10217,10 +10217,10 @@
       "lineNumber": 3085,
       "isConditional": true,
       "conditionalOn": [
-        "I",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "I",
+        "HAS_TMC26X"
       ],
       "examples": [
         "16"
@@ -10236,10 +10236,10 @@
       "lineNumber": 3086,
       "isConditional": true,
       "conditionalOn": [
-        "I",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "I",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.11"
@@ -10255,10 +10255,10 @@
       "lineNumber": 3087,
       "isConditional": true,
       "conditionalOn": [
-        "I",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "I",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -10274,10 +10274,10 @@
       "lineNumber": 3088,
       "isConditional": true,
       "conditionalOn": [
-        "I",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "I",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -10293,10 +10293,10 @@
       "lineNumber": 3089,
       "isConditional": true,
       "conditionalOn": [
-        "I",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "I",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -10312,10 +10312,10 @@
       "lineNumber": 3093,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "J",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "800"
@@ -10331,10 +10331,10 @@
       "lineNumber": 3094,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "J",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "J_CURRENT"
@@ -10350,10 +10350,10 @@
       "lineNumber": 3095,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "J",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "16"
@@ -10369,10 +10369,10 @@
       "lineNumber": 3096,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "J",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.11"
@@ -10388,10 +10388,10 @@
       "lineNumber": 3097,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "J",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -10407,10 +10407,10 @@
       "lineNumber": 3098,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "J",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -10426,10 +10426,10 @@
       "lineNumber": 3099,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "J",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -10445,10 +10445,10 @@
       "lineNumber": 3103,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "K",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "K",
+        "HAS_TMC26X"
       ],
       "examples": [
         "800"
@@ -10464,10 +10464,10 @@
       "lineNumber": 3104,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "K",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "K",
+        "HAS_TMC26X"
       ],
       "examples": [
         "K_CURRENT"
@@ -10483,10 +10483,10 @@
       "lineNumber": 3105,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "K",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "K",
+        "HAS_TMC26X"
       ],
       "examples": [
         "16"
@@ -10502,10 +10502,10 @@
       "lineNumber": 3106,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "K",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "K",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.11"
@@ -10521,10 +10521,10 @@
       "lineNumber": 3107,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "K",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "K",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -10540,10 +10540,10 @@
       "lineNumber": 3108,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "K",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "K",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -10559,10 +10559,10 @@
       "lineNumber": 3109,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "K",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "K",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -10578,10 +10578,10 @@
       "lineNumber": 3113,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "U",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "U",
+        "HAS_TMC26X"
       ],
       "examples": [
         "800"
@@ -10597,10 +10597,10 @@
       "lineNumber": 3114,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "U",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "U",
+        "HAS_TMC26X"
       ],
       "examples": [
         "U_CURRENT"
@@ -10616,10 +10616,10 @@
       "lineNumber": 3115,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "U",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "U",
+        "HAS_TMC26X"
       ],
       "examples": [
         "8"
@@ -10635,10 +10635,10 @@
       "lineNumber": 3116,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "U",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "U",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.11"
@@ -10654,10 +10654,10 @@
       "lineNumber": 3117,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "U",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "U",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -10673,10 +10673,10 @@
       "lineNumber": 3118,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "U",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "U",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -10692,10 +10692,10 @@
       "lineNumber": 3119,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "U",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "U",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -10711,10 +10711,10 @@
       "lineNumber": 3123,
       "isConditional": true,
       "conditionalOn": [
-        "V",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "V",
+        "HAS_TMC26X"
       ],
       "examples": [
         "800"
@@ -10730,10 +10730,10 @@
       "lineNumber": 3124,
       "isConditional": true,
       "conditionalOn": [
-        "V",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "V",
+        "HAS_TMC26X"
       ],
       "examples": [
         "V_CURRENT"
@@ -10749,10 +10749,10 @@
       "lineNumber": 3125,
       "isConditional": true,
       "conditionalOn": [
-        "V",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "V",
+        "HAS_TMC26X"
       ],
       "examples": [
         "8"
@@ -10770,10 +10770,10 @@
       "lineNumber": 3126,
       "isConditional": true,
       "conditionalOn": [
-        "V",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "V",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.11"
@@ -10789,10 +10789,10 @@
       "lineNumber": 3127,
       "isConditional": true,
       "conditionalOn": [
-        "V",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "V",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -10808,10 +10808,10 @@
       "lineNumber": 3128,
       "isConditional": true,
       "conditionalOn": [
-        "V",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "V",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -10827,10 +10827,10 @@
       "lineNumber": 3129,
       "isConditional": true,
       "conditionalOn": [
-        "V",
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "V",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -10846,10 +10846,10 @@
       "lineNumber": 3133,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "800"
@@ -10865,10 +10865,10 @@
       "lineNumber": 3134,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "W_CURRENT"
@@ -10884,10 +10884,10 @@
       "lineNumber": 3135,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "8"
@@ -10903,10 +10903,10 @@
       "lineNumber": 3136,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.11"
@@ -10922,10 +10922,10 @@
       "lineNumber": 3137,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -10941,10 +10941,10 @@
       "lineNumber": 3138,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -10960,10 +10960,10 @@
       "lineNumber": 3139,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "W",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "W",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -10979,18 +10979,18 @@
       "lineNumber": 3149,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "conditionalOnNot": [
         "E0_MOTOR_CURRENT"
@@ -11012,18 +11012,18 @@
       "lineNumber": 3152,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "examples": [
         "16"
@@ -11039,22 +11039,22 @@
       "lineNumber": 3156,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -11073,18 +11073,18 @@
       "lineNumber": 3158,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "examples": [
         "-1"
@@ -11100,18 +11100,18 @@
       "lineNumber": 3159,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "examples": [
         "true"
@@ -11127,18 +11127,18 @@
       "lineNumber": 3160,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "SKR_E3_MINI_BOARD",
-        "SOVOL_SV06",
-        "EZBOARD",
-        "DIY_TMCBOARD",
-        "E3FREERUNS",
-        "EZBOARD_V2",
-        "E0",
-        "SKR_E3_MINI_V3_0",
-        "AXIS_IS_TMC_CONFIG",
         "SOVOL_SV06_PLUS",
-        "HAS_TRINAMIC_CONFIG"
+        "EZBOARD_V2",
+        "HAS_TMC26X",
+        "SKR_E3_MINI_V3_0",
+        "HAS_TRINAMIC_CONFIG",
+        "SOVOL_SV06",
+        "DIY_TMCBOARD",
+        "SKR_E3_MINI_BOARD",
+        "E0",
+        "AXIS_IS_TMC_CONFIG",
+        "E3FREERUNS",
+        "EZBOARD"
       ],
       "examples": [
         "0.5"
@@ -11155,10 +11155,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "conditionalOnNot": [
         "E0_MOTOR_CURRENT"
@@ -11181,10 +11181,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -11201,10 +11201,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "examples": [
         "0.11"
@@ -11221,10 +11221,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "examples": [
         "-1"
@@ -11241,10 +11241,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "examples": [
         "true"
@@ -11261,10 +11261,10 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "DIY_TMCBOARD",
-        "AXIS_IS_TMC_CONFIG",
         "E1",
-        "HAS_TRINAMIC_CONFIG"
+        "AXIS_IS_TMC_CONFIG"
       ],
       "examples": [
         "0.5"
@@ -11280,10 +11280,10 @@
       "lineNumber": 3180,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_CURRENT"
@@ -11299,10 +11299,10 @@
       "lineNumber": 3181,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -11318,10 +11318,10 @@
       "lineNumber": 3182,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_RSENSE"
@@ -11337,10 +11337,10 @@
       "lineNumber": 3183,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -11356,10 +11356,10 @@
       "lineNumber": 3184,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -11375,10 +11375,10 @@
       "lineNumber": 3185,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E2",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E2",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -11394,10 +11394,10 @@
       "lineNumber": 3189,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_CURRENT"
@@ -11415,10 +11415,10 @@
       "lineNumber": 3190,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -11434,10 +11434,10 @@
       "lineNumber": 3191,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_RSENSE"
@@ -11453,10 +11453,10 @@
       "lineNumber": 3192,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -11472,10 +11472,10 @@
       "lineNumber": 3193,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -11491,10 +11491,10 @@
       "lineNumber": 3194,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "E3",
+        "AXIS_IS_TMC_CONFIG",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "E3",
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -11510,10 +11510,10 @@
       "lineNumber": 3198,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_CURRENT"
@@ -11529,10 +11529,10 @@
       "lineNumber": 3199,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -11548,10 +11548,10 @@
       "lineNumber": 3200,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_RSENSE"
@@ -11567,10 +11567,10 @@
       "lineNumber": 3201,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -11586,10 +11586,10 @@
       "lineNumber": 3202,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -11605,10 +11605,10 @@
       "lineNumber": 3203,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E4",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -11624,10 +11624,10 @@
       "lineNumber": 3207,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E5",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_CURRENT"
@@ -11643,10 +11643,10 @@
       "lineNumber": 3208,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E5",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -11662,10 +11662,10 @@
       "lineNumber": 3209,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E5",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_RSENSE"
@@ -11681,10 +11681,10 @@
       "lineNumber": 3210,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E5",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -11700,10 +11700,10 @@
       "lineNumber": 3211,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E5",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -11719,10 +11719,10 @@
       "lineNumber": 3212,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E5",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -11738,10 +11738,10 @@
       "lineNumber": 3216,
       "isConditional": true,
       "conditionalOn": [
+        "AXIS_IS_TMC_CONFIG",
         "E6",
-        "HAS_TMC26X",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_CURRENT"
@@ -11757,10 +11757,10 @@
       "lineNumber": 3217,
       "isConditional": true,
       "conditionalOn": [
+        "AXIS_IS_TMC_CONFIG",
         "E6",
-        "HAS_TMC26X",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -11776,10 +11776,10 @@
       "lineNumber": 3218,
       "isConditional": true,
       "conditionalOn": [
+        "AXIS_IS_TMC_CONFIG",
         "E6",
-        "HAS_TMC26X",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_RSENSE"
@@ -11795,10 +11795,10 @@
       "lineNumber": 3219,
       "isConditional": true,
       "conditionalOn": [
+        "AXIS_IS_TMC_CONFIG",
         "E6",
-        "HAS_TMC26X",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -11814,10 +11814,10 @@
       "lineNumber": 3220,
       "isConditional": true,
       "conditionalOn": [
+        "AXIS_IS_TMC_CONFIG",
         "E6",
-        "HAS_TMC26X",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -11833,10 +11833,10 @@
       "lineNumber": 3221,
       "isConditional": true,
       "conditionalOn": [
+        "AXIS_IS_TMC_CONFIG",
         "E6",
-        "HAS_TMC26X",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -11852,10 +11852,10 @@
       "lineNumber": 3225,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E7",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_CURRENT"
@@ -11871,10 +11871,10 @@
       "lineNumber": 3226,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E7",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -11890,10 +11890,10 @@
       "lineNumber": 3227,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E7",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "E0_RSENSE"
@@ -11909,10 +11909,10 @@
       "lineNumber": 3228,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E7",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -11928,10 +11928,10 @@
       "lineNumber": 3229,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E7",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "true"
@@ -11947,10 +11947,10 @@
       "lineNumber": 3230,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "AXIS_IS_TMC_CONFIG",
         "E7",
         "HAS_TRINAMIC_CONFIG",
-        "AXIS_IS_TMC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "0.5"
@@ -11966,8 +11966,8 @@
       "lineNumber": 3239,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -11985,8 +11985,8 @@
       "lineNumber": 3240,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12002,8 +12002,8 @@
       "lineNumber": 3241,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12019,8 +12019,8 @@
       "lineNumber": 3242,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12036,8 +12036,8 @@
       "lineNumber": 3243,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12053,8 +12053,8 @@
       "lineNumber": 3244,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12070,8 +12070,8 @@
       "lineNumber": 3245,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12087,8 +12087,8 @@
       "lineNumber": 3246,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12104,8 +12104,8 @@
       "lineNumber": 3247,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12121,8 +12121,8 @@
       "lineNumber": 3248,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12138,8 +12138,8 @@
       "lineNumber": 3249,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12155,8 +12155,8 @@
       "lineNumber": 3250,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12172,8 +12172,8 @@
       "lineNumber": 3251,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12189,8 +12189,8 @@
       "lineNumber": 3252,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12206,8 +12206,8 @@
       "lineNumber": 3253,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12223,8 +12223,8 @@
       "lineNumber": 3254,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12240,8 +12240,8 @@
       "lineNumber": 3255,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12257,8 +12257,8 @@
       "lineNumber": 3256,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12274,8 +12274,8 @@
       "lineNumber": 3257,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12291,8 +12291,8 @@
       "lineNumber": 3258,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12308,8 +12308,8 @@
       "lineNumber": 3259,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12325,8 +12325,8 @@
       "lineNumber": 3260,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12342,8 +12342,8 @@
       "lineNumber": 3267,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ]
     },
     "tmcSpiMosi": {
@@ -12356,8 +12356,8 @@
       "lineNumber": 3268,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12373,8 +12373,8 @@
       "lineNumber": 3269,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12390,8 +12390,8 @@
       "lineNumber": 3270,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "-1"
@@ -12407,12 +12407,12 @@
       "lineNumber": 3361,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12431,12 +12431,12 @@
       "lineNumber": 3362,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12455,12 +12455,12 @@
       "lineNumber": 3363,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12479,12 +12479,12 @@
       "lineNumber": 3364,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12503,12 +12503,12 @@
       "lineNumber": 3365,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12529,12 +12529,12 @@
       "lineNumber": 3366,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12553,12 +12553,12 @@
       "lineNumber": 3367,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12577,12 +12577,12 @@
       "lineNumber": 3368,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12601,12 +12601,12 @@
       "lineNumber": 3369,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12625,12 +12625,12 @@
       "lineNumber": 3370,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12649,12 +12649,12 @@
       "lineNumber": 3371,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12673,12 +12673,12 @@
       "lineNumber": 3372,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12697,12 +12697,12 @@
       "lineNumber": 3373,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12721,12 +12721,12 @@
       "lineNumber": 3374,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12745,12 +12745,12 @@
       "lineNumber": 3375,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12769,12 +12769,12 @@
       "lineNumber": 3376,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12793,12 +12793,12 @@
       "lineNumber": 3377,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12817,12 +12817,12 @@
       "lineNumber": 3378,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12841,12 +12841,12 @@
       "lineNumber": 3379,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12865,12 +12865,12 @@
       "lineNumber": 3380,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12889,12 +12889,12 @@
       "lineNumber": 3381,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12913,12 +12913,12 @@
       "lineNumber": 3382,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -12937,8 +12937,8 @@
       "lineNumber": 3393,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ]
     },
     "stealthchopXy": {
@@ -12951,10 +12951,10 @@
       "lineNumber": 3404,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "XY_SPREADCYCLE",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "XY_SPREADCYCLE",
+        "HAS_TMC26X"
       ]
     },
     "stealthchopZ": {
@@ -12967,10 +12967,10 @@
       "lineNumber": 3408,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_STEALTHCHOP",
         "Z_SPREADCYCLE",
-        "HAS_TMC26X",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopI": {
@@ -12983,9 +12983,9 @@
       "lineNumber": 3411,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopJ": {
@@ -12998,9 +12998,9 @@
       "lineNumber": 3412,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopK": {
@@ -13013,9 +13013,9 @@
       "lineNumber": 3413,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopU": {
@@ -13028,9 +13028,9 @@
       "lineNumber": 3414,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopV": {
@@ -13043,9 +13043,9 @@
       "lineNumber": 3415,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopW": {
@@ -13058,9 +13058,9 @@
       "lineNumber": 3416,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "stealthchopE": {
@@ -13073,10 +13073,10 @@
       "lineNumber": 3419,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_STEALTHCHOP",
         "E_STEALTHCHOP",
         "HAS_TRINAMIC_CONFIG",
-        "HAS_STEALTHCHOP"
+        "HAS_TMC26X"
       ]
     },
     "chopperTiming": {
@@ -13089,8 +13089,8 @@
       "lineNumber": 3441,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "conditionalOnNot": [
         "PRINTER_VOLTAGE_12"
@@ -13112,8 +13112,8 @@
       "lineNumber": 3443,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -13129,8 +13129,8 @@
       "lineNumber": 3444,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_X"
@@ -13148,8 +13148,8 @@
       "lineNumber": 3445,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -13165,8 +13165,8 @@
       "lineNumber": 3446,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_Y"
@@ -13182,8 +13182,8 @@
       "lineNumber": 3447,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -13199,8 +13199,8 @@
       "lineNumber": 3448,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_Z"
@@ -13216,8 +13216,8 @@
       "lineNumber": 3449,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_Z"
@@ -13233,8 +13233,8 @@
       "lineNumber": 3450,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_Z"
@@ -13250,8 +13250,8 @@
       "lineNumber": 3451,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -13267,8 +13267,8 @@
       "lineNumber": 3452,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -13284,8 +13284,8 @@
       "lineNumber": 3453,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -13301,8 +13301,8 @@
       "lineNumber": 3454,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -13318,8 +13318,8 @@
       "lineNumber": 3455,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -13335,8 +13335,8 @@
       "lineNumber": 3456,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -13352,8 +13352,8 @@
       "lineNumber": 3457,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING"
@@ -13369,8 +13369,8 @@
       "lineNumber": 3458,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -13386,8 +13386,8 @@
       "lineNumber": 3459,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -13403,8 +13403,8 @@
       "lineNumber": 3460,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -13420,8 +13420,8 @@
       "lineNumber": 3461,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -13437,8 +13437,8 @@
       "lineNumber": 3462,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -13454,8 +13454,8 @@
       "lineNumber": 3463,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -13471,8 +13471,8 @@
       "lineNumber": 3464,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "CHOPPER_TIMING_E"
@@ -13488,8 +13488,8 @@
       "lineNumber": 3479,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ]
     },
     "currentStepDown": {
@@ -13502,9 +13502,9 @@
       "lineNumber": 3482,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "MONITOR_DRIVER_STATUS",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "50"
@@ -13520,9 +13520,9 @@
       "lineNumber": 3483,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "MONITOR_DRIVER_STATUS",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TMC26X"
       ]
     },
     "stopOnError": {
@@ -13535,9 +13535,9 @@
       "lineNumber": 3484,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
+        "HAS_TRINAMIC_CONFIG",
         "MONITOR_DRIVER_STATUS",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TMC26X"
       ]
     },
     "hybridThreshold": {
@@ -13550,8 +13550,8 @@
       "lineNumber": 3496,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ]
     },
     "xHybridThreshold": {
@@ -13564,8 +13564,8 @@
       "lineNumber": 3498,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "100"
@@ -13581,8 +13581,8 @@
       "lineNumber": 3499,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "100"
@@ -13598,8 +13598,8 @@
       "lineNumber": 3500,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "100"
@@ -13615,8 +13615,8 @@
       "lineNumber": 3501,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "100"
@@ -13632,8 +13632,8 @@
       "lineNumber": 3502,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "3"
@@ -13651,8 +13651,8 @@
       "lineNumber": 3503,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "3"
@@ -13668,8 +13668,8 @@
       "lineNumber": 3504,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "3"
@@ -13685,8 +13685,8 @@
       "lineNumber": 3505,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "3"
@@ -13702,8 +13702,8 @@
       "lineNumber": 3506,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "3"
@@ -13719,8 +13719,8 @@
       "lineNumber": 3507,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "3"
@@ -13736,8 +13736,8 @@
       "lineNumber": 3508,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "3"
@@ -13753,8 +13753,8 @@
       "lineNumber": 3509,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "3"
@@ -13770,8 +13770,8 @@
       "lineNumber": 3510,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "3"
@@ -13787,8 +13787,8 @@
       "lineNumber": 3511,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "3"
@@ -13804,8 +13804,8 @@
       "lineNumber": 3512,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "30"
@@ -13821,8 +13821,8 @@
       "lineNumber": 3513,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "30"
@@ -13838,8 +13838,8 @@
       "lineNumber": 3514,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "30"
@@ -13855,8 +13855,8 @@
       "lineNumber": 3515,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "30"
@@ -13872,8 +13872,8 @@
       "lineNumber": 3516,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "30"
@@ -13889,8 +13889,8 @@
       "lineNumber": 3517,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "30"
@@ -13906,8 +13906,8 @@
       "lineNumber": 3518,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "30"
@@ -13923,8 +13923,8 @@
       "lineNumber": 3519,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "30"
@@ -13940,10 +13940,10 @@
       "lineNumber": 3548,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "X_AXIS_SENSORLESS_HOMING",
+        "HAS_TRINAMIC_CONFIG",
         "Y_AXIS_SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TMC26X"
       ],
       "examples": [
         "// StallGuard capable drivers only"
@@ -13959,12 +13959,12 @@
       "lineNumber": 3554,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "X_AXIS_SENSORLESS_HOMING",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "X_SH_CALIBRATION"
@@ -13980,12 +13980,12 @@
       "lineNumber": 3555,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "X_AXIS_SENSORLESS_HOMING",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "X_STALL_SENSITIVITY"
@@ -14001,12 +14001,12 @@
       "lineNumber": 3558,
       "isConditional": true,
       "conditionalOn": [
+        "SENSORLESS_PROBING",
         "HAS_TMC26X",
         "Y_AXIS_SENSORLESS_HOMING",
-        "SENSORLESS_PROBING",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "Y_SH_CALIBRATION"
@@ -14022,12 +14022,12 @@
       "lineNumber": 3559,
       "isConditional": true,
       "conditionalOn": [
+        "SENSORLESS_PROBING",
         "HAS_TMC26X",
         "Y_AXIS_SENSORLESS_HOMING",
-        "SENSORLESS_PROBING",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "Y_STALL_SENSITIVITY"
@@ -14043,11 +14043,11 @@
       "lineNumber": 3561,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -14063,11 +14063,11 @@
       "lineNumber": 3562,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "Z_STALL_SENSITIVITY"
@@ -14083,11 +14083,11 @@
       "lineNumber": 3563,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "Z_STALL_SENSITIVITY"
@@ -14103,11 +14103,11 @@
       "lineNumber": 3564,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "Z_STALL_SENSITIVITY"
@@ -14123,11 +14123,11 @@
       "lineNumber": 3565,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -14143,11 +14143,11 @@
       "lineNumber": 3566,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -14163,11 +14163,11 @@
       "lineNumber": 3567,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -14183,11 +14183,11 @@
       "lineNumber": 3568,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -14205,11 +14205,11 @@
       "lineNumber": 3569,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -14225,11 +14225,11 @@
       "lineNumber": 3570,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "8"
@@ -14245,11 +14245,11 @@
       "lineNumber": 3572,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ]
     },
     "squareWaveStepping": {
@@ -14262,8 +14262,8 @@
       "lineNumber": 3592,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ]
     },
     "tmcDebug": {
@@ -14276,8 +14276,8 @@
       "lineNumber": 3598,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ]
     },
     "i2cMasterId": {
@@ -14505,9 +14505,9 @@
       "lineNumber": 3718,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "LOW"
@@ -14523,9 +14523,9 @@
       "lineNumber": 3720,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Enable if your controller supports setting the speed/power"
@@ -14541,10 +14541,10 @@
       "lineNumber": 3722,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "SPINDLE_LASER_USE_PWM",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "false"
@@ -14560,10 +14560,10 @@
       "lineNumber": 3723,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "SPINDLE_LASER_USE_PWM",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "2500"
@@ -14579,9 +14579,9 @@
       "lineNumber": 3729,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Cutter Vacuum / Laser Blower motor control with G-codes M10-M11"
@@ -14597,10 +14597,10 @@
       "lineNumber": 3731,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "AIR_EVACUATION",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "LOW"
@@ -14616,10 +14616,10 @@
       "lineNumber": 3732,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "AIR_EVACUATION",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "42"
@@ -14635,9 +14635,9 @@
       "lineNumber": 3735,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Air Assist control with G-codes M8-M9"
@@ -14653,10 +14653,10 @@
       "lineNumber": 3737,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "LASER_FEATURE",
         "AIR_ASSIST",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "LOW"
@@ -14672,10 +14672,10 @@
       "lineNumber": 3738,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
-        "LASER_FEATURE",
         "AIR_ASSIST",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "44"
@@ -14693,9 +14693,9 @@
       "lineNumber": 3741,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// A servo converting an angle to spindle power"
@@ -14711,10 +14711,10 @@
       "lineNumber": 3743,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "SPINDLE_SERVO",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "0"
@@ -14730,10 +14730,10 @@
       "lineNumber": 3744,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "SPINDLE_SERVO",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "10"
@@ -14749,9 +14749,9 @@
       "lineNumber": 3754,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "PWM255"
@@ -14767,9 +14767,9 @@
       "lineNumber": 3764,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Set speed proportional to [SPEED_POWER_MIN...SPEED_POWER_MAX]"
@@ -14785,9 +14785,9 @@
       "lineNumber": 3767,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Enable if your spindle controller can change spindle direction"
@@ -14803,9 +14803,9 @@
       "lineNumber": 3768,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Enable if the spindle should stop before changing spin direction"
@@ -14821,9 +14821,9 @@
       "lineNumber": 3769,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "false"
@@ -14839,9 +14839,9 @@
       "lineNumber": 3803,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -14863,9 +14863,9 @@
       "lineNumber": 3804,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -14887,10 +14887,10 @@
       "lineNumber": 3793,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE"
+        "LASER_FEATURE",
+        "SPINDLE_LASER_USE_PWM"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -14912,10 +14912,10 @@
       "lineNumber": 3794,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE"
+        "LASER_FEATURE",
+        "SPINDLE_LASER_USE_PWM"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -14937,10 +14937,10 @@
       "lineNumber": 3795,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE"
+        "LASER_FEATURE",
+        "SPINDLE_LASER_USE_PWM"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -14962,10 +14962,10 @@
       "lineNumber": 3796,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE"
+        "LASER_FEATURE",
+        "SPINDLE_LASER_USE_PWM"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -14987,9 +14987,9 @@
       "lineNumber": 3800,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -15012,9 +15012,9 @@
       "lineNumber": 3801,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -15036,9 +15036,9 @@
       "lineNumber": 3814,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -15060,9 +15060,9 @@
       "lineNumber": 3839,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -15081,9 +15081,9 @@
       "lineNumber": 3848,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -15102,9 +15102,9 @@
       "lineNumber": 3853,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -15124,10 +15124,10 @@
       "lineNumber": 3855,
       "isConditional": true,
       "conditionalOn": [
+        "I2C_AMMETER",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "I2C_AMMETER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -15149,10 +15149,10 @@
       "lineNumber": 3856,
       "isConditional": true,
       "conditionalOn": [
+        "I2C_AMMETER",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "I2C_AMMETER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -15174,9 +15174,9 @@
       "lineNumber": 3862,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -15626,8 +15626,8 @@
       "lineNumber": 3997,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_REPORT_TEMPERATURES",
-        "TEMP_SENSOR_REDUNDANT"
+        "TEMP_SENSOR_REDUNDANT",
+        "AUTO_REPORT_TEMPERATURES"
       ],
       "examples": [
         "// Include the \"R\" sensor in the auto-report"
@@ -16679,8 +16679,8 @@
       "lineNumber": 4224,
       "isConditional": true,
       "conditionalOn": [
-        "BUTTON2",
         "PIN_EXISTS",
+        "BUTTON2",
         "CUSTOM_USER_BUTTONS"
       ],
       "examples": [
@@ -16697,8 +16697,8 @@
       "lineNumber": 4225,
       "isConditional": true,
       "conditionalOn": [
-        "BUTTON2",
         "PIN_EXISTS",
+        "BUTTON2",
         "CUSTOM_USER_BUTTONS"
       ],
       "examples": [
@@ -16715,8 +16715,8 @@
       "lineNumber": 4226,
       "isConditional": true,
       "conditionalOn": [
-        "BUTTON2",
         "PIN_EXISTS",
+        "BUTTON2",
         "CUSTOM_USER_BUTTONS"
       ],
       "examples": [
@@ -16733,8 +16733,8 @@
       "lineNumber": 4227,
       "isConditional": true,
       "conditionalOn": [
-        "BUTTON2",
         "PIN_EXISTS",
+        "BUTTON2",
         "CUSTOM_USER_BUTTONS"
       ],
       "examples": [
@@ -16855,8 +16855,8 @@
       "lineNumber": 4261,
       "isConditional": true,
       "conditionalOn": [
-        "BTT_TOUCH_SCREEN",
-        "HOST_ACTION_COMMANDS"
+        "HOST_ACTION_COMMANDS",
+        "BTT_TOUCH_SCREEN"
       ],
       "examples": [
         "// Initiate host prompts to get user feedback"
@@ -16872,8 +16872,8 @@
       "lineNumber": 4264,
       "isConditional": true,
       "conditionalOn": [
-        "HOST_PROMPT_SUPPORT",
-        "HOST_ACTION_COMMANDS"
+        "HOST_ACTION_COMMANDS",
+        "HOST_PROMPT_SUPPORT"
       ],
       "examples": [
         "// Send some status messages to the host as notifications"
@@ -17656,8 +17656,8 @@
       "lineNumber": 4393,
       "isConditional": true,
       "conditionalOn": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ]
     },
     "gantryCalibrationCurrent": {
@@ -18336,8 +18336,8 @@
       "lineNumber": 4568,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2S",
-        "HAS_PRUSA_MMU2"
+        "HAS_PRUSA_MMU2",
+        "HAS_PRUSA_MMU2S"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -18356,8 +18356,8 @@
       "lineNumber": 4571,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2S",
-        "HAS_PRUSA_MMU2"
+        "HAS_PRUSA_MMU2",
+        "HAS_PRUSA_MMU2S"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -18376,8 +18376,8 @@
       "lineNumber": 4576,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2S",
-        "HAS_PRUSA_MMU2"
+        "HAS_PRUSA_MMU2",
+        "HAS_PRUSA_MMU2S"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -18396,8 +18396,8 @@
       "lineNumber": 4577,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2S",
-        "HAS_PRUSA_MMU2"
+        "HAS_PRUSA_MMU2",
+        "HAS_PRUSA_MMU2S"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -18416,8 +18416,8 @@
       "lineNumber": 4579,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2S",
-        "HAS_PRUSA_MMU2"
+        "HAS_PRUSA_MMU2",
+        "HAS_PRUSA_MMU2S"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -18436,8 +18436,8 @@
       "lineNumber": 4580,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2S",
-        "HAS_PRUSA_MMU2"
+        "HAS_PRUSA_MMU2",
+        "HAS_PRUSA_MMU2S"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -18952,10 +18952,10 @@
       "lineNumber": 313,
       "isConditional": true,
       "conditionalOn": [
+        "BOTH",
         "ADAPTIVE_FAN_SLOWING",
         "PIDTEMP",
-        "THERMAL_PROTECTION_HOTENDS",
-        "BOTH"
+        "THERMAL_PROTECTION_HOTENDS"
       ],
       "examples": [
         "// Don't slow fan speed during M303"
@@ -19197,10 +19197,10 @@
       "lineNumber": 379,
       "isConditional": true,
       "conditionalOn": [
-        "THERMAL_PROTECTION_CHAMBER",
-        "THERMAL_PROTECTION_BED",
         "THERMAL_PROTECTION_COOLER",
-        "THERMAL_PROTECTION_HOTENDS"
+        "THERMAL_PROTECTION_BED",
+        "THERMAL_PROTECTION_HOTENDS",
+        "THERMAL_PROTECTION_CHAMBER"
       ],
       "examples": [
         "// Detect a sensor malfunction preventing temperature updates"
@@ -19257,9 +19257,9 @@
       "lineNumber": 427,
       "isConditional": true,
       "conditionalOn": [
-        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION",
         "PIDTEMP",
-        "PID_FAN_SCALING"
+        "PID_FAN_SCALING",
+        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION"
       ],
       "examples": [
         "13.0"
@@ -19276,9 +19276,9 @@
       "lineNumber": 428,
       "isConditional": true,
       "conditionalOn": [
-        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION",
         "PIDTEMP",
-        "PID_FAN_SCALING"
+        "PID_FAN_SCALING",
+        "PID_FAN_SCALING_ALTERNATIVE_DEFINITION"
       ],
       "examples": [
         "6.0"
@@ -19563,8 +19563,8 @@
       "lineNumber": 1975,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_U8GLIB",
         "DWIN_MARLINUI_LANDSCAPE",
+        "HAS_MARLINUI_U8GLIB",
         "DWIN_MARLINUI_PORTRAIT"
       ],
       "examples": [
@@ -19597,10 +19597,10 @@
       "lineNumber": 2018,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_MKS",
         "DGUS_LCD_UI_FYSETC",
-        "DGUS_LCD_UI_HIPRECY"
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_MKS"
       ],
       "examples": [
         "// Display a preheat screen during heatup"
@@ -19726,8 +19726,8 @@
       "lineNumber": 2405,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -19745,8 +19745,8 @@
       "lineNumber": 2406,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -19763,8 +19763,8 @@
       "lineNumber": 2407,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -19781,8 +19781,8 @@
       "lineNumber": 2408,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -19800,8 +19800,8 @@
       "isConditional": true,
       "conditionalOn": [
         "BOTH",
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -19838,8 +19838,8 @@
       "lineNumber": 4598,
       "isConditional": true,
       "conditionalOn": [
-        "MMU_EXTRUDER_SENSOR",
-        "HAS_PRUSA_MMU2"
+        "HAS_PRUSA_MMU2",
+        "MMU_EXTRUDER_SENSOR"
       ],
       "conditionalOnNot": [
         "HAS_PRUSA_MMU2S"
@@ -20002,10 +20002,10 @@
       "lineNumber": 1488,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_MENU",
         "HAS_TFT_LVGL_UI",
         "HAS_BED_PROBE",
-        "EITHER"
+        "EITHER",
+        "HAS_MARLINUI_MENU"
       ],
       "examples": [
         "// Add a Probe Z Offset calibration option to the LCD menu"
@@ -20023,9 +20023,9 @@
       "conditionalOn": [
         "HAS_TFT_LVGL_UI",
         "EITHER",
-        "PROBE_OFFSET_WIZARD",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "PROBE_OFFSET_WIZARD"
       ],
       "examples": [
         "-4.0"
@@ -20043,9 +20043,9 @@
       "conditionalOn": [
         "HAS_TFT_LVGL_UI",
         "EITHER",
-        "PROBE_OFFSET_WIZARD",
+        "HAS_BED_PROBE",
         "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "PROBE_OFFSET_WIZARD"
       ],
       "examples": [
         "{ X_CENTER, Y_CENTER }"
@@ -20062,8 +20062,8 @@
       "lineNumber": 1520,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_MENU",
-        "HAS_BED_PROBE"
+        "HAS_BED_PROBE",
+        "HAS_MARLINUI_MENU"
       ],
       "notes": "Show Deploy / Stow Probe options in the Motion menu."
     },
@@ -20094,13 +20094,13 @@
       "lineNumber": 2245,
       "isConditional": true,
       "conditionalOn": [
-        "ABL_ENABLE",
+        "DWIN_CREALITY_LCD",
         "BABYSTEP_ZPROBE_OFFSET",
         "DWIN_CREALITY_LCD_JYERSUI",
-        "DWIN_CREALITY_LCD",
-        "BABYSTEPPING",
-        "DWIN_MARLINUI_LANDSCAPE",
+        "ABL_ENABLE",
         "DWIN_CREALITY_LCD_ENHANCED",
+        "DWIN_MARLINUI_LANDSCAPE",
+        "BABYSTEPPING",
         "DWIN_MARLINUI_PORTRAIT"
       ],
       "examples": [
@@ -20118,8 +20118,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "15"
@@ -20136,8 +20136,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "180"
@@ -20154,8 +20154,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "15"
@@ -20172,8 +20172,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "20"
@@ -20190,8 +20190,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "170"
@@ -20208,8 +20208,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_3POINT",
-        "AUTO_BED_LEVELING_UBL",
-        "EITHER"
+        "EITHER",
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "20"
@@ -20237,8 +20237,8 @@
       "lineNumber": 2397,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -20256,8 +20256,8 @@
       "lineNumber": 2398,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -20274,8 +20274,8 @@
       "lineNumber": 2399,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -20292,8 +20292,8 @@
       "lineNumber": 2400,
       "isConditional": true,
       "conditionalOn": [
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -20311,8 +20311,8 @@
       "isConditional": true,
       "conditionalOn": [
         "BOTH",
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -20331,8 +20331,8 @@
       "isConditional": true,
       "conditionalOn": [
         "BOTH",
-        "PTC_BED",
         "PTC_PROBE",
+        "PTC_BED",
         "PTC_HOTEND"
       ],
       "examples": [
@@ -20822,8 +20822,8 @@
       "lineNumber": 1525,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_MARLINUI_MENU",
-        "SPACE_SAVER_2560"
+        "SPACE_SAVER_2560",
+        "HAS_MARLINUI_MENU"
       ]
     },
     "lcdPrinterInfoIsBootscreen": {
@@ -20853,9 +20853,9 @@
       "lineNumber": 1548,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "examples": [
         "10000"
@@ -20872,10 +20872,10 @@
       "lineNumber": 1567,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
-        "DWIN_LCD_PROUI",
         "SPACE_SAVER_2560",
-        "EITHER"
+        "DWIN_LCD_PROUI",
+        "EITHER",
+        "HAS_DISPLAY"
       ]
     },
     "lcdShowETotal": {
@@ -20888,9 +20888,9 @@
       "lineNumber": 1571,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DISPLAY",
         "DWIN_LCD_PROUI",
-        "EITHER"
+        "EITHER",
+        "HAS_DISPLAY"
       ],
       "notes": "Show the E position (filament used) during printing"
     },
@@ -20904,12 +20904,12 @@
       "lineNumber": 1629,
       "isConditional": true,
       "conditionalOn": [
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "// Show a progress bar on HD44780 LCDs for SD printing"
@@ -20925,13 +20925,13 @@
       "lineNumber": 1635,
       "isConditional": true,
       "conditionalOn": [
-        "LCD_PROGRESS_BAR",
-        "IS_TFTGLCD_PANEL",
-        "EITHER",
-        "HAS_DISPLAY",
         "SET_PROGRESS_MANUALLY",
-        "SDSUPPORT",
-        "HAS_MARLINUI_HD44780"
+        "IS_TFTGLCD_PANEL",
+        "LCD_PROGRESS_BAR",
+        "HAS_DISPLAY",
+        "HAS_MARLINUI_HD44780",
+        "EITHER",
+        "SDSUPPORT"
       ],
       "examples": [
         "// Add a menu item to test the progress bar"
@@ -20963,9 +20963,9 @@
       "lineNumber": 2069,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "IS_DWIN_MARLINUI",
         "DOGLCD",
+        "TOUCH_UI_FTDI_EVE",
         "TFT_COLOR_UI"
       ],
       "examples": [
@@ -20982,9 +20982,9 @@
       "lineNumber": 2070,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "IS_DWIN_MARLINUI",
         "DOGLCD",
+        "TOUCH_UI_FTDI_EVE",
         "TFT_COLOR_UI"
       ],
       "examples": [
@@ -21001,9 +21001,9 @@
       "lineNumber": 2071,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "IS_DWIN_MARLINUI",
         "DOGLCD",
+        "TOUCH_UI_FTDI_EVE",
         "TFT_COLOR_UI"
       ],
       "examples": [
@@ -21020,9 +21020,9 @@
       "lineNumber": 2072,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
         "IS_DWIN_MARLINUI",
         "DOGLCD",
+        "TOUCH_UI_FTDI_EVE",
         "TFT_COLOR_UI"
       ],
       "examples": [
@@ -21040,9 +21040,9 @@
       "isConditional": true,
       "conditionalOn": [
         "TOUCH_UI_FTDI_EVE",
-        "DOGLCD",
         "TFT_COLOR_UI",
         "LCD_LANGUAGE_2",
+        "DOGLCD",
         "IS_DWIN_MARLINUI"
       ],
       "examples": [
@@ -21238,9 +21238,9 @@
       "lineNumber": 2113,
       "isConditional": true,
       "conditionalOn": [
+        "CLCD_USE_SOFT_SPI",
         "TOUCH_UI_FTDI_EVE",
-        "OTHER_PIN_LAYOUT",
-        "CLCD_USE_SOFT_SPI"
+        "OTHER_PIN_LAYOUT"
       ],
       "examples": [
         "11"
@@ -21256,9 +21256,9 @@
       "lineNumber": 2114,
       "isConditional": true,
       "conditionalOn": [
+        "CLCD_USE_SOFT_SPI",
         "TOUCH_UI_FTDI_EVE",
-        "OTHER_PIN_LAYOUT",
-        "CLCD_USE_SOFT_SPI"
+        "OTHER_PIN_LAYOUT"
       ],
       "examples": [
         "12"
@@ -21274,9 +21274,9 @@
       "lineNumber": 2115,
       "isConditional": true,
       "conditionalOn": [
+        "CLCD_USE_SOFT_SPI",
         "TOUCH_UI_FTDI_EVE",
-        "OTHER_PIN_LAYOUT",
-        "CLCD_USE_SOFT_SPI"
+        "OTHER_PIN_LAYOUT"
       ],
       "examples": [
         "13"
@@ -21527,8 +21527,8 @@
       "lineNumber": 918,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_X2_STEPPER",
-        "DUAL_X_CARRIAGE"
+        "DUAL_X_CARRIAGE",
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "// X2 has its own endstop"
@@ -21544,9 +21544,9 @@
       "lineNumber": 920,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_X2_STEPPER",
+        "DUAL_X_CARRIAGE",
         "X_DUAL_ENDSTOPS",
-        "DUAL_X_CARRIAGE"
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "_XMAX_"
@@ -21562,9 +21562,9 @@
       "lineNumber": 921,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_X2_STEPPER",
+        "DUAL_X_CARRIAGE",
         "X_DUAL_ENDSTOPS",
-        "DUAL_X_CARRIAGE"
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "0"
@@ -21596,8 +21596,8 @@
       "lineNumber": 929,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DUAL_Y_STEPPERS",
-        "Y_DUAL_ENDSTOPS"
+        "Y_DUAL_ENDSTOPS",
+        "HAS_DUAL_Y_STEPPERS"
       ],
       "examples": [
         "_YMAX_"
@@ -21613,8 +21613,8 @@
       "lineNumber": 930,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DUAL_Y_STEPPERS",
-        "Y_DUAL_ENDSTOPS"
+        "Y_DUAL_ENDSTOPS",
+        "HAS_DUAL_Y_STEPPERS"
       ],
       "examples": [
         "0"
@@ -21790,9 +21790,9 @@
       "lineNumber": 1720,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
         "POWER_LOSS_RECOVER_ZHOME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "examples": [
         "{ 0, 0 }"
@@ -21821,8 +21821,8 @@
       "lineNumber": 1785,
       "isConditional": true,
       "conditionalOn": [
-        "SD_ABORT_ON_ENDSTOP_HIT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SD_ABORT_ON_ENDSTOP_HIT"
       ],
       "examples": [
         "\"G28XY\""
@@ -21854,11 +21854,11 @@
       "lineNumber": 3571,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "// TMC2130/TMC5160 only"
@@ -21874,8 +21874,8 @@
       "lineNumber": 3587,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "{ 896, 896, 896 }"
@@ -21989,8 +21989,8 @@
       "lineNumber": 1463,
       "isConditional": true,
       "conditionalOn": [
-        "IS_ULTIPANEL",
-        "HAS_MANUAL_MOVE_MENU"
+        "HAS_MANUAL_MOVE_MENU",
+        "IS_ULTIPANEL"
       ],
       "examples": [
         "// Display extruder move distance rather than \"position\""
@@ -22041,8 +22041,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "EITHER"
+        "EITHER",
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "MESH_INSET"
@@ -22060,8 +22060,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "EITHER"
+        "EITHER",
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "MESH_INSET"
@@ -22078,8 +22078,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "EITHER"
+        "EITHER",
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "X_BED_SIZE - (MESH_INSET)"
@@ -22096,8 +22096,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "EITHER"
+        "EITHER",
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "Y_BED_SIZE - (MESH_INSET)"
@@ -22113,9 +22113,9 @@
       "lineNumber": 2349,
       "isConditional": true,
       "conditionalOn": [
+        "BOTH",
         "EEPROM_SETTINGS",
-        "AUTO_BED_LEVELING_UBL",
-        "BOTH"
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "// Store mesh with less precision to save EEPROM space"
@@ -22158,9 +22158,9 @@
       "lineNumber": 1305,
       "isConditional": true,
       "conditionalOn": [
-        "BACKLASH_COMPENSATION",
         "MEASURE_BACKLASH_WHEN_PROBING",
-        "BACKLASH_GCODE"
+        "BACKLASH_GCODE",
+        "BACKLASH_COMPENSATION"
       ],
       "examples": [
         "Z_PROBE_FEEDRATE_SLOW"
@@ -22519,8 +22519,8 @@
       "lineNumber": 4570,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_PRUSA_MMU2S",
-        "HAS_PRUSA_MMU2"
+        "HAS_PRUSA_MMU2",
+        "HAS_PRUSA_MMU2S"
       ],
       "conditionalExpression": [
         "HAS_PRUSA_MMU2"
@@ -22541,10 +22541,10 @@
       "lineNumber": 1614,
       "isConditional": true,
       "conditionalOn": [
-        "M73_REPORT",
         "SET_PROGRESS_MANUALLY",
         "SDSUPPORT",
-        "BOTH"
+        "BOTH",
+        "M73_REPORT"
       ],
       "examples": [
         "// Report only when printing from SD"
@@ -22786,8 +22786,8 @@
       "lineNumber": 1847,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SD_FIRMWARE_UPDATE"
+        "SD_FIRMWARE_UPDATE",
+        "SDSUPPORT"
       ],
       "examples": [
         "0x1FF"
@@ -22803,8 +22803,8 @@
       "lineNumber": 1848,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SD_FIRMWARE_UPDATE"
+        "SD_FIRMWARE_UPDATE",
+        "SDSUPPORT"
       ],
       "examples": [
         "0xF0"
@@ -22820,8 +22820,8 @@
       "lineNumber": 1849,
       "isConditional": true,
       "conditionalOn": [
-        "SDSUPPORT",
-        "SD_FIRMWARE_UPDATE"
+        "SD_FIRMWARE_UPDATE",
+        "SDSUPPORT"
       ],
       "examples": [
         "0xFF"
@@ -22851,8 +22851,8 @@
       "lineNumber": 1892,
       "isConditional": true,
       "conditionalOn": [
-        "MULTI_VOLUME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "MULTI_VOLUME"
       ]
     },
     "noSdHostDrive": {
@@ -22994,5 +22994,6 @@
       ],
       "notes": "Serial port used for communication with MMU2."
     }
-  }
+  },
+  "fullDefines": 1391
 }

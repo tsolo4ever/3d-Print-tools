@@ -31,18 +31,28 @@ class ConfigParser:
             lines = f.readlines()
         
         current_comment = []
+        previous_define = None  # Track previous define for adjacency detection
+        previous_line_was_blank = False
         
         for line_num, line in enumerate(lines, 1):
             line = line.rstrip()
             stripped = line.strip()
             
+            # Track blank lines
+            if not stripped:
+                previous_line_was_blank = True
+                continue
+            
             # Track preprocessor conditionals
             if self._is_conditional_directive(stripped):
                 self._handle_conditional(stripped, line_num)
+                previous_define = None
+                previous_line_was_blank = False
             
             # Collect comments
             if stripped.startswith('//') and not stripped.startswith('//#'):
                 current_comment.append(stripped[2:].strip())
+                previous_line_was_blank = False
                 continue
             
             # Parse #define statements
@@ -56,10 +66,23 @@ class ConfigParser:
                 if current_comment:
                     self.comments[name] = ' '.join(current_comment)
                 
-                # Track conditional dependencies
+                # Track conditional dependencies from preprocessor blocks
                 if self.conditional_stack:
                     self.conditionals[name] = [cond for cond in self.conditional_stack]
                 
+                # ADJACENCY PATTERN: If previous define exists and no blank line between,
+                # this define is conditional on the previous one
+                if previous_define and not previous_line_was_blank:
+                    # Add adjacency conditional (simpler format)
+                    if name not in self.conditionals:
+                        self.conditionals[name] = []
+                    self.conditionals[name].append({
+                        'type': 'adjacency',
+                        'condition': previous_define
+                    })
+                
+                previous_define = name
+                previous_line_was_blank = False
                 current_comment = []
                 continue
             
@@ -182,7 +205,13 @@ class ConfigParser:
             dependencies = []
             for cond in conditionals_list:
                 if isinstance(cond, dict):
-                    if cond.get('type') == 'else':
+                    # ADJACENCY PATTERN: Define conditional on previous define
+                    if cond.get('type') == 'adjacency':
+                        # Simple case: this define requires the previous one
+                        adjacent_define = cond.get('condition')
+                        if adjacent_define:
+                            dependencies.append(adjacent_define)
+                    elif cond.get('type') == 'else':
                         # Handle else blocks
                         parent = cond.get('parent', {})
                         if isinstance(parent, dict):
@@ -606,7 +635,7 @@ def process_single_config(config_path: Path, firmware: str, version: str,
     with open(full_path, 'w', encoding='utf-8') as f:
         json.dump(consolidated_full, f, indent=2)
     
-    print(f"   ✅ {full_filename} ({len(consolidated_full.get('totalDefines', 0))} defines)")
+    print(f"   ✅ {full_filename} ({consolidated_full.get('totalDefines', 0)} defines)")
     
     # Step 3: Split into core and full versions
     print(f"\n🎯 Step 3: Splitting core fields from full mapping...")
@@ -726,9 +755,9 @@ def split_into_core_and_full(full_mapping: Dict, core_fields: set) -> Tuple[Dict
         if core_category:
             core_mapping[key] = core_category
     
-    # Add core field count
-    core_count = sum(len(cat) for cat in core_mapping.values() 
-                    if isinstance(cat, dict) and not any(k in metadata_keys for k in [cat]))
+    # Add core field count (only count dict categories, exclude metadata)
+    core_count = sum(len(cat) for key, cat in core_mapping.items()
+                    if isinstance(cat, dict) and key not in metadata_keys)
     core_mapping['coreDefines'] = core_count
     full_mapping_copy['fullDefines'] = full_mapping_copy['totalDefines']
     

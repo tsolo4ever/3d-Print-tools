@@ -16,9 +16,9 @@
       "lineNumber": 3741,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// A servo converting an angle to spindle power"
@@ -34,10 +34,10 @@
       "lineNumber": 3743,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "SPINDLE_SERVO",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "0"
@@ -53,10 +53,10 @@
       "lineNumber": 3744,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_FEATURE",
         "SPINDLE_SERVO",
-        "LASER_FEATURE",
-        "EITHER"
+        "EITHER",
+        "SPINDLE_FEATURE",
+        "LASER_FEATURE"
       ],
       "examples": [
         "10"
@@ -72,9 +72,9 @@
       "lineNumber": 3754,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "PWM255"
@@ -90,9 +90,9 @@
       "lineNumber": 3764,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Set speed proportional to [SPEED_POWER_MIN...SPEED_POWER_MAX]"
@@ -108,9 +108,9 @@
       "lineNumber": 3767,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Enable if your spindle controller can change spindle direction"
@@ -126,9 +126,9 @@
       "lineNumber": 3768,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "// Enable if the spindle should stop before changing spin direction"
@@ -144,9 +144,9 @@
       "lineNumber": 3769,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "examples": [
         "false"
@@ -162,9 +162,9 @@
       "lineNumber": 3803,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -186,9 +186,9 @@
       "lineNumber": 3804,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -210,10 +210,10 @@
       "lineNumber": 3793,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE"
+        "LASER_FEATURE",
+        "SPINDLE_LASER_USE_PWM"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -235,10 +235,10 @@
       "lineNumber": 3794,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE"
+        "LASER_FEATURE",
+        "SPINDLE_LASER_USE_PWM"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -260,10 +260,10 @@
       "lineNumber": 3795,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE"
+        "LASER_FEATURE",
+        "SPINDLE_LASER_USE_PWM"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -285,10 +285,10 @@
       "lineNumber": 3796,
       "isConditional": true,
       "conditionalOn": [
-        "SPINDLE_LASER_USE_PWM",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE"
+        "LASER_FEATURE",
+        "SPINDLE_LASER_USE_PWM"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -310,9 +310,9 @@
       "lineNumber": 3800,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -335,9 +335,9 @@
       "lineNumber": 3801,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -359,9 +359,9 @@
       "lineNumber": 3814,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -383,9 +383,9 @@
       "lineNumber": 3839,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -404,9 +404,9 @@
       "lineNumber": 3848,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -425,9 +425,9 @@
       "lineNumber": 3853,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -447,10 +447,10 @@
       "lineNumber": 3855,
       "isConditional": true,
       "conditionalOn": [
+        "I2C_AMMETER",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "I2C_AMMETER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -472,10 +472,10 @@
       "lineNumber": 3856,
       "isConditional": true,
       "conditionalOn": [
+        "I2C_AMMETER",
         "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "I2C_AMMETER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"
@@ -497,9 +497,9 @@
       "lineNumber": 3862,
       "isConditional": true,
       "conditionalOn": [
+        "EITHER",
         "SPINDLE_FEATURE",
-        "LASER_FEATURE",
-        "EITHER"
+        "LASER_FEATURE"
       ],
       "conditionalOnNot": [
         "SPINDLE_FEATURE"

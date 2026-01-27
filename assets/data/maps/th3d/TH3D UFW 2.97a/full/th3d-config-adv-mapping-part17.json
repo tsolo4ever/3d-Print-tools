@@ -296,8 +296,8 @@
         "ADVANCED_PAUSE_FEATURE"
       ],
       "conditionalOnNot": [
-        "MOUNTED_FILAMENT_SENSOR",
-        "FILAMENT_CHANGE_UNLOAD_LENGTH"
+        "FILAMENT_CHANGE_UNLOAD_LENGTH",
+        "MOUNTED_FILAMENT_SENSOR"
       ],
       "conditionalExpression": [
         "else block"

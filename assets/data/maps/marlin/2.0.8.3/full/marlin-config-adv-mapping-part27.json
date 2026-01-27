@@ -176,8 +176,8 @@
       "lineNumber": 3462,
       "isConditional": true,
       "conditionalOn": [
-        "VOLUMETRIC_EXTRUDER_LIMIT",
-        "NO_VOLUMETRICS"
+        "NO_VOLUMETRICS",
+        "VOLUMETRIC_EXTRUDER_LIMIT"
       ],
       "examples": [
         "0.00"

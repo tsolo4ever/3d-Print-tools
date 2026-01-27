@@ -414,9 +414,9 @@
       "lineNumber": 3824,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "PIN_EXISTS",
-        "BUTTON1",
-        "CUSTOM_USER_BUTTONS"
+        "BUTTON1"
       ],
       "examples": [
         "LOW"
@@ -432,9 +432,9 @@
       "lineNumber": 3825,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "PIN_EXISTS",
-        "BUTTON1",
-        "CUSTOM_USER_BUTTONS"
+        "BUTTON1"
       ],
       "examples": [
         "false"
@@ -450,9 +450,9 @@
       "lineNumber": 3826,
       "isConditional": true,
       "conditionalOn": [
+        "CUSTOM_USER_BUTTONS",
         "PIN_EXISTS",
-        "BUTTON1",
-        "CUSTOM_USER_BUTTONS"
+        "BUTTON1"
       ],
       "examples": [
         "\"G28\""

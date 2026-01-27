@@ -96,9 +96,9 @@
       "lineNumber": 1602,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_HIPRECY",
         "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD",
         "DGUS_LCD_UI_FYSETC"
       ],
       "examples": [
@@ -115,15 +115,15 @@
       "lineNumber": 1608,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_LCD_UI_HIPRECY",
         "DGUS_LCD_UI_MKS",
-        "DGUS_LCD_UI_FYSETC",
-        "HAS_DGUS_LCD"
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_FYSETC"
       ],
       "conditionalOnNot": [
         "DGUS_LCD_UI_FYSETC",
-        "EITHER",
-        "DGUS_LCD_UI_MKS"
+        "DGUS_LCD_UI_MKS",
+        "EITHER"
       ],
       "conditionalExpression": [
         "else block"
@@ -142,9 +142,9 @@
       "lineNumber": 1611,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_HIPRECY",
         "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD",
         "DGUS_LCD_UI_FYSETC"
       ]
     },
@@ -158,11 +158,11 @@
       "lineNumber": 1613,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_FILAMENT_LOADUNLOAD",
-        "DGUS_LCD_UI_HIPRECY",
         "DGUS_LCD_UI_MKS",
-        "DGUS_LCD_UI_FYSETC",
-        "HAS_DGUS_LCD"
+        "DGUS_FILAMENT_LOADUNLOAD",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_FYSETC"
       ],
       "examples": [
         "10"
@@ -178,11 +178,11 @@
       "lineNumber": 1614,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_FILAMENT_LOADUNLOAD",
-        "DGUS_LCD_UI_HIPRECY",
         "DGUS_LCD_UI_MKS",
-        "DGUS_LCD_UI_FYSETC",
-        "HAS_DGUS_LCD"
+        "DGUS_FILAMENT_LOADUNLOAD",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_FYSETC"
       ],
       "examples": [
         "0.5"
@@ -198,9 +198,9 @@
       "lineNumber": 1617,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DGUS_LCD",
-        "DGUS_LCD_UI_HIPRECY",
         "DGUS_LCD_UI_MKS",
+        "DGUS_LCD_UI_HIPRECY",
+        "HAS_DGUS_LCD",
         "DGUS_LCD_UI_FYSETC"
       ],
       "examples": [
@@ -217,11 +217,11 @@
       "lineNumber": 1619,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_UI_WAITING",
-        "DGUS_LCD_UI_HIPRECY",
         "DGUS_LCD_UI_MKS",
-        "DGUS_LCD_UI_FYSETC",
-        "HAS_DGUS_LCD"
+        "DGUS_UI_WAITING",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_FYSETC"
       ],
       "examples": [
         "10"
@@ -237,11 +237,11 @@
       "lineNumber": 1620,
       "isConditional": true,
       "conditionalOn": [
-        "DGUS_UI_WAITING",
-        "DGUS_LCD_UI_HIPRECY",
         "DGUS_LCD_UI_MKS",
-        "DGUS_LCD_UI_FYSETC",
-        "HAS_DGUS_LCD"
+        "DGUS_UI_WAITING",
+        "HAS_DGUS_LCD",
+        "DGUS_LCD_UI_HIPRECY",
+        "DGUS_LCD_UI_FYSETC"
       ],
       "examples": [
         "8"
@@ -489,8 +489,8 @@
       "lineNumber": 1717,
       "isConditional": true,
       "conditionalOn": [
-        "TOUCH_UI_FTDI_EVE",
-        "TOUCH_UI_USE_UTF8"
+        "TOUCH_UI_USE_UTF8",
+        "TOUCH_UI_FTDI_EVE"
       ],
       "notes": "Western accents support. These accented characters use combined bitmaps and require relatively little storage."
     }

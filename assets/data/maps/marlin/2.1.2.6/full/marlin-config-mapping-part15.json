@@ -267,9 +267,9 @@
       "lineNumber": 1953,
       "isConditional": true,
       "conditionalOn": [
+        "AUTO_BED_LEVELING_UBL",
         "MESH_BED_LEVELING",
-        "PROBE_MANUALLY",
-        "AUTO_BED_LEVELING_UBL"
+        "PROBE_MANUALLY"
       ],
       "examples": [
         "0.2"

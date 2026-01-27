@@ -32,9 +32,9 @@
       "lineNumber": 618,
       "isConditional": true,
       "conditionalOn": [
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMP",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "// Sends debug data to the serial port. Use 'M303 D' to toggle activation."
@@ -50,9 +50,9 @@
       "lineNumber": 619,
       "isConditional": true,
       "conditionalOn": [
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMP",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "// Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX"
@@ -68,9 +68,9 @@
       "lineNumber": 620,
       "isConditional": true,
       "conditionalOn": [
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMP",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "// PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay"
@@ -86,9 +86,9 @@
       "lineNumber": 621,
       "isConditional": true,
       "conditionalOn": [
+        "PIDTEMPCHAMBER",
         "PIDTEMPBED",
-        "PIDTEMP",
-        "PIDTEMPCHAMBER"
+        "PIDTEMP"
       ],
       "examples": [
         "10"
@@ -346,9 +346,9 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION"
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "205"
@@ -365,9 +365,9 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION"
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "60"
@@ -565,9 +565,9 @@
       "lineNumber": 231,
       "isConditional": true,
       "conditionalOn": [
-        "MAGNETIC_PARKING_EXTRUDER",
         "PARKING_EXTRUDER",
-        "EITHER"
+        "EITHER",
+        "MAGNETIC_PARKING_EXTRUDER"
       ],
       "examples": [
         "// Manual control of docking solenoids with M380 S / M381"

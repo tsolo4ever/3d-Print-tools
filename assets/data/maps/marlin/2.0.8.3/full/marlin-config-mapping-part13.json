@@ -283,8 +283,8 @@
       "lineNumber": 1101,
       "isConditional": true,
       "conditionalOn": [
-        "PROBE_ACTIVATION_SWITCH",
-        "PROBE_TARE"
+        "PROBE_TARE",
+        "PROBE_ACTIVATION_SWITCH"
       ],
       "examples": [
         "// Fail to tare/probe if PROBE_ACTIVATION_SWITCH is active"
@@ -411,8 +411,8 @@
       "lineNumber": 1466,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_BED_LEVELING_LINEAR",
         "AUTO_BED_LEVELING_BILINEAR",
+        "AUTO_BED_LEVELING_LINEAR",
         "EITHER"
       ],
       "notes": "Probe along the Y axis, advancing X after each column"
@@ -440,8 +440,8 @@
       "lineNumber": 1544,
       "isConditional": true,
       "conditionalOn": [
-        "LEVEL_CORNERS_USE_PROBE",
-        "LEVEL_BED_CORNERS"
+        "LEVEL_BED_CORNERS",
+        "LEVEL_CORNERS_USE_PROBE"
       ],
       "examples": [
         "0.1"
@@ -557,9 +557,9 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION"
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "0.4"
@@ -576,9 +576,9 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_BILINEAR",
+        "G26_MESH_VALIDATION",
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "G26_MESH_VALIDATION"
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "0.2"

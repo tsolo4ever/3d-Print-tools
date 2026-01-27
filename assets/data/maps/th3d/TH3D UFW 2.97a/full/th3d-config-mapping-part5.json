@@ -184,10 +184,10 @@
       "lineNumber": 1184,
       "isConditional": true,
       "conditionalOn": [
-        "ENDER5_PLUS",
         "ENDER3_MAX",
-        "ENDER3",
-        "ENDER5"
+        "ENDER5",
+        "ENDER5_PLUS",
+        "ENDER3"
       ]
     },
     "xHomeDir": {
@@ -486,8 +486,8 @@
       "conditionalOn": [
         "DWIN_CREALITY_LCD",
         "DWIN_CREALITY_LCD_JYERSUI",
-        "ENDER3_V2",
-        "DWIN_CREALITY_LCD_ENHANCED"
+        "DWIN_CREALITY_LCD_ENHANCED",
+        "ENDER3_V2"
       ]
     },
     "extrudeMaxlength": {

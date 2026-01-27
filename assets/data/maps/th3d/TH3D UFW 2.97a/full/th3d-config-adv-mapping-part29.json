@@ -300,8 +300,8 @@
       "lineNumber": 3997,
       "isConditional": true,
       "conditionalOn": [
-        "AUTO_REPORT_TEMPERATURES",
-        "TEMP_SENSOR_REDUNDANT"
+        "TEMP_SENSOR_REDUNDANT",
+        "AUTO_REPORT_TEMPERATURES"
       ],
       "examples": [
         "// Include the \"R\" sensor in the auto-report"

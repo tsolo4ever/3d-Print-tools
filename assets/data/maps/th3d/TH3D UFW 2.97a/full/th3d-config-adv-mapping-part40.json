@@ -42,8 +42,8 @@
       "lineNumber": 918,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_X2_STEPPER",
-        "DUAL_X_CARRIAGE"
+        "DUAL_X_CARRIAGE",
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "// X2 has its own endstop"
@@ -59,9 +59,9 @@
       "lineNumber": 920,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_X2_STEPPER",
+        "DUAL_X_CARRIAGE",
         "X_DUAL_ENDSTOPS",
-        "DUAL_X_CARRIAGE"
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "_XMAX_"
@@ -77,9 +77,9 @@
       "lineNumber": 921,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_X2_STEPPER",
+        "DUAL_X_CARRIAGE",
         "X_DUAL_ENDSTOPS",
-        "DUAL_X_CARRIAGE"
+        "HAS_X2_STEPPER"
       ],
       "examples": [
         "0"
@@ -111,8 +111,8 @@
       "lineNumber": 929,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DUAL_Y_STEPPERS",
-        "Y_DUAL_ENDSTOPS"
+        "Y_DUAL_ENDSTOPS",
+        "HAS_DUAL_Y_STEPPERS"
       ],
       "examples": [
         "_YMAX_"
@@ -128,8 +128,8 @@
       "lineNumber": 930,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_DUAL_Y_STEPPERS",
-        "Y_DUAL_ENDSTOPS"
+        "Y_DUAL_ENDSTOPS",
+        "HAS_DUAL_Y_STEPPERS"
       ],
       "examples": [
         "0"
@@ -305,9 +305,9 @@
       "lineNumber": 1720,
       "isConditional": true,
       "conditionalOn": [
-        "POWER_LOSS_RECOVERY",
         "POWER_LOSS_RECOVER_ZHOME",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "POWER_LOSS_RECOVERY"
       ],
       "examples": [
         "{ 0, 0 }"
@@ -336,8 +336,8 @@
       "lineNumber": 1785,
       "isConditional": true,
       "conditionalOn": [
-        "SD_ABORT_ON_ENDSTOP_HIT",
-        "SDSUPPORT"
+        "SDSUPPORT",
+        "SD_ABORT_ON_ENDSTOP_HIT"
       ],
       "examples": [
         "\"G28XY\""
@@ -369,11 +369,11 @@
       "lineNumber": 3571,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
         "SENSORLESS_PROBING",
+        "HAS_TMC26X",
         "EITHER",
-        "SENSORLESS_HOMING",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "SENSORLESS_HOMING"
       ],
       "examples": [
         "// TMC2130/TMC5160 only"
@@ -389,8 +389,8 @@
       "lineNumber": 3587,
       "isConditional": true,
       "conditionalOn": [
-        "HAS_TMC26X",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "HAS_TMC26X"
       ],
       "examples": [
         "{ 896, 896, 896 }"
@@ -504,8 +504,8 @@
       "lineNumber": 1463,
       "isConditional": true,
       "conditionalOn": [
-        "IS_ULTIPANEL",
-        "HAS_MANUAL_MOVE_MENU"
+        "HAS_MANUAL_MOVE_MENU",
+        "IS_ULTIPANEL"
       ],
       "examples": [
         "// Display extruder move distance rather than \"position\""
@@ -556,8 +556,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "EITHER"
+        "EITHER",
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "MESH_INSET"
@@ -575,8 +575,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "EITHER"
+        "EITHER",
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "MESH_INSET"
@@ -593,8 +593,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "EITHER"
+        "EITHER",
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "X_BED_SIZE - (MESH_INSET)"
@@ -611,8 +611,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AUTO_BED_LEVELING_UBL",
-        "MESH_BED_LEVELING",
-        "EITHER"
+        "EITHER",
+        "MESH_BED_LEVELING"
       ],
       "examples": [
         "Y_BED_SIZE - (MESH_INSET)"
@@ -628,9 +628,9 @@
       "lineNumber": 2349,
       "isConditional": true,
       "conditionalOn": [
+        "BOTH",
         "EEPROM_SETTINGS",
-        "AUTO_BED_LEVELING_UBL",
-        "BOTH"
+        "AUTO_BED_LEVELING_UBL"
       ],
       "examples": [
         "// Store mesh with less precision to save EEPROM space"

@@ -17,8 +17,8 @@
       "isConditional": true,
       "conditionalOn": [
         "HAS_DRIVER",
-        "TMC26X",
-        "AXIS_DRIVER_TYPE_E6"
+        "AXIS_DRIVER_TYPE_E6",
+        "TMC26X"
       ],
       "examples": [
         "91"
@@ -34,9 +34,9 @@
       "lineNumber": 3016,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_L64XX",
         "E6",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -52,8 +52,8 @@
       "lineNumber": 2459,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_DRIVER_TYPE_E7",
         "HAS_DRIVER",
+        "AXIS_DRIVER_TYPE_E7",
         "TMC26X"
       ],
       "examples": [
@@ -70,8 +70,8 @@
       "lineNumber": 2460,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_DRIVER_TYPE_E7",
         "HAS_DRIVER",
+        "AXIS_DRIVER_TYPE_E7",
         "TMC26X"
       ],
       "examples": [
@@ -89,8 +89,8 @@
       "isConditional": true,
       "conditionalOn": [
         "E7",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "E0_MICROSTEPS"
@@ -138,8 +138,8 @@
       "lineNumber": 2495,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC",
         "X",
+        "AXIS_IS_TMC",
         "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
@@ -156,8 +156,8 @@
       "lineNumber": 2496,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC",
         "X",
+        "AXIS_IS_TMC",
         "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
@@ -174,8 +174,8 @@
       "lineNumber": 2498,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC",
         "X",
+        "AXIS_IS_TMC",
         "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
@@ -193,8 +193,8 @@
       "isConditional": true,
       "conditionalOn": [
         "X",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "-1"
@@ -210,8 +210,8 @@
       "lineNumber": 2500,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC",
         "X",
+        "AXIS_IS_TMC",
         "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
@@ -228,9 +228,9 @@
       "lineNumber": 2504,
       "isConditional": true,
       "conditionalOn": [
+        "X2",
         "AXIS_IS_TMC",
-        "HAS_TRINAMIC_CONFIG",
-        "X2"
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "800"
@@ -246,9 +246,9 @@
       "lineNumber": 2505,
       "isConditional": true,
       "conditionalOn": [
+        "X2",
         "AXIS_IS_TMC",
-        "HAS_TRINAMIC_CONFIG",
-        "X2"
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "X2_CURRENT"
@@ -264,9 +264,9 @@
       "lineNumber": 2507,
       "isConditional": true,
       "conditionalOn": [
+        "X2",
         "AXIS_IS_TMC",
-        "HAS_TRINAMIC_CONFIG",
-        "X2"
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "0.11"
@@ -282,9 +282,9 @@
       "lineNumber": 2903,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_L64XX",
         "X2",
-        "HAS_L64XX"
+        "HAS_L64XX",
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "-1"
@@ -300,9 +300,9 @@
       "lineNumber": 2509,
       "isConditional": true,
       "conditionalOn": [
+        "X2",
         "AXIS_IS_TMC",
-        "HAS_TRINAMIC_CONFIG",
-        "X2"
+        "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
         "true"
@@ -319,8 +319,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AXIS_IS_TMC",
-        "Y",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Y"
       ],
       "examples": [
         "800"
@@ -337,8 +337,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AXIS_IS_TMC",
-        "Y",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Y"
       ],
       "examples": [
         "Y_CURRENT"
@@ -355,8 +355,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AXIS_IS_TMC",
-        "Y",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Y"
       ],
       "examples": [
         "0.11"
@@ -372,9 +372,9 @@
       "lineNumber": 2912,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_L64XX",
         "Y",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "-1"
@@ -391,8 +391,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AXIS_IS_TMC",
-        "Y",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Y"
       ],
       "examples": [
         "true"
@@ -409,8 +409,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AXIS_IS_TMC",
-        "Y2",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Y2"
       ],
       "examples": [
         "800"
@@ -427,8 +427,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AXIS_IS_TMC",
-        "Y2",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Y2"
       ],
       "examples": [
         "Y2_CURRENT"
@@ -445,8 +445,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AXIS_IS_TMC",
-        "Y2",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Y2"
       ],
       "examples": [
         "0.11"
@@ -462,9 +462,9 @@
       "lineNumber": 2921,
       "isConditional": true,
       "conditionalOn": [
+        "HAS_L64XX",
         "Y2",
-        "AXIS_IS_L64XX",
-        "HAS_L64XX"
+        "AXIS_IS_L64XX"
       ],
       "examples": [
         "-1"
@@ -481,8 +481,8 @@
       "isConditional": true,
       "conditionalOn": [
         "AXIS_IS_TMC",
-        "Y2",
-        "HAS_TRINAMIC_CONFIG"
+        "HAS_TRINAMIC_CONFIG",
+        "Y2"
       ],
       "examples": [
         "true"
@@ -498,8 +498,8 @@
       "lineNumber": 2531,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC",
         "Z",
+        "AXIS_IS_TMC",
         "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
@@ -516,8 +516,8 @@
       "lineNumber": 2532,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC",
         "Z",
+        "AXIS_IS_TMC",
         "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [
@@ -534,8 +534,8 @@
       "lineNumber": 2534,
       "isConditional": true,
       "conditionalOn": [
-        "AXIS_IS_TMC",
         "Z",
+        "AXIS_IS_TMC",
         "HAS_TRINAMIC_CONFIG"
       ],
       "examples": [

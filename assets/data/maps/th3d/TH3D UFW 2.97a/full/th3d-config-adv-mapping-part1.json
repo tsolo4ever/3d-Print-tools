@@ -55,8 +55,8 @@
         "TEMP_SENSOR_0"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -78,8 +78,8 @@
         "TEMP_SENSOR_0"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -101,8 +101,8 @@
         "TEMP_SENSOR_0"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
@@ -124,8 +124,8 @@
         "TEMP_SENSOR_0"
       ],
       "conditionalOnNot": [
-        "SOVOL_SV06_PLUS",
-        "SOVOL_SV06"
+        "SOVOL_SV06",
+        "SOVOL_SV06_PLUS"
       ],
       "conditionalExpression": [
         "else block"
